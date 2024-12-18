@@ -17,7 +17,7 @@ const sidebars: SidebarsConfig = {
   tutorialSidebar: [
     {
       type: "category",
-      label: "SETUP",
+      label: "설정",
       collapsible: true,
       collapsed: true,
       items: [
@@ -49,12 +49,12 @@ const sidebars: SidebarsConfig = {
         {
           type: "doc",
           id: "setup/network",
-          label: "네트워크크",
+          label: "네트워크",
         },
         {
           type: "doc",
           id: "setup/additional-components",
-          label: "추가 구성 요소소",
+          label: "추가 구성 요소",
         },
         {
           type: "doc",

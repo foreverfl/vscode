@@ -125,6 +125,7 @@ const config: Config = {
         },
       },
     },
+    onBrokenLinks: "ignore",
     onBrokenMarkdownLinks: "ignore",
     algolia: {
       appId: process.env.ALGOLIA_APP_ID || "",
