@@ -24,6 +24,7 @@ const config: Config = {
   projectName: "vscode", // Usually your repo name.
 
   onBrokenLinks: "ignore",
+  onBrokenAnchors: "ignore",
   onBrokenMarkdownLinks: "ignore",
 
   // Even if you don't use internationalization, you can use this field to set
