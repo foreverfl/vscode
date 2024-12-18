@@ -1,126 +1,128 @@
 ---
-Order: 4
-Area: setup
-TOCTitle: Windows
-ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
-PageTitle: Running Visual Studio Code on Windows
-DateApproved: 12/11/2024
-MetaDescription: Get Visual Studio Code up and running on Windows
+Order: 1
+Area: java
+TOCTitle: Getting Started
+ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
+PageTitle: Getting Started with Java in Visual Studio Code
+DateApproved: 1/4/2022
+MetaDescription: Java tutorial showing basic Java language support in the Visual Studio Code editor
 ---
 
-# Visual Studio Code on Windows
+# Getting Started with Java in VS Code
 
-## Installation
+This tutorial shows you how to write and run Hello World program in Java with Visual Studio Code. It also covers a few advanced features, which you can explore by reading other documents in this section.
 
-1. Download the [Visual Studio Code installer](https://go.microsoft.com/fwlink/?LinkID=534107) for Windows.
-2. Once it is downloaded, run the installer (VSCodeUserSetup-\{version\}.exe). This will only take a minute.
-3. By default, VS Code is installed under `C:\Users\{Username}\AppData\Local\Programs\Microsoft VS Code`.
+For an overview of the features available for Java in VS Code, see [Java Language Overview](/docs/languages/java.md).
 
-Alternatively, you can also download a [Zip archive](/docs/?dv=winzip), extract it and run Code from there.
+If you run into any issues when following this tutorial, you can contact us by entering an [issue](https://github.com/microsoft/vscode-java-pack/issues).
 
-> **Tip:** Setup will add Visual Studio Code to your `%PATH%`, so from the console you can type 'code .' to open VS Code on that folder. You will need to restart your console after the installation for the change to the `%PATH%` environmental variable to take effect.
+## Setting up VS Code for Java development
 
-## User setup versus system setup
+### Coding Pack for Java
 
-VS Code provides both Windows **user** and **system** level setups.
+To help you set up quickly, you can install the **Coding Pack for Java**, which includes VS Code, the Java Development Kit (JDK), and essential Java extensions. The Coding Pack can be used as a clean installation, or to update or repair an existing development environment.
 
-The [user setup](https://go.microsoft.com/fwlink/?LinkID=534107) does not require Administrator privileges to run as the location will be under your user Local AppData (`LOCALAPPDATA`) folder. Since it requires no elevation, the user setup is able to provide a smoother background update experience. This is the preferred way to install VS Code on Windows.
+<a class="install-extension-btn" onclick="pushCodingPackEvent('java', 'win')" href="https://aka.ms/vscode-java-installer-win">Install the Coding Pack for Java - Windows</a><br />
+<a class="install-extension-btn" onclick="pushCodingPackEvent('java', 'mac')" href="https://aka.ms/vscode-java-installer-mac">Install the Coding Pack for Java - macOS</a><br />
 
-> **Note:** When running VS Code as Administrator in a user setup installation, updates will be disabled.
+> **Note**: The Coding Pack for Java is only available for Windows and macOS. For other operating systems, you will need to manually install a JDK, VS Code, and Java extensions.
 
-The [system setup](https://go.microsoft.com/fwlink/?linkid=852157) requires elevation to Administrator privileges to run and will place the installation under the system's Program Files. The in-product update flow will also require elevation, making it less streamlined than the user setup. On the other hand, installing VS Code using the system setup means that it will be available to all users in the system.
+### Installing extensions
 
-See the [Download Visual Studio Code](/download) page for a complete list of available installation options.
+If you are an existing VS Code user, you can also add Java support by installing the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes these extensions:
 
-## Updates
+- [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
+- [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
+- [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
+- [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
+- [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
+- [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
 
-VS Code ships monthly [releases](/updates) and supports auto-update when a new release is available. If you're prompted by VS Code, accept the newest update and it will be installed (you won't need to do anything else to get the latest bits).
+<a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
-> **Note:** You can [disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates) if you prefer to update VS Code on your own schedule.
+The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) provides a Quick Start guide and tips for code editing and debugging. It also has a FAQ that answers some frequently asked questions. Use the command **Java: Tips for Beginners** from the Command Palette (`kb(workbench.action.showCommands)`) to launch the guide.
 
-## Windows Subsystem for Linux
+![Java Getting Started](images/java-tutorial/getting-started.png)
 
-Windows is a popular operating system and it can be a great cross-platform development environment. This section describes cross-platform features such as the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/install) (WSL) and the new Windows Terminal.
+You can also install extensions separately. The **Extensions Guide** is provided to help you. You can launch the guide with the **Java: Extensions Guide** command.
 
-### Recent Windows build
+For this tutorial, the only required extensions are:
 
-Make sure you are on a recent Windows 10 build. Check **Settings** > **Windows Update** to see if you are up-to-date.
+- [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
+- [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 
-### Windows as a developer machine
+## Installing and setting up a Java Development Kit (JDK)
 
-With WSL, you can install and run Linux distributions on Windows. This enables you to develop and test your source code on Linux while still working locally on your Windows machine.
+To use Java within Visual Studio Code, you need to install a Java Development Kit (JDK) on your local environment. JDK is a software development environment used for developing Java applications.
 
-When coupled with the [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of WSL.
+### Supported Java versions
 
-See the [Developing in WSL](/docs/remote/wsl.md) documentation to learn more or try the [Working in WSL](/docs/remote/wsl-tutorial.md) introductory tutorial.
+The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) supports Java version 1.8 or above.
 
-### New Windows Terminal
+> **Note**: To configure JDKs for your projects, see [Configure Runtime for Projects](/docs/java/java-project.md#configure-runtime-for-projects). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions).
 
-Available from the Microsoft Store, the [Windows Terminal (Preview)](https://www.microsoft.com/p/windows-terminal-preview/9n0dx20hk701?SilentAuth=1&wa=wsignin1.0&activetab=pivot%3Aoverviewtab) lets you easily open PowerShell, Command Prompt, and WSL terminals in a multiple tab shell.
+### Installing a Java Development Kit (JDK)
 
-## Next steps
+If you have never installed a JDK before and need to install one, we recommend you to choose from one of these sources:
 
-Once you have installed VS Code, these topics will help you learn more about VS Code:
+- [Amazon Corretto](https://aws.amazon.com/corretto)
+- [Azul Zulu](https://www.azul.com/downloads/?package=jdk)
+- [Eclipse Adoptium's Temurin](https://adoptium.net/)
+- [IBM Semeru Runtimes](https://developer.ibm.com/languages/java/semeru-runtimes)
+- [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
+- [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
+- [Red Hat build of OpenJDK](https://developers.redhat.com/products/openjdk/download)
+- [SapMachine](https://sapmachine.io)
 
-- [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript, and tools like Yeoman.
-- [User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
-- [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through settings.
-- [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) - Lets you jump right in and learn how to be productive with VS Code.
+## Creating a source code file
 
-## Common questions
+Create a folder for your Java program and open the folder with VS Code. Then in VS Code, create a new file and save it with the name `Hello.java`. When you open that file, the Java Language Server automatically starts loading, and you should see a language status item with a loading icon on the right side of the Status Bar showing the language status is busy. After it finishes loading, you can hover on the language status item and find the loading process has been finished successfully. You can also choose to pin the status item in the status bar.
 
-### What command-line arguments are supported by the Windows Setup?
+<video autoplay loop muted playsinline controls title="Creating a source code file">
+  <source src="https://code.visualstudio.com/docs/java/java-tutorial/JavaHelloWorld.Standalone.mp4" type="video/mp4" />
+</video>
 
-VS Code uses [Inno Setup](https://www.jrsoftware.org/isinfo.php) to create its setup package
-for Windows. Thus, all the [Inno Setup command-line switches](https://www.jrsoftware.org/ishelp/index.php?topic=setupcmdline) are available for use.
+> **Note**: If you open a Java file in VS Code without opening its folder, the Java Language Server might not work properly.
 
-Additionally, you can prevent the Setup from launching VS Code after completion with `/mergetasks=!runcode`.
+VS Code will also try to figure out the correct package for the new type and fill the new file from a template. See [Create new file](/docs/java/java-editing.md#create-new-file).
 
-### Scrolling is laggy and not smooth
+You can also create a Java project using the **Java: Create Java Project** command. Bring up the **Command Palette** (`kb(workbench.action.showCommands)`) and then type `java` to search for this command. After selecting the command, you will be prompted for the location and name of the project. You can also choose your build tool from this command.
 
-On certain devices, editor scrolling is not smooth but laggy for an unpleasant experience. If you notice this issue, make sure you install the Windows 10 October 2018 update where this issue is fixed.
+<video autoplay loop muted playsinline controls title="Create Java Project">
+  <source src="https://code.visualstudio.com/docs/java/java-tutorial/JavaHelloWorld.Project.mp4" type="video/mp4" />
+</video>
 
-### I'm having trouble with the installer
+Visual Studio Code also supports more complex Java projects — see [Project Management](/docs/java/java-project.md).
 
-Try using the [zip file](/docs/?dv=winzip) instead of the installer. To use this, unzip VS Code in your `AppData\Local\Programs` folder.
+## Editing source code
 
-> **Note:** When VS Code is installed via a Zip file, you will need to manually update it for each [release](/updates).
+You can use code snippets to scaffold your classes and methods. VS Code also provides IntelliSense for code completion, and various refactor methods.
 
-### Icons are missing
+<video autoplay loop muted playsinline controls title="Editing source code">
+  <source src="https://code.visualstudio.com/docs/java/java-tutorial/edit-code.mp4" type="video/mp4" />
+</video>
 
-I installed Visual Studio Code on my Windows 8 machine. Why are some icons not appearing in the workbench and editor?
+To learn more about editing Java, see [Java Editing](/docs/java/java-editing.md).
 
-VS Code uses [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) icons and we have found instances where the .SVG file extension is associated with something other than `image/svg+xml`. We're considering options to fix it, but for now here's a workaround:
+## Running and debugging your program
 
-Using the Command Prompt:
+To run and debug Java code, set a breakpoint, then either press `kb(workbench.action.debug.start)` on your keyboard or use the **Run** > **Start Debugging** menu item. You can also use the **Run|Debug** CodeLens option in the editor. After the code compiles, you can see all your variables and threads in the **Run and Debug** view.
 
-1. Open an Administrator Command Prompt.
-2. Type `REG ADD HKCR\.svg /f /v "Content Type" /t REG_SZ /d image/svg+xml`.
+<video autoplay loop muted playsinline controls title="Running and debugging your program">
+  <source src="https://code.visualstudio.com/docs/java/java-tutorial/run-debug.mp4" type="video/mp4" />
+</video>
 
-Using the Registry Editor (regedit):
+The debugger also supports advanced features such as [Hot Code Replace](/docs/java/java-debugging.md#hot-code-replace) and conditional breakpoints.
 
-1. Start `regedit`.
-2. Open the `HKEY_CLASSES_ROOT` key.
-3. Find the `.svg` key.
-4. Set its `Content Type` Data value to `image/svg+xml`.
-5. Exit `regedit`.
+For more information, see [Java Debugging](/docs/java/java-debugging.md).
 
-### Unable to run as admin when AppLocker is enabled
+## More features
 
-With the introduction of process sandboxing (discussed in this [blog post](https://code.visualstudio.com/blogs/2022/11/28/vscode-sandbox)) running as administrator is currently unsupported when AppLocker is configured due to a limitation of the runtime sandbox. If your work requires that you run VS Code from an elevated terminal, you can launch `code` with `--no-sandbox --disable-gpu-sandbox` as a workaround.
+The editor also has many more capabilities to assist with your Java workload.
 
-Subscribe to [issue #122951](https://github.com/microsoft/vscode/issues/122951) to receive updates.
-
-### Working with UNC paths
-
-Beginning with version `1.78.1`, VS Code on Windows will only allow to access UNC paths (these begin with a leading `\\`) that were either approved by the user on startup or where the host name is configured to be allowed via the new `setting(security.allowedUNCHosts)` setting.
-
-If you rely on using UNC paths in VS Code, you can either
-
-- configure the host to be allowed via the `setting(security.allowedUNCHosts)` setting (for example add `server-a` when you open a path such as `\\server-a\path`)
-- map the UNC path as network drive and use the drive letter instead of the UNC path ([documentation](https://support.microsoft.com/en-us/windows/map-a-network-drive-in-windows-29ce55d1-34e3-a7e2-4801-131475f9557d))
-- define a global environment variable `NODE_UNC_HOST_ALLOWLIST` with the backslash-separated list of hostnames to allow, for example: `server-a\server-b` to allow the hosts `server-a` and `server-b`.
-
-_Note:_ if you are using any of the remote extensions to connect to a workspace remotely (such as SSH), the `setting(security.allowedUNCHosts)` has to be configured on the remote machine and not the local machine.
-
-This change was done to improve the security when using VS Code with UNC paths. Please refer to the associated [security advisory](https://github.com/microsoft/vscode/security/advisories/GHSA-mmfh-4pv3-39hr) for more information.
+- [Editing Java](/docs/java/java-editing.md) explains how to navigate and edit Java in more details
+- [Debugging](/docs/java/java-debugging.md) illustrates all the key features of the Java Debugger
+- [Testing](/docs/java/java-testing.md) provides comprehensive support for JUnit and TestNG framework
+- [Java Project Management](/docs/java/java-project.md) shows you how to use a project view and work with Maven
+- [Spring Boot](/docs/java/java-spring-boot.md) and [Tomcat and Jetty](/docs/java/java-tomcat-jetty.md) demonstrate great framework support
+- [Java Web Apps](/docs/java/java-webapp.md) shows how to work with Java Web App in VS Code

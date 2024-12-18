@@ -69,7 +69,7 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
-    // 시작하기기
+    // 시작하기
     {
       type: "category",
       label: "시작하기",
@@ -125,6 +125,84 @@ const sidebars: SidebarsConfig = {
           type: "doc",
           id: "getstarted/educators-and-students",
           label: "교육자 및 학생",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Java",
+      collapsible: true,
+      collapsed: true,
+      items: [
+        {
+          type: "doc",
+          id: "java/java-tutorial",
+          label: "시작하기",
+        },
+        {
+          type: "doc",
+          id: "java/java-editing",
+          label: "탐색 및 편집",
+        },
+        {
+          type: "doc",
+          id: "java/java-refactoring",
+          label: "리팩토링",
+        },
+        {
+          type: "doc",
+          id: "java/java-linting",
+          label: "포맷팅 및 린팅",
+        },
+        {
+          type: "doc",
+          id: "java/java-project",
+          label: "프로젝트 관리",
+        },
+        {
+          type: "doc",
+          id: "java/java-build",
+          label: "빌드 도구",
+        },
+        {
+          type: "doc",
+          id: "java/java-debugging",
+          label: "실행 및 디버그",
+        },
+        {
+          type: "doc",
+          id: "java/java-testing",
+          label: "테스트",
+        },
+        {
+          type: "doc",
+          id: "java/java-spring-boot",
+          label: "Spring Boot",
+        },
+        {
+          type: "doc",
+          id: "java/java-tomcat-jetty",
+          label: "애플리케이션 서버",
+        },
+        {
+          type: "doc",
+          id: "java/java-webapp",
+          label: "Java 앱 배포",
+        },
+        {
+          type: "doc",
+          id: "java/java-gui",
+          label: "GUI 애플리케이션",
+        },
+        {
+          type: "doc",
+          id: "java/extensions",
+          label: "확장 프로그램",
+        },
+        {
+          type: "doc",
+          id: "java/java-faq",
+          label: "FAQ",
         },
       ],
     },
