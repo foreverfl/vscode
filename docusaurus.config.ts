@@ -23,15 +23,23 @@ const config: Config = {
   organizationName: "mogumogu", // Usually your GitHub org/user name.
   projectName: "vscode", // Usually your repo name.
 
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
+  onBrokenLinks: "ignore",
+  onBrokenMarkdownLinks: "ignore",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: "ko",
+    locales: ["ko", "ja"],
+    localeConfigs: {
+      ko: {
+        label: "한국어",
+      },
+      ja: {
+        label: "日本語",
+      },
+    },
   },
 
   presets: [
@@ -63,13 +71,27 @@ const config: Config = {
           type: "docSidebar",
           sidebarId: "tutorialSidebar",
           position: "left",
-          label: "Docs",
+          label: "문서",
         },
         {
           type: "doc",
           docId: "intro",
           position: "left",
           label: "API",
+        },
+        {
+          type: "localeDropdown",
+          position: "right",
+          dropdownItemsAfter: [
+            {
+              type: "html",
+              value: '<hr style="margin: 0.3rem 0;">',
+            },
+            {
+              href: "https://github.com/foreverfl/vscode",
+              label: "번역을 도와주세요!",
+            },
+          ],
         },
       ],
     },
@@ -113,20 +135,6 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
-    i18n: {
-      defaultLocale: "ko",
-      locales: ["ko", "ja"],
-      localeConfigs: {
-        ko: {
-          label: "한국어",
-        },
-        ja: {
-          label: "日本語",
-        },
-      },
-    },
-    onBrokenLinks: "ignore",
-    onBrokenMarkdownLinks: "ignore",
     algolia: {
       appId: process.env.ALGOLIA_APP_ID || "",
       apiKey: process.env.ALGOLIA_API_KEY || "",
