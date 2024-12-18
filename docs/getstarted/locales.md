@@ -7,6 +7,7 @@ ContentId: 413A7FA3-94F8-4FCB-A4A3-F4C1E77EF716
 DateApproved: 12/11/2024
 MetaDescription: How to change the display language (locale) of Visual Studio Code.
 ---
+
 # Display Language
 
 Visual Studio Code ships by default with English as the display language and other [languages](#available-locales) rely on Language Pack [extensions](/docs/editor/extension-marketplace.md) available from the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Installs).
@@ -17,7 +18,7 @@ VS Code detects the operating system's UI language and prompts you to install th
 
 After installing the Language Pack extension and following the prompt to restart, VS Code uses the Language Pack matching your operating system's UI language.
 
->**Note**: This article explains how to change the display language in the VS Code UI via Language Packs such as French or Chinese. If you want to add programming language support, for example for C++ or Java, refer to the [Programming Languages](/docs/languages/overview.md) section of the documentation.
+> **Note**: This article explains how to change the display language in the VS Code UI via Language Packs such as French or Chinese. If you want to add programming language support, for example for C++ or Java, refer to the [Programming Languages](/docs/languages/overview.md) section of the documentation.
 
 ## Changing the Display Language
 
@@ -39,23 +40,23 @@ The display language can also be changed by editing the `argv.json` file directl
 
 ## Available locales
 
-Display Language | Locale
------------------|-------
-English (US) | `en`
-Simplified Chinese | `zh-cn`
-Traditional Chinese | `zh-tw`
-French | `fr`
-German | `de`
-Italian | `it`
-Spanish | `es`
-Japanese | `ja`
-Korean | `ko`
-Russian | `ru`
-Portuguese (Brazil) | `pt-br`
-Turkish | `tr`
-Polish | `pl`
-Czech | `cs`
-Hungarian | `hu`
+| Display Language    | Locale  |
+| ------------------- | ------- |
+| English (US)        | `en`    |
+| Simplified Chinese  | `zh-cn` |
+| Traditional Chinese | `zh-tw` |
+| French              | `fr`    |
+| German              | `de`    |
+| Italian             | `it`    |
+| Spanish             | `es`    |
+| Japanese            | `ja`    |
+| Korean              | `ko`    |
+| Russian             | `ru`    |
+| Portuguese (Brazil) | `pt-br` |
+| Turkish             | `tr`    |
+| Polish              | `pl`    |
+| Czech               | `cs`    |
+| Hungarian           | `hu`    |
 
 ## Marketplace Language Packs
 
