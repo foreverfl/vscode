@@ -1,77 +1,77 @@
 ---
 Order:
 Area: editor
-TOCTitle: Variables reference
+TOCTitle: 변수 참조
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
-PageTitle: Visual Studio Code Variables Reference
+PageTitle: Visual Studio Code 변수 참조
 DateApproved: 12/11/2024
-MetaDescription: Visual Studio Code variable substitution reference
+MetaDescription: Visual Studio Code 변수 치환 참조
 ---
 
-# Variables Reference
+# 변수 참조 {#variables-reference}
 
-Visual Studio Code supports variable substitution in [Debugging](/docs/editor/debugging.md) and [Task](/docs/editor/tasks.md) configuration files as well as some select settings. Variable substitution is supported inside some key and value strings in `launch.json` and `tasks.json` files using **${variableName}** syntax.
+Visual Studio Code는 [디버깅](/docs/editor/debugging.md)과 [태스크](/docs/editor/tasks.md) 구성 파일 그리고 일부 선택된 설정에서 변수 치환을 지원합니다. 변수 치환은 `launch.json`과 `tasks.json` 파일의 일부 키와 값 문자열 내에서 **$\{variableName\}** 구문을 사용하여 지원됩니다.
 
-## Predefined variables
+## 사전 정의 변수 {#predefined-variables}
 
-The following predefined variables are supported:
+다음과 같은 미리 정의된 변수들이 지원됩니다:
 
-- **${userHome}** - the path of the user's home folder
-- **${workspaceFolder}** - the path of the folder opened in VS Code
-- **${workspaceFolderBasename}** - the name of the folder opened in VS Code without any slashes (/)
-- **${file}** - the current opened file
-- **${fileWorkspaceFolder}** - the current opened file's workspace folder
-- **${relativeFile}** - the current opened file relative to `workspaceFolder`
-- **${relativeFileDirname}** - the current opened file's dirname relative to `workspaceFolder`
-- **${fileBasename}** - the current opened file's basename
-- **${fileBasenameNoExtension}** - the current opened file's basename with no file extension
-- **${fileExtname}** - the current opened file's extension
-- **${fileDirname}** - the current opened file's folder path
-- **${fileDirnameBasename}** - the current opened file's folder name
-- **${cwd}** - the task runner's current working directory upon the startup of VS Code
-- **${lineNumber}** - the current selected line number in the active file
-- **${selectedText}** - the current selected text in the active file
-- **${execPath}** - the path to the running VS Code executable
-- **${defaultBuildTask}** - the name of the default build task
-- **${pathSeparator}** - the character used by the operating system to separate components in file paths
-- **$\{/\}** - shorthand for **${pathSeparator}**
+- **$\{userHome\}** - 사용자의 홈 폴더 경로
+- **$\{workspaceFolder\}** - VS Code에서 열린 폴더의 경로
+- **$\{workspaceFolderBasename\}** - 슬래시(/)가 없는 VS Code에서 열린 폴더의 이름
+- **$\{file\}** - 현재 열린 파일
+- **$\{fileWorkspaceFolder\}** - 현재 열린 파일의 작업 공간 폴더
+- **$\{relativeFile\}** - `workspaceFolder`를 기준으로 한 현재 열린 파일의 상대 경로
+- **$\{relativeFileDirname\}** - `workspaceFolder`를 기준으로 한 현재 열린 파일의 디렉토리 이름
+- **$\{fileBasename\}** - 현재 열린 파일의 기본 이름
+- **$\{fileBasenameNoExtension\}** - 파일 확장자가 없는 현재 열린 파일의 기본 이름
+- **$\{fileExtname\}** - 현재 열린 파일의 확장자
+- **$\{fileDirname\}** - 현재 열린 파일의 폴더 경로
+- **$\{fileDirnameBasename\}** - 현재 열린 파일의 폴더 이름
+- **$\{cwd\}** - VS Code 시작 시 태스크 실행기의 현재 작업 디렉토리
+- **$\{lineNumber\}** - 활성 파일에서 현재 선택된 줄 번호
+- **$\{selectedText\}** - 활성 파일에서 현재 선택된 텍스트
+- **$\{execPath\}** - 실행 중인 VS Code 실행 파일의 경로
+- **$\{defaultBuildTask\}** - 기본 빌드 태스크의 이름
+- **$\{pathSeparator\}** - 운영 체제가 파일 경로의 구성 요소를 구분하는 데 사용하는 문자
+- **$\{/\}** - **$\{pathSeparator\}**의 단축어
 
-### Predefined variables examples
+### 사전 정의 변수 예시 {#predefined-variables-examples}
 
-Supposing that you have the following requirements:
+다음과 같은 요구 사항이 있다고 가정해봅시다:
 
-1. A file located at `/home/your-username/your-project/folder/file.ext` opened in your editor;
-2. The directory `/home/your-username/your-project` opened as your root workspace.
+1. 에디터에서 `/home/your-username/your-project/folder/file.ext` 위치의 파일이 열려있음;
+2. `/home/your-username/your-project` 디렉토리가 루트 작업 공간으로 열려있음.
 
-So you will have the following values for each variable:
+각 변수에 대해 다음과 같은 값을 갖게 됩니다:
 
-- **${userHome}** - `/home/your-username`
-- **${workspaceFolder}** - `/home/your-username/your-project`
-- **${workspaceFolderBasename}** - `your-project`
-- **${file}** - `/home/your-username/your-project/folder/file.ext`
-- **${fileWorkspaceFolder}** - `/home/your-username/your-project`
-- **${relativeFile}** - `folder/file.ext`
-- **${relativeFileDirname}** - `folder`
-- **${fileBasename}** - `file.ext`
-- **${fileBasenameNoExtension}** - `file`
-- **${fileDirname}** - `/home/your-username/your-project/folder`
-- **${fileExtname}** - `.ext`
-- **${lineNumber}** - line number of the cursor
-- **${selectedText}** - text selected in your code editor
-- **${execPath}** - location of Code.exe
-- **${pathSeparator}** - `/` on macOS or linux, `\` on Windows
+- **$\{userHome}** - `/home/your-username`
+- **$\{workspaceFolder}** - `/home/your-username/your-project`
+- **$\{file}** - `/home/your-username/your-project/folder/file.ext`
+- **$\{workspaceFolderBasename\}** - `your-project`
+- **$\{fileWorkspaceFolder\}** - `/home/your-username/your-project`
+- **$\{relativeFile\}** - `folder/file.ext`
+- **$\{relativeFileDirname\}** - `folder`
+- **$\{fileBasename\}** - `file.ext`
+- **$\{fileBasenameNoExtension\}** - `file`
+- **$\{fileDirname\}** - `/home/your-username/your-project/folder`
+- **$\{fileExtname\}** - `.ext`
+- **$\{lineNumber\}** - 커서의 줄 번호
+- **$\{selectedText\}** - 코드 에디터에서 선택한 텍스트
+- **$\{execPath\}** - Code.exe의 위치
+- **$\{pathSeparator\}** - macOS나 linux에서는 `/`, Windows에서는 `\`
 
-> **Tip**: Use IntelliSense inside string values for `tasks.json` and `launch.json` to get a full list of predefined variables.
+> **팁**: `tasks.json`과 `launch.json`의 문자열 값 내에서 IntelliSense를 사용하여 미리 정의된 변수의 전체 목록을 얻을 수 있습니다.
 
-### Variables scoped per workspace folder
+### 작업 공간 폴더별 범위를 가진 변수 {#variables-scoped-per-workspace-folder}
 
-By appending the root folder's name to a variable (separated by a colon), it is possible to reach into sibling root folders of a workspace. Without the root folder name, the variable is scoped to the same folder where it is used.
+루트 폴더의 이름을 변수에 추가(콜론으로 구분)하면 작업 공간의 형제 루트 폴더에 접근할 수 있습니다. 루트 폴더 이름이 없으면 변수는 사용되는 동일한 폴더로 범위가 지정됩니다.
 
-For example, in a multi root workspace with folders `Server` and `Client`, a `${workspaceFolder:Client}` refers to the path of the `Client` root.
+예를 들어, `Server`와 `Client` 폴더가 있는 다중 루트 작업 공간에서 `${workspaceFolder:Client}`는 `Client` 루트의 경로를 참조합니다.
 
-## Environment variables
+## 환경 변수 {#environment-variables}
 
-You can also reference environment variables through the **$\{env:Name\}** syntax (for example, `$\{env:USERNAME\}`).
+**$\{env:Name\}** 구문을 통해 환경 변수를 참조할 수도 있습니다(예: `${env:USERNAME}`).
 
 ```json
 {
@@ -84,17 +84,17 @@ You can also reference environment variables through the **$\{env:Name\}** synta
 }
 ```
 
-## Configuration variables
+## 구성 변수 {#configuration-variables}
 
-You can reference VS Code settings ("configurations") through **$\{config:Name\}** syntax (for example, `$\{config:editor.fontSize\}`).
+**$\{config:Name\}** 구문을 통해 VS Code 설정("구성")을 참조할 수 있습니다(예: `${config:editor.fontSize}`).
 
-## Command variables
+## 명령 변수 {#command-variables}
 
-If the predefined variables from above are not sufficient, you can use any VS Code command as a variable through the **$\{command:commandID\}** syntax.
+위의 미리 정의된 변수로 충분하지 않은 경우, **$\{command:commandID\}** 구문을 통해 모든 VS Code 명령을 변수로 사용할 수 있습니다.
 
-A command variable is replaced with the (string) result from the command evaluation. The implementation of a command can range from a simple calculation with no UI, to some sophisticated functionality based on the UI features available via VS Code's extension API. If the command returns anything other than a string, then the variable replacement will not complete. Command variables **must** return a string.
+명령 변수는 명령 평가의 (문자열) 결과로 대체됩니다. 명령의 구현은 UI가 없는 간단한 계산부터 VS Code의 확장 API를 통해 사용할 수 있는 UI 기능을 기반으로 하는 복잡한 기능까지 다양할 수 있습니다. 명령이 문자열 이외의 것을 반환하면 변수 대체가 완료되지 않습니다. 명령 변수는 반드시 문자열을 반환해야 합니다.
 
-An example of this functionality is in VS Code's Node.js debugger extension, which provides an interactive command `extension.pickNodeProcess` for selecting a single process from the list of all running Node.js processes. The command returns the process ID of the selected process. This makes it possible to use the `extension.pickNodeProcess` command in an **Attach by Process ID** launch configuration in the following way:
+이 기능의 예시는 VS Code의 Node.js 디버거 확장에서 찾을 수 있습니다. 이 확장은 모든 실행 중인 Node.js 프로세스 목록에서 단일 프로세스를 선택하기 위한 대화형 명령 `extension.pickNodeProcess`를 제공합니다. 이 명령은 선택된 프로세스의 프로세스 ID를 반환합니다. 이를 통해 다음과 같이 **프로세스 ID로 연결** 실행 구성에서 `extension.pickNodeProcess` 명령을 사용할 수 있습니다:
 
 ```json
 {
@@ -109,15 +109,15 @@ An example of this functionality is in VS Code's Node.js debugger extension, whi
 }
 ```
 
-When using a command variable in a `launch.json` configuration, the enclosing `launch.json` configuration is passed as an object to the command via an argument. This allows commands to know the context and parameters of the specific `launch.json` configuration when they are called.
+`launch.json` 구성에서 명령 변수를 사용할 때, 해당 `launch.json` 구성이 인수를 통해 명령에 객체로 전달됩니다. 이를 통해 명령이 호출될 때 특정 `launch.json` 구성의 컨텍스트와 매개변수를 알 수 있습니다.
 
-## Input variables
+## 입력 변수 {#input-variables}
 
-Command variables are already powerful but they lack a mechanism to configure the command being run for a specific use case. For example, it is not possible to pass a **prompt message** or a **default value** to a generic "user input prompt".
+명령 변수는 이미 강력하지만 특정 사용 사례에 대해 실행되는 명령을 구성하는 메커니즘이 부족합니다. 예를 들어, 일반적인 "사용자 입력 프롬프트"에 **프롬프트 메시지**나 **기본값**을 전달할 수 없습니다.
 
-This limitation is solved with **input variables** which have the syntax: `${input:variableID}`. The `variableID` refers to entries in the `inputs` section of `launch.json` and `tasks.json`, where additional configuration attributes are specified. Nesting of input variables is not supported.
+이 제한은 `${input:variableID}` 구문을 가진 **입력 변수**로 해결됩니다. `variableID`는 추가 구성 속성이 지정되는 `launch.json`과 `tasks.json`의 `inputs` 섹션의 항목을 참조합니다. 입력 변수의 중첩은 지원되지 않습니다.
 
-The following example shows the overall structure of a `tasks.json` that makes use of input variables:
+다음 예시는 입력 변수를 사용하는 `tasks.json`의 전체 구조를 보여줍니다:
 
 ```json
 {
@@ -133,40 +133,40 @@ The following example shows the overall structure of a `tasks.json` that makes u
     {
       "id": "variableID",
       "type": "type of input variable"
-      // type specific configuration attributes
+      // 타입별 구성 속성
     }
   ]
 }
 ```
 
-Currently VS Code supports three types of input variables:
+현재 VS Code는 세 가지 유형의 입력 변수를 지원합니다:
 
-- **promptString**: Shows an input box to get a string from the user.
-- **pickString**: Shows a Quick Pick dropdown to let the user select from several options.
-- **command**: Runs an arbitrary command.
+- **promptString**: 사용자로부터 문자열을 얻기 위한 입력 상자를 표시합니다.
+- **pickString**: 사용자가 여러 옵션 중에서 선택할 수 있는 빠른 선택 드롭다운을 표시합니다.
+- **command**: 임의의 명령을 실행합니다.
 
-Each type requires additional configuration attributes:
+각 유형은 추가 구성 속성이 필요합니다:
 
 `promptString`:
 
-- **description**: Shown in the quick input, provides context for the input.
-- **default**: Default value that will be used if the user doesn't enter something else.
-- **password**: Set to true to input with a password prompt that will not show the typed value.
+- **description**: 빠른 입력에 표시되며, 입력에 대한 컨텍스트를 제공합니다.
+- **default**: 사용자가 다른 것을 입력하지 않을 때 사용될 기본값입니다.
+- **password**: 입력한 값을 표시하지 않는 비밀번호 프롬프트로 설정하려면 true로 설정합니다.
 
 `pickString`:
 
-- **description**: Shown in the quick pick, provides context for the input.
-- **options**: An array of options for the user to pick from.
-- **default**: Default value that will be used if the user doesn't enter something else. It must be one of the option values.
+- **description**: 빠른 선택에 표시되며, 입력에 대한 컨텍스트를 제공합니다.
+- **options**: 사용자가 선택할 수 있는 옵션의 배열입니다.
+- **default**: 사용자가 다른 것을 입력하지 않을 때 사용될 기본값입니다. 옵션 값 중 하나여야 합니다.
 
-An option can be a string value or an object with both a label and value. The dropdown will display **label: value**.
+옵션은 문자열 값이거나 레이블과 값을 모두 가진 객체일 수 있습니다. 드롭다운은 **label: value**를 표시합니다.
 
 `command`:
 
-- **command**: Command being run on variable interpolation.
-- **args**: Optional option bag passed to the command's implementation.
+- **command**: 변수 보간 시 실행되는 명령입니다.
+- **args**: 명령의 구현에 전달되는 선택적 옵션 가방입니다.
 
-Below is an example of a `tasks.json` that illustrates the use of `inputs` using Angular CLI:
+다음은 Angular CLI를 사용하여 `inputs`의 사용을 보여주는 `tasks.json`의 예시입니다:
 
 ```json
 {
@@ -183,7 +183,7 @@ Below is an example of a `tasks.json` that illustrates the use of `inputs` using
     {
       "type": "pickString",
       "id": "componentType",
-      "description": "What type of component do you want to create?",
+      "description": "어떤 유형의 컴포넌트를 생성하시겠습니까?",
       "options": [
         "component",
         "directive",
@@ -199,18 +199,14 @@ Below is an example of a `tasks.json` that illustrates the use of `inputs` using
     {
       "type": "promptString",
       "id": "componentName",
-      "description": "Name your component.",
+      "description": "컴포넌트의 이름을 입력하세요.",
       "default": "my-new-component"
     }
   ]
 }
 ```
 
-Running the example:
-
-![Inputs Example](images/tasks/run-input-example.gif)
-
-The following example shows how to use a user input variable of type `command` in a debug configuration that lets the user pick a test case from a list of all test cases found in a specific folder. It is assumed that some extension provides an `extension.mochaSupport.testPicker` command that locates all test cases in a configurable location and shows a picker UI to pick one of them. The arguments for a command input are defined by the command itself.
+다음 예시는 특정 폴더에서 찾은 모든 테스트 케이스 중에서 사용자가 테스트 케이스를 선택할 수 있게 하는 디버그 구성에서 `command` 타입의 사용자 입력 변수를 사용하는 방법을 보여줍니다. 어떤 확장이 구성 가능한 위치에서 모든 테스트 케이스를 찾고 그 중 하나를 선택하기 위한 피커 UI를 보여주는 `extension.mochaSupport.testPicker` 명령을 제공한다고 가정합니다. 명령 입력에 대한 인수는 명령 자체에 의해 정의됩니다.
 
 ```json
 {
@@ -235,7 +231,7 @@ The following example shows how to use a user input variable of type `command` i
 }
 ```
 
-Command inputs can also be used with tasks. In this example, the built-in Terminate Task command is used. It can accept an argument to terminate all tasks.
+명령 입력은 태스크에서도 사용할 수 있습니다. 이 예시에서는 내장된 태스크 종료 명령이 사용됩니다. 이 명령은 모든 태스크를 종료하기 위한 인수를 받을 수 있습니다.
 
 ```json
 {
@@ -259,38 +255,38 @@ Command inputs can also be used with tasks. In this example, the built-in Termin
 }
 ```
 
-## Common questions
+## 자주 묻는 질문 {#common-questions}
 
-### Details of variable substitution in a debug configuration or task
+### 디버그 구성 또는 태스크에서 변수 치환의 세부 사항 {#details-of-variable-substitution}
 
-Variable substitution in debug configurations or tasks is a two pass process:
+디버그 구성이나 태스크에서의 변수 치환은 두 단계의 과정입니다:
 
-- In the first pass, all variables are evaluated to string results. If a variable occurs more than once, it is only evaluated once.
-- In the second pass, all variables are substituted with the results from the first pass.
+- 첫 번째 단계에서는 모든 변수가 문자열 결과로 평가됩니다. 변수가 두 번 이상 나타나는 경우 한 번만 평가됩니다.
+- 두 번째 단계에서는 모든 변수가 첫 번째 단계의 결과로 대체됩니다.
 
-A consequence of this is that the evaluation of a variable (for example, a command-based variable implemented in an extension) has **no access** to other substituted variables in the debug configuration or task. It only sees the original variables. This means that variables cannot depend on each other (which ensures isolation and makes substitution robust against evaluation order).
+이로 인해 변수의 평가(예: 확장에서 구현된 명령 기반 변수)는 디버그 구성이나 태스크의 다른 대체된 변수에 **접근할 수 없습니다**. 원래 변수만 볼 수 있습니다. 이는 변수가 서로 의존할 수 없다는 것을 의미합니다(이는 격리를 보장하고 평가 순서에 대해 대체를 강건하게 만듭니다).
 
-### Is variable substitution supported in User and Workspace settings?
+### 사용자 및 작업 공간 설정에서 변수 치환이 지원됩니까? {#is-variable-substitution-supported}
 
-The predefined variables are supported in a select number of setting keys in `settings.json` files such as the terminal `cwd`, `env`, `shell` and `shellArgs` values. Some [settings](/docs/getstarted/settings.md) like `setting(window.title)` have their own variables:
+미리 정의된 변수는 터미널 `cwd`, `env`, `shell`, `shellArgs` 값과 같은 `settings.json` 파일의 일부 설정 키에서 지원됩니다. `setting(window.title)`과 같은 일부 [설정](/docs/getstarted/settings.md)은 자체 변수를 가지고 있습니다:
 
 ```json
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}"
 ```
 
-Refer to the comments in the Settings editor (`kb(workbench.action.openSettings)`) to learn about setting specific variables.
+설정별 변수에 대해 알아보려면 설정 편집기(`kb(workbench.action.openSettings)`)의 주석을 참조하세요.
 
-### Why isn't ${workspaceRoot} documented?
+### $\{workspaceRoot\}가 문서화되지 않은 이유는 무엇인가요? {#why-isnt-workspaceroot-documented}
 
-The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` to better align with [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) support.
+변수 `${workspaceRoot}`는 [다중 루트 작업 공간](/docs/editor/multi-root-workspaces.md) 지원과 더 잘 맞추기 위해 `${workspaceFolder}`로 대체되었습니다.
 
-### Why aren't variables in tasks.json being resolved?
+### tasks.json에서 변수가 해결되지 않는 이유는 무엇인가요? {#why-arent-variables-being-resolved}
 
-Not all values in `tasks.json` support variable substitution. Specifically, only `command`, `args`, and `options` support variable substitution. Input variables in the `inputs` section will not be resolved as nesting of input variables is not supported.
+`tasks.json`의 모든 값이 변수 치환을 지원하는 것은 아닙니다. 특히 `command`, `args`, `options`만 변수 치환을 지원합니다. `inputs` 섹션의 입력 변수는 입력 변수의 중첩이 지원되지 않기 때문에 해결되지 않습니다.
 
-### How can I know a variable's actual value?
+### 변수의 실제 값을 어떻게 알 수 있나요? {#how-can-i-know-variables-actual-value}
 
-One easy way to check a variable's runtime value is to create a VS Code [task](/docs/editor/tasks.md) to output the variable value to the console. For example, to see the resolved value for `${workspaceFolder}`, you can create and run (**Terminal** > **Run Task**) the following simple 'echo' task in `tasks.json`:
+변수의 런타임 값을 확인하는 쉬운 방법 중 하나는 변수 값을 콘솔에 출력하는 VS Code [태스크](/docs/editor/tasks.md)를 만드는 것입니다. 예를 들어, `${workspaceFolder}`의 해결된 값을 보려면 다음과 같은 간단한 'echo' 태스크를 `tasks.json`에 만들고 실행(**Terminal** > **Run Task**)할 수 있습니다:
 
 ```json
 {
