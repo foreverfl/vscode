@@ -83,6 +83,12 @@ html[data-theme="dark"] {
   font-size: 12px;
 }
 
+/* 사이드바 버튼 */
+.menu__list-item--collapsed .menu__list {
+  height: 0;
+  overflow: hidden;
+}
+
 /* doc 바 */
 #doc-subnavbar {
   font-size: 12px;
