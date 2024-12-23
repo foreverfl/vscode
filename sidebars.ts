@@ -392,7 +392,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "java/java-webapp",
+          id: "java/java-on-azure",
           label: "Java 앱 배포",
         },
         {
