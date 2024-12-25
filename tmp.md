@@ -1,157 +1,104 @@
 ---
-Order: 4
+Order: 14
 Area: java
-TOCTitle: Formatting and Linting
-ContentId: dd4fa82e-0021-404c-87e4-3b69f1e12463
-PageTitle: Formatting, linting, and code analysis for Java in Visual Studio Code
-DateApproved: 12/12/2021
-MetaDescription: Formatting, linting, and code analysis for Java in Visual Studio Code
+TOCTitle: FAQ
+ContentId: 2ad03b46-0779-4c9a-897e-6e6b628f598a
+PageTitle: Java on Visual Studio Code FAQ and Wiki
+DateApproved: 8/31/2021
+MetaDescription: Java on Visual Studio Code Frequent Asked Questions and Troubleshooting Guide
 ---
+# Frequent Asked Questions
 
-# Java formatting and linting
+Thanks for your interest in Java on Visual Studio Code! This FAQ will hopefully answer some of the questions you may have.
 
-[Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) also provides [formatting settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings). You can export an Eclipse formatter file and then use it for your project in VS Code.
+## Are these Java extensions open source?
 
-In addition, there are also the [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) and [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) extensions, which provide features for live linting and code analysis.
+Yes. All the [Java Extensions](/docs/java/extensions.md) provided by Red Hat, Microsoft, and VMware are open source, as well as most extensions supported by the community. You can find their corresponding repositories on GitHub from the Marketplace pages.
 
-## Formatter
+## Are there any other features coming to Java on Visual Studio Code?
 
-You can use **Format Document** command to format a Java file. If you didn't specify a formatter profile before, the Java file will be formatted using default settings.
+Definitely. We use GitHub issues to track incoming requests and planned work for each of our extensions. Currently we're working on adding more refactoring and linting features to enhance the editing productivity, as well as some performance improvements to make it even faster.
 
-<video autoplay loop muted playsinline controls video="Format document">
-  <source src="/docs/java/java-linting/formatting.mp4" type="video/mp4" />
-</video>
+Most of our work is collected from and prioritized by customer feedback. If you're interested in providing your thoughts, you can go directly to our project repositories to submit a new issue to share your thoughts.
 
-### Applying formatter settings
+We do have limited capacity within the team and we'd really like to encourage more contributions from the great Java community. If you're passionate about your idea and would like to help fellow Java developers, you're welcome to join us! Some areas worth considering including Gradle support, code analysis and test coverage tools, profiler, and additional framework support including DropWizard, JavaFX, JPA, Play, Akka, OSGi.
 
-You can easily apply formatter settings from an existing formatter profile in Eclipse scheme. For example, if you want to apply [Google Style](https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml) for your Java project, then you can set the following property in `settings.json`:
+## Can I use keyboard shortcuts from other IDE?
 
-```json
-"java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+Sure. [Keymap extensions](/docs/getstarted/keybindings.md#keymap-extensions) in VS Code modify the VS Code shortcuts to match those of other editors. You can find [IntelliJ IDEA Keybindings](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings), [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings) as well as keymaps for other popular editors in [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs) of extensions in the Marketplace.
+
+## Where can I find the latest progress of Java support on Visual Studio Code?
+
+You can follow us on the [Java at Microsoft](https://devblogs.microsoft.com/java/) blog, which will keep you updated on our progress.
+
+While you're using Java within VS Code, you may also see a **Release Notes** section after you update the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). The notes will give you an overview on the notable updates included in the extensions.
+
+## How can I use Visual Studio Code with new Java versions?
+
+Thanks to the upstream update from JDT, you can now build your project up to Java 22 with VS Code as well. To use the experimental/preview language features, you need to modify your project settings.
+
+Maven - modify `pom.xml`:
+
+```xml
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <release>22</release>
+            <compilerArgs>--enable-preview</compilerArgs>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 ```
 
-The property can be set to a URL or a local file path. If the formatter XML file contains more than one profile, you can specify the profile name:
+Gradle:
 
-```json
-"java.format.settings.profile": "GoogleStyle",
+```groovy
+sourceCompatibility = 22
+tasks.withType(JavaCompile) {
+    options.compilerArgs += '--enable-preview'
+}
+tasks.withType(Test) {
+    jvmArgs += "--enable-preview"
+}
 ```
 
-After setting the formatter profile, the **Format Document** command will use the specific profile to format your Java files.
+> Note: If you are modifying a project that was already opened in VS Code, you may need to force clean the workspace and reload. To do so, run command **Java: Clean Java Language Server Workspace**.
 
-### Editing formatter settings
+## How can I use it behind a corporate proxy?
 
-The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) provides an editor to help users edit an existing formatter profile. You can open the editor with the command **Java: Open Java Formatter Settings with Preview**. In the editor, you can change the formatter settings and preview the effects. After saving the current editor, the changes will be saved to the formatter profile.
+When using the Java Language Support (redhat.java) extension behind a corporate proxy, you might need to let the Java Language server know how to connect to the Internet, in order to download build runtimes, Java dependencies, and their sources through that proxy.
 
-<video autoplay loop muted playsinline controls title="Editing formatter settings">
-  <source src="/docs/java/java-linting/formatting-editing.mp4" type="video/mp4" />
-</video>
-
-> Note: the formatter settings editor supports only local formatter profile. If your workspace contains a remote formatter profile, it will guide you to download it in `.vscode` folder.
-
-When editing settings in the editor, you can preview the changes' effects in the right **Preview** panel.
-
-<video autoplay loop muted playsinline controls title="Preview formatting effects">
-  <source src="/docs/java/java-linting/formatting-preview.mp4" type="video/mp4" />
-</video>
-
-You can also undo and redo changes.
-
-<video autoplay loop muted playsinline controls title="Undo and redo changes to formatting effects">
-  <source src="/docs/java/java-linting/formatting-undoredo.mp4" type="video/mp4" />
-</video>
-
-## SonarLint
-
-[SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) is an easy-to-use extension that helps you find and fix bugs and security issues as you code. The extension runs in the background and, just like a spell checker, highlights source code issues that pose a quality or security concern. The extension not only tells you what the issue is but also provides in-context guidance on why it's harmful and how to fix it, with examples. The extension supports over [500+ Java rules](https://rules.sonarsource.com/java) and includes several [Quick Fixes](https://rules.sonarsource.com/java/quickfix) to automatically fix certain quality issues.
-
-### Code analysis on the fly
-
-Issues are highlighted directly in the editor with hovers to provide detailed explanations.
-
-<video autoplay loop muted playsinline controls title="Code analysis on the fly">
-  <source src="/docs/java/java-linting/sonarlint.mp4" type="video/mp4" />
-</video>
-
-Issues found in the opened file can also be reviewed through the Problems panel of VS Code. When applicable, secondary code locations are mentioned so you can understand where the issue originates from (for example, the code path that led to a bug).
-
-### Rule documentation and remediation guidance
-
-For any issues detected, SonarLint provides full documentation about the rule that was violated, and the best coding practice it relates to. This allows you to understand why an issue is raised, and how to fix it.
-
-<video autoplay loop muted playsinline controls title="Rule documentation and remediation guidance">
-  <source src="/docs/java/java-linting/sonarlint-description.mp4" type="video/mp4" />
-</video>
-
-### Enabling more quality and security rules
-
-By default, SonarLint provides a wide array of rules to detect bugs and vulnerabilities. More checks can be enabled through the **SonarLint Rules** view.
-
-<video autoplay loop muted playsinline controls title="Enabling more quality and security rules">
-  <source src="/docs/java/java-linting/sonarlint-rules.mp4" type="video/mp4" />
-</video>
-
-For more details about the [SonarLint for VS Code extension](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode), visit the [SonarLint website](https://www.sonarlint.org/vscode/).
-
-## Checkstyle
-
-With the [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension, you can use either existing `checkstyle` configurations (Google's or Sun's Check) or your own customized files for your project. When editing a Java file, the extension will check the file format and provide Quick Fixes if possible on the fly.
-
-Set Checkstyle configuration file using the **Checkstyle: Set the Checkstyle Configuration File** command and selecting the Checkstyle file from the dropdown.
-
-<video autoplay loop muted playsinline controls title="Set checkstyle configuration file command">
-  <source src="/docs/java/java-linting/checkstyle.mp4" type="video/mp4" />
-</video>
-
-The [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension supports live linting.
-
-<video autoplay loop muted playsinline controls title="Live linting">
-  <source src="/docs/java/java-linting/checkstyle-live-linting.mp4" type="video/mp4" />
-</video>
-
-And batch check.
-
-<video autoplay loop muted playsinline controls title="Batch check">
-  <source src="/docs/java/java-linting/checkstyle-batch.mp4" type="video/mp4" />
-</video>
-
-The Problems panel will open when you click the Checkstyle status icon in the Status bar.
-
-### Set Checkstyle configuration file
-
-To set the configuration file, right-click the `.xml` file and select **Set the Checkstyle Configuration File**.
-
-![Set Checkstyle configuration file](images/java-linting/set_config.png)
-
-You can also trigger the command **Checkstyle: Set Checkstyle Configuration File** to choose the configuration file in the File Explorer. The extension looks for a `checkstyle.xml` file in your workspace to make Checkstyle configuration easier. You will also see the two built-in configurations:
-
-- **Google's Check**
-- **Sun's Check**
-
-The command **Checkstyle: Set the Checkstyle Configuration** detects potential **Checkstyle** configuration files and lists them. You can also provide a configuration file by directly writing a URL in the input box.
-
-<video autoplay loop muted playsinline controls title="Set checkstyle configuration">
-  <source src="/docs/java/java-linting/checkstyle-configuration.mp4" type="video/mp4" />
-</video>
-
-You can also set the Checkstyle version by using the command **Checkstyle: Set the Checkstyle Version**.
-
-The command will:
-
-- List the latest Checkstyle version from the main repo.
-- List all the downloaded versions.
-- List all the supported versions.
-- Mark the currently used version with a check symbol.
-
-In addition, you can also bring any 3rd-party modules for Checkstyle by configuring its path. For example, after using the configuration below, you can add `<module name="SingleBreakOrContinueCheck"/>` or `<module name="com.github.sevntu.checkstyle.checks.naming.SingleBreakOrContinueCheck"/>` to `checkstyle.xml` to use those checks.
+This is done by configuring the `java.jdt.ls.vmargs` setting in VS Code preferences (all on one line):
 
 ```json
-"java.checkstyle.modules": [ "${workspaceFolder}/src/main/resources/sevntu-checks-1.35.0.jar" ]
+{
+"java.jdt.ls.vmargs": "-Dhttp.proxyHost=webproxy.corp.net -Dhttp.proxyPort=proxyport -Dhttp.proxyUser=user -Dhttp.proxyPassword=password -Dhttps.proxyHost=webproxy.corp.net -Dhttps.proxyPort=proxyport -Dhttps.proxyUser=user -Dhttps.proxyPassword=password"
+}
 ```
 
-### Check the style and fix the violations
+## Will this be available for Visual Studio?
 
-When editing a Java file, the extension will check the file format and provide Quick Fixes if possible. You can click the lightbulb button in the editor to show the available Quick Fixes.
+Currently we don't plan to extend the Java support to Visual Studio. There are already great IDEs for Java and we're focusing on VS Code to provide a lightweight experience in a polyglot editor.
 
-![Fix style violation](images/java-linting/quick_fix.png)
+## Does VS Code Java support other display languages?
 
-For more details about [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle), visit its [GitHub Repository](https://github.com/jdneo/vscode-checkstyle).
+Currently we support Chinese in addition to English for a few extensions including [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug), [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency). To learn how to switch the VS Code display language, see [Display Languages](/docs/getstarted/locales.md).
+
+You can contribute to the extension repositories if you're interested in additional display language support.
+
+## How to troubleshoot and contribute to the Java Language Server
+
+You can visit the [Java for Visual Studio Code wiki](https://github.com/redhat-developer/vscode-java/wiki) to find answers regarding:
+
+1. ["Classpath is incomplete" warning](https://github.com/redhat-developer/vscode-java/wiki/%22Classpath-is-incomplete%22-warning)
+2. [Annotation Processing support for Maven projects](https://github.com/redhat-developer/vscode-java/wiki/Annotation-Processing-support-for-Maven-projects)
+3. [Contribute a Java extension](https://github.com/redhat-developer/vscode-java/wiki/Contribute-a-Java-Extension)
+4. [Formatter settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings)
+5. [Lombok Support](https://github.com/redhat-developer/vscode-java/wiki/Lombok-support)
+6. [Using a Proxy](https://github.com/redhat-developer/vscode-java/wiki/Using-a-Proxy)
+7. [Troubleshooting](https://github.com/redhat-developer/vscode-java/wiki/Troubleshooting)

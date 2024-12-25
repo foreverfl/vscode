@@ -1,63 +1,63 @@
 ---
 Order: 5
 Area: java
-TOCTitle: Project Management
+TOCTitle: 프로젝트 관리
 ContentId: 251cba68-c77f-4ac6-a5de-1fab8dcca867
-PageTitle: Java project management in Visual Studio Code
+PageTitle: Visual Studio Code에서 Java 프로젝트 관리
 DateApproved: 4/25/2022
-MetaDescription: Lightweight Mode, Maven Support, Java Package and Dependency Management in Visual Studio Code
+MetaDescription: Visual Studio Code에서의 경량 모드, Maven 지원, Java 패키지 및 종속성 관리
 MetaSocialImage:
 ---
 
-# Managing Java Projects in VS Code
+# VS Code에서 Java 프로젝트 관리 {#managing-java-projects-in-vs-code}
 
-The [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension helps you to manage your Java projects and their dependencies. It also helps you to create new Java projects, packages, and classes. To get the complete Java language support in Visual Studio Code, you can install the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes the Project Manager for Java extension.
+[Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) 확장은 Java 프로젝트와 그 종속성을 관리하는 데 도움을 줍니다. 또한 새로운 Java 프로젝트, 패키지 및 클래스를 생성하는 데도 도움이 됩니다. Visual Studio Code에서 완전한 Java 언어 지원을 받으려면 Project Manager for Java 확장을 포함하는 [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)을 설치할 수 있습니다.
 
-<a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
+<button><a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Java용 확장 팩 설치하기</a></button>
 
-> For details on how to get started with the extension pack, you can review the [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
+> 확장 팩 시작하기에 대한 자세한 내용은 [Java 시작하기](/docs/java/java-tutorial.md) 튜토리얼을 참고하세요.
 
-## Projects view
+## 프로젝트 보기 {#projects-view}
 
-The **Java Projects** view helps you view your Java projects and their dependencies, and provides entry points for project management tasks.
+**Java Projects** 보기는 Java 프로젝트와 그 종속성을 보고 프로젝트 관리 작업의 진입점을 제공합니다.
 
-![project view](images/java-project/projectmanager-overview.png)
+![프로젝트 보기](images/java-project/projectmanager-overview.png)
 
-> By default, the Java Projects view is displayed below the **Explorer** view. If you cannot see it, try clicking the `...` button in the **EXPLORER** title bar and select **Java Projects**.
+> 기본적으로 Java Projects 보기는 **탐색기** 보기 아래에 표시됩니다. 보이지 않는다면 **EXPLORER** 제목 표시줄의 `...` 버튼을 클릭하고 **Java Projects**를 선택해보세요.
 
-In the overflow button of the navigation bar, there are more options to use. For example, you can switch between hierarchical view and flat view.
+탐색 모음의 오버플로우 버튼에는 더 많은 옵션이 있습니다. 예를 들어, 계층형 보기와 평면 보기 사이를 전환할 수 있습니다.
 
-![overflow button](images/java-project/overflow-button.png)
+![오버플로우 버튼](images/java-project/overflow-button.png)
 
-You can find buttons next to the nodes in the Explorer, which provide useful shortcuts for some actions.
+탐색기에서 노드 옆에 있는 버튼들은 일부 작업에 대한 유용한 단축키를 제공합니다.
 
-![inline button](images/java-project/inline-button.png)
+![인라인 버튼](images/java-project/inline-button.png)
 
-There are also many useful features in each node's context menu, you can right-click on the node in Explorer to toggle it out.
+각 노드의 컨텍스트 메뉴에도 많은 유용한 기능이 있으며, 탐색기에서 노드를 마우스 오른쪽 버튼으로 클릭하여 표시할 수 있습니다.
 
-![context menu](images/java-project/context-menu.png)
+![컨텍스트 메뉴](images/java-project/context-menu.png)
 
-### Create a new Java project
+### 새 Java 프로젝트 생성 {#create-a-new-java-project}
 
-You can create a new Java project by clicking the **+** button in the navigation bar, or through the command: **Java: Create Java Project...** in Command Palette (`kb(workbench.action.showCommands)`). During creation, VS Code will facilitate installing required extension(s) per your project type, if the extension(s) weren't already installed.
+탐색 모음의 **+** 버튼을 클릭하거나 명령 팔레트(`Ctrl+Shift+P`)에서 **Java: Create Java Project...** 명령을 통해 새 Java 프로젝트를 생성할 수 있습니다. 생성 중에 필요한 확장이 아직 설치되지 않은 경우 VS Code가 프로젝트 유형에 따라 필요한 확장을 설치하도록 도와줍니다.
 
-![create project](images/java-project/projectmanager-createproject.png)
+![프로젝트 생성](images/java-project/projectmanager-createproject.png)
 
-### Import Java projects
+### Java 프로젝트 가져오기 {#import-java-projects}
 
-You can directly import existing Java projects and modules to your workspace through **File** > **Open Folder...** (Make sure the opened folder contains your build tool scripts, for example, `pom.xml` or `build.gradle`). VS Code for Java will detect your projects and import them automatically.
+**File > Open Folder...** 를 통해 기존 Java 프로젝트와 모듈을 작업 공간에 직접 가져올 수 있습니다. 열린 폴더에 빌드 도구 스크립트, 예를 들어 `pom.xml` 또는 `build.gradle`이 포함되어 있는지 확인하세요. VS Code for Java가 프로젝트를 감지하고 자동으로 가져옵니다.
 
-When you add a new module into your projects, you can trigger the command **Java: Import Java projects in workspace** to import them to your workspace. This command helps to import new projects into the workspace without the need to reload the VS Code window.
+프로젝트에 새 모듈을 추가할 때 **Java: Import Java projects in workspace** 명령을 실행하여 작업 공간으로 가져올 수 있습니다. 이 명령을 사용하면 VS Code 창을 다시 로드할 필요 없이 새 프로젝트를 작업 공간으로 가져올 수 있습니다.
 
-### Export to JAR
+### JAR로 내보내기 {#export-to-jar}
 
-You can export your build to JAR from the projects view or by running the command **Java: Export Jar...**.
+프로젝트 보기에서 또는 **Java: Export Jar...** 명령을 실행하여 빌드를 JAR로 내보낼 수 있습니다.
 
-![Export jar from the project view](images/java-project/exportjar.gif)
+![프로젝트 보기에서 jar 내보내기](images/java-project/exportjar.gif)
 
-## Configure Runtime for Projects
+## 프로젝트의 런타임 구성 {#configure-runtime-for-projects}
 
-As Java evolves, it's common that developers work with multiple versions of JDK. You can map them to your local installation paths via the setting: `java.configuration.runtimes`. The setting has following format:
+Java가 발전함에 따라 개발자들이 여러 버전의 JDK로 작업하는 것이 일반적입니다. `java.configuration.runtimes` 설정을 통해 로컬 설치 경로에 매핑할 수 있습니다. 설정은 다음과 같은 형식을 가집니다:
 
 ```json
 "java.configuration.runtimes": [
@@ -83,60 +83,63 @@ As Java evolves, it's common that developers work with multiple versions of JDK.
 ]
 ```
 
-> **Note**: You can set one of them to default by adding `"default":  true` to the entry. The default JDK will be used for your unmanaged folders (with out build tools).
+:::note
+항목에 `"default": true`를 추가하여 그 중 하나를 기본값으로 설정할 수 있습니다. 기본 JDK는 관리되지 않는 폴더(빌드 도구 없음)에 사용됩니다.
+:::
 
-To see which JDKs are used for your projects, you can trigger the command **Java: Configure Java Runtime** in **Command Palette** (`kb(workbench.action.showCommands)`). This command opens a view displaying the runtime information for your projects:
+프로젝트에 어떤 JDK가 사용되는지 보려면 **명령 팔레트**(`Ctrl+Shift+P`)에서 **Java: Configure Java Runtime** 명령을 실행할 수 있습니다. 이 명령은 프로젝트의 런타임 정보를 표시하는 보기를 엽니다:
 
-![Project runtime](images/java-project/configure-project-runtime.png)
+![프로젝트 런타임](images/java-project/configure-project-runtime.png)
 
-### Change JDK for Maven and Gradle projects
+### Maven 및 Gradle 프로젝트의 JDK 변경 {#change-jdk-for-maven-and-gradle-projects}
 
-If you want to change the JDK version for your Maven or Gradle projects, you need to update it in your build scripts (`pom.xml` or `build.gradle`). You can click <span class="codicon codicon-info"></span> to see how to make such changes. Click <span class="codicon codicon-edit"></span> will navigate to the build script file of the project.
+Maven 또는 Gradle 프로젝트의 JDK 버전을 변경하려면 빌드 스크립트(`pom.xml` 또는 `build.gradle`)에서 업데이트해야 합니다. <span class="codicon codicon-info"></span>를 클릭하면 이러한 변경을 하는 방법을 볼 수 있습니다. <span class="codicon codicon-edit"></span>를 클릭하면 프로젝트의 빌드 스크립트 파일로 이동합니다.
 
-### Change JDK for unmanaged folders
+### 관리되지 않는 폴더의 JDK 변경 {#change-jdk-for-unmanaged-folders}
 
-To change the JDK for unmanaged folders (with out any build tools), you can click the <span class="codicon codicon-edit"></span> button. It will list all the JDKs and you can select one for your unmanaged folders.
+관리되지 않는 폴더(빌드 도구 없음)의 JDK를 변경하려면 <span class="codicon codicon-edit"></span> 버튼을 클릭할 수 있습니다. 모든 JDK가 나열되고 관리되지 않는 폴더에 대해 하나를 선택할 수 있습니다.
 
-### Download JDKs
+### JDK 다운로드 {#download-jdks}
 
-If you want to download a new JDK, you can click the `download` link, or trigger the command **Java: Install New JDK** in **Command Palette** (`kb(workbench.action.showCommands)`). It will open a new view guiding you to download JDKs.
+새 JDK를 다운로드하려면 `download` 링크를 클릭하거나 **명령 팔레트**(`Ctrl+Shift+P`)에서 **Java: Install New JDK** 명령을 실행할 수 있습니다. JDK 다운로드를 안내하는 새로운 보기가 열립니다.
 
-![Download-jdk](images/java-project/download-jdk.png)
+![JDK 다운로드](images/java-project/download-jdk.png)
 
-> **Note**: To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions).
+:::note
+Java 프리뷰 기능을 활성화하려면 [새로운 Java 버전과 VS Code를 어떻게 사용할 수 있나요](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions)를 참조하세요.
+:::
 
-## Configure classpath for unmanaged folders
+## 관리되지 않는 폴더의 클래스패스 구성 {#configure-classpath-for-unmanaged-folders}
 
-The Project Management for Java extension provides a user interface to configure the classpath for unmanaged folders. The classpath can be set manually in the classpath configuration page. You can open it by executing the **Java: Configure Classpath** command from the Command Palette (`kb(workbench.action.showCommands)`).
+Java용 프로젝트 관리 확장은 관리되지 않는 폴더의 클래스패스를 구성하기 위한 사용자 인터페이스를 제공합니다. 클래스패스는 클래스패스 구성 페이지에서 수동으로 설정할 수 있습니다. 명령 팔레트(`Ctrl+Shift+P`)에서 **Java: Configure Classpath** 명령을 실행하여 열 수 있습니다.
 
-![configure classpath](images/java-project/configure-classpath.png)
+![클래스패스 구성](images/java-project/configure-classpath.png)
 
-In some rare cases, you may need to clean the Java workspace by executing the **Java: Clean Java Language Server Workspace** command from the Command Palette (`kb(workbench.action.showCommands)`) to let the language server rebuild your dependencies.
+드문 경우이지만, 언어 서버가 종속성을 다시 빌드하도록 하기 위해 명령 팔레트(`Ctrl+Shift+P`)에서 **Java: Clean Java Language Server Workspace** 명령을 실행하여 Java 작업 공간을 정리해야 할 수 있습니다.
 
-## Dependency management
+## 종속성 관리 {#dependency-management}
 
-### Add a Maven dependency
+### Maven 종속성 추가 {#add-a-maven-dependency}
 
-For Maven project, you can add a dependency by clicking the **+** icon next to **Maven Dependencies** node in project view.
+Maven 프로젝트의 경우, 프로젝트 보기에서 **Maven Dependencies** 노드 옆의 **+** 아이콘을 클릭하여 종속성을 추가할 수 있습니다.
 
-![add maven dependency](images/java-project/add-maven-dependency.png)
+![Maven 종속성 추가](images/java-project/add-maven-dependency.png)
 
-### Manage dependencies for unmanaged folder
+### 관리되지 않는 폴더의 종속성 관리 {#manage-dependencies-for-unmanaged-folder}
 
-If your project is an unmanaged folder without any build tools. You can manage the dependencies by clicking the **+** icon or the **-** icon on the **Referenced Libraries**
-node or the items under it, or you can just directly drag your jar libraries to the node `Referenced Libraries`
+프로젝트가 빌드 도구가 없는 관리되지 않는 폴더인 경우, **Referenced Libraries** 노드나 그 아래 항목의 **+** 아이콘 또는 **-** 아이콘을 클릭하여 종속성을 관리하거나, jar 라이브러리를 `Referenced Libraries` 노드에 직접 드래그할 수 있습니다.
 
-![manage referenced libraries](images/java-project/manage-referenced-libraries.png)
+![참조된 라이브러리 관리](images/java-project/manage-referenced-libraries.png)
 
-> You can also manage the dependencies in the classpath configuration page. See: [Configure classpath for unmanaged folder](#configure-classpath-for-unmanaged-folders)
+> 클래스패스 구성 페이지에서도 종속성을 관리할 수 있습니다. [관리되지 않는 폴더의 클래스패스 구성](#configure-classpath-for-unmanaged-folders) 읽어보기
 
-Behind the scene, there's a setting `java.project.referencedLibraries` in `settings.json`. Below are details on how to customize this setting.
+이후의 내용에는 `settings.json`의 `java.project.referencedLibraries` 설정이 있습니다. 이 설정을 커스터마이즈하는 방법에 대한 자세한 내용은 다음과 같습니다.
 
-**Include libraries**
+**라이브러리 포함**
 
-The libraries to reference are described using a set of glob patterns.
+참조할 라이브러리는 glob 패턴 집합을 사용하여 설명됩니다.
 
-For example:
+예시:
 
 ```json
 "java.project.referencedLibraries": [
@@ -145,15 +148,15 @@ For example:
 ]
 ```
 
-The settings above will add all `.jar` files in workspace's library folder along with `foo.jar` from a specified absolute path to the project's external dependencies.
+위의 설정은 작업 공간의 library 폴더에 있는 모든 `.jar` 파일과 지정된 절대 경로의 `foo.jar`를 프로젝트의 외부 종속성에 추가합니다.
 
-The referenced libraries are then watched by VS Code, and the project will be refreshed if there is a change to any of these dependent files.
+그런 다음 참조된 라이브러리는 VS Code에 의해 감시되며, 이러한 종속 파일에 변경이 있으면 프로젝트가 새로 고쳐집니다.
 
-By default, VS Code will reference all JAR files in workspace's `lib` directory using the glob pattern `lib/**/*.jar`.
+기본적으로 VS Code는 glob 패턴 `lib/**/*.jar`를 사용하여 작업 공간의 `lib` 디렉토리에 있는 모든 JAR 파일을 참조합니다.
 
-**Exclude some libraries**
+**일부 라이브러리 제외**
 
-If you want to exclude some libraries from the project, you can expand `java.project.referencedLibraries` to use `include/exclude` fields and add an `exclude` glob pattern:
+프로젝트에서 일부 라이브러리를 제외하려면 `java.project.referencedLibraries`를 확장하여 `include/exclude` 필드를 사용하고 `exclude` glob 패턴을 추가할 수 있습니다:
 
 ```json
 "java.project.referencedLibraries": {
@@ -167,13 +170,13 @@ If you want to exclude some libraries from the project, you can expand `java.pro
 }
 ```
 
-In the example above, any binary JAR files in the `library/sources` folder are ignored as the project's external dependencies.
+위 예시에서 `library/sources` 폴더의 모든 바이너리 JAR 파일은 프로젝트의 외부 종속성으로 무시됩니다.
 
-**Attach source jars**
+**소스 jar 첨부**
 
-By default, a referenced `{binary}.jar` will try to search `{binary}-sources.jar` under the same directory, and attach it as source if one match is found.
+기본적으로, 참조된 `{binary}.jar`는 같은 디렉토리에서 `{binary}-sources.jar`를 검색하고, 일치하는 것이 발견되면 소스로 첨부합니다.
 
-If you want to manually specify a JAR file as a source attachment, you can provide a key-value map in the `sources` field:
+JAR 파일을 소스 첨부로 수동으로 지정하려면 `sources` 필드에 키-값 맵을 제공할 수 있습니다:
 
 ```json
 "java.project.referencedLibraries": {
@@ -190,57 +193,58 @@ If you want to manually specify a JAR file as a source attachment, you can provi
 }
 ```
 
-In this way, `bar-src.jar` is attached to bar.jar as its source.
+이렇게 하면 `bar-src.jar`가 bar.jar의 소스로 첨부됩니다.
 
-## Lightweight Mode
+## 경량 모드 {#lightweight-mode}
 
-VS Code for Java supports two modes, lightweight and standard. With lightweight mode, only source files and JDK are resolved by the language server; with standard mode, imported dependencies are resolved and the project is built by the language server. Lightweight mode works best when you need a quick-start and lightweight environment to work with your source files, for example, reading source code, navigating among source code and JDK, viewing outline and Javadoc, and detecting and fixing syntax errors. Also, code completion is supported within the scope of source files and JDK.
+VS Code for Java는 경량 모드와 표준 모드를 지원합니다. 경량 모드에서는 소스 파일과 JDK만 언어 서버에 의해 해석됩니다. 표준 모드에서는 가져온 종속성이 해석되고 프로젝트가 언어 서버에 의해 빌드됩니다. 경량 모드는 소스 파일만으로 작업하는 빠른 시작과 경량 환경이 필요할 때 가장 잘 작동합니다. 예를 들어, 소스 코드 읽기, 소스 코드와 JDK 사이 탐색, 개요 및 Javadoc 보기, 구문 오류 감지 및 수정 등에 적합합니다. 또한 소스 파일과 JDK 범위 내에서 코드 완성이 지원됩니다.
 
-Lightweight mode doesn't resolve imported dependencies nor build the project, so it does not support running, debugging, refactoring, linting, or detecting semantic errors. For these features to be available, you need to switch your workspace from lightweight mode to standard mode.
+경량 모드는 가져온 종속성을 해석하거나 프로젝트를 빌드하지 않으므로 실행, 디버깅, 리팩토링, 린팅 또는 의미론적 오류 감지를 지원하지 않습니다. 이러한 기능을 사용하려면 작업 공간을 경량 모드에서 표준 모드로 전환해야 합니다.
 
-You can control which mode to launch with by configuring `java.server.launchMode` with the options below:
+아래 옵션으로 `java.server.launchMode`를 구성하여 어떤 모드로 시작할지 제어할 수 있습니다:
 
-- `Hybrid` (default) - Firstly, a workspace is opened with lightweight mode. You will be asked whether to switch to standard mode if your workspace contains unresolved Java projects. If you choose **Later**, it will stay in lightweight mode. You can click the language status item on the Status bar to manually switch to standard mode.
-- `Standard` - A workspace is opened with standard mode.
-- `LightWeight` - A workspace is opened with lightweight mode. You can click the language status item on the Status bar to manually switch to standard mode.
+- `Hybrid` (기본값) - 처음에는 작업 공간이 경량 모드로 열립니다. 작업 공간에 해결되지 않은 Java 프로젝트가 포함되어 있으면 표준 모드로 전환할지 묻습니다. **나중에**를 선택하면 경량 모드로 유지됩니다. 상태 표시줄의 언어 상태 항목을 클릭하여 수동으로 표준 모드로 전환할 수 있습니다.
+- `Standard` - 작업 공간이 표준 모드로 열립니다.
+- `LightWeight` - 작업 공간이 경량 모드로 열립니다. 상태 표시줄의 언어 상태 항목을 클릭하여 수동으로 표준 모드로 전환할 수 있습니다.
 
-The language status item indicates which mode the current workspace is in using different icons.
+언어 상태 항목은 다른 아이콘을 사용하여 현재 작업 공간이 어떤 모드인지 나타냅니다.
 
 <div id="codicon-listing">
 
-- <i class="codicon codicon-bracket-dot"></i> - workspace opened with lightweight mode.
-- <i class="codicon codicon-sync"></i> - workspace in the process of being opened with standard mode.
-- <i class="codicon codicon-symbol-namespace"></i> - workspace opened with standard mode.
+- <i class="codicon codicon-bracket-dot"></i> - 경량 모드로 열린 작업 공간.
+- <i class="codicon codicon-sync"></i> - 표준 모드로 열리는 과정 중인 작업 공간.
+- <i class="codicon codicon-symbol-namespace"></i> - 표준 모드로 열린 작업 공간.
 
 </div>
 
-Clicking the language status item switches to standard mode.
+언어 상태 항목을 클릭하면 표준 모드로 전환됩니다.
 
-![Switch to Standard](images/java-project/switch-to-standard.gif)
+![표준 모드로 전환](images/java-project/switch-to-standard.gif)
 
-## Build Status
+## 빌드 상태 {#build-status}
 
-When you edit Java source code in Visual Studio Code, the Java language server is building your workspace to provide you with the necessary language features. You can see the detailed build task status and watch what is happening behind the scene by clicking the language status item in the Status bar. You can also select the **check details** link when a notification shows the language server is opening Java projects to see the build task status.
+Visual Studio Code에서 Java 소스 코드를 편집할 때, Java 언어 서버는 필요한 언어 기능을 제공하기 위해 작업 공간을 빌드하고 있습니다. 상태 표시줄의 언어 상태 항목을 클릭하여 자세한 빌드 작업 상태를 보고 뒤에서 무슨 일이 일어나고 있는지 볼 수 있습니다. 또한 언어 서버가 Java 프로젝트를 여는 중이라는 알림이 표시될 때 **세부 정보 확인** 링크를 선택하여 빌드 작업 상태를 볼 수 있습니다.
 
-<video autoplay loop muted playsinline controls title="Build status for the Java project">
-  <source src="/docs/java/java-project/java.build.status.mp4" type="video/mp4" />
+<video autoplay loop muted playsinline controls title="Java 프로젝트의 빌드 상태" style={{ maxWidth: "100%" }}>
+
+  <source src="https://code.visualstudio.com/docs/java/java-project/java.build.status.mp4" type="video/mp4" />
 </video>
 
-### Additional resources
+### 추가 리소스 {#additional-resources}
 
-There are several Visual Studio Code extensions to support different build systems for Java. Below are extensions for several popular build systems.
+Java의 다양한 빌드 시스템을 지원하는 여러 Visual Studio Code 확장이 있습니다. 아래는 여러 인기 있는 빌드 시스템을 위한 확장입니다.
 
 - [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
 - [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle)
-- [Bazel for Java](https://marketplace.visualstudio.com/items?itemName=sfdc.bazel-vscode-java) ([Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel) is for `BUILD` files, without Java integration))
+- [Bazel for Java](https://marketplace.visualstudio.com/items?itemName=sfdc.bazel-vscode-java) ([Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel)은 `BUILD` 파일용이며, Java 통합은 없음)
 
-If you run into any problems when using the features above, you can contact us by filing an [issue](https://github.com/microsoft/vscode-java-pack/issues).
+위 기능을 사용하면서 문제가 발생하면 [이슈](https://github.com/microsoft/vscode-java-pack/issues)를 등록하여 문의할 수 있습니다.
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-Read on to find out more about:
+다음 내용에 대해 자세히 알아보세요:
 
-- [Java editing](/docs/java/java-editing.md) - Explore the editing features for Java in VS Code.
-- [Java debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
-- [Java testing](/docs/java/java-testing.md) - Use VS Code for your JUnit and TestNG cases.
-- [Java extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.
+- [Java 편집](/docs/java/java-editing.md) - VS Code의 Java 편집 기능을 살펴보세요.
+- [Java 디버깅](/docs/java/java-debugging.md) - VS Code로 Java 프로젝트를 디버깅하는 방법을 알아보세요.
+- [Java 테스팅](/docs/java/java-testing.md) - JUnit과 TestNG 케이스에 VS Code를 사용하세요.
+- [Java 확장](/docs/java/extensions.md) - VS Code의 더 많은 유용한 Java 확장에 대해 알아보세요.
