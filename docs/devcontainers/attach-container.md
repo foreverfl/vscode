@@ -82,7 +82,7 @@ Attached container configuration files are similar to [devcontainer.json](https:
 
 ### Variables in attached container configuration files
 
-Variables can be referenced in certain string values in attached configuration files in the following format: **${variableName}**. The following table is a list of available variables you can use.
+Variables can be referenced in certain string values in attached configuration files in the following format: **$\{variableName\}**. The following table is a list of available variables you can use.
 
 | Variable | Properties | Description |
 |----------|---------|----------------------|

@@ -30,7 +30,7 @@ This creates a task that runs `dotnet build`. You can read more in the VS Code [
 
 The program field is set to the path of the application dll or .NET Core host executable to launch.
 
-This property normally takes the form: "${workspaceFolder}/bin/Debug/\<target-framework\>/\<project-name.dll\>".
+This property normally takes the form: "$\{workspaceFolder\}/bin/Debug/\<target-framework\>/\<project-name.dll\>".
 
 Example: `"${workspaceFolder}/bin/Debug/netcoreapp1.1/MyProject.dll"`
 
