@@ -223,7 +223,7 @@ If `launchSettingsProfile` is NOT specified, the first profile with `"commandNam
 
 If `launchSettingsProfile` is set to null/an empty string, then Properties/launchSettings.json will be ignored.
 
-By default, the debugger will search for `launchSettings.json` in {cwd}/Properties/launchSettings.json. To customize this path, set `launchSettingsFilePath`:
+By default, the debugger will search for `launchSettings.json` in \{cwd\}/Properties/launchSettings.json. To customize this path, set `launchSettingsFilePath`:
 
 ```json
    "launchSettingsFilePath": "${workspaceFolder}/<Relative-Path-To-Project-Directory/Properties/launchSettings.json"
