@@ -19,7 +19,7 @@ Working with Markdown files in Visual Studio Code is simple, straightforward, an
 
 The Outline view is a separate section in the bottom of the File Explorer. When expanded, it shows the symbol tree of the currently active editor. For Markdown files, the symbol tree is the Markdown file's header hierarchy.
 
-![Markdown Outline view](images/Markdown/markdown-outline-view.png)
+![Markdown Outline view](images/markdown/markdown-outline-view.png)
 
 The Outline view is a great way to review your document's header structure and outline.
 
@@ -33,7 +33,7 @@ VS Code includes some useful snippets that can speed up writing Markdown. This i
 
 Use `kb(workbench.action.gotoSymbol)` to quickly jump to a header in the current file.
 
-![Jumping to a header in a Markdown file](images/Markdown/go-to-symbol.png)
+![Jumping to a header in a Markdown file](images/markdown/go-to-symbol.png)
 
 You can browse through all headers in the file or start typing a header name to find just the one you are after. Once you've found the header you what, press `kbstyle(Enter)` to move your cursor to it. Press `kbstyle(Esc)` to cancel jumping to the header.
 
@@ -41,7 +41,7 @@ You can browse through all headers in the file or start typing a header name to 
 
 Use `kb(workbench.action.showAllSymbols)` to search through headers across all Markdown files in the current workspace.
 
-![Jumping to a header across all Markdown files in a workspace](images/Markdown/go-to-symbol-in-workspace.png)
+![Jumping to a header across all Markdown files in a workspace](images/markdown/go-to-symbol-in-workspace.png)
 
 Start typing a header name to filter down the list and find the header you are after.
 
@@ -49,13 +49,13 @@ Start typing a header name to filter down the list and find the header you are a
 
 Path completions help with create links to files and images. These paths are shown automatically by [IntelliSense](/docs/editor/intellisense.md) as you type the path of an image or link, and can also be manually requested by using `kb(editor.action.triggerSuggest)`.
 
-![Path completions in a Markdown link](images/Markdown/path-completions.png)
+![Path completions in a Markdown link](images/markdown/path-completions.png)
 
 Paths starting with `/` are resolved relative to the current workspace root, while paths staring with `./` or without any prefix are resolved relative to the current file. Path suggestions are automatically shown when you type `/` or can be manually invoked by using `kb(editor.action.triggerSuggest)`.
 
 Path IntelliSense can also help you link to headers within the current file or within another Markdown file. Start the path with `#` to see completions for all the headers in the file (depending on your settings, you might need to use `kb(editor.action.triggerSuggest)` to see these):
 
-![Header section suggestions in a Markdown link](images/Markdown/path-completions-header.png)
+![Header section suggestions in a Markdown link](images/markdown/path-completions-header.png)
 
 You can disable path IntelliSense with `"markdown.suggest.paths.enabled": false`.
 
@@ -63,11 +63,11 @@ You can disable path IntelliSense with `"markdown.suggest.paths.enabled": false`
 
 Need to link to a header in another Markdown document but don't remember or want to type out the full file path? Try using workspace header completions! To start, just type `##` in a Markdown link to see a list of all Markdown headers from the current workspace:
 
-![Suggestions for all Markdown headers in the current workspace](images/Markdown/md-workspace-header-suggestion.png)
+![Suggestions for all Markdown headers in the current workspace](images/markdown/md-workspace-header-suggestion.png)
 
 Accept one of these completions to insert the full link to that header, even if it's in another file:
 
-![Adding a link to the selected header in another file](images/Markdown/md-workspace-header-suggestion-insert.png)
+![Adding a link to the selected header in another file](images/markdown/md-workspace-header-suggestion-insert.png)
 
 You can configure if/when workspace header completions show with the `setting(markdown.suggest.paths.includeWorkspaceHeaderCompletions)` setting. Valid setting values are:
 
@@ -83,11 +83,11 @@ In addition to [path completion](#path-completions), VS Code also supports a few
 
 You can **Drag and drop** a file from VS Code's Explorer or from your operating system into a Markdown editor. Start by dragging a file from VS Code's Explorer over your Markdown code and then hold down `kbstyle(Shift)` to start dropping it into the file. The preview cursor shows where it will be inserted when you drop it.
 
-![Inserting a Markdown link by dragging and dropping from the explorer](images/Markdown/drop-link.gif)
+![Inserting a Markdown link by dragging and dropping from the explorer](images/markdown/drop-link.gif)
 
 If you prefer using the keyboard, you can also **Copy and paste** a file or image data into a Markdown editor. When you paste a file, a link to a file, or a URL, you can choose to insert a Markdown link or to include the link as plain text.
 
-![Inserting a Markdown link by pasting a link in the editor](images/Markdown/markdown-paste-link.png)
+![Inserting a Markdown link by pasting a link in the editor](images/markdown/markdown-paste-link.png)
 
 Or you can use the  **Markdown: Insert Image from Workspace** command to insert images and  **Markdown: Insert Link to File in Workspace** to insert file links.
 
@@ -133,13 +133,13 @@ Selection applies to the following, and follows a traditional hierarchical patte
 * Html code blocks
 * Paragraphs
 
-![Smart select within a Markdown document expands from a block element, to the block element containing it, to the rest of the content under a header, to the header itself](images/Markdown/smart-select.gif)
+![Smart select within a Markdown document expands from a block element, to the block element containing it, to the rest of the content under a header, to the header itself](images/markdown/smart-select.gif)
 
 ### Link validation
 
 Link validation checks local links in your Markdown code to make sure they are valid. This can catch common mistakes, such linking to a header that was renamed or to a file that no longer exists on disk.
 
-![A warning shown in the editor when linking to a file that does not exist](images/Markdown/link-validation.png)
+![A warning shown in the editor when linking to a file that does not exist](images/markdown/link-validation.png)
 
 Link validation is off by default. To enable it, set `"markdown.validate.enabled": true`. VS Code then analyzes Markdown links to headers, images, and other local files. Invalid links are reported as either warnings or errors. All link validation happens locally and there is no checking of external http(s) links.
 
@@ -155,7 +155,7 @@ There are a few settings you can use to customize link validation:
 
 Use the **Find All References** (`kb(references-view.findReferences)`) command to find all locations in the current workspace where a Markdown header or link is referenced:
 
-![Jumping to a header in a Markdown file](images/Markdown/find-all-references.png)
+![Jumping to a header in a Markdown file](images/markdown/find-all-references.png)
 
 **Find All References** is supported for:
 
@@ -168,7 +168,7 @@ Use the **Find All References** (`kb(references-view.findReferences)`) command t
 
 Tired of accidentally breaking links when you change a Markdown header? Try using **Rename Symbol** (`kb(editor.action.rename)`) instead. After you type the new header name and press `kbstyle(Enter)`, VS Code updates the header and automatically updates all links to that header:
 
-![Renaming a Markdown header to update all links to it](images/Markdown/rename-header.gif)
+![Renaming a Markdown header to update all links to it](images/markdown/rename-header.gif)
 
 You can also use `kb(editor.action.rename)` on:
 
@@ -193,7 +193,7 @@ VS Code supports Markdown files out of the box. You just start writing Markdown 
 
 Here is an example with a simple file.
 
-![Markdown Preview](images/Markdown/preview.png)
+![Markdown Preview](images/markdown/preview.png)
 
 >**Tip:** You can also right-click on the editor Tab and select **Open Preview** (`kb(markdown.showPreview)`) or use the **Command Palette** (`kb(workbench.action.showCommands)`) to run the **Markdown: Open Preview to the Side** command (`kb(markdown.showPreviewToSide)`).
 
@@ -201,11 +201,11 @@ Here is an example with a simple file.
 
 By default, Markdown previews automatically update to preview the currently active Markdown file:
 
-![The preview automatically switching to preview the current Markdown document](images/Markdown/md-dynamic-preview.gif)
+![The preview automatically switching to preview the current Markdown document](images/markdown/md-dynamic-preview.gif)
 
 You can lock a Markdown preview using the **Markdown: Toggle Preview Locking** command to keep it locked to its current Markdown document. Locked previews are indicated by **\[Preview]** in the title:
 
-![A locked Markdown preview](images/Markdown/locked-preview-title.png)
+![A locked Markdown preview](images/markdown/locked-preview-title.png)
 
 >**Note:** The **Markdown: Toggle Preview Locking** command is available only if Markdown preview is the active Tab.
 
@@ -213,23 +213,23 @@ You can lock a Markdown preview using the **Markdown: Toggle Preview Locking** c
 
 VS Code automatically synchronizes the Markdown editor and the preview panes. Scroll the Markdown preview and the editor is scrolled to match the preview's viewport. Scroll the Markdown editor and the preview is scrolled to match its viewport:
 
-![Markdown Preview editor selection scroll sync](images/Markdown/preview-scroll-sync.gif)
+![Markdown Preview editor selection scroll sync](images/markdown/preview-scroll-sync.gif)
 
 You can disable scroll synchronization using the `setting(markdown.preview.scrollPreviewWithEditor)` and `setting(markdown.preview.scrollEditorWithPreview)` [settings](/docs/getstarted/settings.md).
 
 The currently selected line in the editor is indicated in the Markdown preview by a light gray bar in the left margin:
 
-![Markdown Preview editor line marker](images/Markdown/preview-selection-marker.png)
+![Markdown Preview editor line marker](images/markdown/preview-selection-marker.png)
 
 Additionally, double clicking an element in the Markdown preview will automatically open the editor for the file and scroll to the line nearest the clicked element.
 
-![Markdown Preview double click switches to editor](images/Markdown/double-click-preview-switch.gif)
+![Markdown Preview double click switches to editor](images/markdown/double-click-preview-switch.gif)
 
 ### Math formula rendering
 
 VS Code's built-in Markdown preview renders math equations using [KaTeX](https://katex.org/).
 
-![Markdown Preview rendering of math formulas with KaTeX](images/Markdown/math-formula-rendering.png)
+![Markdown Preview rendering of math formulas with KaTeX](images/markdown/math-formula-rendering.png)
 
 Inline math equations are wrapped in single dollar signs:
 
@@ -292,11 +292,11 @@ For security reasons, VS Code restricts the content displayed in the Markdown pr
 
 When the Markdown preview blocks content on a page, an alert popup is shown in the top right corner of the preview window:
 
-![Markdown security alert](images/Markdown/security-alert.png)
+![Markdown security alert](images/markdown/security-alert.png)
 
 You can change what content is allowed in the Markdown preview by clicking on this popup or running the **Markdown: Change preview security settings** command in any Markdown file:
 
-![Markdown security selector](images/Markdown/security-selector.png)
+![Markdown security selector](images/markdown/security-selector.png)
 
 The Markdown preview security settings apply to all files in the workspace.
 
