@@ -135,7 +135,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ["java"],
+      additionalLanguages: ["java", "javascript", "typescript", "bash"],
     },
     algolia: {
       appId: process.env.ALGOLIA_APP_ID || "",

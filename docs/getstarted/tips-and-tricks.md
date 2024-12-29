@@ -1,296 +1,302 @@
 ---
 Order: 3
 Area: getstarted
-TOCTitle: Tips and Tricks
+TOCTitle: 팁과 트릭
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-PageTitle: Visual Studio Code Tips and Tricks
+PageTitle: Visual Studio Code 팁과 트릭
 DateApproved: 12/11/2024
-MetaDescription: Visual Studio Code Tips and Tricks for power users.
+MetaDescription: 파워 유저를 위한 Visual Studio Code 팁과 트릭.
 ---
-# Visual Studio Code Tips and Tricks
 
-Use the tips and tricks in this article to jump right in and learn how to be productive with Visual Studio Code. Become familiar with the powerful editing, code intelligence, and source code control features and learn useful keyboard shortcuts. Make sure to explore the other in-depth topics in [Getting Started](/docs/getstarted/userinterface.md) and the [User Guide](/docs/editor/codebasics.md) to learn more.
+# Visual Studio Code 팁과 트릭 {#visual-studio-code-tips-and-tricks}
 
-If you're just getting started, make sure to check out the [VS Code tutorial](/docs/getstarted/getting-started.md) for a step-by-step to discover the key features.
+이 문서의 팁과 트릭을 사용하여 Visual Studio Code를 바로 시작하고 생산성을 높이는 방법을 알아보세요. 강력한 편집 기능, 코드 인텔리전스, 소스 코드 제어 기능에 익숙해지고 유용한 키보드 단축키를 배우세요. [시작하기](/docs/getstarted/userinterface.md)와 [사용자 가이드](/docs/editor/codebasics.md)의 다른 심화 주제들도 더 많이 알아보세요.
 
-> If you don't have Visual Studio Code installed, go to the [Download](/download) page. You can find platform specific setup instructions at [Running VS Code on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), and [Windows](/docs/setup/windows.md).
+처음 시작하시는 분이라면, 주요 기능을 단계별로 살펴볼 수 있는 [VS Code 튜토리얼](/docs/getstarted/getting-started.md)을 확인해보세요.
 
-Prefer a video? You can watch the VS Code Day talks [Visual Studio Code tips and tricks](https://learn.microsoft.com/en-us/events/visual-studio-code-vs-code-day-2021/vs-code-tips-and-tricks) or [Elevate your VS Code experience](https://learn.microsoft.com/en-us/shows/vs-code-day-2023/elevate-your-vs-code-experience).
+> Visual Studio Code가 설치되어 있지 않다면, [다운로드](/download) 페이지를 방문하세요. [Linux에서 VS Code 실행하기](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), [Windows](/docs/setup/windows.md)에서 플랫폼별 설정 지침을 찾을 수 있습니다.
 
-## Basics
+영상을 선호하시나요? VS Code Day 강연 [Visual Studio Code 팁과 트릭](https://learn.microsoft.com/en-us/events/visual-studio-code-vs-code-day-2021/vs-code-tips-and-tricks)이나 [VS Code 경험 향상하기](https://learn.microsoft.com/en-us/shows/vs-code-day-2023/elevate-your-vs-code-experience)를 시청할 수 있습니다.
 
-### Getting started
+## 기본 {#basics}
 
-The best way of exploring VS Code hands-on is to open the **Welcome** page and then pick a **Walkthrough** for a self-guided tour through the setup steps, features, and deeper customizations that VS Code offers. As you discover and learn, the walkthroughs track your progress.
+### 시작하기 {#getting-started}
 
-Open the Welcome page from the **Help** > **Welcome** menu or use the **Help: Welcome** command from the Command Palette (`kb(workbench.action.showCommands)`).
+VS Code를 직접 체험하는 가장 좋은 방법은 **Welcome** 페이지를 열고 **Walkthrough**를 선택하여 VS Code가 제공하는 설정 단계, 기능, 더 깊은 사용자 정의를 자기 주도적으로 둘러보는 것입니다. 여러분이 발견하고 배우면서, 둘러보기는 여러분의 진행 상황을 추적합니다.
+
+**Help** > **Welcome**에서 환영 페이지를 열거나 명령 팔레트(`Ctrl+Shift+P`)에서 **Help: Welcome** 명령을 사용하세요.
 
 ![Welcome page](images/tips-and-tricks/welcome-page.png)
 
-Extensions can also contribute walkthroughs. You can also directly open a walkthrough by using the **Help: Open Walkthrough...** command from the Command Palette (`kb(workbench.action.showCommands)`).
+확장 프로그램도 둘러보기를 제공할 수 있습니다. 명령 팔레트(`Ctrl+Shift+P`)에서 **Help: Open Walkthrough...** 명령을 사용하여 둘러보기를 직접 열 수도 있습니다.
 
 ![Open walkthrough command in the Command Palette](images/tips-and-tricks/open-walkthrough.png)
 
-If you are looking to improve your code editing skills, open the **Interactive Editor Playground**. Try out VS Code's [code editing features](/docs/editor/codebasics.md), like multi-cursor editing, [IntelliSense](/docs/editor/intellisense.md), Snippets, [Emmet](/docs/editor/emmet.md), and more.
+코드 편집 스킬을 향상시키고 싶다면, **Interactive Editor Playground**를 열어보세요. VS Code의 [코드 편집 기능](/docs/editor/codebasics.md), 멀티 커서 편집, [IntelliSense](/docs/editor/intellisense.md), 스니펫, [Emmet](/docs/editor/emmet.md) 등을 시험해볼 수 있습니다.
 
-Open the Welcome page from the **Help** > **Editor Playground** menu or use the **Help: Interactive Editor Playground** command from the Command Palette (`kb(workbench.action.showCommands)`).
+**Help** > **Editor Playground**에서 환영 페이지를 열거나 명령 팔레트(`Ctrl+Shift+P`)에서 **Help: Interactive Editor Playground** 명령을 사용하세요.
 
 ![Interactive editor playground](images/tips-and-tricks/interactive_playground.png)
 
-### Command Palette
+### 명령 팔레트 {#command-palette}
 
-Access all available commands based on your current context.
+현재 상황에 따라 사용 가능한 모든 명령에 접근하세요.
 
-Keyboard Shortcut: `kb(workbench.action.showCommands)`
+키보드 단축키: `Ctrl+Shift+P`
 
 ![Command Palette](images/tips-and-tricks/OpenCommandPalette.gif)
 
-### Default keyboard shortcuts
+### 기본 키보드 단축키 {#default-keyboard-shortcuts}
 
-Many of the commands in the Command Palette have default key bindings associated with them. You can see the default keyboard shortcut alongside the command in the **Command Palette** (`kb(workbench.action.showCommands)`).
+명령 팔레트의 많은 명령들은 기본 키 바인딩이 연결되어 있습니다. **명령 팔레트**(`Ctrl+Shift+P`)에서 명령 옆에 기본 키보드 단축키를 볼 수 있습니다.
 
 ![keyboard references](images/tips-and-tricks/keyboard-references.png)
 
-### Keyboard reference sheets
+### 키보드 참조 시트 {#keyboard-reference-sheets}
 
-Download the keyboard shortcut reference sheet for your platform ([macOS](https://go.microsoft.com/fwlink/?linkid=832143), [Windows](https://go.microsoft.com/fwlink/?linkid=832145), [Linux](https://go.microsoft.com/fwlink/?linkid=832144)).
+여러분의 플랫폼에 맞는 키보드 단축키 참조 시트를 다운로드하세요([macOS](https://go.microsoft.com/fwlink/?linkid=832143), [Windows](https://go.microsoft.com/fwlink/?linkid=832145), [Linux](https://go.microsoft.com/fwlink/?linkid=832144)).
 
 ![Keyboard Reference Sheet](images/tips-and-tricks/KeyboardReferenceSheet.png)
 
-### Quick Open
+### 빠른 열기 {#quick-open}
 
-Quickly search and open files.
+파일을 빠르게 검색하고 엽니다.
 
-Keyboard Shortcut: `kb(workbench.action.quickOpen)`
+키보드 단축키: `Ctrl+P`
 
 ![Quick Open](images/tips-and-tricks/QuickOpen.gif)
 
-**Tip:** Type `kbstyle(?)` to view command suggestions.
+**팁:** `?`를 입력하여 명령 제안을 볼 수 있습니다.
 
 ![Quick Open command list](images/tips-and-tricks/quick-open-command-dropdown.png)
 
-Typing commands such as `edt` or `term` followed by a space brings up a dropdown list.
+`edt` 또는 `term`과 같은 명령을 입력하고 스페이스를 누르면 드롭다운 목록이 나타납니다.
 
 ![term command in Quick Open](images/tips-and-tricks/term-quick-open.png)
 
-### Navigate between recently opened files
+### 최근에 열어본 파일 간 이동 {#navigate-between-recently-opened-files}
 
-Repeatedly press the **Quick Open** keyboard shortcut to cycle quickly between recently opened files.
+**빠른 열기** 키보드 단축키를 반복해서 누르면 최근에 열어본 파일 사이를 빠르게 이동할 수 있습니다.
 
-### Open multiple files from Quick Open
+### 빠른 열기에서 여러 파일 열기 {#open-multiple-files-from-quick-open}
 
-You can open multiple files from **Quick Open** by pressing `kbstyle(Right Arrow)`. This opens the currently selected file in the background, and you can continue selecting files from **Quick Open**.
+**빠른 열기**에서 `Right Arrow`를 눌러 여러 파일을 열 수 있습니다. 현재 선택된 파일이 백그라운드에서 열리고, **빠른 열기**에서 계속해서 파일을 선택할 수 있습니다.
 
-### Navigate between recently opened folders and workspaces
+### 최근에 열어본 폴더와 작업 영역 간 이동 {#navigate-between-recently-opened-folders-and-workspaces}
 
-Open a recent folder or workspace.
+최근 폴더나 작업 영역을 엽니다.
 
-Keyboard Shortcut: `kb(workbench.action.openRecent)`
+키보드 단축키: `Ctrl+R`
 
-Displays a Quick Pick dropdown with the list from **File** > **Open Recent** with recently opened folders and workspaces followed by files.
+**File** > **Open Recent**에서 최근에 열어본 폴더와 작업 영역, 그리고 파일 목록이 있는 빠른 선택 드롭다운을 표시합니다.
 
-### Floating windows
+### 플로팅 창 {#floating-windows}
 
-You can open an editor in a floating window, for example to move the editor to another place on your monitor or even to another monitor.
+편집기를 플로팅 창으로 열 수 있습니다. 예를 들어, 편집기를 모니터의 다른 위치로 이동하거나 다른 모니터로 이동할 때 유용합니다.
 
-To open an editor in a floating window, drag it out of the main window and drop it anywhere outside of the current VS Code window. Another way to detach an editor is to right-click on an editor tab, and select the option **Move into New Window** (`workbench.action.moveEditorToNewWindow`) or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`).
+편집기를 플로팅 창으로 열려면, 현재 VS Code 창 밖으로 드래그하여 아무 곳에나 놓으세요. 편집기를 분리하는 또 다른 방법은 편집기 탭을 우클릭하고 **Move into New Window**(`workbench.action.moveEditorToNewWindow`) 또는 **Copy into New Window**(`Ctrl+K O`) 옵션을 선택하는 것입니다.
 
-<video src="images/tips-and-tricks/floating-windows.mp4" autoplay loop controls muted></video>
+<video autoplay loop controls muted style={{ maxWidth: '100%' }}>
 
-## Command line
+<source src="https://code.visualstudio.com/assets/docs/getstarted/tips-and-tricks/floating-windows.mp4" type="video/mp4" />
+</video>
 
-VS Code has a powerful command line interface (CLI) which enables you to customize how the editor is launched to support various scenarios. For example, you can start VS Code from the command line to open a diff editor for comparing two files.
+## 명령줄 {#command-line}
 
-> Make sure the VS Code binary is on your path so you can simply type 'code' to launch VS Code. See the platform specific setup topics if VS Code is added to your environment path during installation ([Running VS Code on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), [Windows](/docs/setup/windows.md)).
+VS Code에는 강력한 명령줄 인터페이스(CLI)가 있어 다양한 시나리오를 지원하도록 편집기 실행 방식을 사용자 정의할 수 있습니다. 예를 들어, 명령줄에서 VS Code를 시작하여 두 파일을 비교하는 차이점 편집기를 열 수 있습니다.
+
+> VS Code 바이너리가 경로에 있는지 확인하세요. 그러면 간단히 'code'를 입력하여 VS Code를 실행할 수 있습니다. 설치 중에 VS Code가 환경 경로에 추가되는지 확인하려면 플랫폼별 설정 주제를 참조하세요([Linux에서 VS Code 실행](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), [Windows](/docs/setup/windows.md)).
 
 ```bash
-# open code with current directory
+# 현재 디렉터리로 code 열기
 code .
 
-# open the current directory in the most recently used code window
+# 가장 최근에 사용한 code 창에서 현재 디렉터리 열기
 code -r .
 
-# create a new window
+# 새 창 만들기
 code -n
 
-# change the language
+# 언어 변경
 code --locale=es
 
-# open diff editor
+# 차이점 편집기 열기
 code --diff <file1> <file2>
 
-# open file at specific line and column <file:line[:character]>
+# 특정 줄과 열에서 파일 열기 <file:line[:character]>
 code --goto package.json:10:5
 
-# see help options
+# 도움말 옵션 보기
 code --help
 
-# disable all extensions
+# 모든 확장 프로그램 비활성화
 code --disable-extensions .
 ```
 
-### .vscode folder
+### .vscode 폴더 {#vscode-folder}
 
-Workspace specific files are in a `.vscode` folder at the root of your workspace. For example, `tasks.json` for the [Task Runner](/docs/editor/tasks.md) and `launch.json` for the [debugger](/docs/editor/debugging.md).
+작업 영역별 파일은 작업 영역의 루트에 있는 `.vscode` 폴더에 있습니다. 예를 들어, [작업 실행기](/docs/editor/tasks.md)용 `tasks.json`과 [디버거](/docs/editor/debugging.md)용 `launch.json`이 있습니다.
 
-## Status Bar
+## 상태 표시줄 {#status-bar}
 
-### Errors and warnings
+### 오류와 경고 {#errors-and-warnings}
 
-Keyboard Shortcut: `kb(workbench.actions.view.problems)`
+키보드 단축키: `Ctrl+Shift+M`
 
-Quickly jump to errors and warnings in the project.
+프로젝트의 오류와 경고로 빠르게 이동할 수 있습니다.
 
-Cycle through errors with `kb(editor.action.marker.nextInFiles)` or `kb(editor.action.marker.prevInFiles)`
+`F8` 또는 `Shift+F8`로 오류 간 이동이 가능합니다.
 
 ![errors and warnings](images/tips-and-tricks/Errors_Warnings.gif)
 
-You can filter problem list either by type ('info', 'errors', 'warnings') or by matching text.
+문제 목록을 유형('info', 'errors', 'warnings')이나 일치하는 텍스트로 필터링할 수 있습니다.
 
-### Change language mode
+### 언어 모드 변경 {#change-language-mode}
 
-The language mode in the Status Bar indicates the language (for example, Markdown, Python, and more) that is associated with the active editor. You can change the language mode for the current editor by selecting the Status Bar language mode indicator, or by using the keyboard shortcut.
+상태 표시줄의 언어 모드는 활성 편집기와 연결된 언어(예: Markdown, Python 등)를 나타냅니다. 상태 표시줄의 언어 모드 표시기를 선택하거나 키보드 단축키를 사용하여 현재 편집기의 언어 모드를 변경할 수 있습니다.
 
-Keyboard Shortcut: `kb(workbench.action.editor.changeLanguageMode)`
+키보드 단축키: `Ctrl+K M`
 
 ![change syntax](images/tips-and-tricks/change_syntax.gif)
 
-If you want to persist the new language mode for a file type, use the **Configure File Association for** command to associate the current file extension with an installed language.
+파일 유형에 대해 새 언어 모드를 유지하려면 **Configure File Association** 명령을 사용하여 현재 파일 확장자를 설치된 언어와 연결하세요.
 
-## Customization
+## 사용자 정의 {#customization}
 
-There are many options to customize VS Code to meet your preferences:
+VS Code를 여러분의 선호도에 맞게 사용자 정의할 수 있는 많은 옵션이 있습니다:
 
-* Change your theme
-* Change your keyboard shortcuts
-* Tune your settings
-* Add JSON validation
-* Create snippets
-* Install extensions
+- 테마 변경
+- 키보드 단축키 변경
+- 설정 조정
+- JSON 유효성 검사 추가
+- 스니펫 만들기
+- 확장 프로그램 설치
 
-### Change your theme
+### 테마 변경 {#change-your-theme}
 
-VS Code comes with a number of built-in [color themes](/docs/getstarted/themes.md). Use the **Preferences: Color Theme** command or use the keyboard shortcut.
+VS Code에는 여러 가지 내장된 [색상 테마](/docs/getstarted/themes.md)가 있습니다. **기본 설정: 색상 테마** 명령을 사용하거나 키보드 단축키를 사용하세요.
 
-Keyboard Shortcut: `kb(workbench.action.selectTheme)`
+키보드 단축키: `Ctrl+K Ctrl+T`
 
 ![Preview themes](images/tips-and-tricks/PreviewThemes.gif)
 
-You can install more themes from the VS Code extension [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Themes&sortBy=Installs). Select the **Preferences: Color Theme** > **+ Browse Additional Color Themes...** command to search themes from the Marketplace.
+VS Code 확장 [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Themes&sortBy=Installs)에서 더 많은 테마를 설치할 수 있습니다. **Preferences: Color Theme** > **+ Browse Additional Color Themes...** 명령을 선택하여 Marketplace에서 테마를 검색하세요.
 
-Additionally, you can install and change your File Icon themes.
+추가적으로, 파일 아이콘 테마를 설치하고 변경할 수 있습니다.
 
 ![File icon themes](images/tips-and-tricks/PreviewFileIconThemes.gif)
 
-### Keymaps
+### 키맵 {#keymaps}
 
-Are you used to keyboard shortcuts from another editor? You can install a Keymap extension that brings the keyboard shortcuts from your favorite editor to VS Code. Use the **Preferences: Keymaps** command to see the current list on the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs). Some of the more popular ones:
+다른 편집기의 키보드 단축키에 익숙하신가요? 키맵 확장 프로그램을 설치하여 좋아하는 편집기의 키보드 단축키를 VS Code로 가져올 수 있습니다. **Preferences: Keymaps** 명령을 사용하여 [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs)의 현재 목록을 확인하세요. 가장 인기 있는 것들은 다음과 같습니다:
 
-* [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
-* [Sublime Text Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings)
-* [Emacs Keymap](https://marketplace.visualstudio.com/items?itemName=hiro-sun.vscode-emacs)
-* [Atom Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.atom-keybindings)
-* [Brackets Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.brackets-keybindings)
-* [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings)
-* [Visual Studio Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vs-keybindings)
+- [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
+- [Sublime Text Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings)
+- [Emacs Keymap](https://marketplace.visualstudio.com/items?itemName=hiro-sun.vscode-emacs)
+- [Atom Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.atom-keybindings)
+- [Brackets Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.brackets-keybindings)
+- [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings)
+- [Visual Studio Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vs-keybindings)
 
-### Customize your keyboard shortcuts
+### 키보드 단축키 사용자 정의 {#customize-your-keyboard-shortcuts}
 
-You can view and customize the keyboard shortcuts in the **Keyboard Shortcuts** editor. Use the **Preferences: Open Keyboard Shortcuts** command or use the shortcut to open the editor.
+**키보드 단축키** 편집기에서 키보드 단축키를 보고 사용자 정의할 수 있습니다. **Preferences: Open Keyboard Shortcuts** 명령을 사용하거나 단축키를 사용하여 편집기를 여세요.
 
-Keyboard Shortcut: `kb(workbench.action.openGlobalKeybindings)`
+키보드 단축키: `Ctrl+K Ctrl+S`
 
-Select the pencil icon or use `kbstyle(Enter)` on a specific entry to edit the keyboard shortcut. Filter the list by using the search field.
+연필 아이콘을 선택하거나 특정 항목에서 `Enter`를 사용하여 키보드 단축키를 편집하세요. 검색 필드를 사용하여 목록을 필터링할 수 있습니다.
 
 ![keyboard shortcuts](images/tips-and-tricks/keyboard-shortcuts.png)
 
-You can also search for shortcuts and add your own keybindings to the `keybindings.json` file.
+단축키를 검색하고 `keybindings.json` 파일에 자신만의 키 바인딩을 추가할 수도 있습니다.
 
 ![customize keyboard shortcuts](images/tips-and-tricks/KeyboardShortcuts.gif)
 
-See more in [Key Bindings for Visual Studio Code](/docs/getstarted/keybindings.md).
+자세한 내용은 [Visual Studio Code용 키 바인딩](/docs/getstarted/keybindings.md)을 참조하세요.
 
-### Tune your settings
+### 설정 조정 {#tune-your-settings}
 
-By default, VS Code shows the Settings editor to view and edit settings. You can also edit the underlying `settings.json` file by using the **Open User Settings (JSON)** command or by changing your default settings editor with the `setting(workbench.settings.editor)` setting.
+기본적으로 VS Code는 설정을 보고 편집할 수 있는 설정 편집기를 보여줍니다. **사용자 설정 열기(JSON)** 명령을 사용하거나 `workbench.settings.editor` 설정으로 기본 설정 편집기를 변경하여 기본 `settings.json` 파일을 직접 편집할 수도 있습니다.
 
-Open User Settings `settings.json`
+사용자 설정 `settings.json` 열기
 
-Keyboard Shortcut: `kb(workbench.action.openSettings)`
+키보드 단축키: `Ctrl+,`
 
-Change the font size of various UI elements
+다양한 UI 요소의 글꼴 크기 변경
 
 ```json
-// Main editor
+// 메인 편집기
 "editor.fontSize": 18,
-// Terminal panel
+// 터미널 패널
 "terminal.integrated.fontSize": 14,
-// Output panel
+// 출력 패널
 "[Log]": {
     "editor.fontSize": 15
 }
 ```
 
-Change the zoom level
+확대/축소 레벨 변경
 
 ```json
 "window.zoomLevel": 5
 ```
 
-Font ligatures
+글꼴 합자(Ligatures)
 
 ```json
 "editor.fontFamily": "Fira Code",
 "editor.fontLigatures": true
 ```
 
-> **Tip:** You need to have a font installed that supports font ligatures. [FiraCode](https://github.com/tonsky/FiraCode) is a popular font on the VS Code team.
+:::tip
+글꼴 합자를 지원하는 글꼴이 설치되어 있어야 합니다. [FiraCode](https://github.com/tonsky/FiraCode)는 VS Code 팀에서 인기 있는 글꼴입니다.
+:::
 
 ![font ligatures](images/tips-and-tricks/font-ligatures-annotated.png)
 
-Auto Save
+자동 저장
 
 ```json
 "files.autoSave": "afterDelay"
 ```
 
-You can also toggle Auto Save from the top-level menu with the **File** > **Auto Save**.
+**File** > **Auto Save** 메뉴에서도 자동 저장을 토글할 수 있습니다.
 
-Format on save
+저장 시 포맷
 
 ```json
 "editor.formatOnSave": true
 ```
 
-Format on paste
+붙여넣기 시 포맷
 
 ```json
 "editor.formatOnPaste": true
 ```
 
-Change the size of Tab characters
+탭 문자의 크기 변경
 
 ```json
 "editor.tabSize": 4
 ```
 
-Spaces or Tabs
+공백 또는 탭
 
 ```json
 "editor.insertSpaces": true
 ```
 
-Render whitespace
+공백 문자 렌더링
 
 ```json
 "editor.renderWhitespace": "all"
 ```
 
-Whitespace characters are rendered by default in text selection.
+공백 문자는 기본적으로 텍스트 선택에서 렌더링됩니다.
 
-Ignore files / folders
+파일/폴더 무시
 
-Removes these files / folders from your editor window.
+이러한 파일/폴더를 편집기 창에서 제거합니다.
 
 ```json
 "files.exclude": {
@@ -299,7 +305,7 @@ Removes these files / folders from your editor window.
 }
 ```
 
-Remove these files / folders from search results.
+검색 결과에서 이러한 파일/폴더를 제거합니다.
 
 ```json
 "search.exclude": {
@@ -308,11 +314,11 @@ Remove these files / folders from search results.
 }
 ```
 
-Learn about the many [other customizations](/docs/getstarted/settings.md).
+[다른 사용자 정의](/docs/getstarted/settings.md)에 대해 자세히 알아보세요.
 
-### Language specific settings
+### 언어별 설정 {#language-specific-settings}
 
-You can scope settings for specific languages by using the language identifier. You can find a list of commonly used language IDs in the [Language Identifiers](/docs/languages/identifiers.md) reference.
+언어 식별자를 사용하여 특정 언어에 대한 설정을 지정할 수 있습니다. 일반적으로 사용되는 언어 ID 목록은 [언어 식별자](/docs/languages/identifiers.md) 참조에서 찾을 수 있습니다.
 
 ```json
 "[languageid]": {
@@ -320,13 +326,15 @@ You can scope settings for specific languages by using the language identifier. 
 }
 ```
 
-> **Tip:** You can also create language-specific settings with the **Configure Language Specific Settings** command.
->
-> ![language based settings](images/tips-and-tricks/lang-based-settings.png)
+:::tip
+**Configure Language Specific Settings** 명령을 사용하여 언어별 설정을 만들 수도 있습니다.
 
-### Add JSON validation
+![language based settings](images/tips-and-tricks/lang-based-settings.png)
+:::
 
-JSON validation is enabled by default for many file types. Create your own schema and validation in `settings.json`:
+### JSON 유효성 검사 추가 {#add-json-validation}
+
+많은 파일 유형에 대해 JSON 유효성 검사가 기본적으로 활성화되어 있습니다. `settings.json`에서 자신만의 스키마와 유효성 검사를 만드세요:
 
 ```json
 "json.schemas": [
@@ -339,7 +347,7 @@ JSON validation is enabled by default for many file types. Create your own schem
 ]
 ```
 
-or for a schema defined in your workspace:
+또는 작업 영역에 정의된 스키마의 경우:
 
 ```json
 "json.schemas": [
@@ -352,7 +360,7 @@ or for a schema defined in your workspace:
 ]
 ```
 
-or to use a custom schema:
+또는 사용자 정의 스키마를 사용하려면:
 
 ```json
 "json.schemas": [
@@ -365,7 +373,7 @@ or to use a custom schema:
             "properties": {
                 "name" : {
                     "type": "string",
-                    "description": "The name of the entry"
+                    "description": "항목의 이름"
                 }
             }
         }
@@ -373,151 +381,151 @@ or to use a custom schema:
 ]
 ```
 
-See more in the [JSON](/docs/languages/json.md) documentation.
+자세한 내용은 [JSON](/docs/languages/json.md) 문서를 참조하세요.
 
-### Configure the default browser
+### 기본 브라우저 구성 {#configure-the-default-browser}
 
-In VS Code, you can `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) on a link to open it in your default browser. You can configure the default browser by setting the `setting(workbench.externalBrowser)` [setting](/docs/getstarted/settings.md).
+VS Code에서는 링크를 `Ctrl+click`(`Cmd+click`, macOS의 경우)하여 기본 브라우저에서 열 수 있습니다. `workbench.externalBrowser` [설정](/docs/getstarted/settings.md)을 통해 기본 브라우저를 구성할 수 있습니다.
 
-Specify the full path to the browser executable as the settings value. Alternatively, to ensure correct functioning across devices, you can also use browser aliases, such as `edge`, `chrome`, or `firefox`.
+설정 값으로 브라우저 실행 파일의 전체 경로를 지정하세요. 또는 장치 간 올바른 작동을 보장하기 위해 `edge`, `chrome`, `firefox`와 같은 브라우저 별칭을 사용할 수도 있습니다.
 
 ```json
 "workbench.externalBrowser": "edge"
 ```
 
-## Extensions
+## 확장 프로그램 {#extensions}
 
-Keyboard Shortcut: `kb(workbench.view.extensions)`
+키보드 단축키: `Ctrl+Shift+X`
 
-### Find extensions
+### 확장 프로그램 찾기 {#find-extensions}
 
-You can use multiple sources to find extensions:
+여러 소스를 사용하여 확장 프로그램을 찾을 수 있습니다:
 
-* In the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode).
-* Search inside VS Code in the **Extensions** view.
-* View extension recommendations
-* Community curated extension lists, such as [awesome-vscode](https://github.com/viatsko/awesome-vscode).
+- VS Code [Marketplace](https://marketplace.visualstudio.com/vscode)에서
+- VS Code의 **Extensions** 보기에서 검색
+- 확장 프로그램 추천 보기
+- [awesome-vscode](https://github.com/viatsko/awesome-vscode)와 같은 커뮤니티에서 관리하는 확장 프로그램 목록
 
-### Find popular extensions
+### 인기 있는 확장 프로그램 찾기 {#find-popular-extensions}
 
-In the **Extensions** view, select the **Filter** control, and then either select **Most Popular** or **Sort By** > **Install Count**.
+**Extensions** 화면에서 **Filter** 컨트롤을 선택한 다음 **Most Popular** 또는 **Sort By** > **Install Count**를 선택하세요.
 
 ![install extensions](images/tips-and-tricks/show-popular-extensions.png)
 
-### Extension recommendations
+### 확장 프로그램 추천 {#extension-recommendations}
 
-In the **Extensions** view, select the **Filter** control, and then select **Recommended** to view the list of recommended extensions.
+**Extensions** 화면에서 **Filter** 컨트롤을 선택한 다음 **Recommended**을 선택하여 추천 확장 프로그램 목록을 확인하세요.
 
 ![show recommended extensions](images/tips-and-tricks/show-recommended-extensions.png)
 
-### Create your own extension
+### 자신만의 확장 프로그램 만들기 {#create-your-own-extension}
 
-Are you interested in creating your own extension? You can learn how to do this in the [Extension API documentation](/api), specifically check out the [documentation on contribution points](/api/references/contribution-points.md).
+자신만의 확장 프로그램을 만드는 데 관심이 있으신가요? [확장 API 문서](/api)에서 방법을 배울 수 있습니다. 특히 [기여 포인트 문서](/api/references/contribution-points.md)를 확인해보세요.
 
-* configuration
-* commands
-* keybindings
-* languages
-* debuggers
-* grammars
-* themes
-* snippets
-* jsonValidation
+- 구성
+- 명령
+- 키 바인딩
+- 언어
+- 디버거
+- 문법
+- 테마
+- 스니펫
+- JSON 유효성 검사
 
-## Files and folders
+## 파일과 폴더 {#files-and-folders}
 
-### Simple file dialog
+### 간단한 파일 대화상자 {#simple-file-dialog}
 
-With the simple file dialog, you can replace the system's default file dialog for opening and saving files and folders with a simpler Quick Pick dialog within VS Code.
+간단한 파일 대화상자를 사용하면 파일과 폴더를 열고 저장하기 위한 시스템의 기본 파일 대화상자를 VS Code 내의 더 간단한 빠른 선택 대화상자로 대체할 수 있습니다.
 
-After you enable the Simple File Dialog, you can browse and select files and folders by using a Quick Pick inside VS Code.
+간단한 파일 대화상자를 활성화하면 VS Code 내에서 빠른 선택을 사용하여 파일과 폴더를 탐색하고 선택할 수 있습니다.
 
 ![Simple File Dialog](images/tips-and-tricks/simple-file-dialog.png)
 
-To enable the simple file dialog, configure the `files.simpleDialog` [setting](/docs/getstarted/settings.md):
+간단한 파일 대화상자를 활성화하려면 `files.simpleDialog` [설정](/docs/getstarted/settings.md)을 구성하세요:
 
 ```json
     "files.simpleDialog.enable": true
 ```
 
-### Integrated Terminal
+### 통합 터미널 {#integrated-terminal}
 
-Keyboard Shortcut: `kb(workbench.action.terminal.toggleTerminal)`
+키보드 단축키: Ctrl+`
 
 ![Integrated terminal](images/tips-and-tricks/integrated_terminal.png)
 
-You can select another terminal shell from the dropdown. Depending on your operating system and system configuration, you might see different shells listed.
+드롭다운에서 다른 터미널 셸을 선택할 수 있습니다. 운영 체제와 시스템 구성에 따라 다른 셸이 표시될 수 있습니다.
 
-Further reading:
+추가 읽기:
 
-* [Integrated Terminal](/docs/terminal/basics.md) documentation
-* [Mastering VS Code's Terminal article](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html)
+- [통합 터미널](/docs/terminal/basics.md) 문서
+- [VS Code의 터미널 마스터하기 문서](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html)
 
-### Toggle Sidebar
+### 사이드바 토글 {#toggle-sidebar}
 
-Keyboard Shortcut: `kb(workbench.action.toggleSidebarVisibility)`
+키보드 단축키: `Ctrl+B`
 
 ![toggle side bar](images/tips-and-tricks/toggle_side_bar.gif)
 
-### Toggle Panel
+### 패널 토글 {#toggle-panel}
 
-Keyboard Shortcut: `kb(workbench.action.togglePanel)`
+키보드 단축키: `Ctrl+J`
 
 ![toggle panel](images/tips-and-tricks/toggle_panel.gif)
 
-### Zen mode
+### Zen 모드 {#zen-mode}
 
-Enter distraction-free Zen mode.
+방해 없는 Zen 모드로 들어가세요.
 
-Keyboard Shortcut: `kb(workbench.action.toggleZenMode)`
+키보드 단축키: `Ctrl+K Z`
 
 ![zen mode](images/tips-and-tricks/zen_mode.gif)
 
-Press `kbstyle(Esc)` twice to exit Zen Mode.
+`Esc`를 두 번 눌러 Zen 모드를 종료하세요.
 
-### Side by side editing
+### 나란히 편집 {#side-by-side-editing}
 
-Keyboard Shortcut: `kb(workbench.action.splitEditor)`
+키보드 단축키: `Ctrl+\`
 
-You can also drag and drop editors to create new editor groups and move editors between groups.
+편집기를 드래그 앤 드롭하여 새 편집기 그룹을 만들고 편집기를 그룹 간에 이동할 수도 있습니다.
 
 ![split editors](images/tips-and-tricks/split_editor.gif)
 
-### Switch between editors
+### 편집기 간 전환 {#switch-between-editors}
 
-Keyboard Shortcut: `kb(workbench.action.focusFirstEditorGroup)`, `kb(workbench.action.focusSecondEditorGroup)`, `kb(workbench.action.focusThirdEditorGroup)`
+키보드 단축키: `Ctrl+1`, `Ctrl+2`, `Ctrl+3`
 
 ![navigate editors](images/tips-and-tricks/navigate_editors.gif)
 
-### Show Explorer view
+### 탐색기 보기 표시 {#show-explorer-view}
 
-Keyboard Shortcut: `kb(workbench.view.explorer)`
+키보드 단축키: `Ctrl+Shift+E`
 
-### Create or open a file from a link
+### 링크에서 파일 만들기 또는 열기 {#create-or-open-a-file-from-a-link}
 
-Keyboard Shortcut: `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS)
+키보드 단축키: `Ctrl+click` (`Cmd+click`, macOS의 경우)
 
-You can quickly open a file or image, or create a new file by moving the cursor to the file link and then pressing `kbstyle(Ctrl+click)`.
+커서를 파일 링크로 이동한 다음 `Ctrl+click`을 눌러 파일이나 이미지를 빠르게 열거나 새 파일을 만들 수 있습니다.
 
 ![create and open file](images/tips-and-tricks/create_open_file.gif)
 
-### Close the currently opened folder
+### 현재 열린 폴더 닫기 {#close-the-currently-opened-folder}
 
-Keyboard Shortcut: `kb(workbench.action.closeFolder)`
+키보드 단축키: `Ctrl+K F`
 
-### Navigation history
+### 탐색 기록 {#navigation-history}
 
-Navigate entire history: `kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)`
+전체 기록 탐색: `Ctrl+Tab`
 
-Navigate back: `kb(workbench.action.navigateBack)`
+뒤로 탐색: `Alt+Left`
 
-Navigate forward: `kb(workbench.action.navigateForward)`
+앞으로 탐색: `Alt+Right`
 
 ![navigate history](images/tips-and-tricks/navigate_history.gif)
 
-### File associations
+### 파일 연결 {#file-associations}
 
-Create language associations for files that aren't detected correctly. For example, many configuration files with custom file extensions are actually JSON.
+올바르게 감지되지 않는 파일에 대한 언어 연결을 만드세요. 예를 들어, 사용자 정의 파일 확장자가 있는 많은 구성 파일이 실제로는 JSON입니다.
 
 ```json
 "files.associations": {
@@ -525,297 +533,300 @@ Create language associations for files that aren't detected correctly. For examp
 }
 ```
 
-### Preventing dirty writes
+### 동시 수정 충돌 방지 {#preventing-dirty-writes}
 
-VS Code will show you an error message when you try to save a file that cannot be saved because it has changed on disk. VS Code blocks saving the file to prevent overwriting changes that have been made outside of the editor.
+디스크에서 변경된 파일을 저장하려고 할 때 VS Code는 오류 메시지를 표시합니다. VS Code는 편집기 외부에서 변경된 내용을 덮어쓰는 것을 방지하기 위해 파일 저장을 차단합니다.
 
-To resolve the save conflict, select the **Compare** action in the notification popup to open a diff editor that shows you the contents of the file on disk (to the left) compared to the contents in VS Code (on the right):
+저장 충돌을 해결하려면 알림 팝업에서 **Compare** 작업을 선택하여 디스크의 파일 내용(왼쪽)과 VS Code의 내용(오른쪽)을 비교하는 차이점 편집기를 여세요:
 
 ![dirty write](images/tips-and-tricks/dirty-write.png)
 
-Use the actions in the editor toolbar to resolve the save conflict. You can either **Accept** your changes and thereby overwriting any changes on disk, or **Revert** to the version on disk. Reverting means that your changes will be lost.
+편집기 도구 모음의 작업을 사용하여 저장 충돌을 해결하세요. 변경 사항을 **Accept**하여 디스크의 변경 사항을 덮어쓰거나, 디스크 버전으로 **Revert**를 선택할 수 있습니다. 되돌리기는 변경 사항이 손실됨을 의미합니다.
 
-**Note:** The file remains dirty and cannot be saved until you pick one of the two actions to resolve the conflict.
+:::note
+충돌을 해결하기 위해 두 작업 중 하나를 선택할 때까지 파일은 편집 중인 상태로 유지되며 저장할 수 없습니다.
+:::
 
-## Editing hacks
+## 편집 핵심 기능 {#editing-hacks}
 
-Here is a selection of common features for editing code. If you're more familiar with the keyboard shortcuts for another editor, consider installing a [keymap extension](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs).
+다음은 코드 편집을 위한 공통 기능들의 모음입니다. 다른 편집기의 키보드 단축키에 더 익숙하다면, [키맵 확장 프로그램](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs) 설치를 고려해보세요.
 
-**Tip**: You can see recommended keymap extensions in the **Extensions** view by filtering the search to `@recommended:keymaps`.
+:::tip
+**Extensions** 보기에서 `@recommended:keymaps`로 검색을 필터링하여 추천 키맵 확장 프로그램을 볼 수 있습니다.
+:::
 
-### Multi cursor selection
+### 다중 커서 선택 {#multi-cursor-selection}
 
-To add cursors at arbitrary positions, select a position with your mouse and use `kbstyle(Alt+Click)` (`kbstyle(Option+Click)` on macOS).
+임의의 위치에 커서를 추가하려면 마우스로 위치를 선택하고 `Alt+Click`(`Option+Click`, macOS의 경우)을 사용하세요.
 
-To set cursors above or below the current position use:
+현재 위치 위나 아래에 커서를 설정하려면 다음을 사용하세요:
 
-Keyboard Shortcut: `kb(editor.action.insertCursorAbove)` or `kb(editor.action.insertCursorBelow)`
+키보드 단축키: `Ctrl+Alt+Up` 또는 `Ctrl+Alt+Down`
 
 ![multi cursor](images/tips-and-tricks/multicursor.gif)
 
-You can add additional cursors to all occurrences of the current selection with `kb(editor.action.selectHighlights)`.
+`Ctrl+Shift+L`를 사용하여 현재 선택 영역의 모든 항목에 추가 커서를 추가할 수 있습니다.
 
 ![add cursor to all occurrences of current selection](images/tips-and-tricks/add_cursor_current_selection.gif)
 
-> Note: You can also change the modifier to `kbstyle(Ctrl/Cmd)` for applying multiple cursors with the `setting(editor.multiCursorModifier)` [setting](/docs/getstarted/settings.md) . See [Multi-cursor Modifier](/docs/editor/codebasics.md#multicursor-modifier) for details.
+:::note
+`editor.multiCursorModifier` [설정](/docs/getstarted/settings.md)을 사용하여 수정자를 `Ctrl/Cmd`로 변경할 수도 있습니다. 자세한 내용은 [다중 커서 수정자](/docs/editor/codebasics.md#multicursor-modifier)를 참조하세요.
+:::
 
-If you do not want to add all occurrences of the current selection, you can use `kb(editor.action.addSelectionToNextFindMatch)` instead.
-This only selects the next occurrence after the one you selected so you can add selections one by one.
+현재 선택 영역의 모든 항목을 추가하고 싶지 않다면 대신 `Ctrl+D`를 사용할 수 있습니다.
+이는 선택한 항목 다음에 나오는 항목만 선택하므로 선택 영역을 하나씩 추가할 수 있습니다.
 
 ![add cursor to next occurrences of current selection one by one](images/tips-and-tricks/add_cursor_current_selection_one_by_one.gif)
 
-### Column (box) selection
+### 열(박스) 선택 {#column-box-selection}
 
-You can select blocks of text by holding `kbstyle(Shift+Alt)` (`kbstyle(Shift+Option)` on macOS) while you drag your mouse. A separate cursor will be added to the end of each selected line.
+마우스를 드래그하는 동안 `Shift+Alt`(`Shift+Option`, macOS의 경우)를 누르고 있으면 텍스트 블록을 선택할 수 있습니다. 선택한 각 줄의 끝에 별도의 커서가 추가됩니다.
 
 ![Column text selection](images/tips-and-tricks/column-select.gif)
 
-You can also use [keyboard shortcuts](/docs/editor/codebasics.md#column-box-selection) to trigger column selection.
+[키보드 단축키](/docs/editor/codebasics.md#column-box-selection)를 사용하여 열 선택을 트리거할 수도 있습니다.
 
-### Vertical rulers
+### 수직 눈금자 {#vertical-rulers}
 
-You can add vertical column rulers to the editor with the `setting(editor.rulers)` setting, which takes an array of column character positions where you'd like vertical rulers.
+`editor.rulers` 설정을 사용하여 편집기에 수직 열 눈금자를 추가할 수 있습니다. 이는 수직 눈금자를 표시하고 싶은 열 문자 위치의 배열을 받습니다.
 
 ```json
 {
-    "editor.rulers": [
-        20, 40, 60
-    ]
+  "editor.rulers": [20, 40, 60]
 }
 ```
 
 ![Editor rulers in the editor](images/tips-and-tricks/editor-rulers.png)
 
-### Fast scrolling
+### 빠른 스크롤 {#fast-scrolling}
 
-Pressing the `kbstyle(Alt)` key enables fast scrolling in the editor and Explorers. By default, fast scrolling uses a 5X speed multiplier but you can control the multiplier with the **Editor: Fast Scroll Sensitivity** (`setting(editor.fastScrollSensitivity)`) setting.
+`Alt` 키를 누르면 편집기와 탐색기에서 빠른 스크롤이 활성화됩니다. 기본적으로 빠른 스크롤은 5배 속도 배율을 사용하지만 **Editor: Fast Scroll Sensitivity**(`editor.fastScrollSensitivity`) 설정으로 배율을 제어할 수 있습니다.
 
-### Locked scrolling
+### 잠금 스크롤 {#locked-scrolling}
 
-You can synchronize scrolling across all visible editors by using the **View: Toggle Locked Scrolling Across Editors** command. This means that when you scroll in one editor, all the other editors scroll by the same amount, keeping everything aligned.
+**View: Toggle Locked Scrolling Across Editors** 명령을 사용하여 모든 보이는 편집기 간의 스크롤을 동기화할 수 있습니다. 이는 한 편집기에서 스크롤할 때 다른 모든 편집기도 같은 양만큼 스크롤되어 모든 것이 정렬된 상태를 유지함을 의미합니다.
 
 ![Locked scrolling in the editor](images/tips-and-tricks/locked-scrolling.gif)
 
-You can choose to only activate the scrolling sync when you're holding down a specific keybinding. Set up a keyboard shortcut for the `workbench.action.holdLockedScrolling` command to temporarily lock scrolling across editors.
+특정 키 바인딩을 누르고 있을 때만 스크롤 동기화를 활성화하도록 선택할 수 있습니다. `workbench.action.holdLockedScrolling` 명령에 대한 키보드 단축키를 설정하여 편집기 간 스크롤을 일시적으로 잠글 수 있습니다.
 
-### Copy line up / down
+### 줄 복사 위/아래 {#copy-line-up-down}
 
-Keyboard Shortcut: `kb(editor.action.copyLinesUpAction)` or `kb(editor.action.copyLinesDownAction)`
+키보드 단축키: `Shift+Alt+Up` 또는 `Shift+Alt+Down`
 
-> The commands **Copy Line Up/Down** are unbound on Linux because the VS Code default keybindings would conflict with Ubuntu keybindings, see [Issue #509](https://github.com/microsoft/vscode/issues/509). You can still set the commands `editor.action.copyLinesUpAction` and `editor.action.copyLinesDownAction` to your own preferred keyboard shortcuts.
+> **줄 복사 위/아래** 명령은 VS Code의 기본 키 바인딩이 Ubuntu 키 바인딩과 충돌하기 때문에 Linux에서는 바인딩되어 있지 않습니다. [Issue #509](https://github.com/microsoft/vscode/issues/509)를 참조하세요. `editor.action.copyLinesUpAction` 및 `editor.action.copyLinesDownAction` 명령을 원하는 키보드 단축키로 설정할 수 있습니다.
 
 ![copy line down](images/tips-and-tricks/copy_line_down.gif)
 
-### Move line up and down
+### 줄 위/아래로 이동 {#move-line-up-and-down}
 
-Keyboard Shortcut: `kb(editor.action.moveLinesUpAction)` or `kb(editor.action.moveLinesDownAction)`
+키보드 단축키: `Alt+Up` 또는 ` Alt+Down`
 
 ![move line up and down](images/tips-and-tricks/move_line.gif)
 
-### Shrink / expand selection
+### 선택 영역 축소/확장 {#shrink-expand-selection}
 
-Keyboard Shortcut: `kb(editor.action.smartSelect.shrink)` or `kb(editor.action.smartSelect.expand)`
+키보드 단축키: `Shift+Alt+Left` 또는 `Shift+Alt+Right`
 
 ![shrink expand selection](images/tips-and-tricks/shrink_expand_selection.gif)
 
-You can learn more in the [Basic Editing](/docs/editor/codebasics.md#shrinkexpand-selection) documentation.
+자세한 내용은 [기본 편집](/docs/editor/codebasics.md#shrinkexpand-selection) 문서에서 확인할 수 있습니다.
 
-### Go to Symbol in File
+### 파일 내 심볼로 이동 {#go-to-symbol-in-file}
 
-Keyboard Shortcut: `kb(workbench.action.gotoSymbol)`
+키보드 단축키: `Ctrl+Shift+O`
 
 ![Find by symbol](images/tips-and-tricks/find_by_symbol.gif)
 
-You can group the symbols by kind by adding a colon, `@:`.
+콜론을 추가하여 종류별로 심볼을 그룹화할 수 있습니다, `@:`.
 
 ![group symbols by kind](images/tips-and-tricks/group_symbols_by_kind.png)
 
-### Go to Symbol in Workspace
+### 작업 영역 내 심볼로 이동 {#go-to-symbol-in-workspace}
 
-Keyboard Shortcut: `kb(workbench.action.showAllSymbols)`
+키보드 단축키: `Ctrl+T`
 
 ![go to symbol in workspace](images/tips-and-tricks/go_to_symbol_in_workspace.png)
 
-### Outline view
+### 개요 보기 {#outline-view}
 
-The Outline view in the File Explorer (default collapsed at the bottom) shows you the symbols of the currently open file.
+파일 탐색기의 개요 보기(기본적으로 하단에 접혀 있음)는 현재 열린 파일의 심볼을 보여줍니다.
 
 ![Outline view](images/tips-and-tricks/outline-view.png)
 
-You can sort by symbol name, category, and position in the file and allows quick navigation to symbol locations.
+심볼 이름, 카테고리, 파일 내 위치별로 정렬할 수 있으며 심볼 위치로 빠르게 이동할 수 있습니다.
 
-### Navigate to a specific line
+### 특정 줄로 이동 {#navigate-to-a-specific-line}
 
-Keyboard Shortcut: `kb(workbench.action.gotoLine)`
+키보드 단축키: `Ctrl+G`
 
-### Undo cursor position
+### 커서 위치 실행 취소 {#undo-cursor-position}
 
-Keyboard Shortcut: `kb(cursorUndo)`
+키보드 단축키: `Ctrl+U`
 
-### Trim trailing whitespace
+### 후행 공백 제거 {#trim-trailing-whitespace}
 
-Keyboard Shortcut: `kb(editor.action.trimTrailingWhitespace)`
+키보드 단축키: `Ctrl+K Ctrl+X`
 
 ![trailing whitespace](images/tips-and-tricks/trim_whitespace.gif)
 
-### Transform text commands
+### 텍스트 변환 명령 {#transform-text-commands}
 
-You can change selected text to uppercase, lowercase, and title case with the **Transform** commands from the Command Palette.
+명령 팔레트의 **Transform** 명령을 사용하여 선택한 텍스트를 대문자, 소문자, 타이틀 케이스로 변경할 수 있습니다.
 
 ![Transform text commands](images/tips-and-tricks/transform-text-commands.png)
 
-### Code formatting
+### 코드 포맷팅 {#code-formatting}
 
-Currently selected source code: `kb(editor.action.formatSelection)`
+현재 선택된 소스 코드: `Ctrl+K Ctrl+F`
 
-Whole document format: `kb(editor.action.formatDocument)`
+전체 문서 포맷: `Shift+Alt+F`
 
 ![code formatting](images/tips-and-tricks/code_formatting.gif)
 
-### Code folding
+### 코드 접기 {#code-folding}
 
-Keyboard Shortcut: `kb(editor.fold)`, `kb(editor.unfold)` and `kb(editor.toggleFold)`
+키보드 단축키: `Ctrl+Shift+[`, `Ctrl+Shift+]` 및 `Ctrl+K Ctrl+L`
 
 ![code folding](images/tips-and-tricks/code_folding.gif)
 
-You can also fold/unfold all regions in the editor with **Fold All** (`kb(editor.foldAll)`) and **Unfold All** (`kb(editor.unfoldAll)`).
+**모두 접기**(`Ctrl+K Ctrl+0`)와 **모두 펼치기**(`Ctrl+K Ctrl+J`)를 사용하여 편집기의 모든 영역을 접거나 펼칠 수도 있습니다.
 
-You can fold all block comments with **Fold All Block Comments** (`kb(editor.foldAllBlockComments)`).
+**모든 블록 주석 접기**(`Ctrl+K Ctrl+/`)를 사용하여 모든 블록 주석을 접을 수 있습니다.
 
-### Select current line
+### 현재 줄 선택 {#select-current-line}
 
-Keyboard Shortcut: `kb(expandLineSelection)`
+키보드 단축키: `Ctrl+L`
 
-### Navigate to beginning and end of file
+### 파일의 시작과 끝으로 이동 {#navigate-to-beginning-and-end-of-file}
 
-Keyboard Shortcut: `kb(cursorTop)` and `kb(cursorBottom)`
+키보드 단축키: `Ctrl+Home` 및 `Ctrl+End`
 
-### Open Markdown preview
+### 마크다운 미리보기 열기 {#open-markdown-preview}
 
-In a Markdown file, use
+마크다운 파일에서 다음을 사용하세요:
 
-Keyboard Shortcut: `kb(markdown.showPreview)`
+키보드 단축키: `Ctrl+Shift+V`
 
 ![Markdown preview](images/tips-and-tricks/markdown-preview.png)
 
-### Side by side Markdown edit and preview
+### 마크다운 나란히 편집 및 미리보기 {#side-by-side-markdown-edit-and-preview}
 
-In a Markdown file, use
+마크다운 파일에서 다음을 사용하세요:
 
-Keyboard Shortcut: `kb(markdown.showPreviewToSide)`
+키보드 단축키: `Ctrl+K V`
 
-The preview and editor will synchronize with your scrolling in either view.
+미리보기와 편집기는 어느 한쪽에서 스크롤할 때 동기화됩니다.
 
 ![side by side Markdown preview](images/tips-and-tricks/markdown-preview-side-by-side.png)
 
-## IntelliSense
+## IntelliSense {#intellisense}
 
-`kb(editor.action.triggerSuggest)` to trigger the Suggestions widget.
+`Ctrl+Space`를 사용하여 제안 위젯을 트리거하세요.
 
 ![intellisense](images/tips-and-tricks/intellisense.gif)
 
-You can view available methods, parameter hints, short documentation, etc.
+사용 가능한 메서드, 매개변수 힌트, 간단한 문서 등을 볼 수 있습니다.
 
-### Peek
+### 피크 {#peek}
 
-Select a symbol then type `kb(editor.action.peekDefinition)`. Alternatively, you can use the context menu.
+심볼을 선택한 다음 `Alt+F12`를 입력하세요. 또는 컨텍스트 메뉴를 사용할 수도 있습니다.
 
 ![peek](images/tips-and-tricks/peek.gif)
 
-### Go to Definition
+### 정의로 이동 {#go-to-definition}
 
-Select a symbol then type `kb(editor.action.revealDefinition)`. Alternatively, you can use the context menu or `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS).
+심볼을 선택한 다음 `F12`를 입력하세요. 또는 컨텍스트 메뉴를 사용하거나 `Ctrl+click`(`Cmd+click`, macOS의 경우)할 수 있습니다.
 
 ![go to definition](images/tips-and-tricks/goto_definition.gif)
 
-You can go back to your previous location with the **Go** > **Back** command or `kb(workbench.action.navigateBack)`.
+**Go** > **Back** 명령 또는 `Alt+Left`을 사용하여 이전 위치로 돌아갈 수 있습니다.
 
-You can also see the type definition if you press `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) when you are hovering over the type.
+유형 위에 마우스를 올릴 때 `Ctrl`(`Cmd`, macOS의 경우)을 누르면 유형 정의도 볼 수 있습니다.
 
-### Go to References
+### 참조로 이동 {#go-to-references}
 
-Select a symbol then type `kb(editor.action.goToReferences)`. Alternatively, you can use the context menu.
+심볼을 선택한 다음 `Shift+F12`를 입력하세요. 또는 컨텍스트 메뉴를 사용할 수 있습니다.
 
 ![peek references](images/tips-and-tricks/find_all_references.gif)
 
-### Find All References view
+### 모든 참조 보기 {#find-all-references-view}
 
-Select a symbol then type `kb(references-view.findReferences)` to open the References view showing all your file's symbols in a dedicated view.
+심볼을 선택한 다음 `Shift+Alt+F12`를 입력하여 파일의 모든 심볼을 전용 보기에 표시하는 참조 보기를 엽니다.
 
-### Rename Symbol
+### 심볼 이름 바꾸기 {#rename-symbol}
 
-Select a symbol then type `kb(editor.action.rename)`. Alternatively, you can use the context menu.
+심볼을 선택한 다음 `F2`를 입력하세요. 또는 컨텍스트 메뉴를 사용할 수 있습니다.
 
 ![rename symbol](images/tips-and-tricks/rename_symbol.gif)
 
-### Search and modify
+### 검색 및 수정 {#search-and-modify}
 
-Besides searching and replacing expressions, you can also search and reuse parts of what was matched, using regular expressions with capturing groups. Enable regular expressions in the search box by clicking the **Use Regular Expression** `.*` button (`kb(toggleSearchRegex)`) and then write a regular expression and use parentheses to define groups. You can then reuse the content matched in each group by using `$1`, `$2`, etc. in the Replace field.
+표현식을 검색하고 바꾸는 것 외에도, 캡처 그룹이 있는 정규식을 사용하여 일치한 항목의 일부를 검색하고 재사용할 수 있습니다. 검색 상자에서 **Use Regular Expression** `.*` 버튼(`Alt+R`)을 클릭하여 정규식을 활성화한 다음, 정규식을 작성하고 괄호를 사용하여 그룹을 정의하세요. 그러면 바꾸기 필드에서 `$1`, `$2` 등을 사용하여 각 그룹에서 일치한 내용을 재사용할 수 있습니다.
 
 ![search and modify](images/tips-and-tricks/search_and_modify.png)
 
-### .eslintrc.json
+### .eslintrc.json {#eslintrcjson}
 
-Install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint). Configure
-your linter however you'd like. Consult the [ESLint specification](https://eslint.org/docs/user-guide/configuring) for details on its linting rules and options.
+[ESLint 확장 프로그램](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)을 설치하세요. 원하는 대로 린터를 구성하세요. 린팅 규칙과 옵션에 대한 자세한 내용은 [ESLint 명세](https://eslint.org/docs/user-guide/configuring)를 참조하세요.
 
-Here is configuration to use ES6.
+다음은 ES6를 사용하기 위한 구성입니다.
 
 ```json
 {
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es6": true,
-        "node": true
-    },
-    "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true,
-            "classes": true,
-            "defaultParams": true
-        }
-    },
-    "rules": {
-        "no-const-assign": 1,
-        "no-extra-semi": 0,
-        "semi": 0,
-        "no-fallthrough": 0,
-        "no-empty": 0,
-        "no-mixed-spaces-and-tabs": 0,
-        "no-redeclare": 0,
-        "no-this-before-super": 1,
-        "no-undef": 1,
-        "no-unreachable": 1,
-        "no-use-before-define": 0,
-        "constructor-super": 1,
-        "curly": 0,
-        "eqeqeq": 0,
-        "func-names": 0,
-        "valid-typeof": 1
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "classes": true,
+      "defaultParams": true
     }
+  },
+  "rules": {
+    "no-const-assign": 1,
+    "no-extra-semi": 0,
+    "semi": 0,
+    "no-fallthrough": 0,
+    "no-empty": 0,
+    "no-mixed-spaces-and-tabs": 0,
+    "no-redeclare": 0,
+    "no-this-before-super": 1,
+    "no-undef": 1,
+    "no-unreachable": 1,
+    "no-use-before-define": 0,
+    "constructor-super": 1,
+    "curly": 0,
+    "eqeqeq": 0,
+    "func-names": 0,
+    "valid-typeof": 1
+  }
 }
 ```
 
-### package.json
+### package.json {#packagejson}
 
-See IntelliSense for your `package.json` file.
+`package.json` 파일에 대한 IntelliSense를 확인하세요.
 
 ![package json intellisense](images/tips-and-tricks/package_json_intellisense.gif)
 
-### Emmet syntax
+### Emmet 문법 {#emmet-syntax}
 
-[Support for Emmet syntax](/docs/editor/emmet.md).
+[Emmet 문법 지원](/docs/editor/emmet.md).
 
 ![emmet syntax](images/tips-and-tricks/emmet_syntax.gif)
 
-## Snippets
+## 스니펫 {#snippets}
 
-### Create custom snippets
+### 사용자 정의 스니펫 만들기 {#create-custom-snippets}
 
-**File** > **Preferences** > **Configure User Snippets**, select the language, and create a snippet.
+**File** > **Preferences** > **Configure User Snippets**을 선택하고, 언어를 선택한 다음 스니펫을 만드세요.
 
 ```json
 "create component": {
@@ -832,213 +843,214 @@ See IntelliSense for your `package.json` file.
 },
 ```
 
-See more details in [Creating your own Snippets](/docs/editor/userdefinedsnippets.md).
+자세한 내용은 [자신만의 스니펫 만들기](/docs/editor/userdefinedsnippets.md)에서 확인하세요.
 
-## Git integration
+## Git 통합 {#git-integration}
 
-Keyboard Shortcut: `kb(workbench.view.scm)`
+키보드 단축키: `Ctrl+Shift+G`
 
-Git integration comes "out-of-the-box" with VS Code. You can install other source control management (SCM) providers from the VS Code [Extension Marketplace](/docs/editor/extension-marketplace.md). This section describes the Git integration but much of the UI and gestures are common for other SCM providers.
+VS Code에는 Git 통합이 "기본 제공"됩니다. VS Code [확장 마켓플레이스](/docs/editor/extension-marketplace.md)에서 다른 소스 제어 관리(SCM) 공급자를 설치할 수 있습니다. 이 섹션에서는 Git 통합에 대해 설명하지만, 많은 UI와 제스처가 다른 SCM 공급자에게도 공통적으로 적용됩니다.
 
-### Diffs
+### 차이점 {#diffs}
 
-From the **Source Control** view, select a file to open the diff editor. Alternatively, select the **Open Changes** button in the top right corner to diff the current open file.
+**Source Control** 보기에서 파일을 선택하여 차이점 편집기를 엽니다. 또는 오른쪽 상단 모서리의 **Open Changes** 버튼을 선택하여 현재 열린 파일의 차이점을 볼 수 있습니다.
 
 ![git diff from source control](images/tips-and-tricks/msee-changes.gif)
 
-#### Views
+#### 보기 {#views}
 
-The default view for diffs is the **side by side view**.
+차이점의 기본 보기는 **나란히 보기**입니다.
 
-Toggle **inline view** by selecting the **More Actions** (...) button in the top right, and then selecting **Inline View**.
+오른쪽 상단의 **More Actions** (...) 버튼을 선택한 다음 **Inline View**를 선택하여 **Inline View**로 전환할 수 있습니다.
 
 ![Screenshot that shows the More Actions menu in the diff editor, highlighting the Inline View menu item](images/tips-and-tricks/mdiff-switch-to-inline.png)
 
-If you prefer to have the inline view as the default, configure the `"diffEditor.renderSideBySide": false` setting.
+인라인 보기를 기본값으로 설정하려면 `"diffEditor.renderSideBySide": false` 설정을 구성하세요.
 
-#### Accessible Diff Viewer
+#### 접근성 있는 차이점 뷰어 {#accessible-diff-viewer}
 
-Navigate through diffs with `kb(editor.action.accessibleDiffViewer.next)` and `kb(editor.action.accessibleDiffViewer.prev)`. This presents changes in a unified patch format. Lines can be navigated with arrow keys and pressing `kbstyle(Enter)` jumps back in the diff editor and the selected line.
+`F7 `와 `Shift+F7`를 사용하여 차이점을 탐색할 수 있습니다. 이는 변경 사항을 통합된 패치 형식으로 보여줍니다. 화살표 키로 줄을 탐색할 수 있으며 `Enter`를 누르면 차이점 편집기로 돌아가고 선택한 줄이 선택됩니다.
 
 ![diff_review_pane](images/tips-and-tricks/diff_review_pane.png)
 
-#### Edit pending changes
+#### 보류 중인 변경 사항 편집 {#edit-pending-changes}
 
-While you're viewing changes in the diff editor, you can make edits directly in the pending changes side of the diff editor.
+차이점 편집기에서 변경 사항을 보는 동안 차이점 편집기의 보류 중인 변경 사항 쪽에서 직접 편집할 수 있습니다.
 
-### Branches
+### 브랜치 {#branches}
 
-Easily switch between Git branches via the Status Bar.
+상태 표시줄을 통해 Git 브랜치 간에 쉽게 전환할 수 있습니다.
 
 ![switch branches](images/tips-and-tricks/switch-branch.gif)
 
-### Staging
+### 스테이징 {#staging}
 
-#### Stage file changes
+#### 파일 변경 사항 스테이징 {#stage-file-changes}
 
-Hover over the number of files and select the plus button to stage a file.
+파일 수 위에 마우스를 올리고 더하기 버튼을 선택하여 파일을 스테이징할 수 있습니다.
 
-Select the minus button to unstage changes.
+빼기 버튼을 선택하여 변경 사항의 스테이징을 취소할 수 있습니다.
 
 ![git stage all](images/tips-and-tricks/stage-unstage.gif)
 
-#### Stage selected
+#### 선택 영역 스테이징 {#stage-selected}
 
-You can stage a portion of a file by making a text selection in a file and then choosing **Stage Selected Ranges** from the **Command Palette** or from the diff editor context menu (right-click).
+파일에서 텍스트를 선택한 다음 **Command Palette**나 차이점 편집기 컨텍스트 메뉴(우클릭)에서 **Stage Selected Ranges**을 선택하여 파일의 일부를 스테이징할 수 있습니다.
 
-### Undo last commit
+### 마지막 커밋 실행 취소 {#undo-last-commit}
 
-Select the (...) button, and then select **Commit** > **Undo Last Commit** to undo the previous commit. The changes are added to the Staged Changes section.
+(...) 버튼을 선택한 다음 **Commit** > **Undo Last Commit**를 선택하여 이전 커밋을 실행 취소합니다. 변경 사항은 스테이징된 변경 사항 섹션에 추가됩니다.
 
 ![undo last commit](images/tips-and-tricks/mundo-last-commit.gif)
 
-### See Git output
+### Git 출력 보기 {#see-git-output}
 
-VS Code makes it easy to see what Git commands are actually running. This can be helpful when you're still learning Git or when you're debugging a difficult source control issue.
+VS Code는 어떤 Git 명령이 실제로 실행되고 있는지 쉽게 볼 수 있게 해줍니다. 이는 Git을 배우는 중이거나 어려운 소스 제어 문제를 디버깅할 때 도움이 될 수 있습니다.
 
-To view the Git output, select the (...) button in the Source Control view, and then select **Show Git Output**, use the **Git: Show Git Output** command, or use the **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`) and then select **Git** from the dropdown.
+Git 출력을 보려면 소스 제어 보기에서 (...) 버튼을 선택한 다음 **Show Git Output**를 선택하거나, **Git: Show Git Output** 명령을 사용하거나, **Toggle Output** 명령(`Ctrl+Shift+U`)을 사용한 다음 드롭다운에서 **Git**을 선택하세요.
 
-### Gutter indicators
+### 거터 표시기 {#gutter-indicators}
 
-The editor provides visual cues in the gutter about where and which changes (added, changed, or remove lines) were made. See [the source control documentation](/docs/sourcecontrol/overview.md#gutter-indicators) for more details.
+편집기는 거터에 변경 사항(추가, 변경 또는 제거된 줄)이 있는 위치와 종류에 대한 시각적 단서를 제공합니다. 자세한 내용은 [소스 제어 문서](/docs/sourcecontrol/overview.md#gutter-indicators)를 참조하세요.
 
 ![git gutter indicators](images/tips-and-tricks/mgutter_icons.gif)
 
-### Resolve merge conflicts
+### 병합 충돌 해결 {#resolve-merge-conflicts}
 
-During a merge, go to the **Source Control** view (`kb(workbench.view.scm)`) and make changes in the diff view.
+병합 중에 **Source Control** 화면(`Ctrl+Shift+G`)로 이동하여 차이점 보기에서 변경을 수행하세요.
 
-You can resolve merge conflicts with the inline CodeLens which lets you **Accept Current Change**, **Accept Incoming Change**, **Accept Both Changes**, and **Compare Changes**.
+인라인 CodeLens를 사용하여 **Accept Current Change**, **Accept Incoming Change**, **Accept Both Changes** 및 **Compare Changes**를 통해 병합 충돌을 해결할 수 있습니다.
 
 ![Git merge](images/tips-and-tricks/merge-conflict.png)
 
-Learn more about [resolving merge conflicts](/docs/sourcecontrol/overview.md#merge-conflicts) in the source control documentation.
+소스 제어 문서에서 [병합 충돌 해결](/docs/sourcecontrol/overview.md#merge-conflicts)에 대해 자세히 알아보세요.
 
-### Set VS Code as default merge tool
+### VS Code를 기본 병합 도구로 설정 {#set-vs-code-as-default-merge-tool}
 
 ```bash
 git config --global merge.tool vscode
 git config --global mergetool.vscode.cmd 'code --wait $MERGED'
 ```
 
-### Set VS Code as default diff tool
+### VS Code를 기본 차이점 도구로 설정 {#set-vs-code-as-default-diff-tool}
 
 ```bash
 git config --global diff.tool vscode
 git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
 ```
 
-## Compare file with the clipboard
+## 클립보드와 파일 비교 {#compare-file-with-the-clipboard}
 
-Keyboard Shortcut: `kb(workbench.files.action.compareWithClipboard)`
+키보드 단축키: `Ctrl+K C`
 
-Quickly compare the active file with the contents of the clipboard with the **File: Compare Active File with Clipboard** command in the Command Palette (`kb(workbench.action.showCommands)`).
+명령 팔레트(`Ctrl+Shift+P`)에서 **File: Compare Active File with Clipboard** 명령을 사용하여 활성 파일을 클립보드의 내용과 빠르게 비교할 수 있습니다.
 
-## Debugging
+## 디버깅 {#debugging}
 
-### Configure debugger
+### 디버거 구성 {#configure-debugger}
 
-From the Run and Debug view (`kb(workbench.view.debug)`), select **create a launch.json file**, which prompts you to select the environment that matches your project (Node.js, Python, C++, and more). This generates a `launch.json` file in your workspace that contains the debugger configuration.
+실행 및 디버그 보기(`Ctrl+Shift+D`)에서 **create a launch.json file**를 선택하면 프로젝트와 일치하는 환경(Node.js, Python, C++ 등)을 선택하라는 메시지가 표시됩니다. 이렇게 하면 작업 영역에 디버거 구성이 포함된 `launch.json` 파일이 생성됩니다.
 
-Node.js support is built-in and other environments require installing the appropriate language extensions. See the [debugging documentation](/docs/editor/debugging.md) for more details.
+Node.js 지원은 기본적으로 제공되며 다른 환경은 적절한 언어 확장을 설치해야 합니다. 자세한 내용은 [디버깅 문서](/docs/editor/debugging.md)를 참조하세요.
 
-![configure debugging](images/tips-and-tricks/configure-debug.png)
+### 중단점과 단계별 실행 {#breakpoints-and-stepping-through}
 
-### Breakpoints and stepping through
+**editor margin**을 선택하거나 현재 줄에서 `F9`를 사용하여 중단점을 토글하세요. 편집기 여백의 중단점은 일반적으로 빨간색 채워진 원으로 표시됩니다.
 
-Toggle a breakpoint by selecting the **editor margin** or by using `kb(editor.debug.action.toggleBreakpoint)` on the current line. Breakpoints in the editor margin are normally shown as red filled circles.
-
-Once a debug session starts, the **Debug toolbar** appears on the top of the editor and enables you to step through or into the code while debugging. Learn more about [debug actions](/docs/editor/debugging.md#debug-actions) in the debugging documentation.
+디버그 세션이 시작되면 편집기 상단에 **Debug toolbar**이 나타나며, 디버깅하는 동안 코드를 단계별로 실행하거나 코드 내부로 들어갈 수 있습니다. 디버깅 문서에서 [디버그 작업](/docs/editor/debugging.md#debug-actions)에 대해 자세히 알아보세요.
 
 ![debug](images/tips-and-tricks/node_debug.gif)
 
-### Data inspection
+### 데이터 검사 {#data-inspection}
 
-Variables can be inspected in the **VARIABLES** section of the **Run and Debug** view, by hovering over their source in the editor, or by using the debug console.
+변수는 **Run and Debug** 보기의 **VARIABLES** 섹션에서, 편집기에서 해당 소스 위에 마우스를 올리거나 디버그 콘솔을 사용하여 검사할 수 있습니다.
 
 ![data inspection](images/tips-and-tricks/debug_data_inspection.gif)
 
-### Logpoints
+### 로그점 {#logpoints}
 
-Logpoints act much like breakpoints but instead of halting the debugger when they are hit, they log a message to the console. Logpoints are especially useful for injecting logging while debugging production servers that cannot be modified or paused.
+로그점은 중단점과 비슷하게 작동하지만 디버거를 중지하는 대신 콘솔에 메시지를 기록합니다. 로그점은 수정하거나 일시 중지할 수 없는 프로덕션 서버를 디버깅할 때 로깅을 주입하는 데 특히 유용합니다.
 
-Add a logpoint with the **Add Logpoint** command in the left editor gutter and it will be displayed as a "diamond" shaped icon. Log messages are plain text but can include expressions to be evaluated within curly braces ('{}').
+왼쪽 편집기 거터에서 **Add Logpoint** 명령을 사용하여 로그점을 추가하면 "다이아몬드" 모양 아이콘으로 표시됩니다. 로그 메시지는 일반 텍스트이지만 중괄호('{}') 안에 평가할 표현식을 포함할 수 있습니다.
 
 ![Logpoint set in the editor](images/tips-and-tricks/logpoint.png)
 
-### Triggered breakpoints
+### 트리거된 중단점 {#triggered-breakpoints}
 
-A triggered breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+트리거된 중단점은 다른 중단점이 히트되었을 때 자동으로 활성화되는 중단점입니다. 이들은 특정 전제 조건 이후에만 발생하는 코드의 실패 사례를 진단할 때 매우 유용할 수 있습니다.
 
-Triggered breakpoints can be set by right-clicking on the glyph margin, selecting **Add Triggered Breakpoint**, and then choosing which other breakpoint enables the breakpoint.
+트리거된 중단점은 거터 여백을 우클릭하고 **Add Triggered Breakpoint**를 선택한 다음 어떤 다른 중단점이 이 중단점을 활성화할지 선택하여 설정할 수 있습니다.
 
-<video src="../editor/images/debugging/debug-triggered-breakpoint.mp4" autoplay loop controls muted></video>
+<video autoplay loop controls muted style={{ maxWidth: '100%' }}>
 
-## Task runner
+<source src="https://code.visualstudio.com/assets/docs/editor/debugging/debug-triggered-breakpoint.mp4" type="video/mp4" />
+</video>
 
-Tasks in VS Code can be configured to run scripts and start processes so that these tools can be used from within VS Code without having to enter a command line or write new code.
+## 작업 실행기 {#task-runner}
 
-### Auto detect tasks
+VS Code의 작업은 스크립트를 실행하고 프로세스를 시작하도록 구성할 수 있어서, 이러한 도구들을 명령줄을 입력하거나 새 코드를 작성하지 않고도 VS Code 내에서 사용할 수 있습니다.
 
-Select **Terminal** from the top-level menu, run the command **Configure Tasks**, then select the type of task you'd like to run.
-This generates a `tasks.json` file with content like the following. See the [Tasks](/docs/editor/tasks.md) documentation for more details.
+### 작업 자동 감지 {#auto-detect-tasks}
+
+상단 메뉴에서 **Terminal**을 선택하고 **Configure Tasks** 명령을 실행한 다음 실행하고 싶은 작업 유형을 선택하세요.
+이렇게 하면 다음과 같은 내용의 `tasks.json` 파일이 생성됩니다. 자세한 내용은 [작업](/docs/editor/tasks.md) 문서를 참조하세요.
 
 ```json
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "type": "npm",
-            "script": "install",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        }
-    ]
+  // tasks.json 형식에 대한 설명서는
+  // https://go.microsoft.com/fwlink/?LinkId=733558을 참조하세요.
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "install",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
 }
 ```
 
-There are occasionally issues with auto generation. Check out the documentation for getting things to work properly.
+자동 생성에는 때때로 문제가 있을 수 있습니다. 올바르게 작동하도록 하기 위해 문서를 확인하세요.
 
-### Run tasks from the Terminal menu
+### 터미널 메뉴에서 작업 실행 {#run-tasks-from-the-terminal-menu}
 
-Select **Terminal** from the top-level menu, run the command **Run Task**, and select the task you want to run. Terminate the running task by running the command **Terminate Task**
+상단 메뉴에서 **Terminal**을 선택하고 **Run Task** 명령을 실행한 다음 실행하려는 작업을 선택하세요. **Terminate Task** 명령을 실행하여 실행 중인 작업을 종료하세요.
 
 ![task runner](images/tips-and-tricks/task_runner.gif)
 
-### Define keyboard shortcuts for tasks
+### 작업에 대한 키보드 단축키 정의 {#define-keyboard-shortcuts-for-tasks}
 
-You can define a keyboard shortcut for any task. From the **Command Palette** (`kb(workbench.action.showCommands)`), select **Preferences: Open Keyboard Shortcuts File**, bind the desired shortcut to the `workbench.action.tasks.runTask` command, and define the **Task** as `args`.
+모든 작업에 대해 키보드 단축키를 정의할 수 있습니다. **Command Palette**(`Ctrl+Shift+P`)에서 **Preferences: Open Keyboard Shortcuts File**를 선택하고, `workbench.action.tasks.runTask` 명령에 원하는 단축키를 바인딩하고, **Task**를 `args`로 정의하세요.
 
-For example, to bind `kbstyle(Ctrl+H)` to the `Run tests` task, add the following:
+예를 들어, `Ctrl+H`를 `Run tests` 작업에 바인딩하려면 다음을 추가하세요:
 
 ```json
 {
-    "key": "ctrl+h",
-    "command": "workbench.action.tasks.runTask",
-    "args": "Run tests"
+  "key": "ctrl+h",
+  "command": "workbench.action.tasks.runTask",
+  "args": "Run tests"
 }
 ```
 
-### Run npm scripts as tasks from the Explorer
+### 탐색기에서 npm 스크립트를 작업으로 실행 {#run-npm-scripts-as-tasks-from-the-explorer}
 
-From the Explorer view you can open a script in the editor, run it as a task, and launch it with the node debugger (when the script defines a debug option like `--inspect-brk`). The default action on click is to open the script. To run a script on a single click, set `setting(npm.scriptExplorerAction)` to `run`. Use the setting `setting(npm.exclude)` to exclude scripts in `package.json` files contained in particular folders.
+탐색기 보기에서 스크립트를 편집기에서 열거나, 작업으로 실행하거나, 노드 디버거로 실행(스크립트가 `--inspect-brk`와 같은 디버그 옵션을 정의한 경우)할 수 있습니다. 클릭 시 기본 동작은 스크립트를 여는 것입니다. 한 번의 클릭으로 스크립트를 실행하려면 `npm.scriptExplorerAction`을 `run`으로 설정하세요. `npm.exclude` 설정을 사용하여 특정 폴더에 포함된 `package.json` 파일의 스크립트를 제외할 수 있습니다.
 
 ![Filter problems](images/tips-and-tricks/script_explorer.png)
 
-With the setting `setting(npm.enableRunFromFolder)`, you can enable to run npm scripts from the Explorer view context menu for a folder. The setting enables the command **Run NPM Script in Folder...** when a folder is selected. The command shows a Quick Pick list of the npm scripts contained in this folder and you can select the script to be executed as a task.
+`npm.enableRunFromFolder` 설정을 사용하면 탐색기 보기 컨텍스트 메뉴에서 npm 스크립트를 실행할 수 있습니다. 이 설정은 폴더를 선택했을 때 **Run NPM Script in Folder...** 명령을 활성화합니다. 이 명령은 이 폴더에 포함된 npm 스크립트의 빠른 선택 목록을 표시하고 작업으로 실행할 스크립트를 선택할 수 있습니다.
 
-## Portable mode
+## 휴대용 모드 {#portable-mode}
 
-VS Code has a [Portable mode](/docs/editor/portable.md) which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
+VS Code에는 [휴대용 모드](/docs/editor/portable.md)가 있어 설정과 데이터를 설치 위치와 동일한 위치에 보관할 수 있습니다(예: USB 드라이브에).
 
-## Insiders builds
+## Insiders 빌드 {#insiders-builds}
 
-The Visual Studio Code team uses the Insiders version to test the latest features and bug fixes of VS Code. You can also use the Insiders version by [downloading it here](/insiders).
+Visual Studio Code 팀은 VS Code의 최신 기능과 버그 수정을 테스트하기 위해 Insiders 버전을 사용합니다. [여기서 다운로드](/insiders)하여 Insiders 버전을 사용할 수도 있습니다.
 
-* For Early Adopters - Insiders has the most recent code changes for users and extension authors to try out.
-* Frequent Builds - New builds every day with the latest bug fixes and features.
-* Side-by-side install - Insiders installs next to the Stable build allowing you to use either independently.
+- 얼리 어답터를 위한 버전 - Insiders는 사용자와 확장 프로그램 작성자가 시도해볼 수 있는 가장 최신 코드 변경 사항을 제공합니다.
+- 빈번한 빌드 - 최신 버그 수정과 기능이 포함된 새로운 빌드가 매일 제공됩니다.
+- 나란히 설치 - Insiders는 안정 버전 옆에 설치되어 두 버전을 독립적으로 사용할 수 있습니다.

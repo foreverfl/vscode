@@ -120,7 +120,7 @@ const sidebars: SidebarsConfig = {
         {
           type: "doc",
           id: "getstarted/telemetry",
-          label: "사용 데이터 수집",
+          label: "텔레메트리",
         },
         {
           type: "doc",
