@@ -40,6 +40,12 @@ html[data-theme="dark"] {
   --ifm-color-content: #9ba3b4;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --doc-sidebar-width: 175px;
+  --card-background: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --card-border-active: rgba(255, 255, 255, 0.2);
+  --header-foreground: #c3d0e5;
+  --foreground: #9ba3b4;
+  --icon-color: #9ba3b4;
 }
 
 /* 네비게이션 바 */

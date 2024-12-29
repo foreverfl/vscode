@@ -1,255 +1,267 @@
 ---
 Order: 2
 Area: copilot
-TOCTitle: Copilot Cheat Sheet
+TOCTitle: Copilot 요약
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-PageTitle: GitHub Copilot in VS Code cheat sheet
+PageTitle: VS Code에서의 GitHub Copilot 요약
 DateApproved: 12/11/2024
-MetaDescription: Get a quick overview of the GitHub Copilot features in Visual Studio Code. GitHub Copilot provides AI-powered features to help you write code faster and with less effort.
+MetaDescription: Visual Studio Code에서 GitHub Copilot 기능을 빠르게 살펴보세요. GitHub Copilot은 더 빠르고 쉽게 코드를 작성할 수 있도록 도와주는 AI 기반 기능을 제공합니다.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# GitHub Copilot in VS Code cheat sheet
 
-GitHub Copilot in Visual Studio Code provides AI-powered features to help you write code faster and with less effort. This cheat sheet provides a quick overview of the features for GitHub Copilot in Visual Studio Code.
+# VS Code에서의 GitHub Copilot 요약 {#github-copilot-in-vs-code-cheat-sheet}
 
-You can access GitHub Copilot in VS Code through the Chat view, directly in the editor, from the integrated terminal, and via AI-powered enhancements in the VS Code user interface.
+Visual Studio Code의 GitHub Copilot은 더 빠르고 쉽게 코드를 작성할 수 있도록 도와주는 AI 기반 기능을 제공합니다. 이 요약은 Visual Studio Code에서 GitHub Copilot 기능을 빠르게 살펴볼 수 있도록 도와줍니다.
 
-The team is continuously working on improving Copilot in VS Code and adding new features. Items in the cheat sheet marked with <i class="codicon codicon-beaker"></i> are experimental features. Try them out and share your feedback in [our issues](https://github.com/microsoft/vscode-copilot-release/issues).
+VS Code에서 GitHub Copilot에 접근하는 방법은 Chat 뷰, 에디터 직접 사용, 통합 터미널, 그리고 VS Code 사용자 인터페이스의 AI 기반 향상 기능을 통해 가능합니다.
 
-## Chat with GitHub Copilot
+:::tip
+Copilot 구독이 아직 없다면, [Copilot Free 플랜](https://github.com/github-copilot/signup)에 가입하여 무료로 Copilot을 사용할 수 있습니다. 매월 제한된 수의 완성 및 채팅 상호작용이 제공됩니다.
+:::
 
-Use natural language to chat with GitHub Copilot and get help with coding tasks. For example, ask Copilot to explain a block of code or a programming concept. Get more information about using [Copilot Chat](/docs/copilot/copilot-chat.md).
+팀은 VS Code의 Copilot을 지속적으로 개선하고 새로운 기능을 추가하고 있습니다. 요약에서 <i class="codicon codicon-beaker"></i>로 표시된 항목은 실험적 기능입니다. 이러한 기능을 사용해보고 [우리의 이슈](https://github.com/microsoft/vscode-copilot-release/issues)에서 피드백을 공유해주세요.
 
-| Action | Description |
-|--------|-------------|
-| `kb(workbench.action.chat.open)` | Open the **Chat view** and start a chat conversation with Copilot by using natural language. |
-| `kb(workbench.action.chat.openEditSession)` | Open the **Copilot Edits view** and start a code editing session across multiple files. |
-| `kb(workbench.action.quickchat.toggle)` | Open **Quick Chat** and ask a quick question to Copilot. |
-| `kb(inlinechat.start)` | Start **Inline Chat** to send a chat request to Copilot directly from the editor. Use natural language or use `/` commands to give instructions to Copilot. |
-| <i class="codicon codicon-mention"></i> | Type `@` in chat or select <i class="codicon codicon-mention"></i> to view the list of *chat participants*, which are domain experts that can help you in a specific area. Extensions can also contribute additional participants.<br/>Example: `@workspace how is auth implemented?`  |
-| Participant detection <i class="codicon codicon-beaker"></i> | Copilot Chat can also automatically route your question to the appropriate participant. [Get more info](https://code.visualstudio.com/updates/v1_93#_automatic-chat-participant-detection-in-chat-view-experimental). |
-| `/` | Invoke a *slash command* to prompt for commonly used actions, such as explaining a block of code, generating tests or documentation. |
-| `/explain` | Ask Copilot to explain a block of code or a programming concept. |
-| <i class="codicon codicon-history"></i> | Select this icon in the Chat view to access your history of chat sessions. |
-| <i class="codicon codicon-mic"></i> | Enter a chat prompt by using speech (voice chat). The chat response is read out aloud. |
+## GitHub Copilot과 채팅하기 {#chat-with-github-copilot}
 
-> **Tips**
+자연어를 사용하여 GitHub Copilot과 채팅하고 코딩 작업에 대한 도움을 받으세요. 예를 들어, Copilot에게 코드 블록이나 프로그래밍 개념을 설명해달라고 요청할 수 있습니다. [Copilot Chat](/docs/copilot/copilot-chat.md) 사용에 대한 자세한 정보를 확인하세요.
+
+| 동작                                               | 설명                                                                                                                                                                                                                                                                         |
+| -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Ctrl+Alt+I`                                       | **Chat 화면**를 열고 자연어를 사용하여 Copilot과 채팅 대화를 시작합니다.                                                                                                                                                                                                     |
+| `Ctrl+Shift+I`                                     | **Copilot Edits 화면**를 열고 여러 파일에서 코드 편집 세션을 시작합니다.                                                                                                                                                                                                     |
+| `Ctrl+Shift+Alt+L	`                                 | **Quick Chat**을 열고 Copilot에게 빠른 질문을 합니다.                                                                                                                                                                                                                        |
+| `Ctrl+I`                                           | 에디터에서 직접 Copilot에게 채팅 요청을 보내기 위해 **Inline Chat**을 시작합니다. 자연어를 사용하거나 `/` 명령어를 사용하여 Copilot에게 지시를 내립니다.                                                                                                                     |
+| <i class="codicon codicon-mention"></i>            | 채팅에서 `@`를 입력하거나 <i class="codicon codicon-mention"></i>를 선택하여 특정 영역에서 도움을 줄 수 있는 도메인 전문가인 _채팅 참여자_ 목록을 확인합니다. 확장 프로그램을 통해 추가 참여자를 추가할 수도 있습니다.<br/>예시: `@workspace 인증은 어떻게 구현되어 있나요?` |
+| 참여자 감지 <i class="codicon codicon-beaker"></i> | Copilot Chat은 자동으로 적절한 참여자에게 질문을 전달할 수 있습니다. <br /> [자세히 알아보기](https://code.visualstudio.com/updates/v1_93#_automatic-chat-participant-detection-in-chat-view-experimental)                                                                   |
+| `/`                                                | 코드 블록 설명, 테스트 또는 문서 생성과 같이 자주 사용되는 작업을 위한 *슬래시 명령어*를 호출합니다.                                                                                                                                                                         |
+| `/explain`                                         | Copilot에게 코드 블록이나 프로그래밍 개념을 설명해달라고 요청합니다.                                                                                                                                                                                                         |
+| <i class="codicon codicon-history"></i>            | Chat 뷰에서 이 아이콘을 선택하여 채팅 세션 기록에 접근합니다.                                                                                                                                                                                                                |
+| <i class="codicon codicon-mic"></i>                | 음성(음성 채팅)을 사용하여 채팅 프롬프트를 입력합니다. 채팅 응답이 음성으로 읽혀집니다.                                                                                                                                                                                      |
+
+:::tip
+
+- `/` 명령어와 `@` 참여자를 사용하여 더 정확하고 관련성 높은 답변을 얻으세요.
+- 구체적이고 단순하게 질문하며, 최상의 결과를 얻기 위해 후속 질문을 하세요.
+- 파일, 심볼 또는 선택 영역을 채팅 프롬프트에 첨부하여 컨텍스트를 제공하세요.
+  :::
+
+## 코드 편집 세션 (프리뷰) {#code-editing-session-preview}
+
+Copilot Edits를 사용하여 작업 공간의 여러 파일에 직접 적용되는 AI 생성 코드 편집을 빠르게 반복할 수 있는 코드 편집 세션을 시작하세요.
+
+| 동작                                          | 설명                                                                   |
+| --------------------------------------------- | ---------------------------------------------------------------------- |
+| `Ctrl+Shift+I`                                | **Copilot Edits 뷰**를 열고 여러 파일에서 코드 편집 세션을 시작합니다. |
+| <i class="codicon codicon-plus"></i>          | 새 편집 세션을 시작합니다.                                             |
+| `Accept`                                      | 현재 모든 편집을 수락합니다.                                           |
+| `Discard`                                     | 현재 모든 편집을 취소합니다.                                           |
+| <i class="codicon codicon-diff-multiple"></i> | 다중 파일 diff 에디터에서 모든 편집을 확인합니다.                      |
+| <i class="codicon codicon-discard"></i>       | 마지막 편집을 실행 취소합니다.                                         |
+| <i class="codicon codicon-redo"></i>          | 마지막 편집을 다시 실행합니다.                                         |
+| `Add Files...`                                | 작업 세트에 파일을 첨부합니다.                                         |
+
+:::tip
+
+- 편집을 원하는 모든 파일을 작업 세트에 추가하세요.
+- Copilot Edits가 수행할 변경 사항에 대해 구체적이고 정확하게 지정하세요.
+- 더 큰 작업이 있다면, 작은 작업으로 분해하고 자주 반복하세요.
+  :::
+
+## 채팅에서 코드 생성하기 {#generate-code-from-chat}
+
+Copilot은 채팅 프롬프트에 대한 응답으로 코드 블록을 생성할 수 있습니다. 생성된 코드를 프로젝트에 빠르게 적용하거나 새 파일에 삽입하세요. 예를 들어, Copilot에게 코드의 알고리즘을 최적화해달라고 요청할 수 있습니다.
+
+| 동작                                                           | 설명                                                    |
+| -------------------------------------------------------------- | ------------------------------------------------------- |
+| <i class="codicon codicon-git-pull-request-go-to-changes"></i> | 활성 에디터에 생성된 코드 블록을 스마트하게 적용합니다. |
+| <i class="codicon codicon-insert"></i>                         | 커서 위치에 생성된 코드 블록을 삽입합니다.              |
+| <i class="codicon codicon-copy"></i>                           | 생성된 코드 블록을 클립보드에 복사합니다.               |
+| <i class="codicon codicon-terminal"></i>                       | 생성된 코드 블록을 셸 명령어로 터미널에 삽입합니다.     |
+| `Insert into New File`                                         | 생성된 코드 블록을 새 파일에 삽입합니다.                |
+
+:::tip
+
+- 사용할 프레임워크나 라이브러리에 대한 세부 정보를 제공하세요.
+- [사용자 정의 코드 생성 지침](#customize-ai-code-generation)을 만드는 것을 고려하세요.
+  :::
+
+## 프롬프트에 컨텍스트 첨부하기 {#attach-context-to-your-prompt}
+
+Copilot에게 채팅 프롬프트를 보낼 때, 컨텍스트를 첨부하여 Copilot이 질문을 더 잘 이해할 수 있도록 도울 수 있습니다. 예를 들어, 현재 에디터 선택 영역, 파일 또는 심볼을 채팅 프롬프트에 추가하세요. [Copilot 사용을 위한 모범 사례](/docs/copilot/prompt-crafting.md)에 대해 자세히 알아보세요.
+
+| 동작                                              | 설명                                                                                                                                                                                                                           |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <i class="codicon codicon-attach"></i> (`Ctrl+/`) | 채팅 프롬프트에 관련된 컨텍스트를 선택하기 위한 Quick Pick을 엽니다. 작업 공간 파일, 심볼, 현재 에디터 선택 영역 또는 보이는 내용, 터미널 선택 영역 또는 마지막으로 실행한 명령어, 또는 VS Code API 중에서 선택할 수 있습니다. |
+| <i class="codicon codicon-eye"></i>               | 열린 에디터를 자동으로 컨텍스트로 첨부하는 기능을 활성화/비활성화합니다.                                                                                                                                                       |
+| `#codebase`                                       | 컨텍스트 변수: 프롬프트에 관련된 작업 공간 내용을 컨텍스트로 추가합니다.                                                                                                                                                       |
+| `#editor`                                         | 컨텍스트 변수: 활성 에디터의 보이는 내용을 프롬프트의 컨텍스트로 추가합니다.                                                                                                                                                   |
+| `#selection`                                      | 컨텍스트 변수: 현재 에디터 선택 영역을 프롬프트의 컨텍스트로 추가합니다.                                                                                                                                                       |
+| `#terminalSelection`                              | 컨텍스트 변수: 현재 터미널 선택 영역을 채팅 프롬프트의 컨텍스트로 추가합니다.                                                                                                                                                  |
+| `#terminalLastCommand`                            | 컨텍스트 변수: 마지막으로 실행한 터미널 명령어를 채팅 프롬프트의 컨텍스트로 추가합니다.                                                                                                                                        |
+| `#VSCodeAPI`                                      | 컨텍스트 변수: VS Code 확장 프로그램 개발과 관련된 질문을 하기 위해 VS Code API를 프롬프트의 컨텍스트로 추가합니다.                                                                                                            |
+| `#file`                                           | 작업 공간에서 파일을 선택하여 프롬프트의 컨텍스트로 추가하기 위한 Quick Pick을 엽니다.                                                                                                                                         |
+| `#<filename>`                                     | `#` 다음에 파일 이름을 입력하여 작업 공간 파일에 대한 제안을 받고 컨텍스트로 첨부합니다.                                                                                                                                       |
+| `#sym`                                            | 작업 공간에서 심볼을 선택하여 프롬프트의 컨텍스트로 추가하기 위한 Quick Pick을 엽니다.                                                                                                                                         |
+| `#<symbol>`                                       | `#` 다음에 심볼 이름을 입력하여 작업 공간 파일의 심볼에 대한 제안을 받고 컨텍스트로 첨부합니다.                                                                                                                                |
+| 파일 드래그 앤 드롭                               | 파일이나 에디터를 채팅으로 드래그 앤 드롭하여 파일을 컨텍스트로 첨부합니다.                                                                                                                                                    |
+| 최근 파일 <i class="codicon codicon-beaker"></i>  | 최근에 열거나 편집한 파일을 채팅 프롬프트에 자동으로 포함합니다. [자세히 알아보기](https://code.visualstudio.com/updates/v1_93#_use-recent-coding-files-as-inline-chat-context-experimental)                                   |
+
+:::tip
+
+- Quick Pick에서 오른쪽 화살표 키를 사용하여 여러 파일을 빠르게 컨텍스트로 추가할 수 있습니다
+- 코드를 선택하거나 채팅 변수를 언급하여 명시적으로 관련 컨텍스트를 포함하세요
+- 채팅 응답에서 사용된 참조를 검토하여 컨텍스트이 관련성이 있는지 확인하세요
+  :::
+
+## 에디터에서의 Copilot {#copilot-in-the-editor}
+
+에디터에서 코딩할 때 Copilot을 사용하여 타이핑하면서 코드 완성을 생성할 수 있습니다. Inline Chat을 호출하여 코딩 흐름을 유지하면서 Copilot에게 질문하고 도움을 받을 수 있습니다. 예를 들어, Copilot에게 함수나 메서드에 대한 단위 테스트를 생성해달라고 요청할 수 있습니다. [코드 완성](/docs/copilot/ai-powered-suggestions.md)과 [Inline Chat](/docs/copilot/copilot-chat.md#inline-chat)에 대해 자세히 알아보세요.
+
+| 동작                                                         | 설명                                                                                                                                                                                   |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 코드 완성                                                    | 에디터에서 타이핑을 시작하면 Copilot이 귀하의 코딩 스타일을 반영하고 기존 코드를 고려한 코드 제안을 제공합니다.                                                                        |
+| 코드 주석                                                    | 코드 주석에 지시사항을 작성하여 Copilot에게 코드 완성 프롬프트를 제공합니다.<br/>예시: `# 덧셈, 뺄셈, 곱셈을 위한 메서드가 있는 계산기 클래스를 작성하세요. 정적 메서드를 사용하세요.` |
+| `Ctrl+I`                                                     | 에디터에서 직접 Copilot에게 채팅 요청을 보내기 위해 **Inline Chat**을 시작합니다. 자연어를 사용하거나 `/` 명령어를 사용하여 Copilot에게 지시를 내립니다.                               |
+| 에디터에서의 프롬프트 <i class="codicon codicon-beaker"></i> | 코드가 아닌 자연어를 직접 입력하기 시작하면 Copilot이 프롬프트를 입력하고 있음을 감지하고 자동으로 해당 프롬프트에 대한 Inline Chat을 시작합니다.                                      |
+| `F2`                                                         | 코드에서 심볼 이름을 변경할 때 AI 기반 제안을 받습니다.                                                                                                                                |
+
+:::tip
+
+- 더 나은 코드 완성을 더 빨리 얻기 위해 의미 있는 메서드나 함수 이름을 사용하세요.
+- 코드 블록을 선택하여 Inline Chat 프롬프트의 범위를 지정하거나 파일이나 심볼을 첨부하여 관련 컨텍스트를 추가하세요.
+- 에디터 컨텍스트 메뉴 옵션을 사용하여 에디터에서 직접 일반적인 Copilot 작업에 접근하세요.
+  :::
+
+## AI 코드 생성 사용자 정의 {#customize-ai-code-generation}
+
+Copilot은 적절한 컨텍스트이 제공되면 팀이나 프로젝트의 코딩 스타일, 도구, 개발자 워크플로우에 맞는 응답을 생성할 수 있습니다. Copilot 요청을 할 때마다 이러한 세부 사항을 제공할 필요가 없도록 사용자 정의 지침을 제공할 수 있습니다. 이러한 사용자 정의 지침은 자동으로 요청에 추가됩니다. [VS Code에서 Copilot 사용자 정의하기](/docs/copilot/copilot-customization.md)에 대해 자세히 알아보세요.
+
+| 동작                                                         | 설명                                                                                                                                                 |
+| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 파일 기반 지침 _(프리뷰)_                                    | 작업 공간의 `.gitHub/copilot-instructions.md` 파일에서 코드 생성을 위한 공유 지침을 정의합니다. 이러한 공통 지침은 개인 코드 생성 지침을 보완합니다. |
+| 코드 리뷰 지침 _(프리뷰)_                                    | 설정에서 또는 파일에서 가져와서 Copilot을 사용하여 에디터 선택 영역을 검토하기 위한 지침을 정의합니다. 언어별 지침을 정의할 수 있습니다.             |
+| 코드 생성 지침 <i class="codicon codicon-beaker"></i>        | 설정에서 또는 파일에서 가져와서 GitHub Copilot으로 코드를 생성하기 위한 지침을 정의합니다. 언어별 지침을 정의할 수 있습니다.                         |
+| 테스트 생성 지침 <i class="codicon codicon-beaker"></i>      | 설정에서 또는 파일에서 가져와서 GitHub Copilot으로 테스트를 생성하기 위한 지침을 정의합니다. 언어별 지침을 정의할 수 있습니다.                       |
+| 커밋 메시지 생성 지침 <i class="codicon codicon-beaker"></i> | 설정에서 또는 파일에서 가져와서 GitHub Copilot으로 커밋 메시지를 생성하기 위한 지침을 정의합니다. 언어별 지침을 정의할 수 있습니다.                  |
+
+:::tip
+
+- 각 언어에 대해 더 정확한 생성된 코드를 얻기 위해 언어별 지침을 정의하세요.
+- 팀 및 프로젝트 간에 쉽게 공유할 수 있도록 지침을 파일에 저장하세요.
+  :::
+
+## 코드 리뷰 (프리뷰) {#review-code-preview}
+
+Copilot은 코드 블록의 빠른 리뷰를 수행하거나 작업 공간의 커밋되지 않은 변경 사항을 리뷰할 수 있습니다. 리뷰 피드백은 에디터에 주석으로 표시되며, 여기서 제안 사항을 적용할 수 있습니다.
+
+| 동작                              | 설명                                                                                                                                                                                                      |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Review and Comment** _(프리뷰)_ | 코드 블록을 선택하고 에디터 컨텍스트 메뉴에서 **Copilot** > **Review and Comment**를 선택하여 빠른 리뷰를 수행합니다.                                                                                     |
+| **Copilot Code Review**           | Source Control 뷰에서 **Copilot Code Review** 버튼을 선택하여 커밋되지 않은 모든 변경 사항에 대한 더 깊이 있는 리뷰를 수행합니다. [대기자 명단](https://gh.io/copilot-code-review-waitlist)에 참여하세요. |
+
+## 테스트 생성 {#generate-tests}
+
+Copilot은 코드베이스의 함수와 메서드에 대한 테스트를 생성할 수 있습니다. [Chat의 슬래시 명령어](/docs/copilot/copilot-chat.md#slash-commands)에 대해 자세히 알아보세요.
+
+| 동작                                                   | 설명                                                                                                                                                                                     |
+| ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/tests`                                               | 에디터에서 선택한 메서드와 함수 또는 전체 메서드와 함수에 대한 테스트를 생성합니다. 생성된 테스트는 기존 테스트 파일에 추가되거나 새 테스트 파일이 생성됩니다.                           |
+| `/setupTests`                                          | 코드의 테스트 프레임워크 설정에 대한 도움을 받습니다. 관련 테스트 프레임워크에 대한 추천, 설정 및 구성 단계, VS Code 테스트 확장 프로그램에 대한 제안을 받습니다.                        |
+| `/fixTestFailure`                                      | 실패한 테스트를 수정하는 방법에 대한 제안을 Copilot에게 요청합니다.                                                                                                                      |
+| 테스트 커버리지 <i class="codicon codicon-beaker"></i> | 아직 테스트로 커버되지 않은 함수와 메서드에 대한 테스트를 생성합니다. [자세히 알아보기](https://code.visualstudio.com/updates/v1_93#_generate-tests-based-on-test-coverage-experimental) |
+
+:::tip
+
+- 사용할 테스트 프레임워크나 라이브러리에 대한 세부 정보를 제공하세요.
+  :::
+
+## 문서 생성 {#generate-documentation}
+
+코드베이스의 함수와 메서드에 대한 코드 문서를 생성합니다. [Chat의 슬래시 명령어](/docs/copilot/copilot-chat.md#slash-commands)에 대해 자세히 알아보세요.
+
+| 동작    | 설명                                                                                   |
+| ------- | -------------------------------------------------------------------------------------- |
+| `/docs` | 에디터에서 선택한 메서드와 함수 또는 전체 메서드와 함수에 대한 문서 주석을 생성합니다. |
+
+## 문제 디버깅 및 해결 {#debug-and-fix-problems}
+
+Copilot을 사용하여 코딩 문제를 해결하고 VS Code에서 디버깅 세션을 구성하고 시작하는 데 도움을 받으세요.
+
+| 동작                                                     | 설명                                                                                                                                                                                                                                         |
+| -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/fix`                                                   | 코드 블록을 수정하거나 코드의 컴파일러 또는 린팅 오류를 해결하는 방법에 대한 제안을 Copilot에게 요청합니다. 예를 들어, 해결되지 않은 Node.js 패키지 이름을 수정하는 데 도움을 받을 수 있습니다.                                              |
+| `/fixTestFailure`                                        | 실패한 테스트를 수정하는 방법에 대한 제안을 Copilot에게 요청합니다.                                                                                                                                                                          |
+| `/startDebugging` <i class="codicon codicon-beaker"></i> | `launch.json` 디버그 구성 파일을 생성하고 Chat 뷰에서 디버깅 세션을 시작합니다. [자세히 알아보기](https://code.visualstudio.com/updates/v1_93#_start-debugging-from-chat-experimental)                                                       |
+| `copilot-debug` 명령어                                   | 프로그램을 디버깅하는 데 도움이 되는 터미널 명령어입니다. 실행 명령어 앞에 접두사를 붙여 디버깅 세션을 시작합니다(예: `copilot-debug python foo.py`). [자세히 알아보기](https://code.visualstudio.com/updates/v1_96#_debugging-with-copilot) |
+
+> **팁**
 >
-> - Use `/` commands and `@` participants to get more precise and relevant answers.
-> - Be specific, keep it simple, and ask follow-up questions to get the best results.
-> - Provide context by attaching files, symbols, or selections to your chat prompt.
+> - 메모리 소비나 성능 최적화와 같이 필요한 수정 유형에 대한 추가 정보를 제공하세요.
+> - 코드의 문제를 수정하기 위한 제안을 나타내는 에디터의 Copilot Code Actions를 주의 깊게 살펴보세요.
 
-## Code editing session (Preview)
+## 새 프로젝트 초기 설정 {#scaffold-a-new-project}
 
-Use Copilot Edits to start a code editing session where you can iterate quickly on AI-generated code edits that are applied directly across multiple files in your workspace.
+Copilot은 프로젝트 구조의 초기 설정을 생성하거나 요구 사항에 따라 노트북을 생성하여 새 프로젝트를 만드는 데 도움을 줄 수 있습니다.
 
-| Action | Description |
-|--------|-------------|
-| `kb(workbench.action.chat.openEditSession)` | Open the **Copilot Edits view** and start a code editing session across multiple files. |
-| <i class="codicon codicon-plus"></i> | Start a new edit session. |
-| `Accept` | Accept all current edits. |
-| `Discard` | Discard all current edits. |
-| <i class="codicon codicon-diff-multiple"></i> | View all edits in a multi-file diff editor. |
-| <i class="codicon codicon-discard"></i> | Undo the last edit. |
-| <i class="codicon codicon-redo"></i> | Redo the last edit. |
-| `Add Files...` | Attach files to working set. |
+| 동작           | 설명                                                                                                                                                                                                                                                          |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/new`         | Chat 뷰에서 `/new` 명령어를 사용하여 새 프로젝트나 새 파일을 초기 설정합니다. 자연어를 사용하여 필요한 프로젝트/파일 유형을 설명하고, 초기 설정된 내용을 생성하기 전에 미리 봅니다.<br/>예시: `/new Express 앱을 typescript와 svelte를 사용하여 만들어주세요` |
+| `/newNotebook` | Chat 뷰에서 `/newNotebook` 명령어를 사용하여 요구 사항에 기반한 새 Jupyter 노트북을 생성합니다. 자연어를 사용하여 노트북에 포함될 내용을 설명하세요.<br/>예시: `/newNotebook 인구 조사 데이터를 가져와서 Seaborn으로 주요 인사이트를 미리보기`                |
 
-> **Tips**
+## 소스 컨트롤 및 이슈 {#source-control-and-issues}
+
+Copilot은 커밋과 풀 리퀘스트의 변경 사항을 분석하고 커밋 메시지와 풀 리퀘스트 설명에 대한 제안을 제공할 수 있습니다.
+
+| 동작         | 설명                                                                                                                                                                                                                                                                                                                                                                                             |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Commit       | 소스 컨트롤 커밋의 현재 변경 사항에 대한 커밋 메시지를 생성합니다.                                                                                                                                                                                                                                                                                                                               |
+| Pull request | 풀 리퀘스트의 변경 사항에 해당하는 풀 리퀘스트 제목과 설명을 생성합니다.                                                                                                                                                                                                                                                                                                                         |
+| `@github`    | 채팅에서 `@github` 참여자를 사용하여 저장소 전체의 이슈, 풀 리퀘스트 등에 대해 질문합니다. [사용 가능한 GitHub 스킬](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills)에 대해 자세히 알아보세요.<br/>예시: `@github 내게 할당된 모든 열린 PR은 무엇인가요?`, `@github @dancing-mona의 최근 병합된 PR을 보여주세요` |
+
+## 검색 {#search}
+
+Copilot을 사용하여 검색 뷰에서 더 관련성 높은 검색 결과를 얻으세요.
+
+| 동작      | 설명                                                          |
+| --------- | ------------------------------------------------------------- |
+| 의미 검색 | 검색 뷰에 의미적으로 관련된 Copilot의 검색 결과를 포함합니다. |
+
+## 터미널 {#terminal}
+
+셸 명령어와 터미널에서 명령어를 실행할 때 발생하는 오류를 해결하는 방법에 대한 도움을 받으세요.
+
+| 동작                                                               | 설명                                                                                                                                                          |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Ctrl+I`                                                           | 터미널 내에서 Inline Chat을 시작하여 자연어로 빠르게 셸 명령어를 얻고 실행합니다.<br/>예시: `이 기계의 코어 수는 몇 개인가요?`                                |
+| <i class="codicon codicon-sparkle"></i> <br/>Fix using Copilot     | 실패한 셸 명령어에서 <i class="codicon codicon-sparkle"></i> 아이콘을 선택하여 오류를 해결하는 방법에 대한 제안을 받습니다.                                   |
+| <i class="codicon codicon-sparkle"></i> <br/>Explain using Copilot | 실패한 셸 명령어에서 <i class="codicon codicon-sparkle"></i> 아이콘을 선택하여 명령어가 실패한 이유에 대한 설명을 받습니다.                                   |
+| `@terminal`                                                        | Chat 뷰에서 `@terminal` 참여자를 사용하여 통합 터미널이나 셸 명령어에 대해 질문합니다.<br/>예시: `@terminal 이 작업 공간에서 가장 큰 파일 5개를 나열해주세요` |
+| `@terminal /explain`                                               | Chat 뷰에서 `/explain` 명령어를 사용하여 터미널의 내용을 설명합니다.<br/>예시: `@terminal /explain top 셸 명령어`                                             |
+
+## Python 및 노트북 지원 {#python-and-notebook-support}
+
+Native Python REPL과 Jupyter 노트북에서 Python 프로그래밍 작업을 돕기 위해 Copilot Chat을 사용할 수 있습니다.
+
+| 동작                                                          | 설명                                                                              |
+| ------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| <i class="codicon codicon-sparkle"></i> Generate<br/>`Ctrl+I` | 노트북에서 Inline Chat을 시작하여 코드블록이나 마크다운 블록을 생성합니다.        |
+| `#`                                                           | 더 관련성 높은 응답을 얻기 위해 Jupyter 커널의 변수를 채팅 프롬프트에 첨부합니다. |
+| Native REPL + `Ctrl+I`                                        | Native Python REPL에서 Inline Chat을 시작하고 생성된 명령어를 실행합니다.         |
+
+## VS Code 명령어 및 API {#vs-code-commands-and-apis}
+
+VS Code 기능, 설정 및 VS Code 확장 프로그램 API에 대한 도움을 받기 위해 Copilot을 사용할 수 있습니다. [채팅 참여자](/docs/copilot/copilot-chat.md#chat-participants)에 대해 자세히 알아보세요.
+
+| 동작                  | 설명                                                                                                                               |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `@vscode`             | `@vscode` 채팅 참여자를 사용하여 자연어로 VS Code에 대해 질문합니다.<br/>예시: `@vscode 자동 줄바꿈을 어떻게 활성화하나요?`        |
+| `@vscode /runCommand` | `@vscode` 채팅 참여자와 함께 `/runCommand`를 사용하여 VS Code 명령어를 실행합니다.<br/>`@vscode /runCommand 개발자 모드 활성화`    |
+| `@vscode /search`     | `@vscode` 채팅 참여자와 함께 `/search`를 사용하여 VS Code 검색을 생성합니다.<br/>예시: `@vscode /search import가 없는 python 파일` |
+
+> **팁**
 >
-> - Add all files for which you want to get edits to the working set.
-> - Be specific and precise about the changes you want Copilot Edits to make.
-> - If you have a larger task, decompose it in smaller tasks and iterate often.
+> - VS Code 확장 프로그램 API에 대해 질문하는 경우 `#vscodeAPI` 채팅 변수를 사용하세요.
 
-## Generate code from chat
+## 다음 단계 {#next-steps}
 
-Copilot can generate code blocks in response to your chat prompts. Quickly apply the generated code in your project or insert it in a new file. For example, ask Copilot to optimize an algorithm in your code.
-
-| Action | Description |
-|--------|-------------|
-| <i class="codicon codicon-git-pull-request-go-to-changes"></i> | Smart-apply the generated code block in the active editor. |
-| <i class="codicon codicon-insert"></i> | Insert the generated code block at the cursor. |
-| <i class="codicon codicon-copy"></i> | Copy the generated code block to the clipboard. |
-| <i class="codicon codicon-terminal"></i> | Insert the generated code block in the terminal as a shell command. |
-| `Insert into New File` | Insert the generated code block in a new file. |
-
-> **Tips**
->
-> - Provide details about the framework or libraries to use.
-> - Consider creating [custom code-generation instructions](#customize-ai-code-generation).
-
-## Attach context to your prompt
-
-When you send a chat prompt to Copilot, you can attach context to help Copilot understand your question better. For example, add the current editor selection, a file, or a symbol to your chat prompt. Get more information about [best practices for using Copilot](/docs/copilot/prompt-crafting.md).
-
-| Action | Description |
-|--------|-------------|
-| <i class="codicon codicon-attach"></i> (`kb(workbench.action.chat.attachContext)`) | Open a Quick Pick to select relevant context for your chat prompt. Choose from workspace files, symbols, current editor selection or visible contents, terminal selection or last run command, or the VS Code API.  |
-| <i class="codicon codicon-eye"></i> | Enable/disable automatically attaching open editors as context. |
-| `#codebase` | Context variable: add relevant workspace content as context to your prompt. |
-| `#editor` | Context variable: add the visible contents of the active editor as context for your prompt. |
-| `#selection` | Context variable: add the current editor selection as context to your prompt. |
-| `#terminalSelection` | Context variable: add the current terminal selection as context to your chat prompt. |
-| `#terminalLastCommand` | Context variable: add the last run terminal command as context to your chat prompt. |
-| `#VSCodeAPI` | Context variable: add the VS Code API as context to your prompt to ask questions related to VS Code extension development.  |
-| `#file` | Open a Quick Pick to select a file from your workspace and add it as context for your prompt. |
-| `#<filename>` | Type `#`, followed by a filename, to get filename suggestions for workspace files and attach as context. |
-| `#sym` | Open a Quick Pick to select a symbol from your workspace and add it as context for your prompt. |
-| `#<symbol>` | Type `#`, followed by a symbol name, to get symbol suggestions for workspace files and attach as context. |
-| Drag & drop file | Drag & drop a file or editor onto the chat to attach the file as context. |
-| Recent files <i class="codicon codicon-beaker"></i> | Automatically include recently opened and edited files in your chat prompt. [Get more info](https://code.visualstudio.com/updates/v1_93#_use-recent-coding-files-as-inline-chat-context-experimental).  |
-
-> **Tips**
->
-> - Quickly add multiple files as context by using the right arrow key in the Quick Pick
-> - Explicitly include relevant context by selecting code or mentioning chat variables
-> - Review the used references in the chat response to ensure that the context is relevant
-
-## Copilot in the editor
-
-As you're coding in the editor, you can use Copilot to generate code completions as you're typing. Invoke Inline Chat to ask questions and get help from Copilot, while staying in the flow of coding. For example, ask Copilot to generate unit tests for a function or method. Get more information about [code completions](/docs/copilot/ai-powered-suggestions.md) and [Inline Chat](/docs/copilot/copilot-chat.md#inline-chat).
-
-| Action | Description |
-|--------|-------------|
-| Code completions | Start typing in the editor and Copilot provides code suggestions that match your coding style and take your existing code into account. |
-| Code comments | Provide a code completion prompt to Copilot by writing instructions in a code comment.<br/>Example: `# write a calculator class with methods for add, subtract, and multiply. Use static methods.` |
-| `kb(inlinechat.start)` | Start **Inline Chat** to send a chat request to Copilot directly from the editor. Use natural language or use `/` commands to give instructions to Copilot. |
-| Prompt from the editor <i class="codicon codicon-beaker"></i> | Start typing natural language directly in code and Copilot detects that you're not writing code but prompting, and will automatically start Inline Chat for your prompt. |
-| `kb(editor.action.rename)` | Get AI-powered suggestions when renaming symbols in your code. |
-
-> **Tips**
->
-> - Use meaningful method or function names to get better code completions quicker.
-> - Select a code block to scope your Inline Chat prompt or attach relevant context by attaching files or symbols.
-> - Use the editor context menu options to access common Copilot actions directly from the editor.
-
-## Customize AI code generation
-
-Copilot can generate responses that match the coding style, tools, and developer workflow of your team or project, provided it has the right context. You can provide custom instructions to help Copilot adjust to your preferences, so that you don't have to provide these details every time you make a Copilot request. These custom instructions are automatically added to your requests. Get more information about [customizing Copilot in VS Code](/docs/copilot/copilot-customization.md).
-
-| Action | Description |
-|--------|-------------|
-| File-based instructions _(Preview)_ | Define shared instructions for code generation in a `.gitHub/copilot-instructions.md` file in your workspace. These common instructions supplement your own personal code-generation instructions.  |
-| Code-review instructions _(Preview)_ | Define instructions for using Copilot to review an editor selection in settings or import from a file. You can define language-specific instructions. |
-| Code-generation instructions <i class="codicon codicon-beaker"></i> | Define instructions for code generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
-| Test-generation instructions <i class="codicon codicon-beaker"></i> | Define instructions for test generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
-| Commit-message generation instructions <i class="codicon codicon-beaker"></i> | Define instructions for commit message generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
-
-> **Tips**
->
-> - Define language-specific instructions to get more accurate generated code for each language.
-> - Store your instructions in a file to easily share them with your team and across projects.
-
-## Review code (Preview)
-
-Copilot can do a quick review pass of a code block or perform a review of uncommitted changes in your workspace. Review feedback shows up as comments in the editor, where you can apply the suggestions.
-
-| Action | Description |
-|--------|-------------|
-| **Review and Comment** _(Preview)_ | Select a block of code, and select **Copilot** > **Review and Comment** from the editor context menu for quick review pass.  |
-| **Copilot Code Review** | Select the **Copilot Code Review** button in the Source Control view for a deeper review of all uncommitted changes. Join the [waitlist](https://gh.io/copilot-code-review-waitlist). |
-
-## Generate tests
-
-Copilot can generate tests for functions and methods in your codebase. Get more information about [slash commands in Chat](/docs/copilot/copilot-chat.md#slash-commands).
-
-| Action | Description |
-|--------|-------------|
-| `/tests` | Generate tests for all or only the selected methods and functions in the editor. The generated tests are appended in an existing tests file or a new tests file is created.  |
-| `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for VS Code testing extensions.   |
-| `/fixTestFailure` | Ask Copilot for suggestions on how to fix failing tests. |
-| Test coverage <i class="codicon codicon-beaker"></i> | Generate tests for functions and methods that are not yet covered by tests. [Get more information](https://code.visualstudio.com/updates/v1_93#_generate-tests-based-on-test-coverage-experimental). |
-
-> **Tips**
->
-> - Provide details about the testing frameworks or libraries to use.
-
-## Generate documentation
-
-Generate code documentation for functions and methods in your codebase. Get more information about [slash commands in Chat](/docs/copilot/copilot-chat.md#slash-commands).
-
-| Action | Description |
-|--------|-------------|
-| `/docs` | Generate documentation comments for all or only the selected methods and functions in the editor.  |
-
-## Debug and fix problems
-
-Use Copilot to help fix coding problems and to get help with configuring and starting debugging sessions in VS Code.
-
-| Action | Description |
-|--------|-------------|
-| `/fix` | Ask Copilot for suggestions on how to fix a block of code or how to resolve any compiler or linting errors in your code. For example, to help fix unresolved Node.js package names. |
-| `/fixTestFailure` | Ask Copilot for suggestions on how to fix failing tests. |
-| `/startDebugging` <i class="codicon codicon-beaker"></i> | Generate a `launch.json` debug configuration file and start a debugging session from the Chat view. [Get more information](https://code.visualstudio.com/updates/v1_93#_start-debugging-from-chat-experimental). |
-| `copilot-debug` command | Terminal command to help you debug your programs. Prefix a run command to start a debugging session for it (for example, `copilot-debug python foo.py`). [Get more information](https://code.visualstudio.com/updates/v1_96#_debugging-with-copilot). |
-
-> **Tips**
->
-> - Provide additional information about the type of fix you need, such as optimizing the memory consumption or performance.
-> - Watch for Copilot Code Actions in the editor that indicate suggestions for fixing problems in your code.
-
-## Scaffold a new project
-
-Copilot can help you create a new project by generating a scaffold of the project structure, or generate a notebook based on your requirements.
-
-| Action | Description |
-|--------|-------------|
-| `/new` | Use the `/new` command in the Chat view to scaffold a new project or a new file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it.<br/>Example: `/new Express app using typescript and svelte` |
-| `/newNotebook` | Use the `/newNotebook` command in the Chat view to generate a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain.<br/>Example: `/newNotebook get census data and preview key insights with Seaborn`. |
-
-## Source control and issues
-
-Copilot can analyze the changes in your commits and pull requests and provide suggestions for commit messages and pull request descriptions.
-
-| Action | Description |
-|--------|-------------|
-| Commit | Generate a commit message for the current changes in a source control commit. |
-| Pull request | Generate a pull request title and description that correspond with the changes in your pull request. |
-| `@github` | Use the `@github` participant in chat to ask about issues, pull requests, and more across your repositories. Get more information about the [available GitHub skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills).<br/>Example: `@github What are all of the open PRs assigned to me?`, `@github Show me the recent merged pr's from @dancing-mona`  |
-
-## Search
-
-Use Copilot to get more relevant search results in the Search view.
-
-| Action | Description |
-|--------|-------------|
-| Semantic search | Include search results from Copilot in the Search view that are semantically relevant. |
-
-## Terminal
-
-Get help about shell commands and how to resolve errors when running commands in the terminal.
-
-| Action | Description |
-|--------|-------------|
-| `kb(inlinechat.start)` | Start Inline Chat within the terminal to use natural language to quickly get and run a shell command.<br/>Example: `how many cores on this machine?` |
-| <i class="codicon codicon-sparkle"></i> <br/>Fix using Copilot | Select the <i class="codicon codicon-sparkle"></i> icon on a failed shell command and get suggestions on how to resolve the error. |
-| <i class="codicon codicon-sparkle"></i> <br/>Explain using Copilot | Select the <i class="codicon codicon-sparkle"></i> icon on a failed shell command and get an explanation about why the command failed. |
-| `@terminal` | Use the `@terminal` participant in the Chat view to ask questions about the integrated terminal or shell commands.<br/>Example: `@terminal list the 5 largest files in this workspace` |
-| `@terminal /explain` | Use the `/explain` command in the Chat view to explain something from the terminal.<br/>Example: `@terminal /explain top shell command` |
-
-## Python and Notebook support
-
-You can use Copilot Chat to help you with Python programming tasks in the Native Python REPL and in Jupyter notebooks.
-
-| Action | Description |
-|--------|-------------|
-| <i class="codicon codicon-sparkle"></i> Generate<br/>`kb(inlinechat.start)` | Start Inline Chat in a notebook to generate a codeblock or Markdown block. |
-| `#` | Attach variables from the Jupyter kernel in your chat prompt to get more relevant responses. |
-| Native REPL + `kb(inlinechat.start)` | Start Inline Chat in the Native Python REPL and run the generated commands. |
-
-## VS Code commands and APIs
-
-You can use Copilot to get help about VS Code features, settings, and the VS Code extension APIs. Get more information about [chat participants](/docs/copilot/copilot-chat.md#chat-participants).
-
-| Action | Description |
-|--------|-------------|
-| `@vscode` | Use the `@vscode` chat participant to ask questions about VS Code by using natural language.<br/>Example: `@vscode how to enable word wrapping?` |
-| `@vscode /runCommand` | Use `/runCommand` with the `@vscode` chat participant to run a VS Code command.<br/>`@vscode /runCommand enable developer mode` |
-| `@vscode /search` | Use `/search` with the `@vscode` chat participant to generate a VS Code search.<br/>Example: `@vscode /search python files without imports` |
-
-> **Tips**
->
-> - Use the `#vscodeAPI` chat variable if you're asking about the VS Code extension API.
-
-## Next steps
-
-- [Tutorial: Get started with GitHub Copilot in VS Code](/docs/copilot/getting-started.md)
+- [튜토리얼: VS Code에서 GitHub Copilot 시작하기](/docs/copilot/getting-started.md)

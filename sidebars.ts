@@ -326,7 +326,7 @@ const sidebars: SidebarsConfig = {
         {
           type: "doc",
           id: "copilot/copilot-vscode-features",
-          label: "코파일럿 요약 자료",
+          label: "코파일럿 요약",
         },
         {
           type: "doc",
@@ -361,7 +361,7 @@ const sidebars: SidebarsConfig = {
         {
           type: "doc",
           id: "copilot/prompt-crafting",
-          label: "최고의 활용법",
+          label: "모범 사례",
         },
         {
           type: "doc",

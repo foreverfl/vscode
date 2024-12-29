@@ -1,193 +1,205 @@
 ---
 Order: 7
 Area: copilot
-TOCTitle: Copilot Chat Tutorial
+TOCTitle: Copilot 채팅 튜토리얼
 ContentId: ae1f36a9-7597-425f-97fc-49bd51c153a3
-PageTitle: Getting started with Copilot Chat
+PageTitle: Copilot Chat 시작하기
 DateApproved: 12/11/2024
-MetaDescription: Get started with AI-powered chat conversations with GitHub Copilot in Visual Studio Code, inline while you're coding, or in a separate Chat view.
+MetaDescription: Visual Studio Code에서 AI 기반 채팅 대화를 시작하세요. 코딩 중 또는 별도의 채팅 뷰에서 GitHub Copilot을 활용해보세요.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Getting started with Copilot Chat in VS Code
 
-This tutorial walks you through using the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension in Visual Studio Code. You use AI-powered chat conversations to help with refactoring code, improving your code understanding, and finding your way around configuring VS Code.
+# VS Code에서 Copilot Chat<br /> 시작하기 {#getting-started-with-copilot-chat-in-vs-code}
 
-If you're new to using GitHub Copilot in VS Code, see the [GitHub Copilot Overview](/docs/copilot/overview.md) or get set up and discover the key capabilities in the [GitHub Copilot Getting Started Tutorial](/docs/copilot/getting-started.md).
+이 튜토리얼에서는 Visual Studio Code에서 [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) 확장을 사용하는 방법을 안내합니다. AI 기반 채팅 대화를 활용하여 코드 리팩토링, 코드 이해도 향상, 그리고 VS Code 설정 탐색을 쉽게 할 수 있습니다.
 
-## Prerequisites
+VS Code에서 GitHub Copilot을 처음 사용하는 경우 [GitHub Copilot 개요](/docs/copilot/overview.md)나 [GitHub Copilot 시작하기 튜토리얼](/docs/copilot/getting-started.md)을 참조하세요.
 
-* To use GitHub Copilot in VS Code, you must have the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension. When you install this extension, the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension is also installed.
+:::tip
+아직 Copilot 구독이 없다면, [Copilot 무료 플랜](https://github.com/github-copilot/signup)에 가입하여 매월 제한된 완성과 채팅 상호작용을 무료로 사용할 수 있습니다.
+:::
 
-* To use GitHub Copilot, you must have an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat by your organization.
+## 사전 요구 사항 {#prerequisites}
 
-Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md) by signing up for a subscription and installing the Copilot extension in VS Code.
+- VS Code에서 GitHub Copilot을 사용하려면 [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) 확장이 필요합니다. 이 확장을 설치하면 [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) 확장도 함께 설치됩니다.
 
-## Get your first Copilot chat conversation
+- GitHub Copilot을 사용하려면 개인 계정에 활성 구독이 있어야 하며, 조직에서 Copilot 사용 권한을 부여받아야 합니다.
 
-Copilot Chat is a chat interface that lets you interact with GitHub Copilot, to ask and receive answers to coding-related questions. The chat interface provides access to coding information and support without requiring you to navigate documentation or search online forums.
+다음 단계를 따라 [VS Code에서 GitHub Copilot 설정하기](/docs/copilot/setup.md)를 진행하세요. 구독에 가입하고 Copilot 확장을 설치하면 됩니다.
 
-In this tutorial, you'll be creating a simple Node.js web application.
+## 첫 번째 Copilot 채팅 대화 시작하기 {#get-your-first-copilot-chat-conversation}
 
-1. Open the Chat view from the Command Center chat menu or press `kb(workbench.action.chat.open)`.
+Copilot Chat은 GitHub Copilot과 상호작용할 수 있는 채팅 인터페이스로, 코딩 관련 질문을 하고 답변을 받을 수 있습니다. 채팅 인터페이스를 사용하면 문서를 탐색하거나 온라인 포럼을 검색하지 않고도 코딩 정보를 얻을 수 있습니다.
 
-    ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the chat menu in the Command Center.](./images/getting-started/command-center-open-chat.png)
+이 튜토리얼에서는 간단한 Node.js 웹 애플리케이션을 생성합니다.
 
-    > [!TIP]
-    > You can access different Copilot features from the Command Center menu at any time.
+1. 명령 센터의 채팅 메뉴에서 **채팅 뷰**를 열거나 `Ctrl+Alt+I`를 누릅니다.
 
-1. Enter *@workspace /new express with typescript and pug* in the chat input field, and press `kb(workbench.action.chat.submit)` to send the request.
+   ![VS Code 에디터에서 Copilot Chat 뷰를 보여주는 스크린샷으로, 명령 센터의 채팅 메뉴를 강조합니다.](./images/getting-started/command-center-open-chat.png)
 
-    Notice how this chat prompt is structured to provide clear and concise instructions to Copilot. Let's break it down:
+   > :::tip
+   > 언제든지 명령 센터 메뉴에서 다양한 Copilot 기능에 접근할 수 있습니다.
+   > :::
 
-    * `@workspace` is a *chat participant*, which are domain experts that can perform tasks or answer questions in a specific domain. In this case, `@workspace` knows about VS Code workspaces and your codebase.
+1. 채팅 입력 필드에 `@workspace /new express with typescript and pug`를 입력하고 `Enter`를 눌러 요청을 보냅니다.
 
-    * `/new` is a *slash command* that tells the `@workspace` participant that you want to create a new workspace. Slash commands are a shorthand for commonly used instructions. You can enter the `/` symbol in the chat input to get the list of supported commands.
+   이 채팅 프롬프트는 Copilot에 명확하고 간결한 지시를 제공하도록 구성되었습니다. 이를 분해해서 살펴보겠습니다:
 
-1. Copilot returns a file tree that represents the new workspace files, and a button to create the workspace.
+   - `@workspace`는 *채팅 참가자*로, 특정 도메인에서 작업을 수행하거나 질문에 답변할 수 있는 도메인 전문가를 나타냅니다. 이 경우, `@workspace`는 VS Code 작업 공간과 코드베이스에 대해 알고 있습니다.
 
-    ![Screenshot of VS Code Copilot Chat view, showing a file tree for a new workspace and a 'Create workspace' button.](./images/getting-started-chat/copilot-chat-view-workspace-file-tree.png)
+   - `/new`는 새로운 작업 공간을 생성하려는 것을 `@workspace` 참가자에게 전달하는 *슬래시 명령*입니다. 슬래시 명령은 자주 사용되는 지시를 위한 간단한 약어입니다. 채팅 입력 필드에 `/` 기호를 입력하면 지원되는 명령 목록을 확인할 수 있습니다.
 
-    You can select any file in the file tree to preview the content before it's actually created. If you're not happy with the generated files, or want something different, you can ask follow-up questions, like `@workspace use ejs` to use EJS instead of Pug.
+1. Copilot이 새로운 작업 공간 파일을 나타내는 파일 트리와 작업 공간을 생성하는 버튼을 반환합니다.
 
-1. Select **Create workspace** to create a new workspace and select a folder on disk where the workspace should be created.
+   ![새 작업 공간의 파일 트리와 '작업 공간 생성' 버튼을 보여주는 VS Code Copilot Chat 뷰 스크린샷.](./images/getting-started-chat/copilot-chat-view-workspace-file-tree.png)
 
-    When the workspace creation finishes, VS Code reloads with the new workspace.
+   파일 트리에서 내용을 미리 보고, 생성된 파일에 만족하지 않거나 다른 것이 필요하다면 후속 질문을 할 수 있습니다. 예를 들어, `@workspace use ejs`를 입력하여 Pug 대신 EJS를 사용할 수 있습니다.
 
-    ![Screenshot of VS Code, showing the newly created workspace for an Express app.](./images/getting-started-chat/copilot-chat-create-workspace-result.png)
+1. **작업 공간 생성**을 선택하여 새 작업 공간을 생성하고 디스크에서 작업 공간을 저장할 폴더를 선택합니다.
 
-Congratulations! You've just created a workspace with Copilot Chat by using natural language. The advantage of this approach is that you tweak your request as you like. Maybe you prefer using Express.js with EJS, or not use Express.js at all and use plain Node.js with Bootstrap. Choose what you prefer most!
+   작업 공간 생성이 완료되면 VS Code가 새 작업 공간으로 다시 로드됩니다.
 
-## Use chat participants
+   ![Express 앱을 위한 새 작업 공간을 보여주는 VS Code의 스크린샷.](./images/getting-started-chat/copilot-chat-create-workspace-result.png)
 
-Previously, you used the `@workspace` chat participant to generate a new workspace, but you can also use it to ask questions about the actual code in the workspace.
+축하합니다! Copilot Chat으로 작업 공간을 생성했습니다. 이 접근 방식의 장점은 요청을 원하는 대로 조정할 수 있다는 것입니다. 예를 들어, Express.js와 EJS를 사용하거나, Express.js를 사용하지 않고 Bootstrap과 함께 순수 Node.js를 사용할 수도 있습니다. 선호하는 방식으로 선택하세요!
 
-Let's iterate on our generated Express app and add a new page to it.
+## 채팅 참가자 사용하기 {#use-chat-participants}
 
-1. In the Chat view, enter the *@workspace how to add a new page?*
+이전에 `@workspace` 채팅 참가자를 사용하여 새 작업 공간을 생성했지만, 작업 공간의 실제 코드에 대한 질문에도 사용할 수 있습니다.
 
-    ![Screenshot of VS Code Copilot Chat view, showing the results for added a page.](./images/getting-started-chat/copilot-chat-view-add-page.png)
+생성된 Express 앱을 기반으로 새 페이지를 추가해 보겠습니다.
 
-    Copilot returns step-by-step instructions for adding a new page that are specific to your code. This is because you added `@workspace` in the chat prompt, which has the context about your specific workspace contents. If you wouldn't include `@workspace`, you would get more generic instructions.
+1. 채팅 뷰에서 `@workspace how to add a new page?`를 입력합니다.
 
-1. Optionally, follow the instructions and add a new page to your app.
+   ![페이지 추가 결과를 보여주는 VS Code Copilot Chat 뷰의 스크린샷.](./images/getting-started-chat/copilot-chat-view-add-page.png)
 
-    > [!TIP]
-    > You can add more details about the type of page you want to add, such as a home page, a contact page, or a product page.
+   Copilot은 코드에 맞는 단계별 새 페이지 추가 지침을 반환합니다. 이는 채팅 프롬프트에 `@workspace`를 추가하여 특정 작업 공간 내용에 대한 컨텍스트를 제공했기 때문입니다. `@workspace`를 포함하지 않으면 더 일반적인 지침을 받을 수 있습니다.
 
-1. There are more chat participants that you can use, each with its own domain-specific expertise. Select the <i class="codicon codicon-mention"></i> icon or just type `@` in the Chat view to get the list of available chat participants.
+2. 선택적으로, 지침을 따라 앱에 새 페이지를 추가하세요.
 
-    ![Screenshot of VS Code Copilot Chat view, showing the list of chat participants.](./images/getting-started-chat/copilot-chat-view-participants.png)
+   > :::tip
+   > 홈 화면, 연락처 페이지, 제품 페이지와 같은 추가하려는 페이지 유형을 지정할 수 있습니다.
+   > :::
 
-    > [!NOTE]
-    > Extensions can also contribute chat participants, so the list might vary based on the extensions you have installed in VS Code.
+3. 사용할 수 있는 더 많은 채팅 참가자가 있습니다. 각 참가자는 고유한 도메인 전문성을 가지고 있습니다. <i class="codicon codicon-mention"></i> 아이콘을 선택하거나 채팅 뷰에서 `@`를 입력하여 사용 가능한 채팅 참가자 목록을 확인하세요.
 
-1. Let's use `@vscode` to ask about VS Code. Enter `@vscode how to debug node.js app` in the chat input field.
+   ![사용 가능한 채팅 참가자 목록을 보여주는 VS Code Copilot Chat 뷰의 스크린샷.](./images/getting-started-chat/copilot-chat-view-participants.png)
 
-    You get instructions about how to debug a Node.js app in VS Code, and also get a button to directly access the corresponding VS Code functionality.
+   > :::note
+   > 확장 프로그램도 채팅 참가자를 추가할 수 있으므로, 목록은 VS Code에 설치된 확장 프로그램에 따라 달라질 수 있습니다.
+   > :::
 
-    ![Screenshot of VS Code Copilot Chat view, showing results and a button to open the Command Palette in VS Code.](./images/getting-started-chat/copilot-chat-view-node-debugging.png)
+4. 이번에는 `@vscode`를 사용하여 VS Code에 대해 질문해 봅시다. 채팅 입력 필드에 `@vscode how to debug node.js app`을 입력하세요.
 
-## Stay in the flow with Inline Chat
+   VS Code에서 Node.js 앱을 디버그하는 방법에 대한 지침을 제공하며, 관련 VS Code 기능에 직접 접근할 수 있는 버튼도 표시됩니다.
 
-While the Chat view is great for keeping a conversation going with Copilot, having access to chat directly from the editor might be more efficient for particular scenarios. For example, when you're reviewing code changes, writing unit tests, or refactoring code.
+   ![결과와 VS Code의 명령 팔레트로 직접 이동하는 버튼을 보여주는 VS Code Copilot Chat 뷰의 스크린샷.](./images/getting-started-chat/copilot-chat-view-node-debugging.png)
 
-Let's look at how to use chat for code refactoring.
+## 인라인 채팅으로 작업 흐름 유지하기 {#stay-in-the-flow-with-inline-chat}
 
-1. Open the `app.ts` file in the editor and put the cursor on the line where the port number is set (`const port = 3000`).
+채팅 뷰는 Copilot과의 대화를 이어가기 좋지만, 에디터에서 직접 채팅에 접근하는 것이 특정 시나리오에서는 더 효율적일 수 있습니다. 예를 들어, 코드 변경 사항 검토, 단위 테스트 작성, 코드 리팩토링을 할 때 유용합니다.
 
-    For more complex code changes, you can select a block of code to provide more context to Copilot about what you want to change.
+이제 코드 리팩토링을 위해 채팅을 사용하는 방법을 살펴보겠습니다.
 
-1. Press `kb(inlinechat.start)` on your keyboard to bring up Copilot Inline Chat, or right-click and select **Copilot** > **Start in Editor**.
+1. 에디터에서 `app.ts` 파일을 열고 포트 번호가 설정된 줄(`const port = 3000`)에 커서를 놓습니다.
 
-    Copilot Inline Chat enables you to ask questions to Copilot directly from the editor.
+   더 복잡한 코드 변경의 경우, Copilot에 변경을 원하는 내용을 더 잘 전달하기 위해 코드 블록을 선택할 수 있습니다.
 
-    ![Screenshot of VS Code editor, highlighting the Inline Chat popup control.](./images/getting-started-chat/copilot-inline-chat-popup.png)
+2. 키보드에서 `Ctrl+I`를 눌러 Copilot 인라인 채팅을 열거나, 마우스 오른쪽 버튼을 클릭하고 **Copilot** > **Start in Editor**을 선택하세요.
 
-    Let's now ask Copilot to refactor the code to make the port number configurable.
+   Copilot 인라인 채팅을 사용하면 에디터에서 Copilot에 직접 질문을 할 수 있습니다.
 
-1. Enter *make configurable* in the chat input field and press `kbstyle(Enter)`.
+   ![인라인 채팅 팝업 컨트롤을 강조한 VS Code 에디터의 스크린샷.](./images/getting-started-chat/copilot-inline-chat-popup.png)
 
-    Notice how Copilot updates the selected code and suggests reading the port number from an environment variable.
+   이제 Copilot에 포트 번호를 설정할 수 있도록 코드를 리팩토링해 달라고 요청해 봅시다.
 
-    ![Screenshot of VS Code editor with the suggested code change.](./images/getting-started-chat/copilot-inline-chat-configurable-port.png)
+3. 채팅 입력 필드에 `make configurable`을 입력하고 `Enter`를 누릅니다.
 
-    You can view the applied changes by selecting **More Actions** > **Toggle Changes**.
+   Copilot이 선택한 코드를 업데이트하여 환경 변수에서 포트 번호를 읽는 방식을 제안하는 것을 볼 수 있습니다.
 
-    ![Screenshot of VS Code Inline Chat, highlighting the 'More Actions' control and diff editor.](./images/getting-started-chat/copilot-inline-chat-show-changes.png)
+   ![제안된 코드 변경 사항을 보여주는 VS Code 에디터의 스크린샷.](./images/getting-started-chat/copilot-inline-chat-configurable-port.png)
 
-1. Select **Accept** or **Discard** to apply or ignore the changes.
+   **더 많은 작업** > **변경 사항 전환**을 선택하여 적용된 변경 사항을 확인할 수 있습니다.
 
-    If you're not happy with the suggested code changes, you can select the **Rerun Request** button to get another suggestion.
+   ![더 많은 작업 컨트롤과 차이점을 보여주는 VS Code 인라인 채팅의 스크린샷.](./images/getting-started-chat/copilot-inline-chat-show-changes.png)
 
-    > [!TIP]
-    > Use the thumbs up and thumbs down buttons to provide feedback to Copilot about the suggestions.
+4. 변경 사항을 적용하거나 무시하려면 **수락** 또는 **취소**를 선택하세요.
 
-Congratulations on using Copilot Inline Chat in the editor to help you with code refactoring!
+   제안된 코드 변경 사항이 마음에 들지 않으면 **요청 다시 실행** 버튼을 선택하여 다른 제안을 받을 수 있습니다.
 
-## Use smart actions
+   > :::tip
+   > 엄지 위로와 엄지 아래로 버튼을 사용하여 Copilot에 제안에 대한 피드백을 제공하세요.
+   > :::
 
-There are some common scenarios where you might invoke Copilot directly, without having to enter a chat prompt. For example, Copilot can help with adding code documentation, generating unit tests, or help you fix coding errors.
+에디터에서 Copilot 인라인 채팅을 사용하여 코드 리팩토링을 수행한 것을 축하드립니다!
 
-Let's see how to use smart actions to fix a coding error.
+## 스마트 액션 사용하기 {#use-smart-actions}
 
-1. Open the `app.ts` file and select one of the symbols that has a red squiggle.
+채팅 프롬프트를 입력하지 않고도 Copilot을 직접 호출할 수 있는 일반적인 시나리오가 있습니다. 예를 들어, Copilot은 코드 문서 추가, 단위 테스트 생성 또는 코딩 오류 수정을 도와줄 수 있습니다.
 
-1. Select the sparkle icon to view the Copilot code actions, and then select **Fix using Copilot**.
+코딩 오류를 수정하기 위해 스마트 액션을 사용하는 방법을 살펴보겠습니다.
 
-    ![Screenshot of VS Code, highlighting the sparkle and Copilot smart actions context menu.](./images/getting-started-chat/copilot-smart-action-fix.png)
+1. `app.ts` 파일을 열고 빨간색 물결선이 있는 심볼 중 하나를 선택하세요.
 
-1. Copilot Inline Chat comes up, prepopulated with the error message, and a suggestion to resolve the problem.
+1. 스파클 아이콘을 선택하여 Copilot 코드 액션을 보고, **Fix using Copilot**을 선택하세요.
 
-    ![Screenshot of VS Code Inline Chat, showing the result of the fix smart action.](./images/getting-started-chat/copilot-smart-action-fix-suggestion.png)
+   ![VS Code의 스크린샷으로, 스파클과 Copilot 스마트 액션 컨텍스트 메뉴가 강조 표시되어 있습니다.](./images/getting-started-chat/copilot-smart-action-fix.png)
 
-    Notice how Copilot uses the `/fix` slash command, followed by the error message. You can also use the `/fix` command directly in the chat input field to get help with fixing coding errors.
+1. Copilot 인라인 채팅이 나타나고, 오류 메시지와 함께 문제를 해결하기 위한 제안이 미리 채워져 있습니다.
 
-In addition to **Fix**, Copilot provides more smart code actions, such as **Explain** (/explain), **Generate Docs** (`/doc`), and **Generate Tests** (`/tests`). You can access these actions via the editor context menu and then selecting **Copilot**.
+   ![VS Code 인라인 채팅의 스크린샷으로, 수정 스마트 액션의 결과를 보여줍니다.](./images/getting-started-chat/copilot-smart-action-fix-suggestion.png)
 
-![Screenshot of VS Code Copilot smart action context menu.](./images/getting-started-chat/copilot-smart-action-menu.png)
+   Copilot이 오류 메시지 다음에 `/fix` 슬래시 명령을 사용하는 것을 확인하세요. 채팅 입력 필드에서 직접 `/fix` 명령을 사용하여 코딩 오류 수정에 대한 도움을 받을 수도 있습니다.
 
-And if you come across some block of code that's unclear, just select it and use `/explain` to get Copilot to give you an explanation and help improve your code understanding.
+**Fix** 외에도 Copilot은 **Explain** (`/explain`), **Generate Docs** (`/doc`), **Generate Tests** (`/tests`)와 같은 더 많은 스마트 코드 액션을 제공합니다. 에디터 컨텍스트 메뉴에서 **Copilot**을 선택하여 이러한 액션에 접근할 수 있습니다.
 
-## Add chat context
+![VS Code Copilot 스마트 액션 컨텍스트 메뉴의 스크린샷.](./images/getting-started-chat/copilot-smart-action-menu.png)
 
-Previously, you used `@workspace` to ask questions about your workspace. What if you want to ask Copilot a question about something specific, maybe a particular file or a symbol in your code? How can you provide that context to Copilot without having to describe everything extensively in natural language?
+그리고 이해하기 어려운 코드 블록을 발견하면, 해당 부분을 선택하고 `/explain`을 사용하여 Copilot으로부터 설명을 받고 코드 이해도를 높일 수 있습니다.
 
-Let's ask Copilot about what the purpose of a specific file in the workspace is.
+## 채팅 컨텍스트 추가하기 {#add-chat-context}
 
-1. Open the Chat view from the Command Center chat menu or press `kb(workbench.action.chat.open)`.
+이전에 `@workspace`를 사용하여 작업 공간에 대한 질문을 했습니다. 특정한 것, 예를 들어 특정 파일이나 코드의 심볼에 대해 Copilot에게 질문하고 싶다면 어떻게 해야 할까요? 자세한 설명 없이도 Copilot에 그 컨텍스트를 어떻게 제공할 수 있을까요?
 
-1. Select the **Attach Context** button next to the chat input field to open the context Quick Pick.
+작업 공간의 특정 파일의 목적이 무엇인지 Copilot에게 물어보겠습니다.
 
-    ![Screenshot of VS Code Copilot Chat view, showing the Attach context button and context Quick Pick.](./images/getting-started-chat/copilot-chat-view-attach-context.png)
+1. 커맨드 센터 채팅 메뉴에서 또는 `Ctrl+Alt+I`을 눌러 채팅 뷰를 엽니다.
 
-    In the context Quick Pick, you can select different types of context to add to your chat prompt, such as a file from your workspace, a symbol, the current selection, and more.
+2. 채팅 입력 필드 옆의 **컨텍스트 첨부** 버튼을 선택하여 컨텍스트 빠른 선택을 엽니다.
 
-1. Start typing `index.ts` to find the corresponding file, and then select the `src\types\index.ts` file.
+   ![VS Code Copilot 채팅 뷰의 스크린샷으로, 컨텍스트 첨부 버튼과 컨텍스트 빠른 선택을 보여줍니다.](./images/getting-started-chat/copilot-chat-view-attach-context.png)
 
-    ![Screenshot of VS Code context Quick Pick, highlighting the selected' index.ts' file.](./images/getting-started-chat/copilot-chat-view-attach-context-file.png)
+   컨텍스트 빠른 선택에서 작업 공간의 파일, 심볼, 현재 선택 항목 등과 같은 다양한 유형의 컨텍스트를 채팅 프롬프트에 추가할 수 있습니다.
 
-    After you select the file, notice that the file is added in the Chat view. Optionally, you can add more files or other context types to your chat prompt.
+3. `index.ts`를 입력하기 시작하여 해당 파일을 찾은 다음, `src\types\index.ts` 파일을 선택하세요.
 
-1. Now enter the following prompt in the chat input field: *@workspace what does this do*. Then, press `kbstyle(Enter)` to send the request.
+   ![VS Code 컨텍스트 빠른 선택의 스크린샷으로, 선택한 'index.ts' 파일이 강조 표시되어 있습니다.](./images/getting-started-chat/copilot-chat-view-attach-context-file.png)
 
-    ![Screenshot of VS Code Copilot Chat view, showing the chat prompt with the attached file context.](./images/getting-started-chat/copilot-chat-view-context-prompt.png)
+   파일을 선택한 후, 채팅 뷰에 파일이 추가된 것을 확인하세요. 선택적으로 채팅 프롬프트에 더 많은 파일이나 다른 컨텍스트 유형을 추가할 수 있습니다.
 
-    Copilot now returns an explanation about the purpose of the code in the selected file.
+4. 이제 채팅 입력 필드에 다음 프롬프트를 입력하세요: _@workspace what does this do_. 그런 다음 `Enter`를 눌러 요청을 보내세요.
 
-1. Instead of using the **Attach Context** control, you can also directly reference the different types of context by typing `#` in the chat input field.
+   ![VS Code Copilot 채팅 뷰의 스크린샷으로, 첨부된 파일 컨텍스트와 함께 채팅 프롬프트를 보여줍니다.](./images/getting-started-chat/copilot-chat-view-context-prompt.png)
 
-    > [!TIP]
-    > Add `#codebase` to add your entire workspace as context to your chat prompt. This can be useful if you want to ask questions that relate to different areas of your project.
+   이제 Copilot이 선택한 파일의 코드 목적에 대한 설명을 반환합니다.
 
-1. To quickly attach a file as context for your chat prompt, drag and drop a file from the Explorer view onto the Chat view. If the file is open in the editor, you can also drag and drop the editor tab onto the Chat view to attach the file.
+5. **컨텍스트 첨부** 컨트롤을 사용하는 대신, 채팅 입력 필드에 `#`를 입력하여 다양한 유형의 컨텍스트를 직접 참조할 수도 있습니다.
 
-    <video src="images/copilot-chat/copilot-attach-dnd.mp4" title="Dragging files and editors into chat" autoplay loop controls muted></video>
+   :::tip
+   `#codebase`를 추가하여 전체 작업 공간을 채팅 프롬프트의 컨텍스트로 추가하세요. 이는 프로젝트의 다양한 영역과 관련된 질문을 하고 싶을 때 유용할 수 있습니다.
+   :::
 
-## Congratulations
+6. 채팅 프롬프트에 파일을 빠르게 컨텍스트로 첨부하려면, 탐색기 뷰에서 채팅 뷰로 파일을 드래그 앤 드롭하세요. 파일이 에디터에서 열려 있는 경우, 에디터 탭을 채팅 뷰로 드래그 앤 드롭하여 파일을 첨부할 수도 있습니다.
 
-Congratulations, you successfully used the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension to have AI-powered conversations to help refactor your code, fix problems, or improve your code understanding.
+   <video title="채팅에 파일과 에디터 드래그하기" autoplay loop controls muted style={{ maxWidth: '100%' }}>
+   <source src="https://code.visualstudio.com/assets/docs/copilot/copilot-chat/copilot-attach-dnd.mp4" type="video/mp4" />
+   </video>
 
-## Additional resources
+## 축하합니다 {#congratulations}
 
-* Get an overview of [Copilot Chat in VS Code](/docs/copilot/copilot-chat.md)
-* Optimize your Copilot experience with [prompt crafting and context setting](/docs/copilot/prompt-crafting.md)
+축하합니다, [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) 확장 프로그램을 성공적으로 사용하여 코드 리팩토링, 문제 해결 또는 코드 이해도 향상을 돕는 AI 기반 대화를 나눴습니다.
+
+## 추가 리소스 {#additional-resources}
+
+- [VS Code의 Copilot Chat](/docs/copilot/copilot-chat.md) 개요 보기
+- [프롬프트 작성과 컨텍스트 설정](/docs/copilot/prompt-crafting.md)으로 Copilot 경험 최적화하기

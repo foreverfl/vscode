@@ -1,43 +1,45 @@
 ---
 Order: 11
 Area: copilot
-TOCTitle: Customizing Copilot
+TOCTitle: Copilot 커스터마이징
 ContentId: 16c73175-a606-4aab-8ae5-a507fe8947eb
-PageTitle: Customize GitHub Copilot in VS Code
+PageTitle: VS Code에서 GitHub Copilot 커스터마이징하기
 DateApproved: 12/11/2024
-MetaDescription: Learn how you can customize how GitHub Copilot generates code or tests for your project by defining a set of instructions.
+MetaDescription: 지침 세트를 정의하여 GitHub Copilot이 프로젝트를 위해 코드나 테스트를 생성하는 방법을 커스터마이징하는 방법을 알아보세요.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Custom instructions for GitHub Copilot in VS Code
 
-You can enhance Copilot's chat responses by providing it with contextual details about your team's workflow, tools, or project specifics. Instead of manually including this context in every chat query, you can create a _custom instructions_ file that automatically incorporates this information with every chat request.
+# VS Code에서 GitHub Copilot을 위한 커스텀 지침 {#custom-instructions-for-github-copilot-in-vs-code}
 
-Copilot applies these instructions to chat prompts in the Chat view, Quick Chat, or Inline Chat. These instructions are not displayed in the chat, but are passed to Copilot by VS Code.
+팀의 워크플로우, 도구 또는 프로젝트 세부 사항에 대한 컨텍스트 정보를 제공하여 Copilot의 채팅 응답을 향상시킬 수 있습니다. 모든 채팅 쿼리에 이 컨텍스트를 수동으로 포함시키는 대신, _커스텀 지침_ 파일을 만들어 모든 채팅 요청에 이 정보를 자동으로 포함시킬 수 있습니다.
 
-You can specify custom instructions for specific purposes:
+Copilot은 채팅 화면, 빠른 채팅 또는 인라인 채팅의 채팅 프롬프트에 이러한 지침을 적용합니다. 이러한 지침은 채팅에 표시되지 않지만 VS Code에 의해 Copilot에 전달됩니다.
 
-* **Code-generation instructions** - provide context specific for generating code. For example, you can specify that private variables should always be prefixed with an underscore, or that singletons should be implemented a certain way. You can specify code-generation instructions in settings, or in a Markdown file in your workspace.
+특정 목적을 위한 커스텀 지침을 지정할 수 있습니다:
 
-* **Test-generation instructions** - provide context specific for generating tests. For example, you can specify that all generated tests should use a specific testing framework. You can specify test-generation instructions in settings, or in a Markdown file in your workspace.
+- **코드 생성 지침** - 코드 생성에 특화된 컨텍스트를 제공합니다. 예를 들어, 비공개 변수는 항상 밑줄로 시작해야 한다거나 싱글톤은 특정 방식으로 구현되어야 한다고 지정할 수 있습니다. 설정이나 워크스페이스의 마크다운 파일에서 코드 생성 지침을 지정할 수 있습니다.
 
-* **Code review instructions** - provide context specific for reviewing the current editor selection. For example, you can specify that the reviewer should look for a specific type of error in the code. You can specify review-selection instructions in settings, or in a Markdown file in your workspace.
+- **테스트 생성 지침** - 테스트 생성에 특화된 컨텍스트를 제공합니다. 예를 들어, 생성된 모든 테스트가 특정 테스팅 프레임워크를 사용해야 한다고 지정할 수 있습니다. 설정이나 워크스페이스의 마크다운 파일에서 테스트 생성 지침을 지정할 수 있습니다.
 
-* **Commit message generation instructions** - provide context specific for generating commit messages. You can specify commit-message-generation instructions in settings, or in a Markdown file in your workspace.
+- **코드 리뷰 지침** - 현재 편집기 선택 항목을 검토하는 데 특화된 컨텍스트를 제공합니다. 예를 들어, 리뷰어가 코드에서 특정 유형의 오류를 찾아야 한다고 지정할 수 있습니다. 설정이나 워크스페이스의 마크다운 파일에서 리뷰 선택 지침을 지정할 수 있습니다.
 
-Custom instructions consist of natural language instructions and should be short, self-contained statements that add context or relevant information to supplement chat questions.
+- **커밋 메시지 생성 지침** - 커밋 메시지 생성에 특화된 컨텍스트를 제공합니다. 설정이나 워크스페이스의 마크다운 파일에서 커밋 메시지 생성 지침을 지정할 수 있습니다.
 
-## Define code-generation custom instructions
+커스텀 지침은 일반적인 문장으로 구성되며, 채팅 질문을 보완하기 위한 컨텍스트이나 관련 정보를 추가하는 짧고 자체 완결적인 문장이어야 합니다.
 
-Copilot can help you generate code, for example as part of a refactoring, generating unit tests, or implementing a feature. You might have specific libraries you want to use in your project, or a particular coding style you want to follow for the code that Copilot generates.
+## 코드 생성 커스텀 지침 정의하기 {#define-code-generation-custom-instructions}
 
-> [!NOTE]
-> Copilot does not apply code-generation instructions for [code completions](/docs/copilot/ai-powered-suggestions.md).
+Copilot은 리팩토링의 일부로, 단위 테스트 생성 또는 기능 구현과 같은 코드 생성을 도와줄 수 있습니다. 프로젝트에서 사용하고 싶은 특정 라이브러리가 있거나, Copilot이 생성하는 코드에 대해 따르고 싶은 특정 코딩 스타일이 있을 수 있습니다.
 
-### Use settings
+:::note
+Copilot은 [코드 완성](/docs/copilot/ai-powered-suggestions.md)에는 코드 생성 지침을 적용하지 않습니다.
+:::
 
-You can configure custom code-generation instructions by using the `setting(github.copilot.chat.codeGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level, and you can also specify language-specific instructions. Get more information about [language-specific settings](/docs/getstarted/settings.md#language-specific-editor-settings).
+### 설정 사용하기 {#use-settings}
 
-The following code snippet shows how to define a set of instructions in the `settings.json` file. To define instruction directly in settings, configure the `text` property. To reference an external file, configure the `file` property.
+`github.copilot.chat.codeGeneration.instructions` 설정을 사용하여 커스텀 코드 생성 지침을 구성할 수 있습니다. 사용자 또는 워크스페이스 수준에서 커스텀 지침을 정의할 수 있으며, 언어별 지침도 지정할 수 있습니다. [언어별 설정](/docs/getstarted/settings.md#language-specific-editor-settings)에 대한 자세한 정보를 확인하세요.
+
+다음 코드 스니펫은 `settings.json` 파일에서 지침 세트를 정의하는 방법을 보여줍니다. 설정에서 직접 지침을 정의하려면 `text` 속성을 구성하세요. 외부 파일을 참조하려면 `file` 속성을 구성하세요.
 
 ```json
   "github.copilot.chat.codeGeneration.instructions": [
@@ -53,7 +55,7 @@ The following code snippet shows how to define a set of instructions in the `set
   ],
 ```
 
-An example of the contents of the `code-style.md` file:
+`code-style.md` 파일의 내용 예시:
 
 ```markdown
 Always use React functional components.
@@ -61,33 +63,35 @@ Always use React functional components.
 Always add comments.
 ```
 
-### Use a `.github/copilot-instructions.md` file
+### `.github/copilot-instructions.md` 파일 사용하기 {#use-a-githubcopilot-instructionsmd-file}
 
-You can also store custom instructions in your workspace or repository in a `.github/copilot-instructions.md` file and have VS Code automatically picks up this file.
+워크스페이스나 리포지토리에 `.github/copilot-instructions.md` 파일로 커스텀 지침을 저장하여 VS Code가 이 파일을 자동으로 감지하도록 할 수도 있습니다.
 
-If you define custom instructions in both the `.github/copilot-instructions.md` file and in settings, Copilot tries to combine instructions from both sources.
+`.github/copilot-instructions.md` 파일과 설정 모두에서 커스텀 지침을 정의하면, Copilot은 두 소스의 지침을 결합하려고 시도합니다.
 
-> [!NOTE]
-> GitHub Copilot in Visual Studio also detects the `.github/copilot-instructions.md` file. If you have a workspace that you use in both VS Code and Visual Studio, you can use the same file to define custom instructions for both editors.
+:::note
+Visual Studio의 GitHub Copilot도 `.github/copilot-instructions.md` 파일을 감지합니다. VS Code와 Visual Studio 모두에서 사용하는 워크스페이스가 있다면, 동일한 파일을 사용하여 두 편집기 모두에 대한 커스텀 지침을 정의할 수 있습니다.
+:::
 
-1. Set the `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` setting to `true` to instruct Copilot in VS Code to use the custom instructions file.
+1. VS Code의 Copilot이 커스텀 지침 파일을 사용하도록 지시하려면 `github.copilot.chat.codeGeneration.useInstructionFiles` 설정을 `true`로 설정하세요.
 
-1. Create a `.github/copilot-instructions.md` file at the root of your workspace. If needed, create a `.github` directory first.
+2. 워크스페이스 루트에 `.github/copilot-instructions.md` 파일을 만드세요. 필요한 경우 먼저 `.github` 디렉토리를 만드세요.
 
-    > [!TIP]
-    > In the Explorer view in VS Code, you can create the folder and directly in one operation by typing the full path as the file name.
+   :::tip
+   VS Code의 탐색기 화면에서 파일 이름으로 전체 경로를 입력하여 폴더와 파일을 한 번에 만들 수 있습니다.
+   :::
 
-1. Add natural language instructions to the file. You can use the Markdown format.
+3. 파일에 일반적인 문장으로 지침을 추가하세요. 마크다운 형식을 사용할 수 있습니다.
 
-    Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
+   지침 사이의 공백은 무시되므로, 지침을 한 단락으로 작성하거나, 각각 새 줄에 작성하거나, 가독성을 위해 빈 줄로 구분할 수 있습니다.
 
-## Define test-generation custom instructions
+## 테스트 생성 커스텀 지침 정의하기 {#define-test-generation-custom-instructions}
 
-You can use Copilot to generate tests for your code, for example by using the `@workspace /tests` prompt in the Chat view. You can define custom instructions to help Copilot generate tests that are specific to your project and development workflow.
+채팅 화면에서 `@workspace /tests` 프롬프트를 사용하는 등의 방법으로 Copilot을 사용하여 코드의 테스트를 생성할 수 있습니다. 커스텀 지침을 정의하여 프로젝트와 개발 워크플로우에 특화된 테스트를 생성하도록 Copilot을 도울 수 있습니다.
 
-To configure custom test-generation instructions, use the `setting(github.copilot.chat.testGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level.
+커스텀 테스트 생성 지침을 구성하려면 `github.copilot.chat.testGeneration.instructions` 설정을 사용하세요. 사용자 또는 워크스페이스 수준에서 커스텀 지침을 정의할 수 있습니다.
 
-The following code snippet shows how to define a set of instructions in the `settings.json` file. To define instruction directly in settings, configure the `text` property. To reference an external file, configure the `file` property.
+다음 코드 스니펫은 `settings.json` 파일에서 지침 세트를 정의하는 방법을 보여줍니다. 설정에서 직접 지침을 정의하려면 `text` 속성을 구성하세요. 외부 파일을 참조하려면 `file` 속성을 구성하세요.
 
 ```json
   "github.copilot.chat.testGeneration.instructions": [
@@ -103,7 +107,7 @@ The following code snippet shows how to define a set of instructions in the `set
   ],
 ```
 
-An example of the contents of the `code-style.md` file:
+`code-style.md` 파일의 내용 예시:
 
 ```markdown
 Always add code comments.
@@ -111,34 +115,34 @@ Always add code comments.
 Always use React functional components.
 ```
 
-## Define code review custom instructions
+## 코드 리뷰 커스텀 지침 정의하기 {#define-code-review-custom-instructions}
 
-You can use Copilot to review a selection of code in the editor. You can define custom instructions to help Copilot take into account specific code review criteria that are relevant to your project and development workflow.
+Copilot을 사용하여 편집기에서 코드 선택 영역을 리뷰할 수 있습니다. 커스텀 지침을 정의하여 프로젝트와 개발 워크플로우에 관련된 특정 코드 리뷰 기준을 Copilot이 고려하도록 도울 수 있습니다.
 
-To configure custom code review instructions, use the `setting(github.copilot.chat.reviewSelection.instructions)` setting. You can define custom instructions at the User or Workspace level.
+커스텀 코드 리뷰 지침을 구성하려면 `github.copilot.chat.reviewSelection.instructions` 설정을 사용하세요. 사용자 또는 워크스페이스 수준에서 커스텀 지침을 정의할 수 있습니다.
 
-## Define commit message generation custom instructions
+## 커밋 메시지 생성 커스텀 지침 정의하기 {#define-commit-message-generation-custom-instructions}
 
-In the Source Control view, you can use Copilot to generate a commit message for the pending code changes. You can define custom instructions to help Copilot generate a commit message that takes into account specific formatting and structure that are specific to your project and development workflow.
+소스 제어 화면에서 Copilot을 사용하여 대기 중인 코드 변경에 대한 커밋 메시지를 생성할 수 있습니다. 커스텀 지침을 정의하여 프로젝트와 개발 워크플로우에 특화된 특정 형식과 구조를 고려한 커밋 메시지를 생성하도록 Copilot을 도울 수 있습니다.
 
-To configure custom commit message generation instructions, use the `setting(github.copilot.chat.commitMessageGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level.
+커스텀 커밋 메시지 생성 지침을 구성하려면 `github.copilot.chat.commitMessageGeneration.instructions` 설정을 사용하세요. 사용자 또는 워크스페이스 수준에서 커스텀 지침을 정의할 수 있습니다.
 
-## Tips for defining custom instructions
+## 커스텀 지침 정의를 위한 팁 {#tips-for-defining-custom-instructions}
 
-* Keep your instructions short and self-contained. Each instruction should be a single, simple statement. If you need to provide multiple pieces of information, use multiple instructions.
+- 지침을 짧고 자체 완결적으로 유지하세요. 각 지침은 단일하고 단순한 문장이어야 합니다. 여러 정보를 제공해야 하는 경우 여러 지침을 사용하세요.
 
-* Don't refer to external resources in the instructions, such as specific coding standards.
+- 지침에서 특정 코딩 표준과 같은 외부 리소스를 참조하지 마세요.
 
-* Make it easy to share custom instructions with your team or across projects by storing your instructions in an external file. You can also version control the file to track changes over time.
+- 지침을 외부 파일에 저장하여 팀이나 프로젝트 간에 커스텀 지침을 쉽게 공유할 수 있게 하세요. 시간이 지남에 따라 변경 사항을 추적하기 위해 파일을 버전 관리할 수도 있습니다.
 
-## Settings
+## 설정 {#settings}
 
-* `setting(github.copilot.chat.codeGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate code.
-* `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` _(Preview)_: Controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
-* `setting(github.copilot.chat.testGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate tests.
-* `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_: A set of instructions that will be added to Copilot requests for reviewing the current editor selection.
-* `setting(github.copilot.chat.commitMessageGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate commit messages.
+- `github.copilot.chat.codeGeneration.instructions` <i class="codicon codicon-beaker"></i>: Copilot이 코드를 생성하는 요청에 추가될 지침 세트입니다.
+- `github.copilot.chat.codeGeneration.useInstructionFiles` _(Preview)_: `.github/copilot-instructions.md`의 코드 지침을 Copilot 요청에 추가할지 여부를 제어합니다.
+- `github.copilot.chat.testGeneration.instructions` <i class="codicon codicon-beaker"></i>: Copilot이 테스트를 생성하는 요청에 추가될 지침 세트입니다.
+- `github.copilot.chat.reviewSelection.instructions` _(Preview)_: 현재 편집기 선택 영역을 검토하는 Copilot 요청에 추가될 지침 세트입니다.
+- `github.copilot.chat.commitMessageGeneration.instructions` <i class="codicon codicon-beaker"></i>: Copilot이 커밋 메시지를 생성하는 요청에 추가될 지침 세트입니다.
 
-## Related content
+## 관련 콘텐츠 {#related-content}
 
-* Learn how you can use AI chat conversations with [Copilot Chat](/docs/copilot/copilot-chat.md).
+- [Copilot 채팅](/docs/copilot/copilot-chat.md)을 사용하여 AI 채팅 대화를 활용하는 방법을 알아보세요.

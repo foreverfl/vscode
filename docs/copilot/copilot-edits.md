@@ -1,225 +1,242 @@
 ---
 Order: 8
 Area: copilot
-TOCTitle: Copilot Edits
+TOCTitle: Copilot 편집
 ContentId: 393f3945-0821-42ca-bdd7-fb82affacb6a
-PageTitle: Copilot Edits
+PageTitle: Copilot 편집
 DateApproved: 12/11/2024
-MetaDescription: Get started with Copilot Edits to start an AI-powered code editing session across multiple files in your project.
+MetaDescription: 프로젝트의 여러 파일에서 AI 기반 코드 편집 세션을 시작하기 위한 Copilot 편집 시작하기
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Copilot Edits (preview)
 
-Use Copilot Edits to start an AI-powered code editing session where you can quickly iterate on code changes by using natural language. Based on your prompts, Copilot Edits proposes code changes across multiple files in your workspace. These edits are applied directly in the editor, so you can quickly review them in-place, with the full context of the surrounding code.
+# Copilot 편집 (프리뷰) {#copilot-edits-preview}
 
-Copilot Edits is great for iterating on large changes across multiple files. It brings the conversational flow of Copilot Chat and fast feedback from Inline Chat together in one experience. Have an ongoing, multi-turn chat conversation on the side, while benefiting from inline code suggestions.
+Copilot 편집을 사용하면 자연어를 사용하여 코드 변경을 빠르게 반복할 수 있는 AI 기반 코드 편집 세션을 시작할 수 있습니다. 프롬프트를 기반으로 Copilot 편집은 작업 공간의 여러 파일에 걸쳐 코드 변경을 제안합니다. 이러한 편집은 편집기에 직접 적용되므로 주변 코드의 전체 맥락에서 빠르게 검토할 수 있습니다.
 
-You can enable the Copilot Edits feature by setting the `setting(github.copilot.chat.edits.enabled)` setting to `true`.
+Copilot 편집은 여러 파일에 걸친 대규모 변경을 반복하는 데 탁월합니다. Copilot 채팅의 대화형 흐름과 인라인 채팅의 빠른 피드백을 하나의 경험으로 제공합니다. 측면에서 진행 중인 다중 턴 채팅 대화를 하면서 인라인 코드 제안의 이점을 누릴 수 있습니다.
 
-The following video shows how you can use Copilot Edits to modify a basic Express app and add a new page, implement a navigation bar, and modify the design to include a theme switcher.
+:::tip
+Copilot 구독이 아직 없다면 [Copilot 무료 플랜](https://github.com/github-copilot/signup)에 가입하여 Copilot을 무료로 사용하고 매월 제한된 수의 완성 및 채팅 상호작용을 이용할 수 있습니다.
+:::
 
-<video src="images/copilot-edits/copilot-edits-hero.mp4" title="Use Copilot Edits to modify an Express app" loop controls muted></video>
+다음 비디오는 Copilot 편집을 사용하여 기본 Express 앱을 수정하고 새 페이지를 추가하고, 탐색 바를 구현하고, 테마 스위처를 포함하도록 디자인을 수정하는 방법을 보여줍니다.
 
-> [!NOTE]
-> The Copilot Edits feature is currently in preview. You can provide feedback and report problems in [our issues](https://github.com/microsoft/vscode-copilot-release/issues).
+<video title="Express 앱을 수정하기 위해 Copilot 편집 사용하기" autoplay loop controls muted style={{ maxWidth: '100%' }}>
 
-## Get started with Copilot Edits
+<source src="https://code.visualstudio.com/assets/docs/copilot/copilot-edits/copilot-edits-hero.mp4" type="video/mp4" />
+</video>
 
-You use the Copilot Edits view to start an edit session. Making code changes is often an iterative process and consists of multiple steps before you're satisfied with the result. An edit session consists of a sequence of requests (or turns) to Copilot Edits for making code edits. An edit session can go on for as long as you like, and you can send as many requests as you need to get the code to where you want it.
+:::note
+Copilot 편집 기능은 현재 프리뷰 상태입니다. [우리의 이슈](https://github.com/microsoft/vscode-copilot-release/issues)에서 피드백을 제공하고 문제를 보고할 수 있습니다.
+:::
 
-There are different ways to get started open the Copilot Edits view:
+## Copilot 편집 시작하기 {#get-started-with-copilot-edits}
 
-* Use the `kb(workbench.action.chat.openEditSession)` keyboard shortcut
+Copilot 편집 뷰를 사용하여 편집 세션을 시작합니다. 코드 변경은 종종 반복적인 프로세스이며 원하는 결과를 얻기 위해 여러 단계로 구성됩니다. 편집 세션은 코드 편집을 위해 Copilot 편집에 보내는 일련의 요청(또는 단계)으로 구성됩니다. 편집 세션은 원하는 만큼 오래 지속될 수 있으며, 코드를 원하는 상태로 만들기 위해 필요한 만큼 많은 요청을 보낼 수 있습니다.
 
-* Open the Copilot menu in the Command Center, and then select **Open Copilot Edits**
+Copilot 편집 뷰를 여는 여러 가지 방법이 있습니다:
 
-    ![Screenshot showing the Copilot menu in the Command Center, highlighting the Open Edit Session item](images/copilot-edits/copilot-command-center-open-edit-session.png)
+- `Ctrl+Shift+I` 키보드 단축키 사용
 
-* Use the **View: Toggle Copilot Edits** or **Copilot Edits: Focus on Copilot Edits View** command in the Command Palette (`kb(workbench.action.showCommands)`)
+- 명령 센터에서 Copilot 메뉴를 열고 **Open Copilot Edits** 선택
 
-* Move a previous [chat conversation to Copilot](#send-a-chat-request-to-copilot-edits) Edits by selecting **Edit with Copilot** in the Chat view
+  ![명령 센터의 Copilot 메뉴에서 편집 세션 열기 항목을 강조 표시하는 스크린샷](images/copilot-edits/copilot-command-center-open-edit-session.png)
 
-    ![Screenshot highlighting the Edit with Copilot button in the Chat view to move a chat conversation to Copilot Edits.](images/copilot-edits/copilot-chat-edit-with-copilot.png)
+- 명령 팔레트(`Ctrl+Shift+P`)에서 **View: Toggle Copilot Edits** 또는 **Copilot Edits: Focus on Copilot Edits View** 명령 사용
 
-When you first open the Copilot Edits view or start a new edit session, a welcome message is presented.
+- 채팅 화면에서 **Edit with Copilot**을 선택하여 이전 [채팅 대화를 Copilot](#send-a-chat-request-to-copilot-edits) 편집으로 이동
 
-![Screenshot showing the Copilot Edits view and welcome message.](images/copilot-edits/copilot-edits-view-welcome.png)
+  ![채팅 화면에서 채팅 대화를 Copilot 편집으로 이동하기 위한 Copilot으로 편집 버튼을 강조 표시하는 스크린샷](images/copilot-edits/copilot-chat-edit-with-copilot.png)
 
-## Add files to the working set
+Copilot 편집 뷰를 처음 열거나 새 편집 세션을 시작할 때 환영 메시지가 표시됩니다.
 
-The first step when you start an edit session is to add the relevant files you want to work with. These files are also known as the _working set_ for your edit session. Copilot Edits does not make changes outside the working set, except when suggesting to create a new file.
+![Copilot 편집 뷰와 환영 메시지를 보여주는 스크린샷](images/copilot-edits/copilot-edits-view-welcome.png)
 
-> [!IMPORTANT]
-> The working set is currently limited to 10 files.
+## 작업 세트에 파일 추가 {#add-files-to-the-working-set}
 
-![Screenshot of Copilot Edits, showing the working set contains 3 files, including the currently opened file.](images/copilot-edits/copilot-edits-working-set.png)
+편집 세션을 시작할 때 첫 번째 단계는 작업하려는 관련 파일을 추가하는 것입니다. 이러한 파일을 편집 세션의 _작업 세트(Working Set)_ 라고도 합니다. Copilot 편집은 새 파일을 만들도록 제안하는 경우를 제외하고 작업 세트 외부에서 변경을 수행하지 않습니다.
 
-Copilot Edits automatically adds the active editor to the working set. If you have multiple [editor groups](/docs/getstarted/userinterface.md#editor-groups), the active editor for each group is added to the working set. To add all open editors, select **Add Files...**, and then choose **Open Editors** from the Files Quick Pick.
+:::important
+작업 세트는 현재 10개의 파일로 제한됩니다.
+:::
 
-You have many options to add files to the working set:
+![Copilot 편집의 스크린샷으로, 작업 세트에 현재 열린 파일을 포함한 3개의 파일이 포함되어 있음을 보여줍니다.](images/copilot-edits/copilot-edits-working-set.png)
 
-* Select **Add Files...** or use the <i class="codicon codicon-attach"></i> icon (`kb(workbench.action.chat.attachContext)`), and then select files in the Quick Pick.
+Copilot 편집은 자동으로 활성된 편집 창을을 작업 세트에 추가합니다. 여러 [편집 창](/docs/getstarted/userinterface.md#editor-groups)이 열려 있는 경우, 각 그룹의 활성된 편집 창이 작업 세트에 추가됩니다. 모든 열린 편집 창을 추가하려면 **Add Files...**를 선택한 다음 파일 빠른 선택에서 **Open Editors**를 선택하세요.
 
-    > [!TIP]
-    > To quickly select multiple items from a Quick Pick, use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate the list, use the `kbstyle(Right)` key to add the item as context, and then repeat this for other items.
+작업 세트에 파일을 추가하는 여러 가지 옵션이 있습니다:
 
-    ![Screenshot showing the Copilot Edits view and the file search Quick Pick, highlighting the buttons to add context.](images/copilot-edits/copilot-edits-add-files.png)
+- **Add Files...** 를 선택하거나 <i class="codicon codicon-attach"></i> 아이콘(`Ctrl+/`)을 사용한 다음, 빠른 선택에서 파일을 선택합니다.
 
-* Drag and drop editor tabs, or files or folders from the Explorer view, Search view, or editor breadcrumb onto the Copilot Edits view.
+  :::tip
+  빠른 선택에서 여러 항목을 빠르게 선택하려면 `Up` 및 `Down` 키를 사용하여 목록을 탐색하고, `Right` 키를 사용하여 항목을 컨텍스트로 추가한 다음 다른 항목에 대해 이를 반복하세요.
+  :::
 
-    When you drop a folder onto the Copilot Edits view, all files in that folder are added to the working set.
+  ![Copilot 편집 뷰와 파일 검색 빠른 선택을 보여주는 스크린샷으로, 컨텍스트를 추가하는 버튼을 강조 표시합니다.](images/copilot-edits/copilot-edits-add-files.png)
 
-* Right-click on a file in the Explorer view or Search view and select **Add File to Copilot Edits**.
+- 탐색기 창, 검색 창 또는 편집기 경로 표시줄에서 편집기 탭이나 파일 또는 폴더를 Copilot 편집 뷰로 드래그 앤 드롭합니다.
 
-* Select a suggested file. When you add one or more files to the working set, Copilot Edits proposes other relevant files based on the Git history.
+  Copilot 편집 뷰에 폴더를 드롭하면 해당 폴더의 모든 파일이 작업 세트에 추가됩니다.
 
-    <video src="images/copilot-edits/working-set-suggested-files.mp4" title="Add suggested files to Copilot Edits working set." autoplay loop controls muted></video>
+- 탐색기 창 또는 검색 창에서 파일을 마우스 오른쪽 버튼으로 클릭하고 **Add File to Copilot Edits**를 선택합니다.
 
-    If you don't want to see these suggestions, you can disable them with the `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` setting.
+- 제안된 파일을 선택합니다. 작업 세트에 하나 이상의 파일을 추가하면 Copilot 편집이 Git 기록을 기반으로 다른 관련 파일을 제안합니다.
 
-To further help Copilot Edits provide better code suggestions, you can also add relevant context to your prompt, such as `#selection` or `#terminalSelection`. Reference context by typing the `#` symbol, or by using the <i class="codicon codicon-attach"></i> icon (`kb(workbench.action.chat.attachContext)`).
+  <video title="Copilot 편집 작업 세트에 제안된 파일 추가" autoplay loop controls muted style={{ maxWidth: '100%' }}>
+    <source src="https://code.visualstudio.com/assets/docs/copilot/copilot-edits/working-set-suggested-files.mp4" type="video/mp4" />
+  </video>
 
-You can also add file or symbol references in your prompt by using `#` as an IntelliSense trigger for file or symbol suggestions. If Copilot decides to make changes to the files you mentioned in your prompt, they are added automatically to your working set.
+  이러한 제안을 보고 싶지 않다면 `github.copilot.chat.edits.suggestRelatedFilesFromGitHistory` 설정으로 비활성화할 수 있습니다.
 
-## Request code edits
+Copilot 편집이 더 나은 코드 제안을 제공하도록 돕기 위해 `#selection` 또는 `#terminalSelection`과 같은 관련 컨텍스트를 프롬프트에 추가할 수도 있습니다. `#` 기호를 입력하거나 <i class="codicon codicon-attach"></i> 아이콘(`Ctrl+/`)을 사용하여 컨텍스트를 참조하세요.
 
-After you've added the relevant files, enter a chat prompt using natural language about the specific edit you want to make. For example, "Add a contact page that shows email, telephone and postal address", or "convert all unit tests to vitest".
+또한 `#`를 파일이나 기호 제안을 위한 IntelliSense 트리거로 사용하여 프롬프트에 파일이나 기호 참조를 추가할 수 있습니다. Copilot이 프롬프트에서 언급한 파일을 변경하기로 결정하면 해당 파일이 자동으로 작업 세트에 추가됩니다.
 
-> [!TIP]
-> Be specific and precise about the changes you want Copilot Edits to make. If you have a larger task, decompose it in smaller tasks and iterate often to steer Copilot in the right direction.
+## 코드 편집 요청 {#request-code-edits}
 
-In response to your prompt, Copilot Edits lists the files that are edited and provides a short description of the change. In addition, the suggested edits are applied to your code. As the edits stream in, Copilot Edits opens editor tabs for the affected files.
+관련 파일을 추가한 후, 원하는 특정 편집에 대해 일상적인인 표현으로 채팅 프롬프트를 입력합니다. 예를 들어, "이메일, 전화 및 우편 주소를 보여주는 연락처 페이지 추가" 또는 "모든 단위 테스트를 vitest로 변환"과 같이 입력할 수 있습니다.
 
-<video src="images/copilot-edits/copilot-edits-streaming-edits.mp4" title="Screen capture showing the edits from Copilot Edits stream into the open editor." loop controls muted></video>
+:::tip
+Copilot 편집에서 원하는 변경 사항에 대해 구체적이고 정확하게 설명하세요. 더 큰 작업이 있다면 작은 작업으로 분해하고 자주 반복하여 Copilot을 올바른 방향으로 이끄세요.
+:::
 
-When Copilot Edits generates edits for your project, it visually indicates which files in the working set are edited. Select a file in the working set to open it and view the proposed edits in the editor.
+프롬프트에 대한 응답으로 Copilot 편집은 편집된 파일을 나열하고 변경 사항에 대한 간단한 설명을 제공합니다. 또한 제안된 편집이 코드에 적용됩니다. 편집이 스트리밍되면서 Copilot 편집은 영향을 받는 파일의 편집기 탭을 엽니다.
 
-![Screenshot showing the Copilot Edits response for "Add a feedback field in the contact page" and showing the diff in the editor.](images/copilot-edits/copilot-edits-view-edits-in-file.png)
+<video title="Copilot 편집의 편집이 열린 편집기로 스트리밍되는 것을 보여주는 화면 캡처" autoplay loop controls muted style={{ maxWidth: '100%' }}>
 
-You can further iterate and send more requests in your edit session. If you're not entirely happy with the edits, you can ask follow-up question, such as "don't include the phone number", or "use jest instead of vitest". Or you can incrementally edit your code further. For example, when building a web app, use a series of prompts such as "add a navigation bar", "add a theme switcher", "store order items in JSON format in MongoDB".
+<source src="https://code.visualstudio.com/assets/docs/copilot/copilot-edits/copilot-edits-streaming-edits.mp4" type="video/mp4" />
+</video>
 
-## Save generated edits
+Copilot 편집이 프로젝트에 대한 편집을 생성할 때 작업 세트에서 어떤 파일이 편집되었는지 시각적으로 표시합니다. 작업 세트에서 파일을 선택하여 열고 편집기에서 제안된 편집을 볼 수 있습니다.
 
-Copilot Edits shows the generated edits in-place in your code but doesn't automatically save the changes to disk (notice the dirty indicator in the editor tab). As part of reviewing the edits, you might depend on automated tasks that are triggered by a file change, such as a build or test task. You can save the individual files or select **Save All** (`kb(chatEditing.saveAllFiles)`) in the working set to save the edits to disk.
+![연락처 페이지에 피드백 필드 추가에 대한 Copilot 편집 응답과 편집기에서 차이점을 보여주는 스크린샷](images/copilot-edits/copilot-edits-view-edits-in-file.png)
 
-![Screenshot showing the Copilot Edits view, highlighting the Save All button.](images/copilot-edits/copilot-edits-save-all.png)
+편집 세션에서 계속 반복하고 더 많은 요청을 보낼 수 있습니다. 편집이 완전히 마음에 들지 않는다면 "전화번호는 포함하지 마세요" 또는 "vitest 대신 jest를 사용하세요"와 같은 후속 질문을 할 수 있습니다. 또는 코드를 점진적으로 더 편집할 수 있습니다. 예를 들어, 웹 앱을 만들 때 "탐색 바 추가", "테마 스위처 추가", "MongoDB에 JSON 형식으로 주문 항목 저장"과 같은 일련의 프롬프트를 사용할 수 있습니다.
 
-When you save a file that contains AI-generated changes, a confirmation dialog is shown. In the dialog, you can check the option to always save files without asking for confirmation. When checked, the Save All control is no longer shown. You can reset the confirmation by using the `setting(chat.editing.alwaysSaveWithGeneratedChanges)` setting.
+## 생성된 편집 저장 {#save-generated-edits}
 
-> [!NOTE]
-> Saving the files doesn't mean that you automatically accept the changes. After saving the files, you can still accept or discard the generated edits.
+Copilot 편집은 생성된 편집을 코드에 인라인으로 표시하지만 변경 사항을 자동으로 디스크에 저장하지는 않습니다(편집기 탭의 저장되지 않은 파일 표시 참고). 편집을 검토하는 과정에서 빌드나 테스트 작업과 같이 파일 변경으로 트리거되는 자동화된 작업에 의존할 수 있습니다. 개별 파일을 저장하거나 작업 세트에서 **Save All**(`Ctrl+S`)을 선택하여 편집 내용을 디스크에 저장할 수 있습니다.
 
-## Accept or discard edits
+![Copilot 편집 뷰를 보여주는 스크린샷으로, 모두 저장 버튼을 강조 표시](images/copilot-edits/copilot-edits-save-all.png)
 
-Copilot Edits gives you a code review flow, where you can accept or discard each of the AI-generated edits. When you accept the AI-generated edits, the file changes are confirmed in the working set. If you discard the edits, the files are restored to their previously accepted state.
+AI가 생성한 변경 사항이 포함된 파일을 저장할 때 확인 대화 상자가 표시됩니다. 대화 상자에서 확인을 요청하지 않고 항상 파일을 저장하는 옵션을 선택할 수 있습니다. 이 옵션을 선택하면 모두 저장 컨트롤이 더 이상 표시되지 않습니다. `chat.editing.alwaysSaveWithGeneratedChanges` 설정을 사용하여 확인을 재설정할 수 있습니다.
 
-You can navigate between the different edits across your project by using the editor overlay controls. Use the **Accept** and **Discard** controls to accept or reject all changes for a given file.
+:::note
+파일을 저장한다고 해서 자동으로 변경 사항을 수락하는 것은 아닙니다. 파일을 저장한 후에도 생성된 편집을 수락하거나 취소할 수 있습니다.
+:::
 
-![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor table bar.](images/copilot-edits/copilot-edits-file-review-controls.png)
+## 편집 수락 또는 취소 {#accept-or-discard-edits}
 
-For more fine-grained control over which edit you want to accept or reject within a file, hover over the code edit and select the **Undo** control to reject a change.
+Copilot 편집은 AI가 생성한 각 편집을 수락하거나 취소할 수 있는 코드 검토 흐름을 제공합니다. AI가 생성한 편집을 수락하면 파일 변경 사항이 작업 세트에서 확인됩니다. 편집을 취소하면 파일이 이전에 수락된 상태로 복원됩니다.
 
-Alternatively, you can also accept or discard the changes from the working set:
+편집기 오버레이 컨트롤을 사용하여 프로젝트 전체의 다른 편집 간을 탐색할 수 있습니다. **Accept** 및 **Discard** 컨트롤을 사용하여 주어진 파일의 모든 변경 사항을 수락하거나 거부합니다.
 
-* Select **Accept** (`kb(chatEditing.acceptAllFiles)`) or **Discard** (`kb(chatEditing.discardAllFiles)`) in the working set title bar to accept or discard all edits in the working set
+![제안된 변경 사항이 있는 편집기를 보여주는 스크린샷으로, 편집기 테이블 바의 검토 컨트롤을 강조 표시](images/copilot-edits/copilot-edits-file-review-controls.png)
 
-* Select the **Accept** or **Discard** icon on an individual file in the working set to limit the action to that specific file
+파일 내에서 수락하거나 거부할 편집을 더 세밀하게 제어하려면 코드 편집 위에 마우스를 올리고 **Undo** 컨트롤을 선택하여 변경을 거부하세요.
 
-![Screenshot showing the Copilot Edits view, highlighting the Accept All and Discard All buttons.](images/copilot-edits/copilot-edits-accept-discard.png)
+또는 작업 세트에서 변경 사항을 수락하거나 취소할 수도 있습니다:
 
-## Undo edits
+- 작업 세트 제목 표시줄에서 **Accept**(`Ctrl+Enter`) 또는 **Discard**(`Ctrl+Backspace`)를 선택하여 작업 세트의 모든 편집을 수락하거나 취소
 
-As you're sending requests to make edits to your code, you might want to roll back some of these changes, for example because you want to use another implementation strategy.
+- 작업 세트의 개별 파일에서 **Accept** 또는 **Discard** 아이콘을 선택하여 해당 특정 파일로 작업을 제한
 
-You can use the **Undo Last Edit** control in the Copilot Edits view title bar to revert the last edits and return to the state before sending the last request. After you perform an undo of the last edits, you can redo those edits again by using the **Redo Last Edit** control in the Copilot Edits view title bar.
+![Copilot 편집 뷰를 보여주는 스크린샷으로, 모두 수락 및 모두 취소 버튼을 강조 표시](images/copilot-edits/copilot-edits-accept-discard.png)
 
-![Screenshot showing the Copilot Edits view, highlighting the Undo and Redo actions in the view title bar.](images/copilot-edits/copilot-edits-undo-redo.png)
+## 편집 실행 취소 {#undo-edits}
 
-You can also use the **Undo Edits (Delete)** control when hovering over a request in the Copilot Edits view to revert all edits that were made from that request onwards.
+코드를 편집하는 요청을 보낼 때 이러한 변경 사항 중 일부를 롤백하고 싶을 수 있습니다. 예를 들어 다른 구현 전략을 사용하고 싶을 때입니다.
 
-![Screenshot showing the Copilot Edits view, highlighting the Undo Edits control for a specific request.](images/copilot-edits/copilot-edits-undo-request.png)
+Copilot 편집 뷰 제목 표시줄의 **Undo Last Edit** 컨트롤을 사용하여 마지막 편집을 되돌리고 마지막 요청을 보내기 전 상태로 돌아갈 수 있습니다. 마지막 편집의 실행 취소를 수행한 후 Copilot 편집 뷰 제목 표시줄의 **Redo Last Edit** 컨트롤을 사용하여 해당 편집을 다시 수행할 수 있습니다.
 
-> [!TIP]
-> Sometimes Copilot starts walking down the wrong path when generating edits. Once that happens, it can be hard to convince it about another approach by adding to the conversation. In that case, use **Undo Last Edit** to the point where you agree with Copilot's responses. Then restart from there with a refined prompt.
+![Copilot 편집 뷰를 보여주는 스크린샷으로, 뷰 제목 표시줄의 실행 취소 및 다시 실행 작업을 강조 표시](images/copilot-edits/copilot-edits-undo-redo.png)
 
-## Send a chat request to Copilot Edits
+또한 Copilot 편집 뷰에서 요청 위에 마우스를 올릴 때 나타나는 **Undo Edits (Delete)** 컨트롤을 사용하여 해당 요청부터 이후의 모든 편집을 되돌릴 수 있습니다.
 
-Copilot Chat is great for asking questions and exploring ideas and code suggestions about your project or technology topics in general. Once you're ready to apply the suggested code changes, you can transfer your chat session over to Copilot Edits. The advantage of doing this is that you can let Copilot Edits apply all the changes across your project, instead of having to apply each code block individually from the Chat view.
+![Copilot 편집 뷰를 보여주는 스크린샷으로, 특정 요청에 대한 편집 실행 취소 컨트롤을 강조 표시](images/copilot-edits/copilot-edits-undo-request.png)
 
-In the Chat view, select the **Edit with Copilot** button at the bottom of the chat conversation to apply the suggested code changes with Copilot Edits. If you have multiple chat requests in the chat session, you can select which requests you want to transfer to Copilot Edits.
+:::tip
+때로는 Copilot이 편집을 생성할 때 잘못된 경로로 가기 시작할 수 있습니다. 그런 일이 발생하면 대화를 추가하여 다른 접근 방식을 설득하기가 어려울 수 있습니다. 이런 경우에는 **Undo Last Edit**를 사용하여 Copilot의 응답에 동의하는 지점으로 돌아가세요. 그런 다음 개선된 프롬프트로 다시 시작하세요.
+:::
 
-![Edit with Copilot showing for a chat exchange.](images/copilot-edits/chat-move.png)
+## 채팅 요청을 Copilot 편집으로 보내기 {#send-a-chat-request-to-copilot-edits}
 
-After moving a chat request to Copilot Edits, the chat request is removed from the chat conversation in the Chat view.
+Copilot 채팅은 프로젝트나 기술 주제에 대한 질문을 하고 아이디어와 코드 제안을 탐색하는 데 탁월합니다. 제안된 코드 변경을 적용할 준비가 되면 채팅 세션을 Copilot 편집으로 전환할 수 있습니다. 이렇게 하면 채팅 화면에서 각 코드 블록을 개별적으로 적용하는 대신 Copilot 편집이 프로젝트 전체에 걸쳐 모든 변경 사항을 적용하도록 할 수 있다는 장점이 있습니다.
 
-## Settings
+채팅 화면에서 채팅 대화 하단의 **Edit with Copilot** 버튼을 선택하여 Copilot 편집으로 제안된 코드 변경을 적용하세요. 채팅 세션에 여러 채팅 요청이 있는 경우 Copilot 편집으로 전송할 요청을 선택할 수 있습니다.
 
-The following list contains the settings related to Copilot Edits. You can configure settings through the Setting editor (`kb(workbench.action.openSettings)`).
+![채팅 교환에 대해 표시되는 Copilot으로 편집](images/copilot-edits/chat-move.png)
 
-* `setting(github.copilot.chat.edits.enabled)` - enable or disable Copilot Edits
-* `setting(chat.editing.confirmEditRequestRemoval)` - ask for confirmation before undoing an edit (default: `true`)
-* `setting(chat.editing.confirmEditRequestRetry)` - ask for confirmation before performing a redo of the last edit (default: `true`)
-* `setting(chat.editing.alwaysSaveWithGeneratedChanges)` - automatically save generated changes from Copilot Edits to disk (default: `false`)
+채팅 요청을 Copilot 편집으로 이동한 후에는 채팅 화면의 채팅 대화에서 해당 채팅 요청이 제거됩니다.
 
-## Keyboard shortcuts
+## 설정 {#settings}
 
-The following list contains the default keyboard shortcuts related to Copilot Edits. You can modify any of the default keyboard shortcuts by using the Keyboard Shortcuts editor (`kb(workbench.action.openGlobalKeybindings)`).
+다음 목록에는 Copilot 편집과 관련된 설정이 포함되어 있습니다. 설정 편집기(`Ctrl+,`)를 통해 설정을 구성할 수 있습니다.
 
-* `kb(workbench.action.chat.openEditSession)` - Open the Copilot Edits view
-* `kb(workbench.action.chat.sendToChatEditing)` - Send a prompt from the Chat view to Copilot Edits
-* `kb(workbench.action.chat.attachContext)` - Attach context to your prompt
-* `kb(chatEditing.saveAllFiles)` - Save all edited files to disk
-* `kb(chatEditing.acceptAllFiles)` - Accept all edits
-* `kb(chatEditing.discardAllFiles)` - Discard all edits
-* `kb(chatEditor.action.navigatePrevious)` - Navigate to the previous edit within a file
-* `kb(chatEditor.action.navigateNext)` - Navigate to the next edit within a file
+- `chat.editing.confirmEditRequestRemoval` - 편집을 실행 취소하기 전에 확인 요청 (기본값: `true`)
+- `chat.editing.confirmEditRequestRetry` - 마지막 편집을 다시 실행하기 전에 확인 요청 (기본값: `true`)
+- `chat.editing.alwaysSaveWithGeneratedChanges` - Copilot 편집에서 생성된 변경 사항을 자동으로 디스크에 저장 (기본값: `false`)
 
-> [!TIP]
-> If you want to change a keyboard shortcut for an action that's specific to the Copilot Edits view, you need to include the following condition in the `when` clause: `chatLocation == 'editing-session'`.
+## 키보드 단축키 {#keyboard-shortcuts}
 
-## Limitations
+다음 목록에는 Copilot 편집과 관련된 기본 키보드 단축키가 포함되어 있습니다. 키보드 단축키 편집기(`Ctrl+K Ctrl+S`)를 사용하여 기본 키보드 단축키를 수정할 수 있습니다.
 
-* Multiple simultaneous edit sessions are not supported yet.
-* The use of `@workspace /new` to scaffold a new project is not supported yet in an Edit session. For now, use Copilot Chat for the initial scaffolding.
-* Although `#codebase` is great at finding relevant context for your query, subsequent generated edits are of widely varying quality. Explicitly adding files to your working set creates better results.
-* Support for Jupyter notebooks, other custom text formats, and binary file formats is absent or untested.
-* The working set is currently limited to 10 files.
-* Copilot Edits is limited to 7 editing requests per 10 minutes.
+- `Ctrl+Shift+I` - Copilot 편집 뷰 열기
+- `Ctrl+Alt+Enter` - 채팅 화면에서 Copilot 편집으로 프롬프트 보내기
+- `Ctrl+/` - 프롬프트에 컨텍스트 추가
+- `Ctrl+S` - 편집된 모든 파일을 디스크에 저장
+- `Ctrl+Enter` - 모든 편집 수락
+- `Ctrl+Backspace` - 모든 편집 취소
+- `Shift+Alt+F5` - 파일 내에서 이전 편집으로 이동
+- `Alt+F5` - 파일 내에서 다음 편집으로 이동
 
-## Frequently asked questions
+:::tip
+Copilot 편집 화면에 특정한 작업의 키보드 단축키를 변경하려면 `when` 절에 다음 조건을 포함해야 합니다: `chatLocation == 'editing-session'`
+:::
 
-### How is Copilot Edits different from Copilot Chat?
+## 제한 사항 {#limitations}
 
-Both [Copilot Chat](/docs/copilot/copilot-chat.md) and Copilot Edits use a conversational interface, where you can use natural language prompts to get AI-powered suggestions. There are several distinct differences between Copilot Edits and Copilot Chat.
+- 여러 동시 편집 세션은 아직 지원되지 않습니다.
+- 편집 세션에서 `@workspace /new`를 사용하여 새 프로젝트를 구성하는 것은 아직 지원되지 않습니다. 현재는 초기 구성을 위해 Copilot 채팅을 사용하세요.
+- `#codebase`는 쿼리에 대한 관련 컨텍스트를 찾는 데 탁월하지만, 후속 생성된 편집의 품질은 매우 다양합니다. 작업 세트에 명시적으로 파일을 추가하면 더 나은 결과를 얻을 수 있습니다.
+- Jupyter 노트북, 기타 사용자 지정 텍스트 형식 및 바이너리 파일 형식에 대한 지원은 없거나 테스트되지 않았습니다.
+- 작업 세트는 현재 10개의 파일로 제한됩니다.
+- Copilot 편집은 10분당 7개의 편집 요청으로 제한됩니다.
 
-Copilot Edits puts you in the context of **code editing**, where you start an edit session and use prompts for making changes to your codebase. Copilot Edits can generate and apply code changes directly across **multiple files** in your codebase. You can immediately **preview the generated edits** within the context of your code.
+## 자주 묻는 질문 {#frequently-asked-questions}
 
-The [Chat view](/docs/copilot/copilot-chat.md#chat-view) gives you a more **general-purpose** chat interface for asking questions about your code or technology topics in general. Copilot can also provide code suggestions and generate code blocks as part of the chat conversation. You need to **manually apply** each code block to the different files in your project to evaluate their validity.
+### Copilot 편집은 Copilot 채팅과 어떻게 다른가요? {#how-is-copilot-edits-different-from-copilot-chat}
 
-[Inline Chat](/docs/copilot/copilot-chat.md#inline-chat) keeps you in the coding flow by providing a chat interface in the editor, where you can **preview the generated code** suggestions directly in the context of your code. The scope of Inline Chat is limited to the editor in which it's started, so it can only provide code suggestions for a **single file**. You can also use Inline Chat to ask general-purpose questions.
+[Copilot 채팅](/docs/copilot/copilot-chat.md)과 Copilot 편집은 모두 일상적인 문장을 사용하여 AI 기반 제안을 얻을 수 있는 대화형 인터페이스를 사용합니다. Copilot 편집과 Copilot 채팅 사이에는 몇 가지 뚜렷한 차이점이 있습니다.
 
-Copilot Edits also provides you a **code review flow** where you can easily review generated edits and decide to accept or discard them. Copilot Chat does not have this code review mechanism. In addition, you can undo past edits and **roll back changes** to a previous accepted state.
+Copilot 편집은 여러분을 **코드 편집** 컨텍스트에 배치하여, 편집 세션을 시작하고 코드베이스에 변경을 요청할 수 있게 합니다. Copilot 편집은 코드베이스의 **여러 파일**에 걸쳐 직접 코드 변경을 생성하고 적용할 수 있습니다. 코드의 컨텍스트 내에서 **생성된 편집을 즉시 미리 볼** 수 있습니다.
 
-The following table shows a comparison of the capabilities of each experience.
+[채팅 화면](/docs/copilot/copilot-chat.md#chat-view)는 코드나 기술 주제에 대한 질문을 하는 데 사용할 수 있는 더 **일반적인 목적**의 채팅 인터페이스를 제공합니다. Copilot은 채팅 대화의 일부로 코드 제안을 제공하고 코드 블록을 생성할 수도 있습니다. 이러한 코드 블록의 유효성을 평가하려면 프로젝트의 다른 파일에 각 코드 블록을 **수동으로 적용**해야 합니다.
 
-| Capability                  | Copilot Edits | Chat view | Inline Chat | Quick Chat |
-|-----------------------------|:-------------:|:---------:|:-----------:|:----------:|
-| Multi-file edits            | ✅ | ✅* |    | ✅* |
-| Preview code edits          | ✅ |     | ✅ |     |
-| Code review flow            | ✅ |     |    |      |
-| Roll back changes           | ✅ |     |    |      |
-| Attach context              | ✅ | ✅ | ✅ | ✅  |
-| Use participants & commands |    | ✅  |    | ✅  |
-| Generate shell commands     |    | ✅  |    | ✅  |
-| General-purpose chat        |    | ✅  | ✅ | ✅  |
+[인라인 채팅](/docs/copilot/copilot-chat.md#inline-chat)은 편집기에서 채팅 인터페이스를 제공하여 코드의 맥락에서 직접 **생성된 코드 제안을 미리 볼** 수 있게 함으로써 코딩 흐름을 유지합니다. 인라인 채팅의 범위는 시작된 편집기로 제한되므로 **단일 파일**에 대한 코드 제안만 제공할 수 있습니다. 인라인 채팅을 사용하여 일반적인 목적의 질문을 할 수도 있습니다.
 
-\* _code blocks are included in the chat conversation and need to be applied to the right file manually_
+Copilot 편집은 생성된 편집을 쉽게 검토하고 수락하거나 취소할 수 있는 **코드 검토 흐름**도 제공합니다. Copilot 채팅에는 이러한 코드 검토 메커니즘이 없습니다. 또한 과거 편집을 실행 취소하고 이전에 수락된 상태로 **변경 사항을 롤백**할 수 있습니다.
 
-### Can I change the location of the Copilot Edits view?
+다음 표는 각 경험의 기능을 비교하여 보여줍니다.
 
-You can drag and drop the Copilot Edits view into the Activity Bar to show it in the Primary Side Bar. You can also move it to the Secondary Side Bar. Learn more about [custom layouts](/docs/editor/custom-layout.md#workbench) in VS Code.
+| 기능                  | Copilot 편집 | 채팅 화면 | 인라인 채팅 | 빠른 채팅 |
+| --------------------- | :----------: | :-------: | :---------: | :-------: |
+| 다중 파일 편집        |      ✅      |   ✅\*    |             |   ✅\*    |
+| 코드 편집 미리보기    |      ✅      |           |     ✅      |           |
+| 코드 검토 흐름        |      ✅      |           |             |           |
+| 변경 사항 롤백        |      ✅      |           |             |           |
+| 컨텍스트 첨부         |      ✅      |    ✅     |     ✅      |    ✅     |
+| 참가자 및 명령어 사용 |              |    ✅     |             |    ✅     |
+| 쉘 명령어 생성        |              |    ✅     |             |    ✅     |
+| 일반 목적 채팅        |              |    ✅     |     ✅      |    ✅     |
 
-## Related content
+\* _코드 블록은 채팅 대화에 포함되며 수동으로 올바른 파일에 적용해야 함_
 
-* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/copilot-vscode-features.md)
-* [Use Copilot Chat for AI chat conversations](/docs/copilot/copilot-chat.md)
+### Copilot 편집 뷰의 위치를 변경할 수 있나요? {#can-i-change-the-location-of-the-copilot-edits-view}
+
+Copilot 편집 뷰를 활동 표시줄로 드래그 앤 드롭하여 기본 사이드 바에 표시할 수 있습니다. 보조 사이드 바로 이동할 수도 있습니다. VS Code의 [사용자 정의 레이아웃](/docs/editor/custom-layout.md#workbench)에 대해 자세히 알아보세요.
+
+## 관련 콘텐츠 {#related-content}
+
+- [VS Code의 Copilot 기능에 대한 빠른 개요 보기](/docs/copilot/copilot-vscode-features.md)
+- [AI 채팅 대화를 위한 Copilot 채팅 사용](/docs/copilot/copilot-chat.md)
