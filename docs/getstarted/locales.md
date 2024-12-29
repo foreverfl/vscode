@@ -66,7 +66,7 @@ VS Code는 운영 체제의 UI 언어를 감지하고 Marketplace에서 사용 �
 
 확장 프로그램 보기(`Ctrl+Shift+X`)에서 찾고자 하는 언어와 함께 `category:"Language Packs"`를 입력하여 언어 팩을 검색할 수도 있습니다.
 
-![German Language Pack](images/locales/german-language-pack.png)
+<!-- ![German Language Pack](images/locales/german-language-pack.png) -->
 
 여러 언어 팩을 설치하고 **Configure Display Language** 명령으로 현재 디스플레이 언어를 선택할 수 있습니다.
 
