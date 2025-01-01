@@ -3,228 +3,235 @@ Order: 4
 Area: editor
 TOCTitle: IntelliSense
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
-PageTitle: IntelliSense in Visual Studio Code
+PageTitle: Visual Studio Code의 IntelliSense
 DateApproved: 12/11/2024
-MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
+MetaDescription: Visual Studio Code의 IntelliSense(지능형 코드 완성)에 대해 알아보세요.
 ---
-# IntelliSense
 
-IntelliSense is a general term for various code editing features including: code completion, parameter info, quick info, and member lists. IntelliSense features are sometimes called by other names such as "code completion", "content assist", and "code hinting."
+# IntelliSense {#intellisense}
 
-![IntelliSense demo](images/intellisense/intellisense.gif)
+IntelliSense는 코드 완성, 매개변수 정보, 빠른 정보 및 멤버 목록을 포함한 다양한 코드 편집 기능을 나타내는 일반적인 용어입니다. IntelliSense 기능은 때때로 "코드 완성", "콘텐츠 지원" 및 "코드 힌팅"과 같은 다른 이름으로 불리기도 합니다.
 
-## IntelliSense for your programming language
+![IntelliSense 데모](images/intellisense/intellisense.gif)
 
-Visual Studio Code IntelliSense is provided for JavaScript, TypeScript, JSON, HTML, CSS, SCSS, and Less out of the box. VS Code supports word based completions for any programming language but can also be configured to have richer IntelliSense by installing a language extension.
+## 프로그래밍 언어에 대한 IntelliSense {#intellisense-for-your-programming-language}
 
-Below are the most popular language extensions in the [Marketplace](https://marketplace.visualstudio.com/vscode). Select an extension tile below to read the description and reviews to decide which extension is best for you.
+Visual Studio Code IntelliSense는 JavaScript, TypeScript, JSON, HTML, CSS, SCSS 및 Less에 대해 기본적으로 제공됩니다. VS Code는 모든 프로그래밍 언어에 대해 단어 기반 완성을 지원하지만, 언어 확장을 설치하여 더 풍부한 IntelliSense를 구성할 수도 있습니다.
+
+아래는 [Marketplace](https://marketplace.visualstudio.com/vscode)에서 가장 인기 있는 언어 확장입니다. 아래 확장 타일을 선택하여 설명과 리뷰를 읽고 자신에게 가장 적합한 확장을 결정하세요.
 
 <div class="marketplace-extensions-languages-curated"></div>
 
-## IntelliSense features
+## IntelliSense 기능 {#intellisense-features}
 
-VS Code IntelliSense features are powered by a language service. A language service provides intelligent code completions based on language semantics and an analysis of your source code. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. If you continue typing characters, the list of members (variables, methods, etc.) is filtered to only include members containing your typed characters. Pressing `kbstyle(Tab)` or `kbstyle(Enter)` will insert the selected member.
+VS Code IntelliSense 기능은 언어 서비스에 의해 제공됩니다. 언어 서비스는 언어 의미론과 소스 코드 분석을 기반으로 지능형 코드 완성을 제공합니다. 언어 서비스가 가능한 완성을 알고 있다면, IntelliSense 제안이 입력할 때 나타납니다. 문자를 계속 입력하면 멤버 목록(변수, 메서드 등)이 입력한 문자만 포함하도록 필터링됩니다. `Tab` 또는 `Enter`를 누르면 선택한 멤버가 삽입됩니다.
 
-You can trigger IntelliSense in any editor window by typing `kb(editor.action.triggerSuggest)` or by typing a trigger character (such as the dot character (`kbstyle(.)`) in JavaScript).
+`Ctrl+Space`를 입력하거나 JavaScript에서 점 문자(`.`)와 같은 트리거 문자를 입력하여 모든 편집기 창에서 IntelliSense를 트리거할 수 있습니다.
 
-![intellisense in package json](images/intellisense/intellisense_packagejson.gif)
+![package json에서의 intellisense](images/intellisense/intellisense_packagejson.gif)
 
-> **Tip:** The suggestions widget supports CamelCase filtering, meaning you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
+:::tip
+제안 위젯은 CamelCase 필터링을 지원하므로 메서드 이름에서 대문자로 된 문자를 입력하여 제안을 제한할 수 있습니다. 예를 들어, "cra"를 입력하면 "createApplication"이 빠르게 나타납니다.
+:::
 
-If you prefer, you can turn off IntelliSense while you type. See [Customizing IntelliSense](/docs/editor/intellisense.md#customizing-intellisense) below to learn how to disable or customize VS Code's IntelliSense features.
+원하는 경우 입력할 때 IntelliSense를 끌 수 있습니다. 아래의 [IntelliSense 사용자 정의](/docs/editor/intellisense.md#customizing-intellisense)를 참조하여 VS Code의 IntelliSense 기능을 비활성화하거나 사용자 정의하는 방법을 알아보세요.
 
-As provided by the language service, you can see **quick info** for each method by either pressing `kb(toggleSuggestionDetails)` or clicking the info icon. The accompanying documentation for the method will now expand to the side. The expanded documentation will stay so and will update as you navigate the list. You can close this by pressing `kb(toggleSuggestionDetails)` again or by clicking on the close icon.
+언어 서비스에서 제공하는 대로 각 메서드에 대한 **quick info**를 볼 수 있습니다. `Ctrl+Space`를 누르거나 정보 아이콘을 클릭하면 메서드에 대한 문서가 확장됩니다. 확장된 문서는 그대로 유지되며 목록을 탐색할 때 업데이트됩니다. 다시 `Ctrl+Space`를 누르거나 닫기 아이콘을 클릭하여 닫을 수 있습니다.
 
-![quick info](images/intellisense/intellisense_docs.gif)
+![빠른 정보](images/intellisense/intellisense_docs.gif)
 
-After choosing a method you are provided with **parameter info**.
+메서드를 선택한 후에는 **parameter info**가 제공됩니다.
 
-![parameter info](images/intellisense/paramater_info.png)
+![매개변수 정보](images/intellisense/paramater_info.png)
 
-When applicable, a language service will surface the underlying types in the quick info and method signatures. In the image above, you can see several `any` types. Because JavaScript is dynamic and doesn't need or enforce types, `any` suggests that the variable can be of any type.
+적용 가능한 경우, 언어 서비스는 빠른 정보 및 메서드 서명에 기본 유형을 표시합니다. 위 이미지에서 여러 `any` 유형을 볼 수 있습니다. JavaScript는 동적이며 유형을 필요로 하거나 강제하지 않기 때문에 `any`는 변수가 모든 유형일 수 있음을 나타냅니다.
 
-## Types of completions
+## 완성 유형 {#types-of-completions}
 
-The JavaScript code below illustrates IntelliSense completions. IntelliSense gives both inferred proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (shown by the Word icon).
+아래 JavaScript 코드는 IntelliSense 완성을 보여줍니다. IntelliSense는 추론된 제안과 프로젝트의 전역 식별자를 모두 제공합니다. 추론된 기호가 먼저 표시되고, 그 다음에 전역 식별자가 표시됩니다(Word 아이콘으로 표시됨).
 
-![intellisense icons](images/intellisense/intellisense_icons.png)
+![intellisense 아이콘](images/intellisense/intellisense_icons.png)
 
-VS Code IntelliSense offers different types of completions, including language server suggestions, snippets, and simple word based textual completions.
+VS Code IntelliSense는 언어 서버 제안, 스니펫 및 간단한 단어 기반 텍스트 완성을 포함한 다양한 유형의 완성을 제공합니다.
 
-| Icon | Name | Symbol type |
-| ----- | ------- | ----- |
-| ![method icon](images/intellisense/Method_16x.svg) | Methods and Functions | `method`, `function`, `constructor`  |
-| ![variable icon](images/intellisense/Variable_16x.svg) | Variables | `variable` |
-| ![field icon](images/intellisense/Field_16x.svg) | Fields | `field` |
-| ![type parameter](images/intellisense/symbol-parameter.svg) | Type parameters | `typeParameter` |
-| ![constant](images/intellisense/symbol-constant.svg) | Constants | `constant` |
-| ![class](images/intellisense/Class_16x.svg) | Classes | `class` |
-| ![interface](images/intellisense/Interface_16x.svg) | Interfaces | `interface` |
-| ![structure](images/intellisense/symbol-structure.svg) | Structures | `struct` |
-| ![event](images/intellisense/symbol-event.svg) | Events | `event` |
-| ![operator](images/intellisense/symbol-operator.svg) | Operators | `operator` |
-| ![module](images/intellisense/Namespace_16x.svg) | Modules | `module` |
-| ![property](images/intellisense/Property_16x.svg) | Properties and Attributes | `property` |
-| ![enumeration icon](images/intellisense/EnumItem_16x.svg) | Values and Enumerations | `value`, `enum` |
-| ![reference](images/intellisense/Reference_16x.svg) | References | `reference` |
-| ![keyword](images/intellisense/Keyword_16x.svg) | Keywords | `keyword` |
-| ![file](images/intellisense/symbol-file.svg) | Files | `file` |
-| ![folder](images/intellisense/folder.svg) | Folders | `folder` |
-| ![color](images/intellisense/ColorPalette_16x.svg) | Colors | `color` |
-| ![unit](images/intellisense/Ruler_16x.svg) | Unit | `unit` |
-| ![a square with ellipses forming the bottom show snippet prefix](images/intellisense/Snippet_16x.svg) | Snippet prefixes | `snippet` |
-| ![a square with letters abc word completion](images/intellisense/String_16x.svg) | Words | `text` |
+| 아이콘                                                                                     | 이름           | 기호 유형                           |
+| ------------------------------------------------------------------------------------------ | -------------- | ----------------------------------- |
+| ![메서드 아이콘](images/intellisense/Method_16x.svg)                                       | 메서드 및 함수 | `method`, `function`, `constructor` |
+| ![변수 아이콘](images/intellisense/Variable_16x.svg)                                       | 변수           | `variable`                          |
+| ![필드 아이콘](images/intellisense/Field_16x.svg)                                          | 필드           | `field`                             |
+| ![유형 매개변수](images/intellisense/symbol-parameter.svg)                                 | 유형 매개변수  | `typeParameter`                     |
+| ![상수](images/intellisense/symbol-constant.svg)                                           | 상수           | `constant`                          |
+| ![클래스](images/intellisense/Class_16x.svg)                                               | 클래스         | `class`                             |
+| ![인터페이스](images/intellisense/Interface_16x.svg)                                       | 인터페이스     | `interface`                         |
+| ![구조체](images/intellisense/symbol-structure.svg)                                        | 구조체         | `struct`                            |
+| ![이벤트](images/intellisense/symbol-event.svg)                                            | 이벤트         | `event`                             |
+| ![연산자](images/intellisense/symbol-operator.svg)                                         | 연산자         | `operator`                          |
+| ![모듈](images/intellisense/Namespace_16x.svg)                                             | 모듈           | `module`                            |
+| ![속성](images/intellisense/Property_16x.svg)                                              | 속성 및 속성   | `property`                          |
+| ![열거형 아이콘](images/intellisense/EnumItem_16x.svg)                                     | 값 및 열거형   | `value`, `enum`                     |
+| ![참조](images/intellisense/Reference_16x.svg)                                             | 참조           | `reference`                         |
+| ![키워드](images/intellisense/Keyword_16x.svg)                                             | 키워드         | `keyword`                           |
+| ![파일](images/intellisense/symbol-file.svg)                                               | 파일           | `file`                              |
+| ![폴더](images/intellisense/folder.svg)                                                    | 폴더           | `folder`                            |
+| ![색상](images/intellisense/ColorPalette_16x.svg)                                          | 색상           | `color`                             |
+| ![단위](images/intellisense/Ruler_16x.svg)                                                 | 단위           | `unit`                              |
+| ![스니펫 접두사를 나타내는 아래쪽에 점이 있는 사각형](images/intellisense/Snippet_16x.svg) | 스니펫 접두사  | `snippet`                           |
+| ![단어 완성](images/intellisense/String_16x.svg)                                           | 단어           | `text`                              |
 
-## Customizing IntelliSense
+## IntelliSense 사용자 정의 {#customizing-intellisense}
 
-You can customize your IntelliSense experience in settings and key bindings.
+설정 및 키 바인딩에서 IntelliSense 환경을 사용자 정의할 수 있습니다.
 
-### Settings
+### 설정 {#settings}
 
-The settings shown below are the default settings. You can change these settings in your `settings.json` file as described in [User and Workspace Settings](/docs/getstarted/settings.md).
+아래에 표시된 설정은 기본 설정입니다. [사용자 및 작업 영역 설정](/docs/getstarted/settings.md)에 설명된 대로 `settings.json` 파일에서 이러한 설정을 변경할 수 있습니다.
 
 ```javascript
 {
-    // Controls if quick suggestions should show up while typing
+    // 빠른 제안이 입력 중에 표시될지 여부를 제어합니다.
     "editor.quickSuggestions": {
         "other": true,
         "comments": false,
         "strings": false
     },
 
-     // Controls whether suggestions should be accepted on commit characters. For example, in JavaScript, the semi-colon (`;`) can be a commit character that accepts a suggestion and types that character.
+    // 제안이 커밋 문자에서 수락될지 여부를 제어합니다. 예를 들어, JavaScript에서 세미콜론(`;`)은 제안을 수락하고 해당 문자를 입력하는 커밋 문자가 될 수 있습니다.
     "editor.acceptSuggestionOnCommitCharacter": true,
 
-    // Controls if suggestions should be accepted on 'Enter' - in addition to 'Tab'. Helps to avoid ambiguity between inserting new lines or accepting suggestions. The value 'smart' means only accept a suggestion with Enter when it makes a textual change
+    // 'Tab' 외에도 'Enter'에서 제안이 수락될지 여부를 제어합니다. 새 줄 삽입과 제안 수락 간의 모호성을 피하는 데 도움이 됩니다. 'smart' 값은 텍스트 변경이 있을 때만 Enter로 제안을 수락합니다.
     "editor.acceptSuggestionOnEnter": "on",
 
-    // Controls the delay in ms after which quick suggestions will show up.
+    // 빠른 제안이 표시될 때까지의 지연 시간을 밀리초로 제어합니다.
     "editor.quickSuggestionsDelay": 10,
 
-    // Controls if suggestions should automatically show up when typing trigger characters
+    // 트리거 문자를 입력할 때 제안이 자동으로 표시될지 여부를 제어합니다.
     "editor.suggestOnTriggerCharacters": true,
 
-    // Controls if pressing tab inserts the best suggestion and if tab cycles through other suggestions
+    // tab을 누르면 가장 좋은 제안이 삽입되고 tab이 다른 제안을 순환할지 여부를 제어합니다.
     "editor.tabCompletion": "off",
 
-    // Controls whether sorting favours words that appear close to the cursor
+    // 제안 정렬이 커서 근처에 나타나는 단어를 선호할지 여부를 제어합니다.
     "editor.suggest.localityBonus": true,
 
-    // Controls how suggestions are pre-selected when showing the suggest list
+    // 제안 목록을 표시할 때 제안이 미리 선택되는 방식을 제어합니다.
     "editor.suggestSelection": "first",
 
-    // Enable word based suggestions
+    // 단어 기반 제안을 활성화합니다.
     "editor.wordBasedSuggestions": "matchingDocuments",
 
-    // Enable parameter hints
+    // 매개변수 힌트를 활성화합니다.
     "editor.parameterHints.enabled": true,
 }
 ```
 
-### Tab Completion
+### 탭 완성 {#tab-completion}
 
-The editor supports "tab completion" which inserts the best matching completion when pressing `kb(insertBestCompletion)`. This works regardless of the suggest widget showing or not. Also, pressing `kb(insertNextSuggestion)` after inserting a suggestions will insert the next best suggestion.
+편집기는 `Tab`을 누를 때 가장 일치하는 완성을 삽입하는 "탭 완성"을 지원합니다. 이는 제안 위젯이 표시되든 아니든 상관없이 작동합니다. 또한, 제안을 삽입한 후 `Tab`을 누르면 다음으로 가장 좋은 제안이 삽입됩니다.
 
-![Tab Completion](images/intellisense/tabCompletion.gif)
+![탭 완성](images/intellisense/tabCompletion.gif)
 
-By default, tab completion is disabled. Use the `setting(editor.tabCompletion)` setting to enable it. These values exist:
+기본적으로 탭 완성은 비활성화되어 있습니다. `editor.tabCompletion` 설정을 사용하여 활성화할 수 있습니다. 다음 값이 존재합니다:
 
-* `off` - (default) Tab completion is disabled.
-* `on` - Tab completion is enabled for all suggestions and repeated invocations insert the next best suggestion.
-* `onlySnippets` - Tab completion only inserts static snippets which prefix match the current line prefix.
+- `off` - (기본값) 탭 완성이 비활성화됩니다.
+- `on` - 모든 제안에 대해 탭 완성이 활성화되며 반복 호출 시 다음으로 가장 좋은 제안이 삽입됩니다.
+- `onlySnippets` - 탭 완성은 현재 줄 접두사와 일치하는 정적 스니펫만 삽입합니다.
 
-### Locality Bonus
+### 위치 기반 우선순위 {#locality-bonus}
 
-Sorting of suggestions depends on extension information and on how well they match the current word you are typing. In addition, you can ask the editor to boost suggestions that appear closer to the cursor position, using the `setting(editor.suggest.localityBonus)` setting.
+제안의 정렬은 확장 정보와 현재 입력 중인 단어와의 일치 정도에 따라 다릅니다. 또한, `editor.suggest.localityBonus` 설정을 사용하여 커서 위치에 더 가까운 제안을 부스트하도록 편집기에 요청할 수 있습니다.
 
-![Sorted By Locality](images/intellisense/localitybonus.png)
+![지역별 정렬](images/intellisense/localitybonus.png)
 
-In above images you can see that `count`, `context`, and `colocated` are sorted based on the scopes in which they appear (loop, function, file).
+위 이미지에서 `count`, `context` 및 `colocated`가 나타나는 범위(루프, 함수, 파일)를 기준으로 정렬된 것을 볼 수 있습니다.
 
-### Suggestion selection
+### 제안 선택 {#suggestion-selection}
 
-By default, VS Code pre-selects the first suggestion in the suggestion list. If you'd like different behavior, for example, to always select the most recently used item in the suggestion list, you can use the `setting(editor.suggestSelection)` setting.
+기본적으로 VS Code는 제안 목록에서 첫 번째 제안을 미리 선택합니다. 다른 동작을 원한다면, 예를 들어 제안 목록에서 가장 최근에 사용한 항목을 항상 선택하려면 `editor.suggestSelection` 설정을 사용할 수 있습니다.
 
-The available `setting(editor.suggestSelection)` values are:
+사용 가능한 `editor.suggestSelection` 값은 다음과 같습니다:
 
-* `first` - (default) Always select the top list item.
-* `recentlyUsed` - The previously used item is selected unless a prefix (type to select) selects a different item.
-* `recentlyUsedByPrefix` - Select items based on previous prefixes that have completed those suggestions.
+- `first` - (기본값) 항상 목록의 맨 위 항목을 선택합니다.
+- `recentlyUsed` - 접두사(선택할 유형)가 다른 항목을 선택하지 않는 한 이전에 사용한 항목이 선택됩니다.
+- `recentlyUsedByPrefix` - 해당 제안을 완료한 이전 접두사를 기준으로 항목을 선택합니다.
 
-Selecting the most recently used item is very useful as you can quickly insert the same completion multiple times.
+가장 최근에 사용한 항목을 선택하는 것은 동일한 완성을 여러 번 빠르게 삽입할 수 있으므로 매우 유용합니다.
 
-"Type to select" means that the current prefix (roughly the text left of the cursor) is used to filter and sort suggestions. When this happens and when its result differs from the result of `recentlyUsed`, it will be given precedence.
+"선택할 유형"은 현재 접두사(대략 커서 왼쪽의 텍스트)가 제안을 필터링하고 정렬하는 데 사용된다는 것을 의미합니다. 이 경우 `recentlyUsed`의 결과와 다를 때 우선 순위가 부여됩니다.
 
-When using the last option, `recentlyUsedByPrefix`, VS Code remembers which item was selected for a specific prefix (partial text). For example, if you typed `co` and then selected `console`, the next time you typed `co`, the suggestion `console` would be pre-selected. This lets you quickly map various prefixes to different suggestions, for example `co` -> `console` and `con` -> `const`.
+마지막 옵션인 `recentlyUsedByPrefix`를 사용할 때, VS Code는 특정 접두사(부분 텍스트)에 대해 선택된 항목을 기억합니다. 예를 들어, `co`를 입력하고 `console`을 선택한 경우 다음에 `co`를 입력하면 `console` 제안이 미리 선택됩니다. 이를 통해 `co` -> `console` 및 `con` -> `const`와 같이 다양한 접두사를 빠르게 매핑할 수 있습니다.
 
-### Snippets in suggestions
+### 제안에서 스니펫 {#snippets-in-suggestions}
 
-By default, VS Code shows snippets and completion proposals in one widget. You can control the behavior with the `setting(editor.snippetSuggestions)` setting. To remove snippets from the suggestions widget, set the value to `"none"`. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inline ordered alphabetically (`"inline"`). The default is `"inline"`.
+기본적으로 VS Code는 하나의 위젯에서 스니펫과 완성 제안을 표시합니다. `editor.snippetSuggestions` 설정을 사용하여 동작을 제어할 수 있습니다. 제안 위젯에서 스니펫을 제거하려면 값을 `"none"`으로 설정하세요. 스니펫을 보고 싶다면 제안에 상대적인 순서를 지정할 수 있습니다. 맨 위(`"top"`), 맨 아래(`"bottom"`), 또는 알파벳 순서로 인라인(`"inline"`)입니다. 기본값은 `"inline"`입니다.
 
-### Key bindings
+### 키 바인딩 {#key-bindings}
 
-The key bindings shown below are the default key bindings. You can change these in your `keybindings.json` file as described in [Key Bindings](/docs/getstarted/keybindings.md).
+아래에 표시된 키 바인딩은 기본 키 바인딩입니다. [키 바인딩](/docs/getstarted/keybindings.md)에 설명된 대로 `keybindings.json` 파일에서 이를 변경할 수 있습니다.
 
-> **Note:** There are many more key bindings relating to IntelliSense. Open the **Default Keyboard Shortcuts** (**File** > **Preferences** > **Keyboard Shortcuts**) and search for "suggest".
+:::note
+IntelliSense와 관련된 키 바인딩이 더 많이 있습니다. **Keyboard Shortcuts**(**File** > **Preferences** > **Keyboard Shortcuts**)를 열고 "suggest"를 검색하세요.
+:::
 
 ```json
 [
-    {
-        "key": "ctrl+space",
-        "command": "editor.action.triggerSuggest",
-        "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+space",
-        "command": "toggleSuggestionDetails",
-        "when": "editorTextFocus && suggestWidgetVisible"
-    },
-    {
-        "key": "ctrl+alt+space",
-        "command": "toggleSuggestionFocus",
-        "when": "editorTextFocus && suggestWidgetVisible"
-    }
+  {
+    "key": "ctrl+space",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+space",
+    "command": "toggleSuggestionDetails",
+    "when": "editorTextFocus && suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+alt+space",
+    "command": "toggleSuggestionFocus",
+    "when": "editorTextFocus && suggestWidgetVisible"
+  }
 ]
 ```
 
-## Enhance completions with AI
+## AI로 완성 향상 {#enhance-completions-with-ai}
 
-In VS Code, you can enhance your coding with artificial intelligence (AI), such as suggestions for lines of code or entire functions, fast documentation creation, and help creating code-related artifacts like tests.
+VS Code에서 코드 줄 또는 전체 함수에 대한 제안, 빠른 문서 생성 및 테스트와 같은 코드 관련 아티팩트 생성 지원과 같은 인공지능(AI)을 사용하여 코딩을 향상시킬 수 있습니다.
 
-[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+[GitHub Copilot](https://copilot.github.com/)은 더 빠르고 스마트하게 코드를 작성할 수 있도록 도와주는 AI 기반 코드 완성 도구입니다. VS Code에서 [GitHub Copilot 확장](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)을 사용하여 코드를 생성하거나 생성된 코드에서 배울 수 있습니다.
 
-[![GitHub Copilot extension in the VS Code Marketplace](images/intellisense/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
+[![VS Code Marketplace의 GitHub Copilot 확장](images/intellisense/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
+[Copilot 문서](/docs/editor/github-copilot.md)에서 Copilot을 시작하는 방법에 대해 자세히 알아볼 수 있습니다.
 
-## Troubleshooting
+## 문제 해결 {#troubleshooting}
 
-If you find IntelliSense has stopped working, the language service may not be running. Try restarting VS Code and this should solve the issue. If you are still missing IntelliSense features after installing a language extension, open an issue in the repository of the language extension.
+IntelliSense가 작동을 멈춘 경우, 언어 서비스가 실행되지 않을 수 있습니다. VS Code를 다시 시작하면 이 문제가 해결될 수 있습니다. 언어 확장을 설치한 후에도 여전히 IntelliSense 기능이 누락된 경우, 해당 언어 확장의 리포지토리에 이슈를 열어보세요.
 
-> **Tip:** For configuring and troubleshooting JavaScript IntelliSense, see the [JavaScript documentation](/docs/languages/javascript.md#intellisense).
+:::tip
+JavaScript IntelliSense 구성 및 문제 해결에 대해서는 [JavaScript 문서](/docs/languages/javascript.md#intellisense)를 참조하세요.
+:::
 
-A particular language extension may not support all the VS Code IntelliSense features. Review the extension's README to find out what is supported. If you think there are issues with a language extension, you can usually find the issue repository for an extension through the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode). Navigate to the extension's Details page and select the **Support** link.
+특정 언어 확장이 모든 VS Code IntelliSense 기능을 지원하지 않을 수 있습니다. 지원되는 내용을 확인하려면 확장의 README를 검토하세요. 언어 확장에 문제가 있다고 생각되면, [VS Code Marketplace](https://marketplace.visualstudio.com/vscode)를 통해 확장의 세부 정보 페이지로 이동하여 **Support** 링크를 선택하면 확장에 대한 이슈 리포지토리를 찾을 수 있습니다.
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-IntelliSense is just one of VS Code's powerful features. Read on to learn more:
+IntelliSense는 VS Code의 강력한 기능 중 하나일 뿐입니다. 자세히 알아보려면 계속 읽어보세요:
 
-* [JavaScript](/docs/languages/javascript.md) - Get the most out of your JavaScript development, including configuring IntelliSense.
-* [Node.js](/docs/nodejs/nodejs-tutorial.md) - See an example of IntelliSense in action in the Node.js walkthrough.
-* [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
-* [Creating Language extensions](/api/language-extensions/programmatic-language-features.md) - Learn how to create extensions that add IntelliSense for new programming languages.
-* [GitHub Copilot in VS Code](/docs/editor/github-copilot.md) - Learn how to use AI with GitHub Copilot to enhance your coding.
+- [JavaScript](/docs/languages/javascript.md) - JavaScript 개발을 최대한 활용하고 IntelliSense를 구성하는 방법을 알아보세요.
+- [Node.js](/docs/nodejs/nodejs-tutorial.md) - Node.js 워크스루에서 IntelliSense가 작동하는 예를 확인하세요.
+- [디버깅](/docs/editor/debugging.md) - 애플리케이션 디버깅을 설정하는 방법을 알아보세요.
+- [언어 확장 만들기](/api/language-extensions/programmatic-language-features.md) - 새로운 프로그래밍 언어에 대한 IntelliSense를 추가하는 확장을 만드는 방법을 알아보세요.
+- [VS Code에서 GitHub Copilot 사용](/docs/editor/github-copilot.md) - GitHub Copilot을 사용하여 AI로 코딩을 향상시키는 방법을 알아보세요.
 
-## Common questions
+## 자주 묻는 질문 {#common-questions}
 
-### Why am I not getting any suggestions?
+### 왜 제안이 표시되지 않나요? {#why-am-i-not-getting-any-suggestions}
 
-![image of IntelliSense not working](images/intellisense/intellisense_error.png)
+![IntelliSense가 작동하지 않는 이미지](images/intellisense/intellisense_error.png)
 
-This can be caused by a variety of reasons. First, try restarting VS Code. If the problem persists, consult the language extension's documentation. For JavaScript specific troubleshooting, please see the [JavaScript language topic](/docs/languages/javascript.md#intellisense).
+이 문제는 다양한 이유로 발생할 수 있습니다. 먼저 VS Code를 다시 시작해 보세요. 문제가 지속되면 언어 확장의 문서를 참조하세요. JavaScript 특정 문제 해결에 대해서는 [JavaScript 언어 주제](/docs/languages/javascript.md#intellisense)를 참조하세요.
 
-### Why am I not seeing method and variable suggestions?
+### 왜 메서드 및 변수 제안이 표시되지 않나요? {#why-am-i-not-seeing-method-and-variable-suggestions}
 
-![image of IntelliSense showing no useful suggestions](images/intellisense/missing_typings.png)
+![유용한 제안이 표시되지 않는 IntelliSense 이미지](images/intellisense/missing_typings.png)
 
-This issue is caused by missing type declaration (typings) files in JavaScript. Most common JavaScript libraries ship with declaration files or have type declaration files available. Make sure install the corresponding npm or yarn package for the library you are using. Learn more about IntelliSense in the [Working with JavaScript](/docs/nodejs/working-with-javascript.md#intellisense) article. For other languages, please consult the extension's documentation.
+이 문제는 JavaScript에서 타입 선언(타이핑) 파일이 누락되어 발생합니다. 대부분의 일반적인 JavaScript 라이브러리는 선언 파일을 포함하거나 타입 선언 파일을 사용할 수 있습니다. 사용 중인 라이브러리에 해당하는 npm 또는 yarn 패키지를 설치하세요. [JavaScript 작업](/docs/nodejs/working-with-javascript.md#intellisense) 문서에서 IntelliSense에 대해 자세히 알아보세요. 다른 언어의 경우 확장의 문서를 참조하세요.

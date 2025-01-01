@@ -1,205 +1,216 @@
 ---
 Order: 6
 Area: getstarted
-TOCTitle: Settings
+TOCTitle: 설정
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
-PageTitle: Visual Studio Code User and Workspace Settings
+PageTitle: Visual Studio Code 사용자 및 작업 영역 설정
 DateApproved: 12/11/2024
-MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
+MetaDescription: Visual Studio Code 사용자 및 작업 영역 설정을 수정하는 방법.
 ---
 
-# User and Workspace Settings
+# 사용자 및 작업 영역 설정 {#user-and-workspace-settings}
 
-You can configure Visual Studio Code to your liking through its various settings. Nearly every part of VS Code's editor, user interface, and functional behavior has options you can modify.
+Visual Studio Code를 다양한 설정을 통해 원하는 대로 구성할 수 있습니다. VS Code의 에디터, 사용자 인터페이스, 기능적 동작의 거의 모든 부분을 수정할 수 있는 옵션이 있습니다.
 
-VS Code provides different scopes for settings:
+VS Code는 다음과 같은 설정 범위를 제공합니다:
 
-- **User settings** - Settings that apply globally to any instance of VS Code you open.
-- **Workspace settings** - Settings stored inside your workspace and only apply when the workspace is opened.
+- **사용자 설정** - 열려있는 모든 VS Code 인스턴스에 전역적으로 적용되는 설정.
+- **작업 영역 설정** - 작업 영역 내에 저장되며 작업 영역이 열릴 때만 적용되는 설정.
 
-VS Code stores setting values in a settings JSON file. You can change settings values either by editing the settings JSON file or by using the [Settings editor](#settings-editor), which provides a graphical interface to manage settings.
+VS Code는 설정 값을 settings JSON 파일에 저장합니다. settings JSON 파일을 직접 편집하거나 그래픽 인터페이스를 제공하는 [설정 에디터](#settings-editor)를 사용하여 설정 값을 변경할 수 있습니다.
 
-## User settings
+## 사용자 설정 {#user-settings}
 
-User settings are your personal settings for customizing VS Code. These settings apply globally to any instance of VS Code you open. For example, if you set the editor font size to 14 in your user settings, it will be 14 in all instances of VS Code on your computer.
+사용자 설정은 VS Code를 사용자 정의하기 위한 개인 설정입니다. 이러한 설정은 열려있는 모든 VS Code 인스턴스에 전역적으로 적용됩니다. 예를 들어, 사용자 설정에서 에디터 글꼴 크기를 14로 설정하면 컴퓨터의 모든 VS Code 인스턴스에서 14로 적용됩니다.
 
-You can access your user settings in a few ways:
+다음과 같은 여러 가지 방법으로 사용자 설정에 접근할 수 있습니다:
 
-- Select the **Preferences: Open User Settings** command in the Command Palette (`kb(workbench.action.showCommands)`)
-- Select the **User** tab in the [Settings editor](#settings-editor) (`kb(workbench.action.openSettings)`)
-- Select the **Preferences: Open User Settings (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`)
+- 명령 팔레트(`Ctrl+Shift+P`)에서 **Open User Settings** 명령 선택
+- [설정 에디터](#settings-editor)(`Ctrl+,`)에서 **User** 탭 선택
+- 명령 팔레트(`Ctrl+Shift+P`)에서 **Preferences: Open User Settings (JSON)** 명령 선택
 
-![Settings editor with User tab highlighted](images/settings/settings-editor-user-tab.png)
+![설정 에디터에서 사용자 탭이 강조 표시됨](images/settings/settings-editor-user-tab.png)
 
-## Workspace settings
+## 작업 영역 설정 {#workspace-settings}
 
-Workspace settings are specific to a project and override user settings. If you have specific settings that you want to apply to a specific project, you can use workspace settings. For example, for a backend server project, you might want to set the `files.exclude` setting to exclude the `node_modules` folder from the File Explorer.
+작업 영역 설정은 특정 프로젝트에 한정되며 사용자 설정을 재정의합니다. 특정 프로젝트에 적용하고 싶은 설정이 있다면 작업 영역 설정을 사용할 수 있습니다. 예를 들어, 백엔드 서버 프로젝트의 경우 `files.exclude` 설정을 사용하여 파일 탐색기에서 `node_modules` 폴더를 제외할 수 있습니다.
 
-> **Note**: A VS Code "workspace" is usually just your project root folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/multi-root-workspaces.md). Get more info about [VS Code workspaces](/docs/editor/workspaces.md).
+:::note
+VS Code "작업 영역"은 일반적으로 프로젝트 루트 폴더입니다. [다중 루트 작업 영역](/docs/editor/multi-root-workspaces.md)이라는 기능을 통해 VS Code 작업 영역에 둘 이상의 루트 폴더를 가질 수도 있습니다. [VS Code 작업 영역](/docs/editor/workspaces.md)에 대해 자세히 알아보세요.
+:::
 
-VS Code stores workspace settings at the root of the project in a `.vscode` folder. This makes it easy to share settings with others in a version-controlled (for example, Git) project.
+VS Code는 작업 영역 설정을 프로젝트 루트의 `.vscode` 폴더에 저장합니다. 이를 통해 버전 관리(예: Git)되는 프로젝트에서 다른 사람들과 설정을 쉽게 공유할 수 있습니다.
 
-You can access the workspace settings in a few ways:
+작업 영역 설정에 접근하는 방법은 다음과 같습니다:
 
-- Select the **Preferences: Open Workspace Settings** command in the Command Palette (`kb(workbench.action.showCommands)`)
-- Select the **Workspace** tab in the [Settings editor](#settings-editor) (`kb(workbench.action.openSettings)`)
-- Select the **Preferences: Open Workspace Settings (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`)
+- 명령 팔레트(`Ctrl+Shift+P`)에서 **Preferences: Open Workspace Settings** 명령 선택
+- [설정 에디터](#settings-editor)(`Ctrl+,`)에서 **Workspace** 탭 선택
+- 명령 팔레트(`Ctrl+Shift+P`)에서 **Preferences: Open Workspace Settings (JSON)** 명령 선택
 
-![Settings editor with Workspace tab highlighted](images/settings/settings-editor-workspace-tab.png)
+![설정 에디터에서 작업 영역 탭이 강조 표시됨](images/settings/settings-editor-workspace-tab.png)
 
-Not all user settings are available as workspace settings. For example, application-wide settings related to updates and security can not be overridden by Workspace settings.
+모든 사용자 설정이 작업 영역 설정으로 사용 가능한 것은 아닙니다. 예를 들어, 업데이트와 보안 관련된 애플리케이션 전반의 설정은 작업 영역 설정으로 재정의할 수 없습니다.
 
-## Settings editor
+## 설정 에디터 {#settings-editor}
 
-The Settings editor provides a graphical interface to manage both user and workspace settings. To open the Settings editor, navigate to **File** > **Preferences** > **Settings**. Alternately, open the Settings editor from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open Settings** or use the keyboard shortcut (`kb(workbench.action.openSettings)`).
+설정 에디터는 사용자 및 작업 영역 설정을 관리하기 위한 그래픽 인터페이스를 제공합니다. 설정 에디터를 열려면 **File** > **Preferences** > **Settings**으로 이동하세요. 또는 **Command Palette**(`Ctrl+Shift+P`)에서 **Preferences: Open Settings**를 선택하거나 키보드 단축키(`Ctrl+,`)를 사용할 수 있습니다.
 
-When you open the Settings editor, you can search and discover the settings you are looking for. When you search using the search bar, the Settings editor filters the settings to only show those that match your criteria. This makes finding settings quick and easy.
+설정 에디터를 열면 검색하고 원하는 설정을 찾을 수 있습니다. 검색 창을 사용하여 검색하면 설정 에디터는 검색 조건과 일치하는 설정만 표시하도록 필터링합니다. 이를 통해 빠르고 쉽게 설정을 찾을 수 있습니다.
 
-![Filtering settings by searching in the Settings editor](images/settings/settings-search.png)
+![설정 에디터에서 검색으로 설정 필터링](images/settings/settings-search.png)
 
-VS Code applies changes to settings directly as you change them. You can identify settings that you modified by the colored bar on the left of the setting, similar to modified lines in the editor.
+VS Code는 설정을 변경하면 즉시 적용합니다. 수정한 설정은 에디터에서 수정된 줄과 유사하게 설정의 왼쪽에 있는 색상 막대로 식별할 수 있습니다.
 
-In the example below, the Side Bar location and File Icon Theme were changed.
+아래 예시에서는 사이드 바 위치와 파일 아이콘 테마가 변경되었습니다.
 
-![Modified settings in the Settings editor showing blue vertical bars to the left of them](images/settings/settings-modified.png)
+![설정 에디터에서 수정된 설정이 왼쪽에 파란색 수직 막대로 표시됨](images/settings/settings-modified.png)
 
-The gear icon alongside the setting (`kb(settings.action.showContextMenu)`) opens a context menu with options to reset a setting to its default value, and to copy the setting ID, copy a JSON name-value pair, or copy the settings URL.
+설정 옆의 기어 아이콘(`Shift+F9`)을 클릭하면 설정을 기본값으로 재설정하고, 설정 ID를 복사하고, JSON 이름-값 쌍을 복사하거나 설정 URL을 복사하는 옵션이 있는 컨텍스트 메뉴가 열립니다.
 
-![Settings edit gear context menu](images/settings/more-actions-context-menu.png)
+![설정 편집 기어 컨텍스트 메뉴](images/settings/more-actions-context-menu.png)
 
-> **Tip**: A settings URL enables you to navigate directly to a specific setting in the Settings editor from the browser. The URL is in the format `vscode://settings/<settingName>`, where `<settingName>` is the ID of the setting you want to navigate to. For example, to navigate to the `workbench.colorTheme` setting, use the URL `vscode://settings/workbench.colorTheme`.
+:::tip
+설정 URL을 사용하면 브라우저에서 설정 에디터의 특정 설정으로 직접 이동할 수 있습니다. URL 형식은 `vscode://settings/<settingName>`이며, 여기서 `<settingName>`은 이동하려는 설정의 ID입니다. 예를 들어, `workbench.colorTheme` 설정으로 이동하려면 URL `vscode://settings/workbench.colorTheme`을 사용하세요.
+:::
 
-### Settings groups
+### 설정 그룹 {#settings-groups}
 
-Settings are represented in groups, so that you can navigate to related settings quickly. There is a **Commonly Used** group at the top, which shows popular customization settings.
+설정은 그룹으로 표시되어 관련 설정을 빠르게 탐색할 수 있습니다. 상단에는 자주 사용되는 사용자 지정 설정을 보여주는 **Commonly Used** 그룹이 있습니다.
 
-In the following example, the source control settings are focused by selecting **Source Control** in the tree view.
+다음 예시에서는 트리 뷰에서 **Source Control**를 선택하여 소스 제어 설정에 초점을 맞추고 있습니다.
 
-![Settings editor with the Source Control section of the table of contents selected](images/settings/settings-groups.png)
+![설정 에디터에서 목차의 소스 제어 섹션이 선택됨](images/settings/settings-groups.png)
 
-> **Note**: VS Code extensions can also add their own custom settings, and those settings are visible under an **Extensions** section.
+:::note
+VS Code 확장도 자체 사용자 지정 설정을 추가할 수 있으며, 이러한 설정은 **Extensions** 섹션 아래에서 확인할 수 있습니다.
+:::
 
-### Settings editor filters
+### 설정 에디터 필터 {#settings-editor-filters}
 
-The Settings editor search bar has several filters to make it easier to manage your settings. To the right of the search bar is a filter button with a funnel icon that provides options to easily add a filter to the search bar.
+설정 에디터 검색 창에는 설정을 더 쉽게 관리할 수 있는 여러 필터가 있습니다. 검색 창 오른쪽에는 깔때기 아이콘이 있는 필터 버튼이 있어 검색 창에 필터를 쉽게 추가할 수 있는 옵션을 제공합니다.
 
-#### Modified settings
+#### 수정된 설정 {#modified-settings}
 
-To check which settings you have configured, there is a `@modified` filter in the search bar. A setting shows up under this filter if its value differs from the default value, or if its value is explicitly set in the respective settings JSON file.
+어떤 설정을 구성했는지 확인하려면 검색 창에 `@modified` 필터가 있습니다. 설정 값이 기본값과 다르거나 해당 settings JSON 파일에서 값이 명시적으로 설정된 경우 이 필터에 표시됩니다.
 
-This filter can be useful if you have forgotten whether you configured a setting, or if the editor is not behaving as you expect because you accidentally configured a setting.
+이 필터는 설정을 구성했는지 잊어버렸거나 실수로 설정을 구성하여 에디터가 예상대로 작동하지 않는 경우 유용할 수 있습니다.
 
-![Settings editor with @modified filter showing changed settings](images/settings/modified-filter-settings.png)
+![설정 에디터에서 @modified 필터로 변경된 설정 표시](images/settings/modified-filter-settings.png)
 
-#### Other filters
+#### 기타 필터 {#other-filters}
 
-There are several other handy filters to help with searching through settings. Type the `@` symbol in the search bar to discover the different filters.
+설정을 검색하는 데 도움이 되는 여러 가지 유용한 필터가 있습니다. 검색 창에 `@` 기호를 입력하면 다양한 필터를 확인할 수 있습니다.
 
-![Setting editor @ tag filter dropdown](images/settings/settings-editor-filters.png)
+![설정 에디터 @ 태그 필터 드롭다운](images/settings/settings-editor-filters.png)
 
-Here are some of the filters available:
+사용 가능한 필터 중 일부는 다음과 같습니다:
 
-- `@ext` - Settings specific to an extension. You provide the extension ID such as `@ext:ms-python.python`.
-- `@feature` - Settings specific to a **Features** subgroup. For example, `@feature:explorer` shows settings of the File Explorer.
-- `@id` - Find a setting based on the setting ID. For example, `@id:workbench.activityBar.visible`.
-- `@lang` - Apply a language filter based on a language ID. For example, `@lang:typescript`. See [Language-specific editor settings](#language-specific-editor-settings) for more details.
-- `@tag` - Settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editor/workspace-trust.md), or `@tag:accessibility` for settings related to accessibility.
+- `@ext` - 확장과 관련된 설정입니다. 예를 들어 `@ext:ms-python.python`과 같이 확장 ID를 제공합니다.
+- `@feature` - **Features** 하위 그룹과 관련된 설정입니다. 예를 들어 `@feature:explorer`는 파일 탐색기의 설정을 보여줍니다.
+- `@id` - 설정 ID를 기반으로 설정을 찾습니다. 예를 들어 `@id:workbench.activityBar.visible`.
+- `@lang` - 언어 ID를 기반으로 언어 필터를 적용합니다. 예를 들어 `@lang:typescript`. 자세한 내용은 [언어별 에디터 설정](#language-specific-editor-settings)을 참조하세요.
+- `@tag` - VS Code의 시스템과 관련된 설정입니다. 예를 들어 [작업 영역 신뢰](/docs/editor/workspace-trust.md)와 관련된 설정은 `@tag:workspaceTrust`, 접근성 관련 설정은 `@tag:accessibility`를 사용합니다.
 
-The search bar remembers your settings search queries and supports Undo/Redo (`kb(undo)`/`kb(redo)`). You can quickly clear a search term or filter with the **Clear Settings Search Input** button at the right of the search bar.
+검색 창은 설정 검색 쿼리를 기억하고 실행 취소/다시 실행(`Ctrl+Z`/`Ctrl+Y`)을 지원합니다. 검색 창 오른쪽에 있는 **Clear Settings** 버튼을 사용하여 검색어나 필터를 빠르게 지울 수 있습니다.
 
-![Clear Settings Search Input button in the right of the Settings editor](images/settings/clear-search-input-button.png)
+![설정 에디터 오른쪽의 설정 검색 입력 지우기 버튼](images/settings/clear-search-input-button.png)
 
-## Extension settings
+## 확장 설정 {#extension-settings}
 
-Installed VS Code extensions can also contribute their own settings, which you can review under the **Extensions** section of the Settings editor.
+설치된 VS Code 확장도 자체 설정을 제공할 수 있으며, 이러한 설정은 설정 에디터의 **Extensions** 섹션에서 검토할 수 있습니다.
 
-![C++ extension settings in the Settings editor](images/settings/cpp-extension-settings.png)
+![설정 에디터의 C++ 확장 설정](images/settings/cpp-extension-settings.png)
 
-You can also review an extension's settings from the Extensions view (`kb(workbench.view.extensions)`) by selecting the extension and reviewing the **Feature Contributions** tab.
+확장 뷰(`Ctrl+Shift+X`)에서 확장을 선택하고 **Feature Contributions** 탭을 검토하여 확장의 설정을 검토할 수도 있습니다.
 
-![Python extension Settings list under Feature Contributions tab](images/settings/python-feature-contributions.png)
+![기능 기여 탭 아래의 Python 확장 설정 목록](images/settings/python-feature-contributions.png)
 
-Extension authors can learn more about adding custom settings in the [configuration contribution point documentation](/api/references/contribution-points.md#contributes.configuration).
+확장 작성자는 [구성 기여 포인트 문서](/api/references/contribution-points.md#contributes.configuration)에서 사용자 정의 설정 추가에 대해 자세히 알아볼 수 있습니다.
 
-## Settings JSON file
+## 설정 JSON 파일 {#settings-json-file}
 
-VS Code stores setting values in a `settings.json` file. The Settings editor is the user interface that enables you to review and modify setting values that are stored in a `settings.json` file.
+VS Code는 설정 값을 `settings.json` 파일에 저장합니다. 설정 에디터는 `settings.json` 파일에 저장된 설정 값을 검토하고 수정할 수 있는 사용자 인터페이스입니다.
 
-You can also review and edit the `settings.json` file directly by opening it in the editor with the **Preferences: Open User Settings (JSON)** or **Preferences: Open Workspace Settings (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`).
+명령 팔레트(`Ctrl+Shift+P`)에서 **Preferences: Open User Settings (JSON)** 또는 **Preferences: Open Workspace Settings (JSON)** 명령을 사용하여 에디터에서 직접 `settings.json` 파일을 검토하고 편집할 수도 있습니다.
 
-Settings are written as JSON by specifying the setting ID and value. You can quickly copy the corresponding JSON name-value pair for a setting by selecting the setting's gear icon in the Settings editor, and then selecting the **Copy Setting as JSON** action.
+설정 ID와 값을 지정하여 JSON으로 설정이 작성됩니다. 설정 에디터에서 설정의 기어 아이콘을 선택한 다음 **Copy Setting as JSON** 작업을 선택하여 해당 설정의 JSON 이름-값 쌍을 빠르게 복사할 수 있습니다.
 
-![User settings.json open in the editor](images/settings/settings-json-in-editor.png)
+![에디터에서 열린 사용자 settings.json](images/settings/settings-json-in-editor.png)
 
-The `settings.json` file has full IntelliSense with smart completions for settings and values and description hovers. Errors due to incorrect setting names or JSON formatting are also highlighted.
+`settings.json` 파일은 설정과 값에 대한 스마트 완성 및 설명 호버와 함께 완전한 IntelliSense를 제공합니다. 잘못된 설정 이름이나 JSON 형식으로 인한 오류도 강조 표시됩니다.
 
-![IntelliSense for settings.json open in the editor](images/settings/settings-json-intellisense.png)
+![에디터에서 열린 settings.json의 IntelliSense](images/settings/settings-json-intellisense.png)
 
-Some settings can only be edited in `settings.json` such as **Workbench: Color Customizations** and show an **Edit in settings.json** link in the Settings editor.
+일부 설정은 **Workbench: Color Customizations**와 같이 `settings.json`에서만 편집할 수 있으며 설정 에디터에서 **Edit in settings.json** 링크를 표시합니다.
 
-![Workbench: Color Customizations setting with Edit in settings.json link](images/settings/edit-in-settings-json-link.png)
+![settings.json에서 편집 링크가 있는 작업 영역: 색상 사용자 정의 설정](images/settings/edit-in-settings-json-link.png)
 
-> **Tip**: If you prefer to always work directly with `settings.json`, you can set `setting(workbench.settings.editor)` to `json`. Then, **File** > **Preferences** > **Settings** and the keybinding `kb(workbench.action.openSettings)` always open the `settings.json` file and not the Setting editor UI.
+:::tip
+항상 `settings.json`으로 직접 작업하는 것을 선호한다면 `workbench.settings.editor`를 `json`으로 설정할 수 있습니다. 그러면 **File** > **Preferences** > **Settings**과 키보드 단축키 `Ctrl+,`가 항상 설정 에디터 UI가 아닌 `settings.json` 파일을 엽니다.
+:::
 
-### Settings file locations
+### 설정 파일 위치 {#settings-file-locations}
 
-#### User settings.json location
+#### 사용자 settings.json 위치 {#user-settingsjson-location}
 
-Depending on your platform, the user settings file is located here:
+플랫폼에 따라 사용자 설정 파일은 다음 위치에 있습니다:
 
 - **Windows** `%APPDATA%\Code\User\settings.json`
 - **macOS** `$HOME/Library/Application\ Support/Code/User/settings.json`
 - **Linux** `$HOME/.config/Code/User/settings.json`
 
-#### Workspace settings.json location
+#### 작업 영역 settings.json 위치 {#workspace-settingsjson-location}
 
-The workspace settings file is located under the `.vscode` folder in your root folder. When you add a Workspace Settings `settings.json` file to your project or source control, the settings for the project will be shared by all users of that project.
+작업 영역 설정 파일은 루트 폴더의 `.vscode` 폴더 아래에 있습니다. 작업 영역 설정 `settings.json` 파일을 프로젝트나 소스 제어에 추가하면 해당 프로젝트의 설정을 모든 사용자와 공유할 수 있습니다.
 
-![The File Explorer displaying settings.json under the .vscode folder](images/settings/settings-json-under-vscode.png)
+![.vscode 폴더 아래의 settings.json을 보여주는 파일 탐색기](images/settings/settings-json-under-vscode.png)
 
-> **Note:** For a [Multi-root Workspace](/docs/editor/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
+:::tip
+[다중 루트 작업 영역](/docs/editor/multi-root-workspaces.md#settings)의 경우, 작업 영역 설정은 작업 영역 구성 파일 내부에 있습니다.
+:::
 
-## Reset settings
+## 설정 초기화 {#reset-settings}
 
-You can always reset a setting to the default value by hovering over a setting to show the gear icon, clicking on the gear icon, and then selecting the **Reset Setting** action.
+설정에 마우스를 올려 기어 아이콘을 표시한 다음, 기어 아이콘을 클릭하고 **Reset Setting** 작업을 선택하여 언제든지 설정을 기본값으로 재설정할 수 있습니다.
 
-While you can reset settings individually via the Settings editor, you can reset all changed settings by opening `settings.json` and deleting the entries between the braces `{}`. Be careful since there is no way to recover your previous setting values.
+설정 에디터를 통해 개별 설정을 재설정할 수 있지만, `settings.json`을 열고 중괄호 `{}` 사이의 항목을 삭제하여 모든 변경된 설정을 재설정할 수도 있습니다. 이전 설정 값을 복구할 방법이 없으므로 주의하세요.
 
-## Language specific editor settings
+## 언어별 에디터 설정 {#language-specific-editor-settings}
 
-One way to customize language-specific settings is by opening the Settings editor, pressing on the filter button, and selecting the language option to add a language filter. Alternatively, one can directly type a language filter of the form `@lang:languageId` into the search widget. The settings that show up will be configurable for that specific language, and will show the setting value specific to that language, if applicable.
+언어별 설정을 사용자 정의하는 한 가지 방법은 설정 에디터를 열고, 필터 버튼을 누른 다음, 언어 옵션을 선택하여 언어 필터를 추가하는 것입니다. 또는 검색 위젯에 `@lang:languageId` 형식의 언어 필터를 직접 입력할 수 있습니다. 표시되는 설정은 해당 특정 언어에 대해 구성 가능하며, 해당되는 경우 해당 언어에 특정한 설정 값을 보여줍니다.
 
-When you modify a setting while there is a language filter in place, the setting is configured in the given scope for that language.
-For example, when modifying the user-scope `setting(diffEditor.codeLens)` setting while there is a `@lang:css` filter in the search widget, the Settings editor saves the new value to the CSS-specific section of the user settings file.
+언어 필터가 적용된 상태에서 설정을 수정하면, 해당 설정은 해당 언어에 대해 주어진 범위에서 구성됩니다.
+예를 들어, 검색 위젯에 `@lang:css` 필터가 있는 상태에서 사용자 범위 `diffEditor.codeLens` 설정을 수정하면, 설정 에디터는 새 값을 사용자 설정 파일의 CSS 특정 섹션에 저장합니다.
 
-![Editing the CSS-specific user-scoped diffEditor.codeLens setting in the Settings editor](images/settings/settings-css-example.png)
+![설정 에디터에서 CSS 특정 사용자 범위 diffEditor.codeLens 설정 편집](images/settings/settings-css-example.png)
 
-> **Note:** If you enter more than one language filter in the search widget, the current behavior is that only the first language filter will be used.
+:::note
+검색 위젯에 둘 이상의 언어 필터를 입력하면, 현재는 첫 번째 언어 필터만 사용됩니다.
+:::
 
-Another way to customize your editor by language is by running the global command **Preferences: Configure Language Specific Settings** (command ID: `workbench.action.configureLanguageBasedSettings`) from the **Command Palette** (`kb(workbench.action.showCommands)`) which opens the language picker. Select the language you want. Then, the Settings editor opens with a language filter for the selected language, which allows you to modify language-specific settings for that language. Though, if you have the `setting(workbench.settings.editor)` setting set to `json`, then the `settings.json` file opens with a new language entry where you can add applicable settings.
+에디터를 언어별로 사용자 정의하는 또 다른 방법은 **Command Palette**(`Ctrl+Shift+P`)에서 전역 명령 **Preferences: Configure Language Specific Settings**(명령 ID: `workbench.action.configureLanguageBasedSettings`)을 실행하는 것입니다. 이렇게 하면 언어 선택기가 열립니다. 원하는 언어를 선택하세요. 그러면 선택한 언어에 대한 언어 필터가 있는 설정 에디터가 열려 해당 언어에 대한 언어별 설정을 수정할 수 있습니다. 단, `workbench.settings.editor`를 `json`으로 설정한 경우에는 적용 가능한 설정을 추가할 수 있는 새로운 언어 항목이 있는 `settings.json` 파일이 열립니다.
 
-![Configure language-specific settings command typed up in the Command Palette](images/settings/pref-config-lang-settings.png)
+![명령 팔레트에 입력된 언어별 설정 구성 명령](images/settings/pref-config-lang-settings.png)
 
-Select the language via the dropdown:
+드롭다운을 통해 언어를 선택하세요:
 
-![Select language dropdown](images/settings/lang-selection.png)
+![언어 선택 드롭다운](images/settings/lang-selection.png)
 
-Now you can start editing settings specifically for that language:
+이제 해당 언어에 대한 설정을 편집하기 시작할 수 있습니다:
 
-![Settings editor showing a specific language filter](images/settings/lang-based-settings-editor.png)
+![특정 언어 필터를 보여주는 설정 에디터](images/settings/lang-based-settings-editor.png)
 
-Or, if `setting(workbench.settings.editor)` is set to `json`, now you can start adding language-specific settings to your user settings:
+또는 `workbench.settings.editor`가 `json`으로 설정된 경우, 사용자 설정에 언어별 설정을 추가하기 시작할 수 있습니다:
 
-![Suggestions for language-specific settings shown in the settings JSON file](images/settings/lang-based-settings.png)
+![설정 JSON 파일에 표시된 언어별 설정 제안](images/settings/lang-based-settings.png)
 
-If you have a file open and you want to customize the editor for this file type, select the Language Mode in the Status Bar to the bottom-right of the VS Code window. This opens the Language Mode picker with an option **Configure 'language_name' language based settings**. Selecting this opens your user `settings.json` with the language entry where you can add applicable settings.
+파일이 열려 있고 이 파일 유형에 대한 에디터를 사용자 정의하려면 VS Code 창의 오른쪽 하단에 있는 상태 표시줄에서 언어 모드를 선택하세요. 이렇게 하면 **Configure 'language_name' language based settings** 옵션이 있는 언어 모드 선택기가 열립니다. 이를 선택하면 적용 가능한 설정을 추가할 수 있는 언어 항목이 있는 사용자 `settings.json`이 열립니다.
 
-Language-specific editor settings always override non-language-specific editor settings, even if the non-language-specific setting
-has a narrower scope. For example, language-specific user settings override non-language-specific workspace settings.
+언어별 에디터 설정은 비언어별 설정의 범위가 더 좁더라도 항상 비언어별 에디터 설정을 재정의합니다. 예를 들어, 언어별 사용자 설정은 비언어별 작업 영역 설정을 재정의합니다.
 
-You can scope language-specific settings to the workspace by placing them in the workspace settings just like other settings. If you have settings defined for the same language in both user and workspace scopes, then they are merged by giving precedence to the ones defined in the workspace.
+작업 영역 설정처럼 언어별 설정을 작업 영역에 범위 지정할 수 있습니다. 동일한 언어에 대한 설정이 사용자와 작업 영역 범위 모두에 정의되어 있는 경우, 작업 영역에 정의된 것이 우선되어 병합됩니다.
 
-The following example can be pasted into a settings JSON file to customize editor settings for the `typescript` and `markdown` language modes.
+다음 예제는 `typescript`와 `markdown` 언어 모드에 대한 에디터 설정을 사용자 정의하기 위해 settings JSON 파일에 붙여넣을 수 있습니다.
 
 ```json
 {
@@ -216,11 +227,11 @@ The following example can be pasted into a settings JSON file to customize edito
 }
 ```
 
-You can use IntelliSense in `settings.json` to help you find language-specific settings. All editor settings and some non-editor settings are supported. Some languages have default language-specific settings already set, which you can review in `defaultSettings.json` by running the **Preferences: Open Default Settings** command.
+`settings.json`에서 IntelliSense를 사용하여 언어별 설정을 찾을 수 있습니다. 모든 에디터 설정과 일부 비에디터 설정이 지원됩니다. 일부 언어는 이미 기본 언어별 설정이 설정되어 있으며, **기본 설정: 기본 설정 열기** 명령을 실행하여 `defaultSettings.json`에서 이를 검토할 수 있습니다.
 
-### Multiple language-specific editor settings
+### 다중 언어별 에디터 설정 {#multiple-language-specific-editor-settings}
 
-You can configure language specific editor settings for multiple languages at once. The following example shows how you can customize settings for `javascript` and `typescript` languages together in your `settings.json` file:
+여러 언어에 대한 언어별 에디터 설정을 한 번에 구성할 수 있습니다. 다음 예제는 `settings.json` 파일에서 `javascript`와 `typescript` 언어에 대한 설정을 함께 사용자 정의하는 방법을 보여줍니다:
 
 ```json
 "[javascript][typescript]": {
@@ -228,47 +239,47 @@ You can configure language specific editor settings for multiple languages at on
 }
 ```
 
-## Profile settings
+## 프로필 설정 {#profile-settings}
 
-You can use [profiles in VS Code](/docs/editor/profiles.md) to create sets of customizations and quickly switch between them. For example, they are a great way to customize VS Code for a specific programming language.
+VS Code에서 [프로필](/docs/editor/profiles.md)을 사용하여 사용자 정의 세트를 만들고 이들 간에 빠르게 전환할 수 있습니다. 예를 들어, 특정 프로그래밍 언어를 위해 VS Code를 사용자 정의하는 좋은 방법입니다.
 
-When you switch to a profile, the user settings are scoped to only that profile. When you switch to another profile, the user settings of that other profile are applied. This way, you can have different settings for different profiles.
+프로필을 전환하면 사용자 설정이 해당 프로필에만 범위가 지정됩니다. 다른 프로필로 전환하면 그 다른 프로필의 사용자 설정이 적용됩니다. 이렇게 하면 서로 다른 프로필에 대해 서로 다른 설정을 가질 수 있습니다.
 
-If you're using a non-default profile, you notice that there is a **Preferences: Open Application Settings (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`). This command opens the user `settings.json` file that is associated with default profile.
+기본값이 아닌 프로필을 사용하는 경우, 명령 팔레트(`Ctrl+Shift+P`)에 **Preferences: Open Application Settings (JSON)** 명령이 있는 것을 알 수 있습니다. 이 명령은 기본 프로필과 연결된 사용자 `settings.json` 파일을 엽니다.
 
-The user settings JSON file for a profile is located in the following directory:
+프로필의 사용자 설정 JSON 파일은 다음 디렉터리에 위치합니다:
 
 - **Windows** `%APPDATA%\Code\User\profiles\<profile ID>\settings.json`
 - **macOS** `$HOME/Library/Application\ Support/Code/User/profiles/<profile ID>/settings.json`
 - **Linux** `$HOME/.config/Code/User/profiles/<profile ID>/settings.json`
 
-## Settings precedence
+## 설정 우선순위 {#settings-precedence}
 
-Configurations can be overridden at multiple levels by the different setting scopes. In the following list, **later scopes override earlier scopes**:
+구성은 서로 다른 설정 범위에 의해 여러 수준에서 재정의될 수 있습니다. 다음 목록에서 **나중 범위가 이전 범위를 재정의합니다**:
 
-- Default settings - This scope represents the default unconfigured setting values.
-- User settings - Apply globally to all VS Code instances.
-- Remote settings - Apply to a remote machine opened by a user.
-- Workspace settings - Apply to the open folder or workspace.
-- Workspace Folder settings - Apply to a specific folder of a [multi-root workspace](/docs/editor/multi-root-workspaces.md).
-- Language-specific default settings - These are language-specific default values that can be contributed by extensions.
-- Language-specific user settings - Same as User settings, but specific to a language.
-- Language-specific remote settings - Same as Remote settings, but specific to a language.
-- Language-specific workspace settings - Same as Workspace settings, but specific to a language.
-- Language-specific workspace folder settings - Same as Workspace Folder settings, but specific to a language.
-- Policy settings - Set by the system administrator, these values always override other setting values.
+- 기본 설정 - 이 범위는 구성되지 않은 기본 설정 값을 나타냅니다.
+- 사용자 설정 - 모든 VS Code 인스턴스에 전역적으로 적용됩니다.
+- 원격 설정 - 사용자가 열은 원격 머신에 적용됩니다.
+- 작업 영역 설정 - 열린 폴더나 작업 영역에 적용됩니다.
+- 작업 영역 폴더 설정 - [다중 루트 작업 영역](/docs/editor/multi-root-workspaces.md)의 특정 폴더에 적용됩니다.
+- 언어별 기본 설정 - 확장이 제공할 수 있는 언어별 기본값입니다.
+- 언어별 사용자 설정 - 사용자 설정과 동일하지만 특정 언어에 한정됩니다.
+- 언어별 원격 설정 - 원격 설정과 동일하지만 특정 언어에 한정됩니다.
+- 언어별 작업 영역 설정 - 작업 영역 설정과 동일하지만 특정 언어에 한정됩니다.
+- 언어별 작업 영역 폴더 설정 - 작업 영역 폴더 설정과 동일하지만 특정 언어에 한정됩니다.
+- 정책 설정 - 시스템 관리자가 설정하며, 이 값은 항상 다른 설정 값을 재정의합니다.
 
-Setting values can be of various types:
+설정 값은 다양한 유형이 될 수 있습니다:
 
-- String - `"files.autoSave": "afterDelay"`
-- Boolean - `"editor.minimap.enabled": true`
-- Number - `"files.autoSaveDelay": 1000`
-- Array - `"editor.rulers": []`
-- Object - `"search.exclude": { "**/node_modules": true, "**/bower_components": true }`
+- 문자열 - `"files.autoSave": "afterDelay"`
+- 불리언 - `"editor.minimap.enabled": true`
+- 숫자 - `"files.autoSaveDelay": 1000`
+- 배열 - `"editor.rulers": []`
+- 객체 - `"search.exclude": { "**/node_modules": true, "**/bower_components": true }`
 
-Values with primitive types and Array types are overridden, meaning a configured value in a scope that takes precedence over another scope is used instead of the value in the other scope. But, values with Object types are merged.
+원시 타입과 배열 타입의 값은 재정의되는데, 이는 우선순위가 높은 범위에서 구성된 값이 다른 범위의 값 대신 사용된다는 의미입니다. 하지만 객체 타입의 값은 병합됩니다.
 
-For example, `setting(workbench.colorCustomizations)` takes an Object that specifies a group of UI elements and their desired colors. If your user settings set the editor backgrounds to blue and green:
+예를 들어, `workbench.colorCustomizations`는 UI 요소 그룹과 원하는 색상을 지정하는 객체를 받습니다. 사용자 설정에서 에디터 배경을 파란색과 녹색으로 설정하면:
 
 ```json
   "workbench.colorCustomizations": {
@@ -277,7 +288,7 @@ For example, `setting(workbench.colorCustomizations)` takes an Object that speci
   }
 ```
 
-And your open workspace settings set the editor foreground to red:
+그리고 열린 작업 영역 설정에서 에디터 전경색을 빨간색으로 설정하면:
 
 ```json
   "workbench.colorCustomizations": {
@@ -286,7 +297,7 @@ And your open workspace settings set the editor foreground to red:
   }
 ```
 
-The result, when that workspace is open, is the combination of those two color customizations, as if you had specified:
+해당 작업 영역이 열려 있을 때의 결과는 다음과 같이 지정한 것처럼 두 색상 사용자 정의의 조합이 됩니다:
 
 ```json
   "workbench.colorCustomizations": {
@@ -296,72 +307,74 @@ The result, when that workspace is open, is the combination of those two color c
   }
 ```
 
-If there are conflicting values, such as `editor.selectionBackground` in the example above, the usual override behavior occurs, with workspace values taking precedence over user values, and language-specific values taking precedence over non-language-specific values.
+위 예시의 `editor.selectionBackground`와 같이 충돌하는 값이 있는 경우, 일반적인 재정의 동작이 발생하여 작업 영역 값이 사용자 값보다 우선하고 언어별 값이 비언어별 값보다 우선합니다.
 
-### Note about multiple language specific settings
+### 다중 언어별 설정에 관한 참고사항 {#note-about-multiple-language-specific-settings}
 
-If you are using [multiple language-specific settings](#multiple-language-specific-editor-settings), be aware that language-specific settings are merged and precedence is set based on the full language string (for example `"[typescript][javascript]"`) and not the individual language IDs (`typescript` and `javascript`). This means that for example, a `"[typescript][javascript]"` workspace setting will not override a `"[javascript]"` user setting.
+[다중 언어별 설정](#multiple-language-specific-editor-settings)을 사용하는 경우, 언어별 설정은 전체 언어 문자열(예: `"[typescript][javascript]"`)을 기반으로 병합되며 개별 언어 ID(`typescript`와 `javascript`)를 기반으로 하지 않습니다. 이는 예를 들어 `"[typescript][javascript]"` 작업 영역 설정이 `"[javascript]"` 사용자 설정을 재정의하지 않는다는 것을 의미합니다.
 
-## Settings and security
+## 설정과 보안 {#settings-and-security}
 
-Some settings allow you to specify an executable that VS Code will run to perform certain operations. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace scope.
+일부 설정을 통해 특정 작업을 수행하기 위해 VS Code가 실행할 실행 파일을 지정할 수 있습니다. 예를 들어, 통합 터미널이 사용할 셸을 선택할 수 있습니다. 보안 강화를 위해 이러한 설정은 사용자 설정에서만 정의할 수 있으며 작업 영역 범위에서는 정의할 수 없습니다.
 
-Here is the list of settings not supported in workspace settings:
+작업 영역 설정에서 지원되지 않는 설정 목록은 다음과 같습니다:
 
-- `setting(git.path)`
-- `setting(terminal.external.windowsExec)`
-- `setting(terminal.external.osxExec)`
-- `setting(terminal.external.linuxExec)`
+- `git.path`
+- `terminal.external.windowsExec`
+- `terminal.external.osxExec`
+- `terminal.external.linuxExec`
 
-The first time you open a workspace that defines any of these settings, VS Code will warn you and then always ignore the values after that.
+이러한 설정을 정의하는 작업 영역을 처음 열 때 VS Code는 경고를 표시하고 그 이후에는 항상 해당 값을 무시합니다.
 
-## Settings Sync
+## 설정 동기화 {#settings-sync}
 
-You can share your user settings across your VS Code instances with the [Settings Sync](/docs/editor/settings-sync.md) feature. This feature lets you share settings, keyboard shortcuts, and installed extensions across your VS Code installs on various machines. You can enable Settings Sync via the **Backup and Sync Settings** command on the right of the Settings editor or on the **Accounts** Activity Bar context menu.
+[설정 동기화](/docs/editor/settings-sync.md) 기능을 사용하여 여러 VS Code 인스턴스 간에 사용자 설정을 공유할 수 있습니다. 이 기능을 통해 설정, 키보드 단축키 및 설치된 확장을 다양한 기기의 VS Code 설치 간에 공유할 수 있습니다. 설정 에디터의 오른쪽에 있는 **Backup and Sync Settings** 명령이나 **Accounts** 활동 표시줄 컨텍스트 메뉴를 통해 설정 동기화를 활성화할 수 있습니다.
 
-![Turn on Settings Sync command in the Accounts Activity Bar menu](images/settings/accounts-context-menu.png)
+![계정 활동 표시줄 메뉴의 설정 동기화 켜기 명령](images/settings/accounts-context-menu.png)
 
-You can learn more about turning on and configuring Settings Sync in the [Settings Sync](/docs/editor/settings-sync.md) user guide.
+설정 동기화 켜기 및 구성에 대한 자세한 내용은 [설정 동기화](/docs/editor/settings-sync.md) 사용자 가이드에서 확인할 수 있습니다.
 
-> **Note**: VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
+:::note
+VS Code는 SSH, 개발 컨테이너(devcontainer) 또는 WSL에 연결된 경우와 같이 [원격](/docs/remote/remote-overview.md) 창으로부터 또는 원격 창으로 확장을 동기화하지 않습니다.
+:::
 
-## Feature lifecycle
+## 기능 수명 주기 {#feature-lifecycle}
 
-Features and their corresponding settings can be in one of the following states. Depending on the state, you might be cautious about using the feature or setting in your workflow.
+기능과 해당 설정은 다음 상태 중 하나일 수 있습니다. 상태에 따라 워크플로우에서 기능이나 설정을 사용하는 것을 주의할 수 있습니다.
 
-- **Experimental** - Exploratory features available for early adopters. These features might change or be removed in the future. In the Settings editor, these settings have an `Experimental` label. You can also search experimental settings by entering `@tag:experimental` in the search box.
+- **실험적** - 얼리 어답터를 위한 탐색적 기능입니다. 이러한 기능은 향후 변경되거나 제거될 수 있습니다. 설정 에디터에서 이러한 설정에는 `Experimental` 레이블이 있습니다. 검색 상자에 `@tag:experimental`을 입력하여 실험적 설정을 검색할 수도 있습니다.
 
-  ![Settings editor filtered with '@tag:experimental' showing experimental settings.](images/settings/settings-editor-experimental.png)
+  ![설정 에디터에서 '@tag:experimental'로 필터링하여 실험적 설정 표시.](images/settings/settings-editor-experimental.png)
 
-- **Preview** - Preview features and settings have the final functionality but might still be iterated on for stability and polishing. Usually, preview features are disabled by default. In the Settings editor, these settings have an `Preview` label. You can also search experimental settings by entering `@tag:preview` in the search box.
+- **미리 보기** - 미리 보기 기능과 설정은 최종 기능을 갖추고 있지만, 안정성과 완성도를 높이기 위해 계속 개선될 수 있습니다. 일반적으로 미리 보기 기능은 기본적으로 비활성화되어 있습니다. 설정 에디터에서 이러한 설정에는 `Preview` 레이블이 있습니다. 검색 상자에 `@tag:preview`를 입력하여 미리 보기 설정을 검색할 수도 있습니다.
 
-  ![Settings editor filtered with '@tag:preview' showing preview settings.](images/settings/settings-editor-preview.png)
+  ![설정 에디터에서 '@tag:preview'로 필터링하여 미리 보기 설정 표시.](images/settings/settings-editor-preview.png)
 
-- **Stable** - The feature is stable and fully supported in VS Code.
+- **안정적** - 이 기능은 안정적이며 VS Code에서 완전히 지원됩니다.
 
-Experimental and preview features enable you to try out new features and provide feedback. Share your feedback in [our VS Code issues](https://github.com/microsoft/vscode/issues).
+실험적 기능과 미리 보기 기능을 통해 새로운 기능을 시도해보고 피드백을 제공할 수 있습니다. [VS Code 이슈](https://github.com/microsoft/vscode/issues)에서 피드백을 공유하세요.
 
-## Common questions
+## 자주 묻는 질문 {#common-questions}
 
-### VS Code says "Unable to write settings."
+### VS Code에서 "설정을 쓸 수 없습니다."라고 표시됩니다. {#vs-code-says-unable-to-write-settings}
 
-If you try to change a setting (for example turning on Auto Save or selecting a new Color Theme) and you see "Unable to write into user settings. Please open user settings to correct errors/warnings in it and try again.", it means your `settings.json` file is ill-formed or has errors. The error can be as simple as a missing comma or incorrect setting value. Open the `settings.json` file with the **Preferences: Open User Settings (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`) and you should see the error highlighted with red squiggles.
+설정을 변경하려고 할 때(예: 자동 저장 켜기 또는 새 색상 테마 선택) "사용자 설정에 쓸 수 없습니다. 사용자 설정을 열어 오류/경고를 수정하고 다시 시도하세요."라는 메시지가 표시되면, `settings.json` 파일이 잘못 형성되었거나 오류가 있다는 의미입니다. 오류는 누락된 쉼표나 잘못된 설정 값처럼 간단할 수 있습니다. 명령 팔레트(`Ctrl+Shift+P`)에서 **Preferences: Open User Settings (JSON)** 명령으로 `settings.json` 파일을 열면 빨간색 물결선으로 오류가 강조 표시된 것을 볼 수 있습니다.
 
-### How can I reset my user settings?
+### 사용자 설정을 어떻게 초기화할 수 있나요? {#how-can-i-reset-my-user-settings}
 
-The easiest way to reset VS Code back to the default settings is to clear your user `settings.json` file. You can open the `settings.json` file with the **Preferences: Open User Settings (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`). Once the file is open in an editor, delete everything between the two curly braces `{}`, save the file, and VS Code will go back to using the default values.
+VS Code를 기본 설정으로 초기화하는 가장 쉬운 방법은 사용자 `settings.json` 파일을 지우는 것입니다. 명령 팔레트(`Ctrl+Shift+P`)에서 **Preferences: Open User Settings (JSON)** 명령으로 `settings.json` 파일을 열 수 있습니다. 파일이 에디터에서 열리면 두 중괄호 `{}` 사이의 모든 내용을 삭제하고 파일을 저장하면 VS Code가 기본값을 사용하도록 돌아갑니다.
 
-### When does it make sense to use workspace settings?
+### 언제 작업 영역 설정을 사용하는 것이 좋나요? {#when-does-it-make-sense-to-use-workspace-settings}
 
-If you're using a workspace that needs custom settings but you don't want to apply them to your other VS Code projects. A good example is language-specific linting rules.
+사용자 정의 설정이 필요한 작업 영역을 사용하고 있지만 다른 VS Code 프로젝트에는 적용하고 싶지 않을 때입니다. 좋은 예시로 언어별 린팅 규칙이 있습니다.
 
-### Where can I find extension settings?
+### 확장 설정은 어디에서 찾을 수 있나요? {#where-can-i-find-extension-settings}
 
-In general, VS Code extensions store their settings in your user or workspaces settings files and they are available through the Settings editor UI (**Preferences: Open Settings (UI)** command) or via IntelliSense in your `settings.json` file (**Preferences: Open User Settings (JSON)** command). Searching by the extension name (for example `gitlens` or `python`) can help filter down settings to just those contributed by an extension.
+일반적으로 VS Code 확장은 사용자 또는 작업 영역 설정 파일에 설정을 저장하며, 이러한 설정은 설정 에디터 UI(**Preferences: Open Settings (UI)** 명령)나 `settings.json` 파일 (**Preferences: Open User Settings (JSON)** 명령)의 IntelliSense를 통해 사용할 수 있습니다. 확장 이름으로 검색(예: `gitlens` 또는 `python`)하면 확장이 제공하는 설정만 필터링하는 데 도움이 될 수 있습니다.
 
-## Default settings
+## 기본 설정 {#default-settings}
 
-Below are the Visual Studio Code default settings and their values. You can also view the default values in the Settings editor or see a read-only version of the `defaultSettings.json` via the **Preferences: Open Default Settings (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`).
+아래는 Visual Studio Code의 기본 설정과 그 값입니다. 설정 에디터에서 기본값을 보거나 명령 팔레트(`Ctrl+Shift+P`)의 **Preferences: Open Default Settings (JSON)** 명령을 통해 `defaultSettings.json`의 읽기 전용 버전을 볼 수도 있습니다.
 
 ````json
 {
