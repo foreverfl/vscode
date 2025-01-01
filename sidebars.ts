@@ -90,12 +90,12 @@ const sidebars: SidebarsConfig = {
         {
           type: "doc",
           id: "getstarted/tips-and-tricks",
-          label: "팁과 요령",
+          label: "팁과 트릭",
         },
         {
           type: "doc",
           id: "getstarted/userinterface",
-          label: "사용자 인터페이스",
+          label: "유저 인터페이스",
         },
         {
           type: "doc",
@@ -998,7 +998,7 @@ const sidebars: SidebarsConfig = {
         {
           type: "doc",
           id: "containers/troubleshooting",
-          label: "팁과 요령",
+          label: "팁과 트릭",
         },
       ],
     },

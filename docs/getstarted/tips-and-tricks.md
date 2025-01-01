@@ -76,11 +76,11 @@ VS Code를 직접 체험하는 가장 좋은 방법은 **Welcome** 페이지를 
 
 ### 최근에 열어본 파일 간 이동 {#navigate-between-recently-opened-files}
 
-**빠른 열기** 키보드 단축키를 반복해서 누르면 최근에 열어본 파일 사이를 빠르게 이동할 수 있습니다.
+**Quick Open** 키보드 단축키를 반복해서 누르면 최근에 열어본 파일 사이를 빠르게 이동할 수 있습니다.
 
-### 빠른 열기에서 여러 파일 열기 {#open-multiple-files-from-quick-open}
+### Quick Open에서 여러 파일 열기 {#open-multiple-files-from-quick-open}
 
-**빠른 열기**에서 `Right Arrow`를 눌러 여러 파일을 열 수 있습니다. 현재 선택된 파일이 백그라운드에서 열리고, **빠른 열기**에서 계속해서 파일을 선택할 수 있습니다.
+**Quick Open**에서 `Right Arrow`를 눌러 여러 파일을 열 수 있습니다. 현재 선택된 파일이 백그라운드에서 열리고, **Quick Open**에서 계속해서 파일을 선택할 수 있습니다.
 
 ### 최근에 열어본 폴더와 작업 영역 간 이동 {#navigate-between-recently-opened-folders-and-workspaces}
 
@@ -200,7 +200,7 @@ VS Code 확장 [Marketplace](https://marketplace.visualstudio.com/search?target=
 
 ### 키보드 단축키 사용자 정의 {#customize-your-keyboard-shortcuts}
 
-**키보드 단축키** 편집기에서 키보드 단축키를 보고 사용자 정의할 수 있습니다. **Preferences: Open Keyboard Shortcuts** 명령을 사용하거나 단축키를 사용하여 편집기를 여세요.
+**Keyboard Shortcuts** 편집기에서 키보드 단축키를 보고 사용자 정의할 수 있습니다. **Preferences: Open Keyboard Shortcuts** 명령을 사용하거나 단축키를 사용하여 편집기를 여세요.
 
 키보드 단축키: `Ctrl+K Ctrl+S`
 

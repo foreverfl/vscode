@@ -1,390 +1,406 @@
 ---
 Order: 4
 Area: getstarted
-TOCTitle: User Interface
+TOCTitle: 유저 인터페이스
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
-PageTitle: Visual Studio Code User Interface
+PageTitle: Visual Studio Code 유저 인터페이스
 DateApproved: 12/11/2024
-MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
+MetaDescription: Visual Studio Code 유저 인터페이스에 대한 간략한 개요입니다. 편집기, 창 관리 및 소스 제어, 확장 관리, 전체 텍스트 검색 등을 처리하는 특수 UI에 대해 알아보세요.
 ---
-# User interface
 
-At its heart, Visual Studio Code is a code editor. Like many other code editors, VS Code adopts a common user interface and layout of an explorer on the left, showing all of the files and folders you have access to, and an editor on the right, showing the content of the files you have opened.
+# 유저 인터페이스 {#user-interface}
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nORT3-kONgA" title="Transform your VS Code user interface" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Visual Studio Code는 기본적으로 코드 편집기입니다. 다른 많은 코드 편집기와 마찬가지로, VS Code는 탐색기를 왼쪽에 배치하고, 열려 있는 파일의 내용을 표시하는 편집기를 오른쪽에 배치하는 일반적인 유저 인터페이스와 레이아웃을 채택합니다.
 
-## Basic layout
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nORT3-kONgA" title="VS Code 유저 인터페이스 변환" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor, while leaving ample room to browse and access the full context of your folder or project. The user interface is divided into five main areas:
+## 기본 레이아웃 {#basic-layout}
 
-* **Editor** - The main area to edit your files. You can open as many editors as you like side by side vertically and horizontally.
-* **Primary Side Bar** - Contains different views like the Explorer to assist you while working on your project.
-* **Status Bar** - Information about the opened project and the files you edit.
-* **Activity Bar** -  Located on the far left-hand side. Lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled. You can change the position of the Activity Bar.
-* **Panel** - An additional space for views below the editor region. By default, it contains output, debug information, errors and warnings, and an integrated terminal. The Panel can also be moved to the left or right for more vertical space.
+VS Code는 편집기를 위한 공간을 최대화하면서 폴더나 프로젝트의 전체 컨텍스트를 탐색하고 액세스할 수 있는 충분한 공간을 남기는 간단하고 직관적인 레이아웃을 제공합니다. 유저 인터페이스는 다섯 가지 주요 영역으로 나뉩니다:
 
-![Screenshot of the VS Code user interface, highlighting the five main areas.](images/userinterface/hero.png)
+- **편집기 (Editor)** - 파일을 편집하는 주요 영역입니다. 세로 및 가로로 나란히 원하는 만큼 많은 편집기를 열 수 있습니다.
+- **기본 사이드 바 (Primary Side Bar)** - 탐색기와 같은 다양한 화면를 포함하여 프로젝트 작업을 도와줍니다.
+- **상태 표시줄 (Status Bar)** - 열린 프로젝트와 편집 중인 파일에 대한 정보를 제공합니다.
+- **활동 표시줄 (Activity Bar)** - 왼쪽 가장자리에 위치하며, 화면 간 전환을 가능하게 하고 Git이 활성화된 경우 나가는 변경 사항 수와 같은 추가 컨텍스트별 지표를 제공합니다. 활동 표시줄의 위치를 변경할 수 있습니다.
+- **패널 (Panel)** - 편집기 영역 아래에 있는 추가 화면 공간입니다. 기본적으로 출력, 디버그 정보, 오류 및 경고, 통합 터미널을 포함합니다. 패널은 더 많은 세로 공간을 위해 왼쪽 또는 오른쪽으로 이동할 수 있습니다.
 
-> [!TIP]
-> A Secondary Side Bar is also available to display views opposite the Primary Side Bar. You can show it with `kb(workbench.action.toggleAuxiliaryBar)` and drag a view from the Primary Side Bar to the Secondary Side Bar.
+![VS Code 유저 인터페이스의 스크린샷, 다섯 가지 주요 영역 강조.](images/userinterface/hero.png)
 
-Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
+:::tip
+기본 사이드 바 반대편에 화면를 표시할 수 있는 보조 사이드 바도 사용할 수 있습니다. `Ctrl+Alt+B`를 사용하여 표시하고 기본 사이드 바에서 보조 사이드 바로 화면를 드래그할 수 있습니다.
+:::
 
-Open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/getstarted/userinterface.md#tabs) section.
+VS Code를 시작할 때마다 마지막으로 닫았을 때의 상태로 열립니다. 폴더, 레이아웃 및 열린 파일이 보존됩니다.
 
-> [!TIP]
-> You can move the Primary Side Bar to the right hand side by right-clicking the Activity Bar and selecting **Move Primary Side Bar Right** or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
+각 편집기에서 열린 파일은 편집기 영역 상단에 탭 헤더(Tabs)로 표시됩니다. 탭 헤더에 대해 자세히 알아보려면 [탭](/docs/getstarted/userinterface.md#tabs) 섹션을 참조하세요.
 
-## Side by side editing
+:::tip
+활동 표시줄을 마우스 오른쪽 버튼으로 클릭하고 **Move Primary Side Bar Right**을 선택하거나 단축키(`Ctrl+B`)를 사용하여 기본 사이드 바를 오른쪽으로 이동할 수 있습니다.
+:::
 
-You can open as many editors as you like side by side vertically and horizontally. If you already have an editor open, there are multiple ways of opening another editor to the side:
+## 나란히 편집 {#side-by-side-editing}
 
-* `kbstyle(Alt)` and select a file in the Explorer view.
-* `kb(workbench.action.splitEditor)` to split the active editor into two.
-* **Open to the Side** (`kb(explorer.openToSide)`) from the Explorer context menu on a file.
-* Select the **Split Editor** button in the upper right of an editor.
-* Drag and drop a file to any side of the editor region.
-* Press `kb(explorer.openToSide)` in the **Quick Open** (`kb(workbench.action.quickOpen)`) file list.
+세로 및 가로로 원하는 만큼 많은 편집기를 열 수 있습니다. 이미 편집기가 열려 있는 경우, 옆에 다른 편집기를 여는 여러 가지 방법이 있습니다:
 
-![Side by Side editing](images/userinterface/sidebyside.png)
+- `Alt`를 누르고 탐색기 화면에서 파일을 선택합니다.
+- `Ctrl+\ `를 사용하여 활성 편집기를 두 개로 나눕니다.
+- 탐색기 컨텍스트 메뉴에서 **Open to the Side**(`Ctrl+Enter`)를 선택합니다.
+- 편집기 오른쪽 상단의 **Split Editor** 버튼을 선택합니다.
+- 파일을 편집기 영역의 어느 쪽으로든 드래그 앤 드롭합니다.
+- **Quick Open**(`Ctrl+P`) 파일 목록에서 `Ctrl+Enter`를 누릅니다.
 
-When you open another file, the editor that is active will display the content of that file. If you have two editors side by side and you want to open file 'foo.cs' into the right-hand editor, make sure that this editor is active (by clicking inside it) before opening file 'foo.cs'.
+![나란히 편집](images/userinterface/sidebyside.png)
 
-By default, editors open to the right-hand side of the active one. You can change this behavior with the `setting(workbench.editor.openSideBySideDirection)` setting to open new editors to the bottom of the active one instead.
+다른 파일을 열 때, 활성 편집기가 해당 파일의 내용을 표시합니다. 두 개의 편집기가 나란히 열려 있고 오른쪽 편집기에 'foo.cs' 파일을 열고 싶다면, 파일을 열기 전에 해당 편집기를 활성화해야 합니다(클릭하여 활성화).
 
-When you have more than one editor open, you can switch between them quickly by holding the `kbstyle(Ctrl)` key (`kbstyle(Cmd)` on macOS) and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
+기본적으로 편집기는 활성 편집기의 오른쪽에 열립니다. `workbench.editor.openSideBySideDirection` 설정을 사용하여 새 편집기를 활성 편집기의 아래쪽에 열도록 변경할 수 있습니다.
 
-> [!TIP]
-> You can resize editors and reorder them. Drag and drop the editor title area to reposition or resize the editor.
+여러 편집기가 열려 있는 경우, `Ctrl` 키(`macOS에서는 Cmd`)를 누르고 `1`, `2`, 또는 `3`을 눌러 빠르게 전환할 수 있습니다.
 
-### Editor groups
+:::tip
+편집기를 크기 조정하고 재정렬할 수 있습니다. 편집기 제목 영역을 드래그 앤 드롭하여 위치를 변경하거나 크기를 조정하세요.
+:::
 
-When you split an editor (using the **Split Editor** or **Open to the Side** commands), a new editor region (edit group) is created which can hold a group of items. You can open as many editor groups as you like side by side vertically and horizontally.
+### 편집기 그룹 {#editor-groups}
 
-You can see these clearly in the **Open Editors** section at the top of the Explorer view (toggle **...** > **Open Editors** in the Explorer view).
+편집기를 분할할 때(**Split Editor** 또는 **Open to the Side** 명령 사용), 항목 그룹을 포함할 수 있는 새 편집기 영역(편집 그룹)이 생성됩니다. 세로 및 가로로 원하는 만큼 많은 편집기 그룹을 열 수 있습니다.
 
-![tabs editor groups](images/userinterface/tabs-editor-groups.png)
+탐색기 화면 상단의 **Open Editors** 섹션에서 이를 명확하게 볼 수 있습니다(**...** > **Open Editors** 토글).
 
-You can drag and drop editor groups on the workbench, move individual tabs between groups, and quickly close entire groups (**Close All**).
+![탭 편집기 그룹](images/userinterface/tabs-editor-groups.png)
 
-> [!NOTE]
-> VS Code uses editor groups whether or not you have enabled tabs. Without tabs, editor groups are a stack of your open items with the most recently selected item visible in the editor pane.
+작업 영역에서 편집기 그룹을 드래그 앤 드롭하고, 그룹 간에 개별 탭을 이동하며, 전체 그룹을 빠르게 닫을 수 있습니다(**Close All**).
 
-### Split in group
+:::note
+VS Code는 탭을 활성화했는지 여부에 관계없이 편집기 그룹을 사용합니다. 탭이 없는 경우, 편집기 그룹은 가장 최근에 선택된 항목이 편집기 창에 표시되는 열린 항목의 스택입니다.
+:::
 
-You can split the current editor without creating a new editor group with the **View: Split Editor in Group** command (`kb(workbench.action.splitEditorInGroup)`). To learn more about this editor mode and specific commands for navigating between the two sides, you can read the section in the [Custom Layout](/docs/editor/custom-layout.md#split-in-group) article.
+### 그룹 내 분할 {#split-in-group}
 
-### Floating windows
+**Split Editor in Group** 명령(`Ctrl+K Ctrl+Shift+\`)을 사용하여 새 편집기 그룹을 생성하지 않고 현재 편집기를 분할할 수 있습니다. 이 편집기 모드와 두 측면 간의 탐색을 위한 특정 명령에 대해 자세히 알아보려면 [사용자 정의 레이아웃](/docs/editor/custom-layout.md#split-in-group) 문서의 섹션을 참조하세요.
 
-You can move editors into their own floating windows with the **Move into New Window** or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`) commands. To learn more about floating editor windows, you can read the section in the [Custom Layout](/docs/editor/custom-layout.md#floating-editor-windows) article.
+### 플로팅 창 {#floating-windows}
 
-## Minimap
+**Move into New Window** 또는 **Copy into New Window**(`Ctrl+K O`) 명령을 사용하여 편집기를 자체 플로팅 창으로 이동할 수 있습니다. 플로팅 편집기 창에 대해 자세히 알아보려면 [사용자 정의 레이아웃](/docs/editor/custom-layout.md#floating-editor-windows) 문서의 섹션을 참조하세요.
 
-A Minimap (code outline) gives you a high-level overview of your source code, which is useful for quick navigation and code understanding. A file's minimap is shown on the right side of the editor. You can select or drag the shaded area to quickly jump to different sections in your file.
+## 미니맵 {#minimap}
 
-If you have [folding markers](/docs/editor/codebasics.md#folding) in the editor, such as `//#region` or `MARK:` comments, then the minimap shows the folding marker names.
+미니맵(코드 개요)은 소스 코드의 고수준 개요를 제공하여 빠른 탐색과 코드 이해에 유용합니다. 파일의 미니맵은 편집기 오른쪽에 표시됩니다. 음영 영역을 선택하거나 드래그하여 파일의 다른 섹션으로 빠르게 이동할 수 있습니다.
 
-![minimap](images/userinterface/minimap.png)
+편집기에 `//#region` 또는 `MARK:` 주석과 같은 [접기 마커](/docs/editor/codebasics.md#folding)가 있는 경우, 미니맵에 접기 마커 이름이 표시됩니다.
 
-> [!TIP]
-> You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in the user or workspace [settings](/docs/getstarted/settings.md).
+![미니맵](images/userinterface/minimap.png)
 
-## Sticky Scroll
+:::tip
+사용자 또는 작업 공간 [설정](/docs/getstarted/settings.md)에서 `"editor.minimap.side": "left"`를 설정하여 미니맵을 왼쪽으로 이동하거나 `"editor.minimap.enabled": false`를 설정하여 완전히 비활성화할 수 있습니다.
+:::
 
-Sticky Scroll shows the starting lines of currently visible nested scopes at the top of the editor. It facilitates navigation by indicating where you are in a file and lets you quickly jump back to the top of the current scope.
+## 고정 스크롤 {#sticky-scroll}
 
-![stickyScroll](images/userinterface/sticky-scroll.png)
+고정 스크롤은 현재 보이는 중첩 범위의 시작 줄을 편집기 상단에 표시합니다. 파일 내 위치를 나타내어 탐색을 용이하게 하고 현재 범위의 맨 위로 빠르게 이동할 수 있습니다.
 
-> [!TIP]
-> You can enable/disable Sticky Scroll with the `setting(editor.stickyScroll.enabled)` setting.
+![고정 스크롤](images/userinterface/sticky-scroll.png)
 
-Sticky Scroll uses several different content models to create its headings. It is possible to choose between the outline provider model, the folding provider model, and the indentation model to determine which lines to display in the Sticky Scroll area. If a model is not available for the current language, VS Code falls back to the next model in the  order given above. The default model initially used comes from the `setting(editor.stickyScroll.defaultModel)` setting.
+:::tip
+`editor.stickyScroll.enabled` 설정을 사용하여 고정 스크롤을 활성화/비활성화할 수 있습니다.
+:::
 
-### Indent guides
+고정 스크롤은 여러 다른 콘텐츠 모델을 사용하여 제목을 생성합니다. 고정 스크롤 영역에 표시할 줄을 결정하기 위해 개요 제공자 모델, 접기 제공자 모델 및 들여쓰기 모델 중에서 선택할 수 있습니다. 현재 언어에 대한 모델이 없는 경우, VS Code는 위에서 주어진 순서대로 다음 모델로 대체합니다. 기본적으로 사용되는 모델은 `editor.stickyScroll.defaultModel` 설정에서 가져옵니다.
 
-The editor shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `setting(editor.guides.indentation)` to `false` in your user or workspace [settings](/docs/getstarted/settings.md).
+### 들여쓰기 가이드 {#indent-guides}
 
-## Breadcrumbs
+편집기는 일치하는 들여쓰기 수준을 빠르게 볼 수 있도록 들여쓰기 가이드(수직선)를 표시합니다. 들여쓰기 가이드를 비활성화하려면 사용자 또는 작업 공간 [설정](/docs/getstarted/settings.md)에서 `editor.guides.indentation`을 `false`로 설정할 수 있습니다.
 
-The editor has a navigation bar at the top, also called [breadcrumbs](https://en.wikipedia.org/wiki/Breadcrumb_(navigation)). Breadcrumbs always show the file path and, if the current file type has language support for symbols, the symbol path up to the cursor position. The breadcrumbs enable you to quickly navigate between folders, files, and symbols.
+## 탐색 표시줄 {#breadcrumbs}
 
-![Breadcrumbs](images/userinterface/breadcrumbs.png)
+편집기 상단에는 탐색 표시줄(탐색 표시줄)도 있습니다. 탐색 표시줄은 항상 파일 경로를 표시하며, 현재 파일 유형이 기호에 대한 언어 지원을 제공하는 경우, 커서 위치까지의 기호 경로를 표시합니다. 탐색 표시줄을 사용하면 폴더, 파일 및 기호 간에 빠르게 탐색할 수 있습니다.
 
-You can disable breadcrumbs with the **View** > **Appearance** > **Toggle Breadcrumbs** menu item or the **View: Toggle Breadcrumbs** command. For more information about the breadcrumbs feature, such as how to customize their appearance, see the [Breadcrumbs](/docs/editor/editingevolved.md#breadcrumbs) section of the [Code Navigation](/docs/editor/editingevolved.md) article.
+![탐색 표시줄](images/userinterface/breadcrumbs.png)
 
-## Explorer view
+**View** > **Appearance** > **Toggle Breadcrumbs** 메뉴 항목 또는 **View: Toggle Breadcrumbs** 명령을 사용하여 탐색 표시줄을 비활성화할 수 있습니다. 탐색 표시줄 기능에 대한 자세한 내용, 예를 들어 외형을 사용자 정의하는 방법에 대해서는 [코드 탐색](/docs/editor/editingevolved.md) 문서의 [탐색 표시줄](/docs/editor/editingevolved.md#breadcrumbs) 섹션을 참조하세요.
 
-The Explorer view is used to browse, open, and manage the files and folders in your project. VS Code is file and folder based and you can get started immediately by opening a file or folder in VS Code.
+## 탐색기 화면 {#explorer-view}
 
-After you open a folder in VS Code, the contents of the folder are shown in the Explorer view. You can do many things from here:
+탐색기 화면은 프로젝트의 파일 및 폴더를 탐색, 열기 및 관리하는 데 사용됩니다. VS Code는 파일 및 폴더 기반이며, 파일이나 폴더를 열어 즉시 시작할 수 있습니다.
 
-* Create, delete, and rename files and folders.
-* Move files and folders with drag and drop.
-* Use the context menu to explore all options.
+VS Code에서 폴더를 열면 폴더의 내용이 탐색기 화면에 표시됩니다. 여기에서 많은 작업을 수행할 수 있습니다:
 
-> [!TIP]
-> You can drag and drop files into the Explorer view from outside VS Code to copy them. If the explorer is empty, VS Code opens the files instead. You can also copy-paste files from outside VS Code into the Explorer view. With the `setting(explorer.autoOpenDroppedFile)` setting, you to configure whether to automatically open the file or not.
+- 파일 및 폴더 생성, 삭제 및 이름 변경.
+- 파일 및 폴더를 드래그 앤 드롭하여 이동.
+- 컨텍스트 메뉴를 사용하여 모든 옵션 탐색.
 
-VS Code works well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Integrated Terminal**.
+:::tip
+VS Code 외부에서 탐색기 화면로 파일을 드래그 앤 드롭하여 복사할 수 있습니다. 탐색기가 비어 있으면 VS Code가 파일을 엽니다. 또한 VS Code 외부에서 탐색기 화면로 파일을 복사하여 붙여넣을 수 있습니다. `explorer.autoOpenDroppedFile` 설정을 사용하여 파일을 자동으로 열지 여부를 구성할 수 있습니다.
+:::
 
-You can also navigate to the location of a file or folder in the native operating system file explorer by right-clicking on a file or folder and selecting **Reveal in File Explorer** on Windows, **Reveal in Finder** on macOS, or **Open Containing Folder** on Linux.
+VS Code는 특히 명령줄 도구와 함께 잘 작동합니다. VS Code에서 현재 열려 있는 폴더의 컨텍스트에서 명령줄 도구를 실행하려면 폴더를 마우스 오른쪽 버튼으로 클릭하고 **Open in Integrated Terminal**를 선택하세요.
 
-> [!TIP]
-> Type `kb(workbench.action.quickOpen)` (**Quick Open**) to quickly search and open a file by its name.
+파일이나 폴더를 마우스 오른쪽 버튼으로 클릭하고 Windows에서는 **Reveal in File Explorer**, macOS에서는 **Reveal in Finder**, Linux에서는 **Open Containing Folder**를 선택하여 네이티브 운영 체제 파일 탐색기에서 파일이나 폴더의 위치로 이동할 수도 있습니다.
 
-By default, VS Code excludes some folders from showing in the Explorer view, such as `.git`. Use the `setting(files.exclude)` setting to configure rules for hiding files and folders from the Explorer view.
+:::tip
+`Ctrl+P`(**Quick Open**)를 입력하여 파일 이름으로 빠르게 검색하고 열 수 있습니다.
+:::
 
-> [!TIP]
-> You can hide derived resources files, like `*.meta` in Unity, or `*.js` in a TypeScript project. For Unity to exclude the `*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
+기본적으로 VS Code는 `.git`과 같은 일부 폴더를 탐색기 화면에서 제외합니다. `files.exclude` 설정을 사용하여 탐색기 화면에서 파일 및 폴더를 숨기는 규칙을 구성할 수 있습니다.
 
-### Multi-selection
+:::tip
+Unity의 `*.meta` 파일이나 TypeScript 프로젝트의 `*.js`와 같은 파생 리소스 파일을 숨길 수 있습니다. Unity에서 `*.cs.meta` 파일을 제외하려면 선택할 패턴은 `"**/*.cs.meta": true`입니다. TypeScript의 경우, TypeScript 파일에 대해 생성된 JavaScript를 제외하려면 `"**/*.js": {"when": "$(basename).ts"}`를 사용할 수 있습니다.
+:::
 
-You can select multiple files in the Explorer view and Open Editors section to run actions (delete, drag and drop, or open to the side) on multiple items. Hold `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) and select individual files, or hold `kbstyle(Shift)` to select a range of files. If you select two items, you can now also use the context menu **Compare Selected** command to quickly diff two files.
+### 다중 선택 {#multi-selection}
 
-> [!NOTE]
-> In earlier VS Code releases, clicking with the `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) key pressed, would open a file in a new editor group to the side. If you still want this behavior, you can use the `setting(workbench.list.multiSelectModifier)` setting to change multi-selection to use the `kbstyle(Alt)` key.
+탐색기 화면 및 열린 편집기 섹션에서 여러 파일을 선택하여 여러 항목에 대해 작업(삭제, 드래그 앤 드롭 또는 옆에 열기)을 실행할 수 있습니다. `Ctrl` 키(`macOS에서는 Cmd`)를 누르고 개별 파일을 선택하거나 `Shift`를 눌러 파일 범위를 선택합니다. 두 개의 항목을 선택하면 이제 컨텍스트 메뉴의 **Compare Selected** 명령을 사용하여 두 파일을 빠르게 비교할 수도 있습니다.
+
+:::note
+이전 VS Code 릴리스에서는 `Ctrl` 키(`macOS에서는 Cmd`)를 누른 상태에서 클릭하면 파일이 옆에 있는 새 편집기 그룹에서 열렸습니다. 이 동작을 계속 사용하려면 `workbench.list.multiSelectModifier` 설정을 사용하여 다중 선택을 `Alt` 키로 변경할 수 있습니다.
+:::
 
 ```json
 "workbench.list.multiSelectModifier": "alt"
 ```
 
-### Advanced tree navigation
+### 고급 트리 탐색 {#advanced-tree-navigation}
 
-You can filter the files and folders in the Explorer view. With the focus on the Explorer view, press `kb(list.find)` to open the Find control and type part of the file or folder name you want to match. This navigation feature is available for all tree views in VS Code.
+탐색기 화면에서 파일 및 폴더를 필터링할 수 있습니다. 탐색기 화면에 포커스가 있는 상태에서 `Ctrl+Alt+F`를 눌러 찾기 컨트롤을 열고 일치시킬 파일 또는 폴더 이름의 일부를 입력합니다. 이 탐색 기능은 VS Code의 모든 트리 화면에서 사용할 수 있습니다.
 
-Pressing the **Filter** button toggles between the two modes: highlighting and filtering. Pressing `kbstyle(Down)` lets you focus on the first matched element and navigate to subsequent matching elements. In highlighting mode, a badge is shown on folders to indicate that they contain matched files.
+**Filter** 버튼을 누르면 강조 표시 모드와 필터링 모드 간에 전환됩니다. `Down`을 누르면 첫 번째 일치 항목에 포커스가 맞춰지고 이후 일치 항목으로 이동할 수 있습니다. 강조 표시 모드에서는 폴더에 일치하는 파일이 포함되어 있음을 나타내는 배지가 표시됩니다.
 
-Pressing the **Fuzzy Match** button toggles between exact and fuzzy matching, where you can type a sequence of characters to match any part of the file or folder name.
+**Fuzzy Match** 버튼을 누르면 정확한 일치와 퍼지 매치 간에 전환됩니다. 퍼지 매치에서는 파일 또는 폴더 이름의 일부 문자를 입력하여 일치시킬 수 있습니다.
 
-![Filtering files in the File Explorer](images/userinterface/file-explorer-filter.png)
+![파일 탐색기에서 파일 필터링](images/userinterface/file-explorer-filter.png)
 
-### Outline view
+### 개요 화면 {#outline-view}
 
-The Outline view is a separate section at the bottom of the Explorer view. When expanded, it shows the symbol tree of the currently active editor.
+개요 화면은 탐색기 화면 하단에 있는 별도의 섹션입니다. 확장되면 현재 활성 편집기의 기호 트리를 표시합니다.
 
-![Outline view](images/userinterface/outline-view.png)
+![개요 화면](images/userinterface/outline-view.png)
 
-The Outline view has different **Sort By** modes, optional cursor tracking, and supports the usual open gestures. It also includes an input box to find or filter. Errors and warnings are also shown in the Outline view, letting you see at a glance a problem's location.
+개요 화면에는 다양한 **Sort By** 모드, 선택적 커서 추적 기능이 있으며, 일반적인 열기 제스처를 지원합니다. 또한 찾기 또는 필터링을 위한 입력 상자가 포함되어 있습니다. 오류 및 경고도 개요 화면에 표시되어 문제의 위치를 한눈에 볼 수 있습니다.
 
-For symbols, the view relies on information computed by your installed extensions for different file types. For example, the built-in Markdown support returns the Markdown header hierarchy for a Markdown file's symbols.
+기호의 경우, 화면은 설치된 확장 프로그램이 다른 파일 유형에 대해 계산한 정보를 기반으로 합니다. 예를 들어, 내장된 Markdown 지원은 Markdown 파일의 기호에 대해 Markdown 헤더 계층 구조를 반환합니다.
 
-![Markdown Outline view](images/userinterface/markdown-outline-view.png)
+![Markdown 개요 화면](images/userinterface/markdown-outline-view.png)
 
-There are several Outline view [settings](/docs/getstarted/settings.md). Search for settings starting with `outline.` and to configure what information is shown in the Outline view.
+여러 개요 화면 [설정](/docs/getstarted/settings.md)이 있습니다. `outline.`으로 시작하는 설정을 검색하여 개요 화면에 표시할 정보를 구성하세요.
 
-### Timeline view
+### 타임라인 화면 {#timeline-view}
 
-The Timeline view, accessible at the bottom of the File Explorer, is a unified view for visualizing the events history for a file. For example, you can view Git commits or local file saves in a timeline view.
+파일 탐색기 하단에서 액세스할 수 있는 타임라인 화면은 파일의 이벤트 기록을 시각화하는 통합 화면입니다. 예를 들어, Git 커밋 또는 로컬 파일 저장을 타임라인 화면에서 볼 수 있습니다.
 
-![Timeline view](images/userinterface/timeline-view.png)
+![타임라인 화면](images/userinterface/timeline-view.png)
 
-A filter action in the Timeline view toolbar enables you to filter between source control events and local file events:
+타임라인 화면 도구 모음의 필터 작업을 사용하여 소스 제어 이벤트와 로컬 파일 이벤트 간에 필터링할 수 있습니다:
 
-![Timeline filter drop down with Git History unchecked and Local History checked](images/userinterface/timeline-filter.png)
+![Git 히스토리가 선택 해제되고 로컬 히스토리가 선택된 타임라인 필터 드롭다운](images/userinterface/timeline-filter.png)
 
-#### Local file history
+#### 로컬 파일 히스토리 {#local-file-history}
 
-Depending on your settings, every time you save an editor, a new entry is added to the list. Each local history entry contains the full contents of the file at the time the entry was created and in certain cases, can provide more semantic information (for example, indicate a refactoring).
+설정에 따라 편집기를 저장할 때마다 목록에 새 항목이 추가됩니다. 각 로컬 히스토리 항목에는 항목이 생성될 당시 파일의 전체 내용이 포함되며, 특정 경우에는 더 많은 의미 정보를 제공할 수 있습니다(예: 리팩토링 표시).
 
-From an entry you can:
+항목에서 다음 작업을 수행할 수 있습니다:
 
-* Compare the changes to the local file or previous entry.
-* Restore the contents.
-* Delete or rename the entry.
+- 로컬 파일 또는 이전 항목과의 변경 사항 비교.
+- 내용 복원.
+- 항목 삭제 또는 이름 변경.
 
-> [!TIP]
-> If you've accidentally deleted a file, you can restore it from the local history by using the **...** > **Local History: Find Entry to Restore** action in the Timeline view, and then select your file from the Quick Pick.
+:::tip
+파일을 실수로 삭제한 경우, 타임라인 화면의 **...** > **Local History: Find Entry to Restore** 작업을 사용하여 로컬 히스토리에서 복원할 수 있으며, 그런 다음 빠른 선택에서 파일을 선택합니다.
+:::
 
-You can configure these settings for working with the local history:
+로컬 히스토리 작업을 위한 다음 설정을 구성할 수 있습니다:
 
-* `setting(workbench.localHistory.enabled)` - Enable or disable local history (default: true)
-* `setting(workbench.localHistory.maxFileSize)` - File size limit when creating a local history entry (default: 256 KB)
-* `setting(workbench.localHistory.maxFileEntries)` - Local history entries limit per file (default: 50)
-* `setting(workbench.localHistory.exclude)` - Glob patterns for excluding certain files from local history
-* `setting(workbench.localHistory.mergeWindow)` - Interval in seconds during which further changes are added to the last entry in local file history (default 10s)
+- `workbench.localHistory.enabled` - 로컬 히스토리 활성화 또는 비활성화(기본값: true)
+- `workbench.localHistory.maxFileSize` - 로컬 히스토리 항목을 생성할 때 파일 크기 제한(기본값: 256 KB)
+- `workbench.localHistory.maxFileEntries` - 파일당 로컬 히스토리 항목 제한(기본값: 50)
+- `workbench.localHistory.exclude` - 로컬 히스토리에서 특정 파일을 제외하기 위한 글로브 패턴
+- `workbench.localHistory.mergeWindow` - 로컬 파일 히스토리의 마지막 항목에 추가 변경 사항을 추가하는 간격(기본값: 10초)
 
-#### Commit history
+#### 커밋 히스토리 {#commit-history}
 
-VS Code's built-in Git support provides the Git commit history of the specified file. Selecting a commit will open a diff view of the changes introduced by that commit. When you right-click on a commit, you'll get options to **Copy Commit ID** and **Copy Commit Message**.
+VS Code의 내장 Git 지원은 지정된 파일의 Git 커밋 히스토리를 제공합니다. 커밋을 선택하면 해당 커밋에서 도입된 변경 사항의 차이 보기가 열립니다. 커밋을 마우스 오른쪽 버튼으로 클릭하면 **Copy Commit ID** 및 **Copy Commit Message** 옵션이 표시됩니다.
 
-When you right-click a commit in the history, you can:
+히스토리에서 커밋을 마우스 오른쪽 버튼으로 클릭하면 다음 작업을 수행할 수 있습니다:
 
-* **Open Changes** - Open a diff view of the changes in the file.
-* **View Commit** - Open a multi-file diff view to view the changes for all files in the commit.
-* **Select for Compare** - Select an entry to compare with another entry.
-* **Copy Commit ID** - Copy the commit ID to the clipboard.
-* **Copy Commit Message** - Copy the commit message to the clipboard.
+- **Open Changes** - 파일의 변경 사항 차이 보기를 엽니다.
+- **View Commit** - 커밋의 모든 파일 변경 사항을 보기 위한 다중 파일 차이 보기를 엽니다.
+- **Select for Compare** - 다른 항목과 비교할 항목을 선택합니다.
+- **Copy Commit ID** - 커밋 ID를 클립보드에 복사합니다.
+- **Copy Commit Message** - 커밋 메시지를 클립보드에 복사합니다.
 
-You can configure this setting for working with the Git history:
+Git 히스토리 작업을 위한 다음 설정을 구성할 수 있습니다:
 
-* `setting(git.timeline.date)` - Show the commit date or authored date of a file commit
+- `git.timeline.date` - 파일 커밋의 커밋 날짜 또는 작성 날짜 표시
 
-## Views
+## 화면 {#views}
 
-The Explorer view is only one of the views available in VS Code. There are also views for:
+탐색기 화면은 VS Code에서 사용할 수 있는 화면 중 하나일 뿐입니다. 다음과 같은 화면도 있습니다:
 
-* **Search** - Provides global search and replace across your open folder.
-* **Source Control** - VS Code includes Git source control by default.
-* **Run** - VS Code's Run and Debug View displays variables, call stacks, and breakpoints.
-* **Extensions** - Install and manage your extensions within VS Code.
-* **Custom views** - Views contributed by extensions.
+- **Search** - 열린 폴더 전체에서 전역 검색 및 바꾸기를 제공합니다.
+- **Source Control** - VS Code는 기본적으로 Git 소스 제어를 포함합니다.
+- **Run** - VS Code의 실행 및 디버그 화면은 변수, 호출 스택 및 중단점을 표시합니다.
+- **Extensions** - VS Code 내에서 확장을 설치하고 관리합니다.
+- **Custom views** - 확장에서 제공하는 화면.
 
-> [!TIP]
-> You can open any view using the **View: Open View** command.
+:::tip
+**View: Open View** 명령을 사용하여 모든 화면를 열 수 있습니다.
+:::
 
-![views](images/userinterface/views.png)
+![화면](images/userinterface/views.png)
 
-You can show or hide views by right-clicking the Activity Bar, and reorder them by using drag and drop. Within the Explorer view, you can show or hide sections via the '...' menu, or drag and drop sections to reorder them.
+활동 표시줄을 마우스 오른쪽 버튼으로 클릭하여 화면를 표시하거나 숨길 수 있으며, 드래그 앤 드롭을 사용하여 순서를 변경할 수 있습니다. 탐색기 화면 내에서 '...' 메뉴를 통해 섹션을 표시하거나 숨기고, 섹션을 드래그 앤 드롭하여 순서를 변경할 수 있습니다.
 
-![view management](images/userinterface/view-management.gif)
+![화면 관리](images/userinterface/view-management.gif)
 
-## Command Palette
+## 명령 팔레트 {#command-palette}
 
-VS Code is equally accessible from the keyboard. The most important key combination to know is `kb(workbench.action.showCommands)`, which brings up the **Command Palette**. From here, you have access to all functionality within VS Code, including keyboard shortcuts for the most common operations.
+VS Code는 키보드에서도 동일하게 접근할 수 있습니다. 알아야 할 가장 중요한 키 조합은 `Ctrl+Shift+P`로, **Command Palette**를 불러옵니다. 여기에서 VS Code 내의 모든 기능에 액세스할 수 있으며, 가장 일반적인 작업에 대한 키보드 단축키도 포함됩니다.
 
-![Command Palette](images/userinterface/commands.png)
+![명령 팔레트](images/userinterface/commands.png)
 
-The **Command Palette** provides access to many commands. You can run editor commands, open files, search for symbols, and see a quick outline of a file, all using the same interactive window. Here are a few tips:
+**명령 팔레트**는 많은 명령에 액세스할 수 있습니다. 편집기 명령을 실행하고, 파일을 열고, 기호를 검색하고, 파일의 빠른 개요를 볼 수 있으며, 모두 동일한 대화형 창을 사용합니다. 몇 가지 팁은 다음과 같습니다:
 
-* `kb(workbench.action.quickOpen)` enables you to navigate to any file or symbol by typing its name
-* `kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)` cycles you through the last set of files opened
-* `kb(workbench.action.showCommands)` brings you directly to the editor commands
-* `kb(workbench.action.gotoSymbol)` enables you to navigate to a specific symbol in a file
-* `kb(workbench.action.gotoLine)` enables you to navigate to a specific line in a file
+- `Ctrl+P`을 사용하여 파일 또는 기호의 이름을 입력하여 탐색할 수 있습니다.
+- `Ctrl+Tab`을 사용하여 마지막으로 열린 파일 세트를 순환할 수 있습니다.
+- `Ctrl+Shift+P`를 사용하여 편집기 명령으로 바로 이동할 수 있습니다.
+- `Ctrl+Shift+O`을 사용하여 파일 내 특정 기호로 이동할 수 있습니다.
+- `Ctrl+G`을 사용하여 파일 내 특정 줄로 이동할 수 있습니다.
 
-Type `?` in the input field to get a list of available commands that you can run from the Command Palette.
+입력 필드에 `?`를 입력하여 명령 팔레트에서 실행할 수 있는 명령 목록을 확인하세요.
 
-![Quick Open Help](images/userinterface/quickopenhelp.png)
+![빠른 열기 도움말](images/userinterface/quickopenhelp.png)
 
-## Configure the editor
+## 편집기 구성 {#configure-the-editor}
 
-VS Code gives you many options to configure the editor. From the **View** > **Appearance** menu, you can hide or toggle various parts of the user interface, such as the **Side Bar**, **Status Bar**, and **Activity Bar**.
+VS Code는 편집기를 구성할 수 있는 많은 옵션을 제공합니다. **View** > **Appearance** 메뉴에서 **Side Bar**, **Status Bar** 및 **Activity Bar**과 같은 유저 인터페이스의 다양한 부분을 숨기거나 전환할 수 있습니다.
 
-### Hide the menu bar (Windows, Linux)
+### 메뉴 표시줄 숨기기(Windows, Linux) {#hide-the-menu-bar}
 
-You can hide the menu bar on Windows and Linux by changing the setting `setting(window.menuBarVisibility)` from `classic` to `toggle` or `hidden`. A setting of `toggle` means that a single press of the `kbstyle(Alt)` key shows the menu bar again.
+Windows 및 Linux에서 `window.menuBarVisibility` 설정을 `classic`에서 `toggle` 또는 `hidden`으로 변경하여 메뉴 표시줄을 숨길 수 있습니다. `toggle` 설정은 `kbstyle(Alt)` 키를 한 번 누르면 메뉴 표시줄이 다시 표시됩니다.
 
-You can also hide the menu bar on Windows and Linux with the **View: Toggle Menu Bar** command. This command sets `setting(window.menuBarVisibility)` from `classic` to `compact`, resulting in the menu bar moving into the Activity Bar. To return the menu bar to the `classic` position, you can run the **View: Toggle Menu Bar** command again.
+또한 **View: Toggle Menu Bar** 명령을 사용하여 Windows 및 Linux에서 메뉴 표시줄을 숨길 수 있습니다. 이 명령은 `window.menuBarVisibility`를 `classic`에서 `compact`로 설정하여 메뉴 표시줄이 활동 표시줄로 이동합니다. 메뉴 표시줄을 `classic` 위치로 되돌리려면 **View: Toggle Menu Bar** 명령을 다시 실행할 수 있습니다.
 
-### Settings
+### 설정 {#settings}
 
-Most editor configurations are managed in settings, which you can modify directly. You can set options either globally through user settings, or per project/folder through workspace settings. Settings values are stored in a [`settings.json` file](/docs/getstarted/settings.md#settingsjson).
+대부분의 편집기 구성은 설정에서 관리되며, 직접 수정할 수 있습니다. 사용자 설정을 통해 전역적으로 또는 작업 공간 설정을 통해 프로젝트/폴더별로 옵션을 설정할 수 있습니다. 설정 값은 [`settings.json` 파일](/docs/getstarted/settings.md#settingsjson)에 저장됩니다.
 
-You can view and edit settings in the Settings Editor (select **File** > **Preferences** > **Settings**, or press `kb(workbench.action.openSettings)`). Use the **User** and **Workspace** tab to switch between user and workspace settings. You can filter settings by using the search box at the top.
+**File** > **Preferences** > **Settings**을 선택하거나 `Ctrl+,`를 눌러 설정 편집기에서 설정을 보고 수정할 수 있습니다. 상단의 검색 상자를 사용하여 설정을 필터링할 수 있습니다.
 
-Alternately, you can modify the user settings directly in the `settings.json` file. Use the **Preferences: Open User Settings (JSON)** command to open the `settings.json file`. For workspace settings, open the `settings.json` file in the `.vscode` folder in your workspace.
+또는 사용자 설정을 `settings.json` 파일에서 직접 수정할 수 있습니다. **Preferences: Open User Settings (JSON)** 명령을 사용하여 `settings.json` 파일을 엽니다. 작업 공간 설정의 경우, 작업 공간의 `.vscode` 폴더에 있는 `settings.json` 파일을 엽니다.
 
-![workspace settings](images/userinterface/workspace-settings.png)
+![작업 공간 설정](images/userinterface/workspace-settings.png)
 
-> [!NOTE]
-> Workspace settings override user settings and are useful for sharing project-specific settings across a team.
+:::note
+작업 공간 설정은 사용자 설정을 재정의하며, 팀 간에 프로젝트별 설정을 공유하는 데 유용합니다.
+:::
 
-### Zen Mode
+### Zen 모드 {#zen-mode}
 
-Zen mode lets you focus on your code by hiding all UI elements, except for the editor, switching VS Code to full screen, and centering the editor. Zen mode can be toggled with the **View** > **Appearance** > **Zen Mode** menu, **View: Toggle Zen Mode** in the **Command Palette**, or with the shortcut `kb(workbench.action.toggleZenMode)`. Double press `kbstyle(Esc)` to exit Zen mode. The transition to full screen can be disabled via `setting(zenMode.fullScreen)`.
+Zen 모드는 모든 UI 요소를 숨기고, VS Code를 전체 화면으로 전환하며, 편집기를 중앙에 배치하여 코드에 집중할 수 있도록 합니다. Zen 모드는 **View** > **Appearanc** > **Zen Mode** 메뉴, **Command Palette**의 **View: Toggle Zen Mode** 또는 단축키 `Ctrl+K Z`로 전환할 수 있습니다. `Esc`를 두 번 눌러 Zen 모드를 종료합니다. 전체 화면으로의 전환은 `zenMode.fullScreen`을 통해 비활성화할 수 있습니다.
 
-Zen Mode can be further tuned with the following settings:
+Zen 모드는 다음 설정을 통해 추가로 조정할 수 있습니다:
 
-* `setting(zenMode.hideActivityBar)`- Hide the Activity bar. Default `true`.
-* `setting(zenMode.hideStatusBar)` - Hide the Status bar. Default `true`.
-* `setting(zenMode.hideLineNumbers)` - Hide line numbers. Default `true`.
-* `setting(zenMode.showTabs)` - Controls whether to show multiple, single, or no editors tabs. Default `multiple`.
-* `setting(zenMode.fullScreen)` - Put workbench in full screen display. Default `true`.
-* `setting(zenMode.restore)` - Restore Zen Mode on restart. Default `true`.
-* `setting(zenMode.centerLayout)` - Use [Centered editor layout](#centered-editor-layout). Default `true`.
-* `setting(zenMode.silentNotifications)` - Do not display notifications. Default `true`.
+- `zenMode.hideActivityBar` - 활동 표시줄 숨기기. 기본값 `true`.
+- `zenMode.hideStatusBar` - 상태 표시줄 숨기기. 기본값 `true`.
+- `zenMode.hideLineNumbers` - 줄 번호 숨기기. 기본값 `true`.
+- `zenMode.showTabs` - 여러 개, 하나 또는 탭을 표시하지 않도록 제어합니다. 기본값 `multiple`.
+- `zenMode.fullScreen` - 작업 영역을 전체 화면으로 표시합니다. 기본값 `true`.
+- `zenMode.restore` - 재시작 시 Zen 모드 복원. 기본값 `true`.
+- `zenMode.centerLayout` - [중앙 정렬된 편집기 레이아웃](#centered-editor-layout) 사용. 기본값 `true`.
+- `zenMode.silentNotifications` - 알림 표시 안 함. 기본값 `true`.
 
-### Reduce Notifications with Do Not Disturb Mode
+### 방해 금지 모드로 알림 줄이기 {#reduce-notifications-with-do-not-disturb-mode}
 
-If you are overwhelmed by notifications popping up, there is a way to reduce notifications, either for all notifications, or for notifications from a specific extension.
+알림이 너무 많이 표시되는 경우, 모든 알림 또는 특정 확장의 알림을 줄이는 방법이 있습니다.
 
-Select the bell icon in the Status Bar to open the Notifications area. This is a place where you can access all notifications at any time, even if you have enabled Do Not Disturb Mode.
+상태 표시줄에서 종 아이콘을 선택하여 알림 영역을 엽니다. 이곳은 방해 금지 모드를 활성화한 경우에도 언제든지 모든 알림에 액세스할 수 있는 장소입니다.
 
-![Notifications center](images/userinterface/notifications-center.png)
+![알림 센터](images/userinterface/notifications-center.png)
 
-Find the crossed out bell icon to get access to a menu where you can selectively disable notifications from extensions or enable the global Do Not Disturb Mode to disable all notifications.
+종 아이콘이 교차된 아이콘을 찾아 메뉴에 액세스하여 확장의 알림을 선택적으로 비활성화하거나 모든 알림을 비활성화하는 전역 방해 금지 모드를 활성화할 수 있습니다.
 
-![Notifications do not disturb menu](images/userinterface/notifications-dnd.png)
+![알림 방해 금지 메뉴](images/userinterface/notifications-dnd.png)
 
-> [!NOTE]
-> The global Do Not Disturb Mode also hides error notifications, while the extension-specific filter still allows error notifications to show.
+:::note
+전역 방해 금지 모드는 오류 알림도 숨기지만, 확장별 필터는 오류 알림을 계속 표시합니다.
+:::
 
-### Centered editor layout
+### 중앙 정렬된 편집기 레이아웃 {#centered-editor-layout}
 
-Centered editor layout allows you to center align the editor area. This is useful when working with a single editor on a large monitor. You can use the side borders to resize the view (hold down the `Alt` key to independently move the sides).
+중앙 정렬된 편집기 레이아웃을 사용하면 편집기 영역을 중앙에 정렬할 수 있습니다. 이는 큰 모니터에서 단일 편집기로 작업할 때 유용합니다. `Alt` 키를 누른 상태에서 측면을 독립적으로 이동하는 방식으로, 측면 경계를 사용하여 화면 크기를 조정할 수 있습니다.
 
-## Tabs
+## 탭 {#tabs}
 
-VS Code shows open items with tabs (tabbed headings) in the title area above the editor. When you open a file, a new tab is added for that file. Tabs let you quickly navigate between items.
+VS Code는 편집기 위의 제목 영역에 탭(탭 헤더)으로 열린 항목을 표시합니다. 파일을 열면 해당 파일에 대한 새 탭이 추가됩니다. 탭을 사용하면 항목 간에 빠르게 탐색할 수 있습니다.
 
-![tabs hero](images/userinterface/tabs-hero.png)
+![탭 히어로](images/userinterface/tabs-hero.png)
 
-You can drag and drop tabs to reorder them. To perform an action on multiple tabs at once, hold down the `kbstyle(Ctrl)` key (`kbstyle(Cmd)` on macOS) and select the tabs you want to act on. To select a range of tabs, hold down the `kbstyle(Shift)` key and select the first and last tabs in the range.
+탭을 드래그 앤 드롭하여 순서를 변경할 수 있습니다. 여러 탭에 대해 한 번에 작업을 수행하려면 `Ctrl` 키(`macOS에서는 Cmd`)를 누른 상태에서 작업할 탭을 선택합니다. 탭 범위를 선택하려면 `Shift` 키를 누른 상태에서 범위의 첫 번째 및 마지막 탭을 선택합니다.
 
-When you have more open items than can fit in the title area, you can use the **Open Editors** section in the Explorer view (available through the `...` button) to display a dropdown list of tabbed items.
+제목 영역에 맞지 않는 열린 항목이 많을 때, 탐색기 화면의 **Open Editors** 섹션(버튼을 통해 사용 가능)을 사용하여 탭 항목의 드롭다운 목록을 표시할 수 있습니다.
 
-There is also a scroll bar between the tab and editor regions to drag editors into view. You can increase the height of the scroll bar to make it easier to drag by setting **Workbench > Editor: Title Scrollbar Sizing** (`setting(workbench.editor.titleScrollbarSizing)`) to `large`.
+탭과 편집기 영역 사이에 스크롤 막대도 있어 편집기를 드래그하여 볼 수 있습니다. 스크롤 막대의 높이를 늘려 드래그하기 쉽게 하려면 **Workbench > Editor: Title Scrollbar Sizing**(`workbench.editor.titleScrollbarSizing`)를 `large`로 설정할 수 있습니다.
 
-If you don't want to use tabs, you can disable the feature by setting the `setting(workbench.editor.showTabs)` setting to `single`:
+탭을 사용하지 않으려면 `workbench.editor.showTabs` 설정을 `single`로 설정하여 기능을 비활성화할 수 있습니다:
 
 ```json
     "workbench.editor.showTabs": "single"
 ```
 
-See the section below to optimize VS Code for [working without Tabs](/docs/getstarted/userinterface.md#working-without-tabs).
+탭 없이 작업하는 방법을 최적화하려면 아래 섹션을 참조하세요 [탭 없이 작업하기](/docs/getstarted/userinterface.md#working-without-tabs).
 
-> [!TIP]
-> Double-click in the editor title area to quickly create a new tab.
+:::tip
+편집기 제목 영역을 두 번 클릭하여 새 탭을 빠르게 생성하세요.
+:::
 
-### Tab ordering
+### 탭 순서 {#tab-ordering}
 
-By default, new tabs are added to the right of the existing tabs. You can control where you want new tabs to appear with the `setting(workbench.editor.openPositioning)` setting.
+기본적으로 새 탭은 기존 탭의 오른쪽에 추가됩니다. `workbench.editor.openPositioning` 설정을 사용하여 새 탭이 나타날 위치를 제어할 수 있습니다.
 
-For example, you might like new tabbed items to appear on the left:
+예를 들어, 새 탭 항목이 왼쪽에 나타나도록 설정할 수 있습니다:
 
 ```json
     "workbench.editor.openPositioning": "left"
 ```
 
-You can reorder tabs by dragging and dropping them.
+탭을 드래그 앤 드롭하여 순서를 변경할 수 있습니다.
 
-If you'd like an editor tab to always be visible, you can pin it to the editor tab bar. Learn more about pinning tabs in the [Custom Layout](/docs/editor/custom-layout.md#pinned-tabs) article.
+편집기 탭을 항상 표시하려면 편집기 탭 표시줄에 고정할 수 있습니다. 탭 고정에 대해 자세히 알아보려면 [사용자 정의 레이아웃](/docs/editor/custom-layout.md#pinned-tabs) 문서를 참조하세요.
 
-### Preview mode
+### 미리보기 모드 {#preview-mode}
 
-When you single-click or select a file in the Explorer view, it is shown in a preview mode and reuses an existing tab (preview tab). This is useful if you are quickly browsing files and don't want every visited file to have its own tab. When you start editing the file or use double-click to open the file from the Explorer, a new tab is dedicated to that file.
+탐색기 화면에서 파일을 단일 클릭하거나 선택하면 미리보기 모드로 표시되며 기존 탭을 재사용합니다(미리보기 탭). 이는 파일을 빠르게 탐색하고 방문한 모든 파일에 대해 자체 탭을 가지지 않으려는 경우에 유용합니다. 파일을 편집하거나 탐색기에서 파일을 열기 위해 두 번 클릭하면 해당 파일에 전용 탭이 생성됩니다.
 
-Preview mode is indicated by italics in the tab heading:
+미리보기 모드는 탭 헤더의 이탤릭체로 표시됩니다:
 
-![preview mode](images/userinterface/preview-tab.png)
+![미리보기 모드](images/userinterface/preview-tab.png)
 
-If you prefer not to use preview mode and always create a new tab, you can control the behavior with these settings:
+미리보기 모드를 사용하지 않고 항상 새 탭을 생성하려면 다음 설정을 사용하여 동작을 제어할 수 있습니다:
 
-* `setting(workbench.editor.enablePreview)` - to globally enable or disable preview editors
-* `setting(workbench.editor.enablePreviewFromQuickOpen)` - to enable or disable preview editors when opened from **Quick Open**
+- `workbench.editor.enablePreview` - 미리보기 편집기를 전역적으로 활성화 또는 비활성화
+- `workbench.editor.enablePreviewFromQuickOpen` - **빠른 열기**에서 열 때 미리보기 편집기를 활성화 또는 비활성화
 
-### Wrapped tabs
+### 래핑된 탭 {#wrapped-tabs}
 
-To see more editor tabs, you can use the **wrapped tab** layout, where editor tabs wrap to fill multiple rows above the editor region. Enable wrapped tabs with the **Workbench > Editor: Wrap Tabs** (`setting(workbench.editor.wrapTabs)`) setting.
+더 많은 편집기 탭을 보려면 **wrapped tab** 레이아웃을 사용할 수 있습니다. 편집기 탭이 편집기 영역 위의 여러 행을 채우도록 래핑됩니다. **Workbench > Editor: Wrap Tabs**(`workbench.editor.wrapTabs`) 설정을 사용하여 래핑된 탭을 활성화하세요.
 
-![Wrapped editor tabs filling two rows about the editor region](images/userinterface/wrapped-tabs.png)
+![편집기 영역 위의 두 행을 채우는 래핑된 편집기 탭](images/userinterface/wrapped-tabs.png)
 
-### Customize tab labels
+### 탭 레이블 사용자 정의 {#customize-tab-labels}
 
-When you have multiple files with the same name open at the same time, it can be difficult to distinguish the different tabs. To help with this, you can apply a custom display label to the tabs. You can choose for which files in your workspace you want to apply a custom label to the tab.
+동일한 이름의 여러 파일을 동시에 열면 다른 탭을 구분하기 어려울 수 있습니다. 이를 돕기 위해 탭에 사용자 정의 표시 레이블을 적용할 수 있습니다. 작업 공간의 파일에 대해 탭 표시 레이블을 적용할 파일을 선택할 수 있습니다.
 
-To enable custom display labels for tabs, set the `setting(workbench.editor.customLabels.enabled)` setting:
+탭에 사용자 정의 표시 레이블을 활성화하려면 `workbench.editor.customLabels.enabled` 설정을 사용하세요:
 
 ```json
     "workbench.editor.customLabels.enabled": true
 ```
 
-You can specify one or more naming patterns for the tab display labels with the `setting(workbench.editor.customLabels.patterns)` setting. A name pattern consists of two components:
+`workbench.editor.customLabels.patterns` 설정을 사용하여 탭 표시 레이블에 대한 하나 이상의 이름 패턴을 지정할 수 있습니다. 이름 패턴은 두 가지 구성 요소로 구성됩니다:
 
-- **Item** - a [glob pattern](/docs/editor/glob-patterns.md) that matches file paths for which to apply a custom label. For example, `**/static/**/*.html`.
-- **Value** - a template for the custom label. Templates can use variables such as `${filename}`, `${extname}`, `${extname(N)}`, `${dirname}`, and `${dirname(N)}`, which are dynamically replaced with values from the file's path.
+- **Item** - 파일 경로에 대해 사용자 정의 레이블을 적용할 파일 경로를 일치시키는 [글로브 패턴](/docs/editor/glob-patterns.md). 예: `**/static/**/*.html`.
+- **Value** - 사용자 정의 레이블에 대한 템플릿. 템플릿은 `${filename}`, `${extname}`, `${extname(N)}`, `${dirname}`, `${dirname(N)}`과 같은 변수를 사용할 수 있으며, 파일 경로의 값으로 동적으로 대체됩니다.
 
-The following sample displays the `/src/orders/index.html` file with a tab label of `orders/index`.
+다음 샘플은 `/src/orders/index.html` 파일을 `orders/index` 탭 레이블로 표시합니다.
 
 ```json
     "workbench.editor.customLabels.patterns": {
@@ -392,83 +408,85 @@ The following sample displays the `/src/orders/index.html` file with a tab label
     }
 ```
 
-![Screenshot of Setting editor to enable and specify custom labels for tabs](images/userinterface/tabs-custom-labels.png)
+![탭에 대한 사용자 정의 레이블을 활성화하고 지정하는 설정 편집기의 스크린샷](images/userinterface/tabs-custom-labels.png)
 
-The following examples use the `${extname}` variable for the file `tests/editor.test.ts`:
+다음 예제는 `tests/editor.test.ts` 파일에 대해 `${extname}` 변수를 사용합니다:
 
-* `${filename}` => editor
-* `${extname}` => test.ts
-* `${extname(0)}` => ts
-* `${extname(1)}` => test
-* `${extname(-1)}` => test
-* `${extname(-2)}` => ts
+- `${filename}` => editor
+- `${extname}` => test.ts
+- `${extname(0)}` => ts
+- `${extname(1)}` => test
+- `${extname(-1)}` => test
+- `${extname(-2)}` => ts
 
-> [!NOTE]
-> The custom tab labels also apply in the Open Editors view and in [Quick Open](/docs/getstarted/tips-and-tricks.md#quick-open) (`kb(workbench.action.quickOpen)`).
+:::note
+사용자 정의 탭 레이블은 열린 편집기 화면와 [빠른 열기](/docs/getstarted/tips-and-tricks.md#quick-open) (`Ctrl+P`)에도 적용됩니다.
+:::
 
-## Grid editor layout
+## 그리드 편집기 레이아웃 {#grid-editor-layout}
 
-By default, editor groups are laid out in vertical columns. For example, when you split an editor, it opens the editor to the side. You can arrange editor groups in any layout you like, both vertically and horizontally:
+기본적으로 편집기 그룹은 세로 열로 배치됩니다. 예를 들어, 편집기를 분할할 때 편집기가 옆에 열립니다. 세로 및 가로로 원하는 레이아웃으로 편집기 그룹을 배치할 수 있습니다:
 
-![Grid Editor Layout](images/userinterface/grid-layout.gif)
+![그리드 편집기 레이아웃](images/userinterface/grid-layout.gif)
 
-To support flexible layouts, you can create empty editor groups. By default, closing the last editor of an editor group also closes the group itself, but you can change this behavior with the new setting `workbench.editor.closeEmptyGroups: false`:
+유연한 레이아웃을 지원하기 위해 빈 편집기 그룹을 생성할 수 있습니다. 기본적으로 편집기 그룹의 마지막 편집기를 닫으면 그룹 자체도 닫히지만, 새 설정 `workbench.editor.closeEmptyGroups: false`를 사용하여 이 동작을 변경할 수 있습니다:
 
-![Grid Empty](images/userinterface/grid-empty.png)
+![그리드 빈](images/userinterface/grid-empty.png)
 
-There are a predefined set of editor layouts in the **View** > **Editor Layout** menu:
+**View** > **Editor Layout** 메뉴에는 미리 정의된 편집기 레이아웃 세트가 있습니다:
 
-![Grid Editor Layout Menu](images/userinterface/grid-layout-menu.png)
+![그리드 편집기 레이아웃 메뉴](images/userinterface/grid-layout-menu.png)
 
-By default, editors that open to the side (for example, by selecting the editor toolbar **Split Editor** action) open to the right-hand side of the active editor. If you prefer to open editors below the active one, set `setting(workbench.editor.openSideBySideDirection)` to `down`.
+기본적으로 옆에 열리는 편집기(예: 편집기 도구 모음의 **Split Editor** 작업 선택)는 활성 편집기의 오른쪽에 열립니다. 활성 편집기 아래에 편집기를 열려면 `workbench.editor.openSideBySideDirection`을 `down`으로 설정하세요.
 
-There are many keyboard commands for adjusting the editor layout by using the keyboard. If you prefer to use the mouse, you can use drag and drop to split the editor into any direction:
+키보드를 사용하여 편집기 레이아웃을 조정하는 많은 키보드 명령이 있습니다. 마우스를 사용하려면 드래그 앤 드롭을 사용하여 원하는 방향으로 편집기를 분할할 수 있습니다:
 
-![Grid Editor Drag and Drop](images/userinterface/grid-dnd.gif)
+![그리드 편집기 드래그 앤 드롭](images/userinterface/grid-dnd.gif)
 
-> [!TIP]
-> If you press and hold the `kbstyle(Alt)` key while hovering over the toolbar action to split an editor, it offers to split to the other orientation. This is a fast way to split either to the right or to the bottom.
+:::tip
+`Alt` 키를 누른 상태에서 편집기 분할 작업을 선택하면 다른 방향으로 분할할 수 있습니다. 이는 오른쪽 또는 아래로 빠르게 분할하는 방법입니다.
+:::
 
-![Grid Alt Click](images/userinterface/grid-alt.gif)
+![그리드 Alt 클릭](images/userinterface/grid-alt.gif)
 
-### Keyboard shortcuts
+### 키보드 단축키 {#keyboard-shortcuts}
 
-Here are some handy keyboard shortcuts to quickly navigate between editors and editor groups.
+편집기 및 편집기 그룹 간에 빠르게 탐색할 수 있는 몇 가지 유용한 키보드 단축키입니다.
 
-* `kb(workbench.action.nextEditor)` - go to the right editor.
-* `kb(workbench.action.previousEditor)` - go to the left editor.
-* `kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)` - open the previous editor in the editor group's most recently used list.
-* `kb(workbench.action.focusFirstEditorGroup)` - go to the leftmost editor group.
-* `kb(workbench.action.focusSecondEditorGroup)` - go to the center editor group.
-* `kb(workbench.action.focusThirdEditorGroup)` - go to the rightmost editor group.
-* `kb(workbench.action.closeActiveEditor)` - close the active editor.
-* `kb(workbench.action.closeEditorsInGroup)` - close all editors in the editor group.
-* `kb(workbench.action.closeAllEditors)` - close all editors.
+- `Ctrl+PageDown` - 오른쪽 편집기로 이동.
+- `Ctrl+PageUp` - 왼쪽 편집기로 이동.
+- `Ctrl+Tab` - 편집기 그룹의 가장 최근에 사용된 목록에서 이전 편집기 열기.
+- `Ctrl+1` - 가장 왼쪽 편집기 그룹으로 이동.
+- `Ctrl+2` - 중앙 편집기 그룹으로 이동.
+- `Ctrl+3` - 가장 오른쪽 편집기 그룹으로 이동.
+- `Ctrl+F4` - 활성 편집기 닫기.
+- `Ctrl+K W` - 편집기 그룹의 모든 편집기 닫기.
+- `Ctrl+K Ctrl+W` - 모든 편집기 닫기.
 
->If you want to modify the default keyboard shortcuts, see [Key Bindings](/docs/getstarted/keybindings.md) for details.
+> 기본 키보드 단축키를 수정하려면 [키 바인딩](/docs/getstarted/keybindings.md)에서 자세한 내용을 확인하세요.
 
-## Working without tabs
+## 탭 없이 작업하기 {#working-without-tabs}
 
-If you prefer not to use tabs (tabbed headings), you can disable tabs entirely by setting `setting(workbench.editor.showTabs)` to `single` or `none`.
+탭(탭 헤더)을 사용하지 않으려면 `workbench.editor.showTabs`을 `single` 또는 `none`으로 설정하여 탭을 완전히 비활성화할 수 있습니다.
 
-### Disable Preview mode
+### 미리보기 모드 비활성화 {#disable-preview-mode}
 
-Without tabs, the **Open Editors** section of the Explorer view is a quick way to do file navigation. However, with [preview editor mode](/docs/getstarted/userinterface.md#preview-mode) enabled, files are not added to the Open Editors section. You can disable this feature through the `setting(workbench.editor.enablePreview)` and `setting(workbench.editor.enablePreviewFromQuickOpen)` settings.
+탭 없이 **Open Editors** 섹션은 파일 탐색을 빠르게 수행할 수 있는 방법입니다. 그러나 [미리보기 편집기 모드](/docs/getstarted/userinterface.md#preview-mode)가 활성화된 경우, 파일이 열린 편집기 섹션에 추가되지 않습니다. `workbench.editor.enablePreview` 및 `workbench.editor.enablePreviewFromQuickOpen` 설정을 통해 이 기능을 비활성화할 수 있습니다.
 
-### Use keyboard shortcuts to navigate the editor history
+### 키보드 단축키를 사용하여 편집기 기록 탐색 {#use-keyboard-shortcuts-to-navigate-the-editor-history}
 
-You can change keybindings for `kbstyle(Ctrl+Tab)` to show you a list of all opened editors from the history, independent of the active editor group.
+`Ctrl+Tab`의 키 바인딩을 변경하여 활성 편집기 그룹과 관계없이 열린 편집기 목록을 표시할 수 있습니다.
 
-Edit your [keybindings](/docs/getstarted/keybindings.md) and add the following:
+[keybindings](/docs/getstarted/keybindings.md)을 편집하고 다음을 추가하세요:
 
 ```json
 { "key": "ctrl+tab", "command": "workbench.action.openPreviousEditorFromHistory" },
 { "key": "ctrl+tab", "command": "workbench.action.quickOpenNavigateNext", "when": "inQuickOpen" },
 ```
 
-### Close an entire group instead of a single editor
+### 단일 편집기 대신 전체 그룹 닫기 {#close-an-entire-group-instead-of-a-single-editor}
 
-If you liked the behavior of VS Code closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/getstarted/keybindings.md).
+VS Code가 하나의 편집기를 닫을 때 전체 그룹을 닫는 동작을 선호하는 경우, [keybindings](/docs/getstarted/keybindings.md)에 다음을 바인딩할 수 있습니다.
 
 macOS:
 
@@ -482,33 +500,34 @@ Windows/Linux:
 { "key": "ctrl+w", "command": "workbench.action.closeEditorsInGroup" }
 ```
 
-## Window management
+## 창 관리 {#window-management}
 
-VS Code has various options to control how VS Code windows (instances) should be opened or restored between sessions.
+VS Code에는 VS Code 창(인스턴스)을 열거나 세션 간에 복원하는 방법을 제어하는 다양한 옵션이 있습니다.
 
-The settings `setting(window.openFoldersInNewWindow)` and `setting(window.openFilesInNewWindow)` are provided to configure opening new windows or reusing the last active window for files or folders and possible values are `default`, `on` and `off`.
+`window.openFoldersInNewWindow` 및 `window.openFilesInNewWindow` 설정을 사용하여 새 창을 열거나 마지막 활성 창을 재사용할지 구성할 수 있으며, 가능한 값은 `default`, `on` 및 `off`입니다.
 
-If configured to be `default`, VS Code decides about reusing or opening a new window, based on the context from where the open request was made. Flip this to `on` or `off` to always behave the same. For example, if you feel that picking a file or folder from the **File** menu should always open in a new window, set this to `on`.
+`default`로 구성된 경우, VS Code는 열기 요청이 발생한 컨텍스트를 기반으로 새 창을 열거나 재사용할지 결정합니다. 이를 `on` 또는 `off`로 변경하여 항상 동일하게 동작하도록 설정할 수 있습니다. 예를 들어, **파일** 메뉴에서 파일이나 폴더를 선택할 때 항상 새 창에서 열리도록 하려면 이를 `on`으로 설정하세요.
 
-> [!NOTE]
-> There are cases where this setting is ignored, such as when you use the `-new-window` or `-reuse-window` command-line option.
+:::note
+`-new-window` 또는 `-reuse-window` 명령줄 옵션을 사용할 때 이 설정이 무시되는 경우가 있습니다.
+:::
 
-The `setting(window.restoreWindows)` setting informs VS Code about how to restore the opened windows of your previous session. By default, VS Code restores all windows you worked on during your previous session (setting: `all`). Change this setting to `none` to never reopen any windows and always start with an empty VS Code instance. Change it to `one` to reopen the last opened window you worked on, or to `folders` to only restore windows that had folders opened.
+`window.restoreWindows` 설정은 이전 세션의 열린 창을 복원하는 방법을 VS Code에 알립니다. 기본적으로 VS Code는 이전 세션 동안 작업한 모든 창을 복원합니다(설정: `all`). 이 설정을 `none`으로 변경하여 창을 복원하지 않고 항상 빈 VS Code 인스턴스로 시작할 수 있습니다. 이를 `one`으로 변경하여 마지막으로 작업한 창을 다시 열거나, `folders`로 변경하여 폴더가 열린 창만 복원할 수 있습니다.
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-Now that you know the overall layout of VS Code, start to customize the editor to how you like to work by looking at the following articles:
+이제 VS Code의 전체 레이아웃을 알았으므로 다음 문서를 참조하여 편집기를 사용자 정의하여 작업하는 방법을 알아보세요:
 
-* [Changing the theme](/docs/getstarted/themes.md) - Set a Color and/or File Icon Theme to your preference.
-* [Using custom layouts](/docs/editor/custom-layout.md) - Learn more about VS Code's workbench and editor layout customizations.
+- [테마 변경](/docs/getstarted/themes.md) - 선호하는 색상 및/또는 파일 아이콘 테마 설정.
+- [사용자 정의 레이아웃 사용](/docs/editor/custom-layout.md) - VS Code의 작업 영역 및 편집기 레이아웃 사용자 정의에 대해 자세히 알아보세요.
 
-## Common questions
+## 자주 묻는 질문 {#common-questions}
 
-### How can I change the color of the indent guides?
+### 들여쓰기 가이드의 색상을 변경할 수 있나요? {#how-can-i-change-the-color-of-the-indent-guides}
 
-The indent guide colors are customizable, as are most VS Code user interface elements. To [customize](/api/references/theme-color.md) the indent guides color for your active Color Theme, use the `setting(workbench.colorCustomizations)` setting and modify the `editorIndentGuide.background` value.
+들여쓰기 가이드 색상은 대부분의 VS Code 유저 인터페이스 요소와 마찬가지로 사용자 정의할 수 있습니다. 활성 색상 테마에 대한 들여쓰기 가이드 색상을 [사용자 정의](/api/references/theme-color.md)하려면 `workbench.colorCustomizations` 설정을 사용하고 `editorIndentGuide.background` 값을 수정하세요.
 
-For example, to make the indent guides bright blue, add the following to your `settings.json`:
+예를 들어, 들여쓰기 가이드를 밝은 파란색으로 만들려면 `settings.json`에 다음을 추가하세요:
 
 ```json
 "workbench.colorCustomizations": {
@@ -516,8 +535,8 @@ For example, to make the indent guides bright blue, add the following to your `s
 }
 ```
 
-### Can I hide the Open Editors section in the Explorer view?
+### 탐색기 화면에서 열린 편집기 섹션을 숨길 수 있나요? {#can-i-hide-the-open-editors-section-in-the-explorer-view}
 
-Yes, you can show or hide the Open Editors section by using the Views menu in the Explorer and toggling the **Open Editors** menu item.
+네, 탐색기 화면의 보기 메뉴를 사용하여 열린 편집기 섹션을 표시하거나 숨길 수 있습니다.
 
-![Explorer menu to enable or disable views in the Explorer](images/userinterface/explorer-menu.png)
+![탐색기에서 보기를 활성화하거나 비활성화하는 탐색기 메뉴](images/userinterface/explorer-menu.png)

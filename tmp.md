@@ -1,1044 +1,523 @@
 ---
-Order: 3
+Order: 4
 Area: getstarted
-TOCTitle: Tips and Tricks
-ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-PageTitle: Visual Studio Code Tips and Tricks
+TOCTitle: User Interface
+ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
+PageTitle: Visual Studio Code User Interface
 DateApproved: 12/11/2024
-MetaDescription: Visual Studio Code Tips and Tricks for power users.
+MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
-# Visual Studio Code Tips and Tricks
+# User interface
 
-Use the tips and tricks in this article to jump right in and learn how to be productive with Visual Studio Code. Become familiar with the powerful editing, code intelligence, and source code control features and learn useful keyboard shortcuts. Make sure to explore the other in-depth topics in [Getting Started](/docs/getstarted/userinterface.md) and the [User Guide](/docs/editor/codebasics.md) to learn more.
+At its heart, Visual Studio Code is a code editor. Like many other code editors, VS Code adopts a common user interface and layout of an explorer on the left, showing all of the files and folders you have access to, and an editor on the right, showing the content of the files you have opened.
 
-If you're just getting started, make sure to check out the [VS Code tutorial](/docs/getstarted/getting-started.md) for a step-by-step to discover the key features.
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nORT3-kONgA" title="Transform your VS Code user interface" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-> If you don't have Visual Studio Code installed, go to the [Download](/download) page. You can find platform specific setup instructions at [Running VS Code on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), and [Windows](/docs/setup/windows.md).
+## Basic layout
 
-Prefer a video? You can watch the VS Code Day talks [Visual Studio Code tips and tricks](https://learn.microsoft.com/en-us/events/visual-studio-code-vs-code-day-2021/vs-code-tips-and-tricks) or [Elevate your VS Code experience](https://learn.microsoft.com/en-us/shows/vs-code-day-2023/elevate-your-vs-code-experience).
+VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor, while leaving ample room to browse and access the full context of your folder or project. The user interface is divided into five main areas:
 
-## Basics
+* **Editor** - The main area to edit your files. You can open as many editors as you like side by side vertically and horizontally.
+* **Primary Side Bar** - Contains different views like the Explorer to assist you while working on your project.
+* **Status Bar** - Information about the opened project and the files you edit.
+* **Activity Bar** -  Located on the far left-hand side. Lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled. You can change the position of the Activity Bar.
+* **Panel** - An additional space for views below the editor region. By default, it contains output, debug information, errors and warnings, and an integrated terminal. The Panel can also be moved to the left or right for more vertical space.
 
-### Getting started
+![Screenshot of the VS Code user interface, highlighting the five main areas.](images/userinterface/hero.png)
 
-The best way of exploring VS Code hands-on is to open the **Welcome** page and then pick a **Walkthrough** for a self-guided tour through the setup steps, features, and deeper customizations that VS Code offers. As you discover and learn, the walkthroughs track your progress.
+> [!TIP]
+> A Secondary Side Bar is also available to display views opposite the Primary Side Bar. You can show it with `kb(workbench.action.toggleAuxiliaryBar)` and drag a view from the Primary Side Bar to the Secondary Side Bar.
 
-Open the Welcome page from the **Help** > **Welcome** menu or use the **Help: Welcome** command from the Command Palette (`kb(workbench.action.showCommands)`).
+Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
 
-![Welcome page](images/tips-and-tricks/welcome-page.png)
+Open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/getstarted/userinterface.md#tabs) section.
 
-Extensions can also contribute walkthroughs. You can also directly open a walkthrough by using the **Help: Open Walkthrough...** command from the Command Palette (`kb(workbench.action.showCommands)`).
+> [!TIP]
+> You can move the Primary Side Bar to the right hand side by right-clicking the Activity Bar and selecting **Move Primary Side Bar Right** or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
 
-![Open walkthrough command in the Command Palette](images/tips-and-tricks/open-walkthrough.png)
+## Side by side editing
 
-If you are looking to improve your code editing skills, open the **Interactive Editor Playground**. Try out VS Code's [code editing features](/docs/editor/codebasics.md), like multi-cursor editing, [IntelliSense](/docs/editor/intellisense.md), Snippets, [Emmet](/docs/editor/emmet.md), and more.
+You can open as many editors as you like side by side vertically and horizontally. If you already have an editor open, there are multiple ways of opening another editor to the side:
 
-Open the Welcome page from the **Help** > **Editor Playground** menu or use the **Help: Interactive Editor Playground** command from the Command Palette (`kb(workbench.action.showCommands)`).
+* `kbstyle(Alt)` and select a file in the Explorer view.
+* `kb(workbench.action.splitEditor)` to split the active editor into two.
+* **Open to the Side** (`kb(explorer.openToSide)`) from the Explorer context menu on a file.
+* Select the **Split Editor** button in the upper right of an editor.
+* Drag and drop a file to any side of the editor region.
+* Press `kb(explorer.openToSide)` in the **Quick Open** (`kb(workbench.action.quickOpen)`) file list.
 
-![Interactive editor playground](images/tips-and-tricks/interactive_playground.png)
+![Side by Side editing](images/userinterface/sidebyside.png)
 
-### Command Palette
+When you open another file, the editor that is active will display the content of that file. If you have two editors side by side and you want to open file 'foo.cs' into the right-hand editor, make sure that this editor is active (by clicking inside it) before opening file 'foo.cs'.
 
-Access all available commands based on your current context.
+By default, editors open to the right-hand side of the active one. You can change this behavior with the `setting(workbench.editor.openSideBySideDirection)` setting to open new editors to the bottom of the active one instead.
 
-Keyboard Shortcut: `kb(workbench.action.showCommands)`
+When you have more than one editor open, you can switch between them quickly by holding the `kbstyle(Ctrl)` key (`kbstyle(Cmd)` on macOS) and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
 
-![Command Palette](images/tips-and-tricks/OpenCommandPalette.gif)
+> [!TIP]
+> You can resize editors and reorder them. Drag and drop the editor title area to reposition or resize the editor.
 
-### Default keyboard shortcuts
+### Editor groups
 
-Many of the commands in the Command Palette have default key bindings associated with them. You can see the default keyboard shortcut alongside the command in the **Command Palette** (`kb(workbench.action.showCommands)`).
+When you split an editor (using the **Split Editor** or **Open to the Side** commands), a new editor region (edit group) is created which can hold a group of items. You can open as many editor groups as you like side by side vertically and horizontally.
 
-![keyboard references](images/tips-and-tricks/keyboard-references.png)
+You can see these clearly in the **Open Editors** section at the top of the Explorer view (toggle **...** > **Open Editors** in the Explorer view).
 
-### Keyboard reference sheets
+![tabs editor groups](images/userinterface/tabs-editor-groups.png)
 
-Download the keyboard shortcut reference sheet for your platform ([macOS](https://go.microsoft.com/fwlink/?linkid=832143), [Windows](https://go.microsoft.com/fwlink/?linkid=832145), [Linux](https://go.microsoft.com/fwlink/?linkid=832144)).
+You can drag and drop editor groups on the workbench, move individual tabs between groups, and quickly close entire groups (**Close All**).
 
-![Keyboard Reference Sheet](images/tips-and-tricks/KeyboardReferenceSheet.png)
+> [!NOTE]
+> VS Code uses editor groups whether or not you have enabled tabs. Without tabs, editor groups are a stack of your open items with the most recently selected item visible in the editor pane.
 
-### Quick Open
+### Split in group
 
-Quickly search and open files.
-
-Keyboard Shortcut: `kb(workbench.action.quickOpen)`
-
-![Quick Open](images/tips-and-tricks/QuickOpen.gif)
-
-**Tip:** Type `kbstyle(?)` to view command suggestions.
-
-![Quick Open command list](images/tips-and-tricks/quick-open-command-dropdown.png)
-
-Typing commands such as `edt` or `term` followed by a space brings up a dropdown list.
-
-![term command in Quick Open](images/tips-and-tricks/term-quick-open.png)
-
-### Navigate between recently opened files
-
-Repeatedly press the **Quick Open** keyboard shortcut to cycle quickly between recently opened files.
-
-### Open multiple files from Quick Open
-
-You can open multiple files from **Quick Open** by pressing `kbstyle(Right Arrow)`. This opens the currently selected file in the background, and you can continue selecting files from **Quick Open**.
-
-### Navigate between recently opened folders and workspaces
-
-Open a recent folder or workspace.
-
-Keyboard Shortcut: `kb(workbench.action.openRecent)`
-
-Displays a Quick Pick dropdown with the list from **File** > **Open Recent** with recently opened folders and workspaces followed by files.
+You can split the current editor without creating a new editor group with the **View: Split Editor in Group** command (`kb(workbench.action.splitEditorInGroup)`). To learn more about this editor mode and specific commands for navigating between the two sides, you can read the section in the [Custom Layout](/docs/editor/custom-layout.md#split-in-group) article.
 
 ### Floating windows
 
-You can open an editor in a floating window, for example to move the editor to another place on your monitor or even to another monitor.
+You can move editors into their own floating windows with the **Move into New Window** or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`) commands. To learn more about floating editor windows, you can read the section in the [Custom Layout](/docs/editor/custom-layout.md#floating-editor-windows) article.
 
-To open an editor in a floating window, drag it out of the main window and drop it anywhere outside of the current VS Code window. Another way to detach an editor is to right-click on an editor tab, and select the option **Move into New Window** (`workbench.action.moveEditorToNewWindow`) or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`).
+## Minimap
 
-<video src="images/tips-and-tricks/floating-windows.mp4" autoplay loop controls muted></video>
+A Minimap (code outline) gives you a high-level overview of your source code, which is useful for quick navigation and code understanding. A file's minimap is shown on the right side of the editor. You can select or drag the shaded area to quickly jump to different sections in your file.
 
-## Command line
+If you have [folding markers](/docs/editor/codebasics.md#folding) in the editor, such as `//#region` or `MARK:` comments, then the minimap shows the folding marker names.
 
-VS Code has a powerful command line interface (CLI) which enables you to customize how the editor is launched to support various scenarios. For example, you can start VS Code from the command line to open a diff editor for comparing two files.
+![minimap](images/userinterface/minimap.png)
 
-> Make sure the VS Code binary is on your path so you can simply type 'code' to launch VS Code. See the platform specific setup topics if VS Code is added to your environment path during installation ([Running VS Code on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), [Windows](/docs/setup/windows.md)).
+> [!TIP]
+> You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in the user or workspace [settings](/docs/getstarted/settings.md).
 
-```bash
-# open code with current directory
-code .
+## Sticky Scroll
 
-# open the current directory in the most recently used code window
-code -r .
+Sticky Scroll shows the starting lines of currently visible nested scopes at the top of the editor. It facilitates navigation by indicating where you are in a file and lets you quickly jump back to the top of the current scope.
 
-# create a new window
-code -n
+![stickyScroll](images/userinterface/sticky-scroll.png)
 
-# change the language
-code --locale=es
+> [!TIP]
+> You can enable/disable Sticky Scroll with the `setting(editor.stickyScroll.enabled)` setting.
 
-# open diff editor
-code --diff <file1> <file2>
+Sticky Scroll uses several different content models to create its headings. It is possible to choose between the outline provider model, the folding provider model, and the indentation model to determine which lines to display in the Sticky Scroll area. If a model is not available for the current language, VS Code falls back to the next model in the  order given above. The default model initially used comes from the `setting(editor.stickyScroll.defaultModel)` setting.
 
-# open file at specific line and column <file:line[:character]>
-code --goto package.json:10:5
+### Indent guides
 
-# see help options
-code --help
+The editor shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `setting(editor.guides.indentation)` to `false` in your user or workspace [settings](/docs/getstarted/settings.md).
 
-# disable all extensions
-code --disable-extensions .
-```
+## Breadcrumbs
 
-### .vscode folder
+The editor has a navigation bar at the top, also called [breadcrumbs](https://en.wikipedia.org/wiki/Breadcrumb_(navigation)). Breadcrumbs always show the file path and, if the current file type has language support for symbols, the symbol path up to the cursor position. The breadcrumbs enable you to quickly navigate between folders, files, and symbols.
 
-Workspace specific files are in a `.vscode` folder at the root of your workspace. For example, `tasks.json` for the [Task Runner](/docs/editor/tasks.md) and `launch.json` for the [debugger](/docs/editor/debugging.md).
+![Breadcrumbs](images/userinterface/breadcrumbs.png)
 
-## Status Bar
+You can disable breadcrumbs with the **View** > **Appearance** > **Toggle Breadcrumbs** menu item or the **View: Toggle Breadcrumbs** command. For more information about the breadcrumbs feature, such as how to customize their appearance, see the [Breadcrumbs](/docs/editor/editingevolved.md#breadcrumbs) section of the [Code Navigation](/docs/editor/editingevolved.md) article.
 
-### Errors and warnings
+## Explorer view
 
-Keyboard Shortcut: `kb(workbench.actions.view.problems)`
+The Explorer view is used to browse, open, and manage the files and folders in your project. VS Code is file and folder based and you can get started immediately by opening a file or folder in VS Code.
 
-Quickly jump to errors and warnings in the project.
+After you open a folder in VS Code, the contents of the folder are shown in the Explorer view. You can do many things from here:
 
-Cycle through errors with `kb(editor.action.marker.nextInFiles)` or `kb(editor.action.marker.prevInFiles)`
+* Create, delete, and rename files and folders.
+* Move files and folders with drag and drop.
+* Use the context menu to explore all options.
 
-![errors and warnings](images/tips-and-tricks/Errors_Warnings.gif)
+> [!TIP]
+> You can drag and drop files into the Explorer view from outside VS Code to copy them. If the explorer is empty, VS Code opens the files instead. You can also copy-paste files from outside VS Code into the Explorer view. With the `setting(explorer.autoOpenDroppedFile)` setting, you to configure whether to automatically open the file or not.
 
-You can filter problem list either by type ('info', 'errors', 'warnings') or by matching text.
+VS Code works well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Integrated Terminal**.
 
-### Change language mode
+You can also navigate to the location of a file or folder in the native operating system file explorer by right-clicking on a file or folder and selecting **Reveal in File Explorer** on Windows, **Reveal in Finder** on macOS, or **Open Containing Folder** on Linux.
 
-The language mode in the Status Bar indicates the language (for example, Markdown, Python, and more) that is associated with the active editor. You can change the language mode for the current editor by selecting the Status Bar language mode indicator, or by using the keyboard shortcut.
+> [!TIP]
+> Type `kb(workbench.action.quickOpen)` (**Quick Open**) to quickly search and open a file by its name.
 
-Keyboard Shortcut: `kb(workbench.action.editor.changeLanguageMode)`
+By default, VS Code excludes some folders from showing in the Explorer view, such as `.git`. Use the `setting(files.exclude)` setting to configure rules for hiding files and folders from the Explorer view.
 
-![change syntax](images/tips-and-tricks/change_syntax.gif)
+> [!TIP]
+> You can hide derived resources files, like `*.meta` in Unity, or `*.js` in a TypeScript project. For Unity to exclude the `*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
 
-If you want to persist the new language mode for a file type, use the **Configure File Association for** command to associate the current file extension with an installed language.
+### Multi-selection
 
-## Customization
+You can select multiple files in the Explorer view and Open Editors section to run actions (delete, drag and drop, or open to the side) on multiple items. Hold `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) and select individual files, or hold `kbstyle(Shift)` to select a range of files. If you select two items, you can now also use the context menu **Compare Selected** command to quickly diff two files.
 
-There are many options to customize VS Code to meet your preferences:
-
-* Change your theme
-* Change your keyboard shortcuts
-* Tune your settings
-* Add JSON validation
-* Create snippets
-* Install extensions
-
-### Change your theme
-
-VS Code comes with a number of built-in [color themes](/docs/getstarted/themes.md). Use the **Preferences: Color Theme** command or use the keyboard shortcut.
-
-Keyboard Shortcut: `kb(workbench.action.selectTheme)`
-
-![Preview themes](images/tips-and-tricks/PreviewThemes.gif)
-
-You can install more themes from the VS Code extension [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Themes&sortBy=Installs). Select the **Preferences: Color Theme** > **+ Browse Additional Color Themes...** command to search themes from the Marketplace.
-
-Additionally, you can install and change your File Icon themes.
-
-![File icon themes](images/tips-and-tricks/PreviewFileIconThemes.gif)
-
-### Keymaps
-
-Are you used to keyboard shortcuts from another editor? You can install a Keymap extension that brings the keyboard shortcuts from your favorite editor to VS Code. Use the **Preferences: Keymaps** command to see the current list on the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs). Some of the more popular ones:
-
-* [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
-* [Sublime Text Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings)
-* [Emacs Keymap](https://marketplace.visualstudio.com/items?itemName=hiro-sun.vscode-emacs)
-* [Atom Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.atom-keybindings)
-* [Brackets Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.brackets-keybindings)
-* [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings)
-* [Visual Studio Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vs-keybindings)
-
-### Customize your keyboard shortcuts
-
-You can view and customize the keyboard shortcuts in the **Keyboard Shortcuts** editor. Use the **Preferences: Open Keyboard Shortcuts** command or use the shortcut to open the editor.
-
-Keyboard Shortcut: `kb(workbench.action.openGlobalKeybindings)`
-
-Select the pencil icon or use `kbstyle(Enter)` on a specific entry to edit the keyboard shortcut. Filter the list by using the search field.
-
-![keyboard shortcuts](images/tips-and-tricks/keyboard-shortcuts.png)
-
-You can also search for shortcuts and add your own keybindings to the `keybindings.json` file.
-
-![customize keyboard shortcuts](images/tips-and-tricks/KeyboardShortcuts.gif)
-
-See more in [Key Bindings for Visual Studio Code](/docs/getstarted/keybindings.md).
-
-### Tune your settings
-
-By default, VS Code shows the Settings editor to view and edit settings. You can also edit the underlying `settings.json` file by using the **Open User Settings (JSON)** command or by changing your default settings editor with the `setting(workbench.settings.editor)` setting.
-
-Open User Settings `settings.json`
-
-Keyboard Shortcut: `kb(workbench.action.openSettings)`
-
-Change the font size of various UI elements
+> [!NOTE]
+> In earlier VS Code releases, clicking with the `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) key pressed, would open a file in a new editor group to the side. If you still want this behavior, you can use the `setting(workbench.list.multiSelectModifier)` setting to change multi-selection to use the `kbstyle(Alt)` key.
 
 ```json
-// Main editor
-"editor.fontSize": 18,
-// Terminal panel
-"terminal.integrated.fontSize": 14,
-// Output panel
-"[Log]": {
-    "editor.fontSize": 15
-}
+"workbench.list.multiSelectModifier": "alt"
 ```
 
-Change the zoom level
+### Advanced tree navigation
 
-```json
-"window.zoomLevel": 5
-```
+You can filter the files and folders in the Explorer view. With the focus on the Explorer view, press `kb(list.find)` to open the Find control and type part of the file or folder name you want to match. This navigation feature is available for all tree views in VS Code.
 
-Font ligatures
+Pressing the **Filter** button toggles between the two modes: highlighting and filtering. Pressing `kbstyle(Down)` lets you focus on the first matched element and navigate to subsequent matching elements. In highlighting mode, a badge is shown on folders to indicate that they contain matched files.
 
-```json
-"editor.fontFamily": "Fira Code",
-"editor.fontLigatures": true
-```
+Pressing the **Fuzzy Match** button toggles between exact and fuzzy matching, where you can type a sequence of characters to match any part of the file or folder name.
 
-> **Tip:** You need to have a font installed that supports font ligatures. [FiraCode](https://github.com/tonsky/FiraCode) is a popular font on the VS Code team.
-
-![font ligatures](images/tips-and-tricks/font-ligatures-annotated.png)
-
-Auto Save
-
-```json
-"files.autoSave": "afterDelay"
-```
-
-You can also toggle Auto Save from the top-level menu with the **File** > **Auto Save**.
-
-Format on save
-
-```json
-"editor.formatOnSave": true
-```
-
-Format on paste
-
-```json
-"editor.formatOnPaste": true
-```
-
-Change the size of Tab characters
-
-```json
-"editor.tabSize": 4
-```
-
-Spaces or Tabs
-
-```json
-"editor.insertSpaces": true
-```
-
-Render whitespace
-
-```json
-"editor.renderWhitespace": "all"
-```
-
-Whitespace characters are rendered by default in text selection.
-
-Ignore files / folders
-
-Removes these files / folders from your editor window.
-
-```json
-"files.exclude": {
-    "somefolder/": true,
-    "somefile": true
-}
-```
-
-Remove these files / folders from search results.
-
-```json
-"search.exclude": {
-    "someFolder/": true,
-    "somefile": true
-}
-```
-
-Learn about the many [other customizations](/docs/getstarted/settings.md).
-
-### Language specific settings
-
-You can scope settings for specific languages by using the language identifier. You can find a list of commonly used language IDs in the [Language Identifiers](/docs/languages/identifiers.md) reference.
-
-```json
-"[languageid]": {
-
-}
-```
-
-> **Tip:** You can also create language-specific settings with the **Configure Language Specific Settings** command.
->
-> ![language based settings](images/tips-and-tricks/lang-based-settings.png)
-
-### Add JSON validation
-
-JSON validation is enabled by default for many file types. Create your own schema and validation in `settings.json`:
-
-```json
-"json.schemas": [
-    {
-        "fileMatch": [
-            "bower.json"
-        ],
-        "url": "https://json.schemastore.org/bower"
-    }
-]
-```
-
-or for a schema defined in your workspace:
-
-```json
-"json.schemas": [
-    {
-        "fileMatch": [
-            "**/foo.json"
-        ],
-        "url": "./myschema.json"
-    }
-]
-```
-
-or to use a custom schema:
-
-```json
-"json.schemas": [
-    {
-        "fileMatch": [
-            "/.myconfig"
-        ],
-        "schema": {
-            "type": "object",
-            "properties": {
-                "name" : {
-                    "type": "string",
-                    "description": "The name of the entry"
-                }
-            }
-        }
-    }
-]
-```
-
-See more in the [JSON](/docs/languages/json.md) documentation.
-
-### Configure the default browser
-
-In VS Code, you can `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) on a link to open it in your default browser. You can configure the default browser by setting the `setting(workbench.externalBrowser)` [setting](/docs/getstarted/settings.md).
-
-Specify the full path to the browser executable as the settings value. Alternatively, to ensure correct functioning across devices, you can also use browser aliases, such as `edge`, `chrome`, or `firefox`.
-
-```json
-"workbench.externalBrowser": "edge"
-```
-
-## Extensions
-
-Keyboard Shortcut: `kb(workbench.view.extensions)`
-
-### Find extensions
-
-You can use multiple sources to find extensions:
-
-* In the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode).
-* Search inside VS Code in the **Extensions** view.
-* View extension recommendations
-* Community curated extension lists, such as [awesome-vscode](https://github.com/viatsko/awesome-vscode).
-
-### Find popular extensions
-
-In the **Extensions** view, select the **Filter** control, and then either select **Most Popular** or **Sort By** > **Install Count**.
-
-![install extensions](images/tips-and-tricks/show-popular-extensions.png)
-
-### Extension recommendations
-
-In the **Extensions** view, select the **Filter** control, and then select **Recommended** to view the list of recommended extensions.
-
-![show recommended extensions](images/tips-and-tricks/show-recommended-extensions.png)
-
-### Create your own extension
-
-Are you interested in creating your own extension? You can learn how to do this in the [Extension API documentation](/api), specifically check out the [documentation on contribution points](/api/references/contribution-points.md).
-
-* configuration
-* commands
-* keybindings
-* languages
-* debuggers
-* grammars
-* themes
-* snippets
-* jsonValidation
-
-## Files and folders
-
-### Simple file dialog
-
-With the simple file dialog, you can replace the system's default file dialog for opening and saving files and folders with a simpler Quick Pick dialog within VS Code.
-
-After you enable the Simple File Dialog, you can browse and select files and folders by using a Quick Pick inside VS Code.
-
-![Simple File Dialog](images/tips-and-tricks/simple-file-dialog.png)
-
-To enable the simple file dialog, configure the `files.simpleDialog` [setting](/docs/getstarted/settings.md):
-
-```json
-    "files.simpleDialog.enable": true
-```
-
-### Integrated Terminal
-
-Keyboard Shortcut: `kb(workbench.action.terminal.toggleTerminal)`
-
-![Integrated terminal](images/tips-and-tricks/integrated_terminal.png)
-
-You can select another terminal shell from the dropdown. Depending on your operating system and system configuration, you might see different shells listed.
-
-Further reading:
-
-* [Integrated Terminal](/docs/terminal/basics.md) documentation
-* [Mastering VS Code's Terminal article](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html)
-
-### Toggle Sidebar
-
-Keyboard Shortcut: `kb(workbench.action.toggleSidebarVisibility)`
-
-![toggle side bar](images/tips-and-tricks/toggle_side_bar.gif)
-
-### Toggle Panel
-
-Keyboard Shortcut: `kb(workbench.action.togglePanel)`
-
-![toggle panel](images/tips-and-tricks/toggle_panel.gif)
-
-### Zen mode
-
-Enter distraction-free Zen mode.
-
-Keyboard Shortcut: `kb(workbench.action.toggleZenMode)`
-
-![zen mode](images/tips-and-tricks/zen_mode.gif)
-
-Press `kbstyle(Esc)` twice to exit Zen Mode.
-
-### Side by side editing
-
-Keyboard Shortcut: `kb(workbench.action.splitEditor)`
-
-You can also drag and drop editors to create new editor groups and move editors between groups.
-
-![split editors](images/tips-and-tricks/split_editor.gif)
-
-### Switch between editors
-
-Keyboard Shortcut: `kb(workbench.action.focusFirstEditorGroup)`, `kb(workbench.action.focusSecondEditorGroup)`, `kb(workbench.action.focusThirdEditorGroup)`
-
-![navigate editors](images/tips-and-tricks/navigate_editors.gif)
-
-### Show Explorer view
-
-Keyboard Shortcut: `kb(workbench.view.explorer)`
-
-### Create or open a file from a link
-
-Keyboard Shortcut: `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS)
-
-You can quickly open a file or image, or create a new file by moving the cursor to the file link and then pressing `kbstyle(Ctrl+click)`.
-
-![create and open file](images/tips-and-tricks/create_open_file.gif)
-
-### Close the currently opened folder
-
-Keyboard Shortcut: `kb(workbench.action.closeFolder)`
-
-### Navigation history
-
-Navigate entire history: `kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)`
-
-Navigate back: `kb(workbench.action.navigateBack)`
-
-Navigate forward: `kb(workbench.action.navigateForward)`
-
-![navigate history](images/tips-and-tricks/navigate_history.gif)
-
-### File associations
-
-Create language associations for files that aren't detected correctly. For example, many configuration files with custom file extensions are actually JSON.
-
-```json
-"files.associations": {
-    ".database": "json"
-}
-```
-
-### Preventing dirty writes
-
-VS Code will show you an error message when you try to save a file that cannot be saved because it has changed on disk. VS Code blocks saving the file to prevent overwriting changes that have been made outside of the editor.
-
-To resolve the save conflict, select the **Compare** action in the notification popup to open a diff editor that shows you the contents of the file on disk (to the left) compared to the contents in VS Code (on the right):
-
-![dirty write](images/tips-and-tricks/dirty-write.png)
-
-Use the actions in the editor toolbar to resolve the save conflict. You can either **Accept** your changes and thereby overwriting any changes on disk, or **Revert** to the version on disk. Reverting means that your changes will be lost.
-
-**Note:** The file remains dirty and cannot be saved until you pick one of the two actions to resolve the conflict.
-
-## Editing hacks
-
-Here is a selection of common features for editing code. If you're more familiar with the keyboard shortcuts for another editor, consider installing a [keymap extension](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs).
-
-**Tip**: You can see recommended keymap extensions in the **Extensions** view by filtering the search to `@recommended:keymaps`.
-
-### Multi cursor selection
-
-To add cursors at arbitrary positions, select a position with your mouse and use `kbstyle(Alt+Click)` (`kbstyle(Option+Click)` on macOS).
-
-To set cursors above or below the current position use:
-
-Keyboard Shortcut: `kb(editor.action.insertCursorAbove)` or `kb(editor.action.insertCursorBelow)`
-
-![multi cursor](images/tips-and-tricks/multicursor.gif)
-
-You can add additional cursors to all occurrences of the current selection with `kb(editor.action.selectHighlights)`.
-
-![add cursor to all occurrences of current selection](images/tips-and-tricks/add_cursor_current_selection.gif)
-
-> Note: You can also change the modifier to `kbstyle(Ctrl/Cmd)` for applying multiple cursors with the `setting(editor.multiCursorModifier)` [setting](/docs/getstarted/settings.md) . See [Multi-cursor Modifier](/docs/editor/codebasics.md#multicursor-modifier) for details.
-
-If you do not want to add all occurrences of the current selection, you can use `kb(editor.action.addSelectionToNextFindMatch)` instead.
-This only selects the next occurrence after the one you selected so you can add selections one by one.
-
-![add cursor to next occurrences of current selection one by one](images/tips-and-tricks/add_cursor_current_selection_one_by_one.gif)
-
-### Column (box) selection
-
-You can select blocks of text by holding `kbstyle(Shift+Alt)` (`kbstyle(Shift+Option)` on macOS) while you drag your mouse. A separate cursor will be added to the end of each selected line.
-
-![Column text selection](images/tips-and-tricks/column-select.gif)
-
-You can also use [keyboard shortcuts](/docs/editor/codebasics.md#column-box-selection) to trigger column selection.
-
-### Vertical rulers
-
-You can add vertical column rulers to the editor with the `setting(editor.rulers)` setting, which takes an array of column character positions where you'd like vertical rulers.
-
-```json
-{
-    "editor.rulers": [
-        20, 40, 60
-    ]
-}
-```
-
-![Editor rulers in the editor](images/tips-and-tricks/editor-rulers.png)
-
-### Fast scrolling
-
-Pressing the `kbstyle(Alt)` key enables fast scrolling in the editor and Explorers. By default, fast scrolling uses a 5X speed multiplier but you can control the multiplier with the **Editor: Fast Scroll Sensitivity** (`setting(editor.fastScrollSensitivity)`) setting.
-
-### Locked scrolling
-
-You can synchronize scrolling across all visible editors by using the **View: Toggle Locked Scrolling Across Editors** command. This means that when you scroll in one editor, all the other editors scroll by the same amount, keeping everything aligned.
-
-![Locked scrolling in the editor](images/tips-and-tricks/locked-scrolling.gif)
-
-You can choose to only activate the scrolling sync when you're holding down a specific keybinding. Set up a keyboard shortcut for the `workbench.action.holdLockedScrolling` command to temporarily lock scrolling across editors.
-
-### Copy line up / down
-
-Keyboard Shortcut: `kb(editor.action.copyLinesUpAction)` or `kb(editor.action.copyLinesDownAction)`
-
-> The commands **Copy Line Up/Down** are unbound on Linux because the VS Code default keybindings would conflict with Ubuntu keybindings, see [Issue #509](https://github.com/microsoft/vscode/issues/509). You can still set the commands `editor.action.copyLinesUpAction` and `editor.action.copyLinesDownAction` to your own preferred keyboard shortcuts.
-
-![copy line down](images/tips-and-tricks/copy_line_down.gif)
-
-### Move line up and down
-
-Keyboard Shortcut: `kb(editor.action.moveLinesUpAction)` or `kb(editor.action.moveLinesDownAction)`
-
-![move line up and down](images/tips-and-tricks/move_line.gif)
-
-### Shrink / expand selection
-
-Keyboard Shortcut: `kb(editor.action.smartSelect.shrink)` or `kb(editor.action.smartSelect.expand)`
-
-![shrink expand selection](images/tips-and-tricks/shrink_expand_selection.gif)
-
-You can learn more in the [Basic Editing](/docs/editor/codebasics.md#shrinkexpand-selection) documentation.
-
-### Go to Symbol in File
-
-Keyboard Shortcut: `kb(workbench.action.gotoSymbol)`
-
-![Find by symbol](images/tips-and-tricks/find_by_symbol.gif)
-
-You can group the symbols by kind by adding a colon, `@:`.
-
-![group symbols by kind](images/tips-and-tricks/group_symbols_by_kind.png)
-
-### Go to Symbol in Workspace
-
-Keyboard Shortcut: `kb(workbench.action.showAllSymbols)`
-
-![go to symbol in workspace](images/tips-and-tricks/go_to_symbol_in_workspace.png)
+![Filtering files in the File Explorer](images/userinterface/file-explorer-filter.png)
 
 ### Outline view
 
-The Outline view in the File Explorer (default collapsed at the bottom) shows you the symbols of the currently open file.
+The Outline view is a separate section at the bottom of the Explorer view. When expanded, it shows the symbol tree of the currently active editor.
 
-![Outline view](images/tips-and-tricks/outline-view.png)
+![Outline view](images/userinterface/outline-view.png)
 
-You can sort by symbol name, category, and position in the file and allows quick navigation to symbol locations.
+The Outline view has different **Sort By** modes, optional cursor tracking, and supports the usual open gestures. It also includes an input box to find or filter. Errors and warnings are also shown in the Outline view, letting you see at a glance a problem's location.
 
-### Navigate to a specific line
+For symbols, the view relies on information computed by your installed extensions for different file types. For example, the built-in Markdown support returns the Markdown header hierarchy for a Markdown file's symbols.
 
-Keyboard Shortcut: `kb(workbench.action.gotoLine)`
+![Markdown Outline view](images/userinterface/markdown-outline-view.png)
 
-### Undo cursor position
+There are several Outline view [settings](/docs/getstarted/settings.md). Search for settings starting with `outline.` and to configure what information is shown in the Outline view.
 
-Keyboard Shortcut: `kb(cursorUndo)`
+### Timeline view
 
-### Trim trailing whitespace
+The Timeline view, accessible at the bottom of the File Explorer, is a unified view for visualizing the events history for a file. For example, you can view Git commits or local file saves in a timeline view.
 
-Keyboard Shortcut: `kb(editor.action.trimTrailingWhitespace)`
+![Timeline view](images/userinterface/timeline-view.png)
 
-![trailing whitespace](images/tips-and-tricks/trim_whitespace.gif)
+A filter action in the Timeline view toolbar enables you to filter between source control events and local file events:
 
-### Transform text commands
+![Timeline filter drop down with Git History unchecked and Local History checked](images/userinterface/timeline-filter.png)
 
-You can change selected text to uppercase, lowercase, and title case with the **Transform** commands from the Command Palette.
+#### Local file history
 
-![Transform text commands](images/tips-and-tricks/transform-text-commands.png)
+Depending on your settings, every time you save an editor, a new entry is added to the list. Each local history entry contains the full contents of the file at the time the entry was created and in certain cases, can provide more semantic information (for example, indicate a refactoring).
 
-### Code formatting
+From an entry you can:
 
-Currently selected source code: `kb(editor.action.formatSelection)`
+* Compare the changes to the local file or previous entry.
+* Restore the contents.
+* Delete or rename the entry.
 
-Whole document format: `kb(editor.action.formatDocument)`
+> [!TIP]
+> If you've accidentally deleted a file, you can restore it from the local history by using the **...** > **Local History: Find Entry to Restore** action in the Timeline view, and then select your file from the Quick Pick.
 
-![code formatting](images/tips-and-tricks/code_formatting.gif)
+You can configure these settings for working with the local history:
 
-### Code folding
+* `setting(workbench.localHistory.enabled)` - Enable or disable local history (default: true)
+* `setting(workbench.localHistory.maxFileSize)` - File size limit when creating a local history entry (default: 256 KB)
+* `setting(workbench.localHistory.maxFileEntries)` - Local history entries limit per file (default: 50)
+* `setting(workbench.localHistory.exclude)` - Glob patterns for excluding certain files from local history
+* `setting(workbench.localHistory.mergeWindow)` - Interval in seconds during which further changes are added to the last entry in local file history (default 10s)
 
-Keyboard Shortcut: `kb(editor.fold)`, `kb(editor.unfold)` and `kb(editor.toggleFold)`
+#### Commit history
 
-![code folding](images/tips-and-tricks/code_folding.gif)
+VS Code's built-in Git support provides the Git commit history of the specified file. Selecting a commit will open a diff view of the changes introduced by that commit. When you right-click on a commit, you'll get options to **Copy Commit ID** and **Copy Commit Message**.
 
-You can also fold/unfold all regions in the editor with **Fold All** (`kb(editor.foldAll)`) and **Unfold All** (`kb(editor.unfoldAll)`).
+When you right-click a commit in the history, you can:
 
-You can fold all block comments with **Fold All Block Comments** (`kb(editor.foldAllBlockComments)`).
+* **Open Changes** - Open a diff view of the changes in the file.
+* **View Commit** - Open a multi-file diff view to view the changes for all files in the commit.
+* **Select for Compare** - Select an entry to compare with another entry.
+* **Copy Commit ID** - Copy the commit ID to the clipboard.
+* **Copy Commit Message** - Copy the commit message to the clipboard.
 
-### Select current line
+You can configure this setting for working with the Git history:
 
-Keyboard Shortcut: `kb(expandLineSelection)`
+* `setting(git.timeline.date)` - Show the commit date or authored date of a file commit
 
-### Navigate to beginning and end of file
+## Views
 
-Keyboard Shortcut: `kb(cursorTop)` and `kb(cursorBottom)`
+The Explorer view is only one of the views available in VS Code. There are also views for:
 
-### Open Markdown preview
+* **Search** - Provides global search and replace across your open folder.
+* **Source Control** - VS Code includes Git source control by default.
+* **Run** - VS Code's Run and Debug View displays variables, call stacks, and breakpoints.
+* **Extensions** - Install and manage your extensions within VS Code.
+* **Custom views** - Views contributed by extensions.
 
-In a Markdown file, use
+> [!TIP]
+> You can open any view using the **View: Open View** command.
 
-Keyboard Shortcut: `kb(markdown.showPreview)`
+![views](images/userinterface/views.png)
 
-![Markdown preview](images/tips-and-tricks/markdown-preview.png)
+You can show or hide views by right-clicking the Activity Bar, and reorder them by using drag and drop. Within the Explorer view, you can show or hide sections via the '...' menu, or drag and drop sections to reorder them.
 
-### Side by side Markdown edit and preview
+![view management](images/userinterface/view-management.gif)
 
-In a Markdown file, use
+## Command Palette
 
-Keyboard Shortcut: `kb(markdown.showPreviewToSide)`
+VS Code is equally accessible from the keyboard. The most important key combination to know is `kb(workbench.action.showCommands)`, which brings up the **Command Palette**. From here, you have access to all functionality within VS Code, including keyboard shortcuts for the most common operations.
 
-The preview and editor will synchronize with your scrolling in either view.
+![Command Palette](images/userinterface/commands.png)
 
-![side by side Markdown preview](images/tips-and-tricks/markdown-preview-side-by-side.png)
+The **Command Palette** provides access to many commands. You can run editor commands, open files, search for symbols, and see a quick outline of a file, all using the same interactive window. Here are a few tips:
 
-## IntelliSense
+* `kb(workbench.action.quickOpen)` enables you to navigate to any file or symbol by typing its name
+* `kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)` cycles you through the last set of files opened
+* `kb(workbench.action.showCommands)` brings you directly to the editor commands
+* `kb(workbench.action.gotoSymbol)` enables you to navigate to a specific symbol in a file
+* `kb(workbench.action.gotoLine)` enables you to navigate to a specific line in a file
 
-`kb(editor.action.triggerSuggest)` to trigger the Suggestions widget.
+Type `?` in the input field to get a list of available commands that you can run from the Command Palette.
 
-![intellisense](images/tips-and-tricks/intellisense.gif)
+![Quick Open Help](images/userinterface/quickopenhelp.png)
 
-You can view available methods, parameter hints, short documentation, etc.
+## Configure the editor
 
-### Peek
+VS Code gives you many options to configure the editor. From the **View** > **Appearance** menu, you can hide or toggle various parts of the user interface, such as the **Side Bar**, **Status Bar**, and **Activity Bar**.
 
-Select a symbol then type `kb(editor.action.peekDefinition)`. Alternatively, you can use the context menu.
+### Hide the menu bar (Windows, Linux)
 
-![peek](images/tips-and-tricks/peek.gif)
+You can hide the menu bar on Windows and Linux by changing the setting `setting(window.menuBarVisibility)` from `classic` to `toggle` or `hidden`. A setting of `toggle` means that a single press of the `kbstyle(Alt)` key shows the menu bar again.
 
-### Go to Definition
+You can also hide the menu bar on Windows and Linux with the **View: Toggle Menu Bar** command. This command sets `setting(window.menuBarVisibility)` from `classic` to `compact`, resulting in the menu bar moving into the Activity Bar. To return the menu bar to the `classic` position, you can run the **View: Toggle Menu Bar** command again.
 
-Select a symbol then type `kb(editor.action.revealDefinition)`. Alternatively, you can use the context menu or `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS).
+### Settings
 
-![go to definition](images/tips-and-tricks/goto_definition.gif)
+Most editor configurations are managed in settings, which you can modify directly. You can set options either globally through user settings, or per project/folder through workspace settings. Settings values are stored in a [`settings.json` file](/docs/getstarted/settings.md#settingsjson).
 
-You can go back to your previous location with the **Go** > **Back** command or `kb(workbench.action.navigateBack)`.
+You can view and edit settings in the Settings Editor (select **File** > **Preferences** > **Settings**, or press `kb(workbench.action.openSettings)`). Use the **User** and **Workspace** tab to switch between user and workspace settings. You can filter settings by using the search box at the top.
 
-You can also see the type definition if you press `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) when you are hovering over the type.
+Alternately, you can modify the user settings directly in the `settings.json` file. Use the **Preferences: Open User Settings (JSON)** command to open the `settings.json file`. For workspace settings, open the `settings.json` file in the `.vscode` folder in your workspace.
 
-### Go to References
+![workspace settings](images/userinterface/workspace-settings.png)
 
-Select a symbol then type `kb(editor.action.goToReferences)`. Alternatively, you can use the context menu.
+> [!NOTE]
+> Workspace settings override user settings and are useful for sharing project-specific settings across a team.
 
-![peek references](images/tips-and-tricks/find_all_references.gif)
+### Zen Mode
 
-### Find All References view
+Zen mode lets you focus on your code by hiding all UI elements, except for the editor, switching VS Code to full screen, and centering the editor. Zen mode can be toggled with the **View** > **Appearance** > **Zen Mode** menu, **View: Toggle Zen Mode** in the **Command Palette**, or with the shortcut `kb(workbench.action.toggleZenMode)`. Double press `kbstyle(Esc)` to exit Zen mode. The transition to full screen can be disabled via `setting(zenMode.fullScreen)`.
 
-Select a symbol then type `kb(references-view.findReferences)` to open the References view showing all your file's symbols in a dedicated view.
+Zen Mode can be further tuned with the following settings:
 
-### Rename Symbol
+* `setting(zenMode.hideActivityBar)`- Hide the Activity bar. Default `true`.
+* `setting(zenMode.hideStatusBar)` - Hide the Status bar. Default `true`.
+* `setting(zenMode.hideLineNumbers)` - Hide line numbers. Default `true`.
+* `setting(zenMode.showTabs)` - Controls whether to show multiple, single, or no editors tabs. Default `multiple`.
+* `setting(zenMode.fullScreen)` - Put workbench in full screen display. Default `true`.
+* `setting(zenMode.restore)` - Restore Zen Mode on restart. Default `true`.
+* `setting(zenMode.centerLayout)` - Use [Centered editor layout](#centered-editor-layout). Default `true`.
+* `setting(zenMode.silentNotifications)` - Do not display notifications. Default `true`.
 
-Select a symbol then type `kb(editor.action.rename)`. Alternatively, you can use the context menu.
+### Reduce Notifications with Do Not Disturb Mode
 
-![rename symbol](images/tips-and-tricks/rename_symbol.gif)
+If you are overwhelmed by notifications popping up, there is a way to reduce notifications, either for all notifications, or for notifications from a specific extension.
 
-### Search and modify
+Select the bell icon in the Status Bar to open the Notifications area. This is a place where you can access all notifications at any time, even if you have enabled Do Not Disturb Mode.
 
-Besides searching and replacing expressions, you can also search and reuse parts of what was matched, using regular expressions with capturing groups. Enable regular expressions in the search box by clicking the **Use Regular Expression** `.*` button (`kb(toggleSearchRegex)`) and then write a regular expression and use parentheses to define groups. You can then reuse the content matched in each group by using `$1`, `$2`, etc. in the Replace field.
+![Notifications center](images/userinterface/notifications-center.png)
 
-![search and modify](images/tips-and-tricks/search_and_modify.png)
+Find the crossed out bell icon to get access to a menu where you can selectively disable notifications from extensions or enable the global Do Not Disturb Mode to disable all notifications.
 
-### .eslintrc.json
+![Notifications do not disturb menu](images/userinterface/notifications-dnd.png)
 
-Install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint). Configure
-your linter however you'd like. Consult the [ESLint specification](https://eslint.org/docs/user-guide/configuring) for details on its linting rules and options.
+> [!NOTE]
+> The global Do Not Disturb Mode also hides error notifications, while the extension-specific filter still allows error notifications to show.
 
-Here is configuration to use ES6.
+### Centered editor layout
+
+Centered editor layout allows you to center align the editor area. This is useful when working with a single editor on a large monitor. You can use the side borders to resize the view (hold down the `Alt` key to independently move the sides).
+
+## Tabs
+
+VS Code shows open items with tabs (tabbed headings) in the title area above the editor. When you open a file, a new tab is added for that file. Tabs let you quickly navigate between items.
+
+![tabs hero](images/userinterface/tabs-hero.png)
+
+You can drag and drop tabs to reorder them. To perform an action on multiple tabs at once, hold down the `kbstyle(Ctrl)` key (`kbstyle(Cmd)` on macOS) and select the tabs you want to act on. To select a range of tabs, hold down the `kbstyle(Shift)` key and select the first and last tabs in the range.
+
+When you have more open items than can fit in the title area, you can use the **Open Editors** section in the Explorer view (available through the `...` button) to display a dropdown list of tabbed items.
+
+There is also a scroll bar between the tab and editor regions to drag editors into view. You can increase the height of the scroll bar to make it easier to drag by setting **Workbench > Editor: Title Scrollbar Sizing** (`setting(workbench.editor.titleScrollbarSizing)`) to `large`.
+
+If you don't want to use tabs, you can disable the feature by setting the `setting(workbench.editor.showTabs)` setting to `single`:
 
 ```json
-{
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es6": true,
-        "node": true
-    },
-    "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true,
-            "classes": true,
-            "defaultParams": true
-        }
-    },
-    "rules": {
-        "no-const-assign": 1,
-        "no-extra-semi": 0,
-        "semi": 0,
-        "no-fallthrough": 0,
-        "no-empty": 0,
-        "no-mixed-spaces-and-tabs": 0,
-        "no-redeclare": 0,
-        "no-this-before-super": 1,
-        "no-undef": 1,
-        "no-unreachable": 1,
-        "no-use-before-define": 0,
-        "constructor-super": 1,
-        "curly": 0,
-        "eqeqeq": 0,
-        "func-names": 0,
-        "valid-typeof": 1
+    "workbench.editor.showTabs": "single"
+```
+
+See the section below to optimize VS Code for [working without Tabs](/docs/getstarted/userinterface.md#working-without-tabs).
+
+> [!TIP]
+> Double-click in the editor title area to quickly create a new tab.
+
+### Tab ordering
+
+By default, new tabs are added to the right of the existing tabs. You can control where you want new tabs to appear with the `setting(workbench.editor.openPositioning)` setting.
+
+For example, you might like new tabbed items to appear on the left:
+
+```json
+    "workbench.editor.openPositioning": "left"
+```
+
+You can reorder tabs by dragging and dropping them.
+
+If you'd like an editor tab to always be visible, you can pin it to the editor tab bar. Learn more about pinning tabs in the [Custom Layout](/docs/editor/custom-layout.md#pinned-tabs) article.
+
+### Preview mode
+
+When you single-click or select a file in the Explorer view, it is shown in a preview mode and reuses an existing tab (preview tab). This is useful if you are quickly browsing files and don't want every visited file to have its own tab. When you start editing the file or use double-click to open the file from the Explorer, a new tab is dedicated to that file.
+
+Preview mode is indicated by italics in the tab heading:
+
+![preview mode](images/userinterface/preview-tab.png)
+
+If you prefer not to use preview mode and always create a new tab, you can control the behavior with these settings:
+
+* `setting(workbench.editor.enablePreview)` - to globally enable or disable preview editors
+* `setting(workbench.editor.enablePreviewFromQuickOpen)` - to enable or disable preview editors when opened from **Quick Open**
+
+### Wrapped tabs
+
+To see more editor tabs, you can use the **wrapped tab** layout, where editor tabs wrap to fill multiple rows above the editor region. Enable wrapped tabs with the **Workbench > Editor: Wrap Tabs** (`setting(workbench.editor.wrapTabs)`) setting.
+
+![Wrapped editor tabs filling two rows about the editor region](images/userinterface/wrapped-tabs.png)
+
+### Customize tab labels
+
+When you have multiple files with the same name open at the same time, it can be difficult to distinguish the different tabs. To help with this, you can apply a custom display label to the tabs. You can choose for which files in your workspace you want to apply a custom label to the tab.
+
+To enable custom display labels for tabs, set the `setting(workbench.editor.customLabels.enabled)` setting:
+
+```json
+    "workbench.editor.customLabels.enabled": true
+```
+
+You can specify one or more naming patterns for the tab display labels with the `setting(workbench.editor.customLabels.patterns)` setting. A name pattern consists of two components:
+
+- **Item** - a [glob pattern](/docs/editor/glob-patterns.md) that matches file paths for which to apply a custom label. For example, `**/static/**/*.html`.
+- **Value** - a template for the custom label. Templates can use variables such as `${filename}`, `${extname}`, `${extname(N)}`, `${dirname}`, and `${dirname(N)}`, which are dynamically replaced with values from the file's path.
+
+The following sample displays the `/src/orders/index.html` file with a tab label of `orders/index`.
+
+```json
+    "workbench.editor.customLabels.patterns": {
+        "**/src/**/index.html": "${dirname}/${filename}"
     }
+```
+
+![Screenshot of Setting editor to enable and specify custom labels for tabs](images/userinterface/tabs-custom-labels.png)
+
+The following examples use the `${extname}` variable for the file `tests/editor.test.ts`:
+
+* `${filename}` => editor
+* `${extname}` => test.ts
+* `${extname(0)}` => ts
+* `${extname(1)}` => test
+* `${extname(-1)}` => test
+* `${extname(-2)}` => ts
+
+> [!NOTE]
+> The custom tab labels also apply in the Open Editors view and in [Quick Open](/docs/getstarted/tips-and-tricks.md#quick-open) (`kb(workbench.action.quickOpen)`).
+
+## Grid editor layout
+
+By default, editor groups are laid out in vertical columns. For example, when you split an editor, it opens the editor to the side. You can arrange editor groups in any layout you like, both vertically and horizontally:
+
+![Grid Editor Layout](images/userinterface/grid-layout.gif)
+
+To support flexible layouts, you can create empty editor groups. By default, closing the last editor of an editor group also closes the group itself, but you can change this behavior with the new setting `workbench.editor.closeEmptyGroups: false`:
+
+![Grid Empty](images/userinterface/grid-empty.png)
+
+There are a predefined set of editor layouts in the **View** > **Editor Layout** menu:
+
+![Grid Editor Layout Menu](images/userinterface/grid-layout-menu.png)
+
+By default, editors that open to the side (for example, by selecting the editor toolbar **Split Editor** action) open to the right-hand side of the active editor. If you prefer to open editors below the active one, set `setting(workbench.editor.openSideBySideDirection)` to `down`.
+
+There are many keyboard commands for adjusting the editor layout by using the keyboard. If you prefer to use the mouse, you can use drag and drop to split the editor into any direction:
+
+![Grid Editor Drag and Drop](images/userinterface/grid-dnd.gif)
+
+> [!TIP]
+> If you press and hold the `kbstyle(Alt)` key while hovering over the toolbar action to split an editor, it offers to split to the other orientation. This is a fast way to split either to the right or to the bottom.
+
+![Grid Alt Click](images/userinterface/grid-alt.gif)
+
+### Keyboard shortcuts
+
+Here are some handy keyboard shortcuts to quickly navigate between editors and editor groups.
+
+* `kb(workbench.action.nextEditor)` - go to the right editor.
+* `kb(workbench.action.previousEditor)` - go to the left editor.
+* `kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)` - open the previous editor in the editor group's most recently used list.
+* `kb(workbench.action.focusFirstEditorGroup)` - go to the leftmost editor group.
+* `kb(workbench.action.focusSecondEditorGroup)` - go to the center editor group.
+* `kb(workbench.action.focusThirdEditorGroup)` - go to the rightmost editor group.
+* `kb(workbench.action.closeActiveEditor)` - close the active editor.
+* `kb(workbench.action.closeEditorsInGroup)` - close all editors in the editor group.
+* `kb(workbench.action.closeAllEditors)` - close all editors.
+
+>If you want to modify the default keyboard shortcuts, see [Key Bindings](/docs/getstarted/keybindings.md) for details.
+
+## Working without tabs
+
+If you prefer not to use tabs (tabbed headings), you can disable tabs entirely by setting `setting(workbench.editor.showTabs)` to `single` or `none`.
+
+### Disable Preview mode
+
+Without tabs, the **Open Editors** section of the Explorer view is a quick way to do file navigation. However, with [preview editor mode](/docs/getstarted/userinterface.md#preview-mode) enabled, files are not added to the Open Editors section. You can disable this feature through the `setting(workbench.editor.enablePreview)` and `setting(workbench.editor.enablePreviewFromQuickOpen)` settings.
+
+### Use keyboard shortcuts to navigate the editor history
+
+You can change keybindings for `kbstyle(Ctrl+Tab)` to show you a list of all opened editors from the history, independent of the active editor group.
+
+Edit your [keybindings](/docs/getstarted/keybindings.md) and add the following:
+
+```json
+{ "key": "ctrl+tab", "command": "workbench.action.openPreviousEditorFromHistory" },
+{ "key": "ctrl+tab", "command": "workbench.action.quickOpenNavigateNext", "when": "inQuickOpen" },
+```
+
+### Close an entire group instead of a single editor
+
+If you liked the behavior of VS Code closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/getstarted/keybindings.md).
+
+macOS:
+
+```json
+{ "key": "cmd+w", "command": "workbench.action.closeEditorsInGroup" }
+```
+
+Windows/Linux:
+
+```json
+{ "key": "ctrl+w", "command": "workbench.action.closeEditorsInGroup" }
+```
+
+## Window management
+
+VS Code has various options to control how VS Code windows (instances) should be opened or restored between sessions.
+
+The settings `setting(window.openFoldersInNewWindow)` and `setting(window.openFilesInNewWindow)` are provided to configure opening new windows or reusing the last active window for files or folders and possible values are `default`, `on` and `off`.
+
+If configured to be `default`, VS Code decides about reusing or opening a new window, based on the context from where the open request was made. Flip this to `on` or `off` to always behave the same. For example, if you feel that picking a file or folder from the **File** menu should always open in a new window, set this to `on`.
+
+> [!NOTE]
+> There are cases where this setting is ignored, such as when you use the `-new-window` or `-reuse-window` command-line option.
+
+The `setting(window.restoreWindows)` setting informs VS Code about how to restore the opened windows of your previous session. By default, VS Code restores all windows you worked on during your previous session (setting: `all`). Change this setting to `none` to never reopen any windows and always start with an empty VS Code instance. Change it to `one` to reopen the last opened window you worked on, or to `folders` to only restore windows that had folders opened.
+
+## Next steps
+
+Now that you know the overall layout of VS Code, start to customize the editor to how you like to work by looking at the following articles:
+
+* [Changing the theme](/docs/getstarted/themes.md) - Set a Color and/or File Icon Theme to your preference.
+* [Using custom layouts](/docs/editor/custom-layout.md) - Learn more about VS Code's workbench and editor layout customizations.
+
+## Common questions
+
+### How can I change the color of the indent guides?
+
+The indent guide colors are customizable, as are most VS Code user interface elements. To [customize](/api/references/theme-color.md) the indent guides color for your active Color Theme, use the `setting(workbench.colorCustomizations)` setting and modify the `editorIndentGuide.background` value.
+
+For example, to make the indent guides bright blue, add the following to your `settings.json`:
+
+```json
+"workbench.colorCustomizations": {
+    "editorIndentGuide.background": "#0000ff"
 }
 ```
 
-### package.json
+### Can I hide the Open Editors section in the Explorer view?
 
-See IntelliSense for your `package.json` file.
+Yes, you can show or hide the Open Editors section by using the Views menu in the Explorer and toggling the **Open Editors** menu item.
 
-![package json intellisense](images/tips-and-tricks/package_json_intellisense.gif)
-
-### Emmet syntax
-
-[Support for Emmet syntax](/docs/editor/emmet.md).
-
-![emmet syntax](images/tips-and-tricks/emmet_syntax.gif)
-
-## Snippets
-
-### Create custom snippets
-
-**File** > **Preferences** > **Configure User Snippets**, select the language, and create a snippet.
-
-```json
-"create component": {
-    "prefix": "component",
-    "body": [
-        "class $1 extends React.Component {",
-        "",
-        "\trender() {",
-        "\t\treturn ($2);",
-        "\t}",
-        "",
-        "}"
-    ]
-},
-```
-
-See more details in [Creating your own Snippets](/docs/editor/userdefinedsnippets.md).
-
-## Git integration
-
-Keyboard Shortcut: `kb(workbench.view.scm)`
-
-Git integration comes "out-of-the-box" with VS Code. You can install other source control management (SCM) providers from the VS Code [Extension Marketplace](/docs/editor/extension-marketplace.md). This section describes the Git integration but much of the UI and gestures are common for other SCM providers.
-
-### Diffs
-
-From the **Source Control** view, select a file to open the diff editor. Alternatively, select the **Open Changes** button in the top right corner to diff the current open file.
-
-![git diff from source control](images/tips-and-tricks/msee-changes.gif)
-
-#### Views
-
-The default view for diffs is the **side by side view**.
-
-Toggle **inline view** by selecting the **More Actions** (...) button in the top right, and then selecting **Inline View**.
-
-![Screenshot that shows the More Actions menu in the diff editor, highlighting the Inline View menu item](images/tips-and-tricks/mdiff-switch-to-inline.png)
-
-If you prefer to have the inline view as the default, configure the `"diffEditor.renderSideBySide": false` setting.
-
-#### Accessible Diff Viewer
-
-Navigate through diffs with `kb(editor.action.accessibleDiffViewer.next)` and `kb(editor.action.accessibleDiffViewer.prev)`. This presents changes in a unified patch format. Lines can be navigated with arrow keys and pressing `kbstyle(Enter)` jumps back in the diff editor and the selected line.
-
-![diff_review_pane](images/tips-and-tricks/diff_review_pane.png)
-
-#### Edit pending changes
-
-While you're viewing changes in the diff editor, you can make edits directly in the pending changes side of the diff editor.
-
-### Branches
-
-Easily switch between Git branches via the Status Bar.
-
-![switch branches](images/tips-and-tricks/switch-branch.gif)
-
-### Staging
-
-#### Stage file changes
-
-Hover over the number of files and select the plus button to stage a file.
-
-Select the minus button to unstage changes.
-
-![git stage all](images/tips-and-tricks/stage-unstage.gif)
-
-#### Stage selected
-
-You can stage a portion of a file by making a text selection in a file and then choosing **Stage Selected Ranges** from the **Command Palette** or from the diff editor context menu (right-click).
-
-### Undo last commit
-
-Select the (...) button, and then select **Commit** > **Undo Last Commit** to undo the previous commit. The changes are added to the Staged Changes section.
-
-![undo last commit](images/tips-and-tricks/mundo-last-commit.gif)
-
-### See Git output
-
-VS Code makes it easy to see what Git commands are actually running. This can be helpful when you're still learning Git or when you're debugging a difficult source control issue.
-
-To view the Git output, select the (...) button in the Source Control view, and then select **Show Git Output**, use the **Git: Show Git Output** command, or use the **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`) and then select **Git** from the dropdown.
-
-### Gutter indicators
-
-The editor provides visual cues in the gutter about where and which changes (added, changed, or remove lines) were made. See [the source control documentation](/docs/sourcecontrol/overview.md#gutter-indicators) for more details.
-
-![git gutter indicators](images/tips-and-tricks/mgutter_icons.gif)
-
-### Resolve merge conflicts
-
-During a merge, go to the **Source Control** view (`kb(workbench.view.scm)`) and make changes in the diff view.
-
-You can resolve merge conflicts with the inline CodeLens which lets you **Accept Current Change**, **Accept Incoming Change**, **Accept Both Changes**, and **Compare Changes**.
-
-![Git merge](images/tips-and-tricks/merge-conflict.png)
-
-Learn more about [resolving merge conflicts](/docs/sourcecontrol/overview.md#merge-conflicts) in the source control documentation.
-
-### Set VS Code as default merge tool
-
-```bash
-git config --global merge.tool vscode
-git config --global mergetool.vscode.cmd 'code --wait $MERGED'
-```
-
-### Set VS Code as default diff tool
-
-```bash
-git config --global diff.tool vscode
-git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
-```
-
-## Compare file with the clipboard
-
-Keyboard Shortcut: `kb(workbench.files.action.compareWithClipboard)`
-
-Quickly compare the active file with the contents of the clipboard with the **File: Compare Active File with Clipboard** command in the Command Palette (`kb(workbench.action.showCommands)`).
-
-## Debugging
-
-### Configure debugger
-
-From the Run and Debug view (`kb(workbench.view.debug)`), select **create a launch.json file**, which prompts you to select the environment that matches your project (Node.js, Python, C++, and more). This generates a `launch.json` file in your workspace that contains the debugger configuration.
-
-Node.js support is built-in and other environments require installing the appropriate language extensions. See the [debugging documentation](/docs/editor/debugging.md) for more details.
-
-![configure debugging](images/tips-and-tricks/configure-debug.png)
-
-### Breakpoints and stepping through
-
-Toggle a breakpoint by selecting the **editor margin** or by using `kb(editor.debug.action.toggleBreakpoint)` on the current line. Breakpoints in the editor margin are normally shown as red filled circles.
-
-Once a debug session starts, the **Debug toolbar** appears on the top of the editor and enables you to step through or into the code while debugging. Learn more about [debug actions](/docs/editor/debugging.md#debug-actions) in the debugging documentation.
-
-![debug](images/tips-and-tricks/node_debug.gif)
-
-### Data inspection
-
-Variables can be inspected in the **VARIABLES** section of the **Run and Debug** view, by hovering over their source in the editor, or by using the debug console.
-
-![data inspection](images/tips-and-tricks/debug_data_inspection.gif)
-
-### Logpoints
-
-Logpoints act much like breakpoints but instead of halting the debugger when they are hit, they log a message to the console. Logpoints are especially useful for injecting logging while debugging production servers that cannot be modified or paused.
-
-Add a logpoint with the **Add Logpoint** command in the left editor gutter and it will be displayed as a "diamond" shaped icon. Log messages are plain text but can include expressions to be evaluated within curly braces ('{}').
-
-![Logpoint set in the editor](images/tips-and-tricks/logpoint.png)
-
-### Triggered breakpoints
-
-A triggered breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
-
-Triggered breakpoints can be set by right-clicking on the glyph margin, selecting **Add Triggered Breakpoint**, and then choosing which other breakpoint enables the breakpoint.
-
-<video src="../editor/images/debugging/debug-triggered-breakpoint.mp4" autoplay loop controls muted></video>
-
-## Task runner
-
-Tasks in VS Code can be configured to run scripts and start processes so that these tools can be used from within VS Code without having to enter a command line or write new code.
-
-### Auto detect tasks
-
-Select **Terminal** from the top-level menu, run the command **Configure Tasks**, then select the type of task you'd like to run.
-This generates a `tasks.json` file with content like the following. See the [Tasks](/docs/editor/tasks.md) documentation for more details.
-
-```json
-{
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "type": "npm",
-            "script": "install",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        }
-    ]
-}
-```
-
-There are occasionally issues with auto generation. Check out the documentation for getting things to work properly.
-
-### Run tasks from the Terminal menu
-
-Select **Terminal** from the top-level menu, run the command **Run Task**, and select the task you want to run. Terminate the running task by running the command **Terminate Task**
-
-![task runner](images/tips-and-tricks/task_runner.gif)
-
-### Define keyboard shortcuts for tasks
-
-You can define a keyboard shortcut for any task. From the **Command Palette** (`kb(workbench.action.showCommands)`), select **Preferences: Open Keyboard Shortcuts File**, bind the desired shortcut to the `workbench.action.tasks.runTask` command, and define the **Task** as `args`.
-
-For example, to bind `kbstyle(Ctrl+H)` to the `Run tests` task, add the following:
-
-```json
-{
-    "key": "ctrl+h",
-    "command": "workbench.action.tasks.runTask",
-    "args": "Run tests"
-}
-```
-
-### Run npm scripts as tasks from the Explorer
-
-From the Explorer view you can open a script in the editor, run it as a task, and launch it with the node debugger (when the script defines a debug option like `--inspect-brk`). The default action on click is to open the script. To run a script on a single click, set `setting(npm.scriptExplorerAction)` to `run`. Use the setting `setting(npm.exclude)` to exclude scripts in `package.json` files contained in particular folders.
-
-![Filter problems](images/tips-and-tricks/script_explorer.png)
-
-With the setting `setting(npm.enableRunFromFolder)`, you can enable to run npm scripts from the Explorer view context menu for a folder. The setting enables the command **Run NPM Script in Folder...** when a folder is selected. The command shows a Quick Pick list of the npm scripts contained in this folder and you can select the script to be executed as a task.
-
-## Portable mode
-
-VS Code has a [Portable mode](/docs/editor/portable.md) which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
-
-## Insiders builds
-
-The Visual Studio Code team uses the Insiders version to test the latest features and bug fixes of VS Code. You can also use the Insiders version by [downloading it here](/insiders).
-
-* For Early Adopters - Insiders has the most recent code changes for users and extension authors to try out.
-* Frequent Builds - New builds every day with the latest bug fixes and features.
-* Side-by-side install - Insiders installs next to the Stable build allowing you to use either independently.
+![Explorer menu to enable or disable views in the Explorer](images/userinterface/explorer-menu.png)
