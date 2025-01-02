@@ -1,4 +1,4 @@
-# 자바 디버그 구성 {#java-debug-configuration}
+# 자바 디버그 구성
 
 ## 목차
 * [launch.json 자동 생성](#auto-generate-the-launchjson)
@@ -30,11 +30,11 @@
 
 디버거는 두 가지 구성 유형을 제공합니다: *launch.json* 및 *settings.json* (사용자 설정). 지원되는 구성 목록은 [README](https://github.com/Microsoft/vscode-java-debug#options)를 참조하세요. launch.json은 디버그 세션별로 구성을 제어하는 데 사용되며, 사용자 설정은 전체 작업 공간 또는 VS Code에서 공유됩니다.
 
-## launch.json 자동 생성 {#auto-generate-the-launchjson}
+## launch.json 자동 생성
 `Run|Debug` CodeLens 또는 `Run`/`Debug` 컨텍스트 메뉴를 통해 프로그램을 실행할 때 디버거가 자동으로 실행 구성을 생성합니다.
 ![runMenu](https://user-images.githubusercontent.com/14052197/67181889-715bb380-f410-11e9-9aef-c27ce697daa0.gif)
 
-## launch.json 수정 {#modify-the-launchjson}
+## launch.json 수정
 VS Code 창에서 `.vscode/launch.json`을 볼 수 없는 경우 "Run and Debug" 뷰렛으로 이동하여 초기 launch.json을 생성할 수 있습니다.
 ![create launch.json](https://user-images.githubusercontent.com/14052197/172300183-7758eb9b-5e61-485b-b238-a63a98a9fb11.png)
 
@@ -42,7 +42,7 @@ VS Code 창에서 `.vscode/launch.json`을 볼 수 없는 경우 "Run and Debug"
 ![launchConfig](https://user-images.githubusercontent.com/14052197/67182212-3908a500-f411-11e9-9467-48ba2f6e0e39.gif)
 
 구성을 수동으로 편집하려는 경우, 아래는 일반적인 디버그 구성에 대한 설명과 샘플입니다.
-### 메인 {#main}
+### 메인
 * `mainClass` - mainClass는 프로그램 진입점을 정의하는 데 사용되며 가장 중요한 구성입니다. 디버거는 이 키를 구성하는 데 도움이 되는 세 가지 옵션을 제공합니다. 아래 샘플을 참조하세요.
   * `"mainClass": ""`  
   여기에 무엇을 설정해야 할지 모르는 경우 비워 두세요. 디버거가 작업 공간에서 가능한 모든 메인 클래스를 검색한 다음 선택할 목록을 표시합니다.  
@@ -64,7 +64,7 @@ VS Code 창에서 `.vscode/launch.json`을 볼 수 없는 경우 "Run and Debug"
   > 프로 팁: 프로젝트 이름을 얻는 가장 쉬운 방법은 [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) 확장을 설치하는 것입니다. JAVA DEPENDENCIES 뷰의 최상위 노드가 프로젝트 이름입니다.  
 ![java-dependency-viewer](https://user-images.githubusercontent.com/14052197/67185034-7cfea880-f417-11e9-8a3b-a3af1a9e86bb.png)
 
-### 인수 {#arguments}
+### 인수
 * `args` - 프로그램 인수는 프로그램에 애플리케이션 구성을 전달하는 데 사용되며, main 메서드의 "args" 문자열 배열 매개변수를 통해 액세스할 수 있습니다 `public static void main(String[] args)`. 세 가지 종류의 값을 허용합니다. 아래 샘플을 참조하세요.
   * `"args": "arg0 arg1"`  
   공백으로 구분된 문자열 값.
@@ -82,7 +82,7 @@ VS Code 창에서 `.vscode/launch.json`을 볼 수 없는 경우 "Run and Debug"
   * `"vmArgs": ["-Xms256m", "-Xmx1g", "-Dserver=production"]`  
   문자열 배열.
 
-### 환경 {#environment}
+### 환경
 - `console` - 현재 프로그램을 실행할 지정된 콘솔입니다. 현재 기본값은 `integratedTerminal`입니다. 전체 작업 공간에 대해 전역 사용자 설정 `java.debug.settings.console`을 통해 사용자 지정하거나 각 디버그 세션에 대해 launch.json에서 `console`을 사용자 지정할 수 있습니다. launch.json의 `console` 옵션(제공된 경우)은 사용자 설정의 `java.debug.settings.console`보다 우선합니다.
   * `"console": "internalConsole"`  
   VS Code 디버그 콘솔(입력 스트림 지원 안 됨). 백엔드 애플리케이션을 개발하는 경우 `internalConsole`을 권장합니다.
@@ -129,7 +129,7 @@ VS Code 창에서 `.vscode/launch.json`을 볼 수 없는 경우 "Run and Debug"
     }
   ```
 
-### 지정된 클래스나 메서드로 들어가지 않기 {#dont-step-into-the-specified-classes-or-methods}
+### 지정된 클래스나 메서드로 들어가지 않기
 
 - `stepFilters` - 들어가고 싶지 않은 지정된 클래스나 메서드를 건너뜁니다. 클래스 이름은 완전히 자격이 있어야 합니다. 와일드카드를 지원합니다.
   - 클래스 로더 건너뛰기.
@@ -192,7 +192,7 @@ VS Code 창에서 `.vscode/launch.json`을 볼 수 없는 경우 "Run and Debug"
     ```
     ![skipMethods](https://user-images.githubusercontent.com/14052197/67255209-83daf900-f4b3-11e9-8533-70f6ff941e8d.gif)
 
-### 디버그 대상에 연결 {#attach-to-a-debuggee}
+### 디버그 대상에 연결
 - `hostName` - 연결하려는 디버그 대상의 호스트 이름 또는 IP 주소입니다.
 - `port` - 연결하려는 디버그 대상의 포트입니다.
 
@@ -208,7 +208,7 @@ VS Code 창에서 `.vscode/launch.json`을 볼 수 없는 경우 "Run and Debug"
 ```
 
 일부 경우에는 외부 빌더 및 실행기를 사용하여 프로그램을 시작한 다음 연결할 수 있습니다. 이러한 작업을 [tasks.json](https://code.visualstudio.com/docs/editor/tasks)에 구성하고 연결할 수 있습니다. 예를 들어, mvn 명령을 통해 springboot 애플리케이션을 실행한 다음 디버거를 연결합니다.
-#### mvn 작업에 연결 {#attach-to-mvn-task}
+#### mvn 작업에 연결
 1) .vscode/tasks.json에 명령을 구성합니다 - mvn 작업은 백그라운드 작업이므로 *problemMatcher* 필터를 사용하여 VS Code가 준비되었음을 알려야 합니다.  
    ```json
     {
@@ -245,7 +245,7 @@ VS Code 창에서 `.vscode/launch.json`을 볼 수 없는 경우 "Run and Debug"
 3) <b>F5</b>를 누르면 mvn 작업이 시작되고 디버거가 연결됩니다. 데모를 참조하세요.  
 ![attachToMvn](https://user-images.githubusercontent.com/14052197/67262705-4f2d6880-f4d8-11e9-9e2d-9c35a6613c08.gif)
 
-#### 내장된 maven tomcat 서버에 연결 {#attach-to-embedded-maven-tomcat-server}
+#### 내장된 maven tomcat 서버에 연결
   - 내장된 tomcat 서버에 대한 pom.xml 샘플.  
   ```xml
     ...
@@ -323,7 +323,7 @@ VS Code 창에서 `.vscode/launch.json`을 볼 수 없는 경우 "Run and Debug"
 
   > gradle 플러그인을 사용하여 내장된 tomcat 서버를 디버그하려면 [gradle 샘플](https://github.com/microsoft/vscode-java-debug/issues/140#issuecomment-343656398)을 참조하세요.
 
-#### javac를 빌더로 사용하고 java 프로세스에 연결 {#use-javac-as-the-builder-and-attach-to-java-process}
+#### javac를 빌더로 사용하고 java 프로세스에 연결 
 1) .vscode/tasks.json에서 javac 빌더 및 java 실행기 작업을 구성합니다.
     ```json
     {
@@ -376,7 +376,7 @@ VS Code 창에서 `.vscode/launch.json`을 볼 수 없는 경우 "Run and Debug"
 3) <b>F5</b>를 누르면 작업이 실행되고 디버거가 연결됩니다. 데모를 참조하세요.  
 ![attachToJava](https://user-images.githubusercontent.com/14052197/67263956-3cb52e00-f4dc-11e9-9c78-6e66cb3d7c2b.gif)
 
-## settings.json 수정 (사용자 설정) {#modify-the-settingsjson-user-setting}
+## settings.json 수정 (사용자 설정) 
 - `java.debug.settings.console` - Java 프로그램을 실행할 지정된 콘솔로 기본값은 `integratedTerminal`입니다. 특정 디버그 세션에 대해 콘솔을 사용자 지정하려면 launch.json의 `console` 옵션을 사용하세요.
   ![terminal](https://user-images.githubusercontent.com/14052197/67256063-cf8fa180-f4b7-11e9-9455-77daad2f0ec9.gif)
 
@@ -396,7 +396,7 @@ VS Code 창에서 `.vscode/launch.json`을 볼 수 없는 경우 "Run and Debug"
   - `false` - 호버에 Run/Debug 링크를 표시합니다.  
   ![hover](https://user-images.githubusercontent.com/14052197/67256539-2ac29380-f4ba-11e9-8a5b-e5e1d0a27f0e.png)
 
-## FAQ {#faq}
+## FAQ
 ### 1. 입력을 받을 수 없습니다.  
 *Scanner(System.in)*을 사용하여 사용자 입력을 받는 경우 사용자 설정 `java.debug.settings.console`을 `integratedTerminal` 또는 `externalTerminal`로 변경해야 합니다.
 

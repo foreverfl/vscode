@@ -47,15 +47,32 @@ const config: Config = {
     [
       "classic",
       {
-        docs: {
-          sidebarPath: "./sidebars.ts",
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-        },
+        docs: false,
         theme: {
           customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
+    ],
+  ],
+
+  plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "default", // 기본 문서 설정
+        path: "docs", // 기본 문서 경로
+        routeBasePath: "/", // 기본 문서의 URL 경로 (예: /)
+        sidebarPath: require.resolve("./sidebars.ts"), // 사이드바 파일
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "api", // API 문서 설정
+        path: "api", // API 문서 경로
+        routeBasePath: "api", // API 문서의 URL 경로 (예: /api)
+        sidebarPath: require.resolve("./sidebarsApi.ts"), // 사이드바 파일
+      },
     ],
   ],
 
@@ -71,12 +88,14 @@ const config: Config = {
         {
           type: "docSidebar",
           sidebarId: "tutorialSidebar",
+          docsPluginId: "default",
           position: "left",
           label: "문서",
         },
         {
-          type: "doc",
-          docId: "intro",
+          type: "docSidebar",
+          sidebarId: "apiSidebar",
+          docsPluginId: "api",
           position: "left",
           label: "API",
         },
