@@ -100,10 +100,10 @@ Copilot과 채팅 대화를 시작하려면 다음 키보드 단축키를 사용
 
 | 단축키             | 설명                                                                                                                                              |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Ctrl+Alt+I`       | **채팅 뷰**를 열고 자연어를 사용하여 Copilot과 채팅 대화를 시작합니다.                                                                            |
-| `Ctrl+Shift+I`     | **Copilot 편집 뷰**를 열고 여러 파일에 걸친 코드 편집 세션을 시작합니다.                                                                          |
-| `Ctrl+Shift+Alt+L` | **빠른 채팅**을 열고 Copilot에게 빠른 질문을 합니다.                                                                                              |
-| `Ctrl+I`           | **인라인 채팅**을 시작하여 에디터에서 직접 Copilot에게 채팅 요청을 보냅니다. 자연어를 사용하거나 `/` 명령을 사용하여 Copilot에게 지시를 내립니다. |
+| `Ctrl+Alt+I`       | **Chat view** 화면을 열고 자연어를 사용하여 Copilot과 채팅 대화를 시작합니다.                                                                            |
+| `Ctrl+Shift+I`     | ** Copilot Edits** 화면을 열고 여러 파일에 걸친 코드 편집 세션을 시작합니다.                                                                          |
+| `Ctrl+Shift+Alt+L` | **Quick Chat**을 열고 Copilot에게 빠른 질문을 합니다.                                                                                              |
+| `Ctrl+I`           | **Inline Chat**을 시작하여 에디터에서 직접 Copilot에게 채팅 요청을 보냅니다. 자연어를 사용하거나 `/` 명령을 사용하여 Copilot에게 지시를 내립니다. |
 
 주요 Copilot 명령어와 단축키의 개요는 [Copilot 가이드](/docs/copilot/copilot-vscode-features.md)를 확인하세요.
 
@@ -151,7 +151,7 @@ Copilot과 채팅 대화를 시작하려면 다음 키보드 단축키를 사용
 
   ![누락된 라이브러리 설치를 제안하는 오류에 대한 인라인 채팅 /fix](images/overview/inline-chat-fix-error-message-example.png)
 
-- **실패한 테스트에 대한 수정 제안** (미리보기). 코드에 대한 자동화된 테스트를 실행할 때, Copilot은 `/fixTestFailure` 명령을 사용하여 실패한 테스트에 대한 코드 수정을 제안할 수 있습니다.
+- **실패한 테스트에 대한 수정 제안** (프리뷰뷰). 코드에 대한 자동화된 테스트를 실행할 때, Copilot은 `/fixTestFailure` 명령을 사용하여 실패한 테스트에 대한 코드 수정을 제안할 수 있습니다.
 
   ![실패한 테스트를 식별하고 수정을 제안하는 Copilot 채팅 /fixTestFailure](images/overview/copilot-chat-fix-test-failure.png)
 
@@ -173,15 +173,15 @@ Copilot과 채팅 대화를 시작하려면 다음 키보드 단축키를 사용
 
 - **코드베이스를 기반으로 테스팅 프레임워크 설정 구성**. 예를 들어, JavaScript 및 TypeScript 프로젝트가 있는 경우 Copilot은 작업 공간에 대한 적절한 테스팅 프레임워크와 구성 단계를 제안합니다.
 
-  ![JavaScript와 TypeScript를 위한 테스트 프레임워크를 설정하는 /setupTests 슬래시 명령을 보여주는 채팅 뷰](images/overview/copilot-chat-setup-tests.png)
+  ![JavaScript와 TypeScript를 위한 테스트 프레임워크를 설정하는 /setupTests 슬래시 명령을 보여주는 채팅 화면](images/overview/copilot-chat-setup-tests.png)
 
 - **에디터에서 열려 있는 코드나 에디터에서 강조 표시한 코드 스니펫에 대한 테스팅 프레임워크의 단위 테스트 케이스 작성**. Copilot은 테스팅 프레임워크와 코딩 스타일을 식별하고 일치하는 코드 스니펫을 생성합니다.
 
-  ![C# 계산기 클래스의 Divide 메서드에 대한 단위 테스트를 생성하는 /tests 슬래시 명령을 보여주는 채팅 뷰](images/overview/workspace-agent-tests-example.png)
+  ![C# 계산기 클래스의 Divide 메서드에 대한 단위 테스트를 생성하는 /tests 슬래시 명령을 보여주는 채팅 화면](images/overview/workspace-agent-tests-example.png)
 
 - **수동으로 식별하기 어려울 수 있는 엣지 케이스와 경계 조건에 대한 테스트 케이스 식별 및 작성**. 예를 들어, Copilot은 오류 처리, null 값 또는 예상치 못한 입력 유형에 대한 테스트 케이스를 제안할 수 있습니다.
 
-- **함수가 올바르게 작동하는지 확인하는 어설션 제안**, 코드의 컨텍스트와 의미를 기반으로 합니다. 예를 들어, 함수 입력 매개변수가 유효한지 확인하는 어설션을 생성합니다.
+- **함수가 올바르게 작동하는지 확인하는 어설션(assertion) 제안**, 코드의 컨텍스트와 의미를 기반으로 합니다. 예를 들어, 함수 입력 매개변수가 유효한지 확인하는 어설션(assertion)을 생성합니다.
 
 ### 코드 문서 생성 {#generate-code-documentation}
 
@@ -199,7 +199,7 @@ Copilot과 채팅 대화를 시작하려면 다음 키보드 단축키를 사용
 
   ![Python 파일에서 심볼에 대한 새로운 이름을 제안하는 인라인 채팅](images/overview/copilot-inline-chat-rename-suggestion.png)
 
-- **시맨틱 검색 결과** (미리보기). 검색 뷰는 파일에서 정확한 텍스트 일치뿐만 아니라 검색 텍스트를 기반으로 의미적으로 관련된 일치 항목도 나열합니다.
+- **시맨틱 검색 결과** (프리뷰). 검색 뷰는 파일에서 정확한 텍스트 일치뿐만 아니라 검색 텍스트를 기반으로 의미적으로 관련된 일치 항목도 나열합니다.
 
   ![검색 기준과 정확히 일치하지 않는 시맨틱 검색 결과를 보여주는 검색 뷰](images/overview/semantic-search-results.png)
 
@@ -213,7 +213,7 @@ Copilot과 채팅 대화를 시작하려면 다음 키보드 단축키를 사용
 - [Copilot 편집으로 여러 파일에 걸친 편집 시작하기](/docs/copilot/copilot-edits.md)
 - [VS Code의 Copilot 기능에 대한 빠른 개요 보기](/docs/copilot/copilot-vscode-features.md)
 
-## 추가 리소스 {#additional-resources}
+## 추가 기능 {#additional-resources}
 
 [GitHub Copilot 문서](https://docs.github.com/copilot/getting-started-with-github-copilot?tool=vscode)에서 Copilot과 VS Code에서의 사용 방법에 대해 자세히 알아볼 수 있습니다.
 

@@ -23,7 +23,7 @@ Copilot 구독이 아직 없다면 [Copilot Free 플랜](https://github.com/gith
 
 ## 전제 조건 {#prerequisites}
 
-- VS Code에서 GitHub Copilot을 사용하려면 [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) 확장 프로그램이 필요합니다. 이 확장 프로그램을 설치하면 [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) 확장 프로그램도 함께 설치됩니다.
+- VS Code에서 GitHub Copilot을 사용하려면 [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) 확장 프로그램이 필요합니다. 이 확장 프로그램을 설치하면 [GitHub Copilot 채팅](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) 확장 프로그램도 함께 설치됩니다.
 
 - GitHub Copilot을 사용하려면 개인 계정에 활성화된 GitHub Copilot 구독이 있거나, 조직에서 사용 권한을 부여받아야 합니다.
 
@@ -61,9 +61,9 @@ AI 기반 코드 완성은 상용구나 반복적인 코드 생성을 도와주�
 
 ## 인라인 채팅을 사용하여 기본 웹 서버 생성하기 {#use-inline-chat-to-generate-a-basic-web-server}
 
-Copilot Chat을 사용하면 VS Code에서 Copilot과 채팅 대화를 시작하여 자연어로 코드에 대한 특정 작업을 요청할 수 있습니다.
+Copilot 채팅을 사용하면 VS Code에서 Copilot과 채팅 대화를 시작하여 자연어로 코드에 대한 특정 작업을 요청할 수 있습니다.
 
-**인라인 채팅**을 사용하여 기본 Express 웹 서버를 생성해 보겠습니다.
+**Inline Chat**을 사용하여 기본 Express 웹 서버를 생성해 보겠습니다.
 
 1. 먼저 작업 영역에 새 TypeScript 파일 `server.ts`를 추가합니다.
 
@@ -77,7 +77,7 @@ Copilot Chat을 사용하면 VS Code에서 Copilot과 채팅 대화를 시작하
 
 4. **수락**을 선택하거나 `Ctrl+Enter`를 눌러 제안된 코드 변경사항을 적용합니다.
 
-   축하합니다! 채팅과 자연어를 사용하여 코드를 생성하는 Copilot Chat을 사용해보셨습니다.
+   축하합니다! 채팅과 자연어를 사용하여 코드를 생성하는 Copilot 채팅을 사용해보셨습니다.
 
 ## AI 채팅을 통해 코드 리팩토링하기 {#refactor-your-code-through-ai-chat}
 
@@ -87,7 +87,7 @@ Copilot Chat을 사용하면 VS Code에서 Copilot과 채팅 대화를 시작하
 
 1. 에디터에서 `server.ts` 파일의 포트 번호 `3000`을 선택한 다음 `Ctrl+I`를 눌러 인라인 채팅을 시작합니다.
 
-2. 채팅 입력 필드에 *"포트 번호에 환경 변수 사용"*을 입력하고 `Enter`를 눌러 채팅 요청 또는 프롬프트를 전송합니다.
+2. 채팅 입력 필드에 *"포트 번호에 환경 변수 사용"* 을 입력하고 `Enter`를 눌러 채팅 요청 또는 프롬프트를 전송합니다.
 
    Copilot이 포트 번호에 환경 변수를 사용하도록 기존 코드를 업데이트하는 것을 확인하세요.
 
@@ -97,9 +97,9 @@ Copilot Chat을 사용하면 VS Code에서 Copilot과 채팅 대화를 시작하
 
    예를 들어, Copilot에게 포트 번호에 대해 다른 환경 변수 이름을 사용하도록 요청할 수 있습니다.
 
-## Copilot Chat을 사용하여 일반적인 프로그래밍 질문하기 {#use-copilot-chat-for-general-programming-questions}
+## Copilot 채팅을 사용하여 일반적인 프로그래밍 질문하기 {#use-copilot-chat-for-general-programming-questions}
 
-새로운 코드베이스를 작업하거나 새로운 프로그래밍 언어를 탐색할 때 더 일반적인 코딩 질문이 생길 수 있습니다. Copilot Chat을 사용하면 측면에서 채팅 대화를 열 수 있으며, 질문 기록을 추적합니다.
+새로운 코드베이스를 작업하거나 새로운 프로그래밍 언어를 탐색할 때 더 일반적인 코딩 질문이 생길 수 있습니다. Copilot 채팅을 사용하면 측면에서 채팅 대화를 열 수 있으며, 질문 기록을 추적합니다.
 
 1. Command Center Copilot 메뉴에서 채팅 보기를 열거나 `Ctrl+Alt+I`를 누릅니다.
 
@@ -111,23 +111,23 @@ Copilot Chat을 사용하면 VS Code에서 Copilot과 채팅 대화를 시작하
 
    채팅 응답에 텍스트와 코드 블록으로 구성된 풍부한 결과가 포함되어 있는 것을 확인하세요. 채팅 응답의 코드 블록은 IntelliSense를 지원하므로 메서드와 심볼 위에 마우스를 올려 정보를 얻거나 정의로 이동할 수 있습니다.
 
-3. [Copilot Chat 튜토리얼](/docs/copilot/getting-started-chat.md)의 단계를 따라 특정 코드베이스에 대한 질문을 하는 데 Copilot Chat을 사용하는 방법을 알아보세요.
+3. [Copilot 채팅 튜토리얼](/docs/copilot/getting-started-chat.md)의 단계를 따라 특정 코드베이스에 대한 질문을 하는 데 Copilot 채팅을 사용하는 방법을 알아보세요.
 
-## Copilot Edits로 여러 파일 편집하기 (프리뷰) {#make-edits-across-multiple-files-with-copilot-edits-preview}
+## Copilot 편집으로 여러 파일 편집하기 (프리뷰) {#make-edits-across-multiple-files-with-copilot-edits-preview}
 
-더 큰 코드 변경은 여러 파일의 편집을 포함할 수 있습니다. Copilot Edits를 사용하면 작업 영역의 여러 파일에서 에디터 내에 AI 기반 제안을 받을 수 있습니다. 개별 코드 블록을 적용하는 대신 Copilot Edits는 작업 영역 전체에서 편집을 수행합니다.
+더 큰 코드 변경은 여러 파일의 편집을 포함할 수 있습니다. Copilot 편집을 사용하면 작업 영역의 여러 파일에서 에디터 내에 AI 기반 제안을 받을 수 있습니다. 개별 코드 블록을 적용하는 대신 Copilot 편집은 작업 영역 전체에서 편집을 수행합니다.
 
-Copilot Edits를 사용하여 웹 서버 응답에서 HTML 파일의 내용을 반환해 보겠습니다.
+Copilot 편집을 사용하여 웹 서버 응답에서 HTML 파일의 내용을 반환해 보겠습니다.
 
 1. Command Center Copilot 메뉴에서 **Open Copilot Edits** 를 선택하거나 `Ctrl+Shift+I`를 누릅니다.
 
-2. Copilot Edits 뷰가 열립니다. `server.ts` 파일이 *작업 세트*에 추가된 것을 확인하세요.
+2. Copilot 편집 화면이 열립니다. `server.ts` 파일이 *작업 세트*에 추가된 것을 확인하세요.
 
-   작업 세트에는 Copilot Edits가 수정할 수 있는 파일이 포함됩니다. 파일이 추가되지 않은 경우 **Add Files...** 를 사용하여 작업 세트에 파일을 추가하세요.
+   작업 세트에는 Copilot 편집이 수정할 수 있는 파일이 포함됩니다. 파일이 추가되지 않은 경우 **Add Files...** 를 사용하여 작업 세트에 파일을 추가하세요.
 
-3. *홈페이지로 정적 html 페이지를 반환하고 구현하세요.*를 채팅 입력 필드에 입력하고 `Enter`를 눌러 새 편집 세션을 시작합니다.
+3. *홈페이지로 정적 html 페이지를 반환하고 구현하세요.* 를 채팅 입력 필드에 입력하고 `Enter`를 눌러 새 편집 세션을 시작합니다.
 
-   Copilot Edits가 여러 편집을 수행하는 것을 확인하세요: 정적 HTML 페이지를 반환하도록 `server.ts` 파일을 업데이트하고 새 파일 `index.html`도 추가합니다.
+   Copilot 편집이 여러 편집을 수행하는 것을 확인하세요: 정적 HTML 페이지를 반환하도록 `server.ts` 파일을 업데이트하고 새 파일 `index.html`도 추가합니다.
 
 4. 결과가 마음에 든다면 **Accept**을 선택하여 제안된 모든 변경사항을 적용합니다.
 
@@ -151,11 +151,11 @@ Copilot Edits를 사용하여 웹 서버 응답에서 HTML 파일의 내용을 �
 
 ## 다음 단계 {#next-steps}
 
-축하합니다. 이제 인공지능을 사용하여 코딩을 향상시켰습니다! 이 튜토리얼에서는 VS Code에서 Copilot을 성공적으로 설정하고, Copilot 코드 완성, Copilot Chat 및 코드 액션을 사용하여 더 효율적으로 코딩하는 방법을 배웠습니다.
+축하합니다. 이제 인공지능을 사용하여 코딩을 향상시켰습니다! 이 튜토리얼에서는 VS Code에서 Copilot을 성공적으로 설정하고, Copilot 코드 완성, Copilot 채팅 및 코드 액션을 사용하여 더 효율적으로 코딩하는 방법을 배웠습니다.
 
-- Copilot Chat에 대해 자세히 알아보려면 [Copilot Chat 튜토리얼](/docs/copilot/getting-started-chat.md)을 진행하세요.
+- Copilot 채팅에 대해 자세히 알아보려면 [Copilot 채팅 튜토리얼](/docs/copilot/getting-started-chat.md)을 진행하세요.
 
-- Copilot Edits에 대해 자세히 알아보려면 [Copilot Edits](/docs/copilot/copilot-edits.md) 문서를 참조하세요.
+- Copilot 편집에 대해 자세히 알아보려면 [Copilot 편집](/docs/copilot/copilot-edits.md) 문서를 참조하세요.
 
 ## 관련 리소스 {#related-resources}
 

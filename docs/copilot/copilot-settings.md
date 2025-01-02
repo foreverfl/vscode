@@ -33,11 +33,11 @@ Copilot 구독이 아직 없다면 [Copilot 무료 플랜](https://github.com/gi
 
 - `github.copilot.chat.followUps`: Copilot이 채팅에서 후속 질문을 제안해야 할지 제어합니다.
 - `github.copilot.chat.localeOverride`: Copilot이 응답해야 하는 로케일을 지정합니다(예: `en` 또는 `fr`).
-- `github.copilot.chat.runCommand.enabled`: 채팅 뷰에서 VS Code 명령을 실행하기 위한 `/runCommand` 인텐트를 활성화합니다.
+- `github.copilot.chat.runCommand.enabled`: 채팅 화면에서 VS Code 명령을 실행하기 위한 `/runCommand` 인텐트를 활성화합니다.
 - `github.copilot.chat.useProjectTemplates`: `/new` 사용 시 관련 GitHub 프로젝트를 시작 프로젝트로 사용합니다.
 - `github.copilot.chat.scopeSelection`: `/explain`을 사용하고 활성 편집기에 선택 영역이 없을 때 특정 심볼 범위를 프롬프트로 표시할지 여부를 제어합니다.
 - `github.copilot.chat.terminalChatLocation`: 터미널의 채팅 쿼리를 어디에서 열어야 하는지 제어합니다.
-- `chat.experimental.detectParticipant.enabled` <i class="codicon codicon-beaker"></i>: 채팅 뷰에서 채팅 참여자 감지를 활성화합니다.
+- `chat.experimental.detectParticipant.enabled` <i class="codicon codicon-beaker"></i>: 채팅 화면에서 채팅 참여자 감지를 활성화합니다.
 - `chat.editor.fontFamily`: 채팅 코드블록의 글꼴 패밀리입니다.
 - `chat.editor.fontSize`: 채팅 코드블록의 픽셀 단위 글꼴 크기입니다.
 - `chat.editor.fontWeight`: 채팅 코드블록의 글꼴 두께입니다.
@@ -70,7 +70,7 @@ Copilot 구독이 아직 없다면 [Copilot 무료 플랜](https://github.com/gi
 
 ## 디버깅 설정 {#debugging-settings}
 
-- `github.copilot.chat.startDebugging.enabled` _(Preview)_: 채팅 뷰에서 디버깅 구성을 생성하기 위한 실험적 `/startDebugging` 인텐트를 활성화합니다.
+- `github.copilot.chat.startDebugging.enabled` _(Preview)_: 채팅 화면에서 디버깅 구성을 생성하기 위한 실험적 `/startDebugging` 인텐트를 활성화합니다.
 
 ## 테스팅 설정 {#testing-settings}
 

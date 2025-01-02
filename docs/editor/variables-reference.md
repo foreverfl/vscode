@@ -61,7 +61,9 @@ Visual Studio Code는 [디버깅](/docs/editor/debugging.md)과 [태스크](/doc
 - **$\{execPath\}** - Code.exe의 위치
 - **$\{pathSeparator\}** - macOS나 linux에서는 `/`, Windows에서는 `\`
 
-> **팁**: `tasks.json`과 `launch.json`의 문자열 값 내에서 IntelliSense를 사용하여 미리 정의된 변수의 전체 목록을 얻을 수 있습니다.
+:::tip
+`tasks.json`과 `launch.json`의 문자열 값 내에서 IntelliSense를 사용하여 미리 정의된 변수의 전체 목록을 얻을 수 있습니다.
+:::
 
 ### 작업 공간 폴더별 범위를 가진 변수 {#variables-scoped-per-workspace-folder}
 

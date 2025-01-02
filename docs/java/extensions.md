@@ -81,7 +81,7 @@ Eclipse MicroProfile과 Quarkus에 대한 지원은 다음 확장을 통해 제�
 
 - [Remote Development](/docs/remote/remote-overview.md) 확장을 사용하면 VS Code로 컨테이너, 원격 머신 또는 Windows Subsystem for Linux에 액세스할 수 있습니다.
 - [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) 확장을 사용하여 도커 이미지를 빌드하고 이미지 레지스트리로 작업할 수 있습니다.
-- [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) 확장은 클러스터와 내부 노드를 관리하기 위한 탐색기 뷰를 제공합니다. 또한 Kubernetes 매니페스트 파일 편집을 위한 고급 구문 지원을 제공합니다.
+- [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) 확장은 클러스터와 내부 노드를 관리하기 위한 탐색기 화면을 제공합니다. 또한 Kubernetes 매니페스트 파일 편집을 위한 고급 구문 지원을 제공합니다.
 - [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)는 동일한 코드 베이스에서 다른 사람과 협업해야 할 때 사용하기 좋은 도구입니다.
 
 ## Visual Studio Code의 Azure {#azure-on-visual-studio-code}

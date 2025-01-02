@@ -9,13 +9,13 @@ MetaDescription: Chat API 또는 Language Model API를 사용하여 Visual Studi
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 
-# VS Code에서의 GitHub Copilot <br /> 확장성 {#github-copilot-extensibility-in-vs-code}
+# VS Code에서의 GitHub Copilot 확장성 {#github-copilot-extensibility-in-vs-code}
 
 GitHub Copilot 확장성을 사용하여 Visual Studio Code의 Copilot 채팅 기능을 확장하거나 VS Code 확장에 AI 기반 기능을 추가할 수 있습니다. VS Code에서 Copilot을 확장하려면 VS Code 확장을 빌드하고 확장 API를 사용하여 GitHub Copilot과 상호 작용합니다.
 
 사용 사례에 따라 VS Code 확장에서 Copilot을 사용하는 다음과 같은 옵션이 있습니다:
 
-- **VS Code 채팅 확장**: Chat API를 사용하여 사용자에게 자연어 인터페이스를 제공하고 VS Code의 채팅 뷰를 통해 도메인별 도움말을 제공하는 채팅 참여자를 만듭니다. 선택적으로 Copilot Large Language Model(LLM)을 사용하여 사용자 프롬프트를 해석하고 응답을 생성할 수 있습니다.
+- **VS Code 채팅 확장**: Chat API를 사용하여 사용자에게 자연어 인터페이스를 제공하고 VS Code의 채팅 화면을을 통해 도메인별 도움말을 제공하는 채팅 참여자를 만듭니다. 선택적으로 Copilot Large Language Model(LLM)을 사용하여 사용자 프롬프트를 해석하고 응답을 생성할 수 있습니다.
 
 - **Copilot의 LLM 사용**: Language Model API와 VS Code 확장 API를 사용하여 확장에 AI 기반 기능을 구축하고 에디터별 상호 작용을 향상시킵니다.
 
@@ -37,7 +37,7 @@ Copilot의 기능을 사용하여 확장에 AI 기반 기능을 통합함으로�
 
 - **확장 기능 향상**: Language Model API를 사용하여 기존 VS Code 확장에 AI 기반 기능을 추가합니다.
 
-다음은 VS Code의 채팅 뷰에 채팅 참여자를 제공하는 Visual Studio Marketplace의 확장 예시입니다.
+다음은 VS Code의 채팅 화면에 채팅 참여자를 제공하는 Visual Studio Marketplace의 확장 예시입니다.
 
 <div class="marketplace-extensions-chat"></div>
 
@@ -49,7 +49,7 @@ VS Code 확장에서 Copilot 확장을 시작하려면 다음 리소스를 살�
 
 - [**튜토리얼: AI 기반 코드 주석**](/api/extension-guides/language-model-tutorial.md): Language Model API를 사용하여 코드 개선을 돕는 에디터의 코드 주석을 생성하는 VS Code 확장을 구현하는 단계별 가이드입니다.
 
-- [**튜토리얼: 코드 튜터 채팅 참여자**](/api/extension-guides/chat-tutorial.md): VS Code의 채팅 뷰에서 자연어를 사용하여 기술적 주제에 대한 설명을 요청할 수 있는 코드 튜터 채팅 참여자를 구현하는 단계별 가이드입니다.
+- [**튜토리얼: 코드 튜터 채팅 참여자**](/api/extension-guides/chat-tutorial.md): VS Code의 채팅 화면에서 자연어를 사용하여 기술적 주제에 대한 설명을 요청할 수 있는 코드 튜터 채팅 참여자를 구현하는 단계별 가이드입니다.
 
 - [**채팅 참여자 샘플**](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample): Chat API와 Language Model API를 사용하는 VS Code 채팅 확장 구축을 시작하기 위한 샘플 코드입니다.
 

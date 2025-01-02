@@ -32,9 +32,9 @@ Copilot 편집 기능은 현재 프리뷰 상태입니다. [우리의 이슈](ht
 
 ## Copilot 편집 시작하기 {#get-started-with-copilot-edits}
 
-Copilot 편집 뷰를 사용하여 편집 세션을 시작합니다. 코드 변경은 종종 반복적인 프로세스이며 원하는 결과를 얻기 위해 여러 단계로 구성됩니다. 편집 세션은 코드 편집을 위해 Copilot 편집에 보내는 일련의 요청(또는 단계)으로 구성됩니다. 편집 세션은 원하는 만큼 오래 지속될 수 있으며, 코드를 원하는 상태로 만들기 위해 필요한 만큼 많은 요청을 보낼 수 있습니다.
+Copilot 편집 화면을 사용하여 편집 세션을 시작합니다. 코드 변경은 종종 반복적인 프로세스이며 원하는 결과를 얻기 위해 여러 단계로 구성됩니다. 편집 세션은 코드 편집을 위해 Copilot 편집에 보내는 일련의 요청(또는 단계)으로 구성됩니다. 편집 세션은 원하는 만큼 오래 지속될 수 있으며, 코드를 원하는 상태로 만들기 위해 필요한 만큼 많은 요청을 보낼 수 있습니다.
 
-Copilot 편집 뷰를 여는 여러 가지 방법이 있습니다:
+Copilot 편집 화면을 여는 여러 가지 방법이 있습니다:
 
 - `Ctrl+Shift+I` 키보드 단축키 사용
 
@@ -48,9 +48,9 @@ Copilot 편집 뷰를 여는 여러 가지 방법이 있습니다:
 
   ![채팅 화면에서 채팅 대화를 Copilot 편집으로 이동하기 위한 Copilot으로 편집 버튼을 강조 표시하는 스크린샷](images/copilot-edits/copilot-chat-edit-with-copilot.png)
 
-Copilot 편집 뷰를 처음 열거나 새 편집 세션을 시작할 때 환영 메시지가 표시됩니다.
+Copilot 편집 화면을 처음 열거나 새 편집 세션을 시작할 때 환영 메시지가 표시됩니다.
 
-![Copilot 편집 뷰와 환영 메시지를 보여주는 스크린샷](images/copilot-edits/copilot-edits-view-welcome.png)
+![Copilot 편집 화면과 환영 메시지를 보여주는 스크린샷](images/copilot-edits/copilot-edits-view-welcome.png)
 
 ## 작업 세트에 파일 추가 {#add-files-to-the-working-set}
 
@@ -62,7 +62,7 @@ Copilot 편집 뷰를 처음 열거나 새 편집 세션을 시작할 때 환영
 
 ![Copilot 편집의 스크린샷으로, 작업 세트에 현재 열린 파일을 포함한 3개의 파일이 포함되어 있음을 보여줍니다.](images/copilot-edits/copilot-edits-working-set.png)
 
-Copilot 편집은 자동으로 활성된 편집 창을을 작업 세트에 추가합니다. 여러 [편집 창](/docs/getstarted/userinterface.md#editor-groups)이 열려 있는 경우, 각 그룹의 활성된 편집 창이 작업 세트에 추가됩니다. 모든 열린 편집 창을 추가하려면 **Add Files...**를 선택한 다음 파일 빠른 선택에서 **Open Editors**를 선택하세요.
+Copilot 편집은 자동으로 활성된 편집 창을을 작업 세트에 추가합니다. 여러 [편집 창](/docs/getstarted/userinterface.md#editor-groups)이 열려 있는 경우, 각 그룹의 활성된 편집 창이 작업 세트에 추가됩니다. 모든 열린 편집 창을 추가하려면 **Add Files...** 를 선택한 다음 파일 빠른 선택에서 **Open Editors**를 선택하세요.
 
 작업 세트에 파일을 추가하는 여러 가지 옵션이 있습니다:
 
@@ -72,11 +72,11 @@ Copilot 편집은 자동으로 활성된 편집 창을을 작업 세트에 추�
   빠른 선택에서 여러 항목을 빠르게 선택하려면 `Up` 및 `Down` 키를 사용하여 목록을 탐색하고, `Right` 키를 사용하여 항목을 컨텍스트로 추가한 다음 다른 항목에 대해 이를 반복하세요.
   :::
 
-  ![Copilot 편집 뷰와 파일 검색 빠른 선택을 보여주는 스크린샷으로, 컨텍스트를 추가하는 버튼을 강조 표시합니다.](images/copilot-edits/copilot-edits-add-files.png)
+  ![Copilot 편집 화면과 파일 검색 빠른 선택을 보여주는 스크린샷으로, 컨텍스트를 추가하는 버튼을 강조 표시합니다.](images/copilot-edits/copilot-edits-add-files.png)
 
-- 탐색기 창, 검색 창 또는 편집기 경로 표시줄에서 편집기 탭이나 파일 또는 폴더를 Copilot 편집 뷰로 드래그 앤 드롭합니다.
+- 탐색기 창, 검색 창 또는 편집기 경로 표시줄에서 편집기 탭이나 파일 또는 폴더를 Copilot 편집 화면으로 드래그 앤 드롭합니다.
 
-  Copilot 편집 뷰에 폴더를 드롭하면 해당 폴더의 모든 파일이 작업 세트에 추가됩니다.
+  Copilot 편집 화면에 폴더를 드롭하면 해당 폴더의 모든 파일이 작업 세트에 추가됩니다.
 
 - 탐색기 창 또는 검색 창에서 파일을 마우스 오른쪽 버튼으로 클릭하고 **Add File to Copilot Edits**를 선택합니다.
 
@@ -117,7 +117,7 @@ Copilot 편집이 프로젝트에 대한 편집을 생성할 때 작업 세트�
 
 Copilot 편집은 생성된 편집을 코드에 인라인으로 표시하지만 변경 사항을 자동으로 디스크에 저장하지는 않습니다(편집기 탭의 저장되지 않은 파일 표시 참고). 편집을 검토하는 과정에서 빌드나 테스트 작업과 같이 파일 변경으로 트리거되는 자동화된 작업에 의존할 수 있습니다. 개별 파일을 저장하거나 작업 세트에서 **Save All**(`Ctrl+S`)을 선택하여 편집 내용을 디스크에 저장할 수 있습니다.
 
-![Copilot 편집 뷰를 보여주는 스크린샷으로, 모두 저장 버튼을 강조 표시](images/copilot-edits/copilot-edits-save-all.png)
+![Copilot 편집 화면을 보여주는 스크린샷으로, 모두 저장 버튼을 강조 표시](images/copilot-edits/copilot-edits-save-all.png)
 
 AI가 생성한 변경 사항이 포함된 파일을 저장할 때 확인 대화 상자가 표시됩니다. 대화 상자에서 확인을 요청하지 않고 항상 파일을 저장하는 옵션을 선택할 수 있습니다. 이 옵션을 선택하면 모두 저장 컨트롤이 더 이상 표시되지 않습니다. `chat.editing.alwaysSaveWithGeneratedChanges` 설정을 사용하여 확인을 재설정할 수 있습니다.
 
@@ -141,19 +141,19 @@ Copilot 편집은 AI가 생성한 각 편집을 수락하거나 취소할 수 �
 
 - 작업 세트의 개별 파일에서 **Accept** 또는 **Discard** 아이콘을 선택하여 해당 특정 파일로 작업을 제한
 
-![Copilot 편집 뷰를 보여주는 스크린샷으로, 모두 수락 및 모두 취소 버튼을 강조 표시](images/copilot-edits/copilot-edits-accept-discard.png)
+![Copilot 편집 화면을 보여주는 스크린샷으로, 모두 수락 및 모두 취소 버튼을 강조 표시](images/copilot-edits/copilot-edits-accept-discard.png)
 
 ## 편집 실행 취소 {#undo-edits}
 
 코드를 편집하는 요청을 보낼 때 이러한 변경 사항 중 일부를 롤백하고 싶을 수 있습니다. 예를 들어 다른 구현 전략을 사용하고 싶을 때입니다.
 
-Copilot 편집 뷰 제목 표시줄의 **Undo Last Edit** 컨트롤을 사용하여 마지막 편집을 되돌리고 마지막 요청을 보내기 전 상태로 돌아갈 수 있습니다. 마지막 편집의 실행 취소를 수행한 후 Copilot 편집 뷰 제목 표시줄의 **Redo Last Edit** 컨트롤을 사용하여 해당 편집을 다시 수행할 수 있습니다.
+Copilot 편집 화면 제목 표시줄의 **Undo Last Edit** 컨트롤을 사용하여 마지막 편집을 되돌리고 마지막 요청을 보내기 전 상태로 돌아갈 수 있습니다. 마지막 편집의 실행 취소를 수행한 후 Copilot 편집 화면 제목 표시줄의 **Redo Last Edit** 컨트롤을 사용하여 해당 편집을 다시 수행할 수 있습니다.
 
-![Copilot 편집 뷰를 보여주는 스크린샷으로, 뷰 제목 표시줄의 실행 취소 및 다시 실행 작업을 강조 표시](images/copilot-edits/copilot-edits-undo-redo.png)
+![Copilot 편집 화면을 보여주는 스크린샷으로, 뷰 제목 표시줄의 실행 취소 및 다시 실행 작업을 강조 표시](images/copilot-edits/copilot-edits-undo-redo.png)
 
-또한 Copilot 편집 뷰에서 요청 위에 마우스를 올릴 때 나타나는 **Undo Edits (Delete)** 컨트롤을 사용하여 해당 요청부터 이후의 모든 편집을 되돌릴 수 있습니다.
+또한 Copilot 편집 화면에서 요청 위에 마우스를 올릴 때 나타나는 **Undo Edits (Delete)** 컨트롤을 사용하여 해당 요청부터 이후의 모든 편집을 되돌릴 수 있습니다.
 
-![Copilot 편집 뷰를 보여주는 스크린샷으로, 특정 요청에 대한 편집 실행 취소 컨트롤을 강조 표시](images/copilot-edits/copilot-edits-undo-request.png)
+![Copilot 편집 화면을 보여주는 스크린샷으로, 특정 요청에 대한 편집 실행 취소 컨트롤을 강조 표시](images/copilot-edits/copilot-edits-undo-request.png)
 
 :::tip
 때로는 Copilot이 편집을 생성할 때 잘못된 경로로 가기 시작할 수 있습니다. 그런 일이 발생하면 대화를 추가하여 다른 접근 방식을 설득하기가 어려울 수 있습니다. 이런 경우에는 **Undo Last Edit**를 사용하여 Copilot의 응답에 동의하는 지점으로 돌아가세요. 그런 다음 개선된 프롬프트로 다시 시작하세요.
@@ -181,7 +181,7 @@ Copilot 채팅은 프로젝트나 기술 주제에 대한 질문을 하고 아�
 
 다음 목록에는 Copilot 편집과 관련된 기본 키보드 단축키가 포함되어 있습니다. 키보드 단축키 편집기(`Ctrl+K Ctrl+S`)를 사용하여 기본 키보드 단축키를 수정할 수 있습니다.
 
-- `Ctrl+Shift+I` - Copilot 편집 뷰 열기
+- `Ctrl+Shift+I` - Copilot 편집 화면 열기
 - `Ctrl+Alt+Enter` - 채팅 화면에서 Copilot 편집으로 프롬프트 보내기
 - `Ctrl+/` - 프롬프트에 컨텍스트 추가
 - `Ctrl+S` - 편집된 모든 파일을 디스크에 저장
@@ -232,9 +232,9 @@ Copilot 편집은 생성된 편집을 쉽게 검토하고 수락하거나 취소
 
 \* _코드 블록은 채팅 대화에 포함되며 수동으로 올바른 파일에 적용해야 함_
 
-### Copilot 편집 뷰의 위치를 변경할 수 있나요? {#can-i-change-the-location-of-the-copilot-edits-view}
+### Copilot 편집 화면의 위치를 변경할 수 있나요? {#can-i-change-the-location-of-the-copilot-edits-view}
 
-Copilot 편집 뷰를 활동 표시줄로 드래그 앤 드롭하여 기본 사이드 바에 표시할 수 있습니다. 보조 사이드 바로 이동할 수도 있습니다. VS Code의 [사용자 정의 레이아웃](/docs/editor/custom-layout.md#workbench)에 대해 자세히 알아보세요.
+Copilot 편집 화면을 활동 표시줄로 드래그 앤 드롭하여 기본 사이드 바에 표시할 수 있습니다. 보조 사이드 바로 이동할 수도 있습니다. VS Code의 [사용자 정의 레이아웃](/docs/editor/custom-layout.md#workbench)에 대해 자세히 알아보세요.
 
 ## 관련 콘텐츠 {#related-content}
 

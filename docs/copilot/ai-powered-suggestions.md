@@ -76,7 +76,7 @@ Copilot이 제안을 제공하는 것에 의존하지 않고, 코드 주석을 �
 
    ![완성 기능을 비활성화하는 옵션을 강조 표시하는 Copilot용 VS Code 명령 메뉴를 보여주는 스크린샷.](./images/inline-suggestions/copilot-disable-completions.png)
 
-## 팁과 요령 {#tips-and-tricks}
+## 팁과 트릭 {#tips-and-tricks}
 
 ### 컨텍스트 {#context}
 
@@ -96,9 +96,9 @@ Copilot이 제안을 제공하는 것에 의존하지 않고, 코드 주석을 �
 
 - VS Code에서 Copilot을 설정하고 직접 체험하기 위한 소개 [Copilot 튜토리얼](/docs/copilot/getting-started-chat.md)로 시작하세요.
 
-- [Copilot Chat](/docs/copilot/copilot-chat.md)으로 AI 채팅 대화를 사용하는 방법을 알아보세요.
+- [Copilot 채팅](/docs/copilot/copilot-chat.md)으로 AI 채팅 대화를 사용하는 방법을 알아보세요.
 
-## 추가 리소스 {#additional-resources}
+## 추가 기능 {#additional-resources}
 
 [GitHub Copilot 문서](https://docs.github.com/copilot/getting-started-with-github-copilot?tool=vscode)에서 [Copilot](https://github.com/features/copilot)과 VS Code에서의 사용 방법에 대해 자세히 알아볼 수 있습니다.
 

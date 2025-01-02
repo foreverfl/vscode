@@ -1,7 +1,7 @@
 ---
 Order: 6
 Area: copilot
-TOCTitle: Copilot Chat
+TOCTitle: Copilot 채팅
 ContentId: 130ecf6c-6f06-4ddd-8b1d-f85f023af77b
 PageTitle: VS Code에서 AI 기반 GitHub Copilot 채팅 사용하기
 DateApproved: 12/11/2024
@@ -9,25 +9,25 @@ MetaDescription: VS Code에서 AI 기반 채팅을 통해 GitHub Copilot과 상�
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 
-# VS Code에서 Copilot Chat <br /> 사용하기 {#using-copilot-chat-in-vs-code}
+# VS Code에서 Copilot 채팅 사용하기 {#using-copilot-chat-in-vs-code}
 
-Visual Studio Code의 [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) 확장 프로그램을 통해 AI 기반 채팅으로 코드를 생성하고, 코드 이해도를 높이며, 에디터를 구성할 수 있습니다. 문서나 온라인 포럼에서 답을 찾는 대신, VS Code에서 직접 Copilot Chat에 질문하고 코딩하는 동안 코드 제안을 받을 수 있습니다.
+Visual Studio Code의 [GitHub Copilot 채팅](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) 확장 프로그램을 통해 AI 기반 채팅으로 코드를 생성하고, 코드 이해도를 높이며, 에디터를 구성할 수 있습니다. 문서나 온라인 포럼에서 답을 찾는 대신, VS Code에서 직접 Copilot 채팅에 질문하고 코딩하는 동안 코드 제안을 받을 수 있습니다.
 
-Copilot Chat은 개발 과정에 통합되어 필요한 곳에서 도움을 제공합니다:
+Copilot 채팅은 개발 과정에 통합되어 필요한 곳에서 도움을 제공합니다:
 
 - [**인라인 채팅**](#inline-chat): 에디터에서 직접 채팅 대화를 시작하고 코딩하는 동안 인라인 제안을 받습니다
 - [**채팅 화면**](#chat-view): 질문에 답하고 코드 제안을 제공하는 AI 어시스턴트를 옆에 둡니다
 - [**빠른 채팅**](#quick-chat): 빠른 질문을 하고 하던 일로 돌아갑니다
 
-프로젝트의 여러 파일을 수정하려는 경우 [Copilot 편집](/docs/copilot/copilot-edits.md)을 사용하는 것이 좋습니다. [기존 채팅 대화를 Copilot Edits로 쉽게 이동](/docs/copilot/copilot-edits.md#send-a-chat-request-to-copilot-edits)할 수 있습니다.
+프로젝트의 여러 파일을 수정하려는 경우 [Copilot 편집](/docs/copilot/copilot-edits.md)을 사용하는 것이 좋습니다. [기존 채팅 대화를 Copilot 편집으로 쉽게 이동](/docs/copilot/copilot-edits.md#send-a-chat-request-to-copilot-edits)할 수 있습니다.
 
 :::tip
 Copilot 구독이 아직 없다면 [Copilot Free 플랜](https://github.com/github-copilot/signup)에 가입하여 무료로 Copilot을 사용할 수 있으며, 매월 제한된 수의 완성 및 채팅 상호작용을 제공받을 수 있습니다.
 :::
 
-## Copilot Chat 사용 사례 {#copilot-chat-use-cases}
+## Copilot 채팅 사용 사례 {#copilot-chat-use-cases}
 
-Copilot Chat을 다음과 같은 다양한 개발 시나리오에서 사용할 수 있습니다:
+Copilot 채팅을 다음과 같은 다양한 개발 시나리오에서 사용할 수 있습니다:
 
 - 코딩 및 기술 주제에 대한 질문 답변하기 (_"What is a linked list?"_, _"top 10 popular web frameworks"_)
 - 문제를 가장 잘 해결하는 방법에 대한 코딩 질문 답변하기 (_"How to add auth to my project?"_)
@@ -48,13 +48,13 @@ Copilot Chat을 다음과 같은 다양한 개발 시나리오에서 사용할 �
    Copilot 구독이 아직 없다면 [Copilot Free 플랜](https://github.com/github-copilot/signup)에 가입하여 무료로 Copilot을 사용할 수 있으며, 매월 제한된 수의 완성 및 채팅 상호작용을 제공받을 수 있습니다.
    :::
 
-## Copilot Chat 시작하기 {#getting-started-with-copilot-chat}
+## Copilot 채팅 시작하기 {#getting-started-with-copilot-chat}
 
 ### 채팅 열기 {#open-chat}
 
-VS Code 커맨드 센터의 Copilot Chat 메뉴를 사용하여 다양한 채팅 경험을 시작할 수 있습니다.
+VS Code 커맨드 센터의 Copilot 채팅 메뉴를 사용하여 다양한 채팅 경험을 시작할 수 있습니다.
 
-![VS Code 커맨드 센터의 Copilot Chat 메뉴 스크린샷](images/copilot-chat/copilot-chat-menu-command-center.png)
+![VS Code 커맨드 센터의 Copilot 채팅 메뉴 스크린샷](images/copilot-chat/copilot-chat-menu-command-center.png)
 
 또는 다음 키보드 단축키를 사용하여 Copilot과 채팅 대화를 시작할 수 있습니다.
 
@@ -84,7 +84,7 @@ VS Code는 채팅 화면에서 현재 활성화된 에디터를 자동으로 채
   첨부 빠른 선택에서 여러 항목을 빠르게 추가하려면 `Up` 및 `Down` 키를 사용하여 목록을 탐색하고, `Right` 키를 사용하여 항목을 컨텍스트로 추가한 다음 다른 항목에 대해 이 과정을 반복하세요.
   :::
 
-- 에디터 탭이나 탐색기 뷰, 검색 뷰 또는 에디터 이동 경로의 파일 또는 폴더를 채팅 화면로 드래그 앤 드롭하세요.
+- 에디터 탭이나 화면, 검색 화면 또는 에디터 이동 경로의 파일 또는 폴더를 채팅 화면로 드래그 앤 드롭하세요.
 
   <video title="파일과 에디터를 채팅으로 드래그하기" autoplay loop controls muted style={{ maxWidth: '100%' }}>
   <source src="https://code.visualstudio.com/assets/docs/copilot/copilot-chat/copilot-attach-dnd.mp4" type="video/mp4" />
@@ -118,9 +118,9 @@ VS Code는 채팅 화면에서 현재 활성화된 에디터를 자동으로 채
 
 인라인 채팅을 사용하면 작업 컨텍스트를 떠나지 않고 에디터에서 직접 Copilot과 채팅 대화를 할 수 있습니다. 인라인 채팅을 사용하면 코드 내에서 직접 코드 제안을 미리 볼 수 있어 코드 변경을 빠르게 반복하는 데 유용할 수 있습니다.
 
-아무 파일에서나 키보드의 `Ctrl+I`를 눌러 Copilot 인라인 채팅을 불러와 시작하세요. 또는 파일을 열고 Copilot Chat 커맨드 센터 메뉴에서 **Editor Inline Chat**을 선택하세요.
+아무 파일에서나 키보드의 `Ctrl+I`를 눌러 Copilot 인라인 채팅을 불러와 시작하세요. 또는 파일을 열고 Copilot 채팅 커맨드 센터 메뉴에서 **Editor Inline Chat**을 선택하세요.
 
-![VS Code 커맨드 센터의 Copilot Chat 메뉴 스크린샷](images/copilot-chat/copilot-command-center-editor-inline-chat.png)
+![VS Code 커맨드 센터의 Copilot 채팅 메뉴 스크린샷](images/copilot-chat/copilot-command-center-editor-inline-chat.png)
 
 질문에 따라 Copilot은 현재 작업 중인 파일에 대한 코드 수정이나 리팩토링을 제안합니다. Copilot은 업데이트 미리보기를 제공하며, 이를 수락(`Ctrl+Enter`)하거나 취소(`Escape`)할 수 있습니다. 선택적으로 새로운 코드 제안을 생성할 수 있습니다.
 
@@ -142,13 +142,13 @@ VS Code는 채팅 화면에서 현재 활성화된 에디터를 자동으로 채
 
 ### 채팅 화면 열기 {#open-the-chat-view}
 
-채팅 화면를 사용하면 별도의 화면에서 Copilot과 채팅 대화를 할 수 있습니다. 기본적으로 채팅 화면는 **보조 사이드바**에 위치합니다. 보조 사이드바는 항상 기본 사이드바의 반대쪽에 위치하므로, 탐색기, 소스 제어 또는 기본 사이드바의 다른 화면과 동시에 채팅 화면를 열어둘 수 있습니다.
+채팅 화면를 사용하면 별도의 화면에서 Copilot과 채팅 대화를 할 수 있습니다. 기본적으로 채팅 화면은 **Secondary Side Bar**에 위치합니다. 보조 사이드바는 항상 기본 사이드바의 반대쪽에 위치하므로, 탐색기, 소스 제어 또는 기본 사이드바의 다른 화면과 동시에 채팅 화면를 열어둘 수 있습니다.
 
-![보조 사이드바의 Copilot 채팅 화면와 기본 사이드바의 탐색기 뷰](images/copilot-chat/copilot-chat-view.png)
+![보조 사이드바의 Copilot 채팅 화면와 기본 사이드바의 탐색기 화면](images/copilot-chat/copilot-chat-view.png)
 
-`Ctrl+Alt+I`을 누르거나 Copilot Chat 커맨드 센터 메뉴에서 **Open Chat**을 선택하여 채팅 화면에 접근할 수 있습니다.
+`Ctrl+Alt+I`을 누르거나 Copilot 채팅 커맨드 센터 메뉴에서 **Open Chat**을 선택하여 채팅 화면에 접근할 수 있습니다.
 
-![VS Code 커맨드 센터의 Copilot Chat 메뉴에서 Open Chat이 강조 표시된 스크린샷](images/copilot-chat/copilot-command-center-open-chat.png)
+![VS Code 커맨드 센터의 Copilot 채팅 메뉴에서 Open Chat이 강조 표시된 스크린샷](images/copilot-chat/copilot-command-center-open-chat.png)
 
 또한 VS Code 제목 표시줄의 레이아웃 컨트롤을 사용하여 채팅 화면가 포함된 보조 사이드바를 토글할 수 있습니다.
 
@@ -165,10 +165,10 @@ VS Code는 채팅 화면에서 현재 활성화된 에디터를 자동으로 채
 ![devcontainer.json 파일을 설명하는 Copilot](images/copilot-chat/devcontainer-explain.png)
 
 :::tip
-채팅 입력 상자에 `/help`를 입력하여 GitHub Copilot과 Copilot Chat 상호작용 방법에 대한 도움말을 받으세요.
+채팅 입력 상자에 `/help`를 입력하여 GitHub Copilot과 Copilot 채팅 상호작용 방법에 대한 도움말을 받으세요.
 :::
 
-Copilot Chat은 다음을 포함하는 풍부하고 상호작용적인 결과를 제공할 수 있습니다: 간단한 텍스트, 이미지, VS Code 명령을 호출하는 버튼, URI나 에디터 위치에 대한 참조, 또는 파일 트리(예: 채팅 참여자가 새 작업 공간을 만들 것을 제안할 때 작업 공간 미리보기를 보여주기 위해).
+Copilot 채팅은 다음을 포함하는 풍부하고 상호작용적인 결과를 제공할 수 있습니다: 간단한 텍스트, 이미지, VS Code 명령을 호출하는 버튼, URI나 에디터 위치에 대한 참조, 또는 파일 트리(예: 채팅 참여자가 새 작업 공간을 만들 것을 제안할 때 작업 공간 미리보기를 보여주기 위해).
 
 다음 예시(_"@workspace /new Express with TypeScript and pug"_)는 Express 앱을 만들기 위한 채팅 프롬프트를 보여주며, 제안된 작업 공간 구조가 있는 트리 뷰와 새 작업 공간을 만들기 위한 버튼을 반환합니다.
 
@@ -178,17 +178,17 @@ Copilot Chat은 다음을 포함하는 풍부하고 상호작용적인 결과를
 
 ### 코드 블록 {#code-blocks}
 
-질문에 따라 Copilot Chat은 코드 블록에 소스 코드를 반환할 수 있습니다. 언어 확장에 따라 채팅 응답의 코드 블록이 IntelliSense를 지원할 수 있으며, 이를 통해 마우스를 올려 메서드와 심볼에 대한 정보를 얻거나 정의로 이동할 수 있습니다.
+질문에 따라 Copilot 채팅은 코드 블록에 소스 코드를 반환할 수 있습니다. 언어 확장에 따라 채팅 응답의 코드 블록이 IntelliSense를 지원할 수 있으며, 이를 통해 마우스를 올려 메서드와 심볼에 대한 정보를 얻거나 정의로 이동할 수 있습니다.
 
-![Copilot Chat 코드 블록 응답](images/copilot-chat/copilot-chat-view-code-block-actions.png)
+![Copilot 채팅 코드 블록 응답](images/copilot-chat/copilot-chat-view-code-block-actions.png)
 
-코드 블록 위에 마우스를 올리면 **에디터에 적용**, **커서 위치에 삽입**, **복사** 옵션이 표시됩니다.
+코드 블록 위에 마우스를 올리면 **Apply in Editor**, **Insert at Cursor**, **Copy** 옵션이 표시됩니다.
 
-**더 많은 작업**(`...`) 버튼은 **새 파일에 삽입**과 **터미널에 삽입**(`Ctrl+Alt+Enter`) 옵션을 제공합니다.
+**More Actions**(`...`) 버튼은 **Insert Into New File**과 **Insert into Terminal**(`Ctrl+Alt+Enter`) 옵션을 제공합니다.
 
-Copilot Chat이 코드 블록에 셸 명령이 포함되어 있음을 감지하면 **터미널에 삽입**(`Ctrl+Alt+Enter`)을 사용하여 통합 터미널에서 직접 실행할 수 있습니다. 이 옵션은 활성 터미널을 생성하거나 열고 실행할 준비가 된 명령 텍스트를 삽입합니다.
+Copilot 채팅이 코드 블록에 셸 명령이 포함되어 있음을 감지하면 **Insert into Terminal**(`Ctrl+Alt+Enter`)을 사용하여 통합 터미널에서 직접 실행할 수 있습니다. 이 옵션은 활성 터미널을 생성하거나 열고 실행할 준비가 된 명령 텍스트를 삽입합니다.
 
-![터미널에 삽입 옵션이 표시된 파일 나열을 위한 Copilot Chat 코드 블록](images/copilot-chat/run-in-terminal.png)
+![터미널에 삽입 옵션이 표시된 파일 나열을 위한 Copilot 채팅 코드 블록](images/copilot-chat/run-in-terminal.png)
 
 :::tip
 **Chat: Next Code Block**(`Ctrl+Alt+PageDown`)과 **Chat Previous Code Block**(`Ctrl+Alt+PageUp`)을 사용하여 코드 블록 사이를 탐색할 수 있습니다.
@@ -203,7 +203,7 @@ Copilot Chat이 코드 블록에 셸 명령이 포함되어 있음을 감지하�
 
 ### 채팅 기록 {#chat-history}
 
-Copilot Chat은 이전 채팅 대화의 기록을 유지하며, 채팅 화면의 **Show Chats...** 버튼이나 명령 팔레트의 **Chat: Show Chats...** 명령을 사용하여 액세스할 수 있습니다.
+Copilot 채팅은 이전 채팅 대화의 기록을 유지하며, 채팅 화면의 **Show Chats...** 버튼이나 명령 팔레트의 **Chat: Show Chats...** 명령을 사용하여 액세스할 수 있습니다.
 
 빠른 선택에는 가장 최근 순으로 정렬된 이전 채팅 목록이 표시됩니다. 채팅을 선택하여 채팅 화면에서 열 수 있습니다.
 
@@ -215,9 +215,9 @@ Copilot에게 빠른 질문을 하고 싶지만 전체 채팅 화면 세션을 �
 
 ![빠른 채팅 드롭다운](images/copilot-chat/quick-chat-dropdown.png)
 
-키보드에서 `Ctrl+Shift+Alt+L`를 눌러 빠른 채팅을 불러오세요. 또는 Copilot Chat 커맨드 센터 메뉴에서 **Quick Chat**을 선택하세요.
+키보드에서 `Ctrl+Shift+Alt+L`를 눌러 빠른 채팅을 불러오세요. 또는 Copilot 채팅 커맨드 센터 메뉴에서 **Quick Chat**을 선택하세요.
 
-![VS Code 커맨드 센터의 Copilot Chat 메뉴 스크린샷](images/copilot-chat/copilot-command-center-quick-chat.png)
+![VS Code 커맨드 센터의 Copilot 채팅 메뉴 스크린샷](images/copilot-chat/copilot-command-center-quick-chat.png)
 
 질문을 입력하고, [채팅 참여자](#chat-participants)와 [슬래시 명령어](#slash-commands)로 질문의 범위를 지정할 수 있으며, 드롭다운 오른쪽 상단의 **Open in Chat View** 버튼을 사용하여 토론을 전체 채팅 화면 세션으로 확장할 수 있습니다.
 
@@ -225,7 +225,7 @@ Copilot에게 빠른 질문을 하고 싶지만 전체 채팅 화면 세션을 �
 
 ## 연속(multi-turn) 대화 {#multi-turn-conversations}
 
-Copilot Chat에서 질문을 할 때 첫 번째 응답에만 머물 필요는 없습니다. 채팅 대화를 열어두고 계속해서 제안된 솔루션을 반복하고 개선하도록 Copilot에 프롬프트를 주세요. Copilot은 생성된 코드와 현재 대화 기록의 컨텍스트를 모두 가지고 있습니다. 추가 질문을 계속하면 Copilot은 귀하의 요구사항에 따라 응답을 더욱 개선합니다.
+Copilot 채팅에서 질문을 할 때 첫 번째 응답에만 머물 필요는 없습니다. 채팅 대화를 열어두고 계속해서 제안된 솔루션을 반복하고 개선하도록 Copilot에 프롬프트를 주세요. Copilot은 생성된 코드와 현재 대화 기록의 컨텍스트를 모두 가지고 있습니다. 추가 질문을 계속하면 Copilot은 귀하의 요구사항에 따라 응답을 더욱 개선합니다.
 
 다음은 피보나치 수를 계산하는 함수를 만들기 위해 인라인 채팅을 사용하는 예시입니다:
 
@@ -251,7 +251,7 @@ Copilot Chat에서 질문을 할 때 첫 번째 응답에만 머물 필요는 �
 
 ## 스마트 작업 {#smart-actions}
 
-Copilot Chat을 사용하면 자연어로 Copilot의 도움을 받을 수 있습니다. 여러 일반적인 시나리오에서는 프롬프트를 작성하지 않고도 *스마트 작업*을 사용하여 Copilot의 도움을 받을 수 있습니다. 커밋 메시지 생성, 문서 생성, 코드 수정, 코드 설명, 코드 변경 검토와 같은 작업에 대한 스마트 작업의 예시가 있습니다.
+Copilot 채팅을 사용하면 자연어로 Copilot의 도움을 받을 수 있습니다. 여러 일반적인 시나리오에서는 프롬프트를 작성하지 않고도 *스마트 작업*을 사용하여 Copilot의 도움을 받을 수 있습니다. 커밋 메시지 생성, 문서 생성, 코드 수정, 코드 설명, 코드 변경 검토와 같은 작업에 대한 스마트 작업의 예시가 있습니다.
 
 이러한 스마트 작업은 VS Code UI 전체에서 사용할 수 있습니다. 예를 들어 에디터 컨텍스트 메뉴나 빠른 수정 작업을 통해 Copilot 스마트 작업에 액세스할 수 있습니다.
 
@@ -311,7 +311,7 @@ VS Code는 많은 방식으로 사용자 정의할 수 있어서 사람들은 �
 
 `/runCommand` [슬래시 명령어](#slash-commands)를 사용하여 `@vscode`에게 에디터에서 명령을 실행하도록 요청할 수 있습니다. 예를 들어, `@vscode /runCommand show minimap`을 요청하여 에디터에서 미니맵을 표시할 수 있습니다.
 
-![Copilot Chat에서 /runCommand 슬래시 명령어로 에디터의 미니맵 토글하기](images/copilot-chat/copilot-runcommand.png)
+![Copilot 채팅에서서 /runCommand 슬래시 명령어로 에디터의 미니맵 토글하기](images/copilot-chat/copilot-runcommand.png)
 
 ### @terminal {#terminal}
 
@@ -383,7 +383,7 @@ Copilot은 채팅 화면에서의 대화 기록을 추적합니다. Copilot은 �
 [VS Code Speech](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) 확장 프로그램이 제공하는 VS Code의 음성 제어 기능을 사용하여 음성으로 채팅 대화를 시작할 수 있습니다:
 
 - 음성으로 채팅 프롬프트를 받아쓰기
-- "Hey Code" 음성 명령을 사용하여 Copilot Chat과 음성 세션 시작
+- "Hey Code" 음성 명령을 사용하여 Copilot 채팅과 음성 세션 시작
 - "말하기 위해 누르기" 모드를 사용하여 채팅을 위한 음성 입력 가속화
 
 [VS Code에서 음성 상호작용 사용하기](/docs/editor/voice.md)에 대해 자세히 알아보세요.
@@ -422,7 +422,7 @@ Copilot은 채팅 화면에서의 대화 기록을 추적합니다. Copilot은 �
 
 \* _채팅 대화에 코드 블록이 포함되어 있으며 수동으로 올바른 파일에 적용해야 합니다_
 
-## 추가 리소스 {#additional-resources}
+## 추가 기능 {#additional-resources}
 
 [GitHub Copilot](https://github.com/features/copilot)에 대해 더 자세히 알아보고 VS Code에서 사용하는 방법은 [GitHub Copilot 문서](https://docs.github.com/copilot/getting-started-with-github-copilot?tool=vscode)에서 확인할 수 있습니다.
 
@@ -430,6 +430,6 @@ Copilot은 채팅 화면에서의 대화 기록을 추적합니다. Copilot은 �
 
 ## 다음 단계 {#next-steps}
 
-- 소개용 [Copilot Chat 튜토리얼](/docs/copilot/getting-started-chat.md)로 시작하세요.
+- 소개용 [Copilot 채팅 튜토리얼](/docs/copilot/getting-started-chat.md)로 시작하세요.
 
-- [Copilot Edits](/docs/copilot/copilot-edits.md)로 여러 파일에 걸쳐 편집하세요.
+- [Copilot 편집](/docs/copilot/copilot-edits.md)로 여러 파일에 걸쳐 편집하세요.

@@ -9,7 +9,7 @@ MetaDescription: Copilot의 @workspace 채팅을 사용하여 전체 코드베�
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 
-# Copilot 채팅을 워크스페이스 <br /> 전문가로 만들기 {#making-copilot-chat-an-expert-in-your-workspace}
+# Copilot 채팅을 워크스페이스 전문가로 만들기 {#making-copilot-chat-an-expert-in-your-workspace}
 
 Copilot 채팅에서 `@workspace`를 참조하면 전체 코드베이스에 대해 질문할 수 있습니다. 질문에 따라 Copilot은 관련 파일과 심볼을 지능적으로 검색하여 답변에 링크와 코드 예제로 참조합니다. `@workspace` 참조를 기반으로 Copilot 채팅은 다음과 같은 작업을 위한 도메인 전문가가 됩니다:
 

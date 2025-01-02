@@ -9,7 +9,7 @@ MetaDescription: 프롬프트 작성과 컨텍스트 제공을 통해 VS Code에
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 
-# VS Code에서 GitHub Copilot<br /> 사용을 위한 모범 사례 {#best-practices-for-using-github-copilot-in-vs-code}
+# VS Code에서 GitHub Copilot 사용을 위한 모범 사례 {#best-practices-for-using-github-copilot-in-vs-code}
 
 이 문서는 프롬프트 작성과 GitHub Copilot에 적절한 컨텍스트를 제공하여 Visual Studio Code에서 GitHub Copilot을 사용하기 위한 모범 사례를 다룹니다.
 
@@ -110,9 +110,9 @@ Copilot 채팅의 [채팅 참가자](/docs/copilot/copilot-chat.md#chat-particip
 
 예를 들어, `#file` 변수를 사용하면 채팅 프롬프트에서 작업 공간의 특정 파일들을 참조할 수 있습니다. 이는 작업 중인 파일에 대한 컨텍스트를 제공함으로써 Copilot 채팅의 답변을 여러분의 코드와 더 관련성 있게 만드는 데 도움이 됩니다. "#file:package.json의 개선점을 제안해줄 수 있나요?" 또는 "#file:devcontainer.json에서 확장을 어떻게 추가하나요?"와 같은 질문을 할 수 있습니다. `#file` 변수를 사용함으로써, Copilot으로부터 더 타겟팅되고 정확한 응답을 얻을 수 있습니다.
 
-채팅 뷰의 **컨텍스트 첨부** 버튼을 사용하여 채팅 메시지에 컨텍스트를 추가할 수도 있습니다. 그런 다음 빠른 선택에서 현재 선택 항목, 작업 공간의 하나 이상의 파일 또는 소스 코드의 하나 이상의 기호와 같은 특정 유형의 컨텍스트를 선택할 수 있습니다.
+채팅 화면의 **Attach Context** 버튼을 사용하여 채팅 메시지에 컨텍스트를 추가할 수도 있습니다. 그런 다음 빠른 선택에서 현재 선택 항목, 작업 공간의 하나 이상의 파일 또는 소스 코드의 하나 이상의 기호와 같은 특정 유형의 컨텍스트를 선택할 수 있습니다.
 
-![VS Code Copilot 채팅 뷰의 스크린샷으로, 컨텍스트 첨부 버튼과 컨텍스트 빠른 선택을 보여줍니다.](./images/prompt-crafting/copilot-chat-view-attach-context.png)
+![VS Code Copilot 채팅 화면의 스크린샷으로, 컨텍스트 첨부 버튼과 컨텍스트 빠른 선택을 보여줍니다.](./images/prompt-crafting/copilot-chat-view-attach-context.png)
 
 Copilot 채팅과 함께 [컨텍스트 변수 사용하기](/docs/copilot/copilot-chat.md#chat-context)에 대해 자세히 알아보세요.
 

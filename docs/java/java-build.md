@@ -225,7 +225,7 @@ Gradle 파일에 Gradle 클로저 또는 속성을 입력하려고 할 때 확�
   <source src="https://code.visualstudio.com/docs/java/java-build/gradle-dependency-completion.mp4" type="video/mp4" />
 </video>
 
-## 추가 리소스 {#additional-resources}
+## 추가 기능 {#additional-resources}
 
 추가 [구성](https://github.com/microsoft/vscode-maven/tree/main#additional-configurations) 및 [문제 해결 가이드](https://github.com/microsoft/vscode-maven/blob/main/Troubleshooting.md)를 위해 Maven 확장의 [GitHub Repo](https://github.com/microsoft/vscode-maven)를 방문하세요.
 

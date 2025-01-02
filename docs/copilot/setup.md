@@ -9,7 +9,7 @@ MetaDescription: Visual Studio에서 GitHub Copilot 구독에 액세스하고 Gi
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 
-# VS Code에서 GitHub Copilot<br /> 설정하기 {#set-up-github-copilot-in-vs-code}
+# VS Code에서 GitHub Copilot 설정하기 {#set-up-github-copilot-in-vs-code}
 
 이 가이드는 Visual Studio Code에서 GitHub Copilot을 설정하는 과정을 안내합니다. VS Code에서 Copilot을 사용하려면 GitHub 계정으로 GitHub Copilot에 액세스할 수 있어야 하며 VS Code에 Copilot 확장 프로그램이 설치되어 있어야 합니다.
 
@@ -36,14 +36,14 @@ GitHub Copilot에 액세스하는 방법에는 여러 가지가 있습니다:
    ![VS Code 제목 표시줄의 Copilot 메뉴에서 Copilot 무료로 AI 기능을 사용하는 옵션을 보여줍니다.](images/setup/copilot-menu-use-ai-features.png)
 
    :::tip
-   `Ctrl+Alt+I` 키보드 단축키를 사용하거나 **채팅: 채팅 뷰에 포커스** 명령으로 채팅 뷰를 직접 열 수도 있습니다.
+   `Ctrl+Alt+I` 키보드 단축키를 사용하거나 **Chat: Focus on Chat View** 명령으로 채팅 화면을 직접 열 수도 있습니다.
    :::
 
-1. **Copilot 사용을 위해 로그인**을 선택하여 GitHub 계정으로 로그인하고 시작하세요. 이렇게 하면 VS Code에 GitHub Copilot 확장 프로그램도 설치됩니다.
+2. **Sign in to Use Copilot**을 선택하여 GitHub 계정으로 로그인하고 시작하세요. 이렇게 하면 VS Code에 GitHub Copilot 확장 프로그램도 설치됩니다.
 
-   ![채팅 뷰에서 Copilot 메시지와 Copilot 사용을 위해 로그인할 수 있는 버튼을 보여줍니다.](images/setup/copilot-chat-view-new-user.png)
+   ![채팅 화면에서 Copilot 메시지와 Copilot 사용을 위해 로그인할 수 있는 버튼을 보여줍니다.](images/setup/copilot-chat-view-new-user.png)
 
-1. 아직 Copilot 구독이 없다면 브라우저에서 단계를 따라 Copilot 무료 요금제에 가입하세요.
+3. 아직 Copilot 구독이 없다면 브라우저에서 단계를 따라 Copilot 무료 요금제에 가입하세요.
 
    :::important
    GitHub Copilot 무료 버전의 원격 분석은 현재 활성화되어 있습니다. 기본적으로 VS Code와 \<github.com\> 환경의 코드 참조를 포함한 공개 코드와 일치하는 코드 제안이 허용됩니다. VS Code에서 `telemetry.telemetryLevel`을 `off`로 설정하여 원격 분석 데이터 수집을 중단하거나, [Copilot 설정](https://github.com/settings/copilot)에서 원격 분석과 코드 제안 설정을 모두 조정할 수 있습니다.
@@ -53,13 +53,13 @@ GitHub Copilot에 액세스하는 방법에는 여러 가지가 있습니다:
 
 GitHub 계정으로 로그인하고 Copilot에 액세스할 수 있게 되면 VS Code에서 AI 기반 코딩을 탐색해보세요.
 
-1. 채팅 뷰(`Ctrl+Alt+I`)가 표시되고 채팅 입력 상자에 프롬프트를 입력할 수 있는지 확인하세요.
+1. 채팅 화면(`Ctrl+Alt+I`)이이 표시되고 채팅 입력 상자에 프롬프트를 입력할 수 있는지 확인하세요.
 
-   ![채팅 뷰가 보조 사이드 바에서 열리고 Copilot 환영 메시지를 보여줍니다.](images/setup/copilot-chat-view-welcome.png)
+   ![채팅 화면이 보조 사이드 바에서 열리고 Copilot 환영 메시지를 보여줍니다.](images/setup/copilot-chat-view-welcome.png)
 
    Copilot과 함께 사용할 여러 언어 모델 중에서 선택할 수 있습니다.
 
-1. [Copilot 빠른 시작](/docs/copilot/getting-started.md)를 계속 진행하여 VS Code에서 Copilot의 주요 기능을 알아보세요.
+2. [Copilot 빠른 시작](/docs/copilot/getting-started.md)를 계속 진행하여 VS Code에서 Copilot의 주요 기능을 알아보세요.
 
 ## VS Code에서 Copilot 확장 프로그램 설치하기 {#install-copilot-extensions-in-vs-code}
 
@@ -70,7 +70,7 @@ GitHub Copilot 확장 프로그램을 수동으로 설치하려면:
 또는 확장 뷰를 열고 *GitHub Copilot*을 검색하여 확장 프로그램을 설치할 수 있습니다.
 
 :::note
-GitHub Copilot 확장 프로그램을 설치하면 [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) 확장 프로그램도 함께 설치됩니다.
+GitHub Copilot 확장 프로그램을 설치하면 [GitHub Copilot 채팅](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) 확장 프로그램도 함께 설치됩니다.
 :::
 
 ## Copilot에 로그인하기 {#sign-in-to-copilot}

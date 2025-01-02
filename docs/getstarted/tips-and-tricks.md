@@ -66,7 +66,9 @@ VS Code를 직접 체험하는 가장 좋은 방법은 **Welcome** 페이지를 
 
 ![Quick Open](images/tips-and-tricks/QuickOpen.gif)
 
-**팁:** `?`를 입력하여 명령 제안을 볼 수 있습니다.
+:::tip
+`?`를 입력하여 명령 제안을 볼 수 있습니다.
+:::
 
 ![Quick Open command list](images/tips-and-tricks/quick-open-command-dropdown.png)
 

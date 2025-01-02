@@ -230,7 +230,7 @@ Visual Studio Code에서 Java 소스 코드를 편집할 때, Java 언어 서버
   <source src="https://code.visualstudio.com/docs/java/java-project/java.build.status.mp4" type="video/mp4" />
 </video>
 
-### 추가 리소스 {#additional-resources}
+### 추가 기능 {#additional-resources}
 
 Java의 다양한 빌드 시스템을 지원하는 여러 Visual Studio Code 확장이 있습니다. 아래는 여러 인기 있는 빌드 시스템을 위한 확장입니다.
 

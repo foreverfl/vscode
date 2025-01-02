@@ -71,7 +71,7 @@ VS Code를 설치한 후에는 다음 주제들이 VS Code에 대해 더 자세�
 - [추가 구성 요소](/docs/setup/additional-components.md) - Git, Node.js, TypeScript 및 Yeoman과 같은 도구를 설치하는 방법을 알아보세요.
 - [사용자 인터페이스](/docs/getstarted/userinterface.md) - VS Code에 대한 빠른 오리엔테이션입니다.
 - [사용자/작업 영역 설정](/docs/getstarted/settings.md) - 설정을 통해 VS Code를 사용자의 선호도에 맞게 구성하는 방법을 알아보세요.
-- [팁과 요령](/docs/getstarted/tips-and-tricks.md) - VS Code를 사용하여 생산성을 높이는 방법을 바로 배우고 시작할 수 있습니다.
+- [팁과 트릭](/docs/getstarted/tips-and-tricks.md) - VS Code를 사용하여 생산성을 높이는 방법을 바로 배우고 시작할 수 있습니다.
 
 ## 자주 묻는 질문 {#common-questions}
 

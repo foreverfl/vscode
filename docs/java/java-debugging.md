@@ -263,7 +263,7 @@ Debugger for Java는 라인 중단점, 조건부 중단점, 데이터 중단점,
 - `java.debug.settings.stepping.skipConstructors`: 단계별로 진행할 때 생성자 메서드를 건너뜁니다.
 - `java.debug.settings.jdwp.limitOfVariablesPerJdwpRequest`: 하나의 JDWP 요청에서 요청할 수 있는 변수 또는 필드의 최대 수. 값이 높을수록 변수 보기를 확장할 때 디버그 대상이 요청되는 빈도가 줄어듭니다. 또한 큰 값은 JDWP 요청 시간 초과를 유발할 수 있습니다. 기본값은 100입니다.
 - `java.debug.settings.jdwp.requestTimeout`: 디버거가 대상 JVM과 통신할 때 JDWP 요청의 시간 초과(ms). 기본값은 3000입니다.
-- `java.debug.settings.vmArgs`: Java 프로그램을 실행하기 위한 기본 VM 인수. 예를 들어, 힙 크기를 1GB로 늘리고 어설션을 활성화하려면 '-Xmx1G -ea'를 사용합니다. 특정 디버그 세션에 대한 VM 인수를 사용자 지정하려면 `launch.json`의 'vmArgs' 구성을 수정할 수 있습니다.
+- `java.debug.settings.vmArgs`: Java 프로그램을 실행하기 위한 기본 VM 인수. 예를 들어, 힙 크기를 1GB로 늘리고 어설션(assertion)을 활성화하려면 '-Xmx1G -ea'를 사용합니다. 특정 디버그 세션에 대한 VM 인수를 사용자 지정하려면 `launch.json`의 'vmArgs' 구성을 수정할 수 있습니다.
 - `java.silentNotification`: 알림을 사용하여 진행 상황을 보고할 수 있는지 여부를 제어합니다. true인 경우 상태 표시줄을 사용하여 진행 상황을 보고합니다. 기본값은 `false`입니다.
 
 ## 문제 해결 {#troubleshooting}
