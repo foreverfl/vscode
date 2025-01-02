@@ -448,15 +448,15 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 
 * _resource_ - Interactive resource Uri
 
-`search.action.openNewEditor` - Open a new search editor. Arguments passed can include variables like ${relativeFileDirname}.
+`search.action.openNewEditor` - Open a new search editor. Arguments passed can include variables like $\{relativeFileDirname\}.
 
 * _Open new Search Editor args_ -
 
-`search.action.openEditor` - Open a new search editor. Arguments passed can include variables like ${relativeFileDirname}.
+`search.action.openEditor` - Open a new search editor. Arguments passed can include variables like $\{relativeFileDirname\}.
 
 * _Open new Search Editor args_ -
 
-`search.action.openNewEditorToSide` - Open a new search editor. Arguments passed can include variables like ${relativeFileDirname}.
+`search.action.openNewEditorToSide` - Open a new search editor. Arguments passed can include variables like $\{relativeFileDirname\}.
 
 * _Open new Search Editor args_ -
 

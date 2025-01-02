@@ -269,7 +269,7 @@ In the `contributes` section of your `package.json`, add:
 
 ## Activation
 
-It is important that your extension is activated only when user needs the functionality that your extension provides. In this case, you should consider activating your extension only when the user starts using the view. VS Code automatically does this for you when your extension declares a view contribution. VS Code emits an activationEvent [onView:${viewId}](/api/references/activation-events#onView) (`onView:nodeDependencies` for the example above) when the user opens the view.
+It is important that your extension is activated only when user needs the functionality that your extension provides. In this case, you should consider activating your extension only when the user starts using the view. VS Code automatically does this for you when your extension declares a view contribution. VS Code emits an activationEvent [onView:$\{viewId\}](/api/references/activation-events#onView) (`onView:nodeDependencies` for the example above) when the user opens the view.
 
 > **Note**: For VS Code versions prior to 1.74.0, you must explicitly register this activation event in `package.json` for VS Code to activate your extension on this view:
 >```json

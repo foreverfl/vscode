@@ -354,7 +354,7 @@ If validation is passed, you will see the corresponding badge next to your publi
 Eligible domains meet the following criteria:
 
 - You must be able to manage the DNS configuration settings and add a TXT record.
-- It is not a subdomain ({subdomain}.github.io, {subdomain}.contoso.com, or similar).
+- It is not a subdomain (\{subdomain\}.github.io, \{subdomain\}.contoso.com, or similar).
 - It must use an HTTPS protocol.
 - It must be able to respond with an HTTP 200 status to a HEAD request.
 

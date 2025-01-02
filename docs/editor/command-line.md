@@ -44,7 +44,7 @@ Here are optional arguments you can use when starting VS Code at the command lin
 | `-v` or `--version`                                | Print VS Code version (for example, 1.22.2), GitHub commit ID, and architecture (for example, x64).                                                                                        |
 | `-n` or `--new-window`                             | Opens a new session of VS Code instead of restoring the previous session (default).                                                                                                        |
 | `-r` or `--reuse-window`                           | Forces opening a file or folder in the last active window.                                                                                                                                 |
-| `-g` or `--goto`                                   | When used with _file:line{:character}_, opens a file at a specific line and optional character position. This argument is provided since some operating systems permit `:` in a file name. |
+| `-g` or `--goto`                                   | When used with _file:line\{:character\}_, opens a file at a specific line and optional character position. This argument is provided since some operating systems permit `:` in a file name. |
 | `-d` or `--diff <file1> <file2>`                   | Open a file difference editor. Requires two file paths as arguments.                                                                                                                       |
 | `-m` or `--merge  <path1> <path2> <base> <result>` | Perform a three-way merge by providing paths for two modified versions of a file, the common origin of both modified versions, and the output file to save merge results.                  |
 | `-w` or `--wait`                                   | Wait for the files to be closed before returning.                                                                                                                                          |
@@ -69,7 +69,7 @@ If you specify more than one folder at the command line, VS Code will create a [
 | Argument                | Description                                                                                                                                                           |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `file`                  | Name of a file to open. If the file doesn't exist, it will be created and marked as edited. You can specify multiple files by separating each file name with a space. |
-| `file:line[:character]` | Used with the `-g` argument. Name of a file to open at the specified line and optional character position.                                                            |
+| `file:line\[:character\]` | Used with the `-g` argument. Name of a file to open at the specified line and optional character position.                                                            |
 | `folder`                | Name of a folder to open. You can specify multiple folders and a new [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) is created.                        |
 
 ![go to line and column](images/command-line/goto-line-column.png)
@@ -160,7 +160,7 @@ vscode://file/c:/myProject/package.json
 Open a file to line and column
 
 ```bash
-vscode://file/{full path to file}:line:column
+vscode://file/{full path to file}\:line\:column
 
 vscode://file/c:/myProject/package.json:5:10
 ```
