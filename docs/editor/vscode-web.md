@@ -32,7 +32,7 @@ You can also switch between the Stable and Insiders versions of VS Code for the 
 
 By navigating to [https://vscode.dev](https://vscode.dev), you can create a new local file or project, work on an existing local project, or access source code repositories hosted elsewhere, such as on GitHub and Azure Repos (part of Azure DevOps).
 
-You can create a new local file in the web just as you would in a VS Code Desktop environment, using **File** > **New File** from the Command Palette (`kbstyle(F1)`).
+You can create a new local file in the web just as you would in a VS Code Desktop environment, using **File** > **New File** from the Command Palette (`F1`).
 
 ## GitHub repos
 
@@ -60,7 +60,7 @@ When you navigate to a URL with the schema `https://vscode.dev/azurerepos/<organ
 
 You can open any repository, branch, or tag from Azure Repos in VS Code for the Web by prefixing `vscode.dev` to the Azure Repos URL.
 
-Alternatively, when you are on an Azure DevOps repository or pull request, you can press (`kbstyle(.)`) to open it in VS Code for the Web.
+Alternatively, when you are on an Azure DevOps repository or pull request, you can press (`.`) to open it in VS Code for the Web.
 
 ## More custom URLs
 
@@ -108,7 +108,7 @@ As a theme author, you can add the following badge to your extension readme to a
 
 In some cases, you will want to access a different environment that has the ability to run code. You can switch to working on a repository in a development environment that has support for a local file system and full language and development tooling.
 
-The GitHub Repositories extension makes it easy for you to clone the repository locally, reopen it on the desktop, or create a GitHub codespace for the current repository (if you have the [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension installed and access to create GitHub codespaces). To do this, use the **Continue Working On...** command available from the Command Palette (`kbstyle(F1)`) or click on the Remote indicator in the Status bar.
+The GitHub Repositories extension makes it easy for you to clone the repository locally, reopen it on the desktop, or create a GitHub codespace for the current repository (if you have the [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension installed and access to create GitHub codespaces). To do this, use the **Continue Working On...** command available from the Command Palette (`F1`) or click on the Remote indicator in the Status bar.
 
 ## Saving and sharing work
 
@@ -196,13 +196,13 @@ You can use VS Code for the Web on mobile devices, but smaller screens may have 
 
 Certain keybindings may also work differently in the web.
 
-| Issue                                                                                                                              | Reason                                                                                                                                                                              |
-| ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `kb(workbench.action.showCommands)` won't launch the Command Palette in Firefox.                                                   | `kb(workbench.action.showCommands)` is reserved in Firefox. <br /> As a workaround, use `kbstyle(F1)` to launch the Command Palette.                                                |
-| `kb(workbench.action.files.newUntitledFile)` for new file doesn't work in web.                                                     | `kb(workbench.action.files.newUntitledFile)` opens a new window instead. <br /> As a workaround, you can use `kbstyle(Ctrl+Alt+N)` (`kbstyle(Cmd+Alt+N)` on macOS).                 |
-| `kb(workbench.action.closeActiveEditor)` for closing an editor doesn't work in web.                                                | `kb(workbench.action.closeActiveEditor)` closes the current tab in browsers. <br /> As a workaround, you can use `kbstyle(Ctrl+Shift+Alt+N)` (`kbstyle(Cmd+Shift+Alt+N)` on macOS). |
-| `kb(workbench.action.tasks.build)` will not toggle the favorites bar in the browser.                                               | VS Code for the Web overrides this and redirects to the "Build" menu in the Command Palette.                                                                                        |
-| `kbstyle(Alt+Left)` and `kbstyle(Alt+Right)` should navigate within the editor but may incorrectly trigger tab history navigation. | If focus is outside the editor, these shortcuts trigger tab history navigation instead.                                                                                             |
+| Issue                                                                                                            | Reason                                                                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Ctrl+Shift+P` won't launch the Command Palette in Firefox.                                                      | `Ctrl+Shift+P` is reserved in Firefox. <br /> As a workaround, use `F1` to launch the Command Palette.                                                            |
+| `kb(workbench.action.files.newUntitledFile)` for new file doesn't work in web.                                   | `kb(workbench.action.files.newUntitledFile)` opens a new window instead. <br /> As a workaround, you can use `Ctrl+Alt+N` (`Cmd+Alt+N` on macOS).                 |
+| `kb(workbench.action.closeActiveEditor)` for closing an editor doesn't work in web.                              | `kb(workbench.action.closeActiveEditor)` closes the current tab in browsers. <br /> As a workaround, you can use `Ctrl+Shift+Alt+N` (`Cmd+Shift+Alt+N` on macOS). |
+| `kb(workbench.action.tasks.build)` will not toggle the favorites bar in the browser.                             | VS Code for the Web overrides this and redirects to the "Build" menu in the Command Palette.                                                                      |
+| `Alt+Left` and `Alt+Right` should navigate within the editor but may incorrectly trigger tab history navigation. | If focus is outside the editor, these shortcuts trigger tab history navigation instead.                                                                           |
 
 ## Additional browser setup
 

@@ -125,7 +125,7 @@ Maven 프로젝트를 생성하는 몇 가지 방법이 있습니다:
 
    ![Create Maven Project](images/java-build/create-maven-project.png)
 
-2. **명령 팔레트** (`kb(workbench.action.showCommands)`)를 열고 **Create Java Project** 명령을 검색합니다.
+2. **Command Palette** (`Ctrl+Shift+P`)를 열고 **Create Java Project** 명령을 검색합니다.
 
    <video autoplay loop muted playsinline controls title="Java 프로젝트 생성 명령" style={{maxWidth: '100%'}}>
      <source src="https://code.visualstudio.com/docs/java/java-build/maven-archetype-command.mp4" type="video/mp4" />

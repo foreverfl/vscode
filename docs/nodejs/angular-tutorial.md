@@ -8,19 +8,20 @@ DateApproved: 12/11/2024
 MetaDescription: Angular TypeScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: images/angular/Welcome-to-app.png
 ---
+
 # Using Angular in Visual Studio Code
 
 [Angular](https://angular.io/) is a popular web development platform developed and maintained by Google. Angular uses [TypeScript](/docs/languages/typescript.md) as its main programming language. The Visual Studio Code editor supports TypeScript IntelliSense and code navigation out of the box, so you can do Angular development without installing any other extension.
 
 ![Welcome to app](images/angular/Welcome-to-app.png)
 
->**Note**: To help get you started with Angular development, you can use the [Angular profile template](/docs/editor/profiles.md#angular-profile-template) that includes useful extensions,  settings, and code snippets.
+> **Note**: To help get you started with Angular development, you can use the [Angular profile template](/docs/editor/profiles.md#angular-profile-template) that includes useful extensions, settings, and code snippets.
 
 ## Welcome to Angular
 
 We'll be using the [Angular CLI](https://cli.angular.io/) for this tutorial. To install and use the command line interface as well as run the Angular application server, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. npm is included with Node.js which you can install from [Node.js downloads](https://nodejs.org/en/download/).
 
->**Tip**: To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version`.
+> **Tip**: To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version`.
 
 To install the Angular CLI, in a terminal or command prompt type:
 
@@ -34,7 +35,7 @@ This may take a few minutes to install. You can now create a new Angular applica
 ng new my-app
 ```
 
-`my-app` is the name of the folder for your application. The `ng new` command prompts you with options for the generated application. Accept the defaults by pressing the `kbstyle(Enter)` key. This may take a few minutes to create the Angular application in [TypeScript](/docs/languages/typescript.md) and install its dependencies.
+`my-app` is the name of the folder for your application. The `ng new` command prompts you with options for the generated application. Accept the defaults by pressing the `Enter` key. This may take a few minutes to create the Angular application in [TypeScript](/docs/languages/typescript.md) and install its dependencies.
 
 Let's quickly run our Angular application by navigating to the new folder and typing `ng serve` to start the web server and open the application in a browser:
 
@@ -80,28 +81,28 @@ Through the TypeScript language service, VS Code can also provide type definitio
 
 ![angular peek definition](images/angular/peek-definition.png)
 
-Press `kbstyle(Escape)` to close the Peek window.
+Press `Escape` to close the Peek window.
 
 ## Hello World
 
 Let's update the sample application to "Hello World". Go back to the `app.component.ts` file and change the `title` string in `AppComponent` to "Hello World".
 
 ```ts
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
-  title = 'Hello World';
+  title = "Hello World";
 }
 ```
 
 Once you save the `app.component.ts` file, the running instance of the server will update the web page and you'll see "Welcome to Hello World!!".
 
->**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/getstarted/settings.md).
+> **Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/getstarted/settings.md).
 
 ![hello world](images/angular/hello-world.png)
 
@@ -109,7 +110,7 @@ Once you save the `app.component.ts` file, the running instance of the server wi
 
 To debug the client side Angular code, we'll use the built-in JavaScript debugger.
 
->Note: This tutorial assumes you have the Edge browser installed. If you want to debug using Chrome, replace the launch `type` with `chrome`. There is also a debugger for the [Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug) browser.
+> Note: This tutorial assumes you have the Edge browser installed. If you want to debug using Chrome, replace the launch `type` with `chrome`. There is also a debugger for the [Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug) browser.
 
 ### Set a breakpoint
 
@@ -125,16 +126,16 @@ We need to make one change for our example: change the port of the `url` from `8
 
 ```json
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "msedge",
-            "request": "launch",
-            "name": "Launch Edge against localhost",
-            "url": "http://localhost:4200",
-            "webRoot": "${workspaceFolder}"
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "msedge",
+      "request": "launch",
+      "name": "Launch Edge against localhost",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
 }
 ```
 
@@ -182,7 +183,7 @@ In addition to the features VS Code provides out of the box, you can install VS 
 
 Click on an extension tile above to read the description and reviews on the [Marketplace](https://marketplace.visualstudio.com).
 
-To find other Angular extensions, open the Extensions view (`kb(workbench.view.extensions)`) and type 'angular' to see a filtered list of Angular extensions.
+To find other Angular extensions, open the Extensions view (`Ctrl+Shift+X`) and type 'angular' to see a filtered list of Angular extensions.
 
 ![angular extensions](images/angular/angular-extensions.png)
 

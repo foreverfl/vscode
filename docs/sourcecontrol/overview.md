@@ -1,245 +1,262 @@
 ---
 Order: 1
 Area: sourcecontrol
-TOCTitle: Overview
+TOCTitle: 개요
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
-PageTitle: Source Control with Git in Visual Studio Code
+PageTitle: Visual Studio Code에서 Git 소스 제어
 DateApproved: 12/11/2024
-MetaDescription: Visual Studio Code source control management with integrated Git support.
+MetaDescription: Visual Studio Code의 통합 Git 지원을 통한 소스 제어 관리.
 ---
-# Using Git source control in VS Code
 
-Visual Studio Code has integrated source control management (SCM) and includes [Git](https://git-scm.com/) support out-of-the-box. Many other source control providers are available through [extensions](/docs/editor/extension-marketplace.md) on the VS Code Marketplace.
+# Visual Studio Code에서 Git 소스 제어 사용 {#using-git-source-control-in-vs-code}
+
+Visual Studio Code는 통합 소스 제어 관리(SCM)를 제공하며, 기본적으로 [Git](https://git-scm.com/) 지원을 포함합니다. 많은 다른 소스 제어 제공자는 VS Code 마켓플레이스의 [확장](/docs/editor/extension-marketplace.md)을 통해 사용할 수 있습니다.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/i_23KUAEtUM" title="Using Git with Visual Studio Code (Official Beginner Tutorial)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Working in a Git repository
+## Git 저장소에서 작업하기 {#working-in-a-git-repository}
 
->**Just getting started with Git?** The [git-scm](https://git-scm.com/doc) website is a good place to start, with a popular online [book](https://git-scm.com/book), Getting Started [videos](https://git-scm.com/video/what-is-git) and [cheat sheets](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf). The VS Code documentation assumes you are already familiar with Git.
+> **Git을 처음 사용하시나요?** [git-scm](https://git-scm.com/doc) 웹사이트는 시작하기 좋은 곳입니다. 인기 있는 온라인 [책](https://git-scm.com/book), 시작하기 [동영상](https://git-scm.com/video/what-is-git) 및 [요약 가이드](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf)를 제공합니다. VS Code 문서는 Git에 익숙하다는 가정하에 작성되었습니다.
 
-![Overview of Git](images/overview/overview.png)
+![Git 개요](images/overview/overview.png)
 
->**Make sure Git is installed.** VS Code will use your machine's Git installation (at least version `2.0.0`), so you need to [install Git](https://git-scm.com/download) first before you get these features.
+> **Git이 설치되어 있는지 확인하세요.** VS Code는 최소 버전 `2.0.0` 이상의 Git 설치를 사용하므로, 이러한 기능을 사용하려면 먼저 [Git을 설치](https://git-scm.com/download)해야 합니다.
 
-The Source Control icon in the Activity Bar on the left will always indicate an **overview of how many changes** you currently have in your repository. Selecting the icon will show you the details of your current repository changes: **CHANGES**, **STAGED CHANGES** and **MERGE CHANGES**.
+왼쪽의 활동 표시줄에 있는 소스 제어 아이콘은 현재 저장소에 있는 **변경 사항의 개요**를 항상 표시합니다. 아이콘을 선택하면 현재 저장소 변경 사항의 세부 정보를 볼 수 있습니다: **CHANGES**, **STAGED CHANGES** 및 **MERGE CHANGES**.
 
-Clicking each item will show you in detail **the textual changes within each file**. Note that for unstaged changes, the editor on the right still lets you edit the file: feel free to use it!
+각 항목을 클릭하면 **각 파일 내의 텍스트 변경 사항**을 자세히 볼 수 있습니다. 스테이지되지 않은 변경 사항의 경우, 오른쪽 편집기에서 파일을 계속 편집할 수 있습니다. 자유롭게 사용하세요!
 
-You can also find indicators of the **status of your repository** in the bottom-left corner of VS Code: the **current branch**, **dirty indicators**, and the number of **incoming and outgoing commits** of the current branch. You can **checkout** any branch in your repository by clicking that status indicator and selecting the Git reference from the list.
+VS Code의 왼쪽 하단 모서리에서도 **저장소 상태**를 나타내는 표시기를 찾을 수 있습니다: **현재 브랜치**, **더티 표시기**, 현재 브랜치의 **들어오고 나가는 커밋 수**. 상태 표시기를 클릭하고 목록에서 Git 참조를 선택하여 저장소의 모든 브랜치를 **체크아웃**할 수 있습니다.
 
-> **Tip:** You can open VS Code in a sub-directory of a Git repository. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded with a tool tip indicating they are located outside the current workspace.
+:::tip
+Git 저장소의 하위 디렉토리에서 VS Code를 열 수 있습니다. VS Code의 Git 서비스는 저장소 내의 모든 변경 사항을 표시하지만, 범위가 지정된 디렉토리 외부의 파일 변경 사항은 현재 작업 공간 외부에 위치해 있음을 나타내는 도구 설명과 함께 음영 처리됩니다.
+:::
 
-## Commit
+## 커밋 {#commit}
 
-**Staging** (git add) and **unstaging** (git reset) can be done via contextual actions in the files or by drag-and-drop.
+**Staging**(git add) 및 **Unstaging**(git reset)은 파일의 컨텍스트 메뉴에서 또는 드래그 앤 드롭으로 수행할 수 있습니다.
 
->**Configure your Git username and email.** When you commit, be aware that if your username and/or email is not set in your Git configuration, Git will fall back to using information from your local machine. You can find the details in [Git commit information](https://git-scm.com/docs/git-commit#_commit_information).
+> **Git 사용자 이름과 이메일을 구성하세요.** 커밋할 때 Git 구성에 사용자 이름 및/또는 이메일이 설정되어 있지 않으면 Git은 로컬 머신의 정보를 사용합니다. 자세한 내용은 [Git 커밋 정보](https://git-scm.com/docs/git-commit#_commit_information)에서 확인할 수 있습니다.
 
-![Stage all changes button](images/overview/stage-changes.png)
+![모든 변경 사항 스테이지 버튼](images/overview/stage-changes.png)
 
-You can type a commit message above the changes and press `kbstyle(Ctrl+Enter)` (macOS: `kbstyle(⌘+Enter)`) to commit them. If there are any staged changes, only those changes will be committed. Otherwise, you'll get a prompt asking you to select what changes you'd like to commit and get the option to change your commit settings.
+변경 사항 위에 커밋 메시지를 입력하고 `Ctrl+Enter` (macOS: `⌘+Enter`)를 눌러 커밋할 수 있습니다. 스테이지된 변경 사항이 있는 경우, 해당 변경 사항만 커밋됩니다. 그렇지 않으면 커밋할 변경 사항을 선택하고 커밋 설정을 변경할 수 있는 프롬프트가 표시됩니다.
 
-We've found this to be a great workflow. For example, in the earlier screenshot, only the staged changes to `overview.png` will be included in the commit. Later staging and commit actions could include the changes to `versioncontrol.md` and the two other `.png` images as a separate commit.
+이 워크플로우는 매우 유용합니다. 예를 들어, 이전 스크린샷에서는 `overview.png`에 대한 스테이지된 변경 사항만 커밋에 포함됩니다. 나중에 스테이징 및 커밋 작업은 `versioncontrol.md` 및 두 개의 다른 `.png` 이미지에 대한 변경 사항을 별도의 커밋으로 포함할 수 있습니다.
 
-More specific **Commit** actions can be found in the **Views and More Actions** `...` menu on the top of the Source Control view.
+더 구체적인 **Commit** 작업은 소스 제어 보기 상단의 **Views and More Actions** `...` 메뉴에서 찾을 수 있습니다.
 
-![views and more actions button](images/overview/scm-more-actions.png)
+![보기 및 기타 작업 버튼](images/overview/scm-more-actions.png)
 
-> **Tip:** If you commit your change to the wrong branch, undo your commit using the **Git: Undo Last Commit** command in the **Command Palette** (`kb(workbench.action.showCommands)`).
+:::tip
+잘못된 브랜치에 변경 사항을 커밋한 경우, **Command Palette**(`Ctrl+Shift+P`)에서 **Git: Undo Last Commit** 명령을 사용하여 커밋을 취소할 수 있습니다.
+:::
 
 <iframe src="https://www.youtube-nocookie.com/embed/E6ADS2k8oNQ" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Git: Commits in Visual Studio Code"></iframe>
 
-### Author commit messages using an editor
+### 편집기를 사용하여 커밋 메시지 작성 {#author-commit-messages-using-an-editor}
 
-If you don't enter a commit message when commiting changes, VS Code opens an editor for the `COMMIT_EDITMSG` file where you can author the commit message in the editor. After you provide a commit message, either close the editor tab, or select the **Accept Commit Message** button in the editor toolbar to commit the changes.
+변경 사항을 커밋할 때 커밋 메시지를 입력하지 않으면, VS Code는 `COMMIT_EDITMSG` 파일에 대한 편집기를 열어 커밋 메시지를 작성할 수 있습니다. 커밋 메시지를 제공한 후, 편집기 탭을 닫거나 편집기 도구 모음의 **Accept Commit Message** 버튼을 선택하여 변경 사항을 커밋할 수 있습니다.
 
-To cancel the commit operation, you can either clear the contents of the text editor and close the editor tab, or select the **Discard Commit Message** button in the editor toolbar.
+커밋 작업을 취소하려면 텍스트 편집기의 내용을 지우고 편집기 탭을 닫거나 편집기 도구 모음의 **Discard Commit Message** 버튼을 선택할 수 있습니다.
 
-![Author commit message in a full text editor](images/overview/scm-git-editor.gif)
+![전체 텍스트 편집기에서 커밋 메시지 작성](images/overview/scm-git-editor.gif)
 
-You can disable this functionality by toggling the `setting(git.useEditorAsCommitInput)` setting. After the setting is changed, you have to restart VS Code for the change to take effect.
+이 기능은 `git.useEditorAsCommitInput` 설정을 토글하여 비활성화할 수 있습니다. 설정을 변경한 후에는 변경 사항이 적용되도록 VS Code를 다시 시작해야 합니다.
 
-To use the same flow for git commit commands executed in the integrated terminal, enable the `setting(git.terminalGitEditor)` setting.
+통합 터미널에서 실행된 git 커밋 명령에 대해 동일한 흐름을 사용하려면 `git.terminalGitEditor` 설정을 활성화하세요.
 
-## Cloning a repository
+## 저장소 복제 {#cloning-a-repository}
 
-If you haven't opened a folder yet, the Source Control view will give you the options to **Open Folder** from your local machine or **Clone Repository**.
+아직 폴더를 열지 않은 경우, 소스 제어 보기는 로컬 머신에서 **Open Folder** 또는 **Clone Repository** 옵션을 제공합니다.
 
-![First run Source Control experience](images/overview/firstrun-source-control.png)
+![첫 실행 소스 제어 경험](images/overview/firstrun-source-control.png)
 
-If you select **Clone Repository**, you will be asked for the URL of the remote repository (for example on [GitHub](https://github.com/)) and the parent directory under which to put the local repository.
+**Clone Repository**를 선택하면 원격 저장소의 URL(예: [GitHub](https://github.com/))과 로컬 저장소를 넣을 상위 디렉토리를 묻는 메시지가 표시됩니다.
 
-For a GitHub repository, you would find the URL from the GitHub **Code** dialog.
+GitHub 저장소의 경우, GitHub **Code** 대화 상자에서 URL을 찾을 수 있습니다.
 
-![clone repository dialog](images/overview/GitHub-clone-dialog.png)
+![저장소 복제 대화 상자](images/overview/GitHub-clone-dialog.png)
 
-You would then paste that URL into the **Git: Clone** prompt.
+그런 다음 해당 URL을 **Git: Clone** 프롬프트에 붙여넣습니다.
 
-![set repository URL](images/overview/set-repo-URL.png)
+![저장소 URL 설정](images/overview/set-repo-URL.png)
 
-You'll also see the option to **Clone from GitHub**. Once you authenticate with your GitHub account in VS Code, you'll be able to search through repositories by name, and select any repo to clone it. You can also start the flow to clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). To see a step-by-step walkthrough, check out our [Clone repos from VS Code](https://www.youtube.com/watch?v=bz1KauFlbQI) video.
+**GitHub에서 복제** 옵션도 표시됩니다. VS Code에서 GitHub 계정으로 인증하면 이름으로 저장소를 검색하고 저장소를 선택하여 복제할 수 있습니다. **Command Palette**(`Ctrl+Shift+P`)에서 **Git: Clone** 명령을 시작하여 Git 저장소를 복제하는 흐름을 시작할 수도 있습니다. 단계별 안내는 [VS Code에서 저장소 복제](https://www.youtube.com/watch?v=bz1KauFlbQI) 동영상을 참조하세요.
 
->**Note**: If you'd like to work on a repository without cloning the contents to your local machine, you can install the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension to browse and edit directly on GitHub. You can learn more in the [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension) section.
+:::note
+로컬 머신에 내용을 복제하지 않고 저장소에서 작업하려면 [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) 확장을 설치하여 GitHub에서 직접 탐색하고 편집할 수 있습니다. 자세한 내용은 [GitHub Repositories 확장](/docs/sourcecontrol/github.md#github-repositories-extension) 섹션에서 확인할 수 있습니다.
+:::
 
-## Branches and Tags
+## 브랜치 및 태그 {#branches-and-tags}
 
 <iframe src="https://www.youtube-nocookie.com/embed/b9LTz6joMf8?clip=Ugkxcq7zDGA4aMi8p7lICNMzTANn_8ozU5gK&amp;clipt=EPiBAxj08QU" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Create Git Branches in Visual Studio Code"></iframe>
 
-You can create and checkout branches directly within VS Code through the **Git: Create Branch** and **Git: Checkout to** commands in the **Command Palette** (`kb(workbench.action.showCommands)`).
+**Command Palette**(`Ctrl+Shift+P`)에서 **Git: Create Branch** 및 **Git: Checkout to** 명령을 통해 VS Code 내에서 직접 브랜치를 생성하고 체크아웃할 수 있습니다.
 
-If you run **Git: Checkout to**, you will see a dropdown list containing all of the branches or tags in the current repository. It will also give you the option to create a new branch if you decide that's a better option, or checkout a branch in detached mode.
+**Git: Checkout to**를 실행하면 현재 저장소의 모든 브랜치 또는 태그가 포함된 드롭다운 목록이 표시됩니다. 새 브랜치를 생성하는 것이 더 나은 옵션이라고 결정한 경우, 새 브랜치를 생성하거나 분리된 모드에서 브랜치를 체크아웃할 수 있는 옵션도 제공합니다.
 
-![Git checkout](images/overview/gitbranches.png)
+![Git 체크아웃](images/overview/gitbranches.png)
 
-The **Git: Create Branch** command lets you quickly create a new branch. Just provide the name of your new branch and VS Code will create the branch and switch to it. If you choose to **Create new branch from...**, you'll get an extra prompt that allows you to specify which commit the new branch should be pointing to.
+**Git: Create Branch** 명령을 사용하면 새 브랜치를 빠르게 생성할 수 있습니다. 새 브랜치의 이름을 제공하면 VS Code가 브랜치를 생성하고 해당 브랜치로 전환합니다. **Create new branch from...** 을 선택하면 새 브랜치가 가리킬 커밋을 지정할 수 있는 추가 프롬프트가 표시됩니다.
 
-> **Tip**: VS Code can automatically save and restore open editors when you switch to another branch. Use the `setting(scm.workingSets.enabled)` setting to enable this feature. To control the open editors when switching to a branch for the first time, you can use the `setting(scm.workingSets.default)` setting.
+:::tip
+VS Code는 다른 브랜치로 전환할 때 열려 있는 편집기를 자동으로 저장하고 복원할 수 있습니다. 이 기능을 활성화하려면 `scm.workingSets.enabled` 설정을 사용하세요. 처음으로 브랜치로 전환할 때 열려 있는 편집기를 제어하려면 `scm.workingSets.default` 설정을 사용할 수 있습니다.
+:::
 
-## Remotes
+## 원격 저장소 {#remotes}
 
-Given that your repository is connected to some remote and that your checked out branch has an [upstream link](https://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull**, and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the **Views and More Actions** `...` menu, along with the option to **add or remove a remote**.
+저장소가 원격 저장소에 연결되어 있고 체크아웃된 브랜치가 해당 원격 저장소의 브랜치에 [업스트림 링크](https://git-scm.com/book/ch3-5.html)를 가지고 있는 경우, VS Code는 해당 브랜치를 **push**, **pull**, **sync**할 수 있는 유용한 작업을 제공합니다(후자는 **pull** 명령을 실행한 후 **push** 명령을 실행합니다). 이러한 작업은 **Views and More Actions** `...` 메뉴에서 찾을 수 있으며, 원격 저장소를 **추가하거나 제거**하는 옵션도 있습니다.
 
-VS Code is able to periodically fetch changes from your remotes. This enables VS Code to show how many changes your local repository is ahead or behind the remote. This feature is disabled by default and you can use the `setting(git.autofetch)` [setting](/docs/getstarted/settings.md) to enable it.
+VS Code는 주기적으로 원격 저장소에서 변경 사항을 가져올 수 있습니다. 이를 통해 VS Code는 로컬 저장소가 원격 저장소보다 얼마나 앞서거나 뒤처져 있는지 표시할 수 있습니다. 이 기능은 기본적으로 비활성화되어 있으며, `git.autofetch` [설정](/docs/getstarted/settings.md)을 사용하여 활성화할 수 있습니다.
 
->**Tip:** You should [set up a credential helper](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider disabling automatic fetching via the `setting(git.autofetch)` [setting](/docs/getstarted/settings.md) to reduce the number of prompts you get.
+:::tip
+매번 VS Code가 Git 원격 저장소와 통신할 때 자격 증명을 묻지 않도록 [자격 증명 도우미를 설정](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git)해야 합니다. 그렇지 않으면, 자격 증명 프롬프트 수를 줄이기 위해 `git.autofetch` [설정](/docs/getstarted/settings.md)을 사용하여 자동 가져오기를 비활성화하는 것이 좋습니다.
+:::
 
-## Source Control Graph
+## 소스 제어 그래프 {#source-control-graph}
 
-When you have a remote repository configured, you can see how many commits you are ahead or behind the remote. The **Source Control Graph** section of the Source Control view shows a graphical representation of the commits that are incoming and outgoing.
+원격 저장소가 구성된 경우, 원격 저장소보다 몇 개의 커밋이 앞서거나 뒤처져 있는지 확인할 수 있습니다. 소스 제어 보기의 **Source Control Graph** 섹션은 들어오고 나가는 커밋의 그래픽 표현을 보여줍니다.
 
-The graph contains the current branch, the current branch's upstream branch, and an optional base branch. The root of the graph is the common ancestor of these branches.
+그래프에는 현재 브랜치, 현재 브랜치의 업스트림 브랜치 및 선택적 기본 브랜치가 포함됩니다. 그래프의 루트는 이러한 브랜치의 공통 조상입니다.
 
-![Source control view showing a graph visualization of the incoming and outgoing changes.](images/overview/incoming-outgoing-changes.png)
+![들어오고 나가는 변경 사항의 그래프 시각화를 보여주는 소스 제어 보기.](images/overview/incoming-outgoing-changes.png)
 
-The graph provides the following functionality:
+그래프는 다음 기능을 제공합니다:
 
-* Select an entry to see the corresponding changes in the commit.
-* Perform Fetch, Pull, and Push actions by hovering over the **Incoming/Outgoing** heading.
+- 항목을 선택하여 커밋의 해당 변경 사항을 확인합니다.
+- **들어오는/나가는** 제목 위로 마우스를 가져가서 Fetch, Pull, Push 작업을 수행합니다.
 
-## Git Status Bar actions
+## Git 상태 표시줄 작업 {#git-status-bar-actions}
 
-There is a **Synchronize Changes** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured. **Synchronize Changes** will pull remote changes down to your local repository and then push local commits to the upstream branch.
+현재 체크아웃된 브랜치에 업스트림 브랜치가 구성된 경우, 상태 표시줄에 **Synchronize Changes** 작업이 브랜치 표시기 옆에 표시됩니다. **Synchronize Changes**는 원격 변경 사항을 로컬 저장소로 가져온 다음 로컬 커밋을 업스트림 브랜치로 푸시합니다.
 
-![git status bar sync](images/overview/git-status-bar-sync.png)
+![git 상태 표시줄 동기화](images/overview/git-status-bar-sync.png)
 
-If there is no upstream branch configured and the Git repository has remotes set up, the **Publish** action is enabled. This will let you publish the current branch to a remote.
+업스트림 브랜치가 구성되지 않았고 Git 저장소에 원격 저장소가 설정된 경우, **Publish** 작업이 활성화됩니다. 이를 통해 현재 브랜치를 원격 저장소에 게시할 수 있습니다.
 
-![git status bar publish](images/overview/git-status-bar-publish.png)
+![git 상태 표시줄 게시](images/overview/git-status-bar-publish.png)
 
-## Gutter indicators
+## 줄 표시기 {#gutter-indicators}
 
-If you open a folder that is a Git repository and begin making changes, VS Code will add useful annotations to the gutter and to the overview ruler.
+Git 저장소인 폴더를 열고 변경 사항을 시작하면, VS Code는 줄 표시기 및 개요 눈금자에 유용한 주석을 추가합니다.
 
-* A red triangle indicates where lines have been deleted
-* A green bar indicates new added lines
-* A blue bar indicates modified lines
+- 빨간 삼각형은 삭제된 줄을 나타냅니다.
+- 녹색 막대는 새로 추가된 줄을 나타냅니다.
+- 파란 막대는 수정된 줄을 나타냅니다.
 
-![Gutter indicators](images/overview/gutter.png)
+![줄 표시기](images/overview/gutter.png)
 
-## Merge conflicts
+## 병합 충돌 {#merge-conflicts}
 
-![Git merge](images/overview/merge-conflict.png)
+![Git 병합](images/overview/merge-conflict.png)
 
-Merge conflicts are recognized by VS Code. Differences are highlighted and there are inline actions to accept either one or both changes. Once the conflicts are resolved, stage the conflicting file so you can commit those changes.
+병합 충돌은 VS Code에서 인식됩니다. 차이점이 강조 표시되며, 각 변경 사항을 수락하거나 둘 다 수락하는 인라인 작업이 있습니다. 충돌이 해결되면 충돌 파일을 스테이지하여 변경 사항을 커밋할 수 있습니다.
 
-## 3-way merge editor
+## 3-way 병합 편집기 {#3-way-merge-editor}
 
-To help you resolve merge conflicts, VS Code provides a 3-way merge editor where you can interactively accept incoming and current changes and view and edit the resulting merged file. The 3-way merge editor is opened by selecting the **Resolve in Merge Editor** button in the bottom right corner of a file with Git merge conflicts.
+병합 충돌을 해결하는 데 도움이 되도록, VS Code는 3-way 병합 편집기를 제공하여 들어오는 변경 사항(왼쪽), 현재 변경 사항(오른쪽) 및 병합 결과(하단)를 상호작용적으로 수락하고 볼 수 있습니다. Git 병합 충돌이 있는 파일의 오른쪽 하단에 있는 **Resolve in Merge Editor** 버튼을 선택하여 3-way 병합 편집기를 엽니다.
 
-The 3-way merge editor displays separate views for **Incoming** changes (on the left), **Current** changes (on the right), and the **Result** of the merge (at the bottom). Conflicts are highlighted and can be resolved by using the CodeLens buttons.
+3-way 병합 편집기는 **Incoming** 변경 사항(왼쪽), **Current** 변경 사항(오른쪽) 및 병합 **Result**(하단)의 별도 보기를 표시합니다. 충돌이 강조 표시되며 CodeLens 버튼을 사용하여 해결할 수 있습니다.
 
-![3-way merge editor](images/overview/merge-editor-overview.png)
+![3-way 병합 편집기](images/overview/merge-editor-overview.png)
 
-### Resolving conflicts
+### 충돌 해결 {#resolving-conflicts}
 
-The 3-way merge editor allows you to resolve conflicts by accepting either one or both changes. You can also manually edit the result of the merge.
+3-way 병합 편집기를 사용하여 충돌을 해결할 수 있으며, 들어오는 변경 사항 또는 현재 변경 사항을 수락하거나 둘 다 수락할 수 있습니다. 병합 결과를 수동으로 편집할 수도 있습니다.
 
-For some conflicts, the merge editor shows an **Accept Combination** button. Accepting the combination resolves the current conflict by smartly merging both changes. This is especially useful for changes in the same line that don't touch the same characters.
+일부 충돌의 경우, 병합 편집기는 **Accept Combination** 버튼을 표시합니다. 조합을 수락하면 현재 충돌이 두 변경 사항을 스마트하게 병합하여 해결됩니다. 이는 동일한 줄의 변경 사항이 동일한 문자를 건드리지 않는 경우에 특히 유용합니다.
 
-Use the **Ignore** buttons to accept neither the incoming nor current change, but mark the conflict as resolved. This resets the conflicting area to the state before any changes were made.
+**Ignore** 버튼을 사용하여 들어오는 변경 사항이나 현재 변경 사항을 수락하지 않고 충돌을 해결된 것으로 표시할 수 있습니다. 이는 충돌 영역을 변경 사항이 발생하기 전 상태로 재설정합니다.
 
-### Completing the merge
+### 병합 완료 {#completing-the-merge}
 
-You can use the conflict counter in the right of the result editor to keep track of how many unresolved conflicts are remaining. Clicking on the counter jumps to the next unresolved conflict. Once all conflicts are resolved, you can complete the merge by selecting **Complete Merge** in the bottom right corner. This stages the file and closes the merge editor.
+결과 편집기의 오른쪽에 있는 충돌 카운터를 사용하여 해결되지 않은 충돌이 몇 개인지 추적할 수 있습니다. 카운터를 클릭하면 다음 해결되지 않은 충돌로 이동합니다. 모든 충돌이 해결되면, 오른쪽 하단의 **병합 완료**를 선택하여 병합을 완료할 수 있습니다. 이렇게 하면 파일이 스테이지되고 병합 편집기가 닫힙니다.
 
-### Alternative layouts and more
+### 대체 레이아웃 및 기타 {#alternative-layouts-and-more}
 
-Selecting the three dots (**···**) in the top right corner of the merge editor opens a context menu with additional options. You can switch to a vertical layout and display the base view, which shows the state of the file before any changes were made.
+병합 편집기의 오른쪽 상단에 있는 세 개의 점(**···**)을 선택하면 추가 옵션이 있는 컨텍스트 메뉴가 열립니다. 세로 레이아웃으로 전환하고, 변경 사항이 발생하기 전 상태를 보여주는 기본 보기를 표시할 수 있습니다.
 
-The three dots next to **Incoming**, **Current**, and **Result** offer options for each view, such as showing a side-by-side diff against base, accepting all changes, or resetting the result.
+**Incomming**, **Current** 및 **Result** 옆의 세 개의 점은 각 보기에 대한 옵션을 제공하며, 기본과의 나란히 비교를 표시하거나 모든 변경 사항을 수락하거나 결과를 재설정할 수 있습니다.
 
-### Understanding conflicts
+### 충돌 이해 {#understanding-conflicts}
 
-If you want to learn more about the details of how 3-way merge editors work, we can recommend the following video:
+3-way 병합 편집기가 작동하는 방식의 세부 사항에 대해 자세히 알아보려면 다음 동영상을 추천합니다:
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HosPml1qkrg" title="The EXTREMELY helpful guide to merge conflicts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-## Viewing diffs
+## 차이점 보기 {#viewing-diffs}
 
-Our Git tooling supports viewing of diffs within VS Code.
+VS Code의 Git 도구는 VS Code 내에서 차이점을 보는 기능을 지원합니다.
 
-![A File Diff in VS Code](images/overview/diff.png)
+![VS Code에서 파일 차이점](images/overview/diff.png)
 
-The Diff editor has a separate gutter in the middle, which enables you to **Stage** or **Revert** changes code blocks. If you select a block of text, you can revert or stage the changes that are included in the selection.
+차이점 편집기에는 가운데에 별도의 줄 표시기 있어 **Stage** 또는 **Revert** 변경 작업을 수행할 수 있습니다. 텍스트 블록을 선택하면 선택한 변경 사항을 되돌리거나 스테이지할 수 있습니다.
 
-![Screenshot of the Diff editor, showing the Stage and Revert controls in the gutter](images/overview/diffEditor-stage-revert-demo.gif)
+![차이점 편집기의 스테이지 및 되돌리기 컨트롤을 보여주는 스크린샷](images/overview/diffEditor-stage-revert-demo.gif)
 
-> **Tip**: You can diff any two files by first right-clicking on a file in the Explorer view and selecting **Select for Compare** and then right-click on the second file to compare with and select **Compare with Selected**. Alternatively, open the Command Palette (`kb(workbench.action.showCommands)`), and select ay of the **File: Compare** commands. Learn more about the different options to [compare files in VS Code](/docs/editor/codebasics.md#compare-files).
+:::tip
+탐색기 보기에서 파일을 마우스 오른쪽 버튼으로 클릭하고 **Select for Compare**을 선택한 다음 두 번째 파일을 마우스 오른쪽 버튼으로 클릭하여 **Compare with Selected**를 선택하여 두 파일을 비교할 수 있습니다. 또는 **Command Palette**(`Ctrl+Shift+P`)를 열고 **File: Compare** 명령 중 하나를 선택할 수 있습니다. VS Code에서 파일을 비교하는 다양한 옵션에 대해 자세히 알아보려면 [파일 비교](/docs/editor/codebasics.md#compare-files)를 참조하세요.
+:::
 
-### Accessible Diff Viewer
+### 접근 가능한 차이점 화면 {#accessible-diff-viewer}
 
-There is an Accessible Diff Viewer in the Diff editor that presents changes in a unified patch format. You can navigate between changes with **Go to Next Difference** (`kb(editor.action.accessibleDiffViewer.next)`) and **Go to Previous Difference** (`kb(editor.action.accessibleDiffViewer.prev)`). Lines can be navigated with arrow keys and pressing `kbstyle(Enter)` will jump back in the Diff editor and the selected line.
+차이점 편집기에는 변경 사항을 통합 패치 형식으로 표시하는 접근 가능한 차이점 화면이 있습니다. **Go to Next Difference**(`F7`) 및 **Go to Previous Difference**(`Shift+F7`)을 사용하여 변경 사항 간을 탐색할 수 있습니다. 화살표 키를 사용하여 줄을 탐색하고 `Enter`를 눌러 차이점 편집기로 돌아가 선택한 줄로 이동할 수 있습니다.
 
-![diff-review-pane](images/overview/diff-review-pane.png)
+![차이점 검토 창](images/overview/diff-review-pane.png)
 
-**Note:** This experience is especially helpful for screen reader users.
+:::note
+이 경험은 화면 읽기 프로그램 사용자에게 특히 유용합니다.
+:::
 
-## Timeline view
+## 타임라인 보기 {#timeline-view}
 
-The Timeline view, accessible at the bottom of the File Explorer by default, is a unified view for visualizing time-series events (for example, Git commits) for a file.
+기본적으로 파일 탐색기 하단에서 액세스할 수 있는 타임라인 보기는 파일에 대한 시계열 이벤트(예: Git 커밋)를 시각화하는 통합 보기입니다.
 
-![Timeline view](images/overview/timeline-view.png)
+![타임라인 보기](images/overview/timeline-view.png)
 
-VS Code's built-in Git support provides the Git commit history of the specified file. Selecting a commit will open a diff view of the changes introduced by that commit. When you right-click on a commit, you'll get options to **Copy Commit ID** and **Copy Commit Message**.
+VS Code의 내장 Git 지원은 지정된 파일의 Git 커밋 기록을 제공합니다. 커밋을 선택하면 해당 커밋에 의해 도입된 변경 사항의 차이점 보기가 열립니다. 커밋을 마우스 오른쪽 버튼으로 클릭하면 **Copy Commit ID** 및 **Commit Message** 옵션이 표시됩니다.
 
-Visual Studio Code supports more Git history workflows through [extensions](/docs/editor/extension-marketplace.md) available on the VS Code Marketplace.
+Visual Studio Code는 VS Code 마켓플레이스에서 사용할 수 있는 [확장](/docs/editor/extension-marketplace.md)을 통해 더 많은 Git 기록 워크플로우를 지원합니다.
 
 <div class="marketplace-extensions-scm-history-curated"></div>
 
-> **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
+:::tip
+확장 타일을 클릭하여 마켓플레이스에서 설명 및 리뷰를 읽어보세요.
+:::
 
-## Git output window
+## Git 출력 창 {#git-output-window}
 
-You can always peek under the hood to see the Git commands we are using.  This is helpful if something strange is happening or if you are just curious. :)
+사용 중인 Git 명령을 확인하려면 언제든지 내부를 엿볼 수 있습니다. 이는 이상한 일이 발생하거나 단순히 궁금할 때 유용합니다. :)
 
-To open the Git output window, run **View** > **Output** and select **Log (Git)** from the dropdown list.
+Git 출력 창을 열려면 **View** > **Output**을 실행하고 드롭다운 목록에서 **Log (Git)**을 선택합니다.
 
-## Initialize a repository
+## 저장소 초기화 {#initialize-a-repository}
 
-If your workspace is on your local machine, you can enable Git source control by creating a Git repository with the **Initialize Repository** command. When VS Code doesn't detect an existing Git repository, the Source Control view will give you the options to **Initialize Repository** or **Publish to GitHub**.
+작업 공간이 로컬 머신에 있는 경우, **Initialize Repository** 명령을 사용하여 Git 소스 제어를 활성화할 수 있습니다. VS Code가 기존 Git 저장소를 감지하지 못하면 소스 제어 보기는 **Initialize Repository** 또는 **Publish to GitHub** 옵션을 제공합니다.
 
-![Git initialize repository](images/overview/initialize-repository.png)
+![Git 저장소 초기화](images/overview/initialize-repository.png)
 
-You can also run the **Git: Initialize Repository** and **Publish to GitHub** commands from the **Command Palette** (`kb(workbench.action.showCommands)`). Running **Initialize Repository** will create the necessary Git repository metadata files and show your workspace files as untracked changes ready to be staged. **Publish to GitHub** will directly publish your workspace folder to a GitHub repository, allowing you to choose between private and public repositories. Check out our [publishing repos](https://www.youtube.com/watch?v=3BBvBwDW4CY) video for more information about publishing to GitHub.
+**Command Palette**(`Ctrl+Shift+P`)에서 **Git: Initialize Repository** 및 **Publish to GitHub** 명령을 실행할 수도 있습니다. **Initialize Repository**를 실행하면 필요한 Git 저장소 메타데이터 파일이 생성되고 작업 공간 파일이 추적되지 않은 변경 사항으로 표시됩니다. **Publish to GitHub**는 작업 공간 폴더를 GitHub 저장소에 직접 게시하여 비공개 및 공개 저장소 중에서 선택할 수 있습니다. GitHub에 게시에 대한 자세한 내용은 [게시 저장소](https://www.youtube.com/watch?v=3BBvBwDW4CY) 동영상을 참조하세요.
 
-## VS Code as Git editor
+## Git 편집기로서의 VS Code {#vs-code-as-git-editor}
 
-When you launch VS Code from the command line, you can pass the `--wait` argument to make the launch command wait until you have closed the new VS Code instance. This can be useful when you configure VS Code as your Git external editor so Git will wait until you close the launched VS Code instance.
+명령줄에서 VS Code를 실행할 때 `--wait` 인수를 전달하여 새 VS Code 인스턴스를 닫을 때까지 실행 명령이 대기하도록 할 수 있습니다. 이는 VS Code를 Git 외부 편집기로 구성할 때 유용할 수 있으며, Git이 새 VS Code 인스턴스를 닫을 때까지 대기합니다.
 
-Here are the steps to do so:
+다음은 이를 수행하는 단계입니다:
 
-1. Make sure you can run `code --help` from the command line and you get help.
-    * if you do not see help, please follow these steps:
-        * macOS: Select **Shell Command: Install 'Code' command in path** from the **Command Palette**.
-        * Windows: Make sure you selected **Add to PATH** during the installation.
-        * Linux: Make sure you installed Code via our new `.deb` or `.rpm` packages.
-2. From the command line, run `git config --global core.editor "code --wait"`
+1. 명령줄에서 `code --help`를 실행할 수 있고 도움말을 얻을 수 있는지 확인합니다.
+   - 도움말이 표시되지 않으면 다음 단계를 따르세요:
+     - macOS: **Command Palette**에서 **Shell Command: Install 'Code' command in path**를 선택합니다.
+     - Windows: 설치 중에 **Add to PATH**를 선택했는지 확인합니다.
+     - Linux: 새 `.deb` 또는 `.rpm` 패키지를 통해 Code를 설치했는지 확인합니다.
+2. 명령줄에서 `git config --global core.editor "code --wait"`를 실행합니다.
 
-Now you can run `git config --global -e` and use VS Code as editor for configuring Git.
+이제 `git config --global -e`를 실행하여 Git을 구성하는 편집기로 VS Code를 사용할 수 있습니다.
 
-### VS Code as Git difftool and mergetool
+### Git difftool 및 mergetool로서의 VS Code {#vs-code-as-git-difftool-and-mergetool}
 
-You can use VS Code's diff and merge capabilities even when using Git from command-line. Add the following to your Git configurations to use VS Code as the diff and merge tool:
+명령줄에서 Git을 사용할 때도 VS Code의 차이점 및 병합 기능을 사용할 수 있습니다. Git 구성에 다음을 추가하여 VS Code를 차이점 및 병합 도구로 사용하세요:
 
 ```ini
 [diff]
@@ -252,40 +269,42 @@ You can use VS Code's diff and merge capabilities even when using Git from comma
     cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 ```
 
-This uses the `--diff` option that can be passed to VS Code to compare two files side by side. The merge tool will be used the next time Git discovers a merge conflict.
+이는 두 파일을 나란히 비교하기 위해 VS Code에 전달할 수 있는 `--diff` 옵션을 사용합니다. 병합 도구는 Git이 병합 충돌을 발견할 때 다음에 사용됩니다.
 
-To summarize, here are some examples of where you can use VS Code as the editor:
+요약하자면, VS Code를 편집기로 사용할 수 있는 몇 가지 예는 다음과 같습니다:
 
-* `git rebase HEAD~3 -i` do interactive rebase using VS Code
-* `git commit` use VS Code for the commit message
-* `git add -p` followed by `kbstyle(e)` for interactive add
-* `git difftool <commit>^ <commit>` use VS Code as the diff editor for changes
+- `git rebase HEAD~3 -i` VS Code를 사용하여 대화형 리베이스 수행
+- `git commit` 커밋 메시지에 VS Code 사용
+- `git add -p` 후 `e` 대화형 추가
+- `git difftool <commit>^ <commit>` 변경 사항에 대한 차이점 편집기로 VS Code 사용
 
-## Working with GitHub Pull Requests and Issues
+## GitHub Pull Requests 및 Issues와 함께 작업하기 {#working-with-github-pull-requests-and-issues}
 
-Visual Studio Code can also bring in GitHub's pull requests and issues. Create your PRs in VS Code, review with comments, and approve them without switching context. Learn more about [GitHub PRs and Issues in VS Code](/docs/sourcecontrol/github.md).
+Visual Studio Code는 GitHub의 풀 리퀘스트 및 이슈도 가져올 수 있습니다. VS Code에서 PR을 생성하고, 댓글로 검토하고, 컨텍스트를 전환하지 않고 승인하세요. [VS Code에서 GitHub PR 및 Issues](/docs/sourcecontrol/github.md)에 대해 자세히 알아보세요.
 
-## SCM Providers
+## SCM 제공자 {#scm-providers}
 
 <div class="marketplace-extensions-scm-curated"></div>
 
-> **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
+:::tip
+마켓플레이스에서 설명 및 리뷰를 읽으려면 확장 타일을 클릭하세요.
+:::
 
-VS Code has support for handling multiple Source Control providers simultaneously. For example, you can open multiple Git repositories alongside your Azure DevOps Server local workspace and seamlessly work across your projects. To turn on the **Source Control Providers** view, select the overflow menu in the **Source Control** view (`kb(workbench.view.scm)`), hover over **Views**, and make sure that **Source Control Repositories** is marked with a check. The **Source Control Providers** view shows the detected providers and repositories, and you can scope the display of your changes by selecting a specific provider.
+VS Code는 여러 소스 제어 제공자를 동시에 처리할 수 있는 기능을 제공합니다. 예를 들어, 여러 Git 저장소를 Azure DevOps Server 로컬 작업 공간과 함께 열고 프로젝트 간에 원활하게 작업할 수 있습니다. **Source Control Providers** 보기를 켜려면 **Source Control** 보기(`Ctrl+Shift+G`)의 오버플로 메뉴를 선택하고 **Views** 위로 마우스를 가져간 다음 **Source Control Repositories**가 체크되어 있는지 확인합니다. **Source Control Providers** 보기는 감지된 제공자 및 저장소를 표시하며, 특정 제공자를 선택하여 변경 사항의 표시 범위를 지정할 수 있습니다.
 
-![Source Control Repositories view option in overflow menu](images/overview/scm-providers-list.png)
+![오버플로 메뉴에서 소스 제어 저장소 보기 옵션](images/overview/scm-providers-list.png)
 
-### SCM Provider extensions
+### SCM 제공자 확장 {#scm-provider-extensions}
 
-If you would like to install another SCM provider, you can search on the **scm providers** extension category in the **Extensions** view (`kb(workbench.view.extensions)`). Start typing '@ca' and you will see suggestions for extension categories like debuggers and linters. Select `@category:"scm providers"` to see available SCM providers.
+다른 SCM 제공자를 설치하려면 **Extensions** 보기(`Ctrl+Shift+X`)에서 **scm providers** 확장 카테고리를 검색할 수 있습니다. '@ca'를 입력하기 시작하면 디버거 및 린터와 같은 확장 카테고리에 대한 제안이 표시됩니다. `@category:"scm providers"`를 선택하여 사용 가능한 SCM 제공자를 확인하세요.
 
-![SCM Provider category in the marketplace](images/overview/scm-provider-category.png)
+![마켓플레이스의 SCM 제공자 카테고리](images/overview/scm-provider-category.png)
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-* [Intro Video - Git Version Control](/docs/introvideos/versioncontrol.md) - An introductory video providing an overview of VS Code Git support.
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
-* [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt, and Jake.  Showing Errors and Warnings
-* [Source Control API](/api/extension-guides/scm-provider.md) - If you want to integrate another Source Control provider into VS Code, see our Source Control API.
+- [소개 비디오 - Git 버전 제어](/docs/introvideos/versioncontrol.md) - VS Code Git 지원에 대한 개요를 제공하는 소개 비디오.
+- [기본 편집](/docs/editor/codebasics.md) - 강력한 VS Code 편집기에 대해 알아보세요.
+- [코드 탐색](/docs/editor/editingevolved.md) - 소스 코드를 빠르게 이동하세요.
+- [디버깅](/docs/editor/debugging.md) - VS Code의 진정한 강점입니다.
+- [작업](/docs/editor/tasks.md) - Gulp, Grunt 및 Jake로 작업 실행. 오류 및 경고 표시
+- [소스 제어 API](/api/extension-guides/scm-provider.md) - VS Code에 다른 소스 제어 제공자를 통합하려면 소스 제어 API를 참조하세요.

@@ -116,7 +116,7 @@ macOS와 Windows에는 열 선택을 위한 기본 키 바인딩이 있지만, L
 `files.hotExit`을 다음 값으로 설정하여 빠른 종료를 구성할 수 있습니다:
 
 - `off`: 빠른 종료 비활성화
-- `onExit`: 애플리케이션이 종료될 때 빠른 종료가 트리거됩니다. 즉, Windows/Linux에서 마지막 창이 닫히거나 `workbench.action.quit` 명령이 트리거될 때(**명령 팔레트**, 키보드 단축키 또는 메뉴에서) 발생합니다. 폴더를 열지 않은 모든 창은 다음 실행 시 복원됩니다.
+- `onExit`: 애플리케이션이 종료될 때 빠른 종료가 트리거됩니다. 즉, Windows/Linux에서 마지막 창이 닫히거나 `workbench.action.quit` 명령이 트리거될 때(**Command Palette**, 키보드 단축키 또는 메뉴에서) 발생합니다. 폴더를 열지 않은 모든 창은 다음 실행 시 복원됩니다.
 - `onExitAndWindowClose`: 애플리케이션이 종료될 때와 폴더가 열린 모든 창에 대해 빠른 종료가 트리거됩니다. 폴더를 열지 않은 모든 창은 다음 실행 시 복원됩니다. 종료 전 상태 그대로 폴더 창을 복원하려면 `window.restoreWindows`를 `all`로 설정하세요.
 
 빠른 종료에 문제가 발생하면 모든 백업은 다음 표준 설치 위치에 저장됩니다:
@@ -139,7 +139,7 @@ VS Code를 사용하면 현재 열린 파일에서 텍스트를 빠르게 찾고
 
 ![Seed Search String From Selection](images/codebasics/seed-search-string-from-selection.gif)
 
-이 기능은 `setting(editor.find.seedSearchStringFromSelection)`을 `never`로 설정하여 끌 수 있습니다.
+이 기능은 `editor.find.seedSearchStringFromSelection`을 `never`로 설정하여 끌 수 있습니다.
 
 ### 선택 영역 내 찾기 {#find-in-selection}
 
@@ -147,7 +147,7 @@ VS Code를 사용하면 현재 열린 파일에서 텍스트를 빠르게 찾고
 
 ![Find In Selection](images/codebasics/find-in-selection.gif)
 
-찾기 위젯의 기본 동작으로 설정하려면 `setting(editor.find.autoFindInSelection)`을 `always`로 설정하거나, 여러 줄의 내용이 선택되었을 때만 실행되도록 하려면 `multiline`으로 설정하세요.
+찾기 위젯의 기본 동작으로 설정하려면 `editor.find.autoFindInSelection`을 `always`로 설정하거나, 여러 줄의 내용이 선택되었을 때만 실행되도록 하려면 `multiline`으로 설정하세요.
 
 ### 고급 찾기와 바꾸기 옵션 {#advanced-find-and-replace-options}
 
@@ -288,7 +288,7 @@ VS Code는 에디터에서 또는 전역적으로 검색과 바꾸기를 할 때
 :::
 
 :::tip
-IntelliSense 제안은 `setting(editor.quickSuggestions)`와 `setting(editor.suggestOnTriggerCharacters)` [설정](/docs/getstarted/settings.md)을 통해 구성할 수 있습니다.
+IntelliSense 제안은 `editor.quickSuggestions`와 `editor.suggestOnTriggerCharacters` [설정](/docs/getstarted/settings.md)을 통해 구성할 수 있습니다.
 :::
 
 JavaScript와 TypeScript 개발자는 [npmjs](https://www.npmjs.com) 타입 선언(typings) 파일 저장소를 활용하여 일반적인 JavaScript 라이브러리(Node.js, React, Angular)에 대한 IntelliSense를 얻을 수 있습니다. 타입 선언 파일 사용에 대한 좋은 설명은 [JavaScript 언어](/docs/languages/javascript.md#intellisense) 주제와 [Node.js](/docs/nodejs/nodejs-tutorial.md) 튜토리얼에서 찾을 수 있습니다.
@@ -302,7 +302,7 @@ VS Code는 소스 코드 서식 지정에 대한 훌륭한 지원을 제공합�
 - **문서 서식 지정** (`Shift+Alt+F`) - 활성 파일 전체의 서식을 지정합니다.
 - **선택 영역 서식 지정** (`Ctrl+K Ctrl+F`) - 선택된 텍스트의 서식을 지정합니다.
 
-이러한 기능은 **명령 팔레트**(`Ctrl+Shift+P`) 또는 에디터 컨텍스트 메뉴에서 호출할 수 있습니다.
+이러한 기능은 **Command Palette**(`Ctrl+Shift+P`) 또는 에디터 컨텍스트 메뉴에서 호출할 수 있습니다.
 
 VS Code는 JavaScript, TypeScript, JSON, HTML, CSS에 대한 기본 포매터를 가지고 있습니다. 각 언어는 사용자 또는 작업 영역 [설정](/docs/getstarted/settings.md)에서 조정할 수 있는 특정 서식 지정 옵션(예: `html.format.indentInnerHtml`)을 가지고 있습니다. 동일한 언어에 대한 서식 지정을 제공하는 다른 확장 프로그램이 설치되어 있다면 기본 언어 포매터를 비활성화할 수도 있습니다.
 
@@ -404,7 +404,7 @@ VS Code는 열린 파일을 분석하여 문서에서 사용된 들여쓰기를 
 ![indentation commands](images/codebasics/indentation-commands.png)
 
 :::note
-VS Code 자동 감지는 2, 4, 6 또는 8 공백의 들여쓰기를 확인합니다. 파일이 다른 수의 공백을 사용한다면 들여쓰기가 올바르게 감지되지 않을 수 있습니다. 예를 들어, 3 공백으로 들여쓰기하는 것이 규칙이라면 `setting(editor.detectIndentation)`을 끄고 탭 크기를 명시적으로 3으로 설정할 수 있습니다.
+VS Code 자동 감지는 2, 4, 6 또는 8 공백의 들여쓰기를 확인합니다. 파일이 다른 수의 공백을 사용한다면 들여쓰기가 올바르게 감지되지 않을 수 있습니다. 예를 들어, 3 공백으로 들여쓰기하는 것이 규칙이라면 `editor.detectIndentation`을 끄고 탭 크기를 명시적으로 3으로 설정할 수 있습니다.
 :::
 
 ```json

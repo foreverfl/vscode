@@ -8,6 +8,7 @@ DateApproved: 1/9/2023
 MetaDescription: This topic highlights some of the PyTorch features available within Visual Studio Code.
 MetaSocialImage: images/tutorial/python-social.png
 ---
+
 # PyTorch support in Visual Studio Code
 
 Along with support for [Jupyter Notebooks](/docs/datascience/jupyter-notebooks.md), Visual Studio Code offers many features of particular interest for PyTorch developers. This article covers some of those features and illustrates how they can help you in your projects. If you're unfamiliar with PyTorch development, Microsoft Learn offers a [Get started with PyTorch](https://learn.microsoft.com/training/paths/pytorch-fundamentals) learning path that covers the fundamentals of deep learning with PyTorch.
@@ -36,7 +37,7 @@ Along with slicing, you can search for values of interest such as "inf's" or "Na
 
 ![TensorBoard integration with VS Code](images/pytorch-support/tensorboard-integration.png)
 
-To start a TensorBoard session, open the **Command Palette** (`kb(workbench.action.showCommands)`) and search for the command **Python: Launch TensorBoard**. Afterwards, you'll be prompted to select the folder where your TensorBoard log files are located. By default, VS Code uses your current working directory and automatically detects your TensorBoard log files within any subdirectories. However, you can also specify your own directory. VS Code will then open a new tab with TensorBoard and manage its lifecycle as you work.
+To start a TensorBoard session, open the **Command Palette** (`Ctrl+Shift+P`) and search for the command **Python: Launch TensorBoard**. Afterwards, you'll be prompted to select the folder where your TensorBoard log files are located. By default, VS Code uses your current working directory and automatically detects your TensorBoard log files within any subdirectories. However, you can also specify your own directory. VS Code will then open a new tab with TensorBoard and manage its lifecycle as you work.
 
 You can also use the setting `python.tensorboard.logDirectory` to set a default TensorBoard log directory for your folder/workspace.
 

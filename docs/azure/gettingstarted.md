@@ -7,6 +7,7 @@ ContentId:
 MetaDescription: Azure Tools for Visual Studio Code Getting Started guide for developers
 DateApproved: 08/21/2024
 ---
+
 # Getting Started with Azure Tools for Visual Studio Code
 
 The [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) enables developers to access Azure's cloud services within their current environment, simplifying the process of building web applications, managing backend services, deploying APIs, and handling large datasets. This guide is specifically designed for Azure Tools within VS Code. It provides essential tips for getting started, writing code, deploying applications, troubleshooting with logs, utilizing Azure resources, and effectively navigating your code within VS Code.
@@ -21,13 +22,13 @@ The [Azure Tools extension pack](https://marketplace.visualstudio.com/items?item
 
 ![Azure icon](images/extensions/azure-icon.png)
 
-**Search Azure commands with the Command Palette.** An important key combination to know is (`kb(workbench.action.showCommands)`), which brings up the Command Palette. It is your starting point for access to all functionality within VS Code including commands, keyboard shortcuts, and opening files.
+**Search Azure commands with the Command Palette.** An important key combination to know is (`Ctrl+Shift+P`), which brings up the Command Palette. It is your starting point for access to all functionality within VS Code including commands, keyboard shortcuts, and opening files.
 
 In the Command Palette, type `Azure` to list the commands that are specific to Azure. For example, to open the Cloud Shell.
 
 ![Command palette](images/extensions/command-palette.png)
 
-**Open folders.** A Visual Studio Code *workspace* is the collection of one or more folders that are opened in a VS Code window (instance). In most cases, you will have a single folder opened as the workspace. You can open a workspace by using the **File > Open Folder...** menu, and then selecting a folder. However, depending on your development workflow, you can include more than one folder, using an advanced configuration called Multi-root workspace.
+**Open folders.** A Visual Studio Code _workspace_ is the collection of one or more folders that are opened in a VS Code window (instance). In most cases, you will have a single folder opened as the workspace. You can open a workspace by using the **File > Open Folder...** menu, and then selecting a folder. However, depending on your development workflow, you can include more than one folder, using an advanced configuration called Multi-root workspace.
 
 **Review settings.** To edit or review your current settings in VS Code, use (`kb(workbench.action.openSettings)`), to open the Settings editor. It is helpful to review settings that any of the extensions may contribute.
 
@@ -57,4 +58,4 @@ Quickly locate and review detailed log information, access your recent activitie
 
 ## Next steps
 
-* [Deployment](/docs/azure/deployment.md) - Learn how to deploy your apps to the cloud using Azure.
+- [Deployment](/docs/azure/deployment.md) - Learn how to deploy your apps to the cloud using Azure.

@@ -115,7 +115,7 @@ If you come from a browser Developer Tools background, you might not be used to 
 
 The best way to explain the difference between **launch** and **attach** is to think of a **launch** configuration as a recipe for how to start your app in debug mode **before** VS Code attaches to it, while an **attach** configuration is a recipe for how to connect VS Code's debugger to an app or process that's **already** running.
 
-VS Code debuggers typically support launching a program in debug mode or attaching to an already running program in debug mode. Depending on the request (`attach` or `setting(launch)`), different attributes are required, and VS Code's `launch.json` validation and suggestions should help with that.
+VS Code debuggers typically support launching a program in debug mode or attaching to an already running program in debug mode. Depending on the request (`attach` or `launch`), different attributes are required, and VS Code's `launch.json` validation and suggestions should help with that.
 
 ### Add a new configuration
 
@@ -131,7 +131,7 @@ VS Code also supports compound launch configurations for starting multiple confi
 
 In order to start a debug session, first select the configuration named **Launch Program** using the **Configuration dropdown** in the **Run and Debug** view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`.
 
-Alternatively, you can run your configuration through the **Command Palette** (`kb(workbench.action.showCommands)`) by filtering on **Debug: Select and Start Debugging** or typing `'debug '` and selecting the configuration you want to debug.
+Alternatively, you can run your configuration through the **Command Palette** (`Ctrl+Shift+P`) by filtering on **Debug: Select and Start Debugging** or typing `'debug '` and selecting the configuration you want to debug.
 
 As soon as a debugging session starts, the **DEBUG CONSOLE** panel is displayed and shows debugging output, and the Status Bar changes color (orange for default color themes):
 
@@ -156,7 +156,7 @@ Once a debug session starts, the **Debug toolbar** will appear on the top of the
 | Restart <br /> `kb(workbench.action.debug.restart)`           | Terminate the current program execution and start debugging again using the current run configuration.                                                                 |
 | Stop <br /> `kb(workbench.action.debug.stop)`                 | Terminate the current program execution.                                                                                                                               |
 
-> **Tip**: Use the setting `setting(debug.toolBarLocation)` to control the location of the debug toolbar. It can be the default `floating`, `docked` to the **Run and Debug** view, or `hidden`. A `floating` debug toolbar can be dragged horizontally and also down to the editor area (up to a certain distance from the top edge).
+> **Tip**: Use the setting `debug.toolBarLocation` to control the location of the debug toolbar. It can be the default `floating`, `docked` to the **Run and Debug** view, or `hidden`. A `floating` debug toolbar can be dragged horizontally and also down to the editor area (up to a certain distance from the top edge).
 
 ### Run mode
 
@@ -178,7 +178,7 @@ The **Reapply All Breakpoints** command sets all breakpoints again to their orig
 
 ![Breakpoints](images/debugging/breakpoints.png)
 
-Optionally, breakpoints can be shown in the editor's overview ruler by enabling the setting `setting(debug.showBreakpointsInOverviewRuler)`:
+Optionally, breakpoints can be shown in the editor's overview ruler by enabling the setting `debug.showBreakpointsInOverviewRuler`:
 
 ![breakpoints in overview ruler](images/debugging/bpts-in-overview.png)
 
@@ -188,7 +188,7 @@ A Logpoint is a variant of a breakpoint that does not "break" into the debugger 
 
 A Logpoint is represented by a "diamond" shaped icon. Log messages are plain text but can include expressions to be evaluated within curly braces ('{}').
 
-Add a logpoint with the **Add Logpoint** command in the left editor gutter context menu, or by using the **Debug: Add Logpoint...** command. You can also configure the setting `setting(debug.gutterMiddleClickAction)` to toggle a logpoint when pressing the middle mouse button in the editor gutter.
+Add a logpoint with the **Add Logpoint** command in the left editor gutter context menu, or by using the **Debug: Add Logpoint...** command. You can also configure the setting `debug.gutterMiddleClickAction` to toggle a logpoint when pressing the middle mouse button in the editor gutter.
 
 ![Logpoints](images/debugging/log-points.gif)
 
@@ -221,7 +221,7 @@ There are many `launch.json` attributes to help support different debuggers and 
 The following attributes are mandatory for every launch configuration:
 
 - `type` - the type of debugger to use for this launch configuration. Every installed debug extension introduces a type: `node` for the built-in Node debugger, for example, or `php` and `go` for the PHP and Go extensions.
-- `request` - the request type of this launch configuration. Currently, `setting(launch)` and `attach` are supported.
+- `request` - the request type of this launch configuration. Currently, `launch` and `attach` are supported.
 - `name` - the reader-friendly name to appear in the Debug launch configuration dropdown.
 
 Here are some optional attributes available to all launch configurations:
@@ -378,7 +378,7 @@ If a debugger supports data breakpoints, they can be set from the context menu i
 
 Expressions can be evaluated with the **Debug Console** REPL ([Read-Eval-Print Loop](https://en.wikipedia.org/wiki/Read–eval–print_loop)) feature. To open the Debug Console, use the **Debug Console** action at the top of the Debug pane or use the **View: Debug Console** command (`kb(workbench.debug.action.toggleRepl)`).
 
-Expressions are evaluated after you press `kbstyle(Enter)` and the Debug Console REPL shows suggestions as you type. If you need to enter multiple lines, use `kbstyle(Shift+Enter)` between the lines and then send all lines for evaluation with `kbstyle(Enter)`.
+Expressions are evaluated after you press `Enter` and the Debug Console REPL shows suggestions as you type. If you need to enter multiple lines, use `Shift+Enter` between the lines and then send all lines for evaluation with `Enter`.
 
 Debug Console input uses the mode of the active editor, which means that the Debug Console input supports syntax coloring, indentation, auto closing of quotes, and other language features.
 

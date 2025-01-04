@@ -14,22 +14,22 @@ For users of the [C# Dev Kit](https://marketplace.visualstudio.com/items?itemNam
 
 ## Whole line suggestions
 
-**Scenario 1**: When grey-text is shown, press `kbstyle(Tab)` to accept the prediction (suggestion).
+**Scenario 1**: When grey-text is shown, press `Tab` to accept the prediction (suggestion).
 
 ![Press Tab to accept prediction](images/intellicode/accept-prediction.gif)
 
-**Scenario 2**: When grey-text is shown along with the IntelliSense list, press `kbstyle(Tab)` to accept the IntelliSense list selection, then `kbstyle(Tab)` again to accept the rest of the multi-token prediction. In this scenario, you can use the IntelliSense list selection to steer the multi-token prediction offered by IntelliCode.
+**Scenario 2**: When grey-text is shown along with the IntelliSense list, press `Tab` to accept the IntelliSense list selection, then `Tab` again to accept the rest of the multi-token prediction. In this scenario, you can use the IntelliSense list selection to steer the multi-token prediction offered by IntelliCode.
 
 ![Use list selection to steer multi-choice prediction](images/intellicode/multi-token-prediction.gif)
 
-Additionally, if the model is suggesting that a string should exist, but does not have a suggestion for the string, pressing `kbstyle(Tab)` places the cursor into the empty string, making it easier for you to complete your line of code.
+Additionally, if the model is suggesting that a string should exist, but does not have a suggestion for the string, pressing `Tab` places the cursor into the empty string, making it easier for you to complete your line of code.
 
 This model makes predictions on what you'll type next based on a rich knowledge of what you have coded so far, which includes:
 
-* Variable names and positions
-* Libraries you're using
-* Functions in nearby code
-* The IntelliSense list
+- Variable names and positions
+- Libraries you're using
+- Functions in nearby code
+- The IntelliSense list
 
 ## Starred suggestions
 
@@ -55,13 +55,13 @@ To get IntelliCode whole-line autocompletions for Python, JavaScript, and TypeSc
 
 In order to use this extension, you must have both the C# Dev Kit and .NET 6 installed and enabled on your machine. This extension supports the following platforms and operating systems:
 
-* **Windows**: x64 and ARM
-  * x64 & ARM tested on Windows 11 22H2
-* **macOS**: x64 and ARM.
-  * x64 tested on OS X Monterey v12.6.5
-  * ARM tested on OS X v PENDING
-* **Linux**: x64 and ARM.
-  * x64 Tested on Ubuntu 22.04
+- **Windows**: x64 and ARM
+  - x64 & ARM tested on Windows 11 22H2
+- **macOS**: x64 and ARM.
+  - x64 tested on OS X Monterey v12.6.5
+  - ARM tested on OS X v PENDING
+- **Linux**: x64 and ARM.
+  - x64 Tested on Ubuntu 22.04
 
 ## How do I report feedback and issues
 

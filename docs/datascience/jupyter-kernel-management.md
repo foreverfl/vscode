@@ -37,7 +37,7 @@ The **Jupyter Kernels** category lists all Jupyter kernels that VS Code detects 
 
 The **Python Environments** category lists the Python environments that VS Code detects from the compute system it's operating in (your desktop, Codespaces, remote server, etc.). It shows all Python environments grouped by type (for example, conda, venv)—whether the [IPyKernel](https://ipython.readthedocs.io/en/stable/install/kernel_install.html) is installed or not.
 
-   > **Note**: You **do not** need to install [jupyter](https://pypi.org/project/jupyter/) into the Python environment you want to use. Only the IPyKernel package is required to launch a Python process as a kernel and execute code against your notebook (`pip install ipykernel`). Visit the [Jupyter extension wiki](https://github.com/microsoft/vscode-jupyter/wiki/Kernels-(Architecture)) to learn more.
+> **Note**: You **do not** need to install [jupyter](https://pypi.org/project/jupyter/) into the Python environment you want to use. Only the IPyKernel package is required to launch a Python process as a kernel and execute code against your notebook (`pip install ipykernel`). Visit the [Jupyter extension wiki](<https://github.com/microsoft/vscode-jupyter/wiki/Kernels-(Architecture)>) to learn more.
 
 ## Existing Jupyter Server
 
@@ -65,19 +65,19 @@ The **Connect to Codespace** category contains a special type of Jupyter server 
 
 1. Install the [GitHub Codespaces extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
 
-    > **Note**: If you're on VS Code for the Web ([vscode.dev](https://vscode.dev) or [github.dev](https://github.dev)), this extension is already installed for you. Also ensure that the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) is also installed.
+   > **Note**: If you're on VS Code for the Web ([vscode.dev](https://vscode.dev) or [github.dev](https://github.dev)), this extension is already installed for you. Also ensure that the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) is also installed.
 
-2. Go to the Command Palette (`kb(workbench.action.showCommands)`), select **Codespaces: Sign In** and follow the steps to sign into Codespaces.
+2. Go to the Command Palette (`Ctrl+Shift+P`), select **Codespaces: Sign In** and follow the steps to sign into Codespaces.
 
 3. Open the kernel picker by clicking on **Select Kernel** on the upper right-hand corner of your notebook, select **Connect to Codespace**.
 
-    > **Tip**: If you don't see the **Connect to Codespace** option, go to the Command Palette (`kb(workbench.action.showCommands)`), select **Developer: Reload Window** to reload the window and try again.
+   > **Tip**: If you don't see the **Connect to Codespace** option, go to the Command Palette (`Ctrl+Shift+P`), select **Developer: Reload Window** to reload the window and try again.
 
 It is not required, but you can also manage all your Codespaces and Codespaces Jupyter servers on the [GitHub Codespaces page](https://github.com/codespaces). To learn more, you can read the [GitHub Codespaces documentation](https://docs.github.com/codespaces/getting-started/understanding-the-codespace-lifecycle).
 
 ## Adding Kernel Options
 
-If you do not have any Jupyter kernel or Python environment on your machine, VS Code can help you set up: go to the Command Palette (`kb(workbench.action.showCommands)`), select **Python: Create Environment**, and follow the prompts. You can also add additional ways to select kernels, by installing additional extensions like [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
+If you do not have any Jupyter kernel or Python environment on your machine, VS Code can help you set up: go to the Command Palette (`Ctrl+Shift+P`), select **Python: Create Environment**, and follow the prompts. You can also add additional ways to select kernels, by installing additional extensions like [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
 
 ![More Kernel Sources](images/jupyter-kernel-management/more-kernel-sources.png)
 

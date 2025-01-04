@@ -67,7 +67,7 @@ That's it! Any VS Code operations you perform in this window will be executed in
 Alternatively, you can open a WSL window directly from VS Code:
 
 1. Start VS Code.
-2. Press `kbstyle(F1)`, select **WSL: Connect to WSL** for the default distro or **WSL: Connect to WSL using Distro** for a specific distro.
+2. Press `F1`, select **WSL: Connect to WSL** for the default distro or **WSL: Connect to WSL using Distro** for a specific distro.
 3. Use the File menu to open your folder.
 
 If you already have a folder open, you can also use the **WSL: Reopen Folder in WSL** command. You will be prompted which distro to use.
@@ -134,7 +134,7 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 ## WSL specific settings
 
-VS Code's local user settings are also reused when you have opened a folder in WSL. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and WSL. Fortunately, once you have connected to WSL, you can also set WSL specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting the **Remote** tab in the Settings editor. These will override any local settings you have in place whenever you open a folder in WSL.
+VS Code's local user settings are also reused when you have opened a folder in WSL. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and WSL. Fortunately, once you have connected to WSL, you can also set WSL specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`F1`) or by selecting the **Remote** tab in the Settings editor. These will override any local settings you have in place whenever you open a folder in WSL.
 
 ## Advanced: Environment setup script
 
@@ -156,7 +156,7 @@ If you are using WSL 2 and [Docker Desktop's WSL 2 back-end](https://docs.docker
 
 3. Next, [open your source code folder in WSL](#open-a-remote-folder-or-workspace) as you would normally.
 
-4. Once your folder is open in WSL, select **Dev Containers: Reopen in Container** from the Command Palette (`kbstyle(F1)`).
+4. Once your folder is open in WSL, select **Dev Containers: Reopen in Container** from the Command Palette (`F1`).
 
 5. If the folder does not have a `.devcontainer/devcontainer.json` file in it, you'll be asked to pick a starting point from a filterable list or an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) (if one exists).
 
@@ -182,7 +182,7 @@ That's a known problem with the WSL file system implementation ([Microsoft/WSL#3
 
 To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polling based file watching has a performance impact for large workspaces.
 
-For large workspace you want to increase the polling interval: `remote.WSL.fileWatcher.pollingInterval` and control the folders that are watched: `setting(files.watcherExclude)`.
+For large workspace you want to increase the polling interval: `remote.WSL.fileWatcher.pollingInterval` and control the folders that are watched: `files.watcherExclude`.
 
 [WSL 2](https://learn.microsoft.com/windows/wsl/compare-versions#whats-new-in-wsl-2) does not have that file watcher problem is also not affected by the new setting.
 

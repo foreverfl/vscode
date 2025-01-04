@@ -47,7 +47,7 @@ Code Actions (also known as Quick Fixes) are provided to help fix issues when th
 
 ## Python commands
 
-Python commands can be accessed through the [Command Palette](/docs/getstarted/userinterface.md#command-palette) (`kb(workbench.action.showCommands)`). From the Command Palette, you have access to various features from VS Code and installed extensions. Enter **“Python: “** in the Command Palette to find the commands available through the Python extension.
+Python commands can be accessed through the [Command Palette](/docs/getstarted/userinterface.md#command-palette) (`Ctrl+Shift+P`). From the Command Palette, you have access to various features from VS Code and installed extensions. Enter **“Python: “** in the Command Palette to find the commands available through the Python extension.
 
 ![Gif demonstrating how to access Python commands in the Command Palette.](images/quick-start/cmd-plt-v2.gif)
 
@@ -65,8 +65,8 @@ To run the Python script you have open on the editor, select the **Run Python Fi
 
 There are also additional ways you can iteratively run snippets of your Python code within VS Code:
 
-- Select one or more lines, then press `kbstyle(Shift+Enter)` or right-click and select **Run Selection/Line in Python Terminal**. This command is convenient for testing just a part of a file.
-- From the Command Palette (`kb(workbench.action.showCommands)`), select the **Python: Start REPL** command to open a REPL terminal for the currently selected Python interpreter. In the REPL, you can then enter and run lines of code one at a time.
+- Select one or more lines, then press `Shift+Enter` or right-click and select **Run Selection/Line in Python Terminal**. This command is convenient for testing just a part of a file.
+- From the Command Palette (`Ctrl+Shift+P`), select the **Python: Start REPL** command to open a REPL terminal for the currently selected Python interpreter. In the REPL, you can then enter and run lines of code one at a time.
 
 ### Debug
 
@@ -74,7 +74,7 @@ The debugger is a helpful tool that allows you to inspect the flow of your code 
 
 ![Screenshot showing a debugger breakpoint in a Python program.](images/quick-start/breakpoint.png)
 
-To start debugging, initialize the debugger by pressing `kbstyle(F5)`. Since this is your first time debugging this file, a configuration menu will open allowing you to select the type of application you want to debug. If it's a Python script, you can select **Python File**.
+To start debugging, initialize the debugger by pressing `F5`. Since this is your first time debugging this file, a configuration menu will open allowing you to select the type of application you want to debug. If it's a Python script, you can select **Python File**.
 
 Once your program reaches the breakpoint, it will stop and allow you to track data in the Python Debug console, and progress through your program using the debug toolbar.
 

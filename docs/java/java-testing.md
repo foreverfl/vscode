@@ -209,11 +209,11 @@ The extension provides features to help you navigate between your tests and test
   <source src="/docs/java/java-testing/test-navigation.mp4" type="video/mp4" />
 </video>
 
-You can also find the command in the Command Palette (`kb(workbench.action.showCommands)`) by searching for **Java: Go to Test**.
+You can also find the command in the Command Palette (`Ctrl+Shift+P`) by searching for **Java: Go to Test**.
 
 ### VS Code testing commands
 
-There are other testing commands (for example, **Run Tests in Current File**) that can be found by searching for 'Test:' in the Command Palette (`kb(workbench.action.showCommands)`).
+There are other testing commands (for example, **Run Tests in Current File**) that can be found by searching for 'Test:' in the Command Palette (`Ctrl+Shift+P`).
 
 ![Testing commands in the Command Palette](images/java-testing/command_palette.png)
 

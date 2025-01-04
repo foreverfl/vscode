@@ -29,7 +29,11 @@ Here is a [Language Configuration sample](https://github.com/microsoft/vscode-ex
     "lineComment": "//",
     "blockComment": ["/*", "*/"]
   },
-  "brackets": [["{", "}"], ["[", "]"], ["(", ")"]],
+  "brackets": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"]
+  ],
   "autoClosingPairs": [
     { "open": "{", "close": "}" },
     { "open": "[", "close": "]" },
@@ -81,7 +85,11 @@ When you move the cursor to a bracket defined here, VS Code will highlight that 
 
 ```json
 {
-  "brackets": [["{", "}"], ["[", "]"], ["(", ")"]]
+  "brackets": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"]
+  ]
 }
 ```
 
@@ -90,7 +98,6 @@ Moreover, when you run **Go to Bracket** or **Select to Bracket**, VS Code will 
 ## Autoclosing
 
 When you type `'`, VS Code creates a pair of single quotes and puts your cursor in the middle: `'|'`. This section defines such pairs.
-
 
 ```json
 {
@@ -116,12 +123,15 @@ The `notIn` key disables this feature in certain code ranges. For example, when 
 The single quote will not be autoclosed.
 
 Pairs that do not require a `notIn` property can also use a simpler syntax:
+
 ```json
 {
-  "autoClosingPairs": [ ["{", "}"], ["[", "]"] ]
+  "autoClosingPairs": [
+    ["{", "}"],
+    ["[", "]"]
+  ]
 }
 ```
-
 
 Users can tweak the autoclosing behavior with the `editor.autoClosingQuotes` and `editor.autoClosingBrackets` settings.
 
@@ -170,7 +180,7 @@ Users can tweak the autosurrounding behavior with the `editor.autoSurround` sett
 In VS Code, folding is defined either indentation-based, or defined by contributed folding range providers:
 
 - Indentation-based folding with markers: If no folding range provider is available for the given language or if the user has set `editor.foldingStrategy` to `indentation`, indentation-based folding is used. A folding region starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent. Empty lines are ignored.
-Additionally, the language configuration can define start and end markers. These are defined as `start` and `end` regexes in `folding.markers`. When matching lines are found, a folding range inside the pair is created. Folding markers must be non-empty and typically look like `//#region` and `//#endregion`.
+  Additionally, the language configuration can define start and end markers. These are defined as `start` and `end` regexes in `folding.markers`. When matching lines are found, a folding range inside the pair is created. Folding markers must be non-empty and typically look like `//#region` and `//#endregion`.
 
 The following JSON creates folding markers for `//#region` and `//#endregion`.
 
@@ -210,7 +220,7 @@ The following JSON creates folding markers for `//#region` and `//#endregion`.
 }
 ```
 
-For example, `if (true) {` matches `increaseIndentPattern`, then if you press `kbstyle(Enter)` after the open bracket `{`, the editor will automatically indent once, and your code will end up as:
+For example, `if (true) {` matches `increaseIndentPattern`, then if you press `Enter` after the open bracket `{`, the editor will automatically indent once, and your code will end up as:
 
 ```javascript
 if (true) {
@@ -228,18 +238,20 @@ Notice that `editor.formatOnPaste` setting is controlled by the [`DocumentRangeF
 
 ## On Enter Rules
 
-`onEnterRules` defines a list of rules that will be evaluated when `kbstyle(Enter)` is pressed in the editor.
+`onEnterRules` defines a list of rules that will be evaluated when `Enter` is pressed in the editor.
 
 ```json
 {
-  "onEnterRules": [{
-    "beforeText": "^\\s*(?:def|class|for|if|elif|else|while|try|with|finally|except|async).*?:\\s*$",
-    "action": { "indent": "indent" }
-  }]
+  "onEnterRules": [
+    {
+      "beforeText": "^\\s*(?:def|class|for|if|elif|else|while|try|with|finally|except|async).*?:\\s*$",
+      "action": { "indent": "indent" }
+    }
+  ]
 }
 ```
 
-When pressing `kbstyle(Enter)`, the text before, after, or one line above the cursor is checked against the following properties:
+When pressing `Enter`, the text before, after, or one line above the cursor is checked against the following properties:
 
 - `beforeText` (mandatory). A regular expression that matches the text before the cursor (limited to the current line).
 - `afterText`. A regular expression that matches the text after the cursor (limited to the current line).

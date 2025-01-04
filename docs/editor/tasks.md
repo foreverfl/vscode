@@ -109,7 +109,7 @@ For Gulp, Grunt, and Jake, the task auto-detection works the same. Below is an e
 
 ![Gulp task auto-detection](images/tasks/gulp-auto-detect.png)
 
-> **Tip:** You can run your task through **Quick Open** (`kb(workbench.action.quickOpen)`) by typing 'task', `kbstyle(Space)` and the command name. In this case, 'task lint'.
+> **Tip:** You can run your task through **Quick Open** (`kb(workbench.action.quickOpen)`) by typing 'task', `Space` and the command name. In this case, 'task lint'.
 
 Task auto detection can be disabled using the following settings:
 
@@ -224,7 +224,7 @@ There are more task properties to configure your workflow. You can use IntelliSe
 
 ![Tasks IntelliSense](images/tasks/intellisense.png)
 
-In addition to the global menu bar, task commands can be accessed using the **Command Palette** (`kb(workbench.action.showCommands)`). You can filter on 'task' and can see the various task related commands.
+In addition to the global menu bar, task commands can be accessed using the **Command Palette** (`Ctrl+Shift+P`). You can filter on 'task' and can see the various task related commands.
 
 ![Tasks in Command Palette](images/tasks/command-palette.png)
 
@@ -533,7 +533,7 @@ Task properties can also be defined in the global scope. If present, they will b
 }
 ```
 
-> **Tip:** To get access to the global scope `tasks.json` file, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **Tasks: Open User Tasks** command.
+> **Tip:** To get access to the global scope `tasks.json` file, open the Command Palette (`Ctrl+Shift+P`) and run the **Tasks: Open User Tasks** command.
 
 ### Character escaping in PowerShell
 

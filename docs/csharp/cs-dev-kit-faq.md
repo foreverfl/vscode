@@ -26,10 +26,10 @@ C# Dev Kit supports building web apps, console apps, class library projects, and
 
 Today the extensions included in the C# Dev Kit family are:
 
-* [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
-* [IntelliCode for C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscodeintellicode-csharp)
-* [.NET MAUI](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-maui)
-* [Unity](https://aka.ms/vscode-unity)
+- [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
+- [IntelliCode for C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscodeintellicode-csharp)
+- [.NET MAUI](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-maui)
+- [Unity](https://aka.ms/vscode-unity)
 
 Use of these extensions are governed under the [EULA for the C# Dev Kit family of extensions](https://aka.ms/vs/csdevkit/license).
 
@@ -61,7 +61,7 @@ Users can report an issue or a suggestion through VS Code's **Help > Report Issu
 
 ### Is C# Dev Kit open source? Why not?
 
-No. C# Dev Kit is closed source but depends upon the C# for VS Code extension, which is open source, and both communicate with open-source components such as [Roslyn](https://github.com/dotnet/roslyn) and [Razor](https://github.com/dotnet/razor). One of our goals with C# Dev Kit is to provide an improved productivity experience for C# developers who use VS Code.  To achieve this, C# Dev Kit includes some proprietary, closed-source features that are shared with our other tools. To make these experiences available to VS Code users, we needed to introduce C# Dev Kit as a closed source extension.
+No. C# Dev Kit is closed source but depends upon the C# for VS Code extension, which is open source, and both communicate with open-source components such as [Roslyn](https://github.com/dotnet/roslyn) and [Razor](https://github.com/dotnet/razor). One of our goals with C# Dev Kit is to provide an improved productivity experience for C# developers who use VS Code. To achieve this, C# Dev Kit includes some proprietary, closed-source features that are shared with our other tools. To make these experiences available to VS Code users, we needed to introduce C# Dev Kit as a closed source extension.
 
 ### How can I contribute?
 
@@ -79,7 +79,7 @@ Note that, depending on your network speed, installing the .NET Core runtime mig
 
 ```json
 {
-    "dotnetAcquisitionExtension.installTimeoutValue": 180
+  "dotnetAcquisitionExtension.installTimeoutValue": 180
 }
 ```
 
@@ -101,9 +101,12 @@ If .NET installation is failing or you want to reuse an existing installation of
 
 ```json
 {
-    "dotnetAcquisitionExtension.existingDotnetPath": [
-        { "extensionId": "msazuretools.azurerm-vscode-tools", "path": "C:\\Program Files\\dotnet\\dotnet.exe" }
-    ]
+  "dotnetAcquisitionExtension.existingDotnetPath": [
+    {
+      "extensionId": "msazuretools.azurerm-vscode-tools",
+      "path": "C:\\Program Files\\dotnet\\dotnet.exe"
+    }
+  ]
 }
 ```
 
@@ -111,9 +114,12 @@ If .NET installation is failing or you want to reuse an existing installation of
 
 ```json
 {
-    "dotnetAcquisitionExtension.existingDotnetPath": [
-        { "extensionId": "msazuretools.azurerm-vscode-tools", "path": "/usr/local/share/dotnet/dotnet" }
-    ]
+  "dotnetAcquisitionExtension.existingDotnetPath": [
+    {
+      "extensionId": "msazuretools.azurerm-vscode-tools",
+      "path": "/usr/local/share/dotnet/dotnet"
+    }
+  ]
 }
 ```
 
@@ -123,7 +129,7 @@ If your system uses a proxy and has registry access disabled, you need to explic
 
 ```json
 {
-    "dotnetAcquisitionExtension.proxyUrl": "https://your_proxy_url:port"
+  "dotnetAcquisitionExtension.proxyUrl": "https://your_proxy_url:port"
 }
 ```
 
@@ -198,9 +204,9 @@ Build your solution by right-clicking on the solution in the Solution Explorer a
 If you are encountering issues with Test Explorer, you can enable diagnostic logging to gather more information for troubleshooting:
 
 1. Increase Test Explorer verbosity:
-    Navigate to the C# Dev Kit settings and increase the Test Explorer Verbosity setting from `minimal` to `diagnostic`. This will generate more detailed logs.
+   Navigate to the C# Dev Kit settings and increase the Test Explorer Verbosity setting from `minimal` to `diagnostic`. This will generate more detailed logs.
 2. Check the Output Window:
-    Open the Output window in Visual Studio Code, and select **C# Dev Kit - Test Explorer** from the dropdown. Diagnostic messages will appear with a `[dev]` prefix.
+   Open the Output window in Visual Studio Code, and select **C# Dev Kit - Test Explorer** from the dropdown. Diagnostic messages will appear with a `[dev]` prefix.
 3. Collect the following information:
    When reporting an issue, ensure you include:
    - The diagnostic logs from the Output window.
@@ -220,9 +226,11 @@ Make sure you have a C# project open or that the active document is a `.cs` or `
 If you're trying to debug .NET Console Applications, Blazor Server Apps, Blazor WebAssembly, or Web Applications, make sure to select the **C#** option. The other options may be part of other extensions such as **Node** for JavaScript debugging or **Python** for Python debugging, and are not part of C# Dev Kit.
 
 ### When I F5, it prompts me to input a password (macOS only)
+
 macOS has Developer Mode disabled by default and prompts a password to protect the user if a program wants to be used as a debugger.
 
 If you wish to disable these prompts, you can run the following commands:
+
 - `DevToolsSecurity --enable`
 - `sudo dscl . append /Groups/_developer GroupMembership $USER`
 
@@ -242,7 +250,7 @@ Make sure that you have a project or solution open. If you have multiple solutio
 
 ![Set Dotnet Server to Trace](images/faq/dotnet-server-trace.png)
 
-Once you've made this change, reload the window by opening the Command Palette (`kb(workbench.action.showCommands)`), then typing "Reload Window" and pressing `kbstyle(Enter)`. After reloading the window, check the project log in the Output panel (`kb(workbench.action.output.toggleOutput)`) and selecting **Projects** from the drop-down. This will show any errors related to your project not being fully loaded. Copy all the text in the Output panel and report the issue through VS Code, making sure to include the copied text.
+Once you've made this change, reload the window by opening the Command Palette (`Ctrl+Shift+P`), then typing "Reload Window" and pressing `Enter`. After reloading the window, check the project log in the Output panel (`kb(workbench.action.output.toggleOutput)`) and selecting **Projects** from the drop-down. This will show any errors related to your project not being fully loaded. Copy all the text in the Output panel and report the issue through VS Code, making sure to include the copied text.
 
 ### C# extension fails to launch the server
 
@@ -250,14 +258,13 @@ As a workaround, you can point the .NET runtime acquisition extension to an exis
 
 ```json
 {
-    "dotnetAcquisitionExtension.existingDotnetPath": [
-        {
-            "extensionId": "msazuretools.azurerm-vscode-tools",
-            "path": "C\\Program Files\\dotnet\\dotnet.exe"
-        }
-    ]
+  "dotnetAcquisitionExtension.existingDotnetPath": [
+    {
+      "extensionId": "msazuretools.azurerm-vscode-tools",
+      "path": "C\\Program Files\\dotnet\\dotnet.exe"
+    }
+  ]
 }
-
 ```
 
 ### I have too many diagnostics or I don't have enough diagnostics

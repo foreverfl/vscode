@@ -39,7 +39,7 @@ When working with Azure Machine Learning specification files, the VS Code extens
 
 ### Specification file authoring
 
-Use the **Azure ML** command in the Command Palette (`kb(workbench.action.showCommands)`) or the Azure Machine Learning View in VS Code to simplify the specification file authoring process.
+Use the **Azure ML** command in the Command Palette (`Ctrl+Shift+P`) or the Azure Machine Learning View in VS Code to simplify the specification file authoring process.
 
 ![Azure Machine Learning YAML specification file authoring](images/azure-machine-learning/specification-file-authoring.gif)
 

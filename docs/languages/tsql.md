@@ -7,9 +7,10 @@ PageTitle: Transact-SQL with Visual Studio Code
 DateApproved: 12/11/2024
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Transact-SQL.
 ---
+
 # Transact-SQL in Visual Studio Code
 
-Turn Visual Studio Code into a powerful editor for [Transact-SQL]  (T-SQL) development, with the [mssql] extension available in the VS Code Marketplace. The [mssql] extension is optimized to work with SQL Server running on-premises, in any cloud, Azure SQL Database, and Azure SQL Data Warehouse.
+Turn Visual Studio Code into a powerful editor for [Transact-SQL] (T-SQL) development, with the [mssql] extension available in the VS Code Marketplace. The [mssql] extension is optimized to work with SQL Server running on-premises, in any cloud, Azure SQL Database, and Azure SQL Data Warehouse.
 
 Connect to SQL databases, type T-SQL code, execute T-SQL code, view results, and save results as JSON or CSV files. While typing T-SQL code, you get rich T-SQL language features like T-SQL IntelliSense (code completion), syntax highlighting, linting, code navigation and code snippets.
 
@@ -19,7 +20,7 @@ Connect to SQL databases, type T-SQL code, execute T-SQL code, view results, and
 
 Add T-SQL language support to VS Code by installing the [mssql] extension from the VS Code marketplace as follows:
 
-1. Open the **Extensions** view from VS Code Side Bar (`kb(workbench.view.extensions)`).
+1. Open the **Extensions** view from VS Code Side Bar (`Ctrl+Shift+X`).
 2. Type "mssql" in the search bar, click **Install**, and reload VS Code when prompted.
 
 ![install mssql extension](images/tsql/install-mssql.png)
@@ -62,16 +63,16 @@ T-SQL snippets provide code templates for commonly used T-SQL statements. Type "
 
 ## Next steps
 
-* Download the free [SQL Server 2017 Developer Edition].
-* Install the [mssql] extension from the Visual Studio Code Marketplace.
-* [Build an app] using SQL Server - Get started with SQL Server on macOS, Linux, and Windows using your favorite programming language.
-* Contribute to the mssql extension on [GitHub]. Submit a bug report or a feature suggestion on our [GitHub Issue Tracker].
+- Download the free [SQL Server 2017 Developer Edition].
+- Install the [mssql] extension from the Visual Studio Code Marketplace.
+- [Build an app] using SQL Server - Get started with SQL Server on macOS, Linux, and Windows using your favorite programming language.
+- Contribute to the mssql extension on [GitHub]. Submit a bug report or a feature suggestion on our [GitHub Issue Tracker].
 
 ## Further Reading
 
-* [SQL Server documentation]
-* [SQL Server on Linux documentation]
-* [SQL Server Blog]
+- [SQL Server documentation]
+- [SQL Server on Linux documentation]
+- [SQL Server Blog]
 
 [Build an app]: https://aka.ms/sqldev
 [Download VS Code]: https://code.visualstudio.com/download

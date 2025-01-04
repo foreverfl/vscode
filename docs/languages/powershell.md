@@ -7,6 +7,7 @@ PageTitle: PowerShell editing with Visual Studio Code
 DateApproved: 12/11/2024
 MetaDescription: Learn about using PowerShell in Visual Studio Code
 ---
+
 # PowerShell in Visual Studio Code
 
 [PowerShell][20] is a task-based command-line shell and scripting language built on [.NET][19] that
@@ -28,7 +29,7 @@ configurations:
 
 The PowerShell extension can be installed from the Visual Studio Code Marketplace by clicking the
 [Install Button][41]. You can also install the PowerShell extension from within VS Code by opening
-the **Extensions** view with keyboard shortcut `kb(workbench.view.extensions)`, typing _PowerShell_,
+the **Extensions** view with keyboard shortcut `Ctrl+Shift+X`, typing _PowerShell_,
 and selecting the PowerShell extension:
 
 ![PowerShell extension][37]
@@ -43,12 +44,12 @@ and selecting the PowerShell extension:
 - [Find References][04] of cmdlets, variables, classes and more
 - Document and Workspace [Symbol Navigation][03]
 - Symbol-based [Outline View][10]
-- Run selected PowerShell code in current terminal using `kbstyle(F8)`
-- Launch online help for the symbol under the cursor using `kbstyle(Ctrl + F1)`
+- Run selected PowerShell code in current terminal using `F8`
+- Launch online help for the symbol under the cursor using `Ctrl + F1`
 - PowerShell [Debugger][25] integration
 - An Extension Terminal that can interact with the debugger (try `Set-PSBreakpoint`!)
 - PowerShell ISE theme findable in the [theme picker][08]
-- Also try ISE mode using `kb(workbench.action.showCommands)` then search for "Enable ISE Mode"
+- Also try ISE mode using `Ctrl+Shift+P` then search for "Enable ISE Mode"
 
 ### Debugging
 
@@ -62,7 +63,7 @@ You can configure the PowerShell extension to use any supported version of Power
 your machine by following [these instructions][24].
 
 Or run the **PowerShell: Show Session Menu** command from the Command Palette
-(`kb(workbench.action.showCommands)`).
+(`Ctrl+Shift+P`).
 
 ### CodeLens support
 
@@ -124,7 +125,7 @@ to streamline the creation of PowerShell module projects, Pester tests, DSC Conf
 
 The PowerShell extension allows the creation of new Plaster projects using the **PowerShell: Create
 New Project from Plaster Template** command from the Command Palette
-(`kb(workbench.action.showCommands)`).
+(`Ctrl+Shift+P`).
 
 ![Plaster Project][35]
 
@@ -138,7 +139,7 @@ You can also select the gear icon located in the lower left corner of the Activi
 
 You can also use the keyboard shortcut `kb(workbench.action.openSettings)` to open your settings.
 You can still open the `settings.json` file using **Preferences: Open User Settings (JSON)** command from
-the Command Palette (`kb(workbench.action.showCommands)`) or by changing the default settings editor
+the Command Palette (`Ctrl+Shift+P`) or by changing the default settings editor
 with the `"workbench.settings.editor"` setting.
 
 Go to [User and Workspace settings][07] for more information on configuring VS Code settings.
@@ -189,7 +190,7 @@ To open or view the examples in VS Code, run the following from your PowerShell 
 code (Get-ChildItem ~\.vscode\extensions\ms-vscode.PowerShell-*\examples)[-1]
 ```
 
-You can also open the examples from the Command Palette (`kb(workbench.action.showCommands)`) with
+You can also open the examples from the Command Palette (`Ctrl+Shift+P`) with
 the **PowerShell: Open Examples Folder** command.
 
 ![Open PowerShell Examples][40]
@@ -220,6 +221,7 @@ choosing **Install Another Version...**.
 If you find a bug, [open an issue][18] and revert to the stable version while we fix it.
 
 <!-- link references -->
+
 [01]: /docs/editor/debugging
 [02]: /docs/editor/editingevolved#_go-to-definition
 [03]: /docs/editor/editingevolved#_open-symbol-by-name

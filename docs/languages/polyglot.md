@@ -7,6 +7,7 @@ PageTitle: Polyglot Programming with Notebooks in Visual Studio Code
 DateApproved: 12/11/2024
 MetaDescription: Polyglot Notebooks for multiple programming languages in Visual Studio Code.
 ---
+
 # Polyglot Notebooks in VS Code
 
 **What is Polyglot Programming?**
@@ -63,7 +64,7 @@ The Polyglot Notebooks extension is powered by .NET Interactive, which is a cutt
 
 ## Getting started
 
-1. To create your first polyglot notebook, open the Command Palette (`kb(workbench.action.showCommands)`) and select **Polyglot Notebooks: Create new blank notebook**, select `.ipynb`, and select the language you'd like to start with.
+1. To create your first polyglot notebook, open the Command Palette (`Ctrl+Shift+P`) and select **Polyglot Notebooks: Create new blank notebook**, select `.ipynb`, and select the language you'd like to start with.
 
    You can also create a notebook by creating a new file and giving it the extension `.ipynb`. In this case, make sure that **.NET Interactive** is selected as the kernel of the notebook in the top right.
 

@@ -7,13 +7,14 @@ ContentId: d1187f99-354f-4798-9c19-e432e4ae8572
 MetaDescription: Working with MongoDB in Visual Studio Code
 DateApproved: 11/1/2022
 ---
+
 # Working with MongoDB
 
 Visual Studio Code has great support for working with [MongoDB](https://www.mongodb.com/what-is-mongodb) databases, whether your own instance or in [Azure with MongoDB Atlas](https://www.mongodb.com/cloud/atlas/azure-mongodb?utm_campaign=marketplace&utm_source=&utm_medium=marketplace). With the [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) extension, you can create, manage, and query MongoDB databases from within VS Code.
 
 ## Install the extension
 
-MongoDB support for VS Code is provided by the [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) extension. To install the MongoDB for VS Code extension, open the Extensions view by pressing `kb(workbench.view.extensions)` and search for 'MongoDB' to filter the results. Select the **MongoDB for VS Code** extension.
+MongoDB support for VS Code is provided by the [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) extension. To install the MongoDB for VS Code extension, open the Extensions view by pressing `Ctrl+Shift+X` and search for 'MongoDB' to filter the results. Select the **MongoDB for VS Code** extension.
 
 ![Select MongoDB for VS Code](images/mongodb/install-cosmosdb-extension.png)
 
@@ -29,17 +30,17 @@ To connect to a MongoDB database:
 
 1. Next, choose to connect with a connection string or use advanced connection options:
 
-    * Select **Connect with Connection String**, and then enter the connection string in the connection string Quick Pick.
+   - Select **Connect with Connection String**, and then enter the connection string in the connection string Quick Pick.
 
-        The default connection string for a local MongoDB is `mongodb://127.0.0.1:27017`.
+     The default connection string for a local MongoDB is `mongodb://127.0.0.1:27017`.
 
-        ![Database Connection setup](images/mongodb/attach-database-account-connection-string.png)
+     ![Database Connection setup](images/mongodb/attach-database-account-connection-string.png)
 
-    * Select **Advanced Connection Settings**, enter the connection details, and then select **Save & Connect**.
+   - Select **Advanced Connection Settings**, enter the connection details, and then select **Save & Connect**.
 
-        ![Database Connection setup](images/mongodb/attach-database-account.png)
+     ![Database Connection setup](images/mongodb/attach-database-account.png)
 
->**Note**: Make sure your MongoDB server (mongod.exe) is running if you are connecting to a local MongoDB server.
+> **Note**: Make sure your MongoDB server (mongod.exe) is running if you are connecting to a local MongoDB server.
 
 Once attached, you can work with the MongoDB server, managing MongoDB Databases, Collections, and Documents.
 
@@ -53,11 +54,11 @@ You can also attach a MongoDB shell to the active connection, simply by right-cl
 
 ![MongoDB Connection](images/mongodb/connection.png)
 
->**Note**: Make sure the MongoDB shell (`mongo` or `mongosh`) [is installed](https://docs.mongodb.com/mongodb-shell/install#mdb-shell-install) and is on your path. In the extension's settings, you can choose which shell you are using.
+> **Note**: Make sure the MongoDB shell (`mongo` or `mongosh`) [is installed](https://docs.mongodb.com/mongodb-shell/install#mdb-shell-install) and is on your path. In the extension's settings, you can choose which shell you are using.
 
 ## MongoDB Commands
 
-There are MongoDB specific commands available in the VS Code **Command Palette** (`kb(workbench.action.showCommands)`) as well as through Explorer context menus.
+There are MongoDB specific commands available in the VS Code **Command Palette** (`Ctrl+Shift+P`) as well as through Explorer context menus.
 
 ![mongodb commands](images/mongodb/mongodb-commands.png)
 
@@ -83,6 +84,6 @@ Choose **Create a New Cluster** from the dashboard and choose **Azure** as the C
 
 ## Next steps
 
-* [Azure Extensions](/docs/azure/extensions.md) - The Visual Studio Marketplace has hundreds of VS Code extensions for Azure and the cloud.
-* [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.
-* [Working with Docker](/docs/azure/docker.md) - Put your application in a Docker container for easy reuse and deployment.
+- [Azure Extensions](/docs/azure/extensions.md) - The Visual Studio Marketplace has hundreds of VS Code extensions for Azure and the cloud.
+- [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.
+- [Working with Docker](/docs/azure/docker.md) - Put your application in a Docker container for easy reuse and deployment.

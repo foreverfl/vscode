@@ -92,7 +92,7 @@ Java 프로그램을 위한 폴더를 만들고 VS Code로 해당 폴더를 엽�
 
 VS Code는 새 타입에 대한 올바른 패키지를 파악하고 템플릿에서 새 파일을 채우려고 시도합니다. [새 파일 생성](/docs/java/java-editing.md#create-new-file)을 참조하세요.
 
-**Java: Create Java Project** 명령을 사용하여 Java 프로젝트를 생성할 수도 있습니다. **명령 팔레트**(`Ctrl+Shift+P`)를 열고 `java`를 입력하여 이 명령을 검색하세요. 명령을 선택하면 프로젝트의 위치와 이름을 입력하라는 메시지가 표시됩니다. 이 명령에서 빌드 도구도 선택할 수 있습니다.
+**Java: Create Java Project** 명령을 사용하여 Java 프로젝트를 생성할 수도 있습니다. **Command Palette**(`Ctrl+Shift+P`)를 열고 `java`를 입력하여 이 명령을 검색하세요. 명령을 선택하면 프로젝트의 위치와 이름을 입력하라는 메시지가 표시됩니다. 이 명령에서 빌드 도구도 선택할 수 있습니다.
 
 <video autoplay loop muted playsinline controls title="Java 프로젝트 생성" width="100%">
   <source

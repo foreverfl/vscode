@@ -22,7 +22,7 @@ The following installations are required for the completion of this tutorial. Ma
 
 - [Miniconda with latest Python](https://docs.anaconda.com/miniconda/)
 
-   > **Note**: If you already have the full Anaconda distribution installed, you don't need to install Miniconda. Alternatively, if you'd prefer not to use Anaconda or Miniconda, you can create a Python virtual environment and install the packages needed for the tutorial using pip. If you go this route, you will need to install the following packages: pandas, jupyter, seaborn, scikit-learn, keras, and tensorflow.
+  > **Note**: If you already have the full Anaconda distribution installed, you don't need to install Miniconda. Alternatively, if you'd prefer not to use Anaconda or Miniconda, you can create a Python virtual environment and install the packages needed for the tutorial using pip. If you go this route, you will need to install the following packages: pandas, jupyter, seaborn, scikit-learn, keras, and tensorflow.
 
 ## Set up a data science environment
 
@@ -34,7 +34,7 @@ Visual Studio Code and the Python extension provide a great editor for data scie
 
 3. Open the project folder in VS Code by running VS Code and using the **File** > **Open Folder** command. You can safely trust opening the folder, since you created it.
 
-4. Once VS Code launches, create the Jupyter notebook that will be used for the tutorial. Open the Command Palette (`kb(workbench.action.showCommands)`) and select **Create: New Jupyter Notebook**.
+4. Once VS Code launches, create the Jupyter notebook that will be used for the tutorial. Open the Command Palette (`Ctrl+Shift+P`) and select **Create: New Jupyter Notebook**.
 
    ![Creating a new Jupyter Notebook](images/data-science-tutorial/create-notebook.png)
 
@@ -70,7 +70,7 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
    data = pd.read_csv('titanic3.csv')
    ```
 
-1. Now, run the cell using the Run cell icon or the `kbstyle(Shift+Enter)` shortcut.
+1. Now, run the cell using the Run cell icon or the `Shift+Enter` shortcut.
 
    ![Running a Jupyter notebook cell](images/data-science-tutorial/jupyter-cell-01.png)
 
@@ -98,7 +98,7 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
 
    This problem can be corrected by replacing the question mark with a missing value that pandas is able to understand. Add the following code to the next cell in your notebook to replace the question marks in the **age** and **fare** columns with the [numpy NaN](https://docs.scipy.org/doc/numpy/reference/constants.html?highlight=nan#numpy.nan) value. Notice that we also need to update the column's data type after replacing the values.
 
-   > **Tip**: To add a new cell you can use the insert cell icon that's in the bottom left corner of an existing cell. Alternatively, you can also use the `kbstyle(Esc)` to enter command mode, followed by the `kbstyle(B)` key.
+   > **Tip**: To add a new cell you can use the insert cell icon that's in the bottom left corner of an existing cell. Alternatively, you can also use the `Esc` to enter command mode, followed by the `B` key.
 
    ```python
    data.replace('?', np.nan, inplace= True)
@@ -125,7 +125,7 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
 
    > **Tip**: To quickly copy your graph, you can hover over the upper right corner of your graph and click on the **Copy to Clipboard** button that appears. You can also better view details of your graph by clicking the **Expand image** button.
 
-      ![Plot Viewer Buttons](images/data-science-tutorial/plot-viewer-buttons.png)
+   ![Plot Viewer Buttons](images/data-science-tutorial/plot-viewer-buttons.png)
 
 1. These graphs are helpful in seeing some of the relationships between survival and the input variables of the data, but it's also possible to use **pandas** to calculate correlations. To do so, all the variables used need to be numeric for the correlation calculation and currently gender is stored as a string. To convert those string values to integers, add and run the following code.
 
@@ -152,7 +152,7 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
    data.corr(numeric_only=True).abs()[["survived"]]
    ```
 
-      ![Determining the correlation between having relatives and survival](images/data-science-tutorial/jupyter-cell-04.png)
+   ![Determining the correlation between having relatives and survival](images/data-science-tutorial/jupyter-cell-04.png)
 
 1. You'll notice that in fact when looked at from the standpoint of whether a person had relatives, versus how many relatives, there is a higher correlation with survival. With this information in hand, you can now drop from the dataset the low value **sibsp** and **parch** columns, as well as any rows that had **NaN** values, to end up with a dataset that can be used for training a model.
 

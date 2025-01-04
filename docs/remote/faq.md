@@ -7,6 +7,7 @@ ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: Visual Studio Code Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
 DateApproved: 12/11/2024
 ---
+
 # Remote Development FAQ
 
 This article covers frequently asked questions for each of the **Visual Studio Code Remote Development** extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/devcontainers/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities. Or try the introductory [Tutorials](/docs/remote/ssh-tutorial.md) to help get you running quickly in a remote environment.
@@ -23,11 +24,11 @@ The Visual Studio Code [Remote Development extension pack](https://aka.ms/vscode
 
 Some benefits of remote development include:
 
-* Being able to edit, build, or debug on a different OS than you are running locally.
-* Being able to develop in an environment that matches the target deployment environment.
-* Using larger or more specialized hardware than your local machine for development.
-* The ability to edit code stored in another location, such as in the cloud or at a customer site.
-* Separating developer environments to avoid conflicts, improve security, and speed up on-boarding.
+- Being able to edit, build, or debug on a different OS than you are running locally.
+- Being able to develop in an environment that matches the target deployment environment.
+- Using larger or more specialized hardware than your local machine for development.
+- The ability to edit code stored in another location, such as in the cloud or at a customer site.
+- Separating developer environments to avoid conflicts, improve security, and speed up on-boarding.
 
 Compared to using a network share or synchronizing files, VS Code Remote Development provides dramatically better performance along with better control over your development environment and tools.
 
@@ -59,27 +60,27 @@ No. The VS Code Server is a component of the Remote Development extensions and i
 
 Installation of VS Code Server requires that your local machine have outbound HTTPS (port 443) connectivity to:
 
-* `update.code.visualstudio.com`
-* `*.vo.msecnd.net` (Azure CDN)
+- `update.code.visualstudio.com`
+- `*.vo.msecnd.net` (Azure CDN)
 
-By default, the Remote - SSH will attempt to download on the remote host, and fail back to downloading VS Code Server locally and transferring it remotely once a connection is established. You can change this behavior with the `setting(remote.SSH.localServerDownload)` setting to always download locally and then transfer it, or to never download locally.
+By default, the Remote - SSH will attempt to download on the remote host, and fail back to downloading VS Code Server locally and transferring it remotely once a connection is established. You can change this behavior with the `remote.SSH.localServerDownload` setting to always download locally and then transfer it, or to never download locally.
 
 The Dev Containers extension always downloads locally and transfers into the container.
 
 You can install extensions manually without an internet connection using the **Extensions: Install from VSIX...** command, but if you use the extension panel or `devcontainer.json` to install extensions, your local machine and VS Code Server will need outbound HTTPS (port 443) access to:
 
-* `marketplace.visualstudio.com`
-* `vscode.blob.core.windows.net`
-* `*.vo.msecnd.net` (Azure CDN)
-* `*.gallerycdn.vsassets.io` (Azure CDN)
+- `marketplace.visualstudio.com`
+- `vscode.blob.core.windows.net`
+- `*.vo.msecnd.net` (Azure CDN)
+- `*.gallerycdn.vsassets.io` (Azure CDN)
 
 Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://learn.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 
 All other communication between the server and the VS Code client is accomplished through the following transport channels depending on the extension:
 
-* SSH: An authenticated, secure SSH tunnel.
-* Containers: Docker's configured communication channel (via `docker exec`).
-* WSL: A random local port.
+- SSH: An authenticated, secure SSH tunnel.
+- Containers: Docker's configured communication channel (via `docker exec`).
+- WSL: A random local port.
 
 You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
 
@@ -89,15 +90,15 @@ By default, the Docker extension will run remotely. While this is a sensible def
 
 You can use one of the following solutions to resolve this problem:
 
-* Open a new local window (**File > New Window**) and use it to work with local containers.
+- Open a new local window (**File > New Window**) and use it to work with local containers.
 
-* Install the [Dev Containers](https://aka.ms/vscode-remote/download/containers) extension and use the [Remote Explorer](/docs/devcontainers/containers.md#managing-containers) in situations when you need to see your local containers.
+- Install the [Dev Containers](https://aka.ms/vscode-remote/download/containers) extension and use the [Remote Explorer](/docs/devcontainers/containers.md#managing-containers) in situations when you need to see your local containers.
 
-* **WSL only**:  Use the [Docker Technical Preview for WSL 2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) or [configure Docker Desktop for use in WSL 1](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
+- **WSL only**: Use the [Docker Technical Preview for WSL 2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) or [configure Docker Desktop for use in WSL 1](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
 
-* **Dev Containers only**: Forward the [Docker socket and install the Docker CLI](https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker) (only) in the container.
+- **Dev Containers only**: Forward the [Docker socket and install the Docker CLI](https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker) (only) in the container.
 
-* Use the [extensionKind property](/docs/devcontainers/containers.md#advanced-forcing-an-extension-to-run-locally-or-remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
+- Use the [extensionKind property](/docs/devcontainers/containers.md#advanced-forcing-an-extension-to-run-locally-or-remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
 
 ### What Linux packages or libraries need to be installed on a host to use Remote Development?
 
@@ -115,13 +116,13 @@ Starting with VS Code release 1.86.1 (January 2024), the minimum requirements fo
 
 Yes. The [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) provides a convenient way for you to access all of the latest remote capabilities as they are released. However, you can always install the individual extensions from the Marketplace or VS Code Extensions view.
 
-* [Remote - SSH](https://aka.ms/vscode-remote/download/ssh)
-* [Dev Containers](https://aka.ms/vscode-remote/download/containers)
-* [WSL](https://aka.ms/vscode-remote/download/wsl)
+- [Remote - SSH](https://aka.ms/vscode-remote/download/ssh)
+- [Dev Containers](https://aka.ms/vscode-remote/download/containers)
+- [WSL](https://aka.ms/vscode-remote/download/wsl)
 
 ## How can I review and configure extension settings?
 
-As with [other parts of Visual Studio Code](/docs/getstarted/settings.md), you can customize each of the Remote Development extensions through their settings. Using Dev Containers as an example, you may review a list of all Dev Containers settings by opening the extension in the Extensions view (`kb(workbench.view.extensions)`), and navigating to **Feature Contributions**:
+As with [other parts of Visual Studio Code](/docs/getstarted/settings.md), you can customize each of the Remote Development extensions through their settings. Using Dev Containers as an example, you may review a list of all Dev Containers settings by opening the extension in the Extensions view (`Ctrl+Shift+X`), and navigating to **Feature Contributions**:
 
 ![List of settings in Feature Contributions](images/faq/feature-contributions.png)
 
@@ -159,9 +160,9 @@ If your extension is not functioning as expected, [there are steps to check](/ap
 
 You can find the licenses for the VS Code Remote Development extensions here:
 
-* [Remote-SSH License](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh/license)
-* [WSL License](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl/license)
-* [Dev Containers License](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-containers/license)
+- [Remote-SSH License](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh/license)
+- [WSL License](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl/license)
+- [Dev Containers License](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-containers/license)
 
 ### Why aren't the Remote Development extensions or their components open source?
 
@@ -193,6 +194,6 @@ The VS Code Remote Development extensions follow the GDPR policies as Visual Stu
 
 Have a question or feedback?
 
-* See [Tips and Tricks](/docs/remote/troubleshooting.md).
-* Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
-* Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
+- See [Tips and Tricks](/docs/remote/troubleshooting.md).
+- Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
+- Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).

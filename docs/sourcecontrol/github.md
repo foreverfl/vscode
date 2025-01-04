@@ -7,6 +7,7 @@ PageTitle: Collaborate on GitHub
 DateApproved: 12/11/2024
 MetaDescription: Working with GitHub Pull Requests and Issues in Visual Studio Code
 ---
+
 # Working with GitHub in VS Code
 
 [GitHub](https://github.com) is a cloud-based service for storing and sharing source code. Using GitHub with Visual Studio Code lets you share your source code and collaborate with others right within your editor. There are many ways to interact with GitHub, for example, via their website at [https://github.com](https://github.com) or the [Git](https://git-scm.com) command-line interface (CLI), but in VS Code, the rich GitHub integration is provided by the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension.
@@ -23,13 +24,13 @@ Once you've installed the [GitHub Pull Requests and Issues](https://marketplace.
 
 ![Extension Sign In](images/github/extension-signin.png)
 
-If you are not redirected to VS Code, you can add your authorization token manually. In the browser window, you will receive your authorization token. Copy the token, and switch back to VS Code. Select **Signing in to github.com...** in the Status bar, paste the token, and hit `kbstyle(Enter)`.
+If you are not redirected to VS Code, you can add your authorization token manually. In the browser window, you will receive your authorization token. Copy the token, and switch back to VS Code. Select **Signing in to github.com...** in the Status bar, paste the token, and hit `Enter`.
 
 ## Setting up a repository
 
 ### Cloning a repository
 
-You can search for and clone a repository from GitHub using the **Git: Clone** command in the Command Palette (`kb(workbench.action.showCommands)`) or by using the **Clone Repository** button in the Source Control view (available when you have no folder open).
+You can search for and clone a repository from GitHub using the **Git: Clone** command in the Command Palette (`Ctrl+Shift+P`) or by using the **Clone Repository** button in the Source Control view (available when you have no folder open).
 
 ![Clone Repository button in the Source Control view](images/github/git-clone-button.png)
 
@@ -49,7 +50,7 @@ Follow the steps to sign into GitHub and return to VS Code. Signing in with a pe
 
 Note that there are several ways to authenticate to GitHub, including using your username and password with two-factor authentication (2FA), a personal access token, or an SSH key. See [About authentication to GitHub](https://docs.github.com/github/authenticating-to-github/about-authentication-to-github) for more information and details about each option.
 
->**Note**: If you'd like to work on a repository without cloning the contents to your local machine, you can install the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension to browse and edit directly on GitHub. You can learn more below in the [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension) section.
+> **Note**: If you'd like to work on a repository without cloning the contents to your local machine, you can install the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension to browse and edit directly on GitHub. You can learn more below in the [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension) section.
 
 ## Editor integration
 
@@ -69,9 +70,9 @@ User suggestions are triggered by the "@" character and issue suggestions are tr
 
 ![User and Issue suggestions](images/github/user-issue-suggest.gif)
 
-The issues that appear in the suggestion can be configured with the **GitHub Issues: Queries** (`setting(githubIssues.queries)`) [setting](/docs/getstarted/settings.md). The queries use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
+The issues that appear in the suggestion can be configured with the **GitHub Issues: Queries** (`githubIssues.queries`) [setting](/docs/getstarted/settings.md). The queries use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
-You can also configure which files show these suggestions using the settings **GitHub Issues: Ignore Completion Trigger** (`setting(githubIssues.ignoreCompletionTrigger)`) and **GitHub Issues: Ignore User Completion Trigger** (`setting(githubIssues.ignoreUserCompletionTrigger)`). These settings take an array of [language identifiers](/docs/languages/identifiers.md) to specify the file types.
+You can also configure which files show these suggestions using the settings **GitHub Issues: Ignore Completion Trigger** (`githubIssues.ignoreCompletionTrigger`) and **GitHub Issues: Ignore User Completion Trigger** (`githubIssues.ignoreUserCompletionTrigger`). These settings take an array of [language identifiers](/docs/languages/identifiers.md) to specify the file types.
 
 ```jsonc
 // Languages that the '#' character should not be used to trigger issue completion suggestions.
@@ -86,7 +87,7 @@ From the **Pull Requests** view you can view, manage, and create pull requests.
 
 ![Pull Request View](images/github/pull-request-view.png)
 
-The queries used to display pull requests can be configured with the **GitHub Pull Requests: Queries** (`setting(githubPullRequests.queries)`) setting and use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
+The queries used to display pull requests can be configured with the **GitHub Pull Requests: Queries** (`githubPullRequests.queries`) setting and use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 ```json
 "githubPullRequests.queries": [
@@ -136,7 +137,7 @@ Issues can be created from the **+** button in the **Issues** view and by using 
 
 ![Create Issue from TODO](images/github/issue-from-todo.gif)
 
-You can configure the trigger for the Code Action using the **GitHub Issues: Create Issue Triggers** (`setting(githubIssues.createIssueTriggers)`) setting.
+You can configure the trigger for the Code Action using the **GitHub Issues: Create Issue Triggers** (`githubIssues.createIssueTriggers`) setting.
 
 The default issue triggers are:
 
@@ -165,9 +166,9 @@ The Status bar also shows the active issue and if you select that item, a list o
 
 ![Issue Status bar actions](images/github/issue-status-bar-actions.png)
 
-You can configure the name of the branch using the **GitHub Issues: Issue Branch Title** (`setting(githubIssues.issueBranchTitle)`) setting. If your workflow doesn't involve creating a branch, or if you want to be prompted to enter a branch name every time, you can skip that step by turning off the **GitHub Issues: Use Branch For Issues** (`setting(githubIssues.useBranchForIssues)`) setting.
+You can configure the name of the branch using the **GitHub Issues: Issue Branch Title** (`githubIssues.issueBranchTitle`) setting. If your workflow doesn't involve creating a branch, or if you want to be prompted to enter a branch name every time, you can skip that step by turning off the **GitHub Issues: Use Branch For Issues** (`githubIssues.useBranchForIssues`) setting.
 
-Once you are done working on the issue and want to commit a change, the commit message input box in the **Source Control** view will be populated with a message, which can be configured with **GitHub Issues: Working Issue Format SCM** (`setting(githubIssues.workingIssueFormatScm)`).
+Once you are done working on the issue and want to commit a change, the commit message input box in the **Source Control** view will be populated with a message, which can be configured with **GitHub Issues: Working Issue Format SCM** (`githubIssues.workingIssueFormatScm`).
 
 ## GitHub Repositories extension
 
@@ -177,7 +178,7 @@ The [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=gi
 
 ### Opening a repository
 
-Once you have installed the GitHub Repositories extension, you can open a repository with the **GitHub Repositories: Open Repository...** command from the Command Palette (`kb(workbench.action.showCommands)`) or by clicking the Remote indicator in the lower left of the Status bar.
+Once you have installed the GitHub Repositories extension, you can open a repository with the **GitHub Repositories: Open Repository...** command from the Command Palette (`Ctrl+Shift+P`) or by clicking the Remote indicator in the lower left of the Status bar.
 
 ![Remote indicator in the Status bar](images/github/remote-indicator.png)
 
@@ -229,11 +230,11 @@ Extension authors can learn more about running in a virtual file system and work
 
 Sometimes you'll want to switch to working on a repository in a development environment with support for a local file system and full language and development tooling. The GitHub Repositories extension makes it easy for you to:
 
-* Create a GitHub codespace (if you have the [GitHub Codespaces extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)).
-* Clone the repository locally.
-* Clone the repository into a Docker container (if you have [Docker](https://docker.com/) and the Microsoft [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed).
+- Create a GitHub codespace (if you have the [GitHub Codespaces extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)).
+- Clone the repository locally.
+- Clone the repository into a Docker container (if you have [Docker](https://docker.com/) and the Microsoft [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed).
 
-To switch development environments, use the **Continue Working On...** command, available from the Command Palette (`kb(workbench.action.showCommands)`) or by clicking on the Remote indicator in the Status bar.
+To switch development environments, use the **Continue Working On...** command, available from the Command Palette (`Ctrl+Shift+P`) or by clicking on the Remote indicator in the Status bar.
 
 ![Continue Working On command in Remote dropdown](images/github/continue-working.png)
 

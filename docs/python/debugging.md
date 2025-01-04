@@ -21,7 +21,7 @@ This article mainly addresses Python-specific debugging _configurations_, includ
 
 The [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy) is automatically installed along with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for VS Code. It offers debugging features with [debugpy](https://pypi.org/project/debugpy/) for several types of Python applications, including scripts, web apps, remote processes and more.
 
-To verify it's installed, open the **Extensions** view (`kb(workbench.view.extensions)`) and search for `@installed python debugger`. You should see the Python Debugger extension listed in the results.
+To verify it's installed, open the **Extensions** view (`Ctrl+Shift+X`) and search for `@installed python debugger`. You should see the Python Debugger extension listed in the results.
 
 ![Python Debugger extension shown in installed extensions view in VS Code.](images/shared/python-debugger-extension.png)
 
@@ -51,7 +51,7 @@ To generate a `launch.json` file with Python configurations, do the following st
 
    ![List of Python debugger configuration options](images/shared/debug-configurations.png)
 
-   > **Note**: Starting a debugging session through the Debug Panel, `kbstyle(F5)`, or **Run > Start Debugging** when no configuration exists will also bring up the debug configuration menu, but will not create a `launch.json` file.
+   > **Note**: Starting a debugging session through the Debug Panel, `F5`, or **Run > Start Debugging** when no configuration exists will also bring up the debug configuration menu, but will not create a `launch.json` file.
 
 1. The Python Debugger extension then creates and opens a `launch.json` file that contains a pre-defined configuration based on what you previously selected, in this case, **Python File**. You can modify configurations (to add arguments, for example), and also add custom configurations.
 
@@ -94,7 +94,7 @@ When no configuration has been set, you'll be given a list of debugging options.
 
 Two common options are to use the **Python File** configuration to run the currently open Python file or to use the **Attach using Process ID** configuration to attach the debugger to a process that is already running.
 
-For information about creating and using debugging configurations, see the [Initialize configurations](#initialize-configurations) and [Additional configurations](#additional-configurations) sections. Once a configuration is added, it can be selected from the dropdown list and started using the **Start Debugging** button (`kbstyle(F5)`).
+For information about creating and using debugging configurations, see the [Initialize configurations](#initialize-configurations) and [Additional configurations](#additional-configurations) sections. Once a configuration is added, it can be selected from the dropdown list and started using the **Start Debugging** button (`F5`).
 
 ![Start debugging button in the Run and Debug view](images/debugging/debug-start-button.png)
 
@@ -106,7 +106,7 @@ The debugger can also be run from the command line, if `debugpy` is installed in
 
 You can install [debugpy](https://pypi.org/project/debugpy/) using `python -m pip install --upgrade debugpy` into your Python environment.
 
-> **Tip**: While using a virtual environment is not required, it is a recommended best practice. You can create a virtual environment in VS Code by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Python: Create Virtual Environment** command (`kb(workbench.action.terminal.newWithProfilePython)`).
+> **Tip**: While using a virtual environment is not required, it is a recommended best practice. You can create a virtual environment in VS Code by opening the Command Palette (`Ctrl+Shift+P`) and running the **Python: Create Virtual Environment** command (`kb(workbench.action.terminal.newWithProfilePython)`).
 
 ### Command line syntax
 
@@ -431,7 +431,7 @@ Specifies how program output is displayed as long as the defaults for `redirectO
 
 There is more than one way to configure the **Run** button, using the `purpose` option. Setting the option to `debug-test`, defines that the configuration should be used when debugging tests in VS Code.
 However, setting the option to `debug-in-terminal`, defines that the configuration should only be used when accessing the **Run Python File** button on the top-right of the editor (regardless of whether the **Run Python File** or **Debug Python File** options the button provides is used).
-**Note**: The `purpose` option can't be used to start the debugger through `kbstyle(F5)` or **Run > Start Debugging**.
+**Note**: The `purpose` option can't be used to start the debugger through `F5` or **Run > Start Debugging**.
 
 ### `autoReload`
 
@@ -586,7 +586,7 @@ If you want to run Flask's development server in development mode, use the follo
 
 There are many reasons why the debugger may not work. Sometimes the debug console reveals specific causes, but the main reasons are as follows:
 
-- Make sure the [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy) is installed and enabled in VS Code by opening the **Extensions** view (`kb(workbench.view.extensions)`) and searching for `@installed python debugger`.
+- Make sure the [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy) is installed and enabled in VS Code by opening the **Extensions** view (`Ctrl+Shift+X`) and searching for `@installed python debugger`.
 
 - The path to the python executable is incorrect: check the path of your selected interpreter by running the **Python: Select Interpreter** command and looking at the current value:
 

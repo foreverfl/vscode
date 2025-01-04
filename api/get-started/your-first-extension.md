@@ -44,9 +44,9 @@ For a TypeScript project, fill out the following fields:
 
 ```
 
-Inside the editor, open `src/extension.ts` and press `kb(workbench.action.debug.start)` or run the command **Debug: Start Debugging** from the Command Palette (`kb(workbench.action.showCommands)`). This will compile and run the extension in a new **Extension Development Host** window.
+Inside the editor, open `src/extension.ts` and press `kb(workbench.action.debug.start)` or run the command **Debug: Start Debugging** from the Command Palette (`Ctrl+Shift+P`). This will compile and run the extension in a new **Extension Development Host** window.
 
-Run the **Hello World** command from the Command Palette (`kb(workbench.action.showCommands)`) in the new window:
+Run the **Hello World** command from the Command Palette (`Ctrl+Shift+P`) in the new window:
 
 <video loop muted playsinline controls title="Launch your first VS Code extension video">
   <source src="/assets/api/get-started/your-first-extension/launch.mp4" type="video/mp4" />

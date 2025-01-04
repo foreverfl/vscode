@@ -48,7 +48,7 @@ VS Code를 직접 체험하는 가장 좋은 방법은 **Welcome** 페이지를 
 
 ### 기본 키보드 단축키 {#default-keyboard-shortcuts}
 
-명령 팔레트의 많은 명령들은 기본 키 바인딩이 연결되어 있습니다. **명령 팔레트**(`Ctrl+Shift+P`)에서 명령 옆에 기본 키보드 단축키를 볼 수 있습니다.
+명령 팔레트의 많은 명령들은 기본 키 바인딩이 연결되어 있습니다. **Command Palette**(`Ctrl+Shift+P`)에서 명령 옆에 기본 키보드 단축키를 볼 수 있습니다.
 
 ![keyboard references](images/tips-and-tricks/keyboard-references.png)
 

@@ -5,6 +5,7 @@ PageTitle: Debug a .NET app running in a Docker container
 DateApproved: 12/14/2023
 MetaDescription: Debug a .NET app running in a Docker container, using Visual Studio Code.
 ---
+
 # Debug .NET within a container
 
 ## Prerequisites
@@ -15,7 +16,7 @@ MetaDescription: Debug a .NET app running in a Docker container, using Visual St
 
 1. macOS users only: Add `/usr/local/share/dotnet/sdk/NuGetFallbackFolder` as a shared folder in your Docker preferences.
 
-    ![dockerSharedFolders](images/debug/mac-folders.png)
+   ![dockerSharedFolders](images/debug/mac-folders.png)
 
 ## Walkthrough
 
@@ -36,8 +37,7 @@ This option is supported for web projects, and is available when Docker is set t
 1. When prompted with options to either build with a `Dockerfile` (**Use a Dockerfile**) or build using the .NET SDK (**Use .NET SDK**), select **Use .NET SDK**.
 1. If you have multiple project files in your workspace, choose the project file associated with the project you want to debug. If the build is successful, your .NET app runs in a Docker container, and the web app opens in your browser.
 
->**Note**: Supported .NET SDK Versions: This feature is available for .NET SDK version 7.0.300 and above by default. For versions between 7.0.100 and 7.0.300, enable it with `dotnet add package Microsoft.NET.Build.Containers`. You can read more about .NET SDK Container build on [Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container).
-
+> **Note**: Supported .NET SDK Versions: This feature is available for .NET SDK version 7.0.300 and above by default. For versions between 7.0.100 and 7.0.300, enable it with `dotnet add package Microsoft.NET.Build.Containers`. You can read more about .NET SDK Container build on [Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container).
 
 ### Debug with `Dockerfile`
 
@@ -45,7 +45,7 @@ This option is supported for web projects, and is available when Docker is set t
 
    ![csharpPrompt](images/debug/csharp-prompt.png)
 
-1. Open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Docker: Add Docker Files to Workspace...**. If you have already dockerized your app, you can instead do **Docker: Initialize for Docker debugging**. Follow the prompts.
+1. Open the Command Palette (`Ctrl+Shift+P`) and enter **Docker: Add Docker Files to Workspace...**. If you have already dockerized your app, you can instead do **Docker: Initialize for Docker debugging**. Follow the prompts.
 1. Switch to the **Run and Debug** view (`kb(workbench.view.debug)`).
 1. Select the **Docker .NET Core Launch** launch configuration.
 1. Start debugging! (`kb(workbench.action.debug.start)`)

@@ -7,19 +7,20 @@ PageTitle: Configure IntelliSense for C++ cross-compilation
 DateApproved: 1/17/2023
 MetaDescription: Configure Visual Studio Code c_cpp_properties.json to get IntelliSense when you are compiling for a different platform
 ---
+
 # IntelliSense for cross-compiling
 
 This article is about configuring the C/C++ extension to provide proper IntelliSense (e.g. code completions) in Visual Studio Code when you compile for a different architecture than your development host machine. For example, when your host machine is x64 but you are compiling for Arm.
 
 The C/C++ extension isn't a compiler -- it provides rich language features such as syntax highlighting and IntelliSense. For the extension to provide correct IntelliSense suggestions and to reflect the right sizes of data types, you need to configure the C++ extension to emulate the target architecture.
 
-These configuration settings are stored in your project's `c_cpp_properties.json` file. To edit this file, in VS Code, select **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.action.showCommands)`):
+These configuration settings are stored in your project's `c_cpp_properties.json` file. To edit this file, in VS Code, select **C/C++: Edit Configurations (UI)** from the Command Palette (`Ctrl+Shift+P`):
 
 ![Command Palette](images/cpp/command-palette.png)
 
 ## Example IntelliSense configuration
 
- The following shows configuring the C/C++ extension for a Linux x64 host machine that targets Linux Arm. It configures the following IntelliSense settings:
+The following shows configuring the C/C++ extension for a Linux x64 host machine that targets Linux Arm. It configures the following IntelliSense settings:
 
 - **Compiler path**: the extension queries your compiler at this location to retrieve system libraries and compiler defines.
 - **IntelliSense mode**: emulates the target architecture and compiler so that the extension can provide correct IntelliSense and reflect the right sizes of data types such as `pointer`, `size_t`, `long`, and so on.
@@ -54,20 +55,18 @@ Given the settings above, your `c_cpp_configuration.json` file will look somethi
 
 ```json
 {
-    "configurations": [
-        {
-            "name": "myConfigurationName",
-            "includePath": [
-                "${workspaceFolder}/**"
-            ],
-            "defines": [],
-            "compilerPath": "/usr/bin/arm-none-eabi-g++",
-            "cStandard": "c11",
-            "cppStandard": "c++14",
-            "IntelliSenseMode": "gcc-arm"
-        }
-    ],
-    "version": 4
+  "configurations": [
+    {
+      "name": "myConfigurationName",
+      "includePath": ["${workspaceFolder}/**"],
+      "defines": [],
+      "compilerPath": "/usr/bin/arm-none-eabi-g++",
+      "cStandard": "c11",
+      "cppStandard": "c++14",
+      "IntelliSenseMode": "gcc-arm"
+    }
+  ],
+  "version": 4
 }
 ```
 

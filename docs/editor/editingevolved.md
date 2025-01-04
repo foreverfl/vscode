@@ -7,17 +7,18 @@ PageTitle: Code Navigation in Visual Studio Code
 DateApproved: 12/11/2024
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
+
 # Code Navigation
 
 Visual Studio Code has a high productivity code editor which, when combined with programming language services, gives you the power of an IDE and the speed of a text editor. In this topic, we'll first describe VS Code's language intelligence features (suggestions, parameter hints, smart code navigation) and then show the power of the core text editor.
 
 ## Quick file navigation
 
->**Tip:** You can open any file by its name when you type `kb(workbench.action.quickOpen)` (**Quick Open**).
+> **Tip:** You can open any file by its name when you type `kb(workbench.action.quickOpen)` (**Quick Open**).
 
 The Explorer is great for navigating between files when you are exploring a project. However, when you are working on a task, you will find yourself quickly jumping between the same set of files. VS Code provides two powerful commands to navigate in and across files with easy-to-use key bindings.
 
-Hold `kbstyle(Ctrl)` and press `kbstyle(Tab)` to view a list of all files open in an editor group. To open one of these files, use `kbstyle(Tab)` again to pick the file you want to navigate to, then release `kbstyle(Ctrl)` to open it.
+Hold `Ctrl` and press `Tab` to view a list of all files open in an editor group. To open one of these files, use `Tab` again to pick the file you want to navigate to, then release `Ctrl` to open it.
 
 ![Quick Navigation](images/editingevolved/quicknav.png)
 
@@ -25,7 +26,7 @@ Alternatively, you can use `kb(workbench.action.navigateBack)` and `kb(workbench
 
 ## Breadcrumbs
 
-The editor has a navigation bar above its contents called [Breadcrumbs](https://en.wikipedia.org/wiki/Breadcrumb_(navigation)). It shows the current location and allows you to quickly navigate between folders, files, and symbols.
+The editor has a navigation bar above its contents called [Breadcrumbs](<https://en.wikipedia.org/wiki/Breadcrumb_(navigation)>). It shows the current location and allows you to quickly navigate between folders, files, and symbols.
 
 ![Breadcrumbs](images/editingevolved/breadcrumbs.png)
 
@@ -39,21 +40,21 @@ If the current file type has language support for symbols, you will see the curr
 
 ![breadcrumb symbol dropdown](images/editingevolved/breadcrumb-symbol-dropdown.png)
 
-You can turn off breadcrumbs with the **View** > **Show Breadcrumbs** toggle or with the `setting(breadcrumbs.enabled)` [setting](/docs/getstarted/settings.md).
+You can turn off breadcrumbs with the **View** > **Show Breadcrumbs** toggle or with the `breadcrumbs.enabled` [setting](/docs/getstarted/settings.md).
 
 ### Breadcrumb customization
 
-The appearance of breadcrumbs can be customized. If you have very long paths or are only interested in either file paths or symbols paths, you can use the `setting(breadcrumbs.filePath)` and `setting(breadcrumbs.symbolPath)` settings. Both support `on`, `off`, and `last` and they define if or what part of the path you see. By default, breadcrumbs show file and symbol icons to the left of the breadcrumb but you can remove the icons by setting `setting(breadcrumbs.icons)` to false.
+The appearance of breadcrumbs can be customized. If you have very long paths or are only interested in either file paths or symbols paths, you can use the `breadcrumbs.filePath` and `breadcrumbs.symbolPath` settings. Both support `on`, `off`, and `last` and they define if or what part of the path you see. By default, breadcrumbs show file and symbol icons to the left of the breadcrumb but you can remove the icons by setting `breadcrumbs.icons` to false.
 
 ### Symbol order in Breadcrumbs
 
-You can control how symbols are ordered in the Breadcrumbs dropdown with the `setting(breadcrumbs.symbolSortOrder)` settings.
+You can control how symbols are ordered in the Breadcrumbs dropdown with the `breadcrumbs.symbolSortOrder` settings.
 
 Allowed values are:
 
-* `position` - position in the file (default)
-* `name` - alphabetical order
-* `type` - symbol type order
+- `position` - position in the file (default)
+- `name` - alphabetical order
+- `type` - symbol type order
 
 ### Breadcrumb keyboard navigation
 
@@ -65,11 +66,11 @@ You can also interact with breadcrumbs without the dropdown. Press `kb(breadcrum
 
 If a [language](/docs/languages/overview.md) supports it, you can go to the definition of a symbol by pressing `kb(editor.action.revealDefinition)`.
 
-If you press `kbstyle(Ctrl)` and hover over a symbol, a preview of the declaration will appear:
+If you press `Ctrl` and hover over a symbol, a preview of the declaration will appear:
 
 ![Ctrl Hover](images/editingevolved/ctrlhover.png)
 
-> **Tip:** You can jump to the definition with `kbstyle(Ctrl+Click)` or open the definition to the side with `kbstyle(Ctrl+Alt+Click)`.
+> **Tip:** You can jump to the definition with `Ctrl+Click` or open the definition to the side with `Ctrl+Alt+Click`.
 
 ## Go to Type Definition
 
@@ -81,13 +82,13 @@ Some [languages](/docs/languages/overview.md) also support jumping to the type d
 
 ## Go to Symbol
 
-You can navigate symbols inside a file with `kb(workbench.action.gotoSymbol)`. By typing `kbstyle(:)` the symbols will be grouped by category. Press `kbstyle(Up)` or `kbstyle(Down)` and navigate to the place you want.
+You can navigate symbols inside a file with `kb(workbench.action.gotoSymbol)`. By typing `:` the symbols will be grouped by category. Press `Up` or `Down` and navigate to the place you want.
 
 ![Go to Symbol](images/editingevolved/gotosymbol.png)
 
 ## Open symbol by name
 
-Some languages support jumping to a symbol across files with `kb(workbench.action.showAllSymbols)`. Type the first letter of a type you want to navigate to, regardless of which file contains it, and press `kbstyle(Enter)`.
+Some languages support jumping to a symbol across files with `kb(workbench.action.showAllSymbols)`. Type the first letter of a type you want to navigate to, regardless of which file contains it, and press `Enter`.
 
 ![Open symbol by name](images/editingevolved/symbol.png)
 
@@ -99,7 +100,7 @@ We think there's nothing worse than a big context switch when all you want is to
 
 You can navigate between different references in the peeked editor and make quick edits right there. Clicking on the peeked editor filename or double-clicking in the result list will open the reference in the outer editor.
 
-> **Tip:** Additionally, the peek window is closed if you press `kbstyle(Escape)` or double-click in the peek editor region. You can disable this behavior with the `setting(editor.stablePeek)` [setting](/docs/getstarted/settings.md).
+> **Tip:** Additionally, the peek window is closed if you press `Escape` or double-click in the peek editor region. You can disable this behavior with the `editor.stablePeek` [setting](/docs/getstarted/settings.md).
 
 ## Bracket matching
 
@@ -111,13 +112,13 @@ Matching brackets will be highlighted as soon as the cursor is near one of them.
 
 ### Bracket Pair Colorization
 
-Matching bracket pairs can also be colorized by setting `setting(editor.bracketPairColorization.enabled)` to `true`.
+Matching bracket pairs can also be colorized by setting `editor.bracketPairColorization.enabled` to `true`.
 
 ![Bracket Pair Colorization](images/editingevolved/bracket-pair-colorization-on-off.drawio.png)
 
 All colors are themeable and up to six colors can be configured.
 
-You can use `setting(workbench.colorCustomizations)` to override these theme-contributed colors in your settings:
+You can use `workbench.colorCustomizations` to override these theme-contributed colors in your settings:
 
 ```json
 "workbench.colorCustomizations": {
@@ -135,11 +136,11 @@ Some languages like C# support inline reference information, that is updated liv
 
 > **Tip:** Directly invoke the **Peek References** action by clicking on these annotations.
 
-> **Tip:** Reference information shown in CodeLens can be turned on or off through the `setting(editor.codeLens)` [setting](/docs/getstarted/settings.md).
+> **Tip:** Reference information shown in CodeLens can be turned on or off through the `editor.codeLens` [setting](/docs/getstarted/settings.md).
 
 ## Rename symbol
 
-Some languages support rename symbol across files. Press `kb(editor.action.rename)` and then type the new desired name and press `kbstyle(Enter)`. All usages of the symbol will be renamed, across files.
+Some languages support rename symbol across files. Press `kb(editor.action.rename)` and then type the new desired name and press `Enter`. All usages of the symbol will be renamed, across files.
 
 ![Rename](images/editingevolved/rename.png)
 
@@ -147,9 +148,9 @@ Some languages support rename symbol across files. Press `kb(editor.action.renam
 
 Warnings or Errors can be generated either via [configured tasks](/docs/editor/tasks.md), by rich language services, or by linters, that constantly analyze your code in the background. Since we love bug-free code, warnings and errors show up in multiple places:
 
-* In the Status Bar, there is a summary of all errors and warnings counts.
-* You can click on the summary or press `kb(workbench.actions.view.problems)` to display the **PROBLEMS** panel with a list of all current errors.
-* If you open a file that has errors or warnings, they will be rendered inline with the text and in the overview ruler.
+- In the Status Bar, there is a summary of all errors and warnings counts.
+- You can click on the summary or press `kb(workbench.actions.view.problems)` to display the **PROBLEMS** panel with a list of all current errors.
+- If you open a file that has errors or warnings, they will be rendered inline with the text and in the overview ruler.
 
 ![errors in problems panel](images/editingevolved/errors.png)
 
@@ -167,7 +168,7 @@ Some languages provide inlay hints: that is additional information about source 
 
 ![Inlay hints for inferred types in TypeScript](images/editingevolved/inlay-hints.png)
 
-Inlay hints can be enabled/disabled with the `setting(editor.inlayHints.enabled)` setting, the default is enabled. Extensions, like TypeScript or Rust, are needed to provide the actual inlay hint information.
+Inlay hints can be enabled/disabled with the `editor.inlayHints.enabled` setting, the default is enabled. Extensions, like TypeScript or Rust, are needed to provide the actual inlay hint information.
 
 ## Outgoing link protection
 
@@ -184,9 +185,7 @@ The option to **Manage Trusted Domains**, also available at any time from the Co
 ```jsonc
 // You can use the "Manage Trusted Domains" command to open this file.
 // Save this file to apply the trusted domains rules.
-[
-  "*.twitter.com"
-]
+["*.twitter.com"]
 ```
 
 The **Trusted Domains** JSON file also has comments with examples of the supported domain formats and a list of the domains trusted by default, such as `https://*.visualstudio.com` and `https://*.microsoft.com`.
@@ -195,10 +194,10 @@ The **Trusted Domains** JSON file also has comments with examples of the support
 
 Now that you know how the editor works, time to try a few other things...
 
-* [Intro Video - Code Editing](/docs/introvideos/codeediting.md) - Watch an introductory video on code editing features.
-* [User Interface](/docs/getstarted/userinterface.md) - In case you missed a basic orientation around VS Code.
-* [Key Bindings](/docs/getstarted/keybindings.md) - Learn how to modify key bindings to your preference.
-* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
+- [Intro Video - Code Editing](/docs/introvideos/codeediting.md) - Watch an introductory video on code editing features.
+- [User Interface](/docs/getstarted/userinterface.md) - In case you missed a basic orientation around VS Code.
+- [Key Bindings](/docs/getstarted/keybindings.md) - Learn how to modify key bindings to your preference.
+- [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
 
 ## Common questions
 
@@ -208,33 +207,33 @@ With the command `workbench.action.quickOpenPreviousEditor`, you can have the se
 
 ```json
 [
-    {
-        "key": "ctrl+p",
-        "command": "workbench.action.quickOpenPreviousEditor"
-    },
-    {
-        "key": "ctrl+p",
-        "command": "-workbench.action.quickOpen"
-    }
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpenPreviousEditor"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "-workbench.action.quickOpen"
+  }
 ]
 ```
 
 ### How can I configure Ctrl+Tab to navigate across all editors of all groups
 
-By default, `kbstyle(Ctrl+Tab)` navigates between editors of the same editor group. If you want to navigate across all opened editors in all groups, you can create keyboard shortcuts for the `workbench.action.quickOpenPreviousRecentlyUsedEditor` and `workbench.action.quickOpenLeastRecentlyUsedEditor` commands:
+By default, `Ctrl+Tab` navigates between editors of the same editor group. If you want to navigate across all opened editors in all groups, you can create keyboard shortcuts for the `workbench.action.quickOpenPreviousRecentlyUsedEditor` and `workbench.action.quickOpenLeastRecentlyUsedEditor` commands:
 
 ```json
 [
-    {
-        "key": "ctrl+tab",
-        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor",
-        "when": "!inEditorsPicker"
-    },
-    {
-        "key": "ctrl+shift+tab",
-        "command": "workbench.action.quickOpenLeastRecentlyUsedEditor",
-        "when": "!inEditorsPicker"
-    }
+  {
+    "key": "ctrl+tab",
+    "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor",
+    "when": "!inEditorsPicker"
+  },
+  {
+    "key": "ctrl+shift+tab",
+    "command": "workbench.action.quickOpenLeastRecentlyUsedEditor",
+    "when": "!inEditorsPicker"
+  }
 ]
 ```
 
@@ -242,9 +241,9 @@ By default, `kbstyle(Ctrl+Tab)` navigates between editors of the same editor gro
 
 Here is a list of commands you can use to navigate in editors without opening a picker:
 
-Key|Command|Command ID
----|-------|----------
-`kb(workbench.action.openNextRecentlyUsedEditor)`|Open Next Recently Used Editor|`workbench.action.openNextRecentlyUsedEditor`
-`kb(workbench.action.openPreviousRecentlyUsedEditor)`|Open Previously Used Editor|`workbench.action.openPreviousRecentlyUsedEditor`
-`kb(workbench.action.openNextRecentlyUsedEditorInGroup)`|Open Next Recently Used Editor in Group|`workbench.action.openNextRecentlyUsedEditorInGroup`
-`kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)`|Open Previously Used Editor in Group|`workbench.action.openPreviousRecentlyUsedEditorInGroup`
+| Key                                                          | Command                                 | Command ID                                               |
+| ------------------------------------------------------------ | --------------------------------------- | -------------------------------------------------------- |
+| `kb(workbench.action.openNextRecentlyUsedEditor)`            | Open Next Recently Used Editor          | `workbench.action.openNextRecentlyUsedEditor`            |
+| `kb(workbench.action.openPreviousRecentlyUsedEditor)`        | Open Previously Used Editor             | `workbench.action.openPreviousRecentlyUsedEditor`        |
+| `kb(workbench.action.openNextRecentlyUsedEditorInGroup)`     | Open Next Recently Used Editor in Group | `workbench.action.openNextRecentlyUsedEditorInGroup`     |
+| `kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)` | Open Previously Used Editor in Group    | `workbench.action.openPreviousRecentlyUsedEditorInGroup` |

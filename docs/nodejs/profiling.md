@@ -7,6 +7,7 @@ PageTitle: Performance Profiling JavaScript in Visual Studio Code
 DateApproved: 12/11/2024
 MetaDescription: Learn more about profiling your JavaScript performance in the Visual Studio Code editor.
 ---
+
 # Performance Profiling JavaScript
 
 Visual Studio Code supports collecting and viewing performance profiles for JavaScript programs. To get started, you'll first need to have the debugger configured for your [Node.js program](/docs/nodejs/nodejs-debugging.md) or [browser app](/docs/nodejs/browser-debugging.md).
@@ -15,20 +16,20 @@ Visual Studio Code supports collecting and viewing performance profiles for Java
 
 Depending on what you want to optimize, there are different kinds of profiles you may want to take.
 
-* **CPU Profile** - A CPU profile tells you where your program is spending its time while in JavaScript. Remember that, while you can wait on asynchronous promises or callbacks, only one JavaScript expression is executed at a time. The CPU profile collects about 10,000 samples per second to tell you which expression--if any--is being run at that moment.
-* **Heap Profile** - A heap profile tells you how memory is allocated over time in your program. Allocating memory can be costly, and reducing the amount of memory your code allocates can lead to performance wins.
-* **Heap Snapshot** - A heap snapshot is an instantaneous view of where your program has allocated memory. If you notice your program is using a lot of RAM and want to find out where it's coming from, a heap snapshot can be useful. Note that collecting a heap snapshot can take several minutes for more complex programs, and viewing heap snapshots is not currently supported in the built-in editor.
+- **CPU Profile** - A CPU profile tells you where your program is spending its time while in JavaScript. Remember that, while you can wait on asynchronous promises or callbacks, only one JavaScript expression is executed at a time. The CPU profile collects about 10,000 samples per second to tell you which expression--if any--is being run at that moment.
+- **Heap Profile** - A heap profile tells you how memory is allocated over time in your program. Allocating memory can be costly, and reducing the amount of memory your code allocates can lead to performance wins.
+- **Heap Snapshot** - A heap snapshot is an instantaneous view of where your program has allocated memory. If you notice your program is using a lot of RAM and want to find out where it's coming from, a heap snapshot can be useful. Note that collecting a heap snapshot can take several minutes for more complex programs, and viewing heap snapshots is not currently supported in the built-in editor.
 
 ## Collecting a profile
 
 To collect a profile, you'll need to be debugging your program. Once you are, you can collect a profile through a few methods:
 
-* Using the 'record' button in the **Call Stack** view. This allows you to take CPU profiles, heap profiles, and heap snapshots.
-* By calling `console.profile()` in your program. This will collect a CPU profile.
+- Using the 'record' button in the **Call Stack** view. This allows you to take CPU profiles, heap profiles, and heap snapshots.
+- By calling `console.profile()` in your program. This will collect a CPU profile.
 
 ### Using the record button
 
-Once you're debugging, switch to the Run and Debug view (`kb(workbench.view.debug)`), and find the **Call Stack** view. Hover over the session you want to debug, and select the **Take Performance Profile** button. You can also run this command from the Command Palette (`kb(workbench.action.showCommands)`).
+Once you're debugging, switch to the Run and Debug view (`kb(workbench.view.debug)`), and find the **Call Stack** view. Hover over the session you want to debug, and select the **Take Performance Profile** button. You can also run this command from the Command Palette (`Ctrl+Shift+P`).
 
 ![Screenshot showing the button](images/profiling/take-profile.png)
 
@@ -36,9 +37,9 @@ VS Code will then ask what [type of performance](#types-of-profiles) profile you
 
 Finally, VS Code will ask when you want to stop taking a profile. You can choose to either:
 
-* Take the profile until you stop it manually.
-* Take the profile for a set duration.
-* Take the profile until you hit a certain breakpoint.
+- Take the profile until you stop it manually.
+- Take the profile for a set duration.
+- Take the profile until you hit a certain breakpoint.
 
 If you chose the first option, you can stop the profile by clicking the big red "record" icon shown in the debug toolbar. After the profile is collected, the [profile viewer](#analyzing-a-profile) will open automatically.
 

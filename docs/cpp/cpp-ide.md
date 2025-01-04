@@ -7,6 +7,7 @@ PageTitle: Features for editing and navigating C++ code in VS Code such as
 DateApproved: 1/16/2024
 MetaDescription: How to edit and navigate C++ source files in Visual Studio Code.
 ---
+
 # Editing and Navigating C++ Code
 
 This article provides an overview of code editing and navigating features specific to the C/C++ extension. For more information about general editing and navigating in Visual Studio Code, see [Basic Editing](/docs/editor/codebasics.md) and [Code Navigation](/docs/editor/editingevolved.md).
@@ -39,8 +40,8 @@ The C/C++ extension for Visual Studio Code supports source code formatting using
 
 You can format an entire file with **Format Document** (`kb(editor.action.formatDocument)`) or just the current selection with **Format Selection** (`kb(editor.action.formatSelection)`) in right-click context menu. You can also trigger formatting based on user gestures such as typing, saving, and pasting with the following [settings](/docs/getstarted/settings.md):
 
-* `editor.formatOnSave` - to format when you save your file.
-* `editor.formatOnType` - to format as you type (triggered on the `kbstyle(;)` character).
+- `editor.formatOnSave` - to format when you save your file.
+- `editor.formatOnType` - to format as you type (triggered on the `;` character).
 
 To learn more about formatting, see [Formatting](/docs/editor/codebasics.md#formatting).
 
@@ -93,7 +94,7 @@ By default, the C++ extension supports showing a subset of markdown in your edit
 
 The source code navigation features can help improve your understanding of your codebase. These let you quickly search for symbols in your code, navigate to their definitions, or find references to them.
 
-Navigation is powered by a set of tags stored in a local database of symbol information. Whenever a folder containing C++ source code files is opened, the  C/C++ extension creates a database of the symbols defined in those files. This database is updated whenever a file is changed. If a document is closed without saving, the database is updated to the last saved state.
+Navigation is powered by a set of tags stored in a local database of symbol information. Whenever a folder containing C++ source code files is opened, the C/C++ extension creates a database of the symbols defined in those files. This database is updated whenever a file is changed. If a document is closed without saving, the database is updated to the last saved state.
 
 ### Search for symbols
 
@@ -107,13 +108,13 @@ To search for a symbol in the current workspace, press `kb(workbench.action.show
 
 ![Searching in your workspace](images/cpp/workspacesearch.png)
 
-You can also search for symbols by accessing these commands through the **Command Palette**(`kb(workbench.action.showCommands)`). Use **Quick Open** (`kb(workbench.action.quickOpen)`), then enter the `@` command to search the current file, or the `#` command to search the current workspace. `kb(workbench.action.gotoSymbol)` and `kb(workbench.action.showAllSymbols)` are shortcuts for the `@` and `#` commands.
+You can also search for symbols by accessing these commands through the **Command Palette**(`Ctrl+Shift+P`). Use **Quick Open** (`kb(workbench.action.quickOpen)`), then enter the `@` command to search the current file, or the `#` command to search the current workspace. `kb(workbench.action.gotoSymbol)` and `kb(workbench.action.showAllSymbols)` are shortcuts for the `@` and `#` commands.
 
 ### Call hierarchy
 
 The Call Hierarchy view shows all calls to or from a function. It lets you understand the complex calling relationships between the functions in your source code.
 
-To view the call hierarchy, select a function, right-click to display the context menu, and choose **Show Call Hierarchy**. You can also use the keyboard shortcut (`Shift+Alt+H` on Windows), or invoke the **Command Palette** (`kb(workbench.action.showCommands)`) and run the command **Calls: Show Call Hierarchy**. This populates the call tree in the side bar with all of the functions called by your selected function.
+To view the call hierarchy, select a function, right-click to display the context menu, and choose **Show Call Hierarchy**. You can also use the keyboard shortcut (`Shift+Alt+H` on Windows), or invoke the **Command Palette** (`Ctrl+Shift+P`) and run the command **Calls: Show Call Hierarchy**. This populates the call tree in the side bar with all of the functions called by your selected function.
 
 ![Selecting call hierarchy and showing calls in sidebar](images/cpp/call-hierarchy.gif)
 
@@ -153,13 +154,13 @@ Use the **Go to Type Definition** feature to jump to where a type is defined in 
 
 Read on to find out about:
 
-* [Debugging C++ Code](/docs/cpp/cpp-debug.md)
-* [Configure IntelliSense](/docs/cpp/configure-intellisense.md)
-* [Configure VS Code for MSVC](/docs/cpp/config-msvc.md)
-* [Configure VS Code for Mingw-w64 and GCC](/docs/cpp/config-mingw.md)
-* [Configure VS Code for macOS](/docs/cpp/config-clang-mac.md)
-* [Basic Editing in VS Code](/docs/editor/codebasics.md)
-* [Code Navigation in VS Code](/docs/editor/editingevolved.md)
-* [Tasks in VS Code](/docs/editor/tasks.md)
+- [Debugging C++ Code](/docs/cpp/cpp-debug.md)
+- [Configure IntelliSense](/docs/cpp/configure-intellisense.md)
+- [Configure VS Code for MSVC](/docs/cpp/config-msvc.md)
+- [Configure VS Code for Mingw-w64 and GCC](/docs/cpp/config-mingw.md)
+- [Configure VS Code for macOS](/docs/cpp/config-clang-mac.md)
+- [Basic Editing in VS Code](/docs/editor/codebasics.md)
+- [Code Navigation in VS Code](/docs/editor/editingevolved.md)
+- [Tasks in VS Code](/docs/editor/tasks.md)
 
 If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/microsoft/vscode-cpptools/issues). You might be asked to provide logging information from the extension to help diagnose the issue. See [C/C++ extension logging](/docs/cpp/enable-logging-cpp.md) for help on providing extension logs.

@@ -149,13 +149,13 @@ VS Code는 확장을 쉽게 관리할 수 있게 해줍니다. 확장 뷰, **Com
 
 VS Code는 확장 업데이트를 확인하고 자동으로 설치합니다. 업데이트 후에는 확장 호스트를 다시 시작하라는 메시지(**Restart Extensions**)가 표시됩니다.
 
-확장을 수동으로 업데이트하는 것을 선호한다면, **Disable Auto Update for All Extensions** 명령이나 확장 뷰의 해당 작업을 사용하여 자동 업데이트를 비활성화할 수 있습니다. `setting(extensions.autoUpdate)` [설정](/docs/getstarted/settings.md)을 구성할 수도 있습니다. **Enable Auto Update for All Extensions** 명령을 사용하여 자동 업데이트를 다시 활성화할 수 있습니다.
+확장을 수동으로 업데이트하는 것을 선호한다면, **Disable Auto Update for All Extensions** 명령이나 확장 뷰의 해당 작업을 사용하여 자동 업데이트를 비활성화할 수 있습니다. `extensions.autoUpdate` [설정](/docs/getstarted/settings.md)을 구성할 수도 있습니다. **Enable Auto Update for All Extensions** 명령을 사용하여 자동 업데이트를 다시 활성화할 수 있습니다.
 
 ![모든 확장의 자동 업데이트 비활성화 작업](images/extension-marketplace/disable-auto-update-all-extensions.png)
 
 개별 확장에 대한 자동 업데이트를 구성할 수도 있습니다. 확장을 마우스 오른쪽 버튼으로 클릭하고 **Auto Update** 항목을 토글하면 됩니다.
 
-VS Code가 업데이트를 확인조차 하지 않기를 원한다면, `setting(extensions.autoCheckUpdates)` 설정을 false로 설정할 수 있습니다.
+VS Code가 업데이트를 확인조차 하지 않기를 원한다면, `extensions.autoCheckUpdates` 설정을 false로 설정할 수 있습니다.
 
 ### 확장 수동으로 업데이트하기 {#update-an-extension-manually}
 
@@ -348,8 +348,8 @@ note:::
 
 예, 확장 뷰의 **RECOMMENDED** 섹션이나 알림을 통해 VS Code가 확장 추천을 표시하지 않도록 하려면 다음 설정을 수정할 수 있습니다:
 
-- `setting(extensions.showRecommendationsOnlyOnDemand)` - true로 설정하여 **RECOMMENDED** 섹션을 제거합니다.
-- `setting(extensions.ignoreRecommendations)` - true로 설정하여 확장 추천 알림을 무시합니다.
+- `extensions.showRecommendationsOnlyOnDemand` - true로 설정하여 **RECOMMENDED** 섹션을 제거합니다.
+- `extensions.ignoreRecommendations` - true로 설정하여 확장 추천 알림을 무시합니다.
 
 **Show Recommended Extensions** 명령은 추천을 보고 싶을 때 항상 사용할 수 있습니다.
 

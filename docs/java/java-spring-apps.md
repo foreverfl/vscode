@@ -45,7 +45,7 @@ Install Apache Maven for your local development environment:
 
 ## Download and test the Spring Boot app
 
-Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project to your local machine. You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). Paste `https://github.com/spring-guides/gs-spring-boot.git` as the URL of the remote repository and then decide the parent directory under which to put the local repository. After that, open the `complete` folder within the cloned repository in VS Code by navigating to the folder and typing `code .`.
+Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project to your local machine. You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`Ctrl+Shift+P`). Paste `https://github.com/spring-guides/gs-spring-boot.git` as the URL of the remote repository and then decide the parent directory under which to put the local repository. After that, open the `complete` folder within the cloned repository in VS Code by navigating to the folder and typing `code .`.
 
 > **Note**: You can install Visual Studio Code from [https://code.visualstudio.com](https://code.visualstudio.com/) and Git from [https://git-scm.com](https://git-scm.com/).
 
@@ -101,7 +101,7 @@ The [Azure Spring Apps](https://marketplace.visualstudio.com/items?itemName=vscj
 - Config application settings such as environment variables and JVM options
 - Stream logs from the app
 
-To install the Azure Spring Apps extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for `azure spring apps` to filter the results. Select the Microsoft [Azure Spring Apps](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud) extension. For a command-line experience, you can also check out the [Azure Spring Apps quickstart with Azure CLI](https://learn.microsoft.com/azure/spring-apps/quickstart).
+To install the Azure Spring Apps extension, open the Extensions view (`Ctrl+Shift+X`) and search for `azure spring apps` to filter the results. Select the Microsoft [Azure Spring Apps](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud) extension. For a command-line experience, you can also check out the [Azure Spring Apps quickstart with Azure CLI](https://learn.microsoft.com/azure/spring-apps/quickstart).
 
 ### Sign in to your Azure subscription
 
@@ -111,7 +111,7 @@ If you don't have an Azure subscription, you can sign up for a [free Azure accou
 
 <a class="install-extension-btn" href="https://azure.microsoft.com/pricing/free-trial/" target="\_blank" style={{ backgroundColor: "#68217A" }}>Create your free Azure account</a>
 
-To sign in to Azure, run **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). Or you can sign in to your Azure Account by clicking **Sign in to Azure...** in **SPRING APPS** Explorer.
+To sign in to Azure, run **Azure: Sign In** from the **Command Palette** (`Ctrl+Shift+P`). Or you can sign in to your Azure Account by clicking **Sign in to Azure...** in **SPRING APPS** Explorer.
 
 ![Azure sign in code](images/java-spring-cloud/signinasa.png)
 
@@ -123,7 +123,7 @@ Once you are signed in to your Azure account and you have your app open in Visua
 
    ![Create Azure Spring Apps Service instance](images/java-spring-cloud/create-service.png)
 
-1. After the service instance is created, refresh the Azure Explorer to display the new service instance. Right-click on the service instance and select **Create App**. Type the app name, select the Java version, and then press `kbstyle(Enter)` to start creating. The app will be ready in a few minutes.
+1. After the service instance is created, refresh the Azure Explorer to display the new service instance. Right-click on the service instance and select **Create App**. Type the app name, select the Java version, and then press `Enter` to start creating. The app will be ready in a few minutes.
 
    ![Create App](images/java-spring-cloud/create-app.png)
 
@@ -145,7 +145,7 @@ mvn clean package
 
 ### Scale the app
 
-1. You can easily scale the app by right-clicking on the **Instance count** under **Scale Settings** and selecting **Edit**. Type "2" and press `kbstyle(Enter)` to scale the app.
+1. You can easily scale the app by right-clicking on the **Instance count** under **Scale Settings** and selecting **Edit**. Type "2" and press `Enter` to scale the app.
 
    ![Scale app](images/java-spring-cloud/scale.png)
 

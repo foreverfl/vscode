@@ -7,6 +7,7 @@ PageTitle: Refactoring C++ code
 DateApproved: 1/16/2024
 MetaDescription: How to refactor C++ source files in Visual Studio Code.
 ---
+
 # Refactoring C++ code
 
 The C/C++ extension in Visual Studio Code has multiple refactoring features to help you improve your code's structure, readability, and maintainability without altering its runtime behavior. These include features such as Extract Method and Create Declaration and Definitions.
@@ -19,9 +20,9 @@ Simplify the process of creating a function's declaration or definition by letti
 
 To create a function declaration or definition, either:
 
-* Select your class function definition, select the Code Action (light bulb icon), and then select **Create a Declaration**. Similarly, to create a definition, select the function declaration, select the Code Action, and then select **Create a Definition**.
-* Right-click a function’s declaration or definition and select the **Create Definition/Declaration** from the context menu. Based on your code, a definition or a declaration is created.
-* Select the function, then use the **Command Palette** (`kb(workbench.action.showCommands)`) and type in the command **Create Declaration/Definition**. Based on your code, a definition or a declaration is created.
+- Select your class function definition, select the Code Action (light bulb icon), and then select **Create a Declaration**. Similarly, to create a definition, select the function declaration, select the Code Action, and then select **Create a Definition**.
+- Right-click a function’s declaration or definition and select the **Create Definition/Declaration** from the context menu. Based on your code, a definition or a declaration is created.
+- Select the function, then use the **Command Palette** (`Ctrl+Shift+P`) and type in the command **Create Declaration/Definition**. Based on your code, a definition or a declaration is created.
 
 The location where definitions and declarations are created is based on the previous patterns you established in your code. For example, if you previously added definitions and declarations in the same file, the extension also adds new ones to that same file. The function order is maintained automatically.
 
@@ -65,9 +66,9 @@ If there is an unknown symbol in your C++ code and the C/C++ Extension identifie
 
 Read on to find out about:
 
-* [C++ Code Navigation](/docs/cpp/cpp-ide.md)
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
-* [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
+- [C++ Code Navigation](/docs/cpp/cpp-ide.md)
+- [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+- [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
+- [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
 
 If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/microsoft/vscode-cpptools/issues). You might be asked to provide logging information from the extension to help diagnose the issue. See [C/C++ extension logging](/docs/cpp/enable-logging-cpp.md) for help on providing extension logs.

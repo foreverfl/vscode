@@ -33,13 +33,13 @@ Keep in mind, that this guide won't teach you C#. Instead, it teaches you how to
 1. If you haven't already done so, [install VS Code](https://code.visualstudio.com).
 1. Next, install [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) from the Visual Studio Marketplace. For additional details on installing extensions, read [Extension Marketplace](/docs/editor/extension-marketplace.md). The C# extension is called **C# Dev Kit** and it's published by Microsoft.
 
->**Note**: C# Dev Kit supports cloud native development. To do cross-platform mobile and desktop development, you can use C# Dev Kit with the [.NET MAUI extension](https://aka.ms/mauidevkit-marketplace). Learn [how to get set up](https://aka.ms/mauidevkit-docs) with .NET MAUI in VS Code.
+> **Note**: C# Dev Kit supports cloud native development. To do cross-platform mobile and desktop development, you can use C# Dev Kit with the [.NET MAUI extension](https://aka.ms/mauidevkit-marketplace). Learn [how to get set up](https://aka.ms/mauidevkit-docs) with .NET MAUI in VS Code.
 
-Upon installation, C# Dev Kit launches an extension walkthrough. You can follow the steps of this walkthrough to learn more about the features of the C# extension. You can also use this walkthrough to install the latest .NET SDK. Reopen the walkthrough at any time by opening the Command Palette (`kb(workbench.action.showCommands)`) and selecting **Welcome: Open Walkthrough**. Here, select **Get Started with C# Dev Kit**.
+Upon installation, C# Dev Kit launches an extension walkthrough. You can follow the steps of this walkthrough to learn more about the features of the C# extension. You can also use this walkthrough to install the latest .NET SDK. Reopen the walkthrough at any time by opening the Command Palette (`Ctrl+Shift+P`) and selecting **Welcome: Open Walkthrough**. Here, select **Get Started with C# Dev Kit**.
 
 ![C# Dev Kit introductory walkthrough](images/get-started/open-walkthrough.gif)
 
->**Note**: You are required to sign in to a Visual Studio subscription to use C# Dev Kit. Check out the [Signing in to C# Dev Kit](/docs/csharp/signing-in.md) documentation to learn more.
+> **Note**: You are required to sign in to a Visual Studio subscription to use C# Dev Kit. Check out the [Signing in to C# Dev Kit](/docs/csharp/signing-in.md) documentation to learn more.
 
 In the walkthrough, select **Set up your environment** and select **Install .NET SDK**. This will open a window next to the walkthrough with a button to install the latest version of the .NET SDK. Select the **Install** button, which will trigger a download and an install of the .NET SDK. Follow the on-screen instructions to complete this process.
 
@@ -47,7 +47,7 @@ In the walkthrough, select **Set up your environment** and select **Install .NET
 
 ## Create a Hello World app
 
-To get started, go to the **Explorer** view and select **Create .NET Project**. Alternatively, you can bring up the Command Palette using `kb(workbench.action.showCommands)` and then type ".NET" and find and select the **.NET: New Project** command.
+To get started, go to the **Explorer** view and select **Create .NET Project**. Alternatively, you can bring up the Command Palette using `Ctrl+Shift+P` and then type ".NET" and find and select the **.NET: New Project** command.
 
 1. After selecting the command, you'll need to choose the project template. Choose **Console app**.
 1. To run your app, select **Run > Run without Debugging** in the upper menu, or use the `kb(workbench.action.debug.run)` keyboard shortcut. To learn more about debugging your C# project, read the [debugging documentation](/docs/csharp/debugging.md).

@@ -7,6 +7,7 @@ PageTitle: Docker extension for Visual Studio Code
 DateApproved: 12/1/2023
 MetaDescription: Tools for developing and debugging with Docker containers, using Visual Studio Code.
 ---
+
 # Docker in Visual Studio Code
 
 The [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension makes it easy to build, manage, and deploy containerized applications in Visual Studio Code.
@@ -19,7 +20,7 @@ This page provides an overview of the Docker extension capabilities; use the sid
 
 On Linux, you should also [enable Docker CLI for the non-root user account](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) that will be used to run VS Code.
 
-To install the extension, open the Extensions view (`kb(workbench.view.extensions)`), search for `docker` to filter results and select Docker extension authored by Microsoft.
+To install the extension, open the Extensions view (`Ctrl+Shift+X`), search for `docker` to filter results and select Docker extension authored by Microsoft.
 
 ![Select Docker extension](images/overview/installation-extension-search.png)
 
@@ -33,7 +34,7 @@ In addition, you can use the Problems panel (`kb(workbench.actions.view.problems
 
 ## Generating Docker files
 
-You can add Docker files to your workspace by opening the Command Palette (`kb(workbench.action.showCommands)`) and using **Docker: Add Docker Files to Workspace** command. The command will generate `Dockerfile` and `.dockerignore` files and add them to your workspace. The command will also ask you if you want to add Docker Compose files as well, but this is optional.
+You can add Docker files to your workspace by opening the Command Palette (`Ctrl+Shift+P`) and using **Docker: Add Docker Files to Workspace** command. The command will generate `Dockerfile` and `.dockerignore` files and add them to your workspace. The command will also ask you if you want to add Docker Compose files as well, but this is optional.
 
 The extension can scaffold Docker files for most popular development languages (C#, Node.js, Python, Ruby, Go, and Java) and customizes the generated Docker files accordingly. When these files are created, we also create the necessary artifacts to provide debugging support for Node.js, Python, and .NET (C#).
 
@@ -61,15 +62,15 @@ You can run Docker commands to manage [images](https://docs.docker.com/engine/re
 
 [Docker Compose](https://docs.docker.com/compose/) lets you define and run multi-container applications with Docker. Our [Compose Language Service](https://github.com/microsoft/compose-language-service) in the Docker extension gives you IntelliSense and tab completions when authoring `docker-compose.yml` files. Press `kb(editor.action.triggerSuggest)` to see a list of valid Compose directives.
 
- ![Docker Compose IntelliSense](images/overview/tab-completions.gif)
+![Docker Compose IntelliSense](images/overview/tab-completions.gif)
 
 We also provide tooltips when you hover over a Docker Compose YAML attribute.
 
- ![Docker Compose Tooltips](images/overview/hover-support.png)
+![Docker Compose Tooltips](images/overview/hover-support.png)
 
 While `Compose Up` allows you to run all of your services at once, our new feature `Compose Up - Select Services` lets you select any combination of the services you want to run.
 
-  ![Docker Compose Up - Select Subset](images/overview/select-subset.gif)
+![Docker Compose Up - Select Subset](images/overview/select-subset.gif)
 
 Once your `Compose Up` command completes, navigate to the Docker Explorer to view your services as a Compose Group. This allows you to start, stop, and view the logs of each service as a group.
 

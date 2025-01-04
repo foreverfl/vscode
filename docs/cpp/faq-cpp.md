@@ -7,6 +7,7 @@ PageTitle: C/C++ extension FAQ
 DateApproved: 1/17/2023
 MetaDescription: Frequently asked questions about the C/C++ extension in Visual Studio Code.
 ---
+
 # Frequently asked questions
 
 - [How do I get IntelliSense to work correctly?](#how-do-i-get-intellisense-to-work-correctly)
@@ -65,7 +66,7 @@ Files can be corrupted (and other features can fail) if a workspace folder is op
 
 ## How do I recreate the IntelliSense database?
 
-Starting in version 0.12.3 of the extension, there is a command to reset your IntelliSense database. Open the Command Palette (`kb(workbench.action.showCommands)`) and choose the **C/C++: Reset IntelliSense Database** command.
+Starting in version 0.12.3 of the extension, there is a command to reset your IntelliSense database. Open the Command Palette (`Ctrl+Shift+P`) and choose the **C/C++: Reset IntelliSense Database** command.
 
 ## What is the ipch folder?
 
@@ -93,7 +94,7 @@ The debugger needs to be configured to know which executable and debugger to use
 
 From the main menu, select **Run** > **Add Configuration...**.
 
-The file `launch.json` will now be open for editing with a new configuration. The default settings will *probably* work except that you need to specify the `program` setting.
+The file `launch.json` will now be open for editing with a new configuration. The default settings will _probably_ work except that you need to specify the `program` setting.
 
 See [Configure C/C++ debugging](/docs/cpp/launch-json-reference.md) for more in-depth documentation on how to configure the debugger.
 

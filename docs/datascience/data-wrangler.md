@@ -16,16 +16,15 @@ The following is an example of opening Data Wrangler from the notebook to analyz
 
 ![a gif of opening Data Wrangler from a notebook, looking through the data, switching from Viewing to Editing mode, applying data transformations, and exporting the generated Python code back into the notebook](images/data-wrangler/full-dw-loop.gif)
 
-
 This document covers how to:
 
--   Install and setup Data Wrangler
--   Launch Data Wrangler from a notebook
--   Launch Data Wrangler from a data file
--   Use Data Wrangler to explore your data
--   Use Data Wrangler to perform operations and cleaning on your data
--   Edit and export the data wrangling code to a notebook
--   Troubleshooting and providing feedback
+- Install and setup Data Wrangler
+- Launch Data Wrangler from a notebook
+- Launch Data Wrangler from a data file
+- Use Data Wrangler to explore your data
+- Use Data Wrangler to perform operations and cleaning on your data
+- Edit and export the data wrangling code to a notebook
+- Troubleshooting and providing feedback
 
 ## Set up your environment
 
@@ -46,7 +45,8 @@ Here is a list of the required versions for Python and Python packages, along wi
 If these dependencies are not found in your environment, Data Wrangler will attempt to install them for you with `pip`. If Data Wrangler is unable to install the dependencies, the easiest workaround is to manually run `pip install`, and then launch Data Wrangler again. These dependencies are required for Data Wrangler, such that it can generate Python and Pandas code.
 
 ## Open Data Wrangler
-Anytime you are in Data Wrangler, you are in a *sandboxed* environment, meaning you are able to safely explore and transform the data. The original dataset is not modified until you explicitly export your changes.
+
+Anytime you are in Data Wrangler, you are in a _sandboxed_ environment, meaning you are able to safely explore and transform the data. The original dataset is not modified until you explicitly export your changes.
 
 ### Launch Data Wrangler from a Jupyter Notebook
 
@@ -65,6 +65,7 @@ You can also launch Data Wrangler directly from a local file (such as a `.csv`).
 ![a screenshot showing the entry point into Data Wrangler from a file](images/data-wrangler/open-from-file.png)
 
 Data Wrangler currently supports the following filetypes
+
 - `.csv`/`.tsv`
 - `.xls`/`.xlsx`
 - `.parquet`
@@ -96,7 +97,7 @@ Note: By default, Data Wrangler opens in the Viewing mode. You can change this b
 
 3. Toggle between the **Viewing** or **Editing** mode of Data Wrangler to access the built-in data operations.
 
-4.  The **Quick Insights** header is where you can quickly see valuable information about each column. Depending on the datatype of the column, quick insights shows the distribution of the data or the frequency of datapoints, as well as missing and distinct values.
+4. The **Quick Insights** header is where you can quickly see valuable information about each column. Depending on the datatype of the column, quick insights shows the distribution of the data or the frequency of datapoints, as well as missing and distinct values.
 
 5. The **Data Grid** gives you a scrollable pane where you can view your entire dataset.
 
@@ -110,7 +111,7 @@ Switching to Editing mode enables additional functionality and user interface el
 
 1. The **Operations** panel is where you can search through all of Data Wrangler’s built-in data operations. The operations are organized by category.
 
-2. The **Cleaning Steps** panel shows a list of all the operations that have been previously applied. It enables the user to undo specific operations or edit the *most recent* operation. Selecting a step will highlight the changes in the data diff view and will show the generated code associated with that operation.
+2. The **Cleaning Steps** panel shows a list of all the operations that have been previously applied. It enables the user to undo specific operations or edit the _most recent_ operation. Selecting a step will highlight the changes in the data diff view and will show the generated code associated with that operation.
 
 3. The **Export Menu** lets you export the code back into a Jupyter Notebook or export the data into a new file.
 
@@ -138,11 +139,11 @@ The following table lists the Data Wrangler operations that are currently suppor
 | Drop column                    | Delete one or more columns                                                                            |
 | Select column                  | Choose one or more columns to keep and delete the rest                                                |
 | Rename column                  | Rename one or more columns                                                                            |
-| Clone column                  | Create a copy of one or more columns                                                                            |
+| Clone column                   | Create a copy of one or more columns                                                                  |
 | Drop missing values            | Remove rows with missing values                                                                       |
 | Drop duplicate rows            | Drops all rows that have duplicate values in one or more columns                                      |
 | Fill missing values            | Replace cells with missing values with a new value                                                    |
-| Find and replace               | Replace cells with a matching pattern                                                             |
+| Find and replace               | Replace cells with a matching pattern                                                                 |
 | Group by column and aggregate  | Group by columns and aggregate results                                                                |
 | Strip whitespace               | Remove whitespace from the beginning and end of text                                                  |
 | Split text                     | Split a column into several columns based on a user defined delimiter                                 |
@@ -153,9 +154,9 @@ The following table lists the Data Wrangler operations that are currently suppor
 | DateTime formatting by example | Automatically perform DateTime formatting when a pattern is detected from the examples you provide    |
 | New column by example          | Automatically create a column when a pattern is detected from the examples you provide.               |
 | Scale min/max values           | Scale a numerical column between a minimum and maximum value                                          |
-| Round                          | Rounds numbers to the specified number of decimal places |
-| Round down (floor)             | Rounds numbers down to the nearest integer |
-| Round up (ceiling)             | Rounds numbers up to the nearest integer |
+| Round                          | Rounds numbers to the specified number of decimal places                                              |
+| Round down (floor)             | Rounds numbers down to the nearest integer                                                            |
+| Round up (ceiling)             | Rounds numbers up to the nearest integer                                                              |
 | Custom operation               | Automatically create a new column based on examples and the derivation of existing column(s)          |
 
 If there is an operation that is missing and that you'd like to see supported in Data Wrangler, please file a feature request in our [Data Wrangler GitHub repo](https://github.com/microsoft/vscode-data-wrangler/issues).
@@ -188,7 +189,7 @@ To find a specific column in your dataset, select **Go to column** from the Data
 
 For general connectivity issues, please see the "Connecting to a Python kernel" section above on alternative methods to connect. To debug issues related to the local Python interpreter option, one way to potentially fix the issue is to install different versions of the Jupyter and Python extensions. For example, if stable versions of the extensions are installed, you might install the pre-release version (or vice versa).
 
-To clear an already cached kernel, you can run the `Data Wrangler: Clear cached runtime` command from the command palette `kb(workbench.action.showCommands)`.
+To clear an already cached kernel, you can run the `Data Wrangler: Clear cached runtime` command from the command palette `Ctrl+Shift+P`.
 
 ### Opening a data file gives `UnicodeDecodeError`
 

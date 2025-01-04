@@ -7,6 +7,7 @@ PageTitle: JSON editing in Visual Studio Code
 DateApproved: 12/11/2024
 MetaDescription: Edit JSON files in Visual Studio Code
 ---
+
 # Editing JSON with Visual Studio Code
 
 JSON is a data format that is common in configuration files like `package.json` or `project.json`. We also use it extensively in Visual Studio Code for our configuration files. When opening a file that ends with `.json`, VS Code provides features to make it simpler to write or modify the file's content.
@@ -17,7 +18,7 @@ JSON is a data format that is common in configuration files like `package.json` 
 
 For properties and values, both for JSON data with or without a schema, we offer up suggestions as you type with IntelliSense. You can also manually see suggestions with the **Trigger Suggestions** command (`kb(editor.action.triggerSuggest)`).
 
-We also perform structural and value verification based on an associated JSON schema giving you red squiggles. To disable validation, use the `setting(json.validate.enable)` [setting](/docs/getstarted/settings.md).
+We also perform structural and value verification based on an associated JSON schema giving you red squiggles. To disable validation, use the `json.validate.enable` [setting](/docs/getstarted/settings.md).
 
 ![IntelliSense](images/json/intellisense.png)
 
@@ -49,7 +50,7 @@ You can fold regions of source code using the folding icons on the gutter betwee
 
 In addition to the default JSON mode following the [JSON specification](https://www.json.org/), VS Code also has a **JSON with Comments** (jsonc) mode. This mode is used for the VS Code configuration files such as `settings.json`, `tasks.json`, or `launch.json`. When in the **JSON with Comments** mode, you can use single line (`//`) as well as block comments (`/* */`) as used in JavaScript. The mode also accepts trailing commas, but they are discouraged and the editor will display a warning.
 
-The current editor mode is indicated in the editor's Status Bar. Select the mode indicator to change the mode and to configure how file extensions are associated to modes. You can also directly modify the `setting(files.associations)` [setting](/docs/languages/overview.md#add-a-file-extension-to-a-language) to associate file names or file name patterns to `jsonc`.
+The current editor mode is indicated in the editor's Status Bar. Select the mode indicator to change the mode and to configure how file extensions are associated to modes. You can also directly modify the `files.associations` [setting](/docs/languages/overview.md#add-a-file-extension-to-a-language) to associate file names or file name patterns to `jsonc`.
 
 ## JSON schemas and settings
 
@@ -57,7 +58,7 @@ To understand the structure of JSON files, we use [JSON schemas](https://json-sc
 
 Servers like [JSON Schema Store](https://www.schemastore.org) provide schemas for most of the common JSON-based configuration files. However, schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
 
-The association of a JSON file to a schema can be done either in the JSON file itself using the `$schema` attribute, or in the User or Workspace [settings](/docs/getstarted/settings.md) (**File** > **Preferences** > **Settings**) under the property `setting(json.schemas)`.
+The association of a JSON file to a schema can be done either in the JSON file itself using the `$schema` attribute, or in the User or Workspace [settings](/docs/getstarted/settings.md) (**File** > **Preferences** > **Settings**) under the property `json.schemas`.
 
 VS Code extensions can also define schemas and schema mapping. That's why VS Code already knows about the schema of some well-known JSON files such as `package.json`, `bower.json`, and `tsconfig.json`.
 
@@ -67,8 +68,8 @@ In the following example, the JSON file specifies that its contents follow the [
 
 ```json
 {
-   "$schema": "https://json.schemastore.org/coffeelint",
-   "line_endings": "unix"
+  "$schema": "https://json.schemastore.org/coffeelint",
+  "line_endings": "unix"
 }
 ```
 
@@ -89,7 +90,7 @@ The following excerpt from User [Settings](/docs/getstarted/settings.md) shows h
 ]
 ```
 
->**Tip:** In addition to defining a schema for `.babelrc`, also make sure that `.babelrc` is associated to the JSON language mode. This is also done in the settings using the `files.association` array setting.
+> **Tip:** In addition to defining a schema for `.babelrc`, also make sure that `.babelrc` is associated to the JSON language mode. This is also done in the settings using the `files.association` array setting.
 
 ### Mapping to a schema in the workspace
 
@@ -135,7 +136,7 @@ Schemas and schema associations can also be defined by an extension. Check out t
 
 ### File match syntax
 
-The file match syntax supports the '*' wildcard. Also, you can define exclusion patterns, starting with '!'. For an association to match, at least one pattern needs to match and the last matching pattern must not be an exclusion pattern.
+The file match syntax supports the '\*' wildcard. Also, you can define exclusion patterns, starting with '!'. For an association to match, at least one pattern needs to match and the last matching pattern must not be an exclusion pattern.
 
 ```json
   "json.schemas": [
@@ -198,15 +199,15 @@ If you want your descriptions to support formatting like links, you can opt in b
 
 ```json
 {
-   "$schema": "http://json-schema.org/draft-07/schema#",
-   "type": "object",
-   "properties": {
-       "name" : {
-           "type": "string",
-           "description": "The name of the entry",
-           "markdownDescription": "The name of the entry. [See the documentation](https://example.com)"
-       }
-   }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the entry",
+      "markdownDescription": "The name of the entry. [See the documentation](https://example.com)"
+    }
+  }
 }
 ```
 
@@ -214,6 +215,6 @@ Note that `markdownDescription` is not part of the JSON schema specification but
 
 ### Offline mode
 
-`setting(json.schemaDownload.enable)` controls whether the JSON extension fetches JSON schemas from `http` and `https`.
+`json.schemaDownload.enable` controls whether the JSON extension fetches JSON schemas from `http` and `https`.
 
 A warning triangle will show in the status bar when the current editor would like to use schemas that cannot be downloaded.

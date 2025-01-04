@@ -7,6 +7,7 @@ PageTitle: Introduction to Git in Visual Studio Code
 DateApproved: 12/11/2024
 MetaDescription: Get started with Git in Visual Studio Code and take control of your code! Our beginner's guide covers everything you need to know, from setting up a repository to committing changes and collaborating with others. Learn Git today and streamline your development workflow.
 ---
+
 # Introduction to Git in VS Code
 
 Want to easily manage your source code and collaborate with others? Git and GitHub are the tools you need! And with Visual Studio Code, you can set up and use them in a snap. Even if you're a beginner, VS Code's user-friendly interface guides you through common Git actions like pushing and pulling code, creating and merging branches, and committing code changes. And if you're a pro, you'll love the ability to perform Git actions directly within the editor, saving you time and effort compared to using the Git command line. Plus, the seamless workflow between VS Code and Git means you can stay in your editor and get more done.
@@ -25,7 +26,7 @@ VS Code provides several ways to get started in a Git repository, from local to 
 
 ### Clone a repository locally
 
-To clone a repository, run the **Git: Clone** command in the Command Palette (`kb(workbench.action.showCommands)`), or select the **Clone Repository** button in the **Source Control** view.
+To clone a repository, run the **Git: Clone** command in the Command Palette (`Ctrl+Shift+P`), or select the **Clone Repository** button in the **Source Control** view.
 
 If you clone from GitHub, VS Code prompts you to authenticate with GitHub. Then, select a repository from the list to clone to your machine. The list contains both public and private repositories.
 
@@ -43,11 +44,11 @@ To initialize a new local Git repository:
 
 1. In the **Source Control** view, select the **Initialize Repository** button.
 
-    This creates a new Git repository in the current folder, allowing you to start tracking code changes.
+   This creates a new Git repository in the current folder, allowing you to start tracking code changes.
 
-    This action is equivalent to running `git init` on the command-line.
+   This action is equivalent to running `git init` on the command-line.
 
-    ![Source Control view for a workspace not under Git source control will offer to Initialize a Git repo or Publish to GitHub](images/intro/scm-init-publish.png)
+   ![Source Control view for a workspace not under Git source control will offer to Initialize a Git repo or Publish to GitHub](images/intro/scm-init-publish.png)
 
 #### Publish local repository to GitHub
 
@@ -71,11 +72,11 @@ To create a codespace for your GitHub repository:
 
 1. Select the repository and branch you want to open.
 
-    VS Code opens a new window, which is connected to the codespace. The source code, terminal, and running and debugging are hosted in the remote cloud-based development environment.
+   VS Code opens a new window, which is connected to the codespace. The source code, terminal, and running and debugging are hosted in the remote cloud-based development environment.
 
-    Notice that the File Explorer and Status Bar indicate that the workspace is opened in a codespace.
+   Notice that the File Explorer and Status Bar indicate that the workspace is opened in a codespace.
 
-    ![Screenshot of a workspace opened in a codespace, highlighting the codespace name in the File Explorer and Status Bar](images/intro/open-workspace-in-codespace.png)
+   ![Screenshot of a workspace opened in a codespace, highlighting the codespace name in the File Explorer and Status Bar](images/intro/open-workspace-in-codespace.png)
 
 Alternatively, you can also start from a codespace template on the [GitHub Codespaces website](https://github.com/codespaces/templates).
 
@@ -93,7 +94,7 @@ VS Code's remote repository support allows you to browse and edit a GitHub repos
 
 1. Search and select the GitHub repository that you want to open.
 
-    ![Remote Repositories opening a remote GitHub repo, pull request or Azure repo](images/intro/remote-repo.png)
+   ![Remote Repositories opening a remote GitHub repo, pull request or Azure repo](images/intro/remote-repo.png)
 
 > **Tip:** If you need to execute code or run terminal commands, you can seamlessly switch from a remote repository to a codespace with the command **Continue Working on**.
 
@@ -123,7 +124,7 @@ Staged changes can also be discarded by selecting the **−** (minus) icon next 
 
 To commit your staged changes, type a commit message in the upper text box, and then select the **Commit** button. This saves your changes to the local Git repository, allowing you to revert to previous versions of your code if needed.
 
-> **Tip**: If you have a GitHub Copilot subscription, and installed the Github Copilot extension, you can use the *sparkle* icon to [generate a commit message](/docs/copilot/overview.md#productivity-improvements).
+> **Tip**: If you have a GitHub Copilot subscription, and installed the Github Copilot extension, you can use the _sparkle_ icon to [generate a commit message](/docs/copilot/overview.md#productivity-improvements).
 
 You can navigate through and review all local file changes and commits in the **Timeline** view available in the bottom of the Explorer view.
 
@@ -183,4 +184,4 @@ Git Bash is a popular shell environment for Windows that provides a Unix-like co
 
 Start by opening **View** > **Terminal** (`kb(workbench.action.terminal.toggleTerminal)`). Select the dropdown arrow next to the `+` icon in the terminal panel to pick a new shell to open. If Git Bash is installed, it's shown in the list of terminals and shells. You can toggle between different terminals and shells in the Terminal sidebar. With Git Bash configured in Visual Studio Code, you can now use all of your favorite Git commands directly from the terminal in your code editor.
 
-If you want to set Git Bash as your default shell, open the Terminal dropdown (next to the `+` icon) and select **Select Default Profile**. This opens a list of available shells, including Git Bash. Selecting *Git Bash* sets it as your default shell, and all future terminals will be opened with Git Bash. More advanced terminal tips are available in the [terminal documentation](/docs/terminal/basics.md).
+If you want to set Git Bash as your default shell, open the Terminal dropdown (next to the `+` icon) and select **Select Default Profile**. This opens a list of available shells, including Git Bash. Selecting _Git Bash_ sets it as your default shell, and all future terminals will be opened with Git Bash. More advanced terminal tips are available in the [terminal documentation](/docs/terminal/basics.md).

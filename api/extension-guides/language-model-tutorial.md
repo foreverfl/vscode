@@ -82,7 +82,7 @@ Open the `src/extension.ts` file and change the `registerCommand` method so that
 const disposable = vscode.commands.registerCommand('code-tutor.annotate', () => {
 ```
 
-Run the extension by pressing `kbstyle(F5)`. This will open a new VS Code instance with the extension installed. Open the Command Palette by pressing `kb(workbench.action.showCommands)`, and search for "tutor". You should see the "Tutor Annotations" command.
+Run the extension by pressing `F5`. This will open a new VS Code instance with the extension installed. Open the Command Palette by pressing `Ctrl+Shift+P`, and search for "tutor". You should see the "Tutor Annotations" command.
 
 ![The "Toggle Tutor Annotations" command in the VS Code Command Palette](./images/lm-api/tutor-command-command-palette.png)
 
@@ -134,12 +134,13 @@ This code uses the `visibleRanges` property of the TextEditor to get the positio
 Now we can call this method from the `code-tutor.annotate` command. Modify the implementation of the command so that it looks like this:
 
 ```ts
-const disposable = vscode.commands.registerTextEditorCommand('code-tutor.annotate', async (textEditor: vscode.TextEditor) => {
-
-  // Get the code with line numbers from the current editor
-  const codeWithLineNumbers = getVisibleCodeWithLineNumbers(textEditor);
-
-});
+const disposable = vscode.commands.registerTextEditorCommand(
+  'code-tutor.annotate',
+  async (textEditor: vscode.TextEditor) => {
+    // Get the code with line numbers from the current editor
+    const codeWithLineNumbers = getVisibleCodeWithLineNumbers(textEditor);
+  }
+);
 ```
 
 ### Step 2: Send code and prompt to language model API
@@ -149,17 +150,19 @@ The next step is to call the GitHub Copilot language model and send it the user'
 To do this, we first need to specify which chat model we want to use. We select 4o here because it is a fast and capable model for the kind of interaction we are building.
 
 ```ts
-const disposable = vscode.commands.registerTextEditorCommand('code-tutor.annotate', async (textEditor: vscode.TextEditor) => {
+const disposable = vscode.commands.registerTextEditorCommand(
+  'code-tutor.annotate',
+  async (textEditor: vscode.TextEditor) => {
+    // Get the code with line numbers from the current editor
+    const codeWithLineNumbers = getVisibleCodeWithLineNumbers(textEditor);
 
-  // Get the code with line numbers from the current editor
-  const codeWithLineNumbers = getVisibleCodeWithLineNumbers(textEditor);
-
-  // select the 4o chat model
-  let [model] = await vscode.lm.selectChatModels({
-    vendor: 'copilot',
-    family: 'gpt-4o',
-  });
-});
+    // select the 4o chat model
+    let [model] = await vscode.lm.selectChatModels({
+      vendor: 'copilot',
+      family: 'gpt-4o',
+    });
+  }
+);
 ```
 
 We need instructions - or a "prompt" - that will tell the model to create the annotations and what format we want the response to be. Add the following code to the top of the file directly under the imports.
@@ -176,55 +179,62 @@ This is a special prompt that instructs the language model on how to generate an
 We pass messages to the model in an array. This array can contain as many messages as you like. In our case, it contains the prompt followed by the users code with line numbers.
 
 ```ts
-const disposable = vscode.commands.registerTextEditorCommand('code-tutor.annotate', async (textEditor: vscode.TextEditor) => {
+const disposable = vscode.commands.registerTextEditorCommand(
+  'code-tutor.annotate',
+  async (textEditor: vscode.TextEditor) => {
+    // Get the code with line numbers from the current editor
+    const codeWithLineNumbers = getVisibleCodeWithLineNumbers(textEditor);
 
-  // Get the code with line numbers from the current editor
-  const codeWithLineNumbers = getVisibleCodeWithLineNumbers(textEditor);
+    // select the 4o chat model
+    let [model] = await vscode.lm.selectChatModels({
+      vendor: 'copilot',
+      family: 'gpt-4o',
+    });
 
-  // select the 4o chat model
-  let [model] = await vscode.lm.selectChatModels({
-    vendor: 'copilot',
-    family: 'gpt-4o',
-  });
-
-  // init the chat message
-  const messages = [
-    vscode.LanguageModelChatMessage.User(ANNOTATION_PROMPT),
-    vscode.LanguageModelChatMessage.User(codeWithLineNumbers),
-  ];
-});
+    // init the chat message
+    const messages = [
+      vscode.LanguageModelChatMessage.User(ANNOTATION_PROMPT),
+      vscode.LanguageModelChatMessage.User(codeWithLineNumbers),
+    ];
+  }
+);
 ```
 
 To send the messages to the model, we need to first make sure the selected model is available. This handles cases where the extension is not ready or the user is not signed in to GitHub Copilot. Then we send the messages to the model.
 
 ```ts
-const disposable = vscode.commands.registerTextEditorCommand('code-tutor.annotate', async (textEditor: vscode.TextEditor) => {
+const disposable = vscode.commands.registerTextEditorCommand(
+  'code-tutor.annotate',
+  async (textEditor: vscode.TextEditor) => {
+    // Get the code with line numbers from the current editor
+    const codeWithLineNumbers = getVisibleCodeWithLineNumbers(textEditor);
 
-  // Get the code with line numbers from the current editor
-  const codeWithLineNumbers = getVisibleCodeWithLineNumbers(textEditor);
+    // select the 4o chat model
+    let [model] = await vscode.lm.selectChatModels({
+      vendor: 'copilot',
+      family: 'gpt-4o',
+    });
 
-  // select the 4o chat model
-  let [model] = await vscode.lm.selectChatModels({
-    vendor: 'copilot',
-    family: 'gpt-4o',
-  });
+    // init the chat message
+    const messages = [
+      vscode.LanguageModelChatMessage.User(ANNOTATION_PROMPT),
+      vscode.LanguageModelChatMessage.User(codeWithLineNumbers),
+    ];
 
-  // init the chat message
-  const messages = [
-    vscode.LanguageModelChatMessage.User(ANNOTATION_PROMPT),
-    vscode.LanguageModelChatMessage.User(codeWithLineNumbers),
-  ];
+    // make sure the model is available
+    if (model) {
+      // send the messages array to the model and get the response
+      let chatResponse = await model.sendRequest(
+        messages,
+        {},
+        new vscode.CancellationTokenSource().token
+      );
 
-  // make sure the model is available
-  if (model) {
-
-    // send the messages array to the model and get the response
-    let chatResponse = await model.sendRequest(messages, {}, new vscode.CancellationTokenSource().token);
-
-    // handle chat response
-    await parseChatResponse(chatResponse, textEditor);
+      // handle chat response
+      await parseChatResponse(chatResponse, textEditor);
+    }
   }
-});
+);
 ```
 
 Chat responses come in as fragments. These fragments usually contain single words, but sometimes they contain just punctuation. In order to display annotations as the response streams in, we want to wait until we have a complete annotation before we display it. Because of the way we have instructed our model to return its response, we know that when we see a closing `}` we have a complete annotation. We can then parse the annotation and display it in the editor.
@@ -232,25 +242,27 @@ Chat responses come in as fragments. These fragments usually contain single word
 Add the missing `parseChatResponse` function above the `getVisibleCodeWithLineNumbers` method in the `extension.ts` file.
 
 ```ts
-async function parseChatResponse(chatResponse: vscode.LanguageModelChatResponse, textEditor: vscode.TextEditor) {
- let accumulatedResponse = "";
+async function parseChatResponse(
+  chatResponse: vscode.LanguageModelChatResponse,
+  textEditor: vscode.TextEditor
+) {
+  let accumulatedResponse = '';
 
- for await (const fragment of chatResponse.text) {
-  accumulatedResponse += fragment;
+  for await (const fragment of chatResponse.text) {
+    accumulatedResponse += fragment;
 
-  // if the fragment is a }, we can try to parse the whole line
-  if (fragment.includes("}")) {
-   try {
-    const annotation = JSON.parse(accumulatedResponse);
-    applyDecoration(textEditor, annotation.line, annotation.suggestion);
-    // reset the accumulator for the next line
-    accumulatedResponse = "";
-   }
-   catch (e) {
-    // do nothing
-   }
+    // if the fragment is a }, we can try to parse the whole line
+    if (fragment.includes('}')) {
+      try {
+        const annotation = JSON.parse(accumulatedResponse);
+        applyDecoration(textEditor, annotation.line, annotation.suggestion);
+        // reset the accumulator for the next line
+        accumulatedResponse = '';
+      } catch (e) {
+        // do nothing
+      }
+    }
   }
- }
 }
 ```
 
@@ -258,26 +270,23 @@ We need one last method to actually display the annotations. VS Code calls these
 
 ```ts
 function applyDecoration(editor: vscode.TextEditor, line: number, suggestion: string) {
+  const decorationType = vscode.window.createTextEditorDecorationType({
+    after: {
+      contentText: ` ${suggestion.substring(0, 25) + '...'}`,
+      color: 'grey',
+    },
+  });
 
- const decorationType = vscode.window.createTextEditorDecorationType({
-  after: {
-   contentText: ` ${suggestion.substring(0, 25) + "..."}`,
-   color: "grey",
-  },
- });
+  // get the end of the line with the specified line number
+  const lineLength = editor.document.lineAt(line - 1).text.length;
+  const range = new vscode.Range(
+    new vscode.Position(line - 1, lineLength),
+    new vscode.Position(line - 1, lineLength)
+  );
 
- // get the end of the line with the specified line number
- const lineLength = editor.document.lineAt(line - 1).text.length;
- const range = new vscode.Range(
-  new vscode.Position(line - 1, lineLength),
-  new vscode.Position(line - 1, lineLength),
- );
+  const decoration = { range: range, hoverMessage: suggestion };
 
- const decoration = { range: range, hoverMessage: suggestion };
-
- vscode.window.activeTextEditor?.setDecorations(decorationType, [
-  decoration,
- ]);
+  vscode.window.activeTextEditor?.setDecorations(decorationType, [decoration]);
 }
 ```
 
@@ -287,7 +296,7 @@ We are then setting where the decoration should appear. We need it to be on the 
 
 Finally, we set the decoration on the active text editor which is what causes the annotation to appear in the editor.
 
-If your extension is still running, restart it by selecting the green arrow from the debug bar. If you closed the debug session, press `kbstyle(F5)` to run the extension. Open a code file in the new VS Code window instance that opens. When you select "Toggle Tutor Annotations" from the Command Palette, you should see the code annotations appear in the editor.
+If your extension is still running, restart it by selecting the green arrow from the debug bar. If you closed the debug session, press `F5` to run the extension. Open a code file in the new VS Code window instance that opens. When you select "Toggle Tutor Annotations" from the Command Palette, you should see the code annotations appear in the editor.
 
 ![A code file with annotations from GitHub Copilot](./images/lm-api/code-with-annotations.png)
 
@@ -319,7 +328,7 @@ To do this, modify the "contributes" portion of the `package.json` as follows:
 
 This causes a button to appear in the navigation area (right-side) of the editor title bar. The "icon" comes from the [Product Icon Reference](https://code.visualstudio.com/api/references/icons-in-labels).
 
-Restart your extension with the green arrow or press `kbstyle(F5)` if the extension is not already running. You should now see a comment icon that will trigger the "Toggle Tutor Annotations" command.
+Restart your extension with the green arrow or press `F5` if the extension is not already running. You should now see a comment icon that will trigger the "Toggle Tutor Annotations" command.
 
 ![A comment icon appears in the title bar of the active tab in VS Code](./images/lm-api/code-tutor-annotations-gif.gif)
 

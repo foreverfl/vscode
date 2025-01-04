@@ -84,7 +84,7 @@ To try Mock Debug:
 - Create a file `readme.md` and enter several lines of arbitrary text.
 - Switch to the Run and Debug view (`kb(workbench.view.debug)`) and select the **create a launch.json file** link.
 - VS Code will let you select an "debugger" in order to create a default launch configuration. Pick "Mock Debug".
-- Press the green **Start** button and then `kbstyle(Enter)` to confirm the suggested file `readme.md`.
+- Press the green **Start** button and then `Enter` to confirm the suggested file `readme.md`.
 
 A debug session starts and you can "step" through the readme file, set and hit breakpoints, and run into exceptions (if the word `exception` appears in a line).
 
@@ -312,10 +312,10 @@ The implementation of a command lives in the extension and it can range from a s
 Mock Debug binds a variable `AskForProgramName` to the command `extension.mock-debug.getProgramName`. The [implementation](https://github.com/microsoft/vscode-mock-debug/blob/606454ff3bd669867a38d9b2dc7b348d324a3f6b/src/extension.ts#L21-L26) of this command in `src/extension.ts` uses the `showInputBox` to let the user enter a program name:
 
 ```ts
-vscode.commands.registerCommand('extension.mock-debug.getProgramName', config => {
+vscode.commands.registerCommand('extension.mock-debug.getProgramName', (config) => {
   return vscode.window.showInputBox({
     placeHolder: 'Please enter the name of a markdown file in the workspace folder',
-    value: 'readme.md'
+    value: 'readme.md',
   });
 });
 ```
@@ -371,6 +371,6 @@ Today VS Code supports three different ways for running a debug adapter and cons
 - `DebugAdapterServer`: this object describes a debug adapter running as a server that communicates via a specific local or remote port. A debug adapter implementation based on the [`vscode-debugadapter`](https://www.npmjs.com/package/vscode-debugadapter) npm module supports this server mode automatically.
 - `DebugAdapterInlineImplementation`: this object describes a debug adapter as a JavaScript or Typescript object that implements the `vscode.DebugAdapter` interface. A debug adapter implementation based on version 1.38-pre.4 or later of the [`vscode-debugadapter`](https://www.npmjs.com/package/vscode-debugadapter) npm module implements the interface automatically.
 
-Mock Debug shows examples for the [three types of DebugAdapterDescriptorFactories](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L91-L150)  and how they are [registered for the 'mock' debug type](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L50). The run mode to use can be selected by [setting the global variable `runMode`](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L16) to one of the possible values `external`, `server`, or `inline`.
+Mock Debug shows examples for the [three types of DebugAdapterDescriptorFactories](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L91-L150) and how they are [registered for the 'mock' debug type](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L50). The run mode to use can be selected by [setting the global variable `runMode`](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L16) to one of the possible values `external`, `server`, or `inline`.
 
 For development, the `inline` and `server` modes are particularly useful because they allow for debugging extension and debug adapter within a single process.

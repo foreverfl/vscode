@@ -7,6 +7,7 @@ PageTitle: Language Support in Visual Studio Code
 DateApproved: 12/11/2024
 MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
+
 # Programming Languages
 
 ## Hundreds of programming languages supported
@@ -19,7 +20,7 @@ Here are eight of the most popular language extensions:
 
 Go to the [Marketplace](https://marketplace.visualstudio.com/vscode) or use the integrated [Extensions view](/docs/editor/extension-marketplace.md) and search for your desired programming language to find snippets, code completion/IntelliSense providers, linters, debuggers, and more.
 
->**Note**: If you want to change the display language of VS Code (for example, to Chinese), see the [Display Language](/docs/getstarted/locales.md) topic.
+> **Note**: If you want to change the display language of VS Code (for example, to Chinese), see the [Display Language](/docs/getstarted/locales.md) topic.
 
 ## Language specific documentation
 
@@ -32,12 +33,12 @@ Click on any linked item to get an overview of how to use VS Code in the context
 
 The richness of support varies across the different languages and their extensions:
 
-* Syntax highlighting and bracket matching
-* Smart completions (IntelliSense, Artificial Intelligence with [GitHub Copilot](/docs/editor/github-copilot.md))
-* Linting and corrections
-* Code navigation (Go to Definition, Find All References)
-* Debugging
-* Refactoring
+- Syntax highlighting and bracket matching
+- Smart completions (IntelliSense, Artificial Intelligence with [GitHub Copilot](/docs/editor/github-copilot.md))
+- Linting and corrections
+- Code navigation (Go to Definition, Find All References)
+- Debugging
+- Refactoring
 
 ## Enhance completions with AI
 
@@ -71,7 +72,7 @@ You can find a list of known identifiers in the [language identifier reference](
 
 ## Add a file extension to a language
 
-You can add new file extensions to an existing language with the `setting(files.associations)` [setting](/docs/getstarted/settings.md).
+You can add new file extensions to an existing language with the `files.associations` [setting](/docs/getstarted/settings.md).
 
 For example, the setting below adds the `.myphp` file extension to the `php` language identifier:
 
@@ -89,8 +90,8 @@ IntelliSense (`kb(editor.action.triggerSuggest)`) will show you the available la
 
 Now you know that VS Code has support for the languages you care about. Read on...
 
-* [Code Navigation](/docs/editor/editingevolved.md) - Peek and Go to Definition and more
-* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
+- [Code Navigation](/docs/editor/editingevolved.md) - Peek and Go to Definition and more
+- [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
 
 ## Common questions
 
@@ -104,7 +105,7 @@ Yes, you can also add support for your favorite language through TextMate colori
 
 ### Can I map additional file extensions to a language?
 
-Yes, with the `setting(files.associations)` [setting](/docs/getstarted/settings.md) you can map file extensions to an existing language either globally or per workspace.
+Yes, with the `files.associations` [setting](/docs/getstarted/settings.md) you can map file extensions to an existing language either globally or per workspace.
 
 Here is an example that will associate more file extensions to the PHP language:
 
@@ -127,7 +128,7 @@ Note that the pattern is a [glob pattern](/docs/editor/glob-patterns.md) that wi
 
 ### How do I set the default language for new files?
 
-Using the `setting(files.defaultLanguage)` [setting](/docs/getstarted/settings.md), you can map all new files to a default language. Whenever a new blank file is opened, the editor will be configured for that language mode.
+Using the `files.defaultLanguage` [setting](/docs/getstarted/settings.md), you can map all new files to a default language. Whenever a new blank file is opened, the editor will be configured for that language mode.
 
 This example will associate new files with the HTML language:
 

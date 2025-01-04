@@ -10,9 +10,9 @@ MetaDescription: Manage C# projects in Visual Studio Code
 
 # Project management
 
-When you create a C# application in Visual Studio Code, you start with a **project**. A project contains all files (such as source code, images, etc.) that are compiled into an executable, library, or website.  All of your related projects can then be stored in a container called a **solution**.  This article shows you how you can maintain all your projects and their respective files via the **Solution Explorer** view.
+When you create a C# application in Visual Studio Code, you start with a **project**. A project contains all files (such as source code, images, etc.) that are compiled into an executable, library, or website. All of your related projects can then be stored in a container called a **solution**. This article shows you how you can maintain all your projects and their respective files via the **Solution Explorer** view.
 
->**Note**: The [C# Dev Kit extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) is required to use the Solution Explorer view in VS Code.
+> **Note**: The [C# Dev Kit extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) is required to use the Solution Explorer view in VS Code.
 
 ## Solution Explorer
 
@@ -34,7 +34,7 @@ When you have a solution loaded in the Solution Explorer and you would like to c
 
 ![Close solution context menu](images/project-management/close-solution-context-menu.png)
 
-You can also invoke this command in the Command Palette. You can open the Command Palette with `kb(workbench.action.showCommands)`. This is shown in the following image.
+You can also invoke this command in the Command Palette. You can open the Command Palette with `Ctrl+Shift+P`. This is shown in the following image.
 
 ![Close solution from the Command Palette](images/project-management/close-solution-command-palette.png)
 

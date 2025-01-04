@@ -95,7 +95,7 @@ Contributes new themable colors. These colors can be used by the extension in ed
           "dark": "errorForeground",
           "light": "errorForeground",
           "highContrast": "#010203",
-          "highContrastLight": "#feedc3",
+          "highContrastLight": "#feedc3"
         }
       }
     ]
@@ -108,12 +108,12 @@ Color default values can be defined for light, dark and high contrast theme and 
 Extensions can consume new and existing theme colors with the `ThemeColor` API:
 
 ```ts
-const errorColor = new vscode.ThemeColor("superstatus.error");
+const errorColor = new vscode.ThemeColor('superstatus.error');
 ```
 
 ## contributes.commands
 
-Contribute the UI for a command consisting of a title and (optionally) an icon, category, and enabled state. Enablement is expressed with [when clauses](/api/references/when-clause-contexts). By default, commands show in the **Command Palette** (`kb(workbench.action.showCommands)`) but they can also show in other [menus](/api/references/contribution-points#contributes.menus).
+Contribute the UI for a command consisting of a title and (optionally) an icon, category, and enabled state. Enablement is expressed with [when clauses](/api/references/when-clause-contexts). By default, commands show in the **Command Palette** (`Ctrl+Shift+P`) but they can also show in other [menus](/api/references/contribution-points#contributes.menus).
 
 Presentation of contributed commands depends on the containing menu. The **Command Palette**, for
 instance, prefixes commands with their `category`, allowing for easy grouping. However, the
@@ -325,7 +325,11 @@ Example:
   "settingsEditorTestExtension.enumSetting": {
     "type": "string",
     "enum": ["first", "second", "third"],
-    "markdownEnumDescriptions": ["The *first* enum", "The *second* enum", "The *third* enum"],
+    "markdownEnumDescriptions": [
+      "The *first* enum",
+      "The *second* enum",
+      "The *third* enum"
+    ],
     "enumItemLabels": ["1st", "2nd", "3rd"],
     "default": "first",
     "description": "Example setting with an enum"
@@ -408,21 +412,12 @@ Below are example configuration scopes from the built-in Git extension:
           "description": "%config.ignoredRepositories%"
         },
         "git.autofetch": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "enum": [
-            true,
-            false,
-            "all"
-          ],
+          "type": ["boolean", "string"],
+          "enum": [true, false, "all"],
           "scope": "resource",
           "markdownDescription": "%config.autofetch%",
           "default": false,
-          "tags": [
-            "usesOnlineServices"
-          ]
+          "tags": ["usesOnlineServices"]
         }
       }
     }
@@ -434,7 +429,7 @@ You can see that `git.alwaysSignOff` has `resource` scope and can be set per use
 
 #### Linking to settings
 
-You can insert a link to another setting, which will be rendered as a clickable link in the settings UI, by using this special syntax in the markdown-type properties: ``` `#target.setting.id#` ```. This will work in `markdownDescription`, `markdownEnumDescriptions`, and `markdownDeprecationMessage`. Example:
+You can insert a link to another setting, which will be rendered as a clickable link in the settings UI, by using this special syntax in the markdown-type properties: `` `#target.setting.id#` ``. This will work in `markdownDescription`, `markdownEnumDescriptions`, and `markdownDeprecationMessage`. Example:
 
 ```json
   "files.autoSaveDelay": {
@@ -468,9 +463,9 @@ You can also contribute default editor configurations for the provided language.
       "[markdown]": {
         "editor.wordWrap": "on",
         "editor.quickSuggestions": {
-                "comments": "off",
-                "strings": "off",
-                "other": "off"
+          "comments": "off",
+          "strings": "off",
+          "other": "off"
         }
       }
     }
@@ -505,21 +500,21 @@ Here's a basic `customEditor` contribution for the [custom editor extension samp
 
 - `viewType` - Unique identifier for your custom editor.
 
-    This is how VS Code ties a custom editor contribution in the `package.json` to your custom editor implementation in code. This must be unique across all extensions, so instead of a generic `viewType` such as `"preview"` make sure to use one that is unique to your extension, for example `"viewType": "myAmazingExtension.svgPreview"`.
+  This is how VS Code ties a custom editor contribution in the `package.json` to your custom editor implementation in code. This must be unique across all extensions, so instead of a generic `viewType` such as `"preview"` make sure to use one that is unique to your extension, for example `"viewType": "myAmazingExtension.svgPreview"`.
 
 - `displayName` - Name that identifies the custom editor in VS Code's UI.
 
-    The display name is shown to the user in VS Code UI such as the **View: Reopen with** dropdown.
+  The display name is shown to the user in VS Code UI such as the **View: Reopen with** dropdown.
 
 - `selector` - Specifies which files a custom editor is active for.
 
-    The `selector` is an array of one or more [glob patterns](/docs/editor/glob-patterns). These glob patterns are matched against file names to determine if the custom editor can be used for them. A `filenamePattern` such as `*.png` will enable the custom editor for all PNG files.
+  The `selector` is an array of one or more [glob patterns](/docs/editor/glob-patterns). These glob patterns are matched against file names to determine if the custom editor can be used for them. A `filenamePattern` such as `*.png` will enable the custom editor for all PNG files.
 
-    You can also create more specific patterns that match on file or directory names, for example `**/translations/*.json`.
+  You can also create more specific patterns that match on file or directory names, for example `**/translations/*.json`.
 
 - `priority` - (optional) Specifies when the custom editor is used.
 
-    `priority` controls when a custom editor is used when a resource is open. Possible values are:
+  `priority` controls when a custom editor is used when a resource is open. Possible values are:
 
   - `"default"` - Try to use the custom editor for every file that matches the custom editor's `selector`. If there are multiple custom editors for a given file, the user will have to select which custom editor they want to use.
   - `"option"` - Do not use the custom editor by default but allow users to switch to it or configure it as their default.
@@ -711,7 +706,7 @@ Contributing a key binding will cause the Default Keyboard Shortcuts to display 
 
 ### keybinding example
 
-Defining that `kbstyle(Ctrl+F1)` under Windows and Linux and `kbstyle(Cmd+F1)` under macOS trigger the `"extension.sayHello"` command:
+Defining that `Ctrl+F1` under Windows and Linux and `Cmd+F1` under macOS trigger the `"extension.sayHello"` command:
 
 ```json
 {
@@ -771,7 +766,7 @@ Contribute a menu item for a command to the editor or Explorer. The menu item de
 
 A `command` property indicates which command to run when selecting a menu item. A `submenu` property indicates which submenu to render in this location.
 
-When declaring a `command` menu item, an alternative command can also be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while opening a menu. On Windows and Linux `kbstyle(Shift)` also does this, which is useful in situations where `kbstyle(Alt)` would trigger the window menu bar.
+When declaring a `command` menu item, an alternative command can also be defined using the `alt`-property. It will be shown and invoked when pressing `Alt` while opening a menu. On Windows and Linux `Shift` also does this, which is useful in situations where `Alt` would trigger the window menu bar.
 
 Last, a `group` property defines sorting and grouping of menu items. The `navigation` group is special as it will always be sorted to the top/beginning of a menu.
 
@@ -795,7 +790,7 @@ Currently extension writers can contribute to:
 - `editor/title/run` - Run submenu on the editor title menu bar
 - `explorer/context` - Explorer view context menu
 - `extension/context` - Extensions view context menu
-- `file/newFile`  - New File item in the File menu and Welcome page
+- `file/newFile` - New File item in the File menu and Welcome page
 - `interactive/toolbar` - Interactive Window toolbar
 - `interactive/cell/title` - Interactive Window cell title menu bar
 - `notebook/toolbar` - notebook toolbar
@@ -890,7 +885,7 @@ Here's a submenu menu item:
 
 ### Context specific visibility of Command Palette menu items
 
-When registering commands in `package.json`, they will automatically be shown in the **Command Palette** (`kb(workbench.action.showCommands)`). To allow more control over command visibility, there is the `commandPalette` menu item. It allows you to define a `when` condition to control if a command should be visible in the **Command Palette** or not.
+When registering commands in `package.json`, they will automatically be shown in the **Command Palette** (`Ctrl+Shift+P`). To allow more control over command visibility, there is the `commandPalette` menu item. It allows you to define a `when` condition to control if a command should be visible in the **Command Palette** or not.
 
 The snippet below makes the 'Hello World' command only visible in the **Command Palette** when something is selected in the editor:
 
@@ -1236,9 +1231,7 @@ Contribute a terminal profile to VS Code, allowing extensions to handle the crea
 
 ```json
 {
-  "activationEvents": [
-    "onTerminalProfile:my-ext.terminal-profile"
-  ],
+  "activationEvents": ["onTerminalProfile:my-ext.terminal-profile"],
   "contributes": {
     "terminal": {
       "profiles": [
@@ -1247,7 +1240,7 @@ Contribute a terminal profile to VS Code, allowing extensions to handle the crea
           "id": "my-ext.terminal-profile"
         }
       ]
-    },
+    }
   }
 }
 ```
@@ -1256,9 +1249,11 @@ When defined, the profile will show up in the terminal profile selector. When ac
 
 ```ts
 vscode.window.registerTerminalProfileProvider('my-ext.terminal-profile', {
-  provideTerminalProfile(token: vscode.CancellationToken): vscode.ProviderResult<vscode.TerminalOptions | vscode.ExtensionTerminalOptions> {
+  provideTerminalProfile(
+    token: vscode.CancellationToken
+  ): vscode.ProviderResult<vscode.TerminalOptions | vscode.ExtensionTerminalOptions> {
     return { name: 'Profile from extension', shellPath: 'bash' };
-  }
+  },
 });
 ```
 
@@ -1357,7 +1352,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
   // Configure the 'my-typescript-plugin-id' plugin
   api.configurePlugin('my-typescript-plugin-id', {
-    someValue: process.env['SOME_VALUE']
+    someValue: process.env['SOME_VALUE'],
   });
 }
 ```
@@ -1376,7 +1371,7 @@ export = function init({ typescript }: { typescript: typeof ts_module }) {
     },
     onConfigurationChanged(config: any) {
       // Receive configuration changes sent from VS Code
-    }
+    },
   };
 };
 ```
@@ -1497,7 +1492,7 @@ Contribute walkthroughs to appear on the Getting Started page. Walkthroughs are 
 
 Walkthroughs consist of a title, description, id, and a series of steps. Additionally, a `when` condition can be set to hide or show the walkthrough based on context keys. For example, a walkthrough to explain setup on a Linux platform could be given `when: "isLinux"` to only appear on Linux machines.
 
-Each step in a walkthrough has a title, description, id, and media element (either an image or Markdown content), along with an optional set of events that will cause the step to be checked (shown in the example below). Step descriptions are Markdown content, and support `**bold**`, `__underlined__`, and ``` ``code`` ``` rendering, as well as links. Similar to walkthroughs, steps can be given when conditions to hide or show them based on context keys.
+Each step in a walkthrough has a title, description, id, and media element (either an image or Markdown content), along with an optional set of events that will cause the step to be checked (shown in the example below). Step descriptions are Markdown content, and support `**bold**`, `__underlined__`, and ` ``code`` ` rendering, as well as links. Similar to walkthroughs, steps can be given when conditions to hide or show them based on context keys.
 
 SVGs are recommended for images given their ability to scale and their support for VS Code's theme colors. Use the [Visual Studio Code Color Mapper](https://www.figma.com/community/plugin/1218260433851630449) Figma plugin to easily reference theme colors in the SVGs.
 

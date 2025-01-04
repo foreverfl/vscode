@@ -26,7 +26,7 @@ Developing Jupyter notebooks in VS Code can be done entirely through a web-based
 1. Navigate to [https://github.com/codespaces](https://github.com/codespaces).
 2. Under **Explore quick start templates**, select **Use this template** for **Jupyter Notebook**. If you don't see the **Jupyter Notebook** template, select **See all** and search for the template.
 
-    ![Use Codespaces Jupyter Notebook Template](images/notebooks-web/codespaces-jupyter-template.png)
+   ![Use Codespaces Jupyter Notebook Template](images/notebooks-web/codespaces-jupyter-template.png)
 
 3. That's it! A codespace will be created for you to get started!
 
@@ -87,7 +87,7 @@ Since VS Code for the Web runs entirely in your web browser, there are some limi
 
 As with VS Code Desktop, you can easily continue your work from VS Code for the Web ([https://vscode.dev](https://vscode.dev) or [https://github.dev](https://github.dev)) on Codespaces. When you choose to **Continue Working On** in a new codespace, your uncommitted changes will travel with you. To do so:
 
-1. Open the Command Palette (`kb(workbench.action.showCommands)`) and select **Continue Working On...**.
+1. Open the Command Palette (`Ctrl+Shift+P`) and select **Continue Working On...**.
 2. Select **Create New Codespace**.
 
    ![Continue working on](images/notebooks-web/continue-working-on-codespaces.png)
@@ -97,10 +97,10 @@ As with VS Code Desktop, you can easily continue your work from VS Code for the 
 
 You can also manually commit your changes and create a codespace through the **Remote Explorer**:
 
-1. Sign into Codespaces by opening the Command Palette (`kb(workbench.action.showCommands)`) and selecting **Codespaces: Sign in**.
+1. Sign into Codespaces by opening the Command Palette (`Ctrl+Shift+P`) and selecting **Codespaces: Sign in**.
 2. Navigate to the **Remote Explorer** view from the Activity bar.
 
-    ![Remote explorer tab](images/notebooks-web/remote-explorer-tab.png)
+   ![Remote explorer tab](images/notebooks-web/remote-explorer-tab.png)
 
 From the **Remote Explorer** view, you can either connect to an existing codespace or create a new one. This will open up a new window for you to continue working on your project on Codespaces.
 

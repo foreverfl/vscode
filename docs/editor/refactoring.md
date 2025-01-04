@@ -7,9 +7,10 @@ PageTitle: Refactoring source code in Visual Studio Code
 DateApproved: 12/11/2024
 MetaDescription: Refactoring source code in Visual Studio Code.
 ---
+
 # Refactoring
 
-[Source code refactoring](https://en.wikipedia.org/wiki/Code_refactoring) can improve the quality and maintainability of your project by restructuring your code, while not modifying the runtime behavior. Visual Studio Code supports refactoring operations (*refactorings*) such as [Extract Method](https://refactoring.com/catalog/extractMethod.html) and [Extract Variable](https://refactoring.com/catalog/extractVariable.html) to improve your codebase from within the editor.
+[Source code refactoring](https://en.wikipedia.org/wiki/Code_refactoring) can improve the quality and maintainability of your project by restructuring your code, while not modifying the runtime behavior. Visual Studio Code supports refactoring operations (_refactorings_) such as [Extract Method](https://refactoring.com/catalog/extractMethod.html) and [Extract Variable](https://refactoring.com/catalog/extractVariable.html) to improve your codebase from within the editor.
 
 ![refactoring hero image](images/refactoring/refactoring-hero.png)
 
@@ -25,15 +26,15 @@ In VS Code, Code Actions can provide both refactorings and Quick Fixes for detec
 
 If you prefer to only see refactorings without Quick Fixes, then you can use the **Refactor** command (`kb(editor.action.refactor)`).
 
->**Note:** You can completely disable Code Action lightbulbs in the editor with the `editor.lightbulb.enable` [setting](/docs/getstarted/settings.md). You can still open Quick Fixes through **Quick Fix** command and `kb(editor.action.quickFix)` keyboard shortcut.
+> **Note:** You can completely disable Code Action lightbulbs in the editor with the `editor.lightbulb.enable` [setting](/docs/getstarted/settings.md). You can still open Quick Fixes through **Quick Fix** command and `kb(editor.action.quickFix)` keyboard shortcut.
 
 ### Code Actions on save
 
-With the `setting(editor.codeActionsOnSave)` setting, you can configure a set of Code Actions that are automatically applied when you save a file, for example to organize imports. Based on your workspace files and active extensions, IntelliSense provides a list of available Code Actions.
+With the `editor.codeActionsOnSave` setting, you can configure a set of Code Actions that are automatically applied when you save a file, for example to organize imports. Based on your workspace files and active extensions, IntelliSense provides a list of available Code Actions.
 
 ![Screenshot of settings.json, showing IntelliSense suggestions for the editor.codeActionsOnSave setting.](images/refactoring/code-actions-on-save.png)
 
-You can configure one or more Code Actions for `setting(editor.codeActionsOnSave)`. The Code Actions are then run in the order they're listed.
+You can configure one or more Code Actions for `editor.codeActionsOnSave`. The Code Actions are then run in the order they're listed.
 
 The following example shows how to configure multiple Code Actions on save:
 
@@ -47,9 +48,9 @@ The following example shows how to configure multiple Code Actions on save:
 
 The following values are supported for each Code Action:
 
-* `explicit` (default): Triggers Code Actions when explicitly saved
-* `always`: Triggers Code Actions when explicitly saved and on Auto Saves from window or focus changes
-* `never`: Never triggers Code Actions on save
+- `explicit` (default): Triggers Code Actions when explicitly saved
+- `always`: Triggers Code Actions when explicitly saved and on Auto Saves from window or focus changes
+- `never`: Never triggers Code Actions on save
 
 > [!NOTE]
 > Although `true` and `false` are still valid configuration values at the moment, they will be deprecated in favor of `explicit`, `always`, and `never`.
@@ -70,7 +71,7 @@ When working with classes, you can also extract a value to a new property.
 
 ### Rename symbol
 
-Renaming is a common operation related to refactoring source code, and VS Code has a separate **Rename Symbol** command (`kb(editor.action.rename)`). Some languages support renaming a symbol across files. Press `kb(editor.action.rename)`, type the new desired name, and press `kbstyle(Enter)`. All instances of the symbol across all files will be renamed.
+Renaming is a common operation related to refactoring source code, and VS Code has a separate **Rename Symbol** command (`kb(editor.action.rename)`). Some languages support renaming a symbol across files. Press `kb(editor.action.rename)`, type the new desired name, and press `Enter`. All instances of the symbol across all files will be renamed.
 
 ![Rename](images/refactoring/rename.png)
 
@@ -127,9 +128,9 @@ You can also control how and when Code Actions are automatically applied by usin
 
 Valid values for `apply`:
 
-* `first` - Always automatically apply the first available Code Action.
-* `ifSingle` - (Default) Automatically apply the Code Action if only one is available. Otherwise, show the context menu.
-* `never` - Always show the Code Action context menu, even if only a single Code Action is available.
+- `first` - Always automatically apply the first available Code Action.
+- `ifSingle` - (Default) Automatically apply the Code Action if only one is available. Otherwise, show the context menu.
+- `never` - Always show the Code Action context menu, even if only a single Code Action is available.
 
 When a Code Action keybinding is configured with `"preferred": true`, only preferred Quick Fixes and refactorings are shown. A preferred Quick Fix addresses the underlying error, while a preferred refactoring is the most common refactoring choice. For example, while multiple `refactor.extract.constant` refactorings might exist, each extracting to a different scope in the file, the preferred `refactor.extract.constant` refactoring is the one that extracts to a local variable.
 
@@ -149,7 +150,7 @@ This keybinding uses `"preferred": true` to create a refactoring that always tri
 
 ## Extensions with refactorings
 
-You can find extensions that support refactoring by looking in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). You can go to the Extensions view (`kb(workbench.view.extensions)`) and type 'refactor' in the search box. You can then sort by install count or ratings to see which extensions are popular.
+You can find extensions that support refactoring by looking in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). You can go to the Extensions view (`Ctrl+Shift+X`) and type 'refactor' in the search box. You can then sort by install count or ratings to see which extensions are popular.
 
 <div class="marketplace-extensions-refactor"></div>
 
@@ -157,9 +158,9 @@ You can find extensions that support refactoring by looking in the VS Code [Mark
 
 ## Next steps
 
-* [Intro Video - Code Editing](/docs/introvideos/codeediting.md) - Watch an introductory video on code editing features.
-* [Code Navigation](/docs/editor/editingevolved) - VS Code lets you move quickly through your source code.
-* [Debugging](/docs/editor/debugging.md) - Learn about debugging with VS Code.
+- [Intro Video - Code Editing](/docs/introvideos/codeediting.md) - Watch an introductory video on code editing features.
+- [Code Navigation](/docs/editor/editingevolved) - VS Code lets you move quickly through your source code.
+- [Debugging](/docs/editor/debugging.md) - Learn about debugging with VS Code.
 
 ## Common questions
 

@@ -7,6 +7,7 @@ PageTitle: Terminal Profiles in Visual Studio Code
 DateApproved: 12/11/2024
 MetaDescription: Visual Studio Code's integrated terminal allows configuring various profiles to make launching various shells easier.
 ---
+
 # Terminal Profiles
 
 Terminal profiles are platform-specific shell configurations comprised of an executable path, arguments, and other customizations. By default several profiles are automatically detected which can be customized or added to.
@@ -21,9 +22,9 @@ Example profile:
     "Custom Init": {
       "path": "pwsh.exe",
       "args": [
-         "-noexit",
-         "-file",
-         "${env:APPDATA}\\PowerShell\\custom-init.ps1"
+        "-noexit",
+        "-file",
+        "${env:APPDATA}\\PowerShell\\custom-init.ps1"
       ]
     }
   },
@@ -64,12 +65,12 @@ Profiles can be created using either a `path` or a `source`, as well as a set of
 
 Other arguments supported in profiles include:
 
-* `overrideName`: A boolean indicating whether or not to replace the dynamic terminal title that detects what program is running with the static profile name.
-* `env`: A map defining environment variables and their values, set the variable to `null` to delete it from the environment. This can be configured for all profiles using the `terminal.integrated.env.<platform>` setting.
-* `icon`: An icon ID to use for the profile.
-* `color`: A theme color ID to style the icon.
+- `overrideName`: A boolean indicating whether or not to replace the dynamic terminal title that detects what program is running with the static profile name.
+- `env`: A map defining environment variables and their values, set the variable to `null` to delete it from the environment. This can be configured for all profiles using the `terminal.integrated.env.<platform>` setting.
+- `icon`: An icon ID to use for the profile.
+- `color`: A theme color ID to style the icon.
 
->**Tip:** Path, args, and env all support [resolving variables](https://code.visualstudio.com/docs/editor/variables-reference)
+> **Tip:** Path, args, and env all support [resolving variables](https://code.visualstudio.com/docs/editor/variables-reference)
 
 The **default profile** can be defined manually with the `terminal.integrated.defaultProfile.*` settings. This should be set to the name of an existing profile:
 
@@ -85,7 +86,7 @@ The **default profile** can be defined manually with the `terminal.integrated.de
 }
 ```
 
->**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, use platform utilities such as `runas.exe` within a terminal.
+> **Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, use platform utilities such as `runas.exe` within a terminal.
 
 ## Removing built-in profiles
 
@@ -116,7 +117,7 @@ By default, the task/debug features will use the default profile. This may not b
 
 ## Profile-specific keybindings
 
-Launching a terminal with a specific profile via a [dedicated keybinding](https://code.visualstudio.com/docs/getstarted/keybindings#_advanced-customization) can be accomplished with the `workbench.action.terminal.newWithProfile` command. This command takes a profile name and optional location as arguments. For example, to bind `kbstyle(Ctrl+Shift+T)` to open a terminal with the `zsh` profile:
+Launching a terminal with a specific profile via a [dedicated keybinding](https://code.visualstudio.com/docs/getstarted/keybindings#_advanced-customization) can be accomplished with the `workbench.action.terminal.newWithProfile` command. This command takes a profile name and optional location as arguments. For example, to bind `Ctrl+Shift+T` to open a terminal with the `zsh` profile:
 
 ```json
 {
@@ -190,10 +191,7 @@ MSYS2's bash shell can be configured with the following profile:
   "terminal.integrated.profiles.windows": {
     "bash (MSYS2)": {
       "path": "C:\\msys64\\usr\\bin\\bash.exe",
-      "args": [
-        "--login",
-        "-i"
-      ],
+      "args": ["--login", "-i"],
       "env": { "CHERE_INVOKING": "1" }
     }
   }
@@ -210,17 +208,14 @@ When PowerShell 6+ is installed, Windows PowerShell is not included in the profi
 
 ## WSL
 
-When running VS Code on your local machine, Windows Subsystem for Linux shells should be automatically detected. Depending on your setup, this may be a nuisance if you have a lot of distros installed. For finer control over the WSL profiles the automatic detection can be disabled with the `setting(terminal.integrated.useWslProfiles)` setting, then here's an example of how to manually configure a WSL shell:
+When running VS Code on your local machine, Windows Subsystem for Linux shells should be automatically detected. Depending on your setup, this may be a nuisance if you have a lot of distros installed. For finer control over the WSL profiles the automatic detection can be disabled with the `terminal.integrated.useWslProfiles` setting, then here's an example of how to manually configure a WSL shell:
 
 ```jsonc
 {
   "terminal.integrated.profiles.windows": {
     "Debian (WSL)": {
       "path": "C:\\WINDOWS\\System32\\wsl.exe",
-      "args": [
-        "-d",
-        "Debian"
-      ]
+      "args": ["-d", "Debian"]
     }
   }
 }

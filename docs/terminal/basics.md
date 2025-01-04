@@ -7,17 +7,18 @@ PageTitle: Integrated Terminal in Visual Studio Code
 DateApproved: 12/11/2024
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
+
 # Terminal Basics
 
 Visual Studio Code includes a full featured integrated terminal that starts at the root of your workspace. It provides integration with the editor to support features like [links](#links) and [error detection](/docs/editor/tasks.md). The integrated terminal can run commands such as mkdir and git just like a standalone terminal.
 
 You can open a terminal as follows:
 
-* From the menu, use the **Terminal** > **New Terminal** or **View** > **Terminal** menu commands.
-* From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View: Toggle Terminal** command.
-* In the Explorer, you can use the **Open in Integrated Terminal** context menu command to open a new terminal from a folder.
-* To toggle the terminal panel, use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut.
-* To create a new terminal, use the `kb(workbench.action.terminal.new)` keyboard shortcut.
+- From the menu, use the **Terminal** > **New Terminal** or **View** > **Terminal** menu commands.
+- From the **Command Palette** (`Ctrl+Shift+P`), use the **View: Toggle Terminal** command.
+- In the Explorer, you can use the **Open in Integrated Terminal** context menu command to open a new terminal from a folder.
+- To toggle the terminal panel, use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut.
+- To create a new terminal, use the `kb(workbench.action.terminal.new)` keyboard shortcut.
 
 VS Code's terminal has additional functionality called shell integration that tracks where commands are run with decorations on the left of a command and in the scrollbar:
 
@@ -41,7 +42,7 @@ The terminal tabs UI is on the right side of the terminal view. Each terminal ha
 
 Add terminal instances by selecting the **+** icon on the top-right of the **TERMINAL** panel, selecting a profile from the terminal dropdown, or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the tab list associated with that terminal.
 
-Remove terminal instances by hovering a tab and selecting the **Trash Can** button, selecting a tab item and pressing `kbstyle(Delete)`, using **Terminal: Kill the Active Terminal Instance** command, or via the right-click context menu.
+Remove terminal instances by hovering a tab and selecting the **Trash Can** button, selecting a tab item and pressing `Delete`, using **Terminal: Kill the Active Terminal Instance** command, or via the right-click context menu.
 
 Navigate between terminal groups using focus next `kb(workbench.action.terminal.focusNext)` and focus previous `kb(workbench.action.terminal.focusPrevious)`.
 
@@ -51,12 +52,12 @@ Icons may appear to the right of the terminal title on the tab label when a term
 
 Place multiple terminals side-by-side and create a group by splitting a terminal:
 
-* Hover over a entry in the list of terminals on the right and select the inline split button.
-* Right-click the context menu and selecting the **Split** menu option.
-* `kbstyle(Alt)` and click on a tab, the **+** button, or the single tab on the terminal panel.
-* Trigger the `kb(workbench.action.terminal.split)` command.
+- Hover over a entry in the list of terminals on the right and select the inline split button.
+- Right-click the context menu and selecting the **Split** menu option.
+- `Alt` and click on a tab, the **+** button, or the single tab on the terminal panel.
+- Trigger the `kb(workbench.action.terminal.split)` command.
 
-> **Tip:** The working directory for the new terminal depends on the `setting(terminal.integrated.splitCwd)` [setting](/docs/getstarted/settings.md).
+> **Tip:** The working directory for the new terminal depends on the `terminal.integrated.splitCwd` [setting](/docs/getstarted/settings.md).
 
 Navigate between terminals in a group by focusing the previous pane, `kb(workbench.action.terminal.focusPreviousPane)`, or the next pane, `kb(workbench.action.terminal.focusNextPane)`.
 
@@ -74,47 +75,47 @@ You can have terminal editors on either side or arranged in multiple dimensions 
 
 ![Terminal editors are can be laid out using the editor group layout system, for example 2 terminals could sit to the right of a text editor](images/basics/terminal-editor-grid.png)
 
-The `setting(terminal.integrated.defaultLocation)` setting can change the default `view` or `editor` area terminal location.
+The `terminal.integrated.defaultLocation` setting can change the default `view` or `editor` area terminal location.
 
 ## Navigating the buffer
 
-The content in the terminal is called the buffer, with the section right above the bottom viewport being called "scrollback". The amount of scrollback kept is determined by the `setting(terminal.integrated.scrollback)` [setting](/docs/getstarted/settings.md) and defaults to `1000` lines.
+The content in the terminal is called the buffer, with the section right above the bottom viewport being called "scrollback". The amount of scrollback kept is determined by the `terminal.integrated.scrollback` [setting](/docs/getstarted/settings.md) and defaults to `1000` lines.
 
 There are various commands available to navigate around the terminal buffer:
 
-* Scroll up a line - `kb(workbench.action.terminal.scrollUp)`
-* Scroll down a line - `kb(workbench.action.terminal.scrollDown)`
-* Scroll up a page - `kb(workbench.action.terminal.scrollUpPage)`
-* Scroll down a page - `kb(workbench.action.terminal.scrollDownPage)`
-* Scroll to the top - `kb(workbench.action.terminal.scrollToTop)`
-* Scroll to the bottom - `kb(workbench.action.terminal.scrollToBottom)`
+- Scroll up a line - `kb(workbench.action.terminal.scrollUp)`
+- Scroll down a line - `kb(workbench.action.terminal.scrollDown)`
+- Scroll up a page - `kb(workbench.action.terminal.scrollUpPage)`
+- Scroll down a page - `kb(workbench.action.terminal.scrollDownPage)`
+- Scroll to the top - `kb(workbench.action.terminal.scrollToTop)`
+- Scroll to the bottom - `kb(workbench.action.terminal.scrollToBottom)`
 
 **Command** navigation is also available (see [shell integration](/docs/terminal/shell-integration.md)):
 
-* Scroll to the previous command - `kb(workbench.action.terminal.scrollToPreviousCommand)`
-* Scroll to the next command - `kb(workbench.action.terminal.scrollToNextCommand)`
+- Scroll to the previous command - `kb(workbench.action.terminal.scrollToPreviousCommand)`
+- Scroll to the next command - `kb(workbench.action.terminal.scrollToNextCommand)`
 
-Scrolling will happen instantaneously, but can be configured to animate over a short duration with the `setting(terminal.integrated.smoothScrolling)` setting.
+Scrolling will happen instantaneously, but can be configured to animate over a short duration with the `terminal.integrated.smoothScrolling` setting.
 
 ## Links
 
-The terminal features sophisticated link detection with editor integration and even extension contributed link handlers. Hover over a link to display an underline, then hold the `kbstyle(Ctrl)`/`kbstyle(Cmd)` key and click.
+The terminal features sophisticated link detection with editor integration and even extension contributed link handlers. Hover over a link to display an underline, then hold the `Ctrl`/`Cmd` key and click.
 
 These built-in link handlers are used in the following priority order:
 
-* URIs/URLs: Links that look like URIs, such as `https://code.visualstudio.com`, `vscode://path/to/file` or `file://path/to/file` will open using the standard handler for the protocol. For example, `https` links will open the browser.
+- URIs/URLs: Links that look like URIs, such as `https://code.visualstudio.com`, `vscode://path/to/file` or `file://path/to/file` will open using the standard handler for the protocol. For example, `https` links will open the browser.
 
   ![Opening a URI link will open it in the system browser](images/basics/link-uri.png)
 
-* File links: Links to files that have been verified to exist on the system. These will open the file in a new editor tab and support many common line/column formats such as `file:1:2`, `file:line 1, column 2`.
+- File links: Links to files that have been verified to exist on the system. These will open the file in a new editor tab and support many common line/column formats such as `file:1:2`, `file:line 1, column 2`.
 
   ![Activating a file link will open it in an editor](images/basics/link-file.png)
 
-* Folder links: Links to folders are similar to file links but will open a new VS Code window at the folder.
+- Folder links: Links to folders are similar to file links but will open a new VS Code window at the folder.
 
   ![Activating a folder link will open it in a new window](images/basics/link-folder.png)
 
-* Word links: Fallback link type that uses the `setting(terminal.integrated.wordSeparators)` setting. The setting defines word boundaries and make nearly all text into words. Activating a word link searches the workspace for the word. If there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless you hold the `kbstyle(Ctrl)`/`kbstyle(Cmd)` key. They also have limited support for line and column suffixes.
+- Word links: Fallback link type that uses the `terminal.integrated.wordSeparators` setting. The setting defines word boundaries and make nearly all text into words. Activating a word link searches the workspace for the word. If there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless you hold the `Ctrl`/`Cmd` key. They also have limited support for line and column suffixes.
 
   ![Activating a word link 'terminal:15' will open a Quick Pick searching the workspace for all files containing 'terminal', choosing an option will open the file at line 15](images/basics/link-word.png)
 
@@ -122,7 +123,7 @@ The **Open Detected Link** command (`kb(workbench.action.terminal.openDetectedLi
 
 ![Open Detected Link opens a quick pick with all links in the viewport, split into categories](images/basics/link-open-detected.png)
 
-> **Tip:** If link verification causes performance issues, like in high latency remote environments, disable it via the `setting(terminal.integrated.enableFileLinks)` [setting](/docs/getstarted/settings.md).
+> **Tip:** If link verification causes performance issues, like in high latency remote environments, disable it via the `terminal.integrated.enableFileLinks` [setting](/docs/getstarted/settings.md).
 
 ### Extensions handling links
 
@@ -134,21 +135,21 @@ Extensions can contribute **link providers** which allow the extension to define
 
 Links are keyboard accessible through several commands that open links based on the type of link.
 
-* **Terminal: Open Last Local File Link** - Opens the most recent local file link. No default keybinding.
-* **Terminal: Open Last URL link** - Opens the most recent URI/URL link. No default keybinding.
-* **Terminal: Open Detected Link...** - Opens a searchable Quick Pick with all detected links, including word links. The default keybinding is `kbstyle(Ctrl/Cmd+Shift+O)`, which is the same as the **Go to Symbol in Editor** keyboard shortcut.
+- **Terminal: Open Last Local File Link** - Opens the most recent local file link. No default keybinding.
+- **Terminal: Open Last URL link** - Opens the most recent URI/URL link. No default keybinding.
+- **Terminal: Open Detected Link...** - Opens a searchable Quick Pick with all detected links, including word links. The default keybinding is `Ctrl/Cmd+Shift+O`, which is the same as the **Go to Symbol in Editor** keyboard shortcut.
 
 ## Copy & paste
 
 The keybindings for copy and paste follow platform standards:
 
-* Linux: `kbstyle(Ctrl+Shift+C)` and `kbstyle(Ctrl+Shift+V)`; selection paste is available with `kbstyle(Shift+Insert)`
-* macOS: `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)`
-* Windows: `kbstyle(Ctrl+C)` and `kbstyle(Ctrl+V)`
+- Linux: `Ctrl+Shift+C` and `Ctrl+Shift+V`; selection paste is available with `Shift+Insert`
+- macOS: `Cmd+C` and `Cmd+V`
+- Windows: `Ctrl+C` and `Ctrl+V`
 
-Copying is done automatically on selection when `setting(terminal.integrated.copyOnSelection)` is enabled.
+Copying is done automatically on selection when `terminal.integrated.copyOnSelection` is enabled.
 
-By default, there is a warning when pasting multiple lines, which can be disabled with the `setting(terminal.integrated.enableMultiLinePasteWarning)` setting. This is only done when the shell does not support "bracketed paste mode". When that mode is enabled, the shell is indicating that it can handle multiple line pasting.
+By default, there is a warning when pasting multiple lines, which can be disabled with the `terminal.integrated.enableMultiLinePasteWarning` setting. This is only done when the shell does not support "bracketed paste mode". When that mode is enabled, the shell is indicating that it can handle multiple line pasting.
 
 ## Using the mouse
 
@@ -156,25 +157,25 @@ By default, there is a warning when pasting multiple lines, which can be disable
 
 The right-click behavior differs based on the platform:
 
-* Linux: Show the context menu.
-* macOS: Select the word under the cursor and show the context menu.
-* Windows: Copy and drop selection if there is a selection, otherwise paste.
+- Linux: Show the context menu.
+- macOS: Select the word under the cursor and show the context menu.
+- Windows: Copy and drop selection if there is a selection, otherwise paste.
 
-This can be configured using the `setting(terminal.integrated.rightClickBehavior)` setting. The options are:
+This can be configured using the `terminal.integrated.rightClickBehavior` setting. The options are:
 
-* `default` - Show the context menu.
-* `copyPaste` - Copy when there is a selection, otherwise paste.
-* `paste` - Paste on right-click.
-* `selectWord` - Select the word under the cursor and show the context menu.
-* `nothing` - Do nothing and pass event to terminal.
+- `default` - Show the context menu.
+- `copyPaste` - Copy when there is a selection, otherwise paste.
+- `paste` - Paste on right-click.
+- `selectWord` - Select the word under the cursor and show the context menu.
+- `nothing` - Do nothing and pass event to terminal.
 
 ### Reposition the cursor with Alt
 
-`kbstyle(Alt)` and left-click will reposition the cursor to underneath the mouse. This works by simulating arrow keystrokes, which may not work reliably for some shells or programs. This feature can be disabled with the `setting(terminal.integrated.altClickMovesCursor)` setting.
+`Alt` and left-click will reposition the cursor to underneath the mouse. This works by simulating arrow keystrokes, which may not work reliably for some shells or programs. This feature can be disabled with the `terminal.integrated.altClickMovesCursor` setting.
 
 ### Mouse events mode
 
-When applications running in the terminal turn on mouse events mode, such as Vim mouse mode, mouse interaction is sent to the application instead of the terminal. This means that clicking and dragging will no longer create a selection. Terminal selection can be forced by holding the `kbstyle(Alt)` key on Windows and Linux, this can also be done with the `kbstyle(Option)` key on macOS but requires enabling the `setting(terminal.integrated.macOptionClickForcesSelection)` setting first.
+When applications running in the terminal turn on mouse events mode, such as Vim mouse mode, mouse interaction is sent to the application instead of the terminal. This means that clicking and dragging will no longer create a selection. Terminal selection can be forced by holding the `Alt` key on Windows and Linux, this can also be done with the `Option` key on macOS but requires enabling the `terminal.integrated.macOptionClickForcesSelection` setting first.
 
 ## Find
 
@@ -182,13 +183,13 @@ The integrated terminal has find functionality that can be triggered with `kb(wo
 
 ![Find in the terminal will highlight all text matching the query](images/basics/terminal-find.png)
 
-> **Tip:** `kbstyle(Ctrl+F)` can be sent to the shell by removing the `workbench.action.terminal.focusFind` command from [commands to skip shell](/docs/terminal/advanced.md#keybinding-and-the-shell).
+> **Tip:** `Ctrl+F` can be sent to the shell by removing the `workbench.action.terminal.focusFind` command from [commands to skip shell](/docs/terminal/advanced.md#keybinding-and-the-shell).
 
 ## Run selected text
 
-To use the `runSelectedText` command, select text in an editor and run the command **Terminal: Run Selected Text in Active Terminal** via the **Command Palette** (`kb(workbench.action.showCommands)`), the terminal will attempt to run the selected text. If no text is selected in the active editor, the entire line that the cursor is on will run in the terminal.
+To use the `runSelectedText` command, select text in an editor and run the command **Terminal: Run Selected Text in Active Terminal** via the **Command Palette** (`Ctrl+Shift+P`), the terminal will attempt to run the selected text. If no text is selected in the active editor, the entire line that the cursor is on will run in the terminal.
 
->**Tip:** Also run the active file using the command `workbench.action.terminal.runActiveFile`.
+> **Tip:** Also run the active file using the command `workbench.action.terminal.runActiveFile`.
 
 ## Maximizing the terminal
 
@@ -198,7 +199,7 @@ Note that the panel can only be maximized if its [alignment](/docs/editor/custom
 
 ## Select all
 
-There is a **Terminal: Select All** command, which is bound to `kbstyle(Cmd+A)` on macOS, but does not have a default keybinding on Windows and Linux as it may conflict with shell hotkeys. To use `kbstyle(Ctrl+A)` to select all, add this custom keybinding:
+There is a **Terminal: Select All** command, which is bound to `Cmd+A` on macOS, but does not have a default keybinding on Windows and Linux as it may conflict with shell hotkeys. To use `Ctrl+A` to select all, add this custom keybinding:
 
 ```json
 {
@@ -229,10 +230,7 @@ The [Tasks](/docs/editor/tasks.md) feature can be used to automate the launching
   "tasks": [
     {
       "label": "Create terminals",
-      "dependsOn": [
-        "First",
-        "Second"
-      ],
+      "dependsOn": ["First", "Second"],
       // Mark as the default build task so cmd/ctrl+shift+b will create them
       "group": {
         "kind": "build",
@@ -288,19 +286,19 @@ This file could be committed to the repository to share with other developers or
 
 ## Working directory
 
-By default, the terminal will open at the folder that is opened in the Explorer. The `setting(terminal.integrated.cwd)` setting allows specifying a custom path to open instead:
+By default, the terminal will open at the folder that is opened in the Explorer. The `terminal.integrated.cwd` setting allows specifying a custom path to open instead:
 
 ```json
 {
-    "terminal.integrated.cwd": "/home/user"
+  "terminal.integrated.cwd": "/home/user"
 }
 ```
 
-Split terminals on Windows will start in the directory that the parent terminal started with. On macOS and Linux, split terminals will inherit the current working directory of the parent terminal. This behavior can be changed using the `setting(terminal.integrated.splitCwd)` setting:
+Split terminals on Windows will start in the directory that the parent terminal started with. On macOS and Linux, split terminals will inherit the current working directory of the parent terminal. This behavior can be changed using the `terminal.integrated.splitCwd` setting:
 
 ```json
 {
-    "terminal.integrated.splitCwd": "workspaceRoot"
+  "terminal.integrated.splitCwd": "workspaceRoot"
 }
 ```
 
@@ -316,10 +314,10 @@ You can also right-click on a terminal tab and select **Toggle Size to Content W
 
 The basics of the terminal have been covered in this document. Read on to find out more about:
 
-* [Terminal Inline Chat](/docs/copilot/copilot-chat#terminal-inline-chat) - AI-powered suggestions right in your terminal.
-* [Tasks](/docs/editor/tasks.md) - Tasks let you integrate with external tools and leverage the terminal heavily.
-* [Mastering VS Code's Terminal](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
-* Explore terminal commands by browsing the keyboard shortcuts within VS Code (**Preferences: Open Keyboard Shortcuts** then search on 'terminal').
+- [Terminal Inline Chat](/docs/copilot/copilot-chat#terminal-inline-chat) - AI-powered suggestions right in your terminal.
+- [Tasks](/docs/editor/tasks.md) - Tasks let you integrate with external tools and leverage the terminal heavily.
+- [Mastering VS Code's Terminal](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
+- Explore terminal commands by browsing the keyboard shortcuts within VS Code (**Preferences: Open Keyboard Shortcuts** then search on 'terminal').
 
 ## Common questions
 
@@ -341,7 +339,7 @@ You can open new terminals for specific folders from the Explorer via the **Open
 
 By default, there is no keyboard shortcut associated with **Open in Integrated Terminal** but you can add your own via the Keyboard Shortcuts editor (`kb(workbench.action.openGlobalKeybindings)`) to add a keybinding to your `keybindings.json`.
 
-The `keybindings.json` example below adds the keyboard shortcut `kbstyle(Ctrl+T)` for `openInTerminal`.
+The `keybindings.json` example below adds the keyboard shortcut `Ctrl+T` for `openInTerminal`.
 
 ```json
 {
@@ -362,8 +360,8 @@ Run `npm config delete prefix` or `nvm use --delete-prefix v8.9.1 --silent` to u
 
 This is mostly a macOS problem and does not happen in external terminals. The typical reasons for this are the following:
 
-* `npm` was globally installed using another instance of `node` that is somewhere in your path (such as `/usr/local/bin/npm`).
-* To get the development tools on the `$PATH`, VS Code will launch a bash login shell on startup. This means that your `~/.bash_profile` has already run and when an integrated terminal launches, it will run **another** login shell, reordering the `$PATH` potentially in unexpected ways.
+- `npm` was globally installed using another instance of `node` that is somewhere in your path (such as `/usr/local/bin/npm`).
+- To get the development tools on the `$PATH`, VS Code will launch a bash login shell on startup. This means that your `~/.bash_profile` has already run and when an integrated terminal launches, it will run **another** login shell, reordering the `$PATH` potentially in unexpected ways.
 
 To resolve this issue, you need to track down where the old `npm` is installed and remove both it and its out-of-date node_modules. Find the `nvm` initialization script and run `which npm` before it runs, which should print the path when you launch a new terminal.
 
@@ -408,7 +406,7 @@ By default, the integrated terminal will render using GPU acceleration on most m
 
 ```json
 {
-    "terminal.integrated.gpuAcceleration": "off"
+  "terminal.integrated.gpuAcceleration": "off"
 }
 ```
 
@@ -436,12 +434,12 @@ This can happen if zsh is in Vim mode instead of Emacs mode, due to setting `$ED
 
 To work around this, you have two options:
 
-* Ensure that you don't set `$EDITOR` to `vi(m)`. However, this isn't an option if you want your Git editor to work.
-* Add `bindkey -e` to your init script to set Emacs explicitly.
+- Ensure that you don't set `$EDITOR` to `vi(m)`. However, this isn't an option if you want your Git editor to work.
+- Add `bindkey -e` to your init script to set Emacs explicitly.
 
 ### How can I configure Cmd+. to map to Ctrl+C like macOS' built-in terminal?
 
-The macOS default terminal uses `kbstyle(Cmd+.)` to perform the same as `kbstyle(Ctrl+C)`. To get this behavior in VS Code, add this [custom keybinding](/docs/getstarted/keybindings.md):
+The macOS default terminal uses `Cmd+.` to perform the same as `Ctrl+C`. To get this behavior in VS Code, add this [custom keybinding](/docs/getstarted/keybindings.md):
 
 ```json
 {

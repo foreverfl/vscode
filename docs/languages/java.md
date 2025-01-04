@@ -64,7 +64,7 @@ There are also other popular Java extensions you can pick for your own needs, in
 
 Thanks to the great Java community around VS Code, the list doesn't end there. You can search for more Java extensions easily within VS Code:
 
-1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
+1. Go to the **Extensions** view (`Ctrl+Shift+X`).
 2. Filter the extensions list by typing "java".
 
 This document describes some of the key features included in those Java extensions.
@@ -94,7 +94,7 @@ We recommend you to consider installing the JDK from one of these sources:
 
 For developers new to Java or new to VS Code, we do provide some tips in our extensions. Once you've installed the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can see the tips using the **Java: Tips for Beginners** command from the Command Palette in VS Code.
 
-Open the Command Palette (`kb(workbench.action.showCommands)`) and type "java tips" to select the command.
+Open the Command Palette (`Ctrl+Shift+P`) and type "java tips" to select the command.
 
 ![Java Getting Started](images/java/beginner-tips.png)
 

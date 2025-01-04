@@ -87,7 +87,7 @@ Java가 발전함에 따라 개발자들이 여러 버전의 JDK로 작업하는
 항목에 `"default": true`를 추가하여 그 중 하나를 기본값으로 설정할 수 있습니다. 기본 JDK는 관리되지 않는 폴더(빌드 도구 없음)에 사용됩니다.
 :::
 
-프로젝트에 어떤 JDK가 사용되는지 보려면 **명령 팔레트**(`Ctrl+Shift+P`)에서 **Java: Configure Java Runtime** 명령을 실행할 수 있습니다. 이 명령은 프로젝트의 런타임 정보를 표시하는 보기를 엽니다:
+프로젝트에 어떤 JDK가 사용되는지 보려면 **Command Palette**(`Ctrl+Shift+P`)에서 **Java: Configure Java Runtime** 명령을 실행할 수 있습니다. 이 명령은 프로젝트의 런타임 정보를 표시하는 보기를 엽니다:
 
 ![프로젝트 런타임](images/java-project/configure-project-runtime.png)
 
@@ -101,7 +101,7 @@ Maven 또는 Gradle 프로젝트의 JDK 버전을 변경하려면 빌드 스크�
 
 ### JDK 다운로드 {#download-jdks}
 
-새 JDK를 다운로드하려면 `download` 링크를 클릭하거나 **명령 팔레트**(`Ctrl+Shift+P`)에서 **Java: Install New JDK** 명령을 실행할 수 있습니다. JDK 다운로드를 안내하는 새로운 보기가 열립니다.
+새 JDK를 다운로드하려면 `download` 링크를 클릭하거나 **Command Palette**(`Ctrl+Shift+P`)에서 **Java: Install New JDK** 명령을 실행할 수 있습니다. JDK 다운로드를 안내하는 새로운 보기가 열립니다.
 
 ![JDK 다운로드](images/java-project/download-jdk.png)
 

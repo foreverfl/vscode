@@ -7,6 +7,7 @@ PageTitle: Ruby with Visual Studio Code
 DateApproved: 19/09/2024
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Ruby.
 ---
+
 # Ruby in Visual Studio Code
 
 [Ruby](https://www.ruby-lang.org) is a dynamic, open-source programming language known for its simplicity and productivity. With an expressive and elegant syntax, part of the Ruby philosophy is to make developers happy. It is often used for web development with a range of different frameworks, and for scripting, allowing for fast iterations when building prototypes.
@@ -22,12 +23,12 @@ This topic goes into detail about setting up and using Ruby within Visual Studio
 
 While Ruby is installed by default on some operating systems (such as macOS and some distributions of Linux), we recommend using a version manager such as [rbenv](https://github.com/rbenv/rbenv) to be able to access newer versions of Ruby on Windows, macOS, and Linux. Follow the [installation guidance](https://github.com/rbenv/rbenv#installation) for your platform.
 
->**Note**: As with installing any new toolset on your machine, you'll want to make sure to restart your terminal/Command Prompt and VS Code instances to use the updated toolset location in your platform's PATH variable.
+> **Note**: As with installing any new toolset on your machine, you'll want to make sure to restart your terminal/Command Prompt and VS Code instances to use the updated toolset location in your platform's PATH variable.
 
 ### Install the Ruby LSP extension in VS Code
 
 You can find and install the Ruby LSP extension from within VS Code via the Extensions view
-(`kb(workbench.view.extensions)`) and searching for 'Ruby LSP'.
+(`Ctrl+Shift+X`) and searching for 'Ruby LSP'.
 
 ![Ruby LSP extension in the Extensions view](images/ruby/ruby_lsp_extensions_view.png)
 
@@ -51,7 +52,7 @@ By default, the extension tries to automatically detect the Ruby version manager
 }
 ```
 
-The extension will automatically try to update the `ruby-lsp` language server gem periodically; if you want to force that to happen, use the Command Palette (`kb(workbench.action.showCommands)`) to execute **Ruby LSP: Update language server gem**.
+The extension will automatically try to update the `ruby-lsp` language server gem periodically; if you want to force that to happen, use the Command Palette (`Ctrl+Shift+P`) to execute **Ruby LSP: Update language server gem**.
 
 If you have any problems, see [troubleshooting](https://shopify.github.io/ruby-lsp/troubleshooting.html) for next steps.
 
@@ -64,7 +65,7 @@ symbol, document symbol, completion and signature help.
 
 <video src="images/ruby/navigation.mp4" placeholder="images/ruby/navigation-placeholder.png" autoplay loop controls
     muted title="Demo of navigation and intellisense features">
-    Sorry, your browser doesn't support HTML 5 video.
+Sorry, your browser doesn't support HTML 5 video.
 </video>
 
 To learn more about moving quickly through your source code with VS Code, check out [Code Navigation](/docs/editor/editingevolved.md).
@@ -75,7 +76,7 @@ Ruby LSP is able to display useful information about inferred or implicit values
 
 ![Ruby program with inlay hints displayed](images/ruby/ruby_lsp_inlay_hints.png)
 
-While inlay hints can be helpful for understanding your code, you can also disable the feature via the **Editor > Inlay Hints: Enabled** setting (`setting(editor.inlayHints.enabled)`) or use the following to disable this feature only for Ruby LSP:
+While inlay hints can be helpful for understanding your code, you can also disable the feature via the **Editor > Inlay Hints: Enabled** setting (`editor.inlayHints.enabled`) or use the following to disable this feature only for Ruby LSP:
 
 ```json
 "rubyLsp.enabledFeatures": {
@@ -89,12 +90,12 @@ Ruby LSP is able to use [semantic syntax highlighting](https://github.com/micros
 
 For example, it can highlight:
 
-* Method invocations consistently, without confusing it with local variables.
-* Local arguments (such as method, block or lambda arguments) consistently inside the scope in which they exist.
+- Method invocations consistently, without confusing it with local variables.
+- Local arguments (such as method, block or lambda arguments) consistently inside the scope in which they exist.
 
 ![Ruby LSP semantic highlighting](images/ruby/ruby_lsp_semantic_highlighting.png)
 
->**Note**: This screenshot is using the Spinel theme included in the [Ruby extension pack](https://marketplace.visualstudio.com/items?itemName=Shopify.ruby-extensions-pack). Themes must use the information surfaced by the Ruby LSP in order to provide rich highlighting for Ruby files.
+> **Note**: This screenshot is using the Spinel theme included in the [Ruby extension pack](https://marketplace.visualstudio.com/items?itemName=Shopify.ruby-extensions-pack). Themes must use the information surfaced by the Ruby LSP in order to provide rich highlighting for Ruby files.
 
 To use this feature, the editor must have semantic highlighting enabled.
 
@@ -104,7 +105,7 @@ To use this feature, the editor must have semantic highlighting enabled.
 
 ### Linting and formatting
 
-By default, Ruby LSP provides linting and formatting through an integration with [RuboCop](https://github.com/rubocop/rubocop). You can format your Ruby file using `kb(editor.action.formatDocument)` or by running the **Format Document** command from the Command Palette (`kb(workbench.action.showCommands)`) or the context menu in the editor.
+By default, Ruby LSP provides linting and formatting through an integration with [RuboCop](https://github.com/rubocop/rubocop). You can format your Ruby file using `kb(editor.action.formatDocument)` or by running the **Format Document** command from the Command Palette (`Ctrl+Shift+P`) or the context menu in the editor.
 
 If your project does not use RuboCop, the Ruby LSP will format files using [SyntaxTree](https://ruby-syntax-tree.github.io/syntax_tree).
 
@@ -128,7 +129,7 @@ When the linter finds errors and warnings in your source code, Ruby LSP can ofte
 
 ![Quick Fixes for linting violations](images/ruby/ruby_lsp_quickfix.png)
 
-Additionally, **Code Action Widget: Include Nearby Quick Fixes** (`setting(editor.codeActionWidget.includeNearbyQuickFixes)`) is a setting that is enabled on default, which will activate the nearest Quick Fix in a line from `kb(editor.action.quickFix)` (command ID `editor.action.quickFix`), no matter where your cursor is in that line.
+Additionally, **Code Action Widget: Include Nearby Quick Fixes** (`editor.codeActionWidget.includeNearbyQuickFixes`) is a setting that is enabled on default, which will activate the nearest Quick Fix in a line from `kb(editor.action.quickFix)` (command ID `editor.action.quickFix`), no matter where your cursor is in that line.
 
 The command highlights the source code that will be refactored or fixed with Quick Fixes. Normal Code Actions and non-fix refactorings can still be activated at the cursor location.
 
@@ -169,30 +170,30 @@ Example:
 
 ```json
 {
-    "version": "0.2.0",
-    "configurations": [
-        // Launch the debugger for any given program. In this case, it will run the current file using Ruby
-        {
-            "type": "ruby_lsp",
-            "name": "Debug",
-            "request": "launch",
-            "program": "ruby ${file}",
-        },
-        // Launch the debugger for the current test file
-        {
-            "type": "ruby_lsp",
-            "request": "launch",
-            "name": "Debug test file",
-            "program": "ruby -Itest ${relativeFile}"
-        },
-        // Attach the debugger client to an existing Ruby process that has already been launched with the debugger
-        // server
-        {
-            "type": "ruby_lsp",
-            "request": "attach",
-            "name": "Attach to existing server",
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    // Launch the debugger for any given program. In this case, it will run the current file using Ruby
+    {
+      "type": "ruby_lsp",
+      "name": "Debug",
+      "request": "launch",
+      "program": "ruby ${file}"
+    },
+    // Launch the debugger for the current test file
+    {
+      "type": "ruby_lsp",
+      "request": "launch",
+      "name": "Debug test file",
+      "program": "ruby -Itest ${relativeFile}"
+    },
+    // Attach the debugger client to an existing Ruby process that has already been launched with the debugger
+    // server
+    {
+      "type": "ruby_lsp",
+      "request": "attach",
+      "name": "Attach to existing server"
+    }
+  ]
 }
 ```
 
@@ -216,6 +217,6 @@ If you have any issues or feature requests, feel free to log them in the Ruby LS
 
 If you'd like to learn more about VS Code, try these topics:
 
-* [Basic Editing](/docs/editor/codebasics.md) - A quick introduction to the basics of the VS Code editor.
-* [Install an Extension](/docs/editor/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+- [Basic Editing](/docs/editor/codebasics.md) - A quick introduction to the basics of the VS Code editor.
+- [Install an Extension](/docs/editor/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+- [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.

@@ -257,7 +257,7 @@ VS Code는 키보드에서도 동일하게 접근할 수 있습니다. 알아야
 
 ![명령 팔레트](images/userinterface/commands.png)
 
-**명령 팔레트**는 많은 명령에 액세스할 수 있습니다. 편집기 명령을 실행하고, 파일을 열고, 기호를 검색하고, 파일의 빠른 개요를 볼 수 있으며, 모두 동일한 대화형 창을 사용합니다. 몇 가지 팁은 다음과 같습니다:
+**Command Palette**는 많은 명령에 액세스할 수 있습니다. 편집기 명령을 실행하고, 파일을 열고, 기호를 검색하고, 파일의 빠른 개요를 볼 수 있으며, 모두 동일한 대화형 창을 사용합니다. 몇 가지 팁은 다음과 같습니다:
 
 - `Ctrl+P`을 사용하여 파일 또는 기호의 이름을 입력하여 탐색할 수 있습니다.
 - `Ctrl+Tab`을 사용하여 마지막으로 열린 파일 세트를 순환할 수 있습니다.
@@ -275,7 +275,7 @@ VS Code는 편집기를 구성할 수 있는 많은 옵션을 제공합니다. *
 
 ### 메뉴 표시줄 숨기기(Windows, Linux) {#hide-the-menu-bar}
 
-Windows 및 Linux에서 `window.menuBarVisibility` 설정을 `classic`에서 `toggle` 또는 `hidden`으로 변경하여 메뉴 표시줄을 숨길 수 있습니다. `toggle` 설정은 `kbstyle(Alt)` 키를 한 번 누르면 메뉴 표시줄이 다시 표시됩니다.
+Windows 및 Linux에서 `window.menuBarVisibility` 설정을 `classic`에서 `toggle` 또는 `hidden`으로 변경하여 메뉴 표시줄을 숨길 수 있습니다. `toggle` 설정은 `Alt` 키를 한 번 누르면 메뉴 표시줄이 다시 표시됩니다.
 
 또한 **View: Toggle Menu Bar** 명령을 사용하여 Windows 및 Linux에서 메뉴 표시줄을 숨길 수 있습니다. 이 명령은 `window.menuBarVisibility`를 `classic`에서 `compact`로 설정하여 메뉴 표시줄이 활동 표시줄로 이동합니다. 메뉴 표시줄을 `classic` 위치로 되돌리려면 **View: Toggle Menu Bar** 명령을 다시 실행할 수 있습니다.
 

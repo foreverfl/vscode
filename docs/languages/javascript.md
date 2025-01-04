@@ -32,29 +32,27 @@ See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for infor
 
 A [jsconfig.json](/docs/languages/jsconfig.md) file defines a JavaScript project in VS Code. While `jsconfig.json` files are not required, you will want to create one in cases such as:
 
-* If not all JavaScript files in your workspace should be considered part of a single JavaScript project. `jsconfig.json` files let you exclude some files from showing up in IntelliSense.
-* To ensure that a subset of JavaScript files in your workspace is treated as a single project. This is useful if you are working with legacy code that uses implicit globals dependencies instead of `imports` for dependencies.
-* If your workspace contains more than one project context, such as front-end and back-end JavaScript code. For multi-project workspaces, create a `jsconfig.json` at the root folder of each project.
-* You are using the TypeScript compiler to down-level compile JavaScript source code.
+- If not all JavaScript files in your workspace should be considered part of a single JavaScript project. `jsconfig.json` files let you exclude some files from showing up in IntelliSense.
+- To ensure that a subset of JavaScript files in your workspace is treated as a single project. This is useful if you are working with legacy code that uses implicit globals dependencies instead of `imports` for dependencies.
+- If your workspace contains more than one project context, such as front-end and back-end JavaScript code. For multi-project workspaces, create a `jsconfig.json` at the root folder of each project.
+- You are using the TypeScript compiler to down-level compile JavaScript source code.
 
 To define a basic JavaScript project, add a `jsconfig.json` at the root of your workspace:
 
 ```json
 {
-    "compilerOptions": {
-        "module": "CommonJS",
-        "target": "ES6"
-    },
-    "exclude": [
-        "node_modules"
-    ]
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES6"
+  },
+  "exclude": ["node_modules"]
 }
 ```
 
 See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for more advanced `jsconfig.json` configuration.
 
 > [!TIP]
-> To check if a JavaScript file is part of JavaScript project, just open the file in VS Code  and run the **JavaScript: Go to Project Configuration** command. This command opens the `jsconfig.json` that references the JavaScript file. A notification is shown if the file is not part of any `jsconfig.json` project.
+> To check if a JavaScript file is part of JavaScript project, just open the file in VS Code and run the **JavaScript: Go to Project Configuration** command. This command opens the `jsconfig.json` that references the JavaScript file. A notification is shown if the file is not part of any `jsconfig.json` project.
 
 ## Snippets
 
@@ -67,7 +65,7 @@ VS Code includes basic JavaScript [snippets](/docs/editor/userdefinedsnippets.md
 There are many extensions that provide additional snippets, including snippets for popular frameworks such as Redux or Angular. You can even [define your own snippets](/docs/editor/userdefinedsnippets.md).
 
 > [!TIP]
-> To disable snippets suggestions, set `setting(editor.snippetSuggestions)` to `"none"` in your [settings](/docs/getstarted/settings.md) file. The `setting(editor.snippetSuggestions)` setting also lets you change where snippets appear in the suggestions: at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+> To disable snippets suggestions, set `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. The `editor.snippetSuggestions` setting also lets you change where snippets appear in the suggestions: at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
 
 ## JSDoc support
 
@@ -99,7 +97,7 @@ As you write JavaScript function calls, VS Code shows information about the func
 
 ![Signature help for some DOM methods](images/javascript/signature-help.png)
 
-Signature help is shown automatically when you type a `(` or `,` within a function call. Press `kb(editor.action.triggerParameterHints)`  to manually trigger signature help.
+Signature help is shown automatically when you type a `(` or `,` within a function call. Press `kb(editor.action.triggerParameterHints)` to manually trigger signature help.
 
 ## Auto imports
 
@@ -118,7 +116,7 @@ In this example, VS Code adds an import for `Button` from [material-ui](https://
 To disable auto imports, set `"javascript.suggest.autoImports"` to `false`.
 
 > [!TIP]
-> VS Code tries to infer the best import style to use. You can explicitly configure the preferred quote style and path style for imports added to your code with the `setting(javascript.preferences.quoteStyle)` and `setting(javascript.preferences.importModuleSpecifier)` settings.
+> VS Code tries to infer the best import style to use. You can explicitly configure the preferred quote style and path style for imports added to your code with the `javascript.preferences.quoteStyle` and `javascript.preferences.importModuleSpecifier` settings.
 
 ### Add imports on paste
 
@@ -126,9 +124,9 @@ When you copy and paste code between editors, VS Code can automatically add impo
 
 <video src="images/javascript/jsts-update-imports-paste.mp4" title="Copy code from one editor to another shows the paste widget and results in adding imports when pasting. " autoplay loop controls muted></video>
 
-This feature is enabled by default, but you can disable it by toggling the `setting(javascript.updateImportsOnPaste.enabled)` setting.
+This feature is enabled by default, but you can disable it by toggling the `javascript.updateImportsOnPaste.enabled` setting.
 
-You can make paste with imports the default behavior, without showing the paste control, by configuring the `setting(editor.pasteAs.preferences)` setting. Include `text.updateImports.jsts` or `text.updateImports` to always add imports when pasting.
+You can make paste with imports the default behavior, without showing the paste control, by configuring the `editor.pasteAs.preferences` setting. Include `text.updateImports.jsts` or `text.updateImports` to always add imports when pasting.
 
 ## Organize Imports
 
@@ -157,11 +155,11 @@ When you move or rename a file that is imported by other files in your JavaScrip
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-The `setting(javascript.updateImportsOnFileMove.enabled)` setting controls this behavior. Valid settings values are:
+The `javascript.updateImportsOnFileMove.enabled` setting controls this behavior. Valid settings values are:
 
-* `"prompt"` - The default. Asks if paths should be updated for each file move.
-* `"always"` - Always automatically update paths.
-* `"never"` - Do not update paths automatically and do not prompt.
+- `"prompt"` - The default. Asks if paths should be updated for each file move.
+- `"always"` - Always automatically update paths.
+- `"never"` - Do not update paths automatically and do not prompt.
 
 ## Formatting
 
@@ -191,15 +189,15 @@ Set `"javascript.autoClosingTags"` to `false` to disable JSX tag closing.
 
 Code navigation lets you quickly navigate JavaScript projects.
 
-* **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
-* **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
-* **Go to References** `kb(editor.action.goToReferences)` - Show all references to a symbol.
-* **Go to Type Definition** - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
+- **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
+- **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
+- **Go to References** `kb(editor.action.goToReferences)` - Show all references to a symbol.
+- **Go to Type Definition** - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
 
-You can navigate via symbol search using the **Go to Symbol** commands from the **Command Palette** (`kb(workbench.action.showCommands)`).
+You can navigate via symbol search using the **Go to Symbol** commands from the **Command Palette** (`Ctrl+Shift+P`).
 
-* **Go to Symbol in File** `kb(workbench.action.gotoSymbol)`
-* **Go to Symbol in Workspace** `kb(workbench.action.showAllSymbols)`
+- **Go to Symbol in File** `kb(workbench.action.gotoSymbol)`
+- **Go to Symbol in Workspace** `kb(workbench.action.showAllSymbols)`
 
 ## Rename
 
@@ -215,14 +213,14 @@ VS Code includes some handy refactorings for JavaScript such as **Extract functi
 
 Available refactorings include:
 
-* Extract to method or function.
-* Extract to constant.
-* Convert between named imports and namespace imports.
-* Move to new file.
+- Extract to method or function.
+- Extract to constant.
+- Convert between named imports and namespace imports.
+- Move to new file.
 
 See [Refactorings](/docs/editor/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
 
-Additionally, **Code Action Widget: Include Nearby Quick Fixes** (`setting(editor.codeActionWidget.includeNearbyQuickFixes)`) is a setting that is enabled on default, which will activate the nearest Quick Fix in a line from `kb(editor.action.quickFix)` (command ID `editor.action.quickFix`), no matter where your cursor is in that line.
+Additionally, **Code Action Widget: Include Nearby Quick Fixes** (`editor.codeActionWidget.includeNearbyQuickFixes`) is a setting that is enabled on default, which will activate the nearest Quick Fix in a line from `kb(editor.action.quickFix)` (command ID `editor.action.quickFix`), no matter where your cursor is in that line.
 
 The command highlights the source code that will be refactored or fixed with Quick Fixes. Normal Code Actions and non-fix refactorings can still be activated at the cursor location.
 
@@ -247,7 +245,7 @@ To disable fading out of unused code, set `"editor.showUnused"` to `false`. You 
 
 ## Code Actions on Save
 
-The `setting(editor.codeActionsOnSave)` setting lets you configure a set of Code Actions that are run when a file is saved. For example, you can enable organize imports on save by setting:
+The `editor.codeActionsOnSave` setting lets you configure a set of Code Actions that are run when a file is saved. For example, you can enable organize imports on save by setting:
 
 ```json
 // On explicit save, run fixAll source action. On auto save (window or focus change), run organizeImports source action.
@@ -258,18 +256,19 @@ The `setting(editor.codeActionsOnSave)` setting lets you configure a set of Code
 ```
 
 As of today, the following enums are supported:
-* `explicit` (default): Triggers Code Actions when explicitly saved. Same as `true`.
-* `always`: Triggers Code Actions when explicitly saved and on Auto Saves from window or focus changes.
-* `never`: Never triggers Code Actions on save. Same as `false`.
 
-You can also set `setting(editor.codeActionsOnSave)` to an array of Code Actions to execute in order.
+- `explicit` (default): Triggers Code Actions when explicitly saved. Same as `true`.
+- `always`: Triggers Code Actions when explicitly saved and on Auto Saves from window or focus changes.
+- `never`: Never triggers Code Actions on save. Same as `false`.
+
+You can also set `editor.codeActionsOnSave` to an array of Code Actions to execute in order.
 
 Here are some source actions:
 
-* `"organizeImports"` -  Enables organize imports on save.
-* `"fixAll"` - Auto Fix on Save computes all possible fixes in one round (for all providers including ESLint).
-* `"fixAll.eslint"` -  Auto Fix only for ESLint.
-* `"addMissingImports"` - Adds all missing imports on save.
+- `"organizeImports"` - Enables organize imports on save.
+- `"fixAll"` - Auto Fix on Save computes all possible fixes in one round (for all providers including ESLint).
+- `"fixAll.eslint"` - Auto Fix only for ESLint.
+- `"addMissingImports"` - Adds all missing imports on save.
 
 See [Node.js/JavaScript](/docs/nodejs/working-with-javascript) for more information.
 
@@ -295,7 +294,7 @@ You can learn more about how to get started with Copilot in the [Copilot documen
 
 Once you have the Copilot extension installed and enabled, you can test it our for your JavaScript projects.
 
-Create a new file - you can use the **File: New File** command in the Command Palette (`kbstyle(F1)`).
+Create a new file - you can use the **File: New File** command in the Command Palette (`F1`).
 
 In the JavaScript file, type the following function header:
 
@@ -303,7 +302,7 @@ In the JavaScript file, type the following function header:
 function calculateDaysBetweenDates(begin, end) {
 ```
 
-Copilot will provide a suggestion like the following - use `kbstyle(Tab)` to accept the suggestion:
+Copilot will provide a suggestion like the following - use `Tab` to accept the suggestion:
 
 ![Copilot JavaScript ghost text suggestion](images/javascript/js-suggest.png)
 
@@ -319,31 +318,31 @@ This can help you understand the meaning of each argument at a glance, which is 
 
 To enable parameter name hints, set `javascript.inlayHints.parameterNames`. There are three possible values:
 
-* `none` — Disable parameter inlay hints.
-* `literals` — Only show inlay hints for literals (string, number, Boolean).
-* `all` — Show inlay hints for all arguments.
+- `none` — Disable parameter inlay hints.
+- `literals` — Only show inlay hints for literals (string, number, Boolean).
+- `all` — Show inlay hints for all arguments.
 
 **Variable type inlay hints** show the types of variables that don't have explicit type annotations.
 
-Setting: `setting(javascript.inlayHints.variableTypes.enabled)`
+Setting: `javascript.inlayHints.variableTypes.enabled`
 
 ![Variable type inlay hints](images/javascript/inlay-var-types.png)
 
 **Property type inlay hints** show the type of class properties that don't have an explicit type annotation.
 
-Setting: `setting(javascript.inlayHints.propertyDeclarationTypes.enabled)`
+Setting: `javascript.inlayHints.propertyDeclarationTypes.enabled`
 
 ![Property type inlay hints](images/javascript/inlay-property-types.png)
 
-**Parameter type hints**  show the types of implicitly typed parameters.
+**Parameter type hints** show the types of implicitly typed parameters.
 
-Setting: `setting(javascript.inlayHints.parameterTypes.enabled)`
+Setting: `javascript.inlayHints.parameterTypes.enabled`
 
 ![Parameter type inlay hints](images/javascript/inlay-parameter-types.png)
 
 **Return type inlay hints** show the return types of functions that don't have an explicit type annotation.
 
-Setting: `setting(javascript.inlayHints.functionLikeReturnTypes.enabled)`
+Setting: `javascript.inlayHints.functionLikeReturnTypes.enabled`
 
 ![Return type inlay hints](images/javascript/inlay-return-type.png)
 
@@ -405,18 +404,18 @@ VS Code ships with excellent support for JavaScript but you can additionally ins
 
 Read on to find out about:
 
-* [Working with JavaScript](/docs/nodejs/working-with-javascript.md) - More detailed information about VS Code's JavaScript support and how to troubleshoot common issues.
-* [jsconfig.json](/docs/languages/jsconfig.md) - Detailed description of the `jsconfig.json` project file.
-* [IntelliSense](/docs/editor/intellisense.md) - Learn more about IntelliSense and how to use it effectively for your language.
-* [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
-* [Node.js](/docs/nodejs/nodejs-tutorial.md) - A walkthrough to create an Express Node.js application.
-* [TypeScript](/docs/languages/typescript.md) - VS Code has great support for TypeScript, which brings structure and strong typing to your JavaScript code.
+- [Working with JavaScript](/docs/nodejs/working-with-javascript.md) - More detailed information about VS Code's JavaScript support and how to troubleshoot common issues.
+- [jsconfig.json](/docs/languages/jsconfig.md) - Detailed description of the `jsconfig.json` project file.
+- [IntelliSense](/docs/editor/intellisense.md) - Learn more about IntelliSense and how to use it effectively for your language.
+- [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
+- [Node.js](/docs/nodejs/nodejs-tutorial.md) - A walkthrough to create an Express Node.js application.
+- [TypeScript](/docs/languages/typescript.md) - VS Code has great support for TypeScript, which brings structure and strong typing to your JavaScript code.
 
 ## Common questions
 
 ### Does VS Code support JSX and React Native?
 
-VS Code supports **JSX** and **React Native**. You will get IntelliSense for **React/JSX** and **React Native** from automatically downloaded type declaration (typings) files from the [npmjs](https://www.npmjs.com) type declaration file repository. Additionally, you can install the popular [React Native extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native) from  the Marketplace.
+VS Code supports **JSX** and **React Native**. You will get IntelliSense for **React/JSX** and **React Native** from automatically downloaded type declaration (typings) files from the [npmjs](https://www.npmjs.com) type declaration file repository. Additionally, you can install the popular [React Native extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native) from the Marketplace.
 
 To enable ES6 import statements for **React Native**, you need to set the `allowSyntheticDefaultImports` compiler option to `true`. This tells the compiler to create synthetic default members and you get IntelliSense. **React Native** uses **Babel** behind the scenes to create the proper run-time code with default members. If you also want to do debugging of **React Native** code, you can install the [React Native Extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native).
 
@@ -434,16 +433,13 @@ When you want to use ES6 style imports but some type declaration (typings) files
 
 ```json
 {
-    "compilerOptions": {
-        "module": "CommonJS",
-        "target": "ES6",
-        // This is the line you want to add
-        "allowSyntheticDefaultImports": true
-    },
-    "exclude": [
-        "node_modules",
-        "**/node_modules/*"
-    ]
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES6",
+    // This is the line you want to add
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": ["node_modules", "**/node_modules/*"]
 }
 ```
 
@@ -453,7 +449,7 @@ Yes, you can. You can see this working using JavaScript source maps in the [Node
 
 ### How do I disable Syntax Validation when using non-ES6 constructs?
 
-Some users want to use syntax constructs like the proposed pipeline (`|>`) operator. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `setting(javascript.validate.enable)` [setting](/docs/getstarted/settings.md).
+Some users want to use syntax constructs like the proposed pipeline (`|>`) operator. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `javascript.validate.enable` [setting](/docs/getstarted/settings.md).
 
 With `javascript.validate.enable: false`, you disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](https://eslint.org) to validate your source code.
 

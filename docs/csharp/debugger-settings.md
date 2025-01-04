@@ -22,9 +22,9 @@ This creates a task that runs `dotnet build`. You can read more in the VS Code [
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ❌
-* `launchSettings.json` ❌
+- `launch.json` ✔️
+- `settings.json` ❌
+- `launchSettings.json` ❌
 
 ## Program
 
@@ -36,14 +36,14 @@ Example: `"${workspaceFolder}/bin/Debug/netcoreapp1.1/MyProject.dll"`
 
 Where:
 
-* \<target-framework\> is the framework that the debugged project is being built for. This is normally found in the project file as the 'TargetFramework' property.
-* \<project-name.dll\> is the name of debugged project's build output dll. This is normally the same as the project file name but with a '.dll' extension.
+- \<target-framework\> is the framework that the debugged project is being built for. This is normally found in the project file as the 'TargetFramework' property.
+- \<project-name.dll\> is the name of debugged project's build output dll. This is normally the same as the project file name but with a '.dll' extension.
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ❌
-* `launchSettings.json` ✔️ as `executablePath`
+- `launch.json` ✔️
+- `settings.json` ❌
+- `launchSettings.json` ✔️ as `executablePath`
 
 ## Cwd
 
@@ -51,9 +51,9 @@ The working directory of the target process.
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ❌
-* `launchSettings.json` ✔️ as `workingDirectory`
+- `launch.json` ✔️
+- `settings.json` ❌
+- `launchSettings.json` ✔️ as `workingDirectory`
 
 ## Args
 
@@ -61,9 +61,9 @@ These are the arguments that will be passed to your program.
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ❌
-* `launchSettings.json` ✔️ as `commandLineArgs`
+- `launch.json` ✔️
+- `settings.json` ❌
+- `launchSettings.json` ✔️ as `commandLineArgs`
 
 ## Stop at Entry
 
@@ -71,9 +71,9 @@ If you need to stop at the entry point of the target, you can optionally set `st
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ✔️ as `csharp.debug.stopAtEntry`
-* `launchSettings.json` ❌
+- `launch.json` ✔️
+- `settings.json` ✔️ as `csharp.debug.stopAtEntry`
+- `launchSettings.json` ❌
 
 ## Starting a Web Browser
 
@@ -98,17 +98,17 @@ Notes about this:
 
 5. The way this works is that VS Code scrapes the output that is set to the console. If a line matches the pattern, it launches a browser against the URL that was 'captured' by the pattern.
 
-    Here is an explanation of what the pattern does:
+   Here is an explanation of what the pattern does:
 
-    * `\\b` : Matches on a word boundary. Note that `\b` indicates a word boundary, but because this is in a json string, the `\` needs to be escaped, hence `\\b`.
-    * `Now listening on:` : This is a string literal, meaning that the next text must be `Now listening on:`.
-    * `\\s+` : Matches one or more space characters.
-    * `(` : This is the beginning of a 'capture group'. This indicates the region of text to be saved and used to launch the browser.
-    * `http` : String literal.
-    * `s?` : Either the character `s` or nothing.
-    * `://` : String literal.
-    * `\\S+` : One or more nonwhitespace characters.
-    * `)` : The end of the capture group.
+   - `\\b` : Matches on a word boundary. Note that `\b` indicates a word boundary, but because this is in a json string, the `\` needs to be escaped, hence `\\b`.
+   - `Now listening on:` : This is a string literal, meaning that the next text must be `Now listening on:`.
+   - `\\s+` : Matches one or more space characters.
+   - `(` : This is the beginning of a 'capture group'. This indicates the region of text to be saved and used to launch the browser.
+   - `http` : String literal.
+   - `s?` : Either the character `s` or nothing.
+   - `://` : String literal.
+   - `\\S+` : One or more nonwhitespace characters.
+   - `)` : The end of the capture group.
 
 6. Both forms of browser launch require `"console": "internalConsole"`, as the browser launcher scrapes the standard output of the target process to know when the web server has initialized itself.
 
@@ -150,9 +150,9 @@ In fact, you can open almost any url, for example you could open the default swa
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ❌
-* `launchSettings.json` ✔️ with `launchBrowser` and `applicationUrl`
+- `launch.json` ✔️
+- `settings.json` ❌
+- `launchSettings.json` ✔️ with `launchBrowser` and `applicationUrl`
 
 ## Environment variables
 
@@ -166,29 +166,29 @@ Environment variables may be passed to your program using this schema:
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ❌
-* `launchSettings.json` ✔️ as `environmentVariables`
+- `launch.json` ✔️
+- `settings.json` ❌
+- `launchSettings.json` ✔️ as `environmentVariables`
 
 ## Console (terminal) window
 
 The `"console"` setting controls what console (terminal) window the target app is launched into. It can be set to any of these values --
 
-* `"internalConsole"` (default) : the target process's console input (stdin) and output (stdout/stderr) are routed through the VS Code Debug Console. The advantage of this mode is that it allows you to see messages from both the debugger and the target program in one place, so you will not miss important messages or need to switch back and forth. This is useful for programs with simple console interactions (example: using `Console.WriteLine` and/or `Console.ReadLine`). This should NOT be used when the target program needs full control over the console, such as a program that changes the cursor position, uses `Console.ReadKey` for input, etc. See below for instructions on inputting into the console.
-* `"integratedTerminal"` : the target process will run inside [VS Code's integrated terminal](/docs/terminal/basics.md). Select the **Terminal** tab in the tab group beneath the editor to interact with your application. When using this mode, by default, the Debug Console will not be shown when starting debugging. If using `launch.json`, this can be configured with `internalConsoleOptions`.
-* `"externalTerminal"`: the target process will run inside its own external terminal. When using this mode, you will need to switch focus between Visual Studio Code and the external terminal window.
+- `"internalConsole"` (default) : the target process's console input (stdin) and output (stdout/stderr) are routed through the VS Code Debug Console. The advantage of this mode is that it allows you to see messages from both the debugger and the target program in one place, so you will not miss important messages or need to switch back and forth. This is useful for programs with simple console interactions (example: using `Console.WriteLine` and/or `Console.ReadLine`). This should NOT be used when the target program needs full control over the console, such as a program that changes the cursor position, uses `Console.ReadKey` for input, etc. See below for instructions on inputting into the console.
+- `"integratedTerminal"` : the target process will run inside [VS Code's integrated terminal](/docs/terminal/basics.md). Select the **Terminal** tab in the tab group beneath the editor to interact with your application. When using this mode, by default, the Debug Console will not be shown when starting debugging. If using `launch.json`, this can be configured with `internalConsoleOptions`.
+- `"externalTerminal"`: the target process will run inside its own external terminal. When using this mode, you will need to switch focus between Visual Studio Code and the external terminal window.
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ✔️ as `csharp.debug.console`
-* `launchSettings.json` ❌
+- `launch.json` ✔️
+- `settings.json` ✔️ as `csharp.debug.console`
+- `launchSettings.json` ❌
 
 > **Note**: The `csharp.debug.console` setting is only used for console projects launched with the `dotnet` debug configuration type.
 
 ### Inputting text into the target process when using internalConsole
 
-When using `internalConsole`, you can input text into Visual Studio Code that will be returned from `Console.ReadLine` and similar APIs that read from `stdin`. To do so, while the program is running, type text into the input box at the bottom of the Debug Console. Pressing `kbstyle(Enter)` will send the text to the target process. Note that if you enter text in this box while your program is stopped under the debugger, this text will be evaluated as a C# expression, not sent to the target process.
+When using `internalConsole`, you can input text into Visual Studio Code that will be returned from `Console.ReadLine` and similar APIs that read from `stdin`. To do so, while the program is running, type text into the input box at the bottom of the Debug Console. Pressing `Enter` will send the text to the target process. Note that if you enter text in this box while your program is stopped under the debugger, this text will be evaluated as a C# expression, not sent to the target process.
 
 Example:
 
@@ -212,7 +212,7 @@ Which would then, for example, use `myVariableName` from this example `launchSet
     "ProfileNameGoesHere": {
       "commandName": "Project",
       "environmentVariables": {
-        "myVariableName":"theValueGoesHere"
+        "myVariableName": "theValueGoesHere"
       }
     }
   }
@@ -237,9 +237,9 @@ Restrictions:
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ❌
-* `launchSettings.json` ❌
+- `launch.json` ✔️
+- `settings.json` ❌
+- `launchSettings.json` ❌
 
 ## Source File Map
 
@@ -253,14 +253,14 @@ You can optionally configure how source files are opened by providing a map usin
 
 In this example:
 
-* `C:\foo` is the original location for one or more source files (example: `program.cs`) when a module (example: MyCode.dll) was compiled. It can either be a directory that has source files under it, or a complete path to a source file (example: `c:\foo\program.cs`). It doesn't need to exist either on the computer running Visual Studio Code, or if you are remote debugging, on the remote machine. The debugger reads the path to the source file from the `.pdb` (symbol) file, and transforms the path using this map.
-* `/home/me/foo` is the path where the source file can now be found by Visual Studio Code.
+- `C:\foo` is the original location for one or more source files (example: `program.cs`) when a module (example: MyCode.dll) was compiled. It can either be a directory that has source files under it, or a complete path to a source file (example: `c:\foo\program.cs`). It doesn't need to exist either on the computer running Visual Studio Code, or if you are remote debugging, on the remote machine. The debugger reads the path to the source file from the `.pdb` (symbol) file, and transforms the path using this map.
+- `/home/me/foo` is the path where the source file can now be found by Visual Studio Code.
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ✔️ as `csharp.debug.sourceFileMap`
-* `launchSettings.json` ❌
+- `launch.json` ✔️
+- `settings.json` ✔️ as `csharp.debug.sourceFileMap`
+- `launchSettings.json` ❌
 
 ## Just My Code
 
@@ -272,14 +272,14 @@ You can optionally disable `justMyCode` by setting it to "false". You should dis
 
 Just My Code is a set of features that makes it easier to focus on debugging your code by hiding some of the details of optimized libraries that you might be using, like the .NET Framework itself. The most important sub parts of this feature are --
 
-* User-unhandled exceptions: automatically stop the debugger just before exceptions are about to be caught by the framework
-* Just My Code stepping: when stepping, if framework code calls back to user code, automatically stop.
+- User-unhandled exceptions: automatically stop the debugger just before exceptions are about to be caught by the framework
+- Just My Code stepping: when stepping, if framework code calls back to user code, automatically stop.
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ✔️ as `csharp.debug.justMyCode`
-* `launchSettings.json` ❌
+- `launch.json` ✔️
+- `settings.json` ✔️ as `csharp.debug.justMyCode`
+- `launchSettings.json` ❌
 
 ## Require exact source
 
@@ -291,9 +291,9 @@ The debugger requires the pdb and source code to be exactly the same. To change 
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ✔️ as `csharp.debug.requireExactSource`
-* `launchSettings.json` ❌
+- `launch.json` ✔️
+- `settings.json` ✔️ as `csharp.debug.requireExactSource`
+- `launchSettings.json` ❌
 
 ## Stepping into properties and operators
 
@@ -305,9 +305,9 @@ The debugger steps over properties and operators in managed code by default. In 
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ✔️ as `csharp.debug.enableStepFiltering`
-* `launchSettings.json` ❌
+- `launch.json` ✔️
+- `settings.json` ✔️ as `csharp.debug.enableStepFiltering`
+- `launchSettings.json` ❌
 
 ## Logging
 
@@ -317,9 +317,9 @@ There are also advanced options under 'logging.diagnosticsLog' that are meant fo
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ✔️ under `csharp.debug.logging`
-* `launchSettings.json` ❌
+- `launch.json` ✔️
+- `settings.json` ✔️ under `csharp.debug.logging`
+- `launchSettings.json` ❌
 
 ## PipeTransport
 
@@ -341,9 +341,9 @@ You can find information on configuring pipe transport for [Windows Subsystem fo
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ❌
-* `launchSettings.json` ❌
+- `launch.json` ✔️
+- `settings.json` ❌
+- `launchSettings.json` ❌
 
 ### Operating system-specific configurations
 
@@ -369,8 +369,8 @@ In the .NET ecosystem, code is turned from source to CPU instructions in a two-s
 
 If you are only interested in debugging code you are building locally, it is best to leave this option false, as, in some cases, enabling this option will significantly slow down debugging. There are two reasons for this slow down --
 
-* Optimized code runs faster. If you are turning off optimizations for lots of code the time can add up.
-* If you have Just My Code enabled, the debugger will not even try and load symbols for dlls that are optimized. Finding symbols can take a long time.
+- Optimized code runs faster. If you are turning off optimizations for lots of code the time can add up.
+- If you have Just My Code enabled, the debugger will not even try and load symbols for dlls that are optimized. Finding symbols can take a long time.
 
 **Limitations of this option:** There are two situations where this option will **NOT** work:
 
@@ -387,9 +387,9 @@ If you are only interested in debugging code you are building locally, it is bes
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ✔️ as `csharp.debug.suppressJITOptimizations`
-* `launchSettings.json` ❌
+- `launch.json` ✔️
+- `settings.json` ✔️ as `csharp.debug.suppressJITOptimizations`
+- `launchSettings.json` ❌
 
 ## Symbol Options
 
@@ -425,19 +425,19 @@ The `symbolOptions` element allows customization of how the debugger searches fo
 
 #### Properties for loadAllButExcluded mode
 
-**moduleFilter.excludedModules**: Array of modules that the debugger should NOT load symbols for. Wildcards (example: MyCompany.*.dll) are supported.
+**moduleFilter.excludedModules**: Array of modules that the debugger should NOT load symbols for. Wildcards (example: MyCompany.\*.dll) are supported.
 
 #### Properties for loadOnlyIncluded mode
 
-**moduleFilter.includedModules**: Array of modules that the debugger should load symbols for. Wildcards (example: MyCompany.*.dll) are supported.
+**moduleFilter.includedModules**: Array of modules that the debugger should load symbols for. Wildcards (example: MyCompany.\*.dll) are supported.
 
 **moduleFilter.includeSymbolsNextToModules**: If true, for any module NOT in the 'includedModules' array, the debugger will still check next to the module itself and the launching executable, but it will not check paths on the symbol search list. This option defaults to 'true'.
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ✔️ under `csharp.debug.symbolOptions`
-* `launchSettings.json` ❌
+- `launch.json` ✔️
+- `settings.json` ✔️ under `csharp.debug.symbolOptions`
+- `launchSettings.json` ❌
 
 ## Source Link options
 
@@ -466,9 +466,9 @@ Currently Source Link only works for source files that can be accessed without a
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ❌
-* `launchSettings.json` ❌
+- `launch.json` ✔️
+- `settings.json` ❌
+- `launchSettings.json` ❌
 
 ## Target Architecture options (macOS M1)
 
@@ -486,9 +486,9 @@ Example:
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ❌
-* `launchSettings.json` ❌
+- `launch.json` ✔️
+- `settings.json` ❌
+- `launchSettings.json` ❌
 
 ## Check for DevCert
 
@@ -506,9 +506,9 @@ Example:
 
 **Availability**
 
-* `launch.json` ✔️
-* `settings.json` ❌
-* `launchSettings.json` ✔️ as `useSSL`
+- `launch.json` ✔️
+- `settings.json` ❌
+- `launchSettings.json` ✔️ as `useSSL`
 
 ## Configuring launchSettings.json
 
@@ -569,15 +569,15 @@ Example:
 
 ## Profile Properties
 
-* `commandLineArgs` - The arguments to pass to the target being run.
-* `executablePath` - An absolute or relative path to the executable.
-* `workingDirectory` - Sets the working directory of the command.
-* `launchBrowser` - Set to true if the browser should be launched.
-* `applicationUrl` - A semi-colon delimited list of URL(s) to configure for the web server.
-* `sslPort` - The SSL port to use for the web site.
-* `httpPort` - The HTTP port to use for the web site.
+- `commandLineArgs` - The arguments to pass to the target being run.
+- `executablePath` - An absolute or relative path to the executable.
+- `workingDirectory` - Sets the working directory of the command.
+- `launchBrowser` - Set to true if the browser should be launched.
+- `applicationUrl` - A semi-colon delimited list of URL(s) to configure for the web server.
+- `sslPort` - The SSL port to use for the web site.
+- `httpPort` - The HTTP port to use for the web site.
 
 ## See Also
 
-* [launchSettings.json schema](https://json.schemastore.org/launchsettings.json)
-* [Use multiple environments in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/environments?view=aspnetcore-7.0)
+- [launchSettings.json schema](https://json.schemastore.org/launchsettings.json)
+- [Use multiple environments in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/environments?view=aspnetcore-7.0)

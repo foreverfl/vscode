@@ -80,11 +80,11 @@ The [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-a
 - View a Web App's log files
 - Swap Deployment Slots
 
-To install the Azure App Service extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for `azure app service` to filter the results. Select the Microsoft [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension. For a more command-line Maven-centric experience, you can also check out the [Maven plugin for Azure App Service Linux tutorial](https://learn.microsoft.com/azure/app-service/quickstart-java?pivots=platform-linux-development-environment-maven).
+To install the Azure App Service extension, open the Extensions view (`Ctrl+Shift+X`) and search for `azure app service` to filter the results. Select the Microsoft [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension. For a more command-line Maven-centric experience, you can also check out the [Maven plugin for Azure App Service Linux tutorial](https://learn.microsoft.com/azure/app-service/quickstart-java?pivots=platform-linux-development-environment-maven).
 
 ### Sign in to your Azure subscription
 
-To sign in to Azure, run **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). Or you can sign in to your Azure Account by clicking **Sign in to Azure...** in **RESOURCES** Explorer.
+To sign in to Azure, run **Azure: Sign In** from the **Command Palette** (`Ctrl+Shift+P`). Or you can sign in to your Azure Account by clicking **Sign in to Azure...** in **RESOURCES** Explorer.
 
 ![Azure sign in code](images/java-webapp/login.png)
 

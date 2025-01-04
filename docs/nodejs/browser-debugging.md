@@ -8,19 +8,20 @@ DateApproved: 12/11/2024
 MetaDescription: The Visual Studio Code editor includes browser debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---
+
 # Browser debugging in VS Code
 
 Visual Studio Code includes a built-in debugger for Edge and Chrome. There are a couple ways to get started with it.
 
-* Use the [Open Link](#open-link-command) command to debug a URL.
-* Clicking a link in the [JavaScript debug terminal](/docs/nodejs/nodejs-debugging.md#javascript-debug-terminal).
-* Use a [launch config](#launch-configuration) to launch a browser with your app.
+- Use the [Open Link](#open-link-command) command to debug a URL.
+- Clicking a link in the [JavaScript debug terminal](/docs/nodejs/nodejs-debugging.md#javascript-debug-terminal).
+- Use a [launch config](#launch-configuration) to launch a browser with your app.
 
 We also have more detailed walkthroughs to get started with [React](/docs/nodejs/reactjs-tutorial), [Angular](/docs/nodejs/angular-tutorial), and [Vue](/docs/nodejs/vuejs-tutorial), as well as other debugging [recipes](/docs/nodejs/debugging-recipes).
 
 ## Open Link command
 
-The simplest way to debug a webpage is through the **Debug: Open Link** command found in the Command Palette (`kb(workbench.action.showCommands)`). When you run this command, you'll be prompted for a URL to open, and the debugger will be attached.
+The simplest way to debug a webpage is through the **Debug: Open Link** command found in the Command Palette (`Ctrl+Shift+P`). When you run this command, you'll be prompted for a URL to open, and the debugger will be attached.
 
 ![Using the Open Link command to attach to a URL](images/browser-debugging/debug-open-link.gif)
 
@@ -32,7 +33,7 @@ Launch configs are the traditional way to set up debugging in VS Code, and provi
 
 In this section, we'll go into more detail about configurations and features for more advanced debugging scenarios. Instructions for Node.js [stepping over external code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code) also apply to browser-based debugging.
 
->**Note**: If you are just getting started with VS Code, you can learn about general debugging features and creating `launch.json` configuration files in the [Debugging](/docs/editor/debugging.md) topic.
+> **Note**: If you are just getting started with VS Code, you can learn about general debugging features and creating `launch.json` configuration files in the [Debugging](/docs/editor/debugging.md) topic.
 
 ### Launching browsers
 
@@ -104,23 +105,23 @@ Debugging configurations are stored in a `launch.json` file located in your work
 
 Below is a reference of common `launch.json` attributes specific to browser debugging. You can view the complete set of options in the [vscode-js-debug options](https://github.com/microsoft/vscode-js-debug/blob/main/OPTIONS.md) documentation.
 
-* `webRoot` - The root directory for your source code. Most often, and by default, the `webRoot` is your workspace folder. This option is used for sourcemap resolution.
-* `outFiles` - An array of [glob patterns](/docs/editor/glob-patterns.md) for locating generated JavaScript files. See the section on [Source maps](#source-maps).
-* `smartStep`- Try to automatically step over source code that doesn't map to source files. See the section on [Smart stepping](/docs/nodejs/nodejs-debugging.md#smart-stepping).
-* `skipFiles` - Automatically skip files covered by these [glob patterns](/docs/editor/glob-patterns.md). See the section on [Skipping uninteresting code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code).
-* `trace` - Enable diagnostic output.
+- `webRoot` - The root directory for your source code. Most often, and by default, the `webRoot` is your workspace folder. This option is used for sourcemap resolution.
+- `outFiles` - An array of [glob patterns](/docs/editor/glob-patterns.md) for locating generated JavaScript files. See the section on [Source maps](#source-maps).
+- `smartStep`- Try to automatically step over source code that doesn't map to source files. See the section on [Smart stepping](/docs/nodejs/nodejs-debugging.md#smart-stepping).
+- `skipFiles` - Automatically skip files covered by these [glob patterns](/docs/editor/glob-patterns.md). See the section on [Skipping uninteresting code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code).
+- `trace` - Enable diagnostic output.
 
 These attributes are only available for launch configurations of request type `launch`:
 
-* `url` - The URL to automatically open when the browser is launched.
-* `runtimeExecutable` - Either an absolute path to the browser executable to use, or the version of the browser to use. Valid versions include `stable` (default), `canary`, `beta`, and `dev`.
-* `runtimeArgs` - Optional arguments passed when launching the browser.
+- `url` - The URL to automatically open when the browser is launched.
+- `runtimeExecutable` - Either an absolute path to the browser executable to use, or the version of the browser to use. Valid versions include `stable` (default), `canary`, `beta`, and `dev`.
+- `runtimeArgs` - Optional arguments passed when launching the browser.
 
 These attributes are only available for launch configurations of request type `attach`:
 
-* `url` - If given, VS Code will attach to a tab with this URL. If not provided, it will attach to all browser tabs.
-* `port` - Debug port to use. See the section on [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs).
-* `address` - TCP/IP address of the debug port. See the section on [Attaching to Browsers](#attaching-to-browsers).
+- `url` - If given, VS Code will attach to a tab with this URL. If not provided, it will attach to all browser tabs.
+- `port` - Debug port to use. See the section on [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs).
+- `address` - TCP/IP address of the debug port. See the section on [Attaching to Browsers](#attaching-to-browsers).
 
 ## WebAssembly Debugging
 
@@ -140,5 +141,5 @@ If it can't access it directly, VS Code will try to use the browser's network st
 
 ## Next steps
 
-* [Debugging](/docs/editor/debugging.md) - Read about general VS Code debugging features.
-* [Debugging Recipes](/docs/nodejs/debugging-recipes.md) - Set up debugging for your favorite platform.
+- [Debugging](/docs/editor/debugging.md) - Read about general VS Code debugging features.
+- [Debugging Recipes](/docs/nodejs/debugging-recipes.md) - Set up debugging for your favorite platform.

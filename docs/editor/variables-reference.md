@@ -270,7 +270,7 @@ Visual Studio Code는 [디버깅](/docs/editor/debugging.md)과 [태스크](/doc
 
 ### 사용자 및 작업 공간 설정에서 변수 치환이 지원됩니까? {#is-variable-substitution-supported}
 
-미리 정의된 변수는 터미널 `cwd`, `env`, `shell`, `shellArgs` 값과 같은 `settings.json` 파일의 일부 설정 키에서 지원됩니다. `setting(window.title)`과 같은 일부 [설정](/docs/getstarted/settings.md)은 자체 변수를 가지고 있습니다:
+미리 정의된 변수는 터미널 `cwd`, `env`, `shell`, `shellArgs` 값과 같은 `settings.json` 파일의 일부 설정 키에서 지원됩니다. `window.title`과 같은 일부 [설정](/docs/getstarted/settings.md)은 자체 변수를 가지고 있습니다:
 
 ```json
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}"

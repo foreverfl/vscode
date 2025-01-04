@@ -7,6 +7,7 @@ PageTitle: HTML Programming with Visual Studio Code
 DateApproved: 12/11/2024
 MetaDescription: Get the best out of Visual Studio Code for HTML development
 ---
+
 # HTML in Visual Studio Code
 
 Visual Studio Code provides basic support for HTML programming out of the box. There is syntax highlighting, smart completions with IntelliSense, and customizable formatting. VS Code also includes great Emmet support.
@@ -103,26 +104,26 @@ To improve the formatting of your HTML source code, you can use the **Format Doc
 
 The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-beautify). The formatting options offered by that library are surfaced in the VS Code [settings](/docs/getstarted/settings.md):
 
-* `setting(html.format.wrapLineLength)`: Maximum amount of characters per line.
-* `setting(html.format.unformatted)`: List of tags that shouldn't be reformatted.
-* `setting(html.format.contentUnformatted)`: List of tags, comma separated, where the content shouldn't be reformatted.
-* `setting(html.format.extraLiners)`: List of tags that should have an extra newline before them.
-* `setting(html.format.preserveNewLines)`: Whether existing line breaks before elements should be preserved.
-* `setting(html.format.maxPreserveNewLines)`: Maximum number of line breaks to be preserved in one chunk.
-* `setting(html.format.indentInnerHtml)`: Indent `<head>` and `<body>` sections.
-* `setting(html.format.wrapAttributes)`: Wrapping strategy for attributes:
-  * `auto`: Wrap when the line length is exceeded
-  * `force`: Wrap all attributes, except first
-  * `force-aligned`: Wrap all attributes, except first, and align attributes
-  * `force-expand-multiline`: Wrap all attributes
-  * `aligned-multiple`: Wrap when line length is exceeded, align attributes vertically
-  * `preserve`: Preserve wrapping of attributes
-  * `preserve-aligned`: Preserve wrapping of attributes but align
-* `setting(html.format.wrapAttributesIndentSize)`: Alignment size when using `force aligned` and `aligned multiple` in `setting(html.format.wrapAttributes)` or `null` to use the default indent size.
-* `setting(html.format.templating)`: Honor django, erb, handlebars and php templating language tags.
-* `setting(html.format.unformattedContentDelimiter)`: Keep text content together between this string.
+- `html.format.wrapLineLength`: Maximum amount of characters per line.
+- `html.format.unformatted`: List of tags that shouldn't be reformatted.
+- `html.format.contentUnformatted`: List of tags, comma separated, where the content shouldn't be reformatted.
+- `html.format.extraLiners`: List of tags that should have an extra newline before them.
+- `html.format.preserveNewLines`: Whether existing line breaks before elements should be preserved.
+- `html.format.maxPreserveNewLines`: Maximum number of line breaks to be preserved in one chunk.
+- `html.format.indentInnerHtml`: Indent `<head>` and `<body>` sections.
+- `html.format.wrapAttributes`: Wrapping strategy for attributes:
+  - `auto`: Wrap when the line length is exceeded
+  - `force`: Wrap all attributes, except first
+  - `force-aligned`: Wrap all attributes, except first, and align attributes
+  - `force-expand-multiline`: Wrap all attributes
+  - `aligned-multiple`: Wrap when line length is exceeded, align attributes vertically
+  - `preserve`: Preserve wrapping of attributes
+  - `preserve-aligned`: Preserve wrapping of attributes but align
+- `html.format.wrapAttributesIndentSize`: Alignment size when using `force aligned` and `aligned multiple` in `html.format.wrapAttributes` or `null` to use the default indent size.
+- `html.format.templating`: Honor django, erb, handlebars and php templating language tags.
+- `html.format.unformattedContentDelimiter`: Keep text content together between this string.
 
->**Tip:** The formatter doesn't format the tags listed in the `setting(html.format.unformatted)` and `setting(html.format.contentUnformatted)` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
+> **Tip:** The formatter doesn't format the tags listed in the `html.format.unformatted` and `html.format.contentUnformatted` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
 
 The Marketplace has several alternative formatters to choose from. If you want to use a different formatter, define
 `"html.format.enable": false` in your settings to turn off the built-in formatter.
@@ -133,17 +134,17 @@ VS Code supports [Emmet snippet](https://emmet.io/) expansion. Emmet abbreviatio
 
 ![Emmet HTML support built-in](images/html/emmetsnippet.gif)
 
->**Tip:** See the HTML section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
+> **Tip:** See the HTML section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
-If you'd like to use HTML Emmet abbreviations with other languages, you can associate one of the Emmet modes (such as `css`, `html`) with other languages with the `setting(emmet.includeLanguages)` [setting](/docs/getstarted/settings.md). The setting takes a [language identifier](/docs/languages/overview.md#language-identifier) and associates it with the language ID of an Emmet supported mode.
+If you'd like to use HTML Emmet abbreviations with other languages, you can associate one of the Emmet modes (such as `css`, `html`) with other languages with the `emmet.includeLanguages` [setting](/docs/getstarted/settings.md). The setting takes a [language identifier](/docs/languages/overview.md#language-identifier) and associates it with the language ID of an Emmet supported mode.
 
 For example, to use Emmet HTML abbreviations inside JavaScript:
 
 ```json
 {
-    "emmet.includeLanguages": {
-        "javascript": "html"
-     }
+  "emmet.includeLanguages": {
+    "javascript": "html"
+  }
 }
 ```
 
@@ -151,13 +152,13 @@ We also support [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
 
 ## HTML custom data
 
-You can extend VS Code's HTML support through a declarative [custom data format](https://github.com/microsoft/vscode-html-languageservice/blob/main/docs/customData.md). By setting `setting(html.customData)` to a list of JSON files following the custom data format, you can enhance VS Code's understanding of new HTML tags, attributes and attribute values. VS Code will then offer language support such as completion & hover information for the provided tags, attributes and attribute values.
+You can extend VS Code's HTML support through a declarative [custom data format](https://github.com/microsoft/vscode-html-languageservice/blob/main/docs/customData.md). By setting `html.customData` to a list of JSON files following the custom data format, you can enhance VS Code's understanding of new HTML tags, attributes and attribute values. VS Code will then offer language support such as completion & hover information for the provided tags, attributes and attribute values.
 
 You can read more about using custom data in the [vscode-custom-data](https://github.com/microsoft/vscode-custom-data) repository.
 
 ## HTML extensions
 
-Install an extension to add more functionality. Go to the **Extensions** view (`kb(workbench.view.extensions)`) and type 'html' to see a list of relevant extensions to help with creating and editing HTML.
+Install an extension to add more functionality. Go to the **Extensions** view (`Ctrl+Shift+X`) and type 'html' to see a list of relevant extensions to help with creating and editing HTML.
 
 <div class="marketplace-extensions-html-curated"></div>
 
@@ -167,12 +168,12 @@ Install an extension to add more functionality. Go to the **Extensions** view (`
 
 Read on to find out about:
 
-* [CSS, SCSS, and Less](/docs/languages/css.md) - VS Code has first class support for CSS including Less and SCSS.
-* [Emmet](/docs/editor/emmet.md) - Learn about VS Code's powerful built-in Emmet support.
-* [Emmet official documentation](https://docs.emmet.io/) - Emmet, the essential toolkit for web-developers.
+- [CSS, SCSS, and Less](/docs/languages/css.md) - VS Code has first class support for CSS including Less and SCSS.
+- [Emmet](/docs/editor/emmet.md) - Learn about VS Code's powerful built-in Emmet support.
+- [Emmet official documentation](https://docs.emmet.io/) - Emmet, the essential toolkit for web-developers.
 
 ## Common questions
 
 ### Does VS Code have HTML preview?
 
-No, VS Code doesn't have built-in support for HTML preview but there are extensions available in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). Open the **Extensions** view (`kb(workbench.view.extensions)`) and search on 'live preview' or 'html preview' to see a list of available HTML preview extensions.
+No, VS Code doesn't have built-in support for HTML preview but there are extensions available in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). Open the **Extensions** view (`Ctrl+Shift+X`) and search on 'live preview' or 'html preview' to see a list of available HTML preview extensions.

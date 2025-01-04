@@ -8,6 +8,7 @@ DateApproved: 12/11/2024
 MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
 MetaSocialImage: images/cpp/languages-cpp-social.png
 ---
+
 # C/C++ for Visual Studio Code
 
 C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to enable cross-platform C and C++ development on Windows, Linux, and macOS. When you create a `*.cpp` file, the extension adds features such as syntax highlighting (colorization), smart completions and hovers (IntelliSense), and error checking.
@@ -17,7 +18,7 @@ C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension
 ## Install the extension
 
 1. Open VS Code.
-1. Select the Extensions view icon on the Activity bar or use the keyboard shortcut (`kb(workbench.view.extensions)`).
+1. Select the Extensions view icon on the Activity bar or use the keyboard shortcut (`Ctrl+Shift+X`).
 1. Search for `'C++'`.
 1. Select **Install**.
 
@@ -38,15 +39,15 @@ To check if you already have them installed:
 1. Open a new VS Code terminal window using (`kb(workbench.action.terminal.new)`)
 2. Use the following command to check for the GCC compiler `g++`:
 
-    ```bash
-    g++ --version
-    ```
+   ```bash
+   g++ --version
+   ```
 
-    Or this command for the Clang compiler `clang`:
+   Or this command for the Clang compiler `clang`:
 
-    ```bash
-    clang --version
-    ```
+   ```bash
+   clang --version
+   ```
 
 The output should show you the compiler version and details. If neither are found, make sure your compiler executable is in your platform path (`%PATH` on Windows, `$PATH` on Linux and macOS) so that the C/C++ extension can find it. Otherwise, use the instructions in the section below to install a compiler.
 
@@ -78,19 +79,19 @@ To understand the process, let's install Mingw-w64 via [MSYS2](https://www.msys2
 
 1. Run the installer and follow the steps of the installation wizard. Note, MSYS2 requires 64 bit Windows 8.1 or newer.
 
-1. In the wizard, choose your desired Installation Folder. Record this directory for later. In most cases, the recommended directory is acceptable. The same applies when you get to setting the start menu shortcuts step. When complete, ensure the **Run MSYS2 now** box is checked and select **Finish**. A MSYS2 terminal window  will then automatically open.
+1. In the wizard, choose your desired Installation Folder. Record this directory for later. In most cases, the recommended directory is acceptable. The same applies when you get to setting the start menu shortcuts step. When complete, ensure the **Run MSYS2 now** box is checked and select **Finish**. A MSYS2 terminal window will then automatically open.
 
 1. In this terminal, install the MinGW-w64 toolchain by running the following command:
 
-    ```sh
-    pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
-    ```
+   ```sh
+   pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
+   ```
 
 1. A list of available packages will be displayed
 
-    ![MYSS2 Installer](images/cpp/cpp-install-msys2-toolchain.png)
+   ![MYSS2 Installer](images/cpp/cpp-install-msys2-toolchain.png)
 
-1. Accept the default number of packages in the `toolchain` group by pressing `kbstyle(Enter)`.
+1. Accept the default number of packages in the `toolchain` group by pressing `Enter`.
 
 1. Enter `Y` when prompted whether to proceed with the installation.
 
@@ -164,7 +165,7 @@ You are only prompted to choose a compiler the first time you run `helloworld.cp
 
 4. After the build succeeds, you should see "Hello World" appear in the integrated **Terminal**.
 
-    ![screenshot of program output](images/cpp/helloworld-terminal-output.png)
+   ![screenshot of program output](images/cpp/helloworld-terminal-output.png)
 
 Congratulations! You've just run your first C++ program in VS Code! The next step is to learn more about the Microsoft C/C++ extension's language features such as IntelliSense, code navigation, build configuration, and debugging using one of the Tutorials in the next section.
 

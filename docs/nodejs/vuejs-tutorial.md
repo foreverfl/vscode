@@ -7,11 +7,12 @@ PageTitle: Vue JavaScript Tutorial in Visual Studio Code
 DateApproved: 12/11/2024
 MetaDescription: Vue JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 ---
+
 # Using Vue in Visual Studio Code
 
 [Vue.js](https://vuejs.org/) is a popular JavaScript library for building web application user interfaces and Visual Studio Code has built-in support for the Vue.js building blocks of [HTML](/docs/languages/html.md), [CSS](/docs/languages/css.md), and [JavaScript](/docs/languages/javascript.md). For a richer Vue.js development environment, you can install the [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) and [Volar for TypeScript](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) extensions that support Vue.js IntelliSense, code snippets, formatting, and more.
 
->**Note**: [Vue 2 support will end on December 31st, 2023](https://v2.vuejs.org/lts/) so the use of the [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) extension is [not recommended](https://github.com/vuejs/vetur/discussions/3378). You will need to [disable Vetur](https://vuejs.org/guide/typescript/overview.html#ide-support) to use Volar.
+> **Note**: [Vue 2 support will end on December 31st, 2023](https://v2.vuejs.org/lts/) so the use of the [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) extension is [not recommended](https://github.com/vuejs/vetur/discussions/3378). You will need to [disable Vetur](https://vuejs.org/guide/typescript/overview.html#ide-support) to use Volar.
 
 ---
 
@@ -25,7 +26,7 @@ We'll be using the [Vite](https://vitejs.dev/) tooling for this tutorial. If you
 
 To install and use Vite and Vue.js, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. npm is included with Node.js, which you can install from [Node.js downloads](https://nodejs.org/en/download/).
 
->**Tip**: To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version`.
+> **Tip**: To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version`.
 
 To get started, make sure you are in the parent directory where you intend to create a project. Then open your terminal or command prompt and type:
 
@@ -54,7 +55,7 @@ Let's quickly run our Vue application by typing `npm run dev` to start the web s
 npm run dev
 ```
 
-You should see "Welcome to your Vue.js App" on [http://localhost:5173](http://localhost:5173) in your browser. You can press `kbstyle(Ctrl+C)` to stop the `vue-cli-service` server.
+You should see "Welcome to your Vue.js App" on [http://localhost:5173](http://localhost:5173) in your browser. You can press `Ctrl+C` to stop the `vue-cli-service` server.
 
 To open your Vue application in VS Code, from a terminal (or command prompt), navigate to the `vue-project` folder and type `code .`:
 
@@ -95,7 +96,7 @@ VS Code through the Volar extension Vue.js language service can also provide typ
 
 ![Vue.js peek definition](images/vuejs/peek-definition.png)
 
-Press `kbstyle(Escape)` to close the Peek window.
+Press `Escape` to close the Peek window.
 
 ## Hello World
 
@@ -104,7 +105,13 @@ Let's update the sample application to "Hello World!". In `App.vue` replace the 
 ```html
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <img
+      alt="Vue logo"
+      class="logo"
+      src="./assets/logo.svg"
+      width="125"
+      height="125"
+    />
 
     <div class="wrapper">
       <HelloWorld msg="Hello World!" />
@@ -119,7 +126,7 @@ Let's update the sample application to "Hello World!". In `App.vue` replace the 
 
 Once you save the `App.vue` file (`kb(workbench.action.files.save)`), restart the server with `npm run dev` and you'll see "Hello World!". Leave the server running while we go on to learn about Vue.js client side debugging.
 
->**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/getstarted/settings.md).
+> **Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/getstarted/settings.md).
 
 ---
 
@@ -149,7 +156,7 @@ Volar is only one of many Vue.js extensions available for VS Code. Another recom
 
 ![Vue recommended extensions](images/vuejs/vue-recommended-extensions.png)
 
-You can search in the Extensions view (`kb(workbench.view.extensions)`) by typing 'vue'.
+You can search in the Extensions view (`Ctrl+Shift+X`) by typing 'vue'.
 
 ![Vue.js extensions](images/vuejs/vue-extensions.png)
 

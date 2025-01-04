@@ -40,7 +40,7 @@ The Python extension then provides shortcuts to run Python code using the curren
 
 ![Using the run python file in terminal button](images/python/run-python-file-in-terminal-button.png)
 
-You can also run individual lines or a selection of code with the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). If there isn't a selection, Smart Send will send the smallest runnable block of code around the line where your cursor is placed to the Python Terminal on (`kbstyle(Shift+Enter)`). An identical **Run Python > Run Selection/Line in Python Terminal** command is available on the context menu for a selection in the editor. The same terminal will be used every time you run a selection or a line in the terminal/REPL, until that terminal is closed. The same terminal is also used for **Run Python File in Terminal**. If that terminal is still running the REPL, you should exit the REPL (`exit()`) or switch to a different terminal before running a Python file.
+You can also run individual lines or a selection of code with the **Python: Run Selection/Line in Python Terminal** command (`Shift+Enter`). If there isn't a selection, Smart Send will send the smallest runnable block of code around the line where your cursor is placed to the Python Terminal on (`Shift+Enter`). An identical **Run Python > Run Selection/Line in Python Terminal** command is available on the context menu for a selection in the editor. The same terminal will be used every time you run a selection or a line in the terminal/REPL, until that terminal is closed. The same terminal is also used for **Run Python File in Terminal**. If that terminal is still running the REPL, you should exit the REPL (`exit()`) or switch to a different terminal before running a Python file.
 
 The Python extension automatically removes indents based on the first non-empty line of the selection, shifting all other lines left as needed.
 
@@ -146,7 +146,7 @@ Once you select a profile template, you can review the settings and extensions, 
 
 The [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) provides all of the features described previously in this article. Additional Python language support can be added to VS Code by installing other popular Python extensions.
 
-1. Open the **Extensions** view (`kb(workbench.view.extensions)`).
+1. Open the **Extensions** view (`Ctrl+Shift+X`).
 1. Filter the extension list by typing 'python'.
 
 <div class="marketplace-extensions-python"></div>
