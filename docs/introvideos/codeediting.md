@@ -44,7 +44,7 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 - Split the terminal.
   - **Split Terminal** (`kb(workbench.action.terminal.split)`)
 - Create new terminal.
-  - **Create New Terminal** (`kb(workbench.action.terminal.new)`)
+  - **Create New Terminal** (`` Ctrl+Shift+` ``)
 - Run the application.
   - From the Integrated Terminal, type `node app.js`
 

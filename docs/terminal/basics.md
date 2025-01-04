@@ -18,7 +18,7 @@ You can open a terminal as follows:
 - From the **Command Palette** (`Ctrl+Shift+P`), use the **View: Toggle Terminal** command.
 - In the Explorer, you can use the **Open in Integrated Terminal** context menu command to open a new terminal from a folder.
 - To toggle the terminal panel, use the `` Ctrl+` `` keyboard shortcut.
-- To create a new terminal, use the `kb(workbench.action.terminal.new)` keyboard shortcut.
+- To create a new terminal, use the `` Ctrl+Shift+` `` keyboard shortcut.
 
 VS Code's terminal has additional functionality called shell integration that tracks where commands are run with decorations on the left of a command and in the scrollbar:
 
@@ -40,7 +40,7 @@ The terminal tabs UI is on the right side of the terminal view. Each terminal ha
 
 ![Activating the Launch Profile button will show all detected and manually configured profiles](images/basics/tabs.png)
 
-Add terminal instances by selecting the **+** icon on the top-right of the **TERMINAL** panel, selecting a profile from the terminal dropdown, or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the tab list associated with that terminal.
+Add terminal instances by selecting the **+** icon on the top-right of the **TERMINAL** panel, selecting a profile from the terminal dropdown, or by triggering the `` Ctrl+Shift+` `` command. This action creates another entry in the tab list associated with that terminal.
 
 Remove terminal instances by hovering a tab and selecting the **Trash Can** button, selecting a tab item and pressing `Delete`, using **Terminal: Kill the Active Terminal Instance** command, or via the right-click context menu.
 
@@ -92,8 +92,8 @@ There are various commands available to navigate around the terminal buffer:
 
 **Command** navigation is also available (see [shell integration](/docs/terminal/shell-integration.md)):
 
-- Scroll to the previous command - `kb(workbench.action.terminal.scrollToPreviousCommand)`
-- Scroll to the next command - `kb(workbench.action.terminal.scrollToNextCommand)`
+- Scroll to the previous command - `Ctrl+Up`
+- Scroll to the next command - `Ctrl+Down`
 
 Scrolling will happen instantaneously, but can be configured to animate over a short duration with the `terminal.integrated.smoothScrolling` setting.
 

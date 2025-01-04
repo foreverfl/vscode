@@ -50,7 +50,7 @@ In this section, you will create a virtual environment in which Flask is install
 
    ![Flask tutorial: opening the Command Palette in VS Code](images/flask-tutorial/command-palette.png)
 
-1. After your virtual environment creation has been completed, run [**Terminal: Create New Terminal**](/docs/terminal/basics.md) (`kb(workbench.action.terminal.new)`)) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
+1. After your virtual environment creation has been completed, run [**Terminal: Create New Terminal**](/docs/terminal/basics.md) (`` Ctrl+Shift+` ``)) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
 
    > **Note**: On Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Profile** to set "Command Prompt" or "Git Bash" as your default instead.
 
@@ -566,7 +566,7 @@ Accordingly, developers typically omit the virtual environment folder from sourc
 
 Although you can create the file by hand, you can also use the `pip freeze` command to generate the file based on the exact libraries installed in the activated environment:
 
-1. With your chosen environment selected using the **Python: Select Interpreter** command, run the **Terminal: Create New Terminal** command (`kb(workbench.action.terminal.new)`)) to open a terminal with that environment activated.
+1. With your chosen environment selected using the **Python: Select Interpreter** command, run the **Terminal: Create New Terminal** command (`` Ctrl+Shift+` ``)) to open a terminal with that environment activated.
 
 1. In the terminal, run `pip freeze > requirements.txt` to create the `requirements.txt` file in your project folder.
 

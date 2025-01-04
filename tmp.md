@@ -1,292 +1,461 @@
 ---
-Order: 1
-Area: sourcecontrol
-TOCTitle: Overview
-ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
-PageTitle: Source Control with Git in Visual Studio Code
+Order: 2
+Area: terminal
+TOCTitle: Terminal Basics
+ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
+PageTitle: Integrated Terminal in Visual Studio Code
 DateApproved: 12/11/2024
-MetaDescription: Visual Studio Code source control management with integrated Git support.
+MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 
-# Using Git source control in VS Code
+# Terminal Basics
 
-Visual Studio Code has integrated source control management (SCM) and includes [Git](https://git-scm.com/) support out-of-the-box. Many other source control providers are available through [extensions](/docs/editor/extension-marketplace.md) on the VS Code Marketplace.
+Visual Studio Code includes a full featured integrated terminal that starts at the root of your workspace. It provides integration with the editor to support features like [links](#links) and [error detection](/docs/editor/tasks.md). The integrated terminal can run commands such as mkdir and git just like a standalone terminal.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/i_23KUAEtUM" title="Using Git with Visual Studio Code (Official Beginner Tutorial)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+You can open a terminal as follows:
 
-## Working in a Git repository
+- From the menu, use the **Terminal** > **New Terminal** or **View** > **Terminal** menu commands.
+- From the **Command Palette** (`Ctrl+Shift+P`), use the **View: Toggle Terminal** command.
+- In the Explorer, you can use the **Open in Integrated Terminal** context menu command to open a new terminal from a folder.
+- To toggle the terminal panel, use the `` Ctrl+` `` keyboard shortcut.
+- To create a new terminal, use the `` Ctrl+Shift+` `` keyboard shortcut.
 
-> **Just getting started with Git?** The [git-scm](https://git-scm.com/doc) website is a good place to start, with a popular online [book](https://git-scm.com/book), Getting Started [videos](https://git-scm.com/video/what-is-git) and [cheat sheets](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf). The VS Code documentation assumes you are already familiar with Git.
+VS Code's terminal has additional functionality called shell integration that tracks where commands are run with decorations on the left of a command and in the scrollbar:
 
-![Overview of Git](images/overview/overview.png)
+![The integrated terminal can run commands such as mkdir and git just like a standalone terminal. VS Code's terminal has additional functionality called shell integration that tracks where commands are run with decorations on the left of a command and in the scrollbar.](images/basics/integrated-terminal.png)
 
-> **Make sure Git is installed.** VS Code will use your machine's Git installation (at least version `2.0.0`), so you need to [install Git](https://git-scm.com/download) first before you get these features.
+> **Note:** If you prefer to work outside VS Code, open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut
 
-The Source Control icon in the Activity Bar on the left will always indicate an **overview of how many changes** you currently have in your repository. Selecting the icon will show you the details of your current repository changes: **CHANGES**, **STAGED CHANGES** and **MERGE CHANGES**.
+## Terminal shells
 
-Clicking each item will show you in detail **the textual changes within each file**. Note that for unstaged changes, the editor on the right still lets you edit the file: feel free to use it!
+The integrated terminal can use various shells installed on your machine, with the default being pulled from your system defaults. Shells are detected and presented in the terminal profiles dropdown.
 
-You can also find indicators of the **status of your repository** in the bottom-left corner of VS Code: the **current branch**, **dirty indicators**, and the number of **incoming and outgoing commits** of the current branch. You can **checkout** any branch in your repository by clicking that status indicator and selecting the Git reference from the list.
+![A detected profile can be chosen in the dropdown next to the new terminal button. Some examples on Windows include PowerShell, Command Prompt, Git Bash and WSL](images/basics/select-profile-dropdown.png)
 
-> **Tip:** You can open VS Code in a sub-directory of a Git repository. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded with a tool tip indicating they are located outside the current workspace.
+You can learn more about configuring terminal shells in the [terminal profiles](/docs/terminal/profiles.md) article.
 
-## Commit
+## Managing terminals
 
-**Staging** (git add) and **unstaging** (git reset) can be done via contextual actions in the files or by drag-and-drop.
+The terminal tabs UI is on the right side of the terminal view. Each terminal has an entry with its name, icon, color, and group decoration (if any).
 
-> **Configure your Git username and email.** When you commit, be aware that if your username and/or email is not set in your Git configuration, Git will fall back to using information from your local machine. You can find the details in [Git commit information](https://git-scm.com/docs/git-commit#_commit_information).
+![Activating the Launch Profile button will show all detected and manually configured profiles](images/basics/tabs.png)
 
-![Stage all changes button](images/overview/stage-changes.png)
+Add terminal instances by selecting the **+** icon on the top-right of the **TERMINAL** panel, selecting a profile from the terminal dropdown, or by triggering the `` Ctrl+Shift+` `` command. This action creates another entry in the tab list associated with that terminal.
 
-You can type a commit message above the changes and press `Ctrl+Enter` (macOS: `⌘+Enter`) to commit them. If there are any staged changes, only those changes will be committed. Otherwise, you'll get a prompt asking you to select what changes you'd like to commit and get the option to change your commit settings.
+Remove terminal instances by hovering a tab and selecting the **Trash Can** button, selecting a tab item and pressing `Delete`, using **Terminal: Kill the Active Terminal Instance** command, or via the right-click context menu.
 
-We've found this to be a great workflow. For example, in the earlier screenshot, only the staged changes to `overview.png` will be included in the commit. Later staging and commit actions could include the changes to `versioncontrol.md` and the two other `.png` images as a separate commit.
+Navigate between terminal groups using focus next `kb(workbench.action.terminal.focusNext)` and focus previous `kb(workbench.action.terminal.focusPrevious)`.
 
-More specific **Commit** actions can be found in the **Views and More Actions** `...` menu on the top of the Source Control view.
+Icons may appear to the right of the terminal title on the tab label when a terminal's status changes. Some examples are a bell (macOS) and for tasks, displaying a check mark when there are no errors and an X otherwise. Hover the icon to read status information, which may contain actions.
 
-![views and more actions button](images/overview/scm-more-actions.png)
+### Groups (split panes)
 
-> **Tip:** If you commit your change to the wrong branch, undo your commit using the **Git: Undo Last Commit** command in the **Command Palette** (`Ctrl+Shift+P`).
+Place multiple terminals side-by-side and create a group by splitting a terminal:
 
-<iframe src="https://www.youtube-nocookie.com/embed/E6ADS2k8oNQ" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Git: Commits in Visual Studio Code"></iframe>
+- Hover over a entry in the list of terminals on the right and select the inline split button.
+- Right-click the context menu and selecting the **Split** menu option.
+- `Alt` and click on a tab, the **+** button, or the single tab on the terminal panel.
+- Trigger the `kb(workbench.action.terminal.split)` command.
 
-### Author commit messages using an editor
+> **Tip:** The working directory for the new terminal depends on the `terminal.integrated.splitCwd` [setting](/docs/getstarted/settings.md).
 
-If you don't enter a commit message when commiting changes, VS Code opens an editor for the `COMMIT_EDITMSG` file where you can author the commit message in the editor. After you provide a commit message, either close the editor tab, or select the **Accept Commit Message** button in the editor toolbar to commit the changes.
+Navigate between terminals in a group by focusing the previous pane, `kb(workbench.action.terminal.focusPreviousPane)`, or the next pane, `kb(workbench.action.terminal.focusNextPane)`.
 
-To cancel the commit operation, you can either clear the contents of the text editor and close the editor tab, or select the **Discard Commit Message** button in the editor toolbar.
+Dragging and dropping tabs in the list rearranges them. Dragging a tab into the main terminal area allows moving a terminal from one group to another.
 
-![Author commit message in a full text editor](images/overview/scm-git-editor.gif)
+Moving a terminal into its own group can be done with the **Terminal: Unsplit Terminal** command through the Command Palette or in the right-click context menu.
 
-You can disable this functionality by toggling the `git.useEditorAsCommitInput` setting. After the setting is changed, you have to restart VS Code for the change to take effect.
+## Terminals in editor area
 
-To use the same flow for git commit commands executed in the integrated terminal, enable the `git.terminalGitEditor` setting.
+You can open terminals in the editor area (terminal editors) with the **Terminal: Create New Terminal in Editor Area** command, the **Terminal: Create New Terminal in Editor Area to the Side** command, or by dragging a terminal from the terminal view into the editor area. Terminal editors are presented like regular editor tabs:
 
-## Cloning a repository
+![Terminal editors are presented like regular text file tabs](images/basics/terminal-editor.png)
 
-If you haven't opened a folder yet, the Source Control view will give you the options to **Open Folder** from your local machine or **Clone Repository**.
+You can have terminal editors on either side or arranged in multiple dimensions using the editor group layout system, e.g. PowerShell and WSL terminals stacked to the right of file editors:
 
-![First run Source Control experience](images/overview/firstrun-source-control.png)
+![Terminal editors are can be laid out using the editor group layout system, for example 2 terminals could sit to the right of a text editor](images/basics/terminal-editor-grid.png)
 
-If you select **Clone Repository**, you will be asked for the URL of the remote repository (for example on [GitHub](https://github.com/)) and the parent directory under which to put the local repository.
+The `terminal.integrated.defaultLocation` setting can change the default `view` or `editor` area terminal location.
 
-For a GitHub repository, you would find the URL from the GitHub **Code** dialog.
+## Navigating the buffer
 
-![clone repository dialog](images/overview/GitHub-clone-dialog.png)
+The content in the terminal is called the buffer, with the section right above the bottom viewport being called "scrollback". The amount of scrollback kept is determined by the `terminal.integrated.scrollback` [setting](/docs/getstarted/settings.md) and defaults to `1000` lines.
 
-You would then paste that URL into the **Git: Clone** prompt.
+There are various commands available to navigate around the terminal buffer:
 
-![set repository URL](images/overview/set-repo-URL.png)
+- Scroll up a line - `kb(workbench.action.terminal.scrollUp)`
+- Scroll down a line - `kb(workbench.action.terminal.scrollDown)`
+- Scroll up a page - `kb(workbench.action.terminal.scrollUpPage)`
+- Scroll down a page - `kb(workbench.action.terminal.scrollDownPage)`
+- Scroll to the top - `kb(workbench.action.terminal.scrollToTop)`
+- Scroll to the bottom - `kb(workbench.action.terminal.scrollToBottom)`
 
-You'll also see the option to **Clone from GitHub**. Once you authenticate with your GitHub account in VS Code, you'll be able to search through repositories by name, and select any repo to clone it. You can also start the flow to clone a Git repository with the **Git: Clone** command in the **Command Palette** (`Ctrl+Shift+P`). To see a step-by-step walkthrough, check out our [Clone repos from VS Code](https://www.youtube.com/watch?v=bz1KauFlbQI) video.
+**Command** navigation is also available (see [shell integration](/docs/terminal/shell-integration.md)):
 
-> **Note**: If you'd like to work on a repository without cloning the contents to your local machine, you can install the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension to browse and edit directly on GitHub. You can learn more in the [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension) section.
+- Scroll to the previous command - `Ctrl+Up`
+- Scroll to the next command - `Ctrl+Down`
 
-## Branches and Tags
+Scrolling will happen instantaneously, but can be configured to animate over a short duration with the `terminal.integrated.smoothScrolling` setting.
 
-<iframe src="https://www.youtube-nocookie.com/embed/b9LTz6joMf8?clip=Ugkxcq7zDGA4aMi8p7lICNMzTANn_8ozU5gK&amp;clipt=EPiBAxj08QU" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Create Git Branches in Visual Studio Code"></iframe>
+## Links
 
-You can create and checkout branches directly within VS Code through the **Git: Create Branch** and **Git: Checkout to** commands in the **Command Palette** (`Ctrl+Shift+P`).
+The terminal features sophisticated link detection with editor integration and even extension contributed link handlers. Hover over a link to display an underline, then hold the `Ctrl`/`Cmd` key and click.
 
-If you run **Git: Checkout to**, you will see a dropdown list containing all of the branches or tags in the current repository. It will also give you the option to create a new branch if you decide that's a better option, or checkout a branch in detached mode.
+These built-in link handlers are used in the following priority order:
 
-![Git checkout](images/overview/gitbranches.png)
+- URIs/URLs: Links that look like URIs, such as `https://code.visualstudio.com`, `vscode://path/to/file` or `file://path/to/file` will open using the standard handler for the protocol. For example, `https` links will open the browser.
 
-The **Git: Create Branch** command lets you quickly create a new branch. Just provide the name of your new branch and VS Code will create the branch and switch to it. If you choose to **Create new branch from...**, you'll get an extra prompt that allows you to specify which commit the new branch should be pointing to.
+  ![Opening a URI link will open it in the system browser](images/basics/link-uri.png)
 
-> **Tip**: VS Code can automatically save and restore open editors when you switch to another branch. Use the `scm.workingSets.enabled` setting to enable this feature. To control the open editors when switching to a branch for the first time, you can use the `scm.workingSets.default` setting.
+- File links: Links to files that have been verified to exist on the system. These will open the file in a new editor tab and support many common line/column formats such as `file:1:2`, `file:line 1, column 2`.
 
-## Remotes
+  ![Activating a file link will open it in an editor](images/basics/link-file.png)
 
-Given that your repository is connected to some remote and that your checked out branch has an [upstream link](https://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull**, and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the **Views and More Actions** `...` menu, along with the option to **add or remove a remote**.
+- Folder links: Links to folders are similar to file links but will open a new VS Code window at the folder.
 
-VS Code is able to periodically fetch changes from your remotes. This enables VS Code to show how many changes your local repository is ahead or behind the remote. This feature is disabled by default and you can use the `git.autofetch` [setting](/docs/getstarted/settings.md) to enable it.
+  ![Activating a folder link will open it in a new window](images/basics/link-folder.png)
 
-> **Tip:** You should [set up a credential helper](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) to avoid getting asked for credentials every time VS Code talks to your Git remotes. If you don't do this, you may want to consider disabling automatic fetching via the `git.autofetch` [setting](/docs/getstarted/settings.md) to reduce the number of prompts you get.
+- Word links: Fallback link type that uses the `terminal.integrated.wordSeparators` setting. The setting defines word boundaries and make nearly all text into words. Activating a word link searches the workspace for the word. If there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless you hold the `Ctrl`/`Cmd` key. They also have limited support for line and column suffixes.
 
-## Source Control Graph
+  ![Activating a word link 'terminal:15' will open a Quick Pick searching the workspace for all files containing 'terminal', choosing an option will open the file at line 15](images/basics/link-word.png)
 
-When you have a remote repository configured, you can see how many commits you are ahead or behind the remote. The **Source Control Graph** section of the Source Control view shows a graphical representation of the commits that are incoming and outgoing.
+The **Open Detected Link** command (`kb(workbench.action.terminal.openDetectedLink)`) can be used to access links via the keyboard:
 
-The graph contains the current branch, the current branch's upstream branch, and an optional base branch. The root of the graph is the common ancestor of these branches.
+![Open Detected Link opens a quick pick with all links in the viewport, split into categories](images/basics/link-open-detected.png)
 
-![Source control view showing a graph visualization of the incoming and outgoing changes.](images/overview/incoming-outgoing-changes.png)
+> **Tip:** If link verification causes performance issues, like in high latency remote environments, disable it via the `terminal.integrated.enableFileLinks` [setting](/docs/getstarted/settings.md).
 
-The graph provides the following functionality:
+### Extensions handling links
 
-- Select an entry to see the corresponding changes in the commit.
-- Perform Fetch, Pull, and Push actions by hovering over the **Incoming/Outgoing** heading.
+Extensions can contribute **link providers** which allow the extension to define what happens when clicked. An example of this is the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension detecting Git branch links.
 
-## Git Status Bar actions
+![When GitLens is installed, hovering a branch name will provide custom behavior to open the branch in the UI](images/basics/link-extension.png)
 
-There is a **Synchronize Changes** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured. **Synchronize Changes** will pull remote changes down to your local repository and then push local commits to the upstream branch.
+### Keyboard accessibility
 
-![git status bar sync](images/overview/git-status-bar-sync.png)
+Links are keyboard accessible through several commands that open links based on the type of link.
 
-If there is no upstream branch configured and the Git repository has remotes set up, the **Publish** action is enabled. This will let you publish the current branch to a remote.
+- **Terminal: Open Last Local File Link** - Opens the most recent local file link. No default keybinding.
+- **Terminal: Open Last URL link** - Opens the most recent URI/URL link. No default keybinding.
+- **Terminal: Open Detected Link...** - Opens a searchable Quick Pick with all detected links, including word links. The default keybinding is `Ctrl/Cmd+Shift+O`, which is the same as the **Go to Symbol in Editor** keyboard shortcut.
 
-![git status bar publish](images/overview/git-status-bar-publish.png)
+## Copy & paste
 
-## Gutter indicators
+The keybindings for copy and paste follow platform standards:
 
-If you open a folder that is a Git repository and begin making changes, VS Code will add useful annotations to the gutter and to the overview ruler.
+- Linux: `Ctrl+Shift+C` and `Ctrl+Shift+V`; selection paste is available with `Shift+Insert`
+- macOS: `Cmd+C` and `Cmd+V`
+- Windows: `Ctrl+C` and `Ctrl+V`
 
-- A red triangle indicates where lines have been deleted
-- A green bar indicates new added lines
-- A blue bar indicates modified lines
+Copying is done automatically on selection when `terminal.integrated.copyOnSelection` is enabled.
 
-![Gutter indicators](images/overview/gutter.png)
+By default, there is a warning when pasting multiple lines, which can be disabled with the `terminal.integrated.enableMultiLinePasteWarning` setting. This is only done when the shell does not support "bracketed paste mode". When that mode is enabled, the shell is indicating that it can handle multiple line pasting.
 
-## Merge conflicts
+## Using the mouse
 
-![Git merge](images/overview/merge-conflict.png)
+### Right-click behavior
 
-Merge conflicts are recognized by VS Code. Differences are highlighted and there are inline actions to accept either one or both changes. Once the conflicts are resolved, stage the conflicting file so you can commit those changes.
+The right-click behavior differs based on the platform:
 
-## 3-way merge editor
+- Linux: Show the context menu.
+- macOS: Select the word under the cursor and show the context menu.
+- Windows: Copy and drop selection if there is a selection, otherwise paste.
 
-To help you resolve merge conflicts, VS Code provides a 3-way merge editor where you can interactively accept incoming and current changes and view and edit the resulting merged file. The 3-way merge editor is opened by selecting the **Resolve in Merge Editor** button in the bottom right corner of a file with Git merge conflicts.
+This can be configured using the `terminal.integrated.rightClickBehavior` setting. The options are:
 
-The 3-way merge editor displays separate views for **Incoming** changes (on the left), **Current** changes (on the right), and the **Result** of the merge (at the bottom). Conflicts are highlighted and can be resolved by using the CodeLens buttons.
+- `default` - Show the context menu.
+- `copyPaste` - Copy when there is a selection, otherwise paste.
+- `paste` - Paste on right-click.
+- `selectWord` - Select the word under the cursor and show the context menu.
+- `nothing` - Do nothing and pass event to terminal.
 
-![3-way merge editor](images/overview/merge-editor-overview.png)
+### Reposition the cursor with Alt
 
-### Resolving conflicts
+`Alt` and left-click will reposition the cursor to underneath the mouse. This works by simulating arrow keystrokes, which may not work reliably for some shells or programs. This feature can be disabled with the `terminal.integrated.altClickMovesCursor` setting.
 
-The 3-way merge editor allows you to resolve conflicts by accepting either one or both changes. You can also manually edit the result of the merge.
+### Mouse events mode
 
-For some conflicts, the merge editor shows an **Accept Combination** button. Accepting the combination resolves the current conflict by smartly merging both changes. This is especially useful for changes in the same line that don't touch the same characters.
+When applications running in the terminal turn on mouse events mode, such as Vim mouse mode, mouse interaction is sent to the application instead of the terminal. This means that clicking and dragging will no longer create a selection. Terminal selection can be forced by holding the `Alt` key on Windows and Linux, this can also be done with the `Option` key on macOS but requires enabling the `terminal.integrated.macOptionClickForcesSelection` setting first.
 
-Use the **Ignore** buttons to accept neither the incoming nor current change, but mark the conflict as resolved. This resets the conflicting area to the state before any changes were made.
+## Find
 
-### Completing the merge
+The integrated terminal has find functionality that can be triggered with `kb(workbench.action.terminal.focusFind)`.
 
-You can use the conflict counter in the right of the result editor to keep track of how many unresolved conflicts are remaining. Clicking on the counter jumps to the next unresolved conflict. Once all conflicts are resolved, you can complete the merge by selecting **Complete Merge** in the bottom right corner. This stages the file and closes the merge editor.
+![Find in the terminal will highlight all text matching the query](images/basics/terminal-find.png)
 
-### Alternative layouts and more
+> **Tip:** `Ctrl+F` can be sent to the shell by removing the `workbench.action.terminal.focusFind` command from [commands to skip shell](/docs/terminal/advanced.md#keybinding-and-the-shell).
 
-Selecting the three dots (**···**) in the top right corner of the merge editor opens a context menu with additional options. You can switch to a vertical layout and display the base view, which shows the state of the file before any changes were made.
+## Run selected text
 
-The three dots next to **Incoming**, **Current**, and **Result** offer options for each view, such as showing a side-by-side diff against base, accepting all changes, or resetting the result.
+To use the `runSelectedText` command, select text in an editor and run the command **Terminal: Run Selected Text in Active Terminal** via the **Command Palette** (`Ctrl+Shift+P`), the terminal will attempt to run the selected text. If no text is selected in the active editor, the entire line that the cursor is on will run in the terminal.
 
-### Understanding conflicts
+> **Tip:** Also run the active file using the command `workbench.action.terminal.runActiveFile`.
 
-If you want to learn more about the details of how 3-way merge editors work, we can recommend the following video:
+## Maximizing the terminal
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HosPml1qkrg" title="The EXTREMELY helpful guide to merge conflicts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+The terminal view can be maximized by clicking the maximize panel size button with the upwards chevron icon. This will temporarily hide the editors and maximize the panel. This is useful to temporarily focus on a large amount of output. Some developers use VS Code as a standalone terminal by opening a new window, maximizing the panel, and hiding the side bar.
 
-## Viewing diffs
+Note that the panel can only be maximized if its [alignment](/docs/editor/custom-layout.md#panel-alignment) option is set to **Center**.
 
-Our Git tooling supports viewing of diffs within VS Code.
+## Select all
 
-![A File Diff in VS Code](images/overview/diff.png)
+There is a **Terminal: Select All** command, which is bound to `Cmd+A` on macOS, but does not have a default keybinding on Windows and Linux as it may conflict with shell hotkeys. To use `Ctrl+A` to select all, add this custom keybinding:
 
-The Diff editor has a separate gutter in the middle, which enables you to **Stage** or **Revert** changes code blocks. If you select a block of text, you can revert or stage the changes that are included in the selection.
-
-![Screenshot of the Diff editor, showing the Stage and Revert controls in the gutter](images/overview/diffEditor-stage-revert-demo.gif)
-
-> **Tip**: You can diff any two files by first right-clicking on a file in the Explorer view and selecting **Select for Compare** and then right-click on the second file to compare with and select **Compare with Selected**. Alternatively, open the Command Palette (`Ctrl+Shift+P`), and select ay of the **File: Compare** commands. Learn more about the different options to [compare files in VS Code](/docs/editor/codebasics.md#compare-files).
-
-### Accessible Diff Viewer
-
-There is an Accessible Diff Viewer in the Diff editor that presents changes in a unified patch format. You can navigate between changes with **Go to Next Difference** (`Shift+F7`) and **Go to Previous Difference** (`kb(editor.action.accessibleDiffViewer.prev)`). Lines can be navigated with arrow keys and pressing `Enter` will jump back in the Diff editor and the selected line.
-
-![diff-review-pane](images/overview/diff-review-pane.png)
-
-**Note:** This experience is especially helpful for screen reader users.
-
-## Timeline view
-
-The Timeline view, accessible at the bottom of the File Explorer by default, is a unified view for visualizing time-series events (for example, Git commits) for a file.
-
-![Timeline view](images/overview/timeline-view.png)
-
-VS Code's built-in Git support provides the Git commit history of the specified file. Selecting a commit will open a diff view of the changes introduced by that commit. When you right-click on a commit, you'll get options to **Copy Commit ID** and **Copy Commit Message**.
-
-Visual Studio Code supports more Git history workflows through [extensions](/docs/editor/extension-marketplace.md) available on the VS Code Marketplace.
-
-<div class="marketplace-extensions-scm-history-curated"></div>
-
-> **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
-
-## Git output window
-
-You can always peek under the hood to see the Git commands we are using. This is helpful if something strange is happening or if you are just curious. :)
-
-To open the Git output window, run **View** > **Output** and select **Log (Git)** from the dropdown list.
-
-## Initialize a repository
-
-If your workspace is on your local machine, you can enable Git source control by creating a Git repository with the **Initialize Repository** command. When VS Code doesn't detect an existing Git repository, the Source Control view will give you the options to **Initialize Repository** or **Publish to GitHub**.
-
-![Git initialize repository](images/overview/initialize-repository.png)
-
-You can also run the **Git: Initialize Repository** and **Publish to GitHub** commands from the **Command Palette** (`Ctrl+Shift+P`). Running **Initialize Repository** will create the necessary Git repository metadata files and show your workspace files as untracked changes ready to be staged. **Publish to GitHub** will directly publish your workspace folder to a GitHub repository, allowing you to choose between private and public repositories. Check out our [publishing repos](https://www.youtube.com/watch?v=3BBvBwDW4CY) video for more information about publishing to GitHub.
-
-## VS Code as Git editor
-
-When you launch VS Code from the command line, you can pass the `--wait` argument to make the launch command wait until you have closed the new VS Code instance. This can be useful when you configure VS Code as your Git external editor so Git will wait until you close the launched VS Code instance.
-
-Here are the steps to do so:
-
-1. Make sure you can run `code --help` from the command line and you get help.
-   - if you do not see help, please follow these steps:
-     - macOS: Select **Shell Command: Install 'Code' command in path** from the **Command Palette**.
-     - Windows: Make sure you selected **Add to PATH** during the installation.
-     - Linux: Make sure you installed Code via our new `.deb` or `.rpm` packages.
-2. From the command line, run `git config --global core.editor "code --wait"`
-
-Now you can run `git config --global -e` and use VS Code as editor for configuring Git.
-
-### VS Code as Git difftool and mergetool
-
-You can use VS Code's diff and merge capabilities even when using Git from command-line. Add the following to your Git configurations to use VS Code as the diff and merge tool:
-
-```ini
-[diff]
-    tool = default-difftool
-[difftool "default-difftool"]
-    cmd = code --wait --diff $LOCAL $REMOTE
-[merge]
-    tool = code
-[mergetool "code"]
-    cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+```json
+{
+  "key": "ctrl+a",
+  "command": "workbench.action.terminal.selectAll",
+  "when": "terminalFocus && !isMac"
+},
 ```
 
-This uses the `--diff` option that can be passed to VS Code to compare two files side by side. The merge tool will be used the next time Git discovers a merge conflict.
+## Drag and drop file paths
 
-To summarize, here are some examples of where you can use VS Code as the editor:
+Dragging a file into the terminal will input the path into the terminal, with escaping to match the active shell.
 
-- `git rebase HEAD~3 -i` do interactive rebase using VS Code
-- `git commit` use VS Code for the commit message
-- `git add -p` followed by `e` for interactive add
-- `git difftool <commit>^ <commit>` use VS Code as the diff editor for changes
+## Automating terminals with tasks
 
-## Working with GitHub Pull Requests and Issues
+The [Tasks](/docs/editor/tasks.md) feature can be used to automate the launching of terminals, for example, the following `.vscode/tasks.json` file will launch a Command Prompt and PowerShell terminal in a single terminal group when the window starts:
 
-Visual Studio Code can also bring in GitHub's pull requests and issues. Create your PRs in VS Code, review with comments, and approve them without switching context. Learn more about [GitHub PRs and Issues in VS Code](/docs/sourcecontrol/github.md).
+```jsonc
+{
+  "version": "2.0.0",
+  "presentation": {
+    "echo": false,
+    "reveal": "always",
+    "focus": false,
+    "panel": "dedicated",
+    "showReuseMessage": true
+  },
+  "tasks": [
+    {
+      "label": "Create terminals",
+      "dependsOn": ["First", "Second"],
+      // Mark as the default build task so cmd/ctrl+shift+b will create them
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      // Try start the task on folder open
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      // The name that shows up in terminal tab
+      "label": "First",
+      // The task will launch a shell
+      "type": "shell",
+      "command": "",
+      // Set the shell type
+      "options": {
+        "shell": {
+          "executable": "cmd.exe",
+          "args": []
+        }
+      },
+      // Mark as a background task to avoid the spinner animation on the terminal tab
+      "isBackground": true,
+      "problemMatcher": [],
+      // Create the tasks in a terminal group
+      "presentation": {
+        "group": "my-group"
+      }
+    },
+    {
+      "label": "Second",
+      "type": "shell",
+      "command": "",
+      "options": {
+        "shell": {
+          "executable": "pwsh.exe",
+          "args": []
+        }
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "group": "my-group"
+      }
+    }
+  ]
+}
+```
 
-## SCM Providers
+This file could be committed to the repository to share with other developers or created as a user task via the `workbench.action.tasks.openUserTasks` command.
 
-<div class="marketplace-extensions-scm-curated"></div>
+## Working directory
 
-> **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
+By default, the terminal will open at the folder that is opened in the Explorer. The `terminal.integrated.cwd` setting allows specifying a custom path to open instead:
 
-VS Code has support for handling multiple Source Control providers simultaneously. For example, you can open multiple Git repositories alongside your Azure DevOps Server local workspace and seamlessly work across your projects. To turn on the **Source Control Providers** view, select the overflow menu in the **Source Control** view (`Ctrl+Shift+G`), hover over **Views**, and make sure that **Source Control Repositories** is marked with a check. The **Source Control Providers** view shows the detected providers and repositories, and you can scope the display of your changes by selecting a specific provider.
+```json
+{
+  "terminal.integrated.cwd": "/home/user"
+}
+```
 
-![Source Control Repositories view option in overflow menu](images/overview/scm-providers-list.png)
+Split terminals on Windows will start in the directory that the parent terminal started with. On macOS and Linux, split terminals will inherit the current working directory of the parent terminal. This behavior can be changed using the `terminal.integrated.splitCwd` setting:
 
-### SCM Provider extensions
+```json
+{
+  "terminal.integrated.splitCwd": "workspaceRoot"
+}
+```
 
-If you would like to install another SCM provider, you can search on the **scm providers** extension category in the **Extensions** view (`Ctrl+Shift+X`). Start typing '@ca' and you will see suggestions for extension categories like debuggers and linters. Select `@category:"scm providers"` to see available SCM providers.
+There are also extensions available that give more options such as [Terminal Here](https://marketplace.visualstudio.com/items?itemName=Tyriar.vscode-terminal-here).
 
-![SCM Provider category in the marketplace](images/overview/scm-provider-category.png)
+## Fixed dimension terminals
+
+The **Terminal: Set Fixed Dimensions** command allows changing the number of columns and rows that the terminal and it's backing pseudoterminal uses. This will add scroll bars when necessary, which may lead to an unpleasant UX and is generally not recommended, but it is a common ask on Windows in particular for reading logs or long lines when paging tools aren't available.
+
+You can also right-click on a terminal tab and select **Toggle Size to Content Width** (`kb(workbench.action.terminal.sizeToContentWidth)`) to resize the number of terminal columns to the largest wrapped line in the terminal.
 
 ## Next steps
 
-- [Intro Video - Git Version Control](/docs/introvideos/versioncontrol.md) - An introductory video providing an overview of VS Code Git support.
-- [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-- [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-- [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
-- [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt, and Jake. Showing Errors and Warnings
-- [Source Control API](/api/extension-guides/scm-provider.md) - If you want to integrate another Source Control provider into VS Code, see our Source Control API.
+The basics of the terminal have been covered in this document. Read on to find out more about:
+
+- [Terminal Inline Chat](/docs/copilot/copilot-chat#terminal-inline-chat) - AI-powered suggestions right in your terminal.
+- [Tasks](/docs/editor/tasks.md) - Tasks let you integrate with external tools and leverage the terminal heavily.
+- [Mastering VS Code's Terminal](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
+- Explore terminal commands by browsing the keyboard shortcuts within VS Code (**Preferences: Open Keyboard Shortcuts** then search on 'terminal').
+
+## Common questions
+
+### I'm having problems launching the terminal
+
+There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-terminal-launch.md) for these sorts of problems.
+
+### How do I create an Admin terminal?
+
+The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, use platform utilities such as `runas.exe` within a terminal.
+
+You can learn more about customizing terminals via terminal profiles in [Configuring Profiles](/docs/terminal/profiles.md#configuring-profiles).
+
+### Can I add a keyboard shortcut for the Explorer's Open in Integrated Terminal command?
+
+You can open new terminals for specific folders from the Explorer via the **Open in Integrated Terminal** context menu command.
+
+![A folder selected in the Explorer displaying the context menu with the Open in Integrated Terminal command](images/basics/open-in-terminal-command.png)
+
+By default, there is no keyboard shortcut associated with **Open in Integrated Terminal** but you can add your own via the Keyboard Shortcuts editor (`kb(workbench.action.openGlobalKeybindings)`) to add a keybinding to your `keybindings.json`.
+
+The `keybindings.json` example below adds the keyboard shortcut `Ctrl+T` for `openInTerminal`.
+
+```json
+{
+  "key": "ctrl+t",
+  "command": "openInTerminal",
+  "when": "filesExplorerFocus"
+}
+```
+
+### Why is nvm complaining about a prefix option when the integrated terminal is launched?
+
+nvm (Node Version Manager) users often see this error for the first time inside VS Code's integrated terminal:
+
+```bash
+nvm is not compatible with the npm config "prefix" option: currently set to "/usr/local"
+Run `npm config delete prefix` or `nvm use --delete-prefix v8.9.1 --silent` to unset it
+```
+
+This is mostly a macOS problem and does not happen in external terminals. The typical reasons for this are the following:
+
+- `npm` was globally installed using another instance of `node` that is somewhere in your path (such as `/usr/local/bin/npm`).
+- To get the development tools on the `$PATH`, VS Code will launch a bash login shell on startup. This means that your `~/.bash_profile` has already run and when an integrated terminal launches, it will run **another** login shell, reordering the `$PATH` potentially in unexpected ways.
+
+To resolve this issue, you need to track down where the old `npm` is installed and remove both it and its out-of-date node_modules. Find the `nvm` initialization script and run `which npm` before it runs, which should print the path when you launch a new terminal.
+
+Once you have the path to npm, find the old node_modules by resolving the symlink by running a command something like this:
+
+```bash
+ls -la /usr/local/bin | grep "np[mx]"
+```
+
+This will give you the resolved path at the end:
+
+```bash
+... npm -> ../lib/node_modules/npm/bin/npm-cli.js
+... npx -> ../lib/node_modules/npm/bin/npx-cli.js
+```
+
+From there, removing the files and relaunching VS Code should fix the issue:
+
+```bash
+rm /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
+rm /usr/local/bin/npx /usr/local/lib/node_modules/npm/bin/npx-cli.js
+```
+
+### Why does macOS make a ding sound when I resize terminal split panes?
+
+The keybindings ⌃⌘← and ⌃⌘→ are the defaults for resizing individual split panes in the terminal. While they work, they also cause a system "invalid key" sound to play due to an issue in Chromium. The [recommended workaround](https://github.com/microsoft/vscode/issues/44070#issuecomment-799716362) is to tell macOS to no-op for these keybindings by running this in your terminal:
+
+```bash
+mkdir -p ~/Library/KeyBindings
+cat > ~/Library/KeyBindings/DefaultKeyBinding.dict <<EOF
+{
+  "^@\UF701" = "noop";
+  "^@\UF702" = "noop";
+  "^@\UF703" = "noop";
+}
+EOF
+```
+
+### I'm having problems with the terminal rendering. What can I do?
+
+By default, the integrated terminal will render using GPU acceleration on most machines. Typically when there are rendering problems it's an issue of something in your hardware/OS/drivers not playing nicely with the GPU renderer. The first thing to try is to disable GPU acceleration, trading off rendering speed for DOM-based rendering, which is more reliable:
+
+```json
+{
+  "terminal.integrated.gpuAcceleration": "off"
+}
+```
+
+See the [GPU acceleration](/docs/terminal/appearance.md#gpu-acceleration) section for more information.
+
+### I see `1~` or `[201~` when I paste something
+
+This normally means that the program/shell running inside the terminal requested to turn on "bracketed paste mode" but something doesn't support it properly. To work around this, you could run `printf "\e[?2004l"` to disable it for that session or add the following to your `~/.inputrc` file:
+
+```
+set enable-bracketed-paste off
+```
+
+Alternatively, bracketed paste mode can be forced to ignore the shell's request by turning it off with this setting:
+
+```json
+{
+  "terminal.integrated.ignoreBracketedPasteMode": true
+}
+```
+
+### Ctrl+A, Ctrl+R output ^A, ^R on zsh
+
+This can happen if zsh is in Vim mode instead of Emacs mode, due to setting `$EDITOR` or `$VISUAL` to `vi`/`vim` in your init scripts.
+
+To work around this, you have two options:
+
+- Ensure that you don't set `$EDITOR` to `vi(m)`. However, this isn't an option if you want your Git editor to work.
+- Add `bindkey -e` to your init script to set Emacs explicitly.
+
+### How can I configure Cmd+. to map to Ctrl+C like macOS' built-in terminal?
+
+The macOS default terminal uses `Cmd+.` to perform the same as `Ctrl+C`. To get this behavior in VS Code, add this [custom keybinding](/docs/getstarted/keybindings.md):
+
+```json
+{
+  "key": "cmd+.",
+  "command": "workbench.action.terminal.sendSequence",
+  "when": "terminalFocus",
+  "args": { "text": "\u0003" }
+}
+```
+
+### Why are the colors in the terminal not correct?
+
+One of our accessibility features we enable by default is to ensure a minimum contrast ratio of at least 4.5 is met for the foreground text. This feature ensures that text is readable regardless of the shell and theme used which is not possible otherwise. To disable this feature, you can set:
+
+```json
+"terminal.integrated.minimumContrastRatio": 1
+```
+
+See the [minimum contrast ratio](/docs/terminal/appearance.md#minimum-contrast-ratio) section for more information.

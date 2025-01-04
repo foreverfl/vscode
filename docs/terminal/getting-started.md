@@ -1,60 +1,62 @@
 ---
 Order: 1
 Area: terminal
-TOCTitle: Getting Started Tutorial
+TOCTitle: 시작 튜토리얼
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
-PageTitle: Getting started with the integrated terminal
+PageTitle: 통합 터미널 시작하기
 DateApproved: 12/11/2024
-MetaDescription: Learn how to get started running shell commands with the integrated terminal in Visual Studio Code.
+MetaDescription: Visual Studio Code의 통합 터미널에서 셸 명령을 실행하는 방법을 알아보세요.
 ---
 
-# Getting started with the terminal
+# 터미널 시작하기 {#getting-started-with-the-terminal}
 
-Visual Studio Code includes a fully featured integrated terminal. You can use it to run commands like `echo`, `ls`, and `git`, just like a standalone terminal. The terminal in VS Code also provides integration with the editor to support features such as links to workspace files and error detection.
+Visual Studio Code에는 완전한 기능을 갖춘 통합 터미널이 포함되어 있습니다. 독립형 터미널처럼 `echo`, `ls`, `git`과 같은 명령을 실행할 수 있습니다. VS Code의 터미널은 워크스페이스 파일에 대한 링크 및 오류 감지와 같은 기능을 지원하기 위해 편집기와 통합됩니다.
 
-The terminal can use various shells installed on your machine. A shell is a program that interprets and executes the commands by interacting with the operating system. Examples of shells include Bash, Zsh, and PowerShell.
+터미널은 컴퓨터에 설치된 다양한 셸을 사용할 수 있습니다. 셸은 운영 체제와 상호 작용하여 명령을 해석하고 실행하는 프로그램입니다. 셸의 예로는 Bash, Zsh, PowerShell 등이 있습니다.
 
-This tutorial guides you through the basics of using the terminal in Visual Studio Code.
+이 튜토리얼은 Visual Studio Code에서 터미널을 사용하는 기본 사항을 안내합니다.
 
-## Run your first command in the terminal
+## 터미널에서 첫 번째 명령 실행 {#run-your-first-command-in-the-terminal}
 
-While you're writing code, you might have to run shell commands to build, test, or deploy your application. The terminal in VS Code enables you to run these commands without leaving the editor.
+코드를 작성하는 동안 애플리케이션을 빌드, 테스트 또는 배포하기 위해 셸 명령을 실행해야 할 수 있습니다. VS Code의 터미널을 사용하면 편집기를 떠나지 않고 이러한 명령을 실행할 수 있습니다.
 
-To get started with the terminal:
+터미널을 시작하려면:
 
-1. Start VS Code and open a folder or workspace.
+1. VS Code를 시작하고 폴더나 워크스페이스를 엽니다.
 
-1. Open the terminal by selecting **View** > **Terminal** from the menu bar, or by pressing the `` Ctrl+` `` keyboard shortcut.
+1. 메뉴 모음에서 **View** > **Terminal**을 선택하거나 `` Ctrl+` `` 키보드 단축키를 눌러 터미널을 엽니다.
 
-   Based on your operating system configuration, the terminal opens with a default shell like Bash, PowerShell, or Zsh. The shell's working directory starts at the root of the workspace folder.
+   운영 체제 구성에 따라 터미널은 Bash, PowerShell 또는 Zsh와 같은 기본 셸로 열립니다. 셸의 작업 디렉터리는 워크스페이스 폴더의 루트에서 시작됩니다.
 
-   ![Open the terminal](./images/getting-started/open-terminal.png)
+   ![터미널 열기](./images/getting-started/open-terminal.png)
 
-1. Enter a basic command like `ls` to list the files in the current directory.
+1. 현재 디렉터리의 파일을 나열하기 위해 `ls`와 같은 기본 명령을 입력합니다.
 
-   The terminal displays the output of the command, similar to a standalone terminal, except that you stay within the editor.
+   터미널은 독립형 터미널과 유사하게 명령의 출력을 표시하지만, 편집기 내에 머물러 있습니다.
 
-   ![Run a command in the terminal](./images/getting-started/terminal-output.png)
+   ![터미널에서 명령 실행](./images/getting-started/terminal-output.png)
 
-   > **Tip**: You can enlarge the terminal by dragging the terminal panel's border or by selecting the `^` icon to maximize the panel.
+   :::tip
+   터미널 패널의 경계를 드래그하거나 `^` 아이콘을 선택하여 패널을 최대화하여 터미널을 확장할 수 있습니다.
+   :::
 
-## Interact with command output
+## 명령 출력과 상호 작용 {#interact-with-command-output}
 
-The terminal in VS Code also provides features to interact with command output. Commands often output file paths or URLs that you might want to open or navigate to. For example, a compiler or linter might return an error message with a file path and line number. Instead of searching for that file, you can select the link in the terminal output to open the file directly in the editor.
+VS Code의 터미널은 명령 출력과 상호 작용할 수 있는 기능도 제공합니다. 명령은 종종 열거나 탐색하려는 파일 경로나 URL을 출력합니다. 예를 들어, 컴파일러나 린터는 파일 경로와 줄 번호가 포함된 오류 메시지를 반환할 수 있습니다. 해당 파일을 검색하는 대신 터미널 출력에서 링크를 선택하여 편집기에서 파일을 직접 열 수 있습니다.
 
-Let's see how you can interact with the command outputs in the terminal:
+터미널에서 명령 출력과 상호 작용하는 방법을 살펴보겠습니다:
 
-1. Open the terminal where you previously ran the `ls` command.
+1. 이전에 `ls` 명령을 실행한 터미널을 엽니다.
 
-1. In the terminal, hold the `Ctrl`/`Cmd` key, hover over a file name, and then select the link.
+1. 터미널에서 `Ctrl`/`Cmd` 키를 누르고 파일 이름 위로 마우스를 이동한 다음 링크를 선택합니다.
 
-   Notice that when you hover over text in the output, it changes into a link. When you select a file name, VS Code opens the selected file in the editor.
+   출력에서 텍스트 위로 마우스를 이동하면 링크로 변경되는 것을 확인할 수 있습니다. 파일 이름을 선택하면 VS Code가 선택한 파일을 편집기에서 엽니다.
 
-   ![Navigate to files/URLs using links in terminal output](./images/getting-started/terminal-links.png)
+   ![터미널 출력에서 파일/URL로 이동](./images/getting-started/terminal-links.png)
 
-   All text in the terminal output is clickable. If you select a hyperlink in the terminal, it opens the link in the default browser. For other text, VS Code tries to search the workspace for files that contain the text.
+   터미널 출력의 모든 텍스트는 클릭할 수 있습니다. 터미널에서 하이퍼링크를 선택하면 기본 브라우저에서 링크가 열립니다. 다른 텍스트의 경우 VS Code는 해당 텍스트가 포함된 파일을 워크스페이스에서 검색하려고 합니다.
 
-1. Run the following command to create a `Command.txt` file that contains a list of available shell commands.
+1. 사용 가능한 셸 명령 목록이 포함된 `Command.txt` 파일을 생성하기 위해 다음 명령을 실행합니다.
 
    - PowerShell
 
@@ -68,7 +70,7 @@ Let's see how you can interact with the command outputs in the terminal:
      ls -l /usr/bin > Command.txt
      ```
 
-1. Enter the following command to search for a command in the `Command.txt` file.
+1. `Command.txt` 파일에서 명령을 검색하기 위해 다음 명령을 입력합니다.
 
    - PowerShell
 
@@ -82,76 +84,84 @@ Let's see how you can interact with the command outputs in the terminal:
      grep -n "dir" *.txt
      ```
 
-   Notice that the command output contains the file name and the line number where the search result is found. The terminal identifies this text as a link.
+   명령 출력에는 검색 결과가 발견된 파일 이름과 줄 번호가 포함되어 있습니다. 터미널은 이 텍스트를 링크로 식별합니다.
 
-1. Select one of the links to open the file in the editor at that specific line in the file.
+1. 링크 중 하나를 선택하여 해당 파일의 특정 줄에서 파일을 편집기에서 엽니다.
 
-   ![Navigate to a specific line in a file](./images/getting-started/terminal-line-column.png)
+   ![파일의 특정 줄로 이동](./images/getting-started/terminal-line-column.png)
 
-Learn more about the different types of [links in the terminal](/docs/terminal/basics.md#links).
+터미널의 다양한 [링크 유형에 대해 자세히 알아보세요](/docs/terminal/basics.md#links).
 
-## Navigate to previous commands
+## 이전 명령으로 이동 {#navigate-to-previous-commands}
 
-As you work in the terminal, you might need to review a previous command and its output, or maybe you want to rerun a command. You can quickly navigate to the previous commands by using keyboard shortcuts.
+터미널에서 작업하는 동안 이전 명령과 그 출력을 검토하거나 명령을 다시 실행해야 할 수 있습니다. 키보드 단축키를 사용하여 이전 명령으로 빠르게 이동할 수 있습니다.
 
-To navigate to previous commands:
+이전 명령으로 이동하려면:
 
-1. Open the terminal you used previously.
+1. 이전에 사용한 터미널을 엽니다.
 
-1. Press the `kb(workbench.action.terminal.scrollToPreviousCommand)` keyboard shortcut to scroll to the previous command in the terminal history.
+1. `Ctrl+Up` 키보드 단축키를 눌러 터미널 기록에서 이전 명령으로 스크롤합니다.
 
-   Notice that the terminal scrolls to the previous command and highlights it.
+   터미널이 이전 명령으로 스크롤되고 강조 표시되는 것을 확인할 수 있습니다.
 
-   ![Navigate to the previous command](./images/getting-started/previous-command.png)
+   ![이전 명령으로 이동](./images/getting-started/previous-command.png)
 
-   If you press `kb(workbench.action.terminal.scrollToPreviousCommand)` multiple times, the terminal scrolls further through the command history. You can use the `kb(workbench.action.terminal.scrollToNextCommand)` keyboard shortcut to navigate in the other direction.
+   `Ctrl+Up`를 여러 번 누르면 터미널이 명령 기록을 더 멀리 스크롤합니다. `Ctrl+Down` 키보드 단축키를 사용하여 반대 방향으로 이동할 수 있습니다.
 
-1. You might see a circle icon in the gutter next to a previously run command. Select the circle icon, and then select **Rerun Command** to run the command again.
+1. 이전에 실행된 명령 옆에 있는 구터에 원형 아이콘이 표시될 수 있습니다. 원형 아이콘을 선택한 다음 **Rerun Command**을 선택하여 명령을 다시 실행합니다.
 
-   ![Rerun a command](./images/getting-started/rerun-command.png)
+   ![명령 다시 실행](./images/getting-started/rerun-command.png)
 
-Learn more about [navigating through the command history](/docs/terminal/shell-integration.md#command-navigation).
+[명령 기록을 탐색하는 방법에 대해 자세히 알아보세요](/docs/terminal/shell-integration.md#command-navigation).
 
-## Run commands in another shell
+## 다른 셸에서 명령 실행 {#run-commands-in-another-shell}
 
-The terminal supports having multiple terminals open at the same time. For example, you could dedicate one terminal to run Git commands and another terminal to run build scripts. You can also run commands in different shells based on your preference.
+터미널은 여러 터미널을 동시에 열 수 있도록 지원합니다. 예를 들어, 하나의 터미널을 Git 명령 실행에 전용하고 다른 터미널을 빌드 스크립트 실행에 사용할 수 있습니다. 또한 선호에 따라 다른 셸에서 명령을 실행할 수 있습니다.
 
-To add a new terminal in a different shell:
+다른 셸에서 새 터미널을 추가하려면:
 
-1. Select the `˅` icon in the terminal panel to open the terminal dropdown, and then select from one of the available shells.
+1. 터미널 패널에서 `˅` 아이콘을 선택하여 터미널 드롭다운을 열고 사용 가능한 셸 중 하나를 선택합니다.
 
-   > **Note**: The available shells depend on the shells installed on your machine.
+   :::note
+   사용 가능한 셸은 컴퓨터에 설치된 셸에 따라 다릅니다.
+   :::
 
-   ![Select a different shell](./images/getting-started/select-shell.png)
+   ![다른 셸 선택](./images/getting-started/select-shell.png)
 
-   A new terminal opens with the selected shell, where you can enter commands like you did previously.
+   선택한 셸로 새 터미널이 열리며 이전에 했던 것처럼 명령을 입력할 수 있습니다.
 
-   > **Tip**: You can also select the `+` icon to create a new terminal for the default shell, use the `kb(workbench.action.terminal.new)` keyboard shortcut, or select **Terminal** > **New Terminal** from the menu bar.
+   :::tip
+   기본 셸에 대한 새 터미널을 만들려면 `+` 아이콘을 선택하거나 `` Ctrl+Shift+` `` 키보드 단축키를 사용하거나 메뉴 모음에서 **Terminal** > **New Terminal**을 선택할 수도 있습니다.
+   :::
 
-1. You can view the open terminals from the list in the terminal panel.
+1. 터미널 패널의 목록에서 열린 터미널을 볼 수 있습니다.
 
-   ![View the list of terminals](./images/getting-started/terminal-list.png)
+   ![터미널 목록 보기](./images/getting-started/terminal-list.png)
 
-   To switch to another terminal, select it from the list of terminals.
+   다른 터미널로 전환하려면 터미널 목록에서 선택합니다.
 
-   > **Tip**: You can rename a terminal in the list by right-clicking on it and selecting **Rename**.
+   :::tip
+   터미널 목록에서 터미널을 마우스 오른쪽 버튼으로 클릭하고 **Rename**을 선택하여 터미널 이름을 변경할 수 있습니다.
+   :::
 
-1. Drag a terminal from the terminal list into the editor area.
+[다른 셸에서 명령을 실행하는 방법에 대해 자세히 알아보세요](/docs/terminal/shell-integration.md#change-shell).
 
-   The terminal is moved to an editor tab, where you can arrange it like other editor tabs. For example, you can drag the terminal tab out of the VS Code window to make it a floating window. Learn more about [custom layouts](/docs/editor/custom-layout.md#editor).
+1. 터미널 목록에서 터미널을 편집기 영역으로 드래그합니다.
 
-   ![Move a terminal to the editor area](./images/getting-started/move-terminal.png)
+   터미널이 편집기 탭으로 이동되며 다른 편집기 탭처럼 배치할 수 있습니다. 예를 들어, 터미널 탭을 VS Code 창 밖으로 드래그하여 떠 있는 창으로 만들 수 있습니다. [사용자 정의 레이아웃에 대해 자세히 알아보세요](/docs/editor/custom-layout.md#editor).
 
-1. Select the trashcan icon when hovering over the terminal list to close an open terminal.
+   ![터미널을 편집기 영역으로 이동](./images/getting-started/move-terminal.png)
 
-   ![Close a terminal](./images/getting-started/close-terminal.png)
+1. 터미널 목록 위로 마우스를 이동할 때 휴지통 아이콘을 선택하여 열린 터미널을 닫습니다.
 
-Learn more about [managing terminals](/docs/terminal/basics.md#managing-terminals).
+   ![터미널 닫기](./images/getting-started/close-terminal.png)
 
-## Next steps
+[터미널 관리에 대해 자세히 알아보세요](/docs/terminal/basics.md#managing-terminals).
 
-In this tutorial, you learned how to get started with the terminal in VS Code. Here are some more topics to explore:
+## 다음 단계 {#next-steps}
 
-- Learn the [fundamental concepts and features of the terminal](/docs/terminal/basics.md)
-- Explore how to [create and manage terminal profiles](/docs/terminal/profiles.md)
-- Discover various ways to [customize the appearance and behavior](/docs/terminal/appearance.md) of the terminal
+이 튜토리얼에서는 VS Code의 터미널을 시작하는 방법을 배웠습니다. 다음은 탐색할 수 있는 몇 가지 추가 주제입니다:
+
+- [터미널의 기본 개념 및 기능](/docs/terminal/basics.md)을 배우세요
+- [터미널 프로필 생성 및 관리](/docs/terminal/profiles.md)에 대해 알아보세요
+- 터미널의 [모양과 동작을 사용자 정의하는 다양한 방법](/docs/terminal/appearance.md)을 발견하세요

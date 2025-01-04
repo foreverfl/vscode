@@ -426,7 +426,7 @@ If you see the error "The term 'cl.exe' is not recognized as the name of a cmdle
 
 VS Code must either be started from the Developer Command Prompt for Visual Studio, or the task must be configured to [run outside a Developer Command Prompt](#run-vs-code-outside-the-developer-command-prompt).
 
-You can always check that you are running VS Code in the context of the Developer Command Prompt by opening a new Terminal (`kb(workbench.action.terminal.new)`) and typing 'cl' to verify `cl.exe` is available to VS Code.
+You can always check that you are running VS Code in the context of the Developer Command Prompt by opening a new Terminal (`` Ctrl+Shift+` ``) and typing 'cl' to verify `cl.exe` is available to VS Code.
 
 ### fatal error C1034: assert.h: no include path set
 

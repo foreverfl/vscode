@@ -273,7 +273,7 @@ The following sequences that iTerm2 pioneered are supported:
 
   ![When the sequence is written to the terminal a small grey circle will appear to the left of the command, with a matching annotation in the scroll bar](images/shell-integration/setmark.png)
 
-  These marks integrate with command navigation to make them easy to navigate to via `kb(workbench.action.terminal.scrollToPreviousCommand)` and `kb(workbench.action.terminal.scrollToNextCommand)`.
+  These marks integrate with command navigation to make them easy to navigate to via `Ctrl+Up` and `Ctrl+Down`.
 
 ## Common questions
 

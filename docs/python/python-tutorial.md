@@ -244,7 +244,7 @@ Next, run the file in the debugger using the "Python: Current file" configuratio
 
 You should see the message, **"ModuleNotFoundError: No module named 'numpy'"**. This message indicates that the required package isn't available in your interpreter. If you're using an Anaconda distribution or have previously installed the `numpy` package you may not see this message.
 
-To install the `numpy` package, stop the debugger and use the Command Palette to run **Terminal: Create New Terminal** (`kb(workbench.action.terminal.new)`). This command opens a command prompt for your selected interpreter.
+To install the `numpy` package, stop the debugger and use the Command Palette to run **Terminal: Create New Terminal** (`` Ctrl+Shift+` ``). This command opens a command prompt for your selected interpreter.
 
 To install the required packages in your virtual environment, enter the following commands as appropriate for your operating system:
 

@@ -42,7 +42,7 @@ Follow these steps:
 
 1. Navigate to the repository that contains your extension on GitHub and [open it in a codespace](https://docs.github.com/github/developing-online-with-codespaces/creating-a-codespace) to work with it in a browser-based editor. You can also [open the codespace in VS Code](https://docs.github.com/github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code) if you prefer.
 
-2. While the default image for GitHub Codespaces should have all the needed prerequisites for most extensions, you can install any other required dependencies (for example, using `yarn install` or `sudo apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
+2. While the default image for GitHub Codespaces should have all the needed prerequisites for most extensions, you can install any other required dependencies (for example, using `yarn install` or `sudo apt-get`) in a new VS Code terminal window (`` Ctrl+Shift+` ``).
 
 3. Finally, press `kb(workbench.action.debug.start)` or use the **Run and Debug** view to launch the extension inside in the codespace.
 
@@ -62,7 +62,7 @@ Follow these steps:
 
 4. Run **Dev Containers: Reopen in Container** or **Codespaces: Add Dev Container Configuration Files...** and in a moment, VS Code will set up the container and connect. You will now be able to develop your source code from inside the container just as you would in the local case.
 
-5. Run `yarn install` or `npm install` in a new VS Code terminal window (`kb(workbench.action.terminal.new)`) to ensure the Linux versions Node.js native dependencies are installed. You can also install other OS or runtime dependencies, but you may want to add these to `.devcontainer/Dockerfile` as well so they are available if you rebuild the container.
+5. Run `yarn install` or `npm install` in a new VS Code terminal window (`` Ctrl+Shift+` ``) to ensure the Linux versions Node.js native dependencies are installed. You can also install other OS or runtime dependencies, but you may want to add these to `.devcontainer/Dockerfile` as well so they are available if you rebuild the container.
 
 6. Finally, press `kb(workbench.action.debug.start)` or use the **Run and Debug** view to launch the extension inside this same container and attach the debugger.
 
@@ -78,7 +78,7 @@ Follow steps:
 
 2. Once connected, either use **File > Open... / Open Folder...** to select the remote folder with your extension source code in it or select **Git: Clone** from the Command Palette (`F1`) to clone it and open it on the remote host.
 
-3. Install any required dependencies that might be missing (for example using `yarn install` or `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
+3. Install any required dependencies that might be missing (for example using `yarn install` or `apt-get`) in a new VS Code terminal window (`` Ctrl+Shift+` ``).
 
 4. Finally, press `kb(workbench.action.debug.start)` or use the **Run and Debug** view to launch the extension inside on the remote host and attach the debugger.
 
@@ -96,7 +96,7 @@ Follow these steps:
 
    > **Tip:** You can select the `/mnt/c` folder to access any cloned source code you have on the Windows side.
 
-3. Install any required dependencies that might be missing (for example using `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`). You will at least want to run `yarn install` or `npm install` to ensure Linux versions of native Node.js dependencies are available.
+3. Install any required dependencies that might be missing (for example using `apt-get`) in a new VS Code terminal window (`` Ctrl+Shift+` ``). You will at least want to run `yarn install` or `npm install` to ensure Linux versions of native Node.js dependencies are available.
 
 4. Finally, press `kb(workbench.action.debug.start)` or use the **Run and Debug** view to launch the extension and attach the debugger as you would locally.
 

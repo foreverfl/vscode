@@ -36,7 +36,7 @@ Common compilers that already come preinstalled on some platforms are the [GNU C
 
 To check if you already have them installed:
 
-1. Open a new VS Code terminal window using (`kb(workbench.action.terminal.new)`)
+1. Open a new VS Code terminal window using (`` Ctrl+Shift+` ``)
 2. Use the following command to check for the GCC compiler `g++`:
 
    ```bash
