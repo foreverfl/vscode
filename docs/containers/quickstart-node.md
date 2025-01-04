@@ -62,7 +62,7 @@ The Docker extension helps you author Dockerfiles by using [IntelliSense](/docs/
 
 ## Run the service locally
 
-1. Open a terminal (`kb(workbench.action.terminal.toggleTerminal)`).
+1. Open a terminal (`` Ctrl+` ``).
 1. Enter `npm run start` to start the application:
 
    ```

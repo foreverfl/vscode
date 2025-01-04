@@ -124,7 +124,7 @@ The Remote - SSH extension also contributes a new icon on your Activity bar, and
 
 ![Remote button on Activity bar](images/ssh-tutorial/remote-on-activity-bar.png)
 
-Once you're connected to your SSH host, you can interact with files and open folders on the remote machine. If you open the integrated terminal (`kb(workbench.action.terminal.toggleTerminal)`), you'll see you're working inside a bash shell **while you're on Windows**.
+Once you're connected to your SSH host, you can interact with files and open folders on the remote machine. If you open the integrated terminal (`` Ctrl+` ``), you'll see you're working inside a bash shell **while you're on Windows**.
 
 ![Checking uname in the terminal](images/ssh-tutorial/check-uname.png)
 
@@ -138,7 +138,7 @@ In this step, you will create a simple Node.js application. You will use an appl
 
 ### Install Node.js and npm
 
-From the integrated terminal (`kb(workbench.action.terminal.toggleTerminal)`), update the packages in your Linux VM, then install Node.js, which includes npm, the Node.js package manager.
+From the integrated terminal (`` Ctrl+` ``), update the packages in your Linux VM, then install Node.js, which includes npm, the Node.js package manager.
 
 ```bash
 sudo apt-get update

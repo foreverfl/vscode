@@ -72,7 +72,7 @@ let message: string = "Hello World";
 console.log(message);
 ```
 
-To test that you have the TypeScript compiler `tsc` installed correctly and a working Hello World program, open a terminal and type `tsc helloworld.ts`. You can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) directly in VS Code.
+To test that you have the TypeScript compiler `tsc` installed correctly and a working Hello World program, open a terminal and type `tsc helloworld.ts`. You can use the Integrated Terminal (`` Ctrl+` ``) directly in VS Code.
 
 You should now see the transpiled `helloworld.js` JavaScript file, which you can run if you have [Node.js](https://nodejs.org) installed, by typing `node helloworld.js`.
 
@@ -127,7 +127,7 @@ As an example, if there was a simple error (extra 'g' in `console.log`) in our T
 
     HelloWorld.ts(3,17): error TS2339: Property 'logg' does not exist on type 'Console'.
 
-This would show up in the terminal panel (`kb(workbench.action.terminal.toggleTerminal)`) and selecting the **Tasks - build tsconfig.json** in the terminal view dropdown.
+This would show up in the terminal panel (`` Ctrl+` ``) and selecting the **Tasks - build tsconfig.json** in the terminal view dropdown.
 
 You can see the error and warning counts in the Status Bar. Click on the error and warnings icon to get a list of the problems and navigate to them.
 

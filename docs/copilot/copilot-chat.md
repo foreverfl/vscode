@@ -259,7 +259,7 @@ Copilot 채팅을 사용하면 자연어로 Copilot의 도움을 받을 수 있�
 
 ![Copilot 메뉴 그룹이 확장된 에디터 컨텍스트 메뉴](images/copilot-chat/copilot-smart-action-menu.png)
 
-가장 강력한 스마트 작업은 **Fix** 작업입니다. 여기 "Argument of type 'string' is not assignable to parameter of type 'number'"라는 오류가 있는 비교적 간단한 TypeScript 계산기가 있습니다. _스파클_ 아이콘을 선택한 다음 **Fix**를 선택하세요.
+가장 강력한 스마트 작업은 **Fix** 작업입니다. 여기 "Argument of type 'string' is not assignable to parameter of type 'number'"라는 오류가 있는 비교적 간단한 TypeScript 계산기가 있습니다. _sparkle_ 아이콘을 선택한 다음 **Fix**를 선택하세요.
 
 ![Copilot 스마트 작업을 사용하여 유형 불일치 오류를 빠르게 수정](images/copilot-chat/smart-action-fix-with-copilot.png)
 

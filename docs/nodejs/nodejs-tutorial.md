@@ -78,7 +78,7 @@ You should see "Hello World" output to the terminal and then Node.js returns.
 
 VS Code has an [integrated terminal](/docs/terminal/basics.md) which you can use to run shell commands. You can run Node.js directly from there and avoid switching out of VS Code while running command-line tools.
 
-**View** > **Terminal** (`kb(workbench.action.terminal.toggleTerminal)` with the backtick character) will open the integrated terminal and you can run `node app.js` there:
+**View** > **Terminal** (`` Ctrl+` `` with the backtick character) will open the integrated terminal and you can run `node app.js` there:
 
 ![integrated terminal](images/nodejs/integrated-terminal.png)
 

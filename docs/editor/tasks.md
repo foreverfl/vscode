@@ -284,7 +284,7 @@ Sometimes you want to control how the Integrated Terminal panel behaves when run
 
 - **reveal**: Controls whether the Integrated Terminal panel is brought to front. Valid values are:
   - `always` - The panel is always brought to front. This is the default.
-  - `never` - The user must explicitly bring the terminal panel to the front using the **View** > **Terminal** command (`kb(workbench.action.terminal.toggleTerminal)`).
+  - `never` - The user must explicitly bring the terminal panel to the front using the **View** > **Terminal** command (`` Ctrl+` ``).
   - `silent` - The terminal panel is brought to front only if the output is not scanned for errors and warnings.
 - **revealProblems**: Controls whether the Problems panel is revealed when running this task or not. Takes precedence over option `reveal`. Default is `never`.
   - `always` - Always reveals the Problems panel when this task is executed.

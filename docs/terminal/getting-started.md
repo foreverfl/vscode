@@ -24,7 +24,7 @@ To get started with the terminal:
 
 1. Start VS Code and open a folder or workspace.
 
-1. Open the terminal by selecting **View** > **Terminal** from the menu bar, or by pressing the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut.
+1. Open the terminal by selecting **View** > **Terminal** from the menu bar, or by pressing the `` Ctrl+` `` keyboard shortcut.
 
    Based on your operating system configuration, the terminal opens with a default shell like Bash, PowerShell, or Zsh. The shell's working directory starts at the root of the workspace folder.
 

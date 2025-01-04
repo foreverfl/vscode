@@ -17,7 +17,7 @@ You can open a terminal as follows:
 - From the menu, use the **Terminal** > **New Terminal** or **View** > **Terminal** menu commands.
 - From the **Command Palette** (`Ctrl+Shift+P`), use the **View: Toggle Terminal** command.
 - In the Explorer, you can use the **Open in Integrated Terminal** context menu command to open a new terminal from a folder.
-- To toggle the terminal panel, use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut.
+- To toggle the terminal panel, use the `` Ctrl+` `` keyboard shortcut.
 - To create a new terminal, use the `kb(workbench.action.terminal.new)` keyboard shortcut.
 
 VS Code's terminal has additional functionality called shell integration that tracks where commands are run with decorations on the left of a command and in the scrollbar:

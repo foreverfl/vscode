@@ -561,7 +561,7 @@ Some commands included below do not have default keyboard shortcuts and so are d
 | Open New Command Prompt      | `kb(workbench.action.terminal.openNativeConsole)` | `workbench.action.terminal.openNativeConsole` |
 | Toggle Markdown Preview      | `kb(markdown.showPreview)`                        | `markdown.showPreview`                        |
 | Open Preview to the Side     | `kb(markdown.showPreviewToSide)`                  | `markdown.showPreviewToSide`                  |
-| Toggle Integrated Terminal   | `kb(workbench.action.terminal.toggleTerminal)`    | `workbench.action.terminal.toggleTerminal`    |
+| Toggle Integrated Terminal   | `` Ctrl+` ``                                      | `workbench.action.terminal.toggleTerminal`    |
 
 ### Search
 

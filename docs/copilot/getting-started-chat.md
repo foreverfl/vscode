@@ -141,9 +141,9 @@ Copilot 채팅은 GitHub Copilot과 상호작용할 수 있는 채팅 인터페�
 
 1. `app.ts` 파일을 열고 빨간색 물결선이 있는 심볼 중 하나를 선택하세요.
 
-1. 스파클 아이콘을 선택하여 Copilot 코드 액션을 보고, **Fix using Copilot**을 선택하세요.
+1. sparkle 아이콘을 선택하여 Copilot 코드 액션을 보고, **Fix using Copilot**을 선택하세요.
 
-   ![VS Code의 스크린샷으로, 스파클과 Copilot 스마트 액션 컨텍스트 메뉴가 강조 표시되어 있습니다.](./images/getting-started-chat/copilot-smart-action-fix.png)
+   ![VS Code의 스크린샷으로, sparkle과 Copilot 스마트 액션 컨텍스트 메뉴가 강조 표시되어 있습니다.](./images/getting-started-chat/copilot-smart-action-fix.png)
 
 1. Copilot 인라인 채팅이 나타나고, 오류 메시지와 함께 문제를 해결하기 위한 제안이 미리 채워져 있습니다.
 

@@ -133,7 +133,7 @@ Now, when you hover over `hello.py`, you get the proper Linux path.
 
 ### Integrated Terminal
 
-Run **Terminal** > **New Terminal** (`kb(workbench.action.terminal.toggleTerminal)`) to open a new terminal instance.
+Run **Terminal** > **New Terminal** (`` Ctrl+` ``) to open a new terminal instance.
 
 ![new terminal in WSL](images/wsl-tutorial/new-terminal-in-wsl.png)
 

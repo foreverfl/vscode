@@ -8,6 +8,7 @@ DateApproved: 12/11/2024
 MetaDescription: TypeScript tutorial with Visual Studio Code.
 MetaSocialImage: ../languages/images/typescript/typescript-social.png
 ---
+
 # TypeScript tutorial in Visual Studio Code
 
 [TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components.
@@ -45,11 +46,11 @@ From the File Explorer, create a new file called `helloworld.ts`.
 Now add the following TypeScript code. You'll notice the TypeScript keyword `let` and the `string` type declaration.
 
 ```typescript
-let message : string = "Hello World";
+let message: string = "Hello World";
 console.log(message);
 ```
 
-To compile your TypeScript code, you can open the [Integrated Terminal](/docs/terminal/basics.md) (`kb(workbench.action.terminal.toggleTerminal)`) and type `tsc helloworld.ts`. This will compile and create a new `helloworld.js` JavaScript file.
+To compile your TypeScript code, you can open the [Integrated Terminal](/docs/terminal/basics.md) (`` Ctrl+` ``) and type `tsc helloworld.ts`. This will compile and create a new `helloworld.js` JavaScript file.
 
 ![compiled hello world](images/tutorial/compiled-hello-world.png)
 
@@ -84,10 +85,10 @@ Add a simple `tsconfig.json` that set the options to compile to ES5 and use **Co
 
 ```json
 {
-    "compilerOptions": {
-        "target": "ES5",
-        "module": "CommonJS"
-    }
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "CommonJS"
+  }
 }
 ```
 
@@ -103,11 +104,11 @@ Having the generated JavaScript file in the same folder as the TypeScript source
 
 ```json
 {
-    "compilerOptions": {
-        "target": "ES5",
-        "module": "CommonJS",
-        "outDir": "out"
-    }
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "CommonJS",
+    "outDir": "out"
+  }
 }
 ```
 
@@ -117,7 +118,7 @@ See [Compiling TypeScript](/docs/typescript/typescript-compiling.md) to learn ab
 
 ## Error checking
 
-TypeScript helps you avoid common programming mistakes through strong type checking. For example, if you assign a number to `message`, the TypeScript compiler will complain with **'error TS2322: Type '2' is not assignable to type 'string'**.  You can see type checking errors in VS Code both in the editor (red squiggles with hover information) and the Problems panel (`kb(workbench.actions.view.problems)`). The `[ts]` prefix lets you know this error is coming from the TypeScript language service.
+TypeScript helps you avoid common programming mistakes through strong type checking. For example, if you assign a number to `message`, the TypeScript compiler will complain with **'error TS2322: Type '2' is not assignable to type 'string'**. You can see type checking errors in VS Code both in the editor (red squiggles with hover information) and the Problems panel (`kb(workbench.actions.view.problems)`). The `[ts]` prefix lets you know this error is coming from the TypeScript language service.
 
 ![incorrect type error](images/tutorial/incorrect-type-error.png)
 
@@ -139,12 +140,12 @@ VS Code has built-in support for TypeScript debugging. To support debugging Type
 
 ```json
 {
-    "compilerOptions": {
-        "target": "ES5",
-        "module": "CommonJS",
-        "outDir": "out",
-        "sourceMap": true
-    }
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "CommonJS",
+    "outDir": "out",
+    "sourceMap": true
+  }
 }
 ```
 
@@ -166,10 +167,10 @@ See [Debugging TypeScript](/docs/typescript/typescript-debugging.md) to learn mo
 
 This tutorial was a quick introduction to using VS Code for TypeScript development. Read on to learn more about using VS Code's compiling and debugging support for TypeScript:
 
-* [Compiling TypeScript](/docs/typescript/typescript-compiling.md) - Use VS Code's powerful task system for compiling TypeScript.
-* [Editing TypeScript](/docs/typescript/typescript-editing.md) - Specific editing features for TypeScript.
-* [Refactoring TypeScript](/docs/typescript/typescript-refactoring.md) - Useful refactorings from the TypeScript language service.
-* [Debugging TypeScript](/docs/typescript/typescript-debugging.md) - Configure the debugger for your TypeScript project.
+- [Compiling TypeScript](/docs/typescript/typescript-compiling.md) - Use VS Code's powerful task system for compiling TypeScript.
+- [Editing TypeScript](/docs/typescript/typescript-editing.md) - Specific editing features for TypeScript.
+- [Refactoring TypeScript](/docs/typescript/typescript-refactoring.md) - Useful refactorings from the TypeScript language service.
+- [Debugging TypeScript](/docs/typescript/typescript-debugging.md) - Configure the debugger for your TypeScript project.
 
 ## Common questions
 

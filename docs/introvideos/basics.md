@@ -44,7 +44,7 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 - Problems panel
   - **View** > **Problems** (`kb(workbench.actions.view.problems)`)
 - Integrated Terminal
-  - **View** > **Terminal** (`kb(workbench.action.terminal.toggleTerminal)`)
+  - **View** > **Terminal** (`` Ctrl+` ``)
 - Create a new file
   - **File** > **New File** (`kb(workbench.action.files.newUntitledFile)`)
 - Save a file

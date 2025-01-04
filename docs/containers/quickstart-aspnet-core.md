@@ -50,7 +50,7 @@ In this guide you will learn how to:
 
 ## Build the application
 
-1. Open terminal prompt (`kb(workbench.action.terminal.toggleTerminal)`).
+1. Open terminal prompt (`` Ctrl+` ``).
 1. Issue `dotnet build` command to build the application:
 
    ```
