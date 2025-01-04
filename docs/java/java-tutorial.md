@@ -62,7 +62,9 @@ Visual Studio Code에서 Java를 사용하려면 로컬 환경에 Java Developme
 
 [Java 확장 팩](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)은 Java 버전 1.8 이상을 지원합니다.
 
-> **참고**: 프로젝트용 JDK를 구성하려면 [프로젝트용 런타임 구성](/docs/java/java-project.md#configure-runtime-for-projects)을 참조하세요. Java 미리보기 기능을 활성화하려면 [VS Code를 새로운 Java 버전과 함께 사용하는 방법](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions)을 참조하세요.
+:::note
+프로젝트용 JDK를 구성하려면 [프로젝트용 런타임 구성](/docs/java/java-project.md#configure-runtime-for-projects)을 참조하세요. Java 미리보기 기능을 활성화하려면 [VS Code를 새로운 Java 버전과 함께 사용하는 방법](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions)을 참조하세요.
+:::
 
 ### Java Development Kit(JDK) 설치하기 {#installing-a-java-development-kit-jdk}
 
@@ -88,7 +90,9 @@ Java 프로그램을 위한 폴더를 만들고 VS Code로 해당 폴더를 엽�
   />
 </video>
 
-> **참고**: VS Code에서 폴더를 열지 않고 Java 파일을 열면 Java Language Server가 제대로 작동하지 않을 수 있습니다.
+:::note
+VS Code에서 폴더를 열지 않고 Java 파일을 열면 Java Language Server가 제대로 작동하지 않을 수 있습니다.
+:::
 
 VS Code는 새 타입에 대한 올바른 패키지를 파악하고 템플릿에서 새 파일을 채우려고 시도합니다. [새 파일 생성](/docs/java/java-editing.md#create-new-file)을 참조하세요.
 

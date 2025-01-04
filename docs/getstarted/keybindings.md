@@ -17,7 +17,7 @@ Visual Studio Code lets you perform most tasks directly from the keyboard. This 
 
 ## Keyboard Shortcuts editor
 
-VS Code provides a rich keyboard shortcut editing experience with the Keyboard Shortcuts editor. The editor lists all available commands with and without keybindings, and enables you to change / remove / reset their keybindings using the available actions. You can use the search box to find commands or keybindings. You can open this editor by going to the menu under **File** > **Preferences** > **Keyboard Shortcuts** or by using the **Preferences: Open Keyboard Shortcuts** command (`kb(workbench.action.openGlobalKeybindings)`).
+VS Code provides a rich keyboard shortcut editing experience with the Keyboard Shortcuts editor. The editor lists all available commands with and without keybindings, and enables you to change / remove / reset their keybindings using the available actions. You can use the search box to find commands or keybindings. You can open this editor by going to the menu under **File** > **Preferences** > **Keyboard Shortcuts** or by using the **Preferences: Open Keyboard Shortcuts** command (`Ctrl+K Ctrl+S`).
 
 ![Keyboard Shortcuts](images/keybinding/keyboard-shortcuts.gif)
 
@@ -542,26 +542,26 @@ Some commands included below do not have default keyboard shortcuts and so are d
 
 ### Display
 
-| Command                      | Key                                               | Command id                                    |
-| ---------------------------- | ------------------------------------------------- | --------------------------------------------- |
-| Toggle Full Screen           | `kb(workbench.action.toggleFullScreen)`           | `workbench.action.toggleFullScreen`           |
-| Toggle Zen Mode              | `kb(workbench.action.toggleZenMode)`              | `workbench.action.toggleZenMode`              |
-| Leave Zen Mode               | `kb(workbench.action.exitZenMode)`                | `workbench.action.exitZenMode`                |
-| Zoom in                      | `kb(workbench.action.zoomIn)`                     | `workbench.action.zoomIn`                     |
-| Zoom out                     | `kb(workbench.action.zoomOut)`                    | `workbench.action.zoomOut`                    |
-| Reset Zoom                   | `kb(workbench.action.zoomReset)`                  | `workbench.action.zoomReset`                  |
-| Toggle Sidebar Visibility    | `kb(workbench.action.toggleSidebarVisibility)`    | `workbench.action.toggleSidebarVisibility`    |
-| Show Explorer / Toggle Focus | `kb(workbench.view.explorer)`                     | `workbench.view.explorer`                     |
-| Show Search                  | `kb(workbench.view.search)`                       | `workbench.view.search`                       |
-| Show Source Control          | `Ctrl+Shift+G`                                    | `workbench.view.scm`                          |
-| Show Run                     | `kb(workbench.view.debug)`                        | `workbench.view.debug`                        |
-| Show Extensions              | `Ctrl+Shift+X`                                    | `workbench.view.extensions`                   |
-| Show Output                  | `kb(workbench.action.output.toggleOutput)`        | `workbench.action.output.toggleOutput`        |
-| Quick Open View              | `kb(workbench.action.quickOpenView)`              | `workbench.action.quickOpenView`              |
-| Open New Command Prompt      | `kb(workbench.action.terminal.openNativeConsole)` | `workbench.action.terminal.openNativeConsole` |
-| Toggle Markdown Preview      | `kb(markdown.showPreview)`                        | `markdown.showPreview`                        |
-| Open Preview to the Side     | `kb(markdown.showPreviewToSide)`                  | `markdown.showPreviewToSide`                  |
-| Toggle Integrated Terminal   | `` Ctrl+` ``                                      | `workbench.action.terminal.toggleTerminal`    |
+| Command                      | Key                                            | Command id                                    |
+| ---------------------------- | ---------------------------------------------- | --------------------------------------------- |
+| Toggle Full Screen           | `kb(workbench.action.toggleFullScreen)`        | `workbench.action.toggleFullScreen`           |
+| Toggle Zen Mode              | `kb(workbench.action.toggleZenMode)`           | `workbench.action.toggleZenMode`              |
+| Leave Zen Mode               | `kb(workbench.action.exitZenMode)`             | `workbench.action.exitZenMode`                |
+| Zoom in                      | `kb(workbench.action.zoomIn)`                  | `workbench.action.zoomIn`                     |
+| Zoom out                     | `kb(workbench.action.zoomOut)`                 | `workbench.action.zoomOut`                    |
+| Reset Zoom                   | `kb(workbench.action.zoomReset)`               | `workbench.action.zoomReset`                  |
+| Toggle Sidebar Visibility    | `kb(workbench.action.toggleSidebarVisibility)` | `workbench.action.toggleSidebarVisibility`    |
+| Show Explorer / Toggle Focus | `kb(workbench.view.explorer)`                  | `workbench.view.explorer`                     |
+| Show Search                  | `kb(workbench.view.search)`                    | `workbench.view.search`                       |
+| Show Source Control          | `Ctrl+Shift+G`                                 | `workbench.view.scm`                          |
+| Show Run                     | `kb(workbench.view.debug)`                     | `workbench.view.debug`                        |
+| Show Extensions              | `Ctrl+Shift+X`                                 | `workbench.view.extensions`                   |
+| Show Output                  | `kb(workbench.action.output.toggleOutput)`     | `workbench.action.output.toggleOutput`        |
+| Quick Open View              | `kb(workbench.action.quickOpenView)`           | `workbench.action.quickOpenView`              |
+| Open New Command Prompt      | `Ctrl+Shift+C`                                 | `workbench.action.terminal.openNativeConsole` |
+| Toggle Markdown Preview      | `kb(markdown.showPreview)`                     | `markdown.showPreview`                        |
+| Open Preview to the Side     | `kb(markdown.showPreviewToSide)`               | `markdown.showPreviewToSide`                  |
+| Toggle Integrated Terminal   | `` Ctrl+` ``                                   | `workbench.action.terminal.toggleTerminal`    |
 
 ### Search
 
@@ -593,7 +593,7 @@ Some commands included below do not have default keyboard shortcuts and so are d
 | -------------------------- | -------------------------------------------- | ---------------------------------------- |
 | Open Settings              | `kb(workbench.action.openSettings)`          | `workbench.action.openSettings`          |
 | Open Workspace Settings    | `kb(workbench.action.openWorkspaceSettings)` | `workbench.action.openWorkspaceSettings` |
-| Open Keyboard Shortcuts    | `kb(workbench.action.openGlobalKeybindings)` | `workbench.action.openGlobalKeybindings` |
+| Open Keyboard Shortcuts    | `Ctrl+K Ctrl+S`                              | `workbench.action.openGlobalKeybindings` |
 | Open User Snippets         | `kb(workbench.action.openSnippets)`          | `workbench.action.openSnippets`          |
 | Select Color Theme         | `kb(workbench.action.selectTheme)`           | `workbench.action.selectTheme`           |
 | Configure Display Language | `kb(workbench.action.configureLocale)`       | `workbench.action.configureLocale`       |

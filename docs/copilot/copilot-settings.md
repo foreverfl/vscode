@@ -27,7 +27,7 @@ Copilot 구독이 아직 없다면 [Copilot 무료 플랜](https://github.com/gi
 - `github.copilot.renameSuggestions.triggerAutomatically`: Copilot이 이름 바꾸기 제안을 생성할지 제어합니다.
 - `chat.commandCenter.enabled` <i class="codicon codicon-beaker"></i>: 명령 센터에 채팅 작업을 위한 메뉴를 표시할지 제어합니다.
 - `workbench.commandPalette.experimental.askChatLocation` <i class="codicon codicon-beaker"></i>: 명령 팔레트가 채팅 질문을 할 위치를 제어합니다.
-- `github.copilot.chat.search.semanticTextResults` <i class="codicon codicon-beaker"></i>: 검색 뷰에서 의미론적 검색 결과를 활성화합니다.
+- `github.copilot.chat.search.semanticTextResults` <i class="codicon codicon-beaker"></i>: 검색 화면에서 의미론적 검색 결과를 활성화합니다.
 
 ## 채팅 설정 {#chat-settings}
 

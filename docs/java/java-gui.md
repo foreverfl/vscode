@@ -34,7 +34,9 @@ VS Code에서 몇 단계만으로 새로운 JavaFX 애플리케이션을 만들 
 
 JavaFX 애플리케이션을 실행하려면 **Maven** 탐색기를 열고 `hellofx` > `Plugins` > `javafx`를 확장한 다음 Maven 목표: `javafx:run`을 실행하세요.
 
-> **참고**: [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) 확장을 설치했는지 확인하세요. **Maven** 탐색기를 찾을 수 없다면 명령 팔레트(`Ctrl+Shift+P`)를 열고 **Explorer: Focus on Maven View** 명령을 선택하세요.
+:::note
+[Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) 확장을 설치했는지 확인하세요. **Maven** 탐색기를 찾을 수 없다면 명령 팔레트(`Ctrl+Shift+P`)를 열고 **Explorer: Focus on Maven View** 명령을 선택하세요.
+:::
 
 <video autoplay loop muted playsinline controls title="JavaFX 애플리케이션 실행" style={{ maxWidth: '100%' }}>
 

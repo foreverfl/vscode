@@ -173,7 +173,7 @@ VSCode에서 Gradle 프로젝트를 열면 Gradle 사이드바 항목을 클릭�
   <source src="https://code.visualstudio.com/docs/java/java-build/gradle-tasks.mp4" type="video/mp4" />
 </video>
 
-워크스페이스에 많은 Gradle 작업이 있을 때 특정 작업을 찾기 어려울 수 있습니다. 확장은 **Pinned Tasks** 뷰를 제공하여 즐겨찾는 작업을 고정하여 별도의 뷰에서 쉽게 찾을 수 있도록 도와줍니다. **Recent Tasks** 뷰에서 최근에 실행된 작업도 볼 수 있습니다.
+워크스페이스에 많은 Gradle 작업이 있을 때 특정 작업을 찾기 어려울 수 있습니다. 확장은 **Pinned Tasks** 뷰를 제공하여 즐겨찾는 작업을 고정하여 별도의 화면에서 쉽게 찾을 수 있도록 도와줍니다. **Recent Tasks** 화면에서 최근에 실행된 작업도 볼 수 있습니다.
 
 <video autoplay loop muted playsinline controls title="Gradle 작업 고정" style={{maxWidth: '100%'}}>
 
@@ -182,13 +182,13 @@ VSCode에서 Gradle 프로젝트를 열면 Gradle 사이드바 항목을 클릭�
 
 ### Gradle 종속성 보기 {#viewing-gradle-dependencies}
 
-**Gradle Projects** 뷰에서 각 Gradle 프로젝트 항목 아래에 **Dependencies** 항목을 찾을 수 있습니다. 지정된 구성의 모든 종속성을 포함하며, 프로젝트의 종속성 상태를 쉽게 확인할 수 있습니다.
+**Gradle Projects** 화면에서 각 Gradle 프로젝트 항목 아래에 **Dependencies** 항목을 찾을 수 있습니다. 지정된 구성의 모든 종속성을 포함하며, 프로젝트의 종속성 상태를 쉽게 확인할 수 있습니다.
 
 ![Gradle Dependencies](images/java-build/gradle-dependencies.png)
 
 ### Gradle Daemons 관리 {#managing-gradle-daemons}
 
-**Gradle Daemons** 뷰는 현재 워크스페이스의 데몬 상태를 보여줍니다. 워크스페이스와 동일한 버전의 모든 실행 중인 Gradle 데몬을 나열합니다. 이 뷰에서 특정 데몬 또는 모든 데몬을 중지할 수 있습니다.
+**Gradle Daemons** 뷰는 현재 워크스페이스의 데몬 상태를 보여줍니다. 워크스페이스와 동일한 버전의 모든 실행 중인 Gradle 데몬을 나열합니다. 이 화면에서 특정 데몬 또는 모든 데몬을 중지할 수 있습니다.
 
 <video autoplay loop muted playsinline controls title="Gradle Daemon 관리" style={{maxWidth: '100%'}}>
 
@@ -203,11 +203,11 @@ Groovy Gradle 파일을 열면 확장이 Gradle 파일을 분석하고 의미 �
 
 ![Gradle Highlighting](images/java-build/gradle-highlighting.png)
 
-**Outline** 뷰에서는 열린 Gradle 파일의 문서 기호를 제공하여 파일의 어느 부분으로든 쉽게 이동할 수 있습니다.
+**Outline** 화면면에서는 열린 Gradle 파일의 문서 기호를 제공하여 파일의 어느 부분으로든 쉽게 이동할 수 있습니다.
 
 ![Gradle Outline](images/java-build/gradle-outline.png)
 
-열린 Gradle 파일에 구문 오류(문자 누락, 유형 찾을 수 없음 등)가 있는 경우 **Problems** 뷰에서 이를 찾을 수 있습니다.
+열린 Gradle 파일에 구문 오류(문자 누락, 유형 찾을 수 없음 등)가 있는 경우 **Problems** 화면에서 이를 찾을 수 있습니다.
 
 ![Gradle Problems](images/java-build/gradle-problems.png)
 

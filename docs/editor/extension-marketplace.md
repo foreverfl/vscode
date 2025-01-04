@@ -44,7 +44,7 @@ VS Code 내에서 확장을 찾아보고 설치할 수 있습니다. VS Code 측
 
 확장 뷰(`Ctrl+Shift+X`)에서 검색 상자에 'todo'를 입력하여 제목이나 메타데이터에 'todo'가 포함된 확장으로 마켓플레이스 결과를 필터링하세요. **TODO Highlight** 확장이 목록에 표시될 것입니다.
 
-![확장 뷰에서 todo 검색하기](images/extension-marketplace/search-for-todo-extension.png)
+![확장 화면에서 todo 검색하기](images/extension-marketplace/search-for-todo-extension.png)
 
 확장은 게시자와 확장 ID로 고유하게 식별됩니다. **TODO Highlight** 확장을 선택하면 확장 세부 정보 페이지가 표시되며, 여기서 확장 ID(이 경우 `wayou.vscode-todo-highlight`)를 확인할 수 있습니다. 유사한 이름의 확장이 여러 개 있는 경우 확장 ID를 아는 것이 도움이 될 수 있습니다.
 
@@ -338,7 +338,7 @@ VS Code는 작업 공간이 처음 열릴 때 추천 확장을 설치하라는 �
 
 일부 사용자는 마켓플레이스에서 확장을 한 번 다운로드하고 로컬 공유에서 여러 VS Code 인스턴스에 설치하는 것을 선호합니다. 이는 연결 문제가 있거나 개발 팀이 고정된 확장 세트를 사용하려는 경우 유용합니다.
 
-확장을 다운로드하려면 확장 뷰에서 검색하고, 결과에서 확장을 마우스 오른쪽 버튼으로 클릭한 다음 **Download VSIX**를 선택하세요.
+확장을 다운로드하려면 확장 화면에서 검색하고, 결과에서 확장을 마우스 오른쪽 버튼으로 클릭한 다음 **Download VSIX**를 선택하세요.
 
 note:::
 다운로드 옵션은 VS Code 릴리스 1.96부터 사용 가능하며, 아직 설치되지 않은 확장에 대해서만 사용할 수 있습니다.

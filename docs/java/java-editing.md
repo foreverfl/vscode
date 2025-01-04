@@ -24,7 +24,7 @@ Visual Studio Code는 풍부한 편집 [기능](/docs/editor/codebasics.md)을 �
 
 ### 작업 공간에서 심볼 검색 {#search-for-symbols-in-the-workspace}
 
-현재 작업 공간에서 심볼을 검색하려면 `Ctrl+T`를 먼저 누른 다음 심볼 이름을 입력하세요. 이전과 같이 잠재적인 일치 항목 목록이 나타날 것입니다. 아직 열려있지 않은 파일에서 찾은 일치 항목을 선택하면 해당 파일이 열린 후 일치하는 위치로 이동합니다. 또는 **빠른 열기**(`Ctrl+P`)를 사용한 다음 '#' 명령을 입력하여 현재 작업 공간을 검색할 수도 있습니다. `Ctrl+T`는 '#' 명령의 단축키일 뿐이므로 모든 것이 동일하게 작동합니다.
+현재 작업 공간에서 심볼을 검색하려면 `Ctrl+T`를 먼저 누른 다음 심볼 이름을 입력하세요. 이전과 같이 잠재적인 일치 항목 목록이 나타날 것입니다. 아직 열려있지 않은 파일에서 찾은 일치 항목을 선택하면 해당 파일이 열린 후 일치하는 위치로 이동합니다. 또는 **Quick Open**(`Ctrl+P`)를 사용한 다음 '#' 명령을 입력하여 현재 작업 공간을 검색할 수도 있습니다. `Ctrl+T`는 '#' 명령의 단축키일 뿐이므로 모든 것이 동일하게 작동합니다.
 
 <video autoplay loop muted playsinline controls title="작업 공간에서 심볼 검색" style={{maxWidth: '100%'}}>
 
@@ -33,7 +33,7 @@ Visual Studio Code는 풍부한 편집 [기능](/docs/editor/codebasics.md)을 �
 
 ### 현재 파일에서 심볼 검색 {#search-for-symbols-in-current-file}
 
-현재 파일에서 심볼을 검색하려면 **빠른 열기**(`Ctrl+P`)를 사용한 다음 '@' 명령을 입력하고 찾고자 하는 심볼의 이름을 입력하세요. 잠재적인 일치 항목 목록이 나타나고 입력할 때마다 필터링됩니다. 일치 항목 목록에서 선택하여 해당 위치로 이동할 수 있습니다.
+현재 파일에서 심볼을 검색하려면 **Quick Open**(`Ctrl+P`)를 사용한 다음 '@' 명령을 입력하고 찾고자 하는 심볼의 이름을 입력하세요. 잠재적인 일치 항목 목록이 나타나고 입력할 때마다 필터링됩니다. 일치 항목 목록에서 선택하여 해당 위치로 이동할 수 있습니다.
 
 <video autoplay loop muted playsinline controls title="현재 파일에서 심볼 검색" style={{maxWidth: '100%'}}>
 
@@ -69,7 +69,7 @@ Visual Studio Code는 풍부한 편집 [기능](/docs/editor/codebasics.md)을 �
 
 ![호출 계층 미리보기](images/java-editing/call-hierarchy.png)
 
-함수 본문에서 마우스 오른쪽 버튼을 클릭하고 **호출 계층 표시**를 선택할 수도 있습니다.
+함수 본문에서 마우스 오른쪽 버튼을 클릭하고 **Call Hierarchy**를 선택할 수도 있습니다.
 
 ![호출 계층 메뉴](images/java-editing/call-hierarchy.gif)
 

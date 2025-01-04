@@ -49,7 +49,7 @@ Copilot 사용을 위해 다른 GitHub 계정으로 전환하려면:
 
 1. 활동 표시줄에서 확장 화면을 열고( 또는 `Ctrl+Shift+X`를 사용) 검색 상자에 *GitHub Copilot*을 입력합니다.
 
-   ![VS Code의 확장 뷰에서 GitHub Copilot 확장을 보여줍니다.](images/faq/copilot-extensions.png)
+   ![VS Code의 확장 화면에서 GitHub Copilot 확장을 보여줍니다.](images/faq/copilot-extensions.png)
 
    :::note
    Copilot 확장이 두 개 있습니다: GitHub Copilot과 GitHub Copilot 채팅입니다다.
@@ -89,7 +89,7 @@ GitHub Copilot 확장의 로그 파일은 Visual Studio Code 확장의 표준 �
 
 ### Copilot 확장의 시험판 빌드가 있나요? {#are-there-pre-release-builds-of-the-copilot-extensions}
 
-네, 최신 기능과 수정 사항을 시험해보기 위해 Copilot 확장의 시험판(nightly) 버전으로 전환할 수 있습니다. 확장 뷰에서 마우스 오른쪽 버튼을 클릭하거나 기어 아이콘을 선택하여 컨텍스트 메뉴를 열고, **시험판 버전으로 전환**을 선택하세요:
+네, 최신 기능과 수정 사항을 시험해보기 위해 Copilot 확장의 시험판(nightly) 버전으로 전환할 수 있습니다. 확장 화면에서 마우스 오른쪽 버튼을 클릭하거나 기어 아이콘을 선택하여 컨텍스트 메뉴를 열고, **시험판 버전으로 전환**을 선택하세요:
 
 ![시험판 버전으로 전환 옵션이 있는 확장 뷰 컨텍스트 메뉴](images/faq/switch-to-pre-release.png)
 

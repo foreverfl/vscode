@@ -42,7 +42,7 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 - Display the Integrated Terminal.
   - **View** > **Terminal** (`` Ctrl+` ``)
 - Split the terminal.
-  - **Split Terminal** (`kb(workbench.action.terminal.split)`)
+  - **Split Terminal** (`Ctrl+Shift+5`)
 - Create new terminal.
   - **Create New Terminal** (`` Ctrl+Shift+` ``)
 - Run the application.

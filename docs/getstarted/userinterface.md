@@ -377,7 +377,7 @@ VS Code는 편집기 위의 제목 영역에 탭(탭 헤더)으로 열린 항목
 미리보기 모드를 사용하지 않고 항상 새 탭을 생성하려면 다음 설정을 사용하여 동작을 제어할 수 있습니다:
 
 - `workbench.editor.enablePreview` - 미리보기 편집기를 전역적으로 활성화 또는 비활성화
-- `workbench.editor.enablePreviewFromQuickOpen` - **빠른 열기**에서 열 때 미리보기 편집기를 활성화 또는 비활성화
+- `workbench.editor.enablePreviewFromQuickOpen` - **Quick Open**에서 열 때 미리보기 편집기를 활성화 또는 비활성화
 
 ### 래핑된 탭 {#wrapped-tabs}
 

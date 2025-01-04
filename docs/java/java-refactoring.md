@@ -10,7 +10,7 @@ MetaDescription: Visual Studio Code용 Java 코드 리팩토링 및 소스 작�
 
 # Java 리팩토링 및 소스 작업 {#java-refactoring-and-source-actions}
 
-Visual Studio Code는 코딩하는 동안 코드를 생성하고 문제를 해결하기 위한 소스 작업뿐만 아니라 소스 코드를 리팩토링하는 많은 옵션을 제공합니다. 이러한 옵션에 접근하려면 `전구` 💡가 보일 때마다 클릭하세요. 또는 에디터 뷰에서 마우스 오른쪽 버튼을 클릭하고 **Source Action...** 을 선택하세요.
+Visual Studio Code는 코딩하는 동안 코드를 생성하고 문제를 해결하기 위한 소스 작업뿐만 아니라 소스 코드를 리팩토링하는 많은 옵션을 제공합니다. 이러한 옵션에 접근하려면 `전구` 💡가 보일 때마다 클릭하세요. 또는 에디터 화면에서 마우스 오른쪽 버튼을 클릭하고 **Source Action...** 을 선택하세요.
 
 ## 지원되는 코드 작업 목록 {#list-of-supported-code-actions}
 
