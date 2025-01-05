@@ -85,7 +85,7 @@ You now have a self-contained environment ready for writing Flask code. VS Code 
 
    > **Tip**: You can use multiple decorators on the same function, one per line, depending on how many different routes you want to map to the same function.
 
-1. Save the `app.py` file (`kb(workbench.action.files.save)`).
+1. Save the `app.py` file (`Ctrl+S`).
 
 1. In the Integrated Terminal, run the app by entering `python -m flask run`, which runs the Flask development server. The development server looks for `app.py` by default. When you run Flask, you should see output similar to the following:
 
@@ -164,7 +164,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Set a breakpoint at the first line of code in the `hello_there` function (`now = datetime.now()`) by doing any one of the following:
 
-   - With the cursor on that line, press `kb(editor.debug.action.toggleBreakpoint)`, or,
+   - With the cursor on that line, press `F9`, or,
    - With the cursor on that line, select the **Run** > **Toggle Breakpoint** menu command, or,
    - Click directly in the margin to the left of the line number (a faded red dot appears when hovering there).
 
@@ -204,7 +204,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
    > **Note**: Once `launch.json` is created, an **Add Configuration** button appears in the editor. That button displays a list of additional configurations to add to the beginning of the configuration list. (The **Run** > **Add Configuration** menu command does the same action.).
 
-1. Save `launch.json` (`kb(workbench.action.files.save)`). In the debug configuration dropdown list select the **Python: Flask** configuration.
+1. Save `launch.json` (`Ctrl+S`). In the debug configuration dropdown list select the **Python: Flask** configuration.
 
    ![Flask tutorial: selecting the Flask debugging configuration](images/flask-tutorial/debug-select-configuration.png)
 
@@ -504,7 +504,7 @@ Because the three pages you create in the next section extend `layout.html`, it 
    },
    ```
 
-1. Save the `html.json` file (`kb(workbench.action.files.save)`).
+1. Save the `html.json` file (`Ctrl+S`).
 
 1. Now, whenever you start typing the snippet's prefix, such as `flext`, VS Code provides the snippet as an autocomplete option, as shown in the next section. You can also use the **Insert Snippet** command to choose a snippet from a menu.
 

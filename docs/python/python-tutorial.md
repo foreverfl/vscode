@@ -141,7 +141,7 @@ IntelliSense and auto-completions work for standard Python modules as well as ot
 
 ![IntelliSense appearing for a variable whose type provides methods](images/tutorial/intellisense02.png)
 
-Finally, save the file (`kb(workbench.action.files.save)`). At this point, you're ready to run your first Python file in VS Code.
+Finally, save the file (`Ctrl+S`). At this point, you're ready to run your first Python file in VS Code.
 
 For full details on editing, formatting, and refactoring, see [Editing code](/docs/python/editing.md). The Python extension also has full support for [Linting](/docs/python/linting.md).
 
@@ -175,7 +175,7 @@ Let's now try debugging our Python program. Debugging support is provided by the
 
 ![Python Debugger extension shown in installed extensions view in VS Code.](images/shared/python-debugger-extension.png)
 
-Next, set a breakpoint on line 2 of `hello.py` by placing the cursor on the `print` call and pressing `kb(editor.debug.action.toggleBreakpoint)`. Alternately, click in the editor's left gutter, next to the line numbers. When you set a breakpoint, a red circle appears in the gutter.
+Next, set a breakpoint on line 2 of `hello.py` by placing the cursor on the `print` call and pressing `F9`. Alternately, click in the editor's left gutter, next to the line numbers. When you set a breakpoint, a red circle appears in the gutter.
 
 ![Setting a breakpoint in hello.py](images/tutorial/breakpoint-set.png)
 

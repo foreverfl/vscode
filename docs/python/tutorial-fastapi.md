@@ -70,7 +70,7 @@ We will install FastAPI for creating the app, [uvicorn](https://www.uvicorn.org)
    uvicorn
    ```
 
-6. Save the file (`kb(workbench.action.files.save)`) and name it `requirements.txt`.
+6. Save the file (`Ctrl+S`) and name it `requirements.txt`.
 
 7. Create a virtual environment by opening the Command Palette (`Ctrl+Shift+P`) and running the **Python: Create Environment** command.
 
@@ -224,7 +224,7 @@ Now we need a place to store the grocery list items. For simplicity, let's start
 
    Now let's check if this route is working as expected. The fastest way to do so is to use both VS Code's debugger as well as FastAPI's `/docs` endpoint, which provides information about all the available API routes and lets you interact with the API to explore their parameters and responses. This documentation is generated dynamically based on the metadata and type hints defined in the FastAPI application.
 
-4. Add a breakpoint next to the `if quantity <= 0` statement, by clicking on the left margin of the line number (or `kb(editor.debug.action.toggleBreakpoint)`). The debugger will stop prior to the execution of that line, so you can inspect the code line by line.
+4. Add a breakpoint next to the `if quantity <= 0` statement, by clicking on the left margin of the line number (or `F9`). The debugger will stop prior to the execution of that line, so you can inspect the code line by line.
 
    ![Breakpoint set next to the first line in the add_item function](images/fastapi-tutorial/debugger_breakpoint.png)
 
@@ -341,7 +341,7 @@ Now we need a place to store the grocery list items. For simplicity, let's start
 
     ```
 
-12. Save the file (`kb(workbench.action.files.save)`). The application should automatically reload.
+12. Save the file (`Ctrl+S`). The application should automatically reload.
 
 You can now open the `/docs` page again and test the new routes, using the debugger and the Debug Console to better understand the code execution. Once you're done, you can stop the debugger (`kb(workbench.action.debug.stop)`). You can also remove the breakpoint we added in step 4 by clicking on it.
 

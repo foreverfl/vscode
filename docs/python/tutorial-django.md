@@ -285,7 +285,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Set a breakpoint at the first line of code in the `hello_there` function (`now = datetime.now()`) by doing any one of the following:
 
-   - With the cursor on that line, press `kb(editor.debug.action.toggleBreakpoint)`, or,
+   - With the cursor on that line, press `F9`, or,
    - With the cursor on that line, select the **Run** > **Toggle Breakpoint** menu command, or,
    - Click directly in the margin to the left of the line number (a faded red dot appears when hovering there).
 
@@ -598,7 +598,7 @@ Because the three pages you create in the next section extend `layout.html`, it 
    },
    ```
 
-1. Save the `html.json` file (`kb(workbench.action.files.save)`).
+1. Save the `html.json` file (`Ctrl+S`).
 
 1. Now, whenever you start typing the snippet's prefix, such as `djext`, VS Code provides the snippet as an autocomplete option, as shown in the next section. You can also use the **Insert Snippet** command to choose a snippet from a menu.
 

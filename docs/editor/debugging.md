@@ -166,7 +166,7 @@ In addition to debugging a program, VS Code supports **running** the program. Th
 
 ## Breakpoints
 
-Breakpoints can be toggled by clicking on the **editor margin** or using `kb(editor.debug.action.toggleBreakpoint)` on the current line. Finer breakpoint control (enable/disable/reapply) can be done in the **Run and Debug** view's **BREAKPOINTS** section.
+Breakpoints can be toggled by clicking on the **editor margin** or using `F9` on the current line. Finer breakpoint control (enable/disable/reapply) can be done in the **Run and Debug** view's **BREAKPOINTS** section.
 
 - Breakpoints in the editor margin are normally shown as red filled circles.
 - Disabled breakpoints have a filled gray circle.

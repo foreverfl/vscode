@@ -222,7 +222,7 @@ When you start typing, you'll get smart completions for the object methods and p
 
 ### Debugging
 
-Set a breakpoint on line 10 of `app.js` by clicking in the gutter to the left of the line number or by putting the cursor on the line and pressing `kb(editor.debug.action.toggleBreakpoint)`. The breakpoint will be displayed as a red circle.
+Set a breakpoint on line 10 of `app.js` by clicking in the gutter to the left of the line number or by putting the cursor on the line and pressing `F9`. The breakpoint will be displayed as a red circle.
 
 ![set breakpoint](images/ssh-tutorial/set-breakpoint.png)
 

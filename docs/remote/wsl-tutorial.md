@@ -163,13 +163,13 @@ Now, when you edit your code, you get rich colorization and completions.
 
 ![Python IntelliSense](images/wsl-tutorial/python-intellisense.png)
 
-And when you save your file (`kb(workbench.action.files.save)`), you'll get linting errors and warnings on the file.
+And when you save your file (`Ctrl+S`), you'll get linting errors and warnings on the file.
 
 ![pylint error](images/wsl-tutorial/pylint-error.png)
 
 ### Debugging
 
-With your tools set up, let's take this one step further. Set a breakpoint on line 1 of hello.py by clicking in the gutter to the left of the line number or by putting the cursor on the line and pressing `kb(editor.debug.action.toggleBreakpoint)`.
+With your tools set up, let's take this one step further. Set a breakpoint on line 1 of hello.py by clicking in the gutter to the left of the line number or by putting the cursor on the line and pressing `F9`.
 
 ![set breakpoint](images/wsl-tutorial/set-breakpoint.png)
 

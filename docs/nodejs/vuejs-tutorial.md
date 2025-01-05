@@ -124,7 +124,7 @@ Let's update the sample application to "Hello World!". In `App.vue` replace the 
 </template>
 ```
 
-Once you save the `App.vue` file (`kb(workbench.action.files.save)`), restart the server with `npm run dev` and you'll see "Hello World!". Leave the server running while we go on to learn about Vue.js client side debugging.
+Once you save the `App.vue` file (`Ctrl+S`), restart the server with `npm run dev` and you'll see "Hello World!". Leave the server running while we go on to learn about Vue.js client side debugging.
 
 > **Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/getstarted/settings.md).
 

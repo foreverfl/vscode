@@ -48,7 +48,7 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 - Create a new file
   - **File** > **New File** (`kb(workbench.action.files.newUntitledFile)`)
 - Save a file
-  - **File** > **Save** (`kb(workbench.action.files.save)`)
+  - **File** > **Save** (`Ctrl+S`)
 - Auto Save
   - **File** > **Auto Save**
 - Run

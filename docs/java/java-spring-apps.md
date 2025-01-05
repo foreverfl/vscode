@@ -77,7 +77,7 @@ Select the **Restart** button on the top of the editor to relaunch the app and s
 
 ## Debug the application
 
-Set a breakpoint (`kb(editor.debug.action.toggleBreakpoint)`) in the application source code, and reload your browser to hit the breakpoint.
+Set a breakpoint (`F9`) in the application source code, and reload your browser to hit the breakpoint.
 
 ![Debug Application](images/java-webapp/debugging.png)
 

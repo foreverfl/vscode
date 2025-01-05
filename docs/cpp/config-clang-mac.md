@@ -85,7 +85,7 @@ int main()
 }
 ```
 
-Now press `kb(workbench.action.files.save)` to save the file. Notice that your files are listed in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
+Now press `Ctrl+S` to save the file. Notice that your files are listed in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
 
 ![File Explorer](images/msvc/file-explorer.png)
 
