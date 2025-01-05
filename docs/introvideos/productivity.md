@@ -48,7 +48,7 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 - Set Format On Paste
   - check **Editor: Format on Paste**
 - IntelliSense smart code completions
-  - trigger IntelliSense with `kb(editor.action.triggerSuggest)`
+  - trigger IntelliSense with `Ctrl+Space`
 
 ## Next video
 

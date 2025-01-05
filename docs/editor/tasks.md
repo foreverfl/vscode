@@ -168,7 +168,7 @@ The task's properties have the following semantic:
 - **runOptions**: Defines when and how a task is run.
 - **hide**: Hides the task from the Run Task Quick Pick, which can be useful for elements of a compound task that are not independently runnable.
 
-You can see the full set of task properties and values with IntelliSense in your `tasks.json` file. Bring up suggestions with **Trigger Suggest** (`kb(editor.action.triggerSuggest)`) and read the descriptions on hover or with the **Read More...** ('i') flyout.
+You can see the full set of task properties and values with IntelliSense in your `tasks.json` file. Bring up suggestions with **Trigger Suggest** (`Ctrl+Space`) and read the descriptions on hover or with the **Read More...** ('i') flyout.
 
 ![tasks.json IntelliSense](images/tasks/tasks-intellisense.png)
 
@@ -220,7 +220,7 @@ Besides escaping, the following values are supported:
 
 If the command itself contains spaces, VS Code will by default strong quote the command as well. As with arguments, the user can control the quoting of the command using the same literal style.
 
-There are more task properties to configure your workflow. You can use IntelliSense with `kb(editor.action.triggerSuggest)` to get an overview of the valid properties.
+There are more task properties to configure your workflow. You can use IntelliSense with `Ctrl+Space` to get an overview of the valid properties.
 
 ![Tasks IntelliSense](images/tasks/intellisense.png)
 

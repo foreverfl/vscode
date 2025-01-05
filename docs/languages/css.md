@@ -18,7 +18,7 @@ Visual Studio Code has built-in support for editing style sheets in CSS `.css`, 
 
 ## IntelliSense
 
-VS Code has support for selectors, properties and values. Use `kb(editor.action.triggerSuggest)` to get a list of context specific options.
+VS Code has support for selectors, properties and values. Use `Ctrl+Space` to get a list of context specific options.
 
 ![IntelliSense in CSS](images/css/intellisense.png)
 

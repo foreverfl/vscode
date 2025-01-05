@@ -26,7 +26,7 @@ The Outline view is a great way to review your document's header structure and o
 
 ### Snippets for Markdown
 
-VS Code includes some useful snippets that can speed up writing Markdown. This includes snippets for code blocks, images, and more. Press `kb(editor.action.triggerSuggest)` (Trigger Suggest) while editing to see a list of suggested Markdown snippets. You can also use the dedicated snippet picker by selecting **Insert Snippet** in the Command Palette.
+VS Code includes some useful snippets that can speed up writing Markdown. This includes snippets for code blocks, images, and more. Press `Ctrl+Space` (Trigger Suggest) while editing to see a list of suggested Markdown snippets. You can also use the dedicated snippet picker by selecting **Insert Snippet** in the Command Palette.
 
 > **Tip:** You can add in your own User Defined Snippets for Markdown. Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
 
@@ -48,13 +48,13 @@ Start typing a header name to filter down the list and find the header you are a
 
 ### Path completions
 
-Path completions help with create links to files and images. These paths are shown automatically by [IntelliSense](/docs/editor/intellisense.md) as you type the path of an image or link, and can also be manually requested by using `kb(editor.action.triggerSuggest)`.
+Path completions help with create links to files and images. These paths are shown automatically by [IntelliSense](/docs/editor/intellisense.md) as you type the path of an image or link, and can also be manually requested by using `Ctrl+Space`.
 
 ![Path completions in a Markdown link](images/markdown/path-completions.png)
 
-Paths starting with `/` are resolved relative to the current workspace root, while paths staring with `./` or without any prefix are resolved relative to the current file. Path suggestions are automatically shown when you type `/` or can be manually invoked by using `kb(editor.action.triggerSuggest)`.
+Paths starting with `/` are resolved relative to the current workspace root, while paths staring with `./` or without any prefix are resolved relative to the current file. Path suggestions are automatically shown when you type `/` or can be manually invoked by using `Ctrl+Space`.
 
-Path IntelliSense can also help you link to headers within the current file or within another Markdown file. Start the path with `#` to see completions for all the headers in the file (depending on your settings, you might need to use `kb(editor.action.triggerSuggest)` to see these):
+Path IntelliSense can also help you link to headers within the current file or within another Markdown file. Start the path with `#` to see completions for all the headers in the file (depending on your settings, you might need to use `Ctrl+Space` to see these):
 
 ![Header section suggestions in a Markdown link](images/markdown/path-completions-header.png)
 

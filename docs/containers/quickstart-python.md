@@ -81,7 +81,7 @@ This step is not required, but it is included to help you understand how to add 
 The Docker Extension helps you author Dockerfiles by using [IntelliSense](/docs/editor/intellisense.md) to provide auto-completions and contextual help. To see this feature in action:
 
 1. Open the `Dockerfile`.
-2. Underneath the `EXPOSE` statement, type `kb(editor.action.triggerSuggest)` to trigger IntelliSense and scroll to `ENV`.
+2. Underneath the `EXPOSE` statement, type `Ctrl+Space` to trigger IntelliSense and scroll to `ENV`.
 
    ![Adding environment variable to Dockerfile](images/quickstarts/python-edit-dockerfile.png)
 
@@ -143,7 +143,7 @@ The Docker extension will launch your browser to a randomly mapped port:
 
 ![Django website launches](images/quickstarts/python-web-launch.png)
 
-> **Tip**: To modify your Docker build settings, such as changing the image tag, navigate to `.vscode -> tasks.json` under the `dockerBuild` attribute in the `docker-build` task. Use IntelliSense within the file (`kb(editor.action.triggerSuggest)`) to display all other valid directives.
+> **Tip**: To modify your Docker build settings, such as changing the image tag, navigate to `.vscode -> tasks.json` under the `dockerBuild` attribute in the `docker-build` task. Use IntelliSense within the file (`Ctrl+Space`) to display all other valid directives.
 
 ## Use the Docker Explorer
 

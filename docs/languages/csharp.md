@@ -66,7 +66,7 @@ Here are a few highlights...
 
 ## IntelliSense
 
-IntelliSense just works: hit `kb(editor.action.triggerSuggest)` at any time to get context specific suggestions.
+IntelliSense just works: hit `Ctrl+Space` at any time to get context specific suggestions.
 
 ![IntelliSense](images/csharp/intellisense.png)
 
@@ -82,7 +82,7 @@ You can learn more about how to get started with Copilot in the [Copilot documen
 
 ## Snippets for C&#35;
 
-For information on snippets in C# Dev Kit, go to the [Navigate and Edit documentation](/docs/csharp/navigate-edit.md). There are also several built-in snippets included in VS Code that will come up as you type or you can press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and we will give you a context specific list of suggestions.
+For information on snippets in C# Dev Kit, go to the [Navigate and Edit documentation](/docs/csharp/navigate-edit.md). There are also several built-in snippets included in VS Code that will come up as you type or you can press `Ctrl+Space` (Trigger Suggest) and we will give you a context specific list of suggestions.
 
 ![Snippets](images/csharp/snippet.png)
 

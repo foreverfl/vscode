@@ -32,7 +32,7 @@ This setting allows using the `Tab` key for indentation when text is not an Emme
 
 ### Emmet when quickSuggestions are disabled
 
-If you have disabled the `editor.quickSuggestions` [setting](/docs/getstarted/settings.md), you won't see suggestions as you type. You can still trigger suggestions manually by pressing `kb(editor.action.triggerSuggest)` and see the preview.
+If you have disabled the `editor.quickSuggestions` [setting](/docs/getstarted/settings.md), you won't see suggestions as you type. You can still trigger suggestions manually by pressing `Ctrl+Space` and see the preview.
 
 ### Disable Emmet in suggestions
 

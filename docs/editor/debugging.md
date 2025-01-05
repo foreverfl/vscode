@@ -99,7 +99,7 @@ If you go back to the File Explorer view (`kb(workbench.view.explorer)`), you'll
 
 > **Note**: You can debug a simple application even if you don't have a folder open in VS Code, but it is not possible to manage launch configurations and set up advanced debugging. The VS Code Status Bar is purple if you do not have a folder open.
 
-Note that the attributes available in launch configurations vary from debugger to debugger. You can use IntelliSense suggestions (`kb(editor.action.triggerSuggest)`) to find out which attributes exist for a specific debugger. Hover help is also available for all attributes.
+Note that the attributes available in launch configurations vary from debugger to debugger. You can use IntelliSense suggestions (`Ctrl+Space`) to find out which attributes exist for a specific debugger. Hover help is also available for all attributes.
 
 Do not assume that an attribute that is available for one debugger automatically works for other debuggers too. If you see red squiggles in your launch configuration, hover over them to learn what the problem is and try to fix them before launching a debug session.
 
@@ -214,7 +214,7 @@ Variable names and values can be filtered by typing while the focus is on the **
 
 ## Launch.json attributes
 
-There are many `launch.json` attributes to help support different debuggers and debugging scenarios. As mentioned above, you can use IntelliSense (`kb(editor.action.triggerSuggest)`) to see the list of available attributes once you have specified a value for the `type` attribute.
+There are many `launch.json` attributes to help support different debuggers and debugging scenarios. As mentioned above, you can use IntelliSense (`Ctrl+Space`) to see the list of available attributes once you have specified a value for the `type` attribute.
 
 ![launch json suggestions](images/debugging/launch-json-suggestions.png)
 

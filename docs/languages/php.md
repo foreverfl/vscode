@@ -54,7 +54,7 @@ or
 
 ## Snippets
 
-Visual Studio Code includes a set of common snippets for PHP. To access these, hit `kb(editor.action.triggerSuggest)` to get a context-specific list.
+Visual Studio Code includes a set of common snippets for PHP. To access these, hit `Ctrl+Space` to get a context-specific list.
 
 ![PHP Snippets](images/php/php-snippets.png)
 

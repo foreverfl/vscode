@@ -150,7 +150,7 @@ As you type in a Rust file, IntelliSense provides you with suggested completions
 
 ![Smart completion for Rust String member](images/rust/code-completions.png)
 
-> **Tip**: Use `kb(editor.action.triggerSuggest)` to trigger the suggestions manually.
+> **Tip**: Use `Ctrl+Space` to trigger the suggestions manually.
 
 ## Semantic syntax highlighting
 

@@ -52,7 +52,7 @@ For a more specific walkthrough and other ways of running code, see the [run cod
 
 The Python extension supports code completion and IntelliSense using the currently selected interpreter. [IntelliSense](/docs/editor/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and third-party modules.
 
-IntelliSense quickly shows methods, class members, and documentation as you type. You can also trigger completions at any time with `kb(editor.action.triggerSuggest)`. Hovering over identifiers will show more information about them.
+IntelliSense quickly shows methods, class members, and documentation as you type. You can also trigger completions at any time with `Ctrl+Space`. Hovering over identifiers will show more information about them.
 
 ![IntelliSense and autocomplete for Python code](images/python/python-editing.gif)
 

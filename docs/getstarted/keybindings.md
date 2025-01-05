@@ -458,7 +458,7 @@ Some commands included below do not have default keyboard shortcuts and so are d
 
 | Command                     | Key                                              | Command id                                   |
 | --------------------------- | ------------------------------------------------ | -------------------------------------------- |
-| Trigger Suggest             | `kb(editor.action.triggerSuggest)`               | `editor.action.triggerSuggest`               |
+| Trigger Suggest             | `Ctrl+Space`                                     | `editor.action.triggerSuggest`               |
 | Trigger Parameter Hints     | `kb(editor.action.triggerParameterHints)`        | `editor.action.triggerParameterHints`        |
 | Format Document             | `kb(editor.action.formatDocument)`               | `editor.action.formatDocument`               |
 | Format Selection            | `kb(editor.action.formatSelection)`              | `editor.action.formatSelection`              |

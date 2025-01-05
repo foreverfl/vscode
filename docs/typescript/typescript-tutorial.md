@@ -92,7 +92,7 @@ Add a simple `tsconfig.json` that set the options to compile to ES5 and use **Co
 }
 ```
 
-When editing `tsconfig.json`, IntelliSense (`kb(editor.action.triggerSuggest)`) will help you along the way.
+When editing `tsconfig.json`, IntelliSense (`Ctrl+Space`) will help you along the way.
 
 ![tsconfig.json IntelliSense](images/tutorial/tsconfig-intellisense.png)
 

@@ -22,7 +22,7 @@ Document symbols are also available for HTML, allowing you to quickly navigate t
 
 You can also work with embedded CSS and JavaScript. However, note that script and style includes from other files are not followed, the language support only looks at the content of the HTML file.
 
-You can trigger suggestions at any time by pressing `kb(editor.action.triggerSuggest)`.
+You can trigger suggestions at any time by pressing `Ctrl+Space`.
 
 You can also control which built-in code completion providers are active. Override these in your user or workspace [settings](/docs/getstarted/settings.md) if you prefer not to see the corresponding suggestions.
 
