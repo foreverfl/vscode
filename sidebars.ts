@@ -243,10 +243,10 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
-    // 소스 관리 (Git)
+    // 소스 관리
     {
       type: "category",
-      label: "Git",
+      label: "소스 관리",
       collapsible: true,
       collapsed: true,
       items: [
