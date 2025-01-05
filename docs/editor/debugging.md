@@ -46,7 +46,7 @@ It is helpful to first create a sample Node.js application before reading about 
 
 ## Run and Debug view
 
-To bring up the **Run and Debug** view, select the **Run and Debug** icon in the **Activity Bar** on the side of VS Code. You can also use the keyboard shortcut `kb(workbench.view.debug)`.
+To bring up the **Run and Debug** view, select the **Run and Debug** icon in the **Activity Bar** on the side of VS Code. You can also use the keyboard shortcut `Ctrl+Shift+D`.
 
 ![Run and Debug icon](images/debugging/run.png)
 
@@ -64,7 +64,7 @@ The top-level **Run** menu has the most common run and debug commands:
 
 ## Launch configurations
 
-To run or debug a simple app in VS Code, select **Run and Debug** on the Debug start view or press `kb(workbench.action.debug.start)` and VS Code will try to run your currently active file.
+To run or debug a simple app in VS Code, select **Run and Debug** on the Debug start view or press `F5` and VS Code will try to run your currently active file.
 
 However, for most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations).
 
@@ -129,7 +129,7 @@ To add a new configuration to an existing `launch.json`, use one of the followin
 
 VS Code also supports compound launch configurations for starting multiple configurations at the same time; for more details, please read this [section](#compound-launch-configurations).
 
-In order to start a debug session, first select the configuration named **Launch Program** using the **Configuration dropdown** in the **Run and Debug** view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`.
+In order to start a debug session, first select the configuration named **Launch Program** using the **Configuration dropdown** in the **Run and Debug** view. Once you have your launch configuration set, start your debug session with `F5`.
 
 Alternatively, you can run your configuration through the **Command Palette** (`Ctrl+Shift+P`) by filtering on **Debug: Select and Start Debugging** or typing `'debug '` and selecting the configuration you want to debug.
 
@@ -150,7 +150,7 @@ Once a debug session starts, the **Debug toolbar** will appear on the top of the
 | Action                                                        | Explanation                                                                                                                                                            |
 | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Continue / Pause <br /> `kb(workbench.action.debug.continue)` | **Continue**: Resume normal program/script execution (up to the next breakpoint). <br /> **Pause**: Inspect code executing at the current line and debug line-by-line. |
-| Step Over <br /> `kb(workbench.action.debug.stepOver)`        | Execute the next method as a single command without inspecting or following its component steps.                                                                       |
+| Step Over <br /> `F10`                                        | Execute the next method as a single command without inspecting or following its component steps.                                                                       |
 | Step Into <br /> `kb(workbench.action.debug.stepInto)`        | Enter the next method to follow its execution line-by-line.                                                                                                            |
 | Step Out <br /> `kb(workbench.action.debug.stepOut)`          | When inside a method or subroutine, return to the earlier execution context by completing remaining lines of the current method as though it were a single command.    |
 | Restart <br /> `kb(workbench.action.debug.restart)`           | Terminate the current program execution and start debugging again using the current run configuration.                                                                 |

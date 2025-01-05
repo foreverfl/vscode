@@ -118,7 +118,7 @@ See [Compiling TypeScript](/docs/typescript/typescript-compiling.md) to learn ab
 
 ## Error checking
 
-TypeScript helps you avoid common programming mistakes through strong type checking. For example, if you assign a number to `message`, the TypeScript compiler will complain with **'error TS2322: Type '2' is not assignable to type 'string'**. You can see type checking errors in VS Code both in the editor (red squiggles with hover information) and the Problems panel (`kb(workbench.actions.view.problems)`). The `[ts]` prefix lets you know this error is coming from the TypeScript language service.
+TypeScript helps you avoid common programming mistakes through strong type checking. For example, if you assign a number to `message`, the TypeScript compiler will complain with **'error TS2322: Type '2' is not assignable to type 'string'**. You can see type checking errors in VS Code both in the editor (red squiggles with hover information) and the Problems panel (`Ctrl+Shift+M`). The `[ts]` prefix lets you know this error is coming from the TypeScript language service.
 
 ![incorrect type error](images/tutorial/incorrect-type-error.png)
 
@@ -151,13 +151,13 @@ VS Code has built-in support for TypeScript debugging. To support debugging Type
 
 Rebuild by running `tsc` and you should now have a `helloworld.js.map` in the `out` directory next to `helloworld.js`.
 
-With `helloworld.ts` open in the editor, press `kb(workbench.action.debug.start)`. If you have other debugger extensions installed, you need to select **Node.js** from the dropdown.
+With `helloworld.ts` open in the editor, press `F5`. If you have other debugger extensions installed, you need to select **Node.js** from the dropdown.
 
 The debugger will start a session, run your code, and display the "Hello World" message in the Debug console panel.
 
 ![debug console output](images/tutorial/debug-console.png)
 
-In `helloworld.ts`, set a breakpoint by clicking on the left gutter of the editor. You will see a red circle if the breakpoint is set. Press `kb(workbench.action.debug.start)` again. Execution will stop when the breakpoint is hit and you'll be able to see debugging information such as variable values and the call stack in the **Run and Debug** view (`kb(workbench.view.debug)`).
+In `helloworld.ts`, set a breakpoint by clicking on the left gutter of the editor. You will see a red circle if the breakpoint is set. Press `F5` again. Execution will stop when the breakpoint is hit and you'll be able to see debugging information such as variable values and the call stack in the **Run and Debug** view (`Ctrl+Shift+D`).
 
 ![debug breakpoint](images/tutorial/debug-breakpoint.png)
 

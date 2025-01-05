@@ -105,7 +105,7 @@ When the Docker extension adds files to the application, it also adds a **VS Cod
 
    ![Selected Docker debug configuration](images/quickstarts/node-debug-configuration-dark.png)
 
-1. Start debugging (use the `kb(workbench.action.debug.start)` key).
+1. Start debugging (use the `F5` key).
 
    - The Docker image for the service builds.
    - The Docker container for the service runs.

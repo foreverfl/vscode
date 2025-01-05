@@ -133,7 +133,7 @@ You can see the error and warning counts in the Status Bar. Click on the error a
 
 ![Error in Status Bar](images/compiling/error-status-bar.png)
 
-You can also use the keyboard to open the list `kb(workbench.actions.view.problems)`.
+You can also use the keyboard to open the list `Ctrl+Shift+M`.
 
 > **Tip:** Tasks offer rich support for many actions. Check the [Tasks](/docs/editor/tasks.md) topic for more information on how to configure them.
 

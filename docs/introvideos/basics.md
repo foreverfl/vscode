@@ -32,7 +32,7 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 - Source Control
   - **View** > **Source Control (SCM)** (`Ctrl+Shift+G`)
 - Run and Debug
-  - **View** > **Run** (`kb(workbench.view.debug)`)
+  - **View** > **Run** (`Ctrl+Shift+D`)
 - Extensions view
   - **View** > **Extensions** (`Ctrl+Shift+X`)
 - Open the Command Palette.
@@ -42,7 +42,7 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 - Debug Console
   - **View** > **Debug Console** (`kb(workbench.debug.action.toggleRepl)`)
 - Problems panel
-  - **View** > **Problems** (`kb(workbench.actions.view.problems)`)
+  - **View** > **Problems** (`Ctrl+Shift+M`)
 - Integrated Terminal
   - **View** > **Terminal** (`` Ctrl+` ``)
 - Create a new file
@@ -52,7 +52,7 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 - Auto Save
   - **File** > **Auto Save**
 - Run
-  - **Run** > **Start Debugging** (`kb(workbench.action.debug.start)`)
+  - **Run** > **Start Debugging** (`F5`)
 - Programming language extensions
   - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, linting, debugging, code formatting, refactoring, and more.
   - [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) - Hosts a local server to preview your webpages.

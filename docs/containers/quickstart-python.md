@@ -130,7 +130,7 @@ The **Docker: Add Docker Files to Workspace...** command automatically creates a
 
    ![Selected Docker debug configuration](images/quickstarts/python-debug-configuration.png)
 
-1. Start debugging using the `kb(workbench.action.debug.start)` key.
+1. Start debugging using the `F5` key.
 
    - The Docker image builds.
    - The Docker container runs.

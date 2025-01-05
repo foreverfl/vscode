@@ -108,7 +108,7 @@ You can install extensions to get additional snippets or define your own snippet
 The TypeScript language service will analyze your program for coding problems and report errors and warnings:
 
 - In the Status bar, there is a summary of all errors and warnings counts.
-- You can click on the summary or press `kb(workbench.actions.view.problems)` to display the **PROBLEMS** panel with a list of all current errors.
+- You can click on the summary or press `Ctrl+Shift+M` to display the **PROBLEMS** panel with a list of all current errors.
 - If you open a file that has errors or warnings, they will be rendered inline with the text and in the overview ruler.
 
 ![Error in the editor and Problems panel](images/typescript/ts-error.png)
@@ -121,8 +121,8 @@ To loop through errors or warnings in the current file, you can press `kb(editor
 
 Code navigation lets you quickly navigate TypeScript projects.
 
-- **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
-- **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
+- **Go to Definition** `F12` - Go to the source code of a symbol definition.
+- **Peek Definition** `Alt+F12` - Bring up a Peek window that shows the definition of a symbol.
 - **Go to References** `kb(editor.action.goToReferences)` - Show all references to a symbol.
 - **Go to Type Definition** - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
 - **Go to Implementation** `kb(editor.action.goToImplementation)` - Go to the implementations of an interface or abstract method.

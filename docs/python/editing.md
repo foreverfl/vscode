@@ -81,9 +81,9 @@ You can learn more about how to get started with Copilot in the [Copilot documen
 
 While editing, you can right-click different identifiers to take advantage of several convenient commands
 
-- **Go to Definition** (`kb(editor.action.revealDefinition)`) jumps from your code into the code that defines an object. This command is helpful when you're working with libraries.
+- **Go to Definition** (`F12`) jumps from your code into the code that defines an object. This command is helpful when you're working with libraries.
 
-- **Peek Definition** (`kb(editor.action.peekDefinition)`), is similar, but displays the definition directly in the editor (making space in the editor window to avoid obscuring any code). Press `Escape` to close the Peek window or use the **x** in the upper right corner.
+- **Peek Definition** (`Alt+F12`), is similar, but displays the definition directly in the editor (making space in the editor window to avoid obscuring any code). Press `Escape` to close the Peek window or use the **x** in the upper right corner.
 
 - **Go to Declaration** jumps to the point at which the variable or other object is declared in your code.
 

@@ -64,7 +64,7 @@ You can also interact with breadcrumbs without the dropdown. Press `kb(breadcrum
 
 ## Go to Definition
 
-If a [language](/docs/languages/overview.md) supports it, you can go to the definition of a symbol by pressing `kb(editor.action.revealDefinition)`.
+If a [language](/docs/languages/overview.md) supports it, you can go to the definition of a symbol by pressing `F12`.
 
 If you press `Ctrl` and hover over a symbol, a preview of the declaration will appear:
 
@@ -94,7 +94,7 @@ Some languages support jumping to a symbol across files with `kb(workbench.actio
 
 ## Peek
 
-We think there's nothing worse than a big context switch when all you want is to quickly check something. That's why we support peeked editors. When you execute a **Go to References** search (via `kb(editor.action.goToReferences)`), or a **Peek Definition** (via `kb(editor.action.peekDefinition)`), we embed the result inline:
+We think there's nothing worse than a big context switch when all you want is to quickly check something. That's why we support peeked editors. When you execute a **Go to References** search (via `kb(editor.action.goToReferences)`), or a **Peek Definition** (via `Alt+F12`), we embed the result inline:
 
 ![Peek References](images/editingevolved/references.png)
 
@@ -149,7 +149,7 @@ Some languages support rename symbol across files. Press `kb(editor.action.renam
 Warnings or Errors can be generated either via [configured tasks](/docs/editor/tasks.md), by rich language services, or by linters, that constantly analyze your code in the background. Since we love bug-free code, warnings and errors show up in multiple places:
 
 - In the Status Bar, there is a summary of all errors and warnings counts.
-- You can click on the summary or press `kb(workbench.actions.view.problems)` to display the **PROBLEMS** panel with a list of all current errors.
+- You can click on the summary or press `Ctrl+Shift+M` to display the **PROBLEMS** panel with a list of all current errors.
 - If you open a file that has errors or warnings, they will be rendered inline with the text and in the overview ruler.
 
 ![errors in problems panel](images/editingevolved/errors.png)

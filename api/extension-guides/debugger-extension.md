@@ -82,7 +82,7 @@ To try Mock Debug:
 
 - Create a new empty folder `mock test` and open it in VS Code.
 - Create a file `readme.md` and enter several lines of arbitrary text.
-- Switch to the Run and Debug view (`kb(workbench.view.debug)`) and select the **create a launch.json file** link.
+- Switch to the Run and Debug view (`Ctrl+Shift+D`) and select the **create a launch.json file** link.
 - VS Code will let you select an "debugger" in order to create a default launch configuration. Pick "Mock Debug".
 - Press the green **Start** button and then `Enter` to confirm the suggested file `readme.md`.
 

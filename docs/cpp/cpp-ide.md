@@ -134,7 +134,7 @@ With the peek window open, you browse the list of results shown to find the one 
 
 ### Go to definition
 
-Use the **Go to Definition** feature to quickly navigate to where a symbol is defined in your source code. Select a symbol in your source code and then press `kb(editor.action.revealDefinition)`, or right-click and choose **Go to Definition** from the context menu. When there's only one definition of the symbol, you are navigated directly to its location, otherwise the competing definitions are displayed in a peek window as described in the previous section.
+Use the **Go to Definition** feature to quickly navigate to where a symbol is defined in your source code. Select a symbol in your source code and then press `F12`, or right-click and choose **Go to Definition** from the context menu. When there's only one definition of the symbol, you are navigated directly to its location, otherwise the competing definitions are displayed in a peek window as described in the previous section.
 
 If no definitions can be found for the symbol you selected, the C/C++ extension automatically searches for a declaration of the symbol.
 

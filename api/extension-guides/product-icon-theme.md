@@ -75,7 +75,7 @@ It is recommended that you use [WOFF](https://developer.mozilla.org/docs/Web/Gui
 
 VS Code defines a list of icon IDs through which the icons are referenced by the views. The product icon's `iconDefinitions` section assigns new icons to these IDs.
 
-Each definition uses `fontId` to reference one of the fonts defined in the `fonts` section. If `fontId` is omitted, the first font listed in  the font definitions is taken.
+Each definition uses `fontId` to reference one of the fonts defined in the `fonts` section. If `fontId` is omitted, the first font listed in the font definitions is taken.
 
 ```json
 {
@@ -83,7 +83,7 @@ Each definition uses `fontId` to reference one of the fonts defined in the `font
     "dialog-close": {
       "fontCharacter": "\\43",
       "fontId": "alien-font"
-    },
+    }
   }
 }
 ```
@@ -94,7 +94,7 @@ A list of all icon identifiers can be found in the [icon reference](/api/referen
 
 VS Code has built-in editing support for the `package.json` file as well as for product icon theme files. To get that, your theme file name needs to end with `product-icon-theme.json`. This enables code completion on all properties including the known icon IDs as well as hovers and validation.
 
-To try out a product icon theme, open the extension folder in VS Code and press `kb(workbench.action.debug.start)`. This will run the extension in an extension development host window. The window has your extension enabled and the extension will automatically switch to the first product icon theme.
+To try out a product icon theme, open the extension folder in VS Code and press `F5`. This will run the extension in an extension development host window. The window has your extension enabled and the extension will automatically switch to the first product icon theme.
 
 Also, the theme file is watched for changes and updates to the icons will be applied automatically whenever the theme file is modified. As you work on the product icon definition file, you will see the changes live on save.
 

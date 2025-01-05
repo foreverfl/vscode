@@ -17,7 +17,7 @@ For example, VS Code uses when clauses to enable or disable command keybindings,
                    "when": "debuggersAvailable && !inDebugMode" },
 ```
 
-Above, the built-in **Start Debugging** command has the keyboard shortcut `kb(workbench.action.debug.start)`, which is only enabled when there is an appropriate debugger available (context key `debuggersAvailable` is true) and the editor isn't in debug mode (context key `inDebugMode` is false).
+Above, the built-in **Start Debugging** command has the keyboard shortcut `F5`, which is only enabled when there is an appropriate debugger available (context key `debuggersAvailable` is true) and the editor isn't in debug mode (context key `inDebugMode` is false).
 
 ## Conditional operators
 

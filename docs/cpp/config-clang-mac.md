@@ -266,7 +266,7 @@ You might want to keep track of the value of a variable as your program executes
 
 ## Customize debugging with launch.json
 
-When you debug with the play button or `kb(workbench.action.debug.start)`, the C++ extension creates a dynamic debug configuration on the fly.
+When you debug with the play button or `F5`, the C++ extension creates a dynamic debug configuration on the fly.
 
 There are cases where you'd want to customize your debug configuration, such as specifying arguments to pass to the program at runtime. You can define custom debug configurations in a `launch.json` file.
 
@@ -308,7 +308,7 @@ Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `m
 
 Ensure that the `preLaunchTask` value matches the `label` of the build task in the `tasks.json` file.
 
-> From now on, the play button and `kb(workbench.action.debug.start)` will read from your `launch.json` file when launching your program for debugging.
+> From now on, the play button and `F5` will read from your `launch.json` file when launching your program for debugging.
 
 ## Adding additional C/C++ settings
 

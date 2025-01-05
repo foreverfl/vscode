@@ -30,7 +30,7 @@ You can get [IntelliSense](/docs/editor/intellisense.md) by clicking `kb(editor.
 
 ![IntelliSense for Dockerfiles](images/overview/dockerfile-intellisense.png)
 
-In addition, you can use the Problems panel (`kb(workbench.actions.view.problems)`) to view common errors for `Dockerfile` and `docker-compose.yml` files.
+In addition, you can use the Problems panel (`Ctrl+Shift+M`) to view common errors for `Dockerfile` and `docker-compose.yml` files.
 
 ## Generating Docker files
 

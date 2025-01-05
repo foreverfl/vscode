@@ -92,7 +92,7 @@ and Vue properties such as `computed` in the `scripts` section:
 
 ### Go to Definition, Peek definition
 
-VS Code through the Volar extension Vue.js language service can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.revealDefinition)`) or **Peek Definition** (`kb(editor.action.peekDefinition)`). Put the cursor over the `App`, right-click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) opens showing the `App` definition from `App.js`.
+VS Code through the Volar extension Vue.js language service can also provide type definition information in the editor through **Go to Definition** (`F12`) or **Peek Definition** (`Alt+F12`). Put the cursor over the `App`, right-click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) opens showing the `App` definition from `App.js`.
 
 ![Vue.js peek definition](images/vuejs/peek-definition.png)
 
@@ -136,7 +136,7 @@ Once you save the `App.vue` file (`kb(workbench.action.files.save)`), restart th
 
 ## Linting
 
-Linters analyze your source code and can warn you about potential problems before you run your application. The Vue ESLint plugin ([eslint-plugin-vue](https://www.npmjs.com/package/eslint-plugin-vue)) checks for Vue.js specific syntax errors, which are shown in the editor as red squiggles and are also displayed in the **Problems** panel (**View** > **Problems** `kb(workbench.actions.view.problems)`).
+Linters analyze your source code and can warn you about potential problems before you run your application. The Vue ESLint plugin ([eslint-plugin-vue](https://www.npmjs.com/package/eslint-plugin-vue)) checks for Vue.js specific syntax errors, which are shown in the editor as red squiggles and are also displayed in the **Problems** panel (**View** > **Problems** `Ctrl+Shift+M`).
 
 Below you can see an error when the Vue linter detects more than one root element in a template:
 

@@ -190,13 +190,13 @@ Automatic link updating detects renames of Markdown files, images, and directori
 
 ## Markdown preview
 
-VS Code supports Markdown files out of the box. You just start writing Markdown text, save the file with the `.md` extension and then you can toggle the visualization of the editor between the code and the preview of the Markdown file; obviously, you can also open an existing Markdown file and start working with it. To switch between views, press `kb(markdown.showPreview)` in the editor. You can view the preview side-by-side (`kb(markdown.showPreviewToSide)`) with the file you are editing and see changes reflected in real-time as you edit.
+VS Code supports Markdown files out of the box. You just start writing Markdown text, save the file with the `.md` extension and then you can toggle the visualization of the editor between the code and the preview of the Markdown file; obviously, you can also open an existing Markdown file and start working with it. To switch between views, press `Ctrl+Shift+V` in the editor. You can view the preview side-by-side (`Ctrl+K V`) with the file you are editing and see changes reflected in real-time as you edit.
 
 Here is an example with a simple file.
 
 ![Markdown Preview](images/markdown/preview.png)
 
-> **Tip:** You can also right-click on the editor Tab and select **Open Preview** (`kb(markdown.showPreview)`) or use the **Command Palette** (`Ctrl+Shift+P`) to run the **Markdown: Open Preview to the Side** command (`kb(markdown.showPreviewToSide)`).
+> **Tip:** You can also right-click on the editor Tab and select **Open Preview** (`Ctrl+Shift+V`) or use the **Command Palette** (`Ctrl+Shift+P`) to run the **Markdown: Open Preview to the Side** command (`Ctrl+K V`).
 
 ### Dynamic previews and preview locking
 

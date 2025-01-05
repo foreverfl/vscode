@@ -189,8 +189,8 @@ Set `"javascript.autoClosingTags"` to `false` to disable JSX tag closing.
 
 Code navigation lets you quickly navigate JavaScript projects.
 
-- **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
-- **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
+- **Go to Definition** `F12` - Go to the source code of a symbol definition.
+- **Peek Definition** `Alt+F12` - Bring up a Peek window that shows the definition of a symbol.
 - **Go to References** `kb(editor.action.goToReferences)` - Show all references to a symbol.
 - **Go to Type Definition** - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
 

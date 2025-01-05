@@ -54,9 +54,9 @@ When you open the `(` while calling a function, a pop-up provides signature help
 
 Code Navigation features are available in the context menu in the editor.
 
-- **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of the type definition.
+- **Go to Definition** `F12` - Go to the source code of the type definition.
 - **Go to Type Definition** - Go to the type that defines a symbol.
-- **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window with the type definition.
+- **Peek Definition** `Alt+F12` - Bring up a Peek window with the type definition.
 - **Go to References** `kb(editor.action.goToReferences)` - Show all references for the type.
 - **Show Call Hierarchy** `kb(editor.showCallHierarchy)` - Show all calls from or to a function.
 - **Go to Implementations** `kb(editor.action.goToImplementation)` - Bring up a Peek window with the list of all implementations of an interface (if triggered with an interface type symbol), or interfaces a type implements (if triggered with a concrete type symbol).

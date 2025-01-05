@@ -226,11 +226,11 @@ Set a breakpoint on line 10 of `app.js` by clicking in the gutter to the left of
 
 ![set breakpoint](images/ssh-tutorial/set-breakpoint.png)
 
-Now, press `kb(workbench.action.debug.start)` to run your application. If you are asked how to run the application, choose **Node.js**.
+Now, press `F5` to run your application. If you are asked how to run the application, choose **Node.js**.
 
 The app will start, and you'll hit the breakpoint. You can inspect variables, create watches, and navigate the call stack.
 
-Press `kb(workbench.action.debug.stepOver)` to step or `kb(workbench.action.debug.start)` again to finish your debugging session.
+Press `F10` to step or `F5` again to finish your debugging session.
 
 ![VS Code debug view](images/ssh-tutorial/debug-view.png)
 

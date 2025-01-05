@@ -179,7 +179,7 @@ Next, set a breakpoint on line 2 of `hello.py` by placing the cursor on the `pri
 
 ![Setting a breakpoint in hello.py](images/tutorial/breakpoint-set.png)
 
-Next, to initialize the debugger, press `kb(workbench.action.debug.start)`. Since this is your first time debugging this file, a configuration menu will open from the Command Palette allowing you to select the type of debug configuration you would like for the opened file.
+Next, to initialize the debugger, press `F5`. Since this is your first time debugging this file, a configuration menu will open from the Command Palette allowing you to select the type of debug configuration you would like for the opened file.
 
 ![List of Python debugger configuration options](images/shared/debug-configurations.png)
 
@@ -191,13 +191,13 @@ The debugger will start, and then stop at the first line of the file breakpoint.
 
 ![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
 
-A debug toolbar appears along the top with the following commands from left to right: continue (`kb(workbench.action.debug.start)`), step over (`kb(workbench.action.debug.stepOver)`), step into (`kb(workbench.action.debug.stepInto)`), step out (`kb(workbench.action.debug.stepOut)`), restart (`kb(workbench.action.debug.restart)`), and stop (`kb(workbench.action.debug.stop)`).
+A debug toolbar appears along the top with the following commands from left to right: continue (`F5`), step over (`F10`), step into (`kb(workbench.action.debug.stepInto)`), step out (`kb(workbench.action.debug.stepOut)`), restart (`kb(workbench.action.debug.restart)`), and stop (`kb(workbench.action.debug.stop)`).
 
 ![Debugging toolbar](images/tutorial/debug-toolbar.png)
 
 The Status Bar also changes color (orange in many themes) to indicate that you're in debug mode. The **Python Debug Console** also appears automatically in the lower right panel to show the commands being run, along with the program output.
 
-To continue running the program, select the continue command on the debug toolbar (`kb(workbench.action.debug.start)`). The debugger runs the program to the end.
+To continue running the program, select the continue command on the debug toolbar (`F5`). The debugger runs the program to the end.
 
 > **Tip** Debugging information can also be seen by hovering over code, such as variables. In the case of `msg`, hovering over the variable will display the string `Roll a dice!` in a box above the variable.
 

@@ -173,13 +173,13 @@ With your tools set up, let's take this one step further. Set a breakpoint on li
 
 ![set breakpoint](images/wsl-tutorial/set-breakpoint.png)
 
-Now, press `kb(workbench.action.debug.start)` to run your application. You will be asked how to run the application, and since this is a simple file, just choose **Python File**.
+Now, press `F5` to run your application. You will be asked how to run the application, and since this is a simple file, just choose **Python File**.
 
 ![select debug configuration](images/wsl-tutorial/select-debug-config.png)
 
 The app will start, and you'll hit the breakpoint. You can inspect variables, create watches, and navigate the call stack.
 
-Press `kb(workbench.action.debug.stepOver)` to step and you'll see the output of the print statement in the debug console.
+Press `F10` to step and you'll see the output of the print statement in the debug console.
 
 ![VS Code debug view](images/wsl-tutorial/debug-view.png)
 

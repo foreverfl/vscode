@@ -180,8 +180,8 @@ You can learn more about rust-analyzer's semantic syntax customizations in the [
 
 Code navigation features are available in the context menu in the editor.
 
-- **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of the type definition.
-- **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window with the type definition.
+- **Go to Definition** `F12` - Go to the source code of the type definition.
+- **Peek Definition** `Alt+F12` - Bring up a Peek window with the type definition.
 - **Go to References** `kb(editor.action.goToReferences)` - Show all references for the type.
 - **Show Call Hierarchy** `kb(editor.showCallHierarchy)` - Show all calls from or to a function.
 
@@ -268,7 +268,7 @@ For more complicated debugging scenarios, you can create a `launch.json` [debugg
 
 To create a `launch.json` for a Rust program:
 
-1. In the Debug view (`kb(workbench.view.debug)`), select the **create a launch.json file** link.
+1. In the Debug view (`Ctrl+Shift+D`), select the **create a launch.json file** link.
 2. This will display a dropdown, which several default launch configuration types. You can pick the first option as we will add another configuration for Rust.
 3. You will now have a `launch.json` file in the editor, which is located in a new `.vscode` folder in your project.
 4. Select the **Add Configuration** button in the lower right and select the **C/C++: (Windows) Launch** configuration.

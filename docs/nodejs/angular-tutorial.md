@@ -77,7 +77,7 @@ VS Code uses the TypeScript language service for code intelligence ([IntelliSens
 
 ### Go to Definition, Peek definition
 
-Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.revealDefinition)`) or **Peek Definition** (`kb(editor.action.peekDefinition)`). Open the `app.module.ts` file and put the cursor over `AppComponent` in the `bootstrap` property declaration, right click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) will open showing the `AppComponent` definition from `app.component.ts`.
+Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`F12`) or **Peek Definition** (`Alt+F12`). Open the `app.module.ts` file and put the cursor over `AppComponent` in the `bootstrap` property declaration, right click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) will open showing the `AppComponent` definition from `app.component.ts`.
 
 ![angular peek definition](images/angular/peek-definition.png)
 
@@ -120,7 +120,7 @@ To set a breakpoint in `app.component.ts`, click on the gutter to the left of th
 
 ### Configure the debugger
 
-We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the **Run and Debug** view (`kb(workbench.view.debug)`) and select the **create a launch.json file** link to create a `launch.json` debugger configuration file. Choose **Web App (Edge)** from the **Select debugger** dropdown list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
+We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the **Run and Debug** view (`Ctrl+Shift+D`) and select the **create a launch.json file** link to create a `launch.json` debugger configuration file. Choose **Web App (Edge)** from the **Select debugger** dropdown list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
 
 We need to make one change for our example: change the port of the `url` from `8080` to `4200`. Your `launch.json` should look like this:
 
@@ -139,11 +139,11 @@ We need to make one change for our example: change the port of the `url` from `8
 }
 ```
 
-Press `kb(workbench.action.debug.start)` or the green arrow to launch the debugger and open a new browser instance. The source code where the breakpoint is set runs on startup before the debugger was attached so we won't hit the breakpoint until we refresh the web page. Refresh the page and you should hit your breakpoint.
+Press `F5` or the green arrow to launch the debugger and open a new browser instance. The source code where the breakpoint is set runs on startup before the debugger was attached so we won't hit the breakpoint until we refresh the web page. Refresh the page and you should hit your breakpoint.
 
 ![hit breakpoint](images/angular/hit-breakpoint.png)
 
-You can step through your source code (`kb(workbench.action.debug.stepOver)`), inspect variables such as `AppComponent`, and see the call stack of the client side Angular application.
+You can step through your source code (`F10`), inspect variables such as `AppComponent`, and see the call stack of the client side Angular application.
 
 ![debug variable](images/angular/debug-variable.png)
 

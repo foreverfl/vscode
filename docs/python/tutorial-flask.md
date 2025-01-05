@@ -172,7 +172,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
    ![Flask tutorial: a breakpoint set on the first line of the hello_there function](images/flask-tutorial/debug-breakpoint-set.png)
 
-1. Switch to the **Run and Debug** view in VS Code (using the left-side activity bar or `kb(workbench.view.debug)`). You may see the message "To customize Run and Debug create a launch.json file". This means that you don't yet have a `launch.json` file containing debug configurations. VS Code can create that for you if you click on the **create a launch.json file** link:
+1. Switch to the **Run and Debug** view in VS Code (using the left-side activity bar or `Ctrl+Shift+D`). You may see the message "To customize Run and Debug create a launch.json file". This means that you don't yet have a `launch.json` file containing debug configurations. VS Code can create that for you if you click on the **create a launch.json file** link:
 
    ![Flask tutorial: initial view of the debug panel](images/shared/debug-panel-initial-view.png)
 
@@ -216,7 +216,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
    ![Flask tutorial: appearance of the debugging status bar](images/flask-tutorial/debug-status-bar.png)
 
-   A debugging toolbar (shown below) also appears in VS Code containing commands in the following order: Pause (or Continue, `kb(workbench.action.debug.continue)`), Step Over (`kb(workbench.action.debug.stepOver)`), Step Into (`kb(workbench.action.debug.stepInto)`), Step Out (`kb(workbench.action.debug.stepOut)`), Restart (`kb(workbench.action.debug.restart)`), and Stop (`kb(workbench.action.debug.stop)`). See [VS Code debugging](/docs/editor/debugging.md) for a description of each command.
+   A debugging toolbar (shown below) also appears in VS Code containing commands in the following order: Pause (or Continue, `kb(workbench.action.debug.continue)`), Step Over (`F10`), Step Into (`kb(workbench.action.debug.stepInto)`), Step Out (`kb(workbench.action.debug.stepOut)`), Restart (`kb(workbench.action.debug.restart)`), and Stop (`kb(workbench.action.debug.stop)`). See [VS Code debugging](/docs/editor/debugging.md) for a description of each command.
 
    ![Flask tutorial: the VS Code debug toolbar](images/flask-tutorial/debug-toolbar.png)
 
@@ -264,9 +264,9 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 During your work with Flask or any other library, you may want to examine the code in those libraries themselves. VS Code provides two convenient commands that navigate directly to the definitions of classes and other objects in any code:
 
-- **Go to Definition** jumps from your code into the code that defines an object. For example, in `app.py`, right-click on the `Flask` class (in the line `app = Flask(__name__)`) and select **Go to Definition** (or use `kb(editor.action.revealDefinition)`), which navigates to the class definition in the Flask library.
+- **Go to Definition** jumps from your code into the code that defines an object. For example, in `app.py`, right-click on the `Flask` class (in the line `app = Flask(__name__)`) and select **Go to Definition** (or use `F12`), which navigates to the class definition in the Flask library.
 
-- **Peek Definition** (`kb(editor.action.peekDefinition)`, also on the right-click context menu), is similar, but displays the class definition directly in the editor (making space in the editor window to avoid obscuring any code). Press `Escape` to close the Peek window or use the **x** in the upper right corner.
+- **Peek Definition** (`Alt+F12`, also on the right-click context menu), is similar, but displays the class definition directly in the editor (making space in the editor window to avoid obscuring any code). Press `Escape` to close the Peek window or use the **x** in the upper right corner.
 
   ![Flask tutorial: peek definition showing the Flask class inline](images/flask-tutorial/peek-definition.png)
 

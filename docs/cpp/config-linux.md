@@ -246,7 +246,7 @@ Now you're ready to start stepping through the code.
 
    ![Breakpoint in main](images/cpp/breakpoint-in-main.png)
 
-   Then press `kb(workbench.action.debug.start)` to start execution from the current line in the standard library header. Execution will break on `cout`. If you like, you can press `kb(editor.debug.action.toggleBreakpoint)` again to toggle off the breakpoint.
+   Then press `F5` to start execution from the current line in the standard library header. Execution will break on `cout`. If you like, you can press `kb(editor.debug.action.toggleBreakpoint)` again to toggle off the breakpoint.
 
    When the loop has completed, you can see the output in the **Debug Console** tab of the integrated terminal, along with some other diagnostic information that is output by GDB.
 
@@ -270,7 +270,7 @@ It's important to have `helloworld.cpp` open in the editor because the next step
 
 ## Customize debugging with launch.json
 
-When you debug with the play button or `kb(workbench.action.debug.start)`, the C++ extension creates a dynamic debug configuration on the fly.
+When you debug with the play button or `F5`, the C++ extension creates a dynamic debug configuration on the fly.
 
 There are cases where you'd want to customize your debug configuration, such as specifying arguments to pass to the program at runtime. You can define custom debug configurations in a `launch.json` file.
 
@@ -319,7 +319,7 @@ By default, the C++ extension won't add any breakpoints to your source code and 
 
 Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `main` method when you start debugging.
 
-> From now on, the play button and `kb(workbench.action.debug.start)` will read from your `launch.json` file when launching your program for debugging.
+> From now on, the play button and `F5` will read from your `launch.json` file when launching your program for debugging.
 
 ## C/C++ configurations
 

@@ -55,7 +55,7 @@ Linters, if installed, are enabled by default. You can disable them by [disablin
 
 Linting will automatically run when a Python file is opened or saved.
 
-Errors and warnings are shown in the **Problems** panel (`kb(workbench.actions.view.problems)`) for open files, and are also highlighted in the code editor. Hovering over an underlined issue displays the details:
+Errors and warnings are shown in the **Problems** panel (`Ctrl+Shift+M`) for open files, and are also highlighted in the code editor. Hovering over an underlined issue displays the details:
 
 ![Linting messages in the editor and the Problems panel](images/linting/lint-messages.png)
 

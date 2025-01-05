@@ -162,7 +162,7 @@ in a `launch.json` file. The configuration lets you configure the program to be 
 
 To create a `launch.json` for a Ruby program:
 
-1. In the Debug view (`kb(workbench.view.debug)`), select the **create a launch.json file** link.
+1. In the Debug view (`Ctrl+Shift+D`), select the **create a launch.json file** link.
 2. This displays a dropdown with several default launch configuration types. You can pick the first option, but we'll add more configurations.
 3. We can now edit the created `.vscode/launch.json` file to add more ways to launch your Ruby program for debugging.
 
@@ -203,7 +203,7 @@ After adding the launch configurations, we can debug Ruby programs by adding bre
 
    ![Red breakpoint dot in the left gutter of the editor](images/ruby/ruby_lsp_breakpoint.png)
 
-2. Start debugging by selecting the desired task under **Run and Debug** and clicking the start debugging button (default keyboard shortcut `kb(workbench.action.debug.start)`).
+2. Start debugging by selecting the desired task under **Run and Debug** and clicking the start debugging button (default keyboard shortcut `F5`).
 
    ![Debug session stopped at breakpoint](images/ruby/ruby_lsp_debugging_session.png)
 

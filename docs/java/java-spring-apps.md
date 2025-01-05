@@ -55,11 +55,11 @@ From within VS Code, open any of the Java files within the `complete` folder (fo
 
 ![Install Java Extensions](images/java-webapp/install-extensions.gif)
 
-Once you have the Extension Pack for Java installed, it will automatically build the project for you (the build may take several minutes). You can run the application within VS Code by pressing `kb(workbench.action.debug.start)` and selecting the **Java** environment. The Java Debug extension will generate a debugging configuration file `launch.json` for you under a `.vscode` folder in your project. You can see build progress in the VS Code Status bar and when everything is finished, the final active debug configuration is displayed.
+Once you have the Extension Pack for Java installed, it will automatically build the project for you (the build may take several minutes). You can run the application within VS Code by pressing `F5` and selecting the **Java** environment. The Java Debug extension will generate a debugging configuration file `launch.json` for you under a `.vscode` folder in your project. You can see build progress in the VS Code Status bar and when everything is finished, the final active debug configuration is displayed.
 
 ![debug configuration in the Status bar](images/java-webapp/debugging-status-bar.png)
 
-You can learn more about how VS Code launches your application in Debugging [Launch Configurations](/docs/editor/debugging.md#launch-configurations). Press `kb(workbench.action.debug.start)` again to launch the debugger.
+You can learn more about how VS Code launches your application in Debugging [Launch Configurations](/docs/editor/debugging.md#launch-configurations). Press `F5` again to launch the debugger.
 
 ![Run Spring Boot](images/java-webapp/run-spring-boot.gif)
 

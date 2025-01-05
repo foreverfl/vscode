@@ -102,7 +102,7 @@ Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-con
 
 1. When you attach to a service that exposes an HTTP endpoint that returns HTML, the web browser doesn't open automatically. To open the app in the browser, choose the container in the sidebar, right-click and choose **Open in Browser**. If multiple ports are configured, you'll be asked to choose the port.
 
-1. Launch the debugger in the usual way. From the **Debug** tab, choose the green arrow (**Start** button) or use `kb(workbench.action.debug.start)`.
+1. Launch the debugger in the usual way. From the **Debug** tab, choose the green arrow (**Start** button) or use `F5`.
 
 ### Python
 
@@ -159,7 +159,7 @@ For debugging Python with Docker Compose, follow these steps:
          - 5678:5678
    ```
 
-1. Once your container is built and running, attach the debugger by hitting `kb(workbench.action.debug.start)` with the **Python Debugger: Remote Attach** launch configuration selected.
+1. Once your container is built and running, attach the debugger by hitting `F5` with the **Python Debugger: Remote Attach** launch configuration selected.
 
    ![Screenshot of debugging in Python](images/compose/docker-compose-python-debug.png)
 
@@ -189,7 +189,7 @@ For debugging Python with Docker Compose, follow these steps:
 
 1. When you attach to a service that exposes an HTTP endpoint that returns HTML, the web browser doesn't open automatically. To open the app in the browser, choose the container in the sidebar, right-click and choose **Open in Browser**. If multiple ports are configured, you'll be asked to choose the port.
 
-1. Launch the debugger in the usual way. From the **Debug** tab, choose the green arrow (**Start** button) or use `kb(workbench.action.debug.start)`.
+1. Launch the debugger in the usual way. From the **Debug** tab, choose the green arrow (**Start** button) or use `F5`.
 
    ![Screenshot of starting debugging](images/compose/docker-compose-attach.png)
 

@@ -114,7 +114,7 @@ Let's create the application!
        return {"message": "Hello World"}
    ```
 
-4. Run the code by starting up the debugger (`kb(workbench.action.debug.start)`).
+4. Run the code by starting up the debugger (`F5`).
 
 5. From the dropdown menu, select the **FastAPI** configuration option from the list:
 
@@ -124,7 +124,7 @@ Let's create the application!
 
    ![Uvicorn server running message displayed in the terminal, with an URL to access the app](images/fastapi-tutorial/fastapi_debug_terminal.png)
 
-   > **Tip**: In the case where your default port is already in use, stop the debugger and open the Command Palette (`Ctrl+Shift+P`), search for **Debug: Add Configuration**, select Python Debugger, and then FastAPI. This will create a custom config file in `.vscode/launch.json` that you can edit. Add the following to `"args":[]` to set a custom port: `"--port=5000"`. Save the file, and restart the debugger using (`kb(workbench.action.debug.start)`).
+   > **Tip**: In the case where your default port is already in use, stop the debugger and open the Command Palette (`Ctrl+Shift+P`), search for **Debug: Add Configuration**, select Python Debugger, and then FastAPI. This will create a custom config file in `.vscode/launch.json` that you can edit. Add the following to `"args":[]` to set a custom port: `"--port=5000"`. Save the file, and restart the debugger using (`F5`).
 
 6. `Ctrl+Click` the `http://127.0.0.1:8000/` URL in the terminal to open your default browser to that address:
 
@@ -228,7 +228,7 @@ Now we need a place to store the grocery list items. For simplicity, let's start
 
    ![Breakpoint set next to the first line in the add_item function](images/fastapi-tutorial/debugger_breakpoint.png)
 
-5. Start the debugger (`kb(workbench.action.debug.start)`), and then navigate to `http://127.0.0.1:8000/docs` in the browser.
+5. Start the debugger (`F5`), and then navigate to `http://127.0.0.1:8000/docs` in the browser.
 
    There should be a Swagger interface with the two endpoints available in the app: `/items` and root (`/`).
 

@@ -29,7 +29,7 @@ To collect a profile, you'll need to be debugging your program. Once you are, yo
 
 ### Using the record button
 
-Once you're debugging, switch to the Run and Debug view (`kb(workbench.view.debug)`), and find the **Call Stack** view. Hover over the session you want to debug, and select the **Take Performance Profile** button. You can also run this command from the Command Palette (`Ctrl+Shift+P`).
+Once you're debugging, switch to the Run and Debug view (`Ctrl+Shift+D`), and find the **Call Stack** view. Hover over the session you want to debug, and select the **Take Performance Profile** button. You can also run this command from the Command Palette (`Ctrl+Shift+P`).
 
 ![Screenshot showing the button](images/profiling/take-profile.png)
 

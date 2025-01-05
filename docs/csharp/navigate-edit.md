@@ -18,7 +18,7 @@ With the [Outline view](/docs/getstarted/userinterface.md#outline-view), you can
 
 ## Go To Definition
 
-The **Go To Definition** feature navigates to the source or file of a type or member, and opens the result in a new tab. If you are a keyboard user, place your text cursor somewhere inside the symbol name and press `kb(editor.action.revealDefinition)`. If you are a mouse user, either right-click the symbol name and select **Go To Definition** from the context menu or `Ctrl+click` the symbol name. You can also use `Ctrl+Alt+click` to open the definition on the side.
+The **Go To Definition** feature navigates to the source or file of a type or member, and opens the result in a new tab. If you are a keyboard user, place your text cursor somewhere inside the symbol name and press `F12`. If you are a mouse user, either right-click the symbol name and select **Go To Definition** from the context menu or `Ctrl+click` the symbol name. You can also use `Ctrl+Alt+click` to open the definition on the side.
 
 ![Go to Definition example](images/navigate-edit/go-to-definition.gif)
 
@@ -26,7 +26,7 @@ The **Go To Definition** feature navigates to the source or file of a type or me
 
 You can take a quick look at how a symbol was defined by using the **Peek Definition** feature. This feature displays a few lines of code near the definition inside a peek window, so you can take a look without navigating away from your current location.
 
-To peek at a symbol's definition, place your cursor on the symbol anywhere it's used in your source code and then press `kb(editor.action.peekDefinition)`. Alternatively, you can choose **Peek Definition** from the context menu (right-click, then choose **Peek > Peek Definition**).
+To peek at a symbol's definition, place your cursor on the symbol anywhere it's used in your source code and then press `Alt+F12`. Alternatively, you can choose **Peek Definition** from the context menu (right-click, then choose **Peek > Peek Definition**).
 
 ![Peek Definition example](images/navigate-edit/peek-definition.gif)
 

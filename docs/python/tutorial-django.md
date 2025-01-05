@@ -198,7 +198,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
 You're probably already wondering if there's an easier way to run the server and test the app without typing `python manage.py runserver` each time. Fortunately, there is! You can create a customized launch profile in VS Code, which is also used for the inevitable exercise of debugging.
 
-1. Switch to **Run** view in VS Code (using the left-side activity bar or `kb(workbench.action.debug.start)`). You may see the message "To customize Run and Debug create a launch.json file". This means that you don't yet have a `launch.json` file containing debug configurations. VS Code can create that for you if you click on the **create a launch.json file** link:
+1. Switch to **Run** view in VS Code (using the left-side activity bar or `F5`). You may see the message "To customize Run and Debug create a launch.json file". This means that you don't yet have a `launch.json` file containing debug configurations. VS Code can create that for you if you click on the **create a launch.json file** link:
 
    ![Django tutorial: initial view of the debug panel](images/shared/debug-panel-initial-view.png)
 
@@ -301,7 +301,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
    ![Django tutorial: appearance of the debugging status bar](images/django-tutorial/debug-status-bar.png)
 
-   A debugging toolbar (shown below) also appears in VS Code containing commands in the following order: Pause (or Continue, `kb(workbench.action.debug.continue)`), Step Over (`kb(workbench.action.debug.stepOver)`), Step Into (`kb(workbench.action.debug.stepInto)`), Step Out (`kb(workbench.action.debug.stepOut)`), Restart (`kb(workbench.action.debug.restart)`), and Stop (`kb(workbench.action.debug.stop)`). See [VS Code debugging](/docs/editor/debugging.md) for a description of each command.
+   A debugging toolbar (shown below) also appears in VS Code containing commands in the following order: Pause (or Continue, `kb(workbench.action.debug.continue)`), Step Over (`F10`), Step Into (`kb(workbench.action.debug.stepInto)`), Step Out (`kb(workbench.action.debug.stepOut)`), Restart (`kb(workbench.action.debug.restart)`), and Stop (`kb(workbench.action.debug.stop)`). See [VS Code debugging](/docs/editor/debugging.md) for a description of each command.
 
    ![Django tutorial: the VS Code debug toolbar](images/shared/debug-toolbar.png)
 
@@ -349,9 +349,9 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 During your work with Django or any other library, you may want to examine the code in those libraries themselves. VS Code provides two convenient commands that navigate directly to the definitions of classes and other objects in any code:
 
-- **Go to Definition** jumps from your code into the code that defines an object. For example, in `views.py`, right-click on `HttpResponse` in the `home` function and select **Go to Definition** (or use `kb(editor.action.revealDefinition)`), which navigates to the class definition in the Django library.
+- **Go to Definition** jumps from your code into the code that defines an object. For example, in `views.py`, right-click on `HttpResponse` in the `home` function and select **Go to Definition** (or use `F12`), which navigates to the class definition in the Django library.
 
-- **Peek Definition** (`kb(editor.action.peekDefinition)`, also on the right-click context menu), is similar, but displays the class definition directly in the editor (making space in the editor window to avoid obscuring any code). Press `Escape` to close the Peek window or use the **x** in the upper right corner.
+- **Peek Definition** (`Alt+F12`, also on the right-click context menu), is similar, but displays the class definition directly in the editor (making space in the editor window to avoid obscuring any code). Press `Escape` to close the Peek window or use the **x** in the upper right corner.
 
   ![Django tutorial: Peek Definition showing the Flask class inline](images/django-tutorial/peek-definition.png)
 
@@ -896,7 +896,7 @@ Fortunately, the Python Extension for VS Code provides template debugging when y
 
    ![Django tutorial: debugger stopped at breakpoints in the page template](images/django-tutorial/template-debugger.png)
 
-1. Use the Step Over (`kb(workbench.action.debug.stepOver)`) command to step through the template code. Observe that the debugger steps over all declarative statements and pauses at any procedural code. For example, stepping through the `{% for message in message_list %}` loops lets you examine each value in `message` and lets you step to lines like `<td>\{{ message.log_date | date:'d M Y' }}</td>`.
+1. Use the Step Over (`F10`) command to step through the template code. Observe that the debugger steps over all declarative statements and pauses at any procedural code. For example, stepping through the `{% for message in message_list %}` loops lets you examine each value in `message` and lets you step to lines like `<td>\{{ message.log_date | date:'d M Y' }}</td>`.
 
 1. You can also work with variables in the **Debug Console** panel. (Django filters like `date`, however, are not presently available in the console.)
 

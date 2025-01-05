@@ -21,7 +21,7 @@ To run and debug without C# Dev Kit, see [Microsoft C# extension's GitHub page](
 
 ### Debug with F5
 
-With the C# Dev Kit extension installed and no debug configurations available to select in the Debug view, you can start debugging your project by having a `.cs` file opened and then pressing `kb(workbench.action.debug.start)`. The debugger will automatically find your project and start debugging. If you have multiple projects, it will prompt for which project you would like to start debugging.
+With the C# Dev Kit extension installed and no debug configurations available to select in the Debug view, you can start debugging your project by having a `.cs` file opened and then pressing `F5`. The debugger will automatically find your project and start debugging. If you have multiple projects, it will prompt for which project you would like to start debugging.
 
 You can also start a debugging session from the **Run and Debug** view from the side bar of VS Code. See more at [Debugging in VS Code](/docs/editor/debugging.md).
 
@@ -53,7 +53,7 @@ With the C# Dev Kit extension installed, you can create dynamic launch configura
 
 #### Existing launch.json
 
-If you have an existing `launch.json`, you can go to the Debug view, select the dropdown, and select the `C#` option. This should give you a selection of launch targets that you can add to your dropdown list. After selecting, you can hit `kb(workbench.action.debug.start)` or **Start Debugging** with the newly generated configuration.
+If you have an existing `launch.json`, you can go to the Debug view, select the dropdown, and select the `C#` option. This should give you a selection of launch targets that you can add to your dropdown list. After selecting, you can hit `F5` or **Start Debugging** with the newly generated configuration.
 
 ![Add Dynamic C# Configuration](images/debugging/add-dynamic-configuration.gif)
 
@@ -250,11 +250,11 @@ See [supported projects](/docs/csharp/cs-dev-kit-faq.md#what-project-types-are-c
 
 Once a Hot Reload session starts and new changes are made, you can apply these changes to your application with any of the following actions:
 
-| Action                                                                                                                                                                                                          | Explanation                                                                                                                               |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Hot Reload <br /> `Ctrl+Shift+Enter`                                                                                                                                                                            | Apply code changes, available from the **Debug Toolbar**.                                                                                 |
-| Save File <br /> `kb(workbench.action.files.save)`                                                                                                                                                              | Start applying code changes if `csharp.debug.hotReloadOnSave` is set to true. See [User settings](#user-settings) for more information.   |
-| Continue / Step Over / Step Into / Step Out <br /> `kb(workbench.action.debug.continue)` / `kb(workbench.action.debug.stepOver)` / `kb(workbench.action.debug.stepInto)` / `kb(workbench.action.debug.stepOut)` | When changes were made while on a break state (for example, while stopped at a breakpoint), these commands will automatically apply them. |
+| Action                                                                                                                                                                          | Explanation                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Hot Reload <br /> `Ctrl+Shift+Enter`                                                                                                                                            | Apply code changes, available from the **Debug Toolbar**.                                                                                 |
+| Save File <br /> `kb(workbench.action.files.save)`                                                                                                                              | Start applying code changes if `csharp.debug.hotReloadOnSave` is set to true. See [User settings](#user-settings) for more information.   |
+| Continue / Step Over / Step Into / Step Out <br /> `kb(workbench.action.debug.continue)` / `F10` / `kb(workbench.action.debug.stepInto)` / `kb(workbench.action.debug.stepOut)` | When changes were made while on a break state (for example, while stopped at a breakpoint), these commands will automatically apply them. |
 
 ![Hot Reload demonstrated on ASP.NET](images/debugging/hotreload-demo.gif)
 

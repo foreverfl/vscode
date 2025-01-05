@@ -167,7 +167,7 @@ When Docker files were added to the application, the Docker extension also added
 
    ![Selected Docker debug configuration](images/quickstarts/aspnetcore-debug-configuration.png)
 
-1. Start debugging (`kb(workbench.action.debug.start)`).
+1. Start debugging (`F5`).
    - The debug version of the service container builds and starts.
    - The browser opens to request a new weather forecast.
    - The breakpoint in the `WeatherForecastController` is hit.

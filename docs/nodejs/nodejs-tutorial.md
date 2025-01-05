@@ -96,7 +96,7 @@ To start debugging, select the **Run and Debug** view in the Activity Bar:
 
 ![Run icon](images/nodejs/debugicon.png)
 
-You can now click Debug toolbar green arrow or press `kb(workbench.action.debug.start)` to launch and debug "Hello World". Your breakpoint will be hit and you can view and step through the simple application. Notice that VS Code displays a different colored Status Bar to indicate it is in Debug mode and the DEBUG CONSOLE is displayed.
+You can now click Debug toolbar green arrow or press `F5` to launch and debug "Hello World". Your breakpoint will be hit and you can view and step through the simple application. Notice that VS Code displays a different colored Status Bar to indicate it is in Debug mode and the DEBUG CONSOLE is displayed.
 
 ![hello world debugging](images/nodejs/hello-world-debugging.png)
 
@@ -171,7 +171,7 @@ You can also write code that references modules in other files. For example, in 
 
 ## Debug your Express app
 
-You will need to create a debugger configuration file `launch.json` for your Express application. Click on **Run and Debug** in the **Activity Bar** (`kb(workbench.view.debug)`) and then select the **create a launch.json file** link to create a default `launch.json` file. Select the **Node.js** environment by ensuring that the `type` property in `configurations` is set to `"node"`. When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `"${workspaceFolder}\\bin\\www`) for the **Launch Program** configuration.
+You will need to create a debugger configuration file `launch.json` for your Express application. Click on **Run and Debug** in the **Activity Bar** (`Ctrl+Shift+D`) and then select the **create a launch.json file** link to create a default `launch.json` file. Select the **Node.js** environment by ensuring that the `type` property in `configurations` is set to `"node"`. When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `"${workspaceFolder}\\bin\\www`) for the **Launch Program** configuration.
 
 ```json
 {
@@ -187,7 +187,7 @@ You will need to create a debugger configuration file `launch.json` for your Exp
 }
 ```
 
-Save the new file and make sure **Launch Program** is selected in the configuration dropdown at the top of the **Run and Debug** view. Open `app.js` and set a breakpoint near the top of the file where the Express app object is created by clicking in the gutter to the left of the line number. Press `kb(workbench.action.debug.start)` to start debugging the application. VS Code will start the server in a new terminal and hit the breakpoint we set. From there you can inspect variables, create watches, and step through your code.
+Save the new file and make sure **Launch Program** is selected in the configuration dropdown at the top of the **Run and Debug** view. Open `app.js` and set a breakpoint near the top of the file where the Express app object is created by clicking in the gutter to the left of the line number. Press `F5` to start debugging the application. VS Code will start the server in a new terminal and hit the breakpoint we set. From there you can inspect variables, create watches, and step through your code.
 
 ![Debug session](images/nodejs/debugsession.png)
 

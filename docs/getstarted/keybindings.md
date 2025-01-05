@@ -336,7 +336,7 @@ Accepted scan codes:
 
 VS Code gives you fine control over when your key bindings are enabled through the optional `when` clause. If your key binding doesn't have a `when` clause, the key binding is globally available at all times. A `when` clause evaluates to either Boolean true or false for enabling key bindings.
 
-VS Code sets various context keys and specific values depending on what elements are visible and active in the VS Code UI. For example, the built-in **Start Debugging** command has the keyboard shortcut `kb(workbench.action.debug.start)`, which is only enabled when there is an appropriate debugger available (context `debuggersAvailable` is true) and the editor isn't in debug mode (context `inDebugMode` is false):
+VS Code sets various context keys and specific values depending on what elements are visible and active in the VS Code UI. For example, the built-in **Start Debugging** command has the keyboard shortcut `F5`, which is only enabled when there is an appropriate debugger available (context `debuggersAvailable` is true) and the editor isn't in debug mode (context `inDebugMode` is false):
 
 ![Start Debugging when clause in the Keyboard Shorts editor](images/keybinding/start-debugging-when-clause.png)
 
@@ -462,9 +462,9 @@ Some commands included below do not have default keyboard shortcuts and so are d
 | Trigger Parameter Hints     | `kb(editor.action.triggerParameterHints)`        | `editor.action.triggerParameterHints`        |
 | Format Document             | `kb(editor.action.formatDocument)`               | `editor.action.formatDocument`               |
 | Format Selection            | `kb(editor.action.formatSelection)`              | `editor.action.formatSelection`              |
-| Go to Definition            | `kb(editor.action.revealDefinition)`             | `editor.action.revealDefinition`             |
+| Go to Definition            | `F12`                                            | `editor.action.revealDefinition`             |
 | Show Hover                  | `kb(editor.action.showHover)`                    | `editor.action.showHover`                    |
-| Peek Definition             | `kb(editor.action.peekDefinition)`               | `editor.action.peekDefinition`               |
+| Peek Definition             | `Alt+F12`                                        | `editor.action.peekDefinition`               |
 | Open Definition to the Side | `kb(editor.action.revealDefinitionAside)`        | `editor.action.revealDefinitionAside`        |
 | Quick Fix                   | `kb(editor.action.quickFix)`                     | `editor.action.quickFix`                     |
 | Go to References            | `kb(editor.action.goToReferences)`               | `editor.action.goToReferences`               |
@@ -484,7 +484,7 @@ Some commands included below do not have default keyboard shortcuts and so are d
 | Go to Line...                   | `kb(workbench.action.gotoLine)`                                   | `workbench.action.gotoLine`                                   |
 | Go to File..., Quick Open       | `kb(workbench.action.quickOpen)`                                  | `workbench.action.quickOpen`                                  |
 | Go to Symbol...                 | `kb(workbench.action.gotoSymbol)`                                 | `workbench.action.gotoSymbol`                                 |
-| Show Problems                   | `kb(workbench.actions.view.problems)`                             | `workbench.actions.view.problems`                             |
+| Show Problems                   | `Ctrl+Shift+M`                                                    | `workbench.actions.view.problems`                             |
 | Go to Next Error or Warning     | `kb(editor.action.marker.nextInFiles)`                            | `editor.action.marker.nextInFiles`                            |
 | Go to Previous Error or Warning | `kb(editor.action.marker.prevInFiles)`                            | `editor.action.marker.prevInFiles`                            |
 | Show All Commands               | `Ctrl+Shift+P` or `F1`                                            | `workbench.action.showCommands`                               |
@@ -554,13 +554,13 @@ Some commands included below do not have default keyboard shortcuts and so are d
 | Show Explorer / Toggle Focus | `kb(workbench.view.explorer)`                  | `workbench.view.explorer`                     |
 | Show Search                  | `kb(workbench.view.search)`                    | `workbench.view.search`                       |
 | Show Source Control          | `Ctrl+Shift+G`                                 | `workbench.view.scm`                          |
-| Show Run                     | `kb(workbench.view.debug)`                     | `workbench.view.debug`                        |
+| Show Run                     | `Ctrl+Shift+D`                                 | `workbench.view.debug`                        |
 | Show Extensions              | `Ctrl+Shift+X`                                 | `workbench.view.extensions`                   |
 | Show Output                  | `kb(workbench.action.output.toggleOutput)`     | `workbench.action.output.toggleOutput`        |
 | Quick Open View              | `kb(workbench.action.quickOpenView)`           | `workbench.action.quickOpenView`              |
 | Open New Command Prompt      | `Ctrl+Shift+C`                                 | `workbench.action.terminal.openNativeConsole` |
-| Toggle Markdown Preview      | `kb(markdown.showPreview)`                     | `markdown.showPreview`                        |
-| Open Preview to the Side     | `kb(markdown.showPreviewToSide)`               | `markdown.showPreviewToSide`                  |
+| Toggle Markdown Preview      | `Ctrl+Shift+V`                                 | `markdown.showPreview`                        |
+| Open Preview to the Side     | `Ctrl+K V`                                     | `markdown.showPreviewToSide`                  |
 | Toggle Integrated Terminal   | `` Ctrl+` ``                                   | `workbench.action.terminal.toggleTerminal`    |
 
 ### Search
@@ -603,7 +603,7 @@ Some commands included below do not have default keyboard shortcuts and so are d
 | Command                   | Key                                        | Command id                             |
 | ------------------------- | ------------------------------------------ | -------------------------------------- |
 | Toggle Breakpoint         | `kb(editor.debug.action.toggleBreakpoint)` | `editor.debug.action.toggleBreakpoint` |
-| Start                     | `kb(workbench.action.debug.start)`         | `workbench.action.debug.start`         |
+| Start                     | `F5`                                       | `workbench.action.debug.start`         |
 | Continue                  | `kb(workbench.action.debug.continue)`      | `workbench.action.debug.continue`      |
 | Start (without debugging) | `kb(workbench.action.debug.run)`           | `workbench.action.debug.run`           |
 | Pause                     | `kb(workbench.action.debug.pause)`         | `workbench.action.debug.pause`         |

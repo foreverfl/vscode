@@ -179,7 +179,7 @@ We support a wide range of code snippet shortcuts and postfix completion feature
 
 [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) is a lightweight Java Debugger based on [Java Debug Server](https://github.com/microsoft/java-debug). It works with [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) to allow users to debug Java code within Visual Studio Code.
 
-Starting a debugging session is easy: click the **Run|Debug** button available at the CodeLens of your `main()` function, or press `kb(workbench.action.debug.start)`. The debugger will automatically generate the proper configuration for you.
+Starting a debugging session is easy: click the **Run|Debug** button available at the CodeLens of your `main()` function, or press `F5`. The debugger will automatically generate the proper configuration for you.
 
 <video autoplay loop muted playsinline controls title="Setting a breakpoint, launching the debugging, and using Hot Code Replace">
   <source src="/docs/languages/java/resolve-main.mp4" type="video/mp4" />
