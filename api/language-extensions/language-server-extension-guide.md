@@ -114,8 +114,8 @@ First, look at the [`configuration`](/api/references/contribution-points#contrib
 
 This section contributes `configuration` settings to VS Code. The example will explain how these settings are sent over to the language server on startup and on every change of the settings.
 
-
-> **Note**: If your extension is compatible with VS Code versions prior to 1.74.0, you must declare `onLanguage:plaintext` in the [`activationEvents`](/api/references/activation-events)  field of `/package.json` to tell VS Code to activate the extension as soon as a plain text file is opened (for example a file with the extension `.txt`):
+> **Note**: If your extension is compatible with VS Code versions prior to 1.74.0, you must declare `onLanguage:plaintext` in the [`activationEvents`](/api/references/activation-events) field of `/package.json` to tell VS Code to activate the extension as soon as a plain text file is opened (for example a file with the extension `.txt`):
+>
 > ```json
 > "activationEvents": []
 > ```
@@ -143,7 +143,7 @@ import {
   LanguageClient,
   LanguageClientOptions,
   ServerOptions,
-  TransportKind
+  TransportKind,
 } from 'vscode-languageclient/node';
 
 let client: LanguageClient;
@@ -162,8 +162,8 @@ export function activate(context: ExtensionContext) {
     debug: {
       module: serverModule,
       transport: TransportKind.ipc,
-      options: debugOptions
-    }
+      options: debugOptions,
+    },
   };
 
   // Options to control the language client
@@ -172,8 +172,8 @@ export function activate(context: ExtensionContext) {
     documentSelector: [{ scheme: 'file', language: 'plaintext' }],
     synchronize: {
       // Notify the server about file changes to '.clientrc files contained in the workspace
-      fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
-    }
+      fileEvents: workspace.createFileSystemWatcher('**/.clientrc'),
+    },
   };
 
   // Create the language client and start the client.
@@ -228,12 +228,10 @@ import {
   CompletionItemKind,
   TextDocumentPositionParams,
   TextDocumentSyncKind,
-  InitializeResult
+  InitializeResult,
 } from 'vscode-languageserver/node';
 
-import {
-  TextDocument
-} from 'vscode-languageserver-textdocument';
+import { TextDocument } from 'vscode-languageserver-textdocument';
 
 // Create a connection for the server, using Node's IPC as a transport.
 // Also include all preview / proposed LSP features.
@@ -268,15 +266,15 @@ connection.onInitialize((params: InitializeParams) => {
       textDocumentSync: TextDocumentSyncKind.Incremental,
       // Tell the client that this server supports code completion.
       completionProvider: {
-        resolveProvider: true
-      }
-    }
+        resolveProvider: true,
+      },
+    },
   };
   if (hasWorkspaceFolderCapability) {
     result.capabilities.workspace = {
       workspaceFolders: {
-        supported: true
-      }
+        supported: true,
+      },
     };
   }
   return result;
@@ -288,7 +286,7 @@ connection.onInitialized(() => {
     connection.client.register(DidChangeConfigurationNotification.type, undefined);
   }
   if (hasWorkspaceFolderCapability) {
-    connection.workspace.onDidChangeWorkspaceFolders(_event => {
+    connection.workspace.onDidChangeWorkspaceFolders((_event) => {
       connection.console.log('Workspace folder change event received.');
     });
   }
@@ -308,7 +306,7 @@ let globalSettings: ExampleSettings = defaultSettings;
 // Cache the settings of all open documents
 let documentSettings: Map<string, Thenable<ExampleSettings>> = new Map();
 
-connection.onDidChangeConfiguration(change => {
+connection.onDidChangeConfiguration((change) => {
   if (hasConfigurationCapability) {
     // Reset all cached document settings
     documentSettings.clear();
@@ -330,7 +328,7 @@ function getDocumentSettings(resource: string): Thenable<ExampleSettings> {
   if (!result) {
     result = connection.workspace.getConfiguration({
       scopeUri: resource,
-      section: 'languageServerExample'
+      section: 'languageServerExample',
     });
     documentSettings.set(resource, result);
   }
@@ -338,13 +336,13 @@ function getDocumentSettings(resource: string): Thenable<ExampleSettings> {
 }
 
 // Only keep settings for open documents
-documents.onDidClose(e => {
+documents.onDidClose((e) => {
   documentSettings.delete(e.document.uri);
 });
 
 // The content of a text document has changed. This event is emitted
 // when the text document first opened or when its content has changed.
-documents.onDidChangeContent(change => {
+documents.onDidChangeContent((change) => {
   validateTextDocument(change.document);
 });
 
@@ -365,27 +363,27 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
       severity: DiagnosticSeverity.Warning,
       range: {
         start: textDocument.positionAt(m.index),
-        end: textDocument.positionAt(m.index + m[0].length)
+        end: textDocument.positionAt(m.index + m[0].length),
       },
       message: `${m[0]} is all uppercase.`,
-      source: 'ex'
+      source: 'ex',
     };
     if (hasDiagnosticRelatedInformationCapability) {
       diagnostic.relatedInformation = [
         {
           location: {
             uri: textDocument.uri,
-            range: Object.assign({}, diagnostic.range)
+            range: Object.assign({}, diagnostic.range),
           },
-          message: 'Spelling matters'
+          message: 'Spelling matters',
         },
         {
           location: {
             uri: textDocument.uri,
-            range: Object.assign({}, diagnostic.range)
+            range: Object.assign({}, diagnostic.range),
           },
-          message: 'Particularly for names'
-        }
+          message: 'Particularly for names',
+        },
       ];
     }
     diagnostics.push(diagnostic);
@@ -395,7 +393,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
   connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
 }
 
-connection.onDidChangeWatchedFiles(_change => {
+connection.onDidChangeWatchedFiles((_change) => {
   // Monitored files have change in VS Code
   connection.console.log('We received a file change event');
 });
@@ -410,31 +408,29 @@ connection.onCompletion(
       {
         label: 'TypeScript',
         kind: CompletionItemKind.Text,
-        data: 1
+        data: 1,
       },
       {
         label: 'JavaScript',
         kind: CompletionItemKind.Text,
-        data: 2
-      }
+        data: 2,
+      },
     ];
   }
 );
 
 // This handler resolves additional information for the item selected in
 // the completion list.
-connection.onCompletionResolve(
-  (item: CompletionItem): CompletionItem => {
-    if (item.data === 1) {
-      item.detail = 'TypeScript details';
-      item.documentation = 'TypeScript documentation';
-    } else if (item.data === 2) {
-      item.detail = 'JavaScript details';
-      item.documentation = 'JavaScript documentation';
-    }
-    return item;
+connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
+  if (item.data === 1) {
+    item.detail = 'TypeScript details';
+    item.documentation = 'TypeScript documentation';
+  } else if (item.data === 2) {
+    item.detail = 'JavaScript details';
+    item.documentation = 'JavaScript documentation';
   }
-);
+  return item;
+});
 
 // Make the text document manager listen on the connection
 // for open, change and close text document events
@@ -451,7 +447,7 @@ To add document validation to the server, we add a listener to the text document
 ```typescript
 // The content of a text document has changed. This event is emitted
 // when the text document first opened or when its content has changed.
-documents.onDidChangeContent(async(change) => {
+documents.onDidChangeContent(async (change) => {
   let textDocument = change.document;
   // In this simple example we get the settings for every validate run.
   let settings = await getDocumentSettings(textDocument.uri);
@@ -469,27 +465,27 @@ documents.onDidChangeContent(async(change) => {
       severity: DiagnosticSeverity.Warning,
       range: {
         start: textDocument.positionAt(m.index),
-        end: textDocument.positionAt(m.index + m[0].length)
+        end: textDocument.positionAt(m.index + m[0].length),
       },
       message: `${m[0]} is all uppercase.`,
-      source: 'ex'
+      source: 'ex',
     };
     if (hasDiagnosticRelatedInformationCapability) {
       diagnostic.relatedInformation = [
         {
           location: {
             uri: textDocument.uri,
-            range: Object.assign({}, diagnostic.range)
+            range: Object.assign({}, diagnostic.range),
           },
-          message: 'Spelling matters'
+          message: 'Spelling matters',
         },
         {
           location: {
             uri: textDocument.uri,
-            range: Object.assign({}, diagnostic.range)
+            range: Object.assign({}, diagnostic.range),
           },
-          message: 'Particularly for names'
-        }
+          message: 'Particularly for names',
+        },
       ];
     }
     diagnostics.push(diagnostic);
@@ -507,7 +503,7 @@ documents.onDidChangeContent(async(change) => {
 
 To run the Language Server, do the following steps:
 
-- Press `kb(workbench.action.tasks.build)` to start the build task. The task compiles both the client and the server.
+- Press `Ctrl+Shift+B` to start the build task. The task compiles both the client and the server.
 - Open the **Run** view, select the **Launch Client** launch configuration, and press the **Start Debugging** button to launch an additional **Extension Development Host** instance of VS Code that executes the extension code.
 - Create a `test.txt` file in the root folder and paste the following content:
 
@@ -552,7 +548,7 @@ function getDocumentSettings(resource: string): Thenable<ExampleSettings> {
   if (!result) {
     result = connection.workspace.getConfiguration({
       scopeUri: resource,
-      section: 'languageServerExample'
+      section: 'languageServerExample',
     });
     documentSettings.set(resource, result);
   }
@@ -580,27 +576,27 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
       severity: DiagnosticSeverity.Warning,
       range: {
         start: textDocument.positionAt(m.index),
-        end: textDocument.positionAt(m.index + m[0].length)
+        end: textDocument.positionAt(m.index + m[0].length),
       },
       message: `${m[0]} is all uppercase.`,
-      source: 'ex'
+      source: 'ex',
     };
     if (hasDiagnosticRelatedInformationCapability) {
       diagnostic.relatedInformation = [
         {
           location: {
             uri: textDocument.uri,
-            range: Object.assign({}, diagnostic.range)
+            range: Object.assign({}, diagnostic.range),
           },
-          message: 'Spelling matters'
+          message: 'Spelling matters',
         },
         {
           location: {
             uri: textDocument.uri,
-            range: Object.assign({}, diagnostic.range)
+            range: Object.assign({}, diagnostic.range),
           },
-          message: 'Particularly for names'
-        }
+          message: 'Particularly for names',
+        },
       ];
     }
     diagnostics.push(diagnostic);
@@ -614,7 +610,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 The handling of the configuration change is done by adding a notification handler for configuration changes to the connection. The corresponding code looks like this:
 
 ```typescript
-connection.onDidChangeConfiguration(change => {
+connection.onDidChangeConfiguration((change) => {
   if (hasConfigurationCapability) {
     // Reset all cached document settings
     documentSettings.clear();
@@ -648,31 +644,29 @@ connection.onCompletion(
       {
         label: 'TypeScript',
         kind: CompletionItemKind.Text,
-        data: 1
+        data: 1,
       },
       {
         label: 'JavaScript',
         kind: CompletionItemKind.Text,
-        data: 2
-      }
+        data: 2,
+      },
     ];
   }
 );
 
 // This handler resolves additional information for the item selected in
 // the completion list.
-connection.onCompletionResolve(
-  (item: CompletionItem): CompletionItem => {
-    if (item.data === 1) {
-      item.detail = 'TypeScript details';
-      item.documentation = 'TypeScript documentation';
-    } else if (item.data === 2) {
-      item.detail = 'JavaScript details';
-      item.documentation = 'JavaScript documentation';
-    }
-    return item;
+connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
+  if (item.data === 1) {
+    item.detail = 'TypeScript details';
+    item.documentation = 'TypeScript documentation';
+  } else if (item.data === 2) {
+    item.detail = 'JavaScript details';
+    item.documentation = 'JavaScript documentation';
   }
-);
+  return item;
+});
 ```
 
 The `data` fields are used to uniquely identify a completion item in the resolve handler. The data property is transparent for the protocol. Since the underlying message passing protocol is JSON-based, the data field should only hold data that is serializable to and from JSON.
@@ -740,8 +734,8 @@ suite('Should do completion', () => {
     await testCompletion(docUri, new vscode.Position(0, 0), {
       items: [
         { label: 'JavaScript', kind: vscode.CompletionItemKind.Text },
-        { label: 'TypeScript', kind: vscode.CompletionItemKind.Text }
-      ]
+        { label: 'TypeScript', kind: vscode.CompletionItemKind.Text },
+      ],
     });
   });
 });
@@ -803,7 +797,7 @@ export async function activate(docUri: vscode.Uri) {
 }
 
 async function sleep(ms: number) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 ```
 

@@ -80,7 +80,7 @@ You should now see the transpiled `helloworld.js` JavaScript file, which you can
 
 ### Step 2: Run the TypeScript build
 
-Execute **Run Build Task** (`kb(workbench.action.tasks.build)`) from the global **Terminal** menu. If you created a `tsconfig.json` file in the earlier section, this should present the following picker:
+Execute **Run Build Task** (`Ctrl+Shift+B`) from the global **Terminal** menu. If you created a `tsconfig.json` file in the earlier section, this should present the following picker:
 
 ![TypeScript Build](images/compiling/typescript-build.png)
 
@@ -92,7 +92,7 @@ Under the covers, we run the TypeScript compiler as a task. The command we use i
 
 ### Step 3: Make the TypeScript Build the default
 
-You can also define the TypeScript build task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so, select **Configure Default Build Task** from the global **Terminal** menu. This shows you a picker with the available build tasks. Select TypeScript **tsc: build**, which generates the following `tasks.json` file in a `.vscode` folder:
+You can also define the TypeScript build task as the default build task so that it is executed directly when triggering **Run Build Task** (`Ctrl+Shift+B`). To do so, select **Configure Default Build Task** from the global **Terminal** menu. This shows you a picker with the available build tasks. Select TypeScript **tsc: build**, which generates the following `tasks.json` file in a `.vscode` folder:
 
 ```ts
 {
@@ -115,7 +115,7 @@ You can also define the TypeScript build task as the default build task so that 
 }
 ```
 
-Notice that the task has a `group` JSON object that sets the task `kind` to `build` and makes it the default. Now when you select the **Run Build Task** command or press (`kb(workbench.action.tasks.build)`), you are not prompted to select a task and your compilation starts.
+Notice that the task has a `group` JSON object that sets the task `kind` to `build` and makes it the default. Now when you select the **Run Build Task** command or press (`Ctrl+Shift+B`), you are not prompted to select a task and your compilation starts.
 
 > **Tip:** You can also run the program using VS Code's Run/Debug feature. Details about running and debugging Node.js applications in VS Code can be found in the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md#debug-your-express-app)
 

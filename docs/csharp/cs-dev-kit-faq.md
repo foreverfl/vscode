@@ -187,7 +187,7 @@ Make sure your solution includes a test project. Only test projects that are par
 
 C# Dev Kit also requires that it has built your project successfully before tests appear in the Test Explorer panel. Also, if a **Clean** is done on your project/solution, the test dlls are removed from the Test Explorer panel.
 
-Once you have validated that your test project is part of the solution, build your solution by right-clicking on the solution in the Solution Explorer and select **Build** or use `kb(workbench.action.tasks.build)`. Once the build has been completed, your tests will appear in the Test Explorer panel.
+Once you have validated that your test project is part of the solution, build your solution by right-clicking on the solution in the Solution Explorer and select **Build** or use `Ctrl+Shift+B`. Once the build has been completed, your tests will appear in the Test Explorer panel.
 
 ### My tests appear in the Test Explorer panel, but I cannot debug them
 
@@ -197,7 +197,7 @@ Make sure that your tests are targeting NET Core. C# Dev Kit does not support .N
 
 C# Dev Kit requires that it has built your project successfully before tests will appear in the Test Explorer panel.
 
-Build your solution by right-clicking on the solution in the Solution Explorer and select **Build** or `kb(workbench.action.tasks.build)`. Once the build has been completed, your tests will appear in the Test Explorer panel.
+Build your solution by right-clicking on the solution in the Solution Explorer and select **Build** or `Ctrl+Shift+B`. Once the build has been completed, your tests will appear in the Test Explorer panel.
 
 ### How do I collect logs for troubleshooting issues with Test Explorer?
 

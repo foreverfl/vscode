@@ -611,10 +611,10 @@ Some commands included below do not have default keyboard shortcuts and so are d
 
 ### Tasks
 
-| Command        | Key                                | Command id                     |
-| -------------- | ---------------------------------- | ------------------------------ |
-| Run Build Task | `kb(workbench.action.tasks.build)` | `workbench.action.tasks.build` |
-| Run Test Task  | `kb(workbench.action.tasks.test)`  | `workbench.action.tasks.test`  |
+| Command        | Key                               | Command id                     |
+| -------------- | --------------------------------- | ------------------------------ |
+| Run Build Task | `Ctrl+Shift+B`                    | `workbench.action.tasks.build` |
+| Run Test Task  | `kb(workbench.action.tasks.test)` | `workbench.action.tasks.test`  |
 
 ### Extensions
 

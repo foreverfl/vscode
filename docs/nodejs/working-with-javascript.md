@@ -22,13 +22,13 @@ Visual Studio Code의 자바스크립트 [IntelliSense](/docs/editor/intellisens
 
 객체, 메서드 및 속성 외에도 자바스크립트 IntelliSense 창은 파일의 기호에 대한 기본 단어 완성도 제공합니다.
 
-### Typings 및 자동 타입 획득 {#typings-and-automatic-type-acquisition}
+### Typings 및 Automatic Type Acquisition {#typings-and-automatic-type-acquisition}
 
 자바스크립트 라이브러리 및 프레임워크에 대한 IntelliSense는 TypeScript 타입 선언(typings) 파일에 의해 구동됩니다. 타입 선언 파일은 TypeScript로 작성되어 매개변수 및 함수의 데이터 타입을 표현할 수 있으므로 VS Code가 성능 좋은 방식으로 풍부한 IntelliSense 경험을 제공할 수 있습니다.
 
-많은 인기 있는 라이브러리는 typings 파일을 함께 제공하므로 자동으로 IntelliSense를 사용할 수 있습니다. typings을 포함하지 않는 라이브러리의 경우, VS Code의 `자동 타입 획득`이 커뮤니티에서 유지 관리하는 typings 파일을 자동으로 설치합니다.
+많은 인기 있는 라이브러리는 typings 파일을 함께 제공하므로 자동으로 IntelliSense를 사용할 수 있습니다. typings을 포함하지 않는 라이브러리의 경우, VS Code의 `Automatic Type Acquisition`이 커뮤니티에서 유지 관리하는 typings 파일을 자동으로 설치합니다.
 
-자동 타입 획득은 [npmjs](https://www.npmjs.com), Node.js 패키지 관리자가 필요하며, 이는 [Node.js](https://nodejs.org) 런타임에 포함되어 있습니다. 이 이미지에서 인기 있는 [lodash](https://lodash.com/) 라이브러리에 대한 메서드 시그니처, 매개변수 정보 및 메서드 설명서를 포함한 IntelliSense를 볼 수 있습니다.
+Automatic Type Acquisition은 [npmjs](https://www.npmjs.com), Node.js 패키지 관리자가 필요하며, 이는 [Node.js](https://nodejs.org) 런타임에 포함되어 있습니다. 이 이미지에서 인기 있는 [lodash](https://lodash.com/) 라이브러리에 대한 메서드 시그니처, 매개변수 정보 및 메서드 설명서를 포함한 IntelliSense를 볼 수 있습니다.
 
 ![lodash typings](images/working-with-javascript/lodash-typings.png)
 
@@ -54,9 +54,9 @@ Visual Studio Code의 자바스크립트 [IntelliSense](/docs/editor/intellisens
 
 대부분의 일반적인 자바스크립트 라이브러리는 선언 파일을 함께 제공하거나 타입 선언 파일을 사용할 수 있습니다.
 
-### 자동 타입 획득을 위한 npm 설치 경고 수정 {#fixing-npm-not-installed-warning-for-automatic-type-acquisition}
+### Automatic Type Acquisition을 위한 npm 설치 경고 수정 {#fixing-npm-not-installed-warning-for-automatic-type-acquisition}
 
-[자동 타입 획득](#typings-and-automatic-type-acquisition)은 [npm](https://www.npmjs.com), Node.js 패키지 관리자를 사용하여 타입 선언(typings) 파일을 설치하고 관리합니다. 자동 타입 획득이 제대로 작동하려면 먼저 npm이 컴퓨터에 설치되어 있는지 확인하십시오.
+[Automatic Type Acquisition](#typings-and-automatic-type-acquisition)은 [npm](https://www.npmjs.com), Node.js 패키지 관리자를 사용하여 타입 선언(typings) 파일을 설치하고 관리합니다. Automatic Type Acquisition이 제대로 작동하려면 먼저 npm이 컴퓨터에 설치되어 있는지 확인하십시오.
 
 터미널 또는 명령 프롬프트에서 `npm --version`을 실행하여 npm이 설치되어 사용 가능한지 빠르게 확인할 수 있습니다.
 
@@ -130,17 +130,19 @@ npm이 설치되어 있지만 여전히 경고 메시지가 표시되는 경우,
 
 혼합된 TypeScript 및 자바스크립트 프로젝트를 가질 수 있습니다. TypeScript로 마이그레이션을 시작하려면 `jsconfig.json` 파일 이름을 `tsconfig.json`으로 변경하고 `allowJs` 속성을 `true`로 설정하십시오. 자세한 내용은 [자바스크립트에서 마이그레이션](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)을 참조하십시오.
 
-> **참고:** `jsconfig.json`은 `allowJs`가 true로 설정된 `tsconfig.json` 파일과 동일합니다. 다른 사용 가능한 옵션을 보려면 [tsconfig.json 문서](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)를 참조하십시오.
+:::note
+`jsconfig.json`은 `allowJs`가 true로 설정된 `tsconfig.json` 파일과 동일합니다. 다른 사용 가능한 옵션을 보려면 [tsconfig.json 문서](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)를 참조하십시오.
+:::
 
 ## 자바스크립트 타입 검사 {#type-checking-javascript}
 
-VS Code는 일반 자바스크립트 파일에서 TypeScript의 고급 타입 검사 및 오류 보고 기능을 활용할 수 있습니다. 이는 일반적인 프로그래밍 실수를 잡는 훌륭한 방법입니다. 이러한 타입 검사는 **누락된 가져오기 추가** 및 **누락된 속성 추가**와 같은 흥미로운 자바스크립트 빠른 수정을 가능하게 합니다.
+VS Code는 일반 자바스크립트 파일에서 TypeScript의 고급 타입 검사 및 오류 보고 기능을 활용할 수 있습니다. 이는 일반적인 프로그래밍 실수를 잡는 훌륭한 방법입니다. 이러한 타입 검사는 **Add missing import** 및 **Add missing property**와 같은 유용한 자바스크립트 빠른 수정 기능도 지원합니다.
 
 ![Using type checking and Quick Fixes in a JavaScript file](images/working-with-javascript/checkjs-example.gif)
 
 TypeScript는 `.js` 파일에서 `.ts` 파일과 동일하게 타입을 추론할 수 있습니다. 타입을 추론할 수 없는 경우, JSDoc 주석을 사용하여 지정할 수 있습니다. TypeScript가 자바스크립트 타입 검사를 위해 JSDoc을 사용하는 방법에 대한 자세한 내용은 [자바스크립트 파일 타입 검사](https://www.typescriptlang.org/docs/handbook/type-checking-javascript-files.html)를 참조하십시오.
 
-자바스크립트의 타입 검사는 선택 사항이며 옵트인 방식입니다. ESLint와 같은 기존 자바스크립트 유효성 검사 도구는 새로운 내장 타입 검사 기능과 함께 사용할 수 있습니다.
+자바스크립트의 타입 검사는 선택 사항이며 직접 활성화 해야 합니다(옵트인 방식). ESLint와 같은 기존 자바스크립트 유효성 검사 도구는 새로운 내장 타입 검사 기능과 함께 사용할 수 있습니다.
 
 필요에 따라 몇 가지 다른 방법으로 타입 검사를 시작할 수 있습니다.
 
@@ -282,21 +284,23 @@ TypeScript 컴파일러 `tsc`는 자바스크립트 파일을 ES6에서 다른 �
 }
 ```
 
-이 구성을 추가한 후, `kb(workbench.action.tasks.build)` (**빌드 작업 실행**) 명령을 사용하여 **Babel**을 시작하면 `src` 디렉터리의 모든 파일이 `lib` 디렉터리로 컴파일됩니다.
+이 구성을 추가한 후, `Ctrl+Shift+B` (**Run Build Task**) 명령을 사용하여 **Babel**을 시작하면 `src` 디렉터리의 모든 파일이 `lib` 디렉터리로 컴파일됩니다.
 
-> **팁:** Babel CLI에 대한 도움말은 [Babel 사용](https://babeljs.io/docs/setup/#installation) 지침을 참조하십시오. 위의 예는 CLI 옵션을 사용합니다.
+:::tip
+Babel CLI에 대한 도움말은 [Babel 사용](https://babeljs.io/docs/setup/#installation) 지침을 참조하십시오. 위의 예는 CLI 옵션을 사용합니다.
+:::
 
 ## 자바스크립트 지원 비활성화 {#disable-javascript-support}
 
 [Flow](https://flow.org/)와 같은 다른 자바스크립트 언어 도구에서 지원하는 자바스크립트 언어 기능을 사용하는 것을 선호하는 경우, VS Code의 내장 자바스크립트 지원을 비활성화할 수 있습니다. 내장 TypeScript 언어 확장 **TypeScript and JavaScript Language Features**(vscode.typescript-language-features)를 비활성화하면 자바스크립트 언어 지원도 제공됩니다.
 
-자바스크립트/TypeScript 지원을 비활성화하려면 확장 보기(`Ctrl+Shift+X`)로 이동하여 내장 확장(**...** **추가 작업** 드롭다운에서 **내장 확장 표시**)을 필터링한 다음 'typescript'를 입력하십시오. **TypeScript and JavaScript Language Features** 확장을 선택하고 **비활성화** 버튼을 누르십시오. VS Code 내장 확장은 제거할 수 없으며, 비활성화만 할 수 있으며 언제든지 다시 활성화할 수 있습니다.
+JavaScript/TypeScript 지원을 비활성화하려면 확장 보기(`Ctrl+Shift+X`)로 이동하여 내장 확장(**...** **More Actions** 드롭다운에서 **Show Built-in Extensions**)을 필터링한 다음 'typescript'를 입력하십시오. **TypeScript and JavaScript Language Features** 확장을 선택하고 **Disable** 버튼을 누르십시오. VS Code 내장 확장은 제거할 수 없으며, 비활성화만 할 수 있으며 언제든지 다시 활성화할 수 있습니다.
 
 ![TypeScript and JavaScript Language Features extension](images/working-with-javascript/disable-TS-language.png)
 
 ## 부분 IntelliSense 모드 {#partial-intellisense-mode}
 
-VS Code는 자바스크립트 및 TypeScript에 대해 프로젝트 전체 IntelliSense를 제공하려고 합니다. 이는 자동 가져오기 및 **정의로 이동**과 같은 기능을 가능하게 합니다. 그러나 VS Code가 자바스크립트 또는 TypeScript 프로젝트를 구성하는 다른 파일을 로드할 수 없는 경우, 현재 열려 있는 파일에서만 작업할 수 있는 경우가 있습니다.
+VS Code는 자바스크립트 및 TypeScript에 대해 프로젝트 전체 IntelliSense를 제공하려고 합니다. 이는 자동 가져오기 및 **Go to Definition**과 같은 기능을 가능하게 합니다. 그러나 VS Code가 자바스크립트 또는 TypeScript 프로젝트를 구성하는 다른 파일을 로드할 수 없는 경우, 현재 열려 있는 파일에서만 작업할 수 있는 경우가 있습니다.
 
 이러한 경우는 다음과 같습니다:
 
@@ -315,7 +319,7 @@ VS Code는 자바스크립트 및 TypeScript에 대해 프로젝트 전체 Intel
 - 구문 오류만 보고됩니다. 알 수 없는 속성에 접근하거나 함수에 잘못된 타입을 전달하는 것과 같은 의미 오류는 보고되지 않습니다.
 - 의미 오류에 대한 빠른 수정이 비활성화됩니다.
 - 기호는 현재 파일 내에서만 해결할 수 있습니다. 다른 파일에서 가져온 기호는 `any` 타입으로 처리됩니다.
-- **정의로 이동** 및 **모든 참조 찾기**와 같은 명령은 전체 프로젝트 대신 열린 파일에 대해서만 작동합니다. 이는 `node_module` 아래에 설치한 패키지의 기호가 해결되지 않음을 의미합니다.
+- **Go to Definition** 및 **Find All References**와 같은 명령은 전체 프로젝트 대신 열린 파일에 대해서만 작동합니다. 이는 `node_module` 아래에 설치한 패키지의 기호가 해결되지 않음을 의미합니다.
 - 작업 공간 기호 검색은 현재 열린 파일의 기호만 포함합니다.
 - 자동 가져오기가 비활성화됩니다.
 - 이름 바꾸기가 비활성화됩니다.
@@ -323,7 +327,7 @@ VS Code는 자바스크립트 및 TypeScript에 대해 프로젝트 전체 Intel
 
 `vscode.dev` 및 `github.dev`에서 추가 기능이 비활성화됩니다:
 
-- [자동 타입 획득](/docs/nodejs/working-with-javascript.md#typings-and-automatic-type-acquisition)은 현재 지원되지 않습니다.
+- [Automatic Type Acquisition](/docs/nodejs/working-with-javascript.md#typings-and-automatic-type-acquisition)은 현재 지원되지 않습니다.
 
 ### 부분 모드인지 확인하기
 
