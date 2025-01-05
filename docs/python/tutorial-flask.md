@@ -208,7 +208,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
    ![Flask tutorial: selecting the Flask debugging configuration](images/flask-tutorial/debug-select-configuration.png)
 
-1. Start the debugger by selecting the **Run** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb(workbench.action.debug.continue)`):
+1. Start the debugger by selecting the **Run** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`F5`):
 
    ![Flask tutorial: start debugging/continue arrow on the debug toolbar](images/flask-tutorial/debug-continue-arrow.png)
 
@@ -216,7 +216,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
    ![Flask tutorial: appearance of the debugging status bar](images/flask-tutorial/debug-status-bar.png)
 
-   A debugging toolbar (shown below) also appears in VS Code containing commands in the following order: Pause (or Continue, `kb(workbench.action.debug.continue)`), Step Over (`F10`), Step Into (`kb(workbench.action.debug.stepInto)`), Step Out (`kb(workbench.action.debug.stepOut)`), Restart (`kb(workbench.action.debug.restart)`), and Stop (`kb(workbench.action.debug.stop)`). See [VS Code debugging](/docs/editor/debugging.md) for a description of each command.
+   A debugging toolbar (shown below) also appears in VS Code containing commands in the following order: Pause (or Continue, `F5`), Step Over (`F10`), Step Into (`F11`), Step Out (`Shift+F11`), Restart (`Ctrl+Shift+F5`), and Stop (`Shift+F5`). See [VS Code debugging](/docs/editor/debugging.md) for a description of each command.
 
    ![Flask tutorial: the VS Code debug toolbar](images/flask-tutorial/debug-toolbar.png)
 
@@ -250,13 +250,13 @@ Debugging gives you the opportunity to pause a running program on a particular l
    'Wed, 31 Oct, 18 at 18:13:39'
    ```
 
-1. Step through a few more lines of code, if you'd like, then select Continue (`kb(workbench.action.debug.continue)`) to let the program run. The browser window shows the result:
+1. Step through a few more lines of code, if you'd like, then select Continue (`F5`) to let the program run. The browser window shows the result:
 
    ![Flask tutorial: result of the modified program](images/flask-tutorial/debug-run-result.png)
 
 1. Change the line in the code to use different datetime format, for example `now.strftime("%a, %d %b, %y at %X")`, and then save the file. The Flask server will automatically reload, which means the changes will be applied without the need to restart the debugger. Refresh the page on the browser to see the update.
 
-1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Run** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
+1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Run** > **Stop Debugging** command (`Shift+F5`).
 
 > **Tip**: To make it easier to repeatedly navigate to a specific URL like `http://127.0.0.1:5000/hello/VSCode`, output that URL using a `print` statement. The URL appears in the terminal where you can use `Ctrl+click` to open it in a browser.
 
@@ -324,7 +324,7 @@ In this section, you create a single page using a template. In the sections that
 
    You can see that the code is now much simpler, and concerned only with data values, because the markup and formatting is all contained in the template.
 
-1. Start the program (inside or outside of the debugger, using `kb(workbench.action.debug.run)`), navigate to a /hello/name URL, and observe the results.
+1. Start the program (inside or outside of the debugger, using `Ctrl+F5`), navigate to a /hello/name URL, and observe the results.
 
 1. Also try navigating to a /hello/name URL using a name like `<a%20value%20that%20could%20be%20HTML>` to see Flask's automatic escaping at work. The "name" value shows up as plain text in the browser rather than as rendering an actual element.
 

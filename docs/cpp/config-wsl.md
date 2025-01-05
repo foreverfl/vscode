@@ -139,7 +139,7 @@ int main()
 }
 ```
 
-Now press `Ctrl+S` to save the file. Notice how the file you just added appears in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
+Now press `Ctrl+S` to save the file. Notice how the file you just added appears in the **File Explorer** view (`Ctrl+Shift+E`) in the side bar of VS Code:
 
 ![File Explorer](images/wsl/file-explorer-helloworld.png)
 

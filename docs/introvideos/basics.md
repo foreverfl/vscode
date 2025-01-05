@@ -26,7 +26,7 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 - Open a folder
   - **File** > **Open Folder** (`kb(workbench.action.files.openFolder)`)
 - File Explorer
-  - **View** > **Explorer** (`kb(workbench.view.explorer)`)
+  - **View** > **Explorer** (`Ctrl+Shift+E`)
 - Search view
   - **View** > **Search** (`kb(workbench.view.search)`)
 - Source Control
@@ -40,7 +40,7 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 - Output panel
   - **View** > **Output** (`kb(workbench.action.output.toggleOutput)`)
 - Debug Console
-  - **View** > **Debug Console** (`kb(workbench.debug.action.toggleRepl)`)
+  - **View** > **Debug Console** (`Ctrl+Shift+Y`)
 - Problems panel
   - **View** > **Problems** (`Ctrl+Shift+M`)
 - Integrated Terminal

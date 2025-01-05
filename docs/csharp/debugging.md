@@ -250,11 +250,11 @@ See [supported projects](/docs/csharp/cs-dev-kit-faq.md#what-project-types-are-c
 
 Once a Hot Reload session starts and new changes are made, you can apply these changes to your application with any of the following actions:
 
-| Action                                                                                                                                                                          | Explanation                                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Hot Reload <br /> `Ctrl+Shift+Enter`                                                                                                                                            | Apply code changes, available from the **Debug Toolbar**.                                                                                 |
-| Save File <br /> `Ctrl+S`                                                                                                                                                       | Start applying code changes if `csharp.debug.hotReloadOnSave` is set to true. See [User settings](#user-settings) for more information.   |
-| Continue / Step Over / Step Into / Step Out <br /> `kb(workbench.action.debug.continue)` / `F10` / `kb(workbench.action.debug.stepInto)` / `kb(workbench.action.debug.stepOut)` | When changes were made while on a break state (for example, while stopped at a breakpoint), these commands will automatically apply them. |
+| Action                                                                                | Explanation                                                                                                                               |
+| ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Hot Reload <br /> `Ctrl+Shift+Enter`                                                  | Apply code changes, available from the **Debug Toolbar**.                                                                                 |
+| Save File <br /> `Ctrl+S`                                                             | Start applying code changes if `csharp.debug.hotReloadOnSave` is set to true. See [User settings](#user-settings) for more information.   |
+| Continue / Step Over / Step Into / Step Out <br /> `F5` / `F10` / `F11` / `Shift+F11` | When changes were made while on a break state (for example, while stopped at a breakpoint), these commands will automatically apply them. |
 
 ![Hot Reload demonstrated on ASP.NET](images/debugging/hotreload-demo.gif)
 

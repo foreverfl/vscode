@@ -1,214 +1,565 @@
 ---
-Order: 6
-Area: terminal
-TOCTitle: Advanced
-ContentId: D458AFDC-C001-43FD-A4BB-9474767B2C04
-PageTitle: Advanced Terminal Usage in Visual Studio Code
+Order: 8
+Area: editor
+TOCTitle: Debugging
+ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
+PageTitle: Debugging in Visual Studio Code
 DateApproved: 12/11/2024
-MetaDescription: Visual Studio Code's integrated terminal has several advanced features.
+MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
+MetaSocialImage: images/debugging/debugging-social.png
 ---
 
-# Terminal Advanced
+# Debugging
 
-Visual Studio Code's integrated terminal has many advanced features and settings, such as Unicode and emoji support, custom keybindings, and automatic replies. This topic explains these advanced features in detail. If you are new to VS Code or the integrated terminal, you may want to review the [Terminal Basics](/docs/terminal/basics.md) topic first.
+One of the key features of Visual Studio Code is its great debugging support. VS Code's built-in debugger helps accelerate your edit, compile, and debug loop.
 
-## Persistent sessions
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3HiLLByBWkg" title="Getting started with debugging in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-The terminal supports two different types of persistent sessions:
+## User interface
 
-- Process reconnection: When reloading a window (for example, after installing an extension), **reconnect** to the previous process and restore its content.
-- Process revive: When restarting VS Code, a terminal's content is restored and the process is **relaunched** using its original environment.
+The following diagram shows the main components of the debugging user interface:
 
-Both of these persistent sessions can be disabled by setting `terminal.integrated.enablePersistentSessions` to `false`, and the amount of scrollback restored is controlled by the`terminal.integrated.persistentSessionScrollback` setting. Process revive can be configured independently with `terminal.integrated.persistentSessionReviveProcess`.
+![Debugging diagram](images/debugging/debugging_hero.png)
 
-### Moving terminals between windows
+1. **Run and Debug view**: displays all information related to running, debugging, and managing debug configuration settings.
+1. **Debug toolbar**: has buttons for the most common debugging actions.
+1. **Debug console**: enables viewing and interacting with the output of your code running in the debugger.
+1. **Debug sidebar**: during a debug session, lets you interact with the call stack, breakpoints, variables, and watch variables.
 
-Terminal tabs can be dragged and dropped between VS Code windows. This can also be done manually through the Command Palette and the **Terminal: Detach Session** and **Terminal: Attach to Session** commands.
+## Debugger extensions
 
-### Configure how the terminal behaves on start up
+VS Code has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, or any other language that gets transpiled to JavaScript.
 
-When opening a window, if the terminal view is visible it will either reconnect to the terminal using persistent sessions, or create a new shell. This behavior can be fine tuned with the `terminal.integrated.hideOnStartup` setting.
+For debugging other languages and runtimes (including [PHP](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug), [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby), [Go](https://marketplace.visualstudio.com/items?itemName=golang.go), [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) and [many others](https://marketplace.visualstudio.com/search?term=debug&target=VSCode&category=Debuggers&sortBy=Relevance)), look for `Debuggers` [extensions](/docs/editor/extension-marketplace.md) in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) or select **Install Additional Debuggers** in the top-level Run menu.
 
-- `never` (default): Never hide the terminal view on startup.
-- `whenEmpty`: Only hide the terminal when there are no persistent sessions restored.
-- `always`: Always hide the terminal, even when there are persistent sessions restored.
+Below are several popular extensions which include debugging support:
 
-## Keybinding and the shell
+<div class="marketplace-extensions-debuggers"></div>
 
-As an embedded application, the integrated terminal should intercept some, but not all, keybindings dispatched within VS Code.
+> Tip: The extensions shown above are dynamically queried. Select an extension tile above to read the description and reviews to decide which extension is best for you.
 
-The configurable `terminal.integrated.commandsToSkipShell` setting determines which command's keybindings should always "skip the shell" and instead be handled by VS Code's keybinding system. By default, it contains a hard-coded list of commands that are integral to the VS Code experience but you can add or remove specific commands:
+## Start debugging
 
-```jsonc
+The following documentation is based on the built-in [Node.js](https://nodejs.org/) debugger, but most of the concepts and features are applicable to other debuggers as well.
+
+It is helpful to first create a sample Node.js application before reading about debugging. You can follow the [Node.js walkthrough](/docs/nodejs/nodejs-tutorial.md) to install Node.js and create a simple "Hello World" JavaScript application (`app.js`). Once you have a simple application set up, this page will take you through VS Code debugging features.
+
+## Run and Debug view
+
+To bring up the **Run and Debug** view, select the **Run and Debug** icon in the **Activity Bar** on the side of VS Code. You can also use the keyboard shortcut `Ctrl+Shift+D`.
+
+![Run and Debug icon](images/debugging/run.png)
+
+The **Run and Debug** view displays all information related to running and debugging and has a top bar with debugging commands and configuration settings.
+
+If running and debugging is not yet configured (no `launch.json` has been created), VS Code shows the Run start view.
+
+![Simplified initial Run and Debug view](images/debugging/debug-start.png)
+
+## Run menu
+
+The top-level **Run** menu has the most common run and debug commands:
+
+![Run menu](images/debugging/debug-menu.png)
+
+## Launch configurations
+
+To run or debug a simple app in VS Code, select **Run and Debug** on the Debug start view or press `F5` and VS Code will try to run your currently active file.
+
+However, for most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations).
+
+To create a `launch.json` file, select **create a launch.json file** in the Run start view.
+
+![launch configuration](images/debugging/launch-configuration.png)
+
+VS Code will try to automatically detect your debug environment, but if this fails, you will have to choose it manually:
+
+![debug environment selector](images/debugging/debug-environments.png)
+
+Here is the launch configuration generated for Node.js debugging:
+
+```json
 {
-  "terminal.integrated.commandsToSkipShell": [
-    // Ensure the toggle sidebar visibility keybinding skips the shell
-    "workbench.action.toggleSidebarVisibility",
-    // Send quick open's keybinding to the shell
-    "-workbench.action.quickOpen"
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\app.js"
+    }
   ]
 }
 ```
 
-Look at the `terminal.integrated.commandsToSkipShell` setting details to see the complete list of default commands.
+If you go back to the File Explorer view (`Ctrl+Shift+E`), you'll see that VS Code has created a `.vscode` folder and added the `launch.json` file to your workspace.
 
-> **Tip:** `terminal.integrated.sendKeybindingsToShell` can be configured to override `terminal.integrated.commandsToSkipShell` and dispatch most keybindings to the shell. Note that this will disable keybindings like `Ctrl+F` to open [find](/docs/terminal/basics#find) though.
+![launch.json in Explorer](images/debugging/launch-json-in-explorer.png)
 
-### Chords
+> **Note**: You can debug a simple application even if you don't have a folder open in VS Code, but it is not possible to manage launch configurations and set up advanced debugging. The VS Code Status Bar is purple if you do not have a folder open.
 
-Chord keybindings are made up of two keybindings, for example `Ctrl+K` followed by `Ctrl+C` to change the line to a comment. Chords always skip the shell by default but can be disabled with `terminal.integrated.allowChords`.
+Note that the attributes available in launch configurations vary from debugger to debugger. You can use IntelliSense suggestions (`Ctrl+Space`) to find out which attributes exist for a specific debugger. Hover help is also available for all attributes.
 
-### macOS clear screen
+Do not assume that an attribute that is available for one debugger automatically works for other debuggers too. If you see red squiggles in your launch configuration, hover over them to learn what the problem is and try to fix them before launching a debug session.
 
-On macOS, `Cmd+K` is a common keybindings in terminals to clear the screen so VS Code also respects that, which means `Cmd+K` chords will not work. `Cmd+K` chords can be enabled by [removing the clear keybinding](/docs/getstarted/keybindings.md#removing-a-specific-key-binding-rule):
+![launch.json IntelliSense](images/debugging/launch-json-intellisense.png)
+
+Review all automatically generated values and make sure that they make sense for your project and debugging environment.
+
+### Launch versus attach configurations
+
+In VS Code, there are two core debugging modes, **Launch** and **Attach**, which handle two different workflows and segments of developers. Depending on your workflow, it can be confusing to know what type of configuration is appropriate for your project.
+
+If you come from a browser Developer Tools background, you might not be used to "launching from your tool," since your browser instance is already open. When you open DevTools, you are simply **attaching** DevTools to your open browser tab. On the other hand, if you come from a server or desktop background, it's quite normal to have your editor **launch** your process for you, and your editor automatically attaches its debugger to the newly launched process.
+
+The best way to explain the difference between **launch** and **attach** is to think of a **launch** configuration as a recipe for how to start your app in debug mode **before** VS Code attaches to it, while an **attach** configuration is a recipe for how to connect VS Code's debugger to an app or process that's **already** running.
+
+VS Code debuggers typically support launching a program in debug mode or attaching to an already running program in debug mode. Depending on the request (`attach` or `launch`), different attributes are required, and VS Code's `launch.json` validation and suggestions should help with that.
+
+### Add a new configuration
+
+To add a new configuration to an existing `launch.json`, use one of the following techniques:
+
+- Use IntelliSense if your cursor is located inside the configurations array.
+- Press the **Add Configuration** button to invoke snippet IntelliSense at the start of the array.
+- Choose **Add Configuration** option in the Run menu.
+
+![launch json suggestions](images/debugging/add-config.gif)
+
+VS Code also supports compound launch configurations for starting multiple configurations at the same time; for more details, please read this [section](#compound-launch-configurations).
+
+In order to start a debug session, first select the configuration named **Launch Program** using the **Configuration dropdown** in the **Run and Debug** view. Once you have your launch configuration set, start your debug session with `F5`.
+
+Alternatively, you can run your configuration through the **Command Palette** (`Ctrl+Shift+P`) by filtering on **Debug: Select and Start Debugging** or typing `'debug '` and selecting the configuration you want to debug.
+
+As soon as a debugging session starts, the **DEBUG CONSOLE** panel is displayed and shows debugging output, and the Status Bar changes color (orange for default color themes):
+
+![debug session](images/debugging/debug-session.png)
+
+In addition, the **debug status** appears in the Status Bar showing the active debug configuration. By selecting the debug status, a user can change the active launch configuration and start debugging without needing to open the **Run and Debug** view.
+
+![Debug status](images/debugging/debug-status.png)
+
+## Debug actions
+
+Once a debug session starts, the **Debug toolbar** will appear on the top of the window.
+
+![Debug Actions](images/debugging/toolbar.png)
+
+| Action                         | Explanation                                                                                                                                                            |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Continue / Pause <br /> `F5`   | **Continue**: Resume normal program/script execution (up to the next breakpoint). <br /> **Pause**: Inspect code executing at the current line and debug line-by-line. |
+| Step Over <br /> `F10`         | Execute the next method as a single command without inspecting or following its component steps.                                                                       |
+| Step Into <br /> `F11`         | Enter the next method to follow its execution line-by-line.                                                                                                            |
+| Step Out <br /> `Shift+F11`    | When inside a method or subroutine, return to the earlier execution context by completing remaining lines of the current method as though it were a single command.    |
+| Restart <br /> `Ctrl+Shift+F5` | Terminate the current program execution and start debugging again using the current run configuration.                                                                 |
+| Stop <br /> `Shift+F5`         | Terminate the current program execution.                                                                                                                               |
+
+> **Tip**: Use the setting `debug.toolBarLocation` to control the location of the debug toolbar. It can be the default `floating`, `docked` to the **Run and Debug** view, or `hidden`. A `floating` debug toolbar can be dragged horizontally and also down to the editor area (up to a certain distance from the top edge).
+
+### Run mode
+
+In addition to debugging a program, VS Code supports **running** the program. The **Debug: Start Without Debugging** action is triggered with `Ctrl+F5` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running, and pressing the **Stop** button terminates the program.
+
+> **Tip**: The **Run** action is always available, but not all debugger extensions support 'Run'. In this case, 'Run' will be the same as 'Debug'.
+
+## Breakpoints
+
+Breakpoints can be toggled by clicking on the **editor margin** or using `F9` on the current line. Finer breakpoint control (enable/disable/reapply) can be done in the **Run and Debug** view's **BREAKPOINTS** section.
+
+- Breakpoints in the editor margin are normally shown as red filled circles.
+- Disabled breakpoints have a filled gray circle.
+- When a debugging session starts, breakpoints that cannot be registered with the debugger change to a gray hollow circle. The same might happen if the source is edited while a debug session without live-edit support is running.
+
+If the debugger supports breaking on different kinds of errors or exceptions, those will also be available in the **BREAKPOINTS** view.
+
+The **Reapply All Breakpoints** command sets all breakpoints again to their original location. This is helpful if your debug environment is "lazy" and "misplaces" breakpoints in source code that has not yet been executed.
+
+![Breakpoints](images/debugging/breakpoints.png)
+
+Optionally, breakpoints can be shown in the editor's overview ruler by enabling the setting `debug.showBreakpointsInOverviewRuler`:
+
+![breakpoints in overview ruler](images/debugging/bpts-in-overview.png)
+
+## Logpoints
+
+A Logpoint is a variant of a breakpoint that does not "break" into the debugger but instead logs a message to the debug console. Logpoints enable you to inject logging while debugging without modifying the source code. They are especially useful when you're debugging production servers that cannot be paused or stopped. Logpoints can also help you save time by not having to add or remove logging statements in your code.
+
+A Logpoint is represented by a "diamond" shaped icon. Log messages are plain text but can include expressions to be evaluated within curly braces ('{}').
+
+Add a logpoint with the **Add Logpoint** command in the left editor gutter context menu, or by using the **Debug: Add Logpoint...** command. You can also configure the setting `debug.gutterMiddleClickAction` to toggle a logpoint when pressing the middle mouse button in the editor gutter.
+
+![Logpoints](images/debugging/log-points.gif)
+
+Just like regular breakpoints, Logpoints can be enabled or disabled and can also be controlled by a condition and/or hit count.
+
+**Note**: Logpoints are supported by VS Code's built-in Node.js debugger, but can be implemented by other debug extensions. The [Python](/docs/python/python-tutorial.md) and [Java](/docs/java/java-tutorial.md) extensions, for example, support Logpoints.
+
+## Data inspection
+
+Variables can be inspected in the **VARIABLES** section of the **Run and Debug** view or by hovering over their source in the editor. Variable values and expression evaluation are relative to the selected stack frame in the **CALL STACK** section.
+
+![Debug Variables](images/debugging/variables.png)
+
+Variable values can be modified with the **Set Value** action from the variable's context menu. Additionally, you can use the **Copy Value** action to copy the variable's value, or **Copy as Expression** action to copy an expression to access the variable.
+
+Variables and expressions can also be evaluated and watched in the **Run and Debug** view's **WATCH** section.
+
+![Debug Watch](images/debugging/watch.png)
+
+Variable names and values can be filtered by typing while the focus is on the **VARIABLES** section.
+
+![Filtering in the Variables section](images/debugging/filtering-variables.png)
+
+## Launch.json attributes
+
+There are many `launch.json` attributes to help support different debuggers and debugging scenarios. As mentioned above, you can use IntelliSense (`Ctrl+Space`) to see the list of available attributes once you have specified a value for the `type` attribute.
+
+![launch json suggestions](images/debugging/launch-json-suggestions.png)
+
+The following attributes are mandatory for every launch configuration:
+
+- `type` - the type of debugger to use for this launch configuration. Every installed debug extension introduces a type: `node` for the built-in Node debugger, for example, or `php` and `go` for the PHP and Go extensions.
+- `request` - the request type of this launch configuration. Currently, `launch` and `attach` are supported.
+- `name` - the reader-friendly name to appear in the Debug launch configuration dropdown.
+
+Here are some optional attributes available to all launch configurations:
+
+- `presentation` - using the `order`, `group`, and `hidden` attributes in the `presentation` object, you can sort, group, and hide configurations and compounds in the Debug configuration dropdown and in the Debug quick pick.
+- `preLaunchTask` - to launch a task before the start of a debug session, set this attribute to the label of a task specified in [tasks.json](/docs/editor/tasks.md) (in the workspace's `.vscode` folder). Or, this can be set to `${defaultBuildTask}` to use your default build task.
+- `postDebugTask` - to launch a task at the very end of a debug session, set this attribute to the name of a task specified in [tasks.json](/docs/editor/tasks.md) (in the workspace's `.vscode` folder).
+- `internalConsoleOptions` - this attribute controls the visibility of the Debug Console panel during a debugging session.
+- `debugServer` - **for debug extension authors only**: this attribute allows you to connect to a specified port instead of launching the debug adapter.
+- `serverReadyAction` - if you want to open a URL in a web browser whenever the program under debugging outputs a specific message to the debug console or integrated terminal. For details see section [Automatically open a URI when debugging a server program](#automatically-open-a-uri-when-debugging-a-server-program) below.
+
+Many debuggers support some of the following attributes:
+
+- `program` - executable or file to run when launching the debugger
+- `args` - arguments passed to the program to debug
+- `env` - environment variables (the value `null` can be used to "undefine" a variable)
+- `envFile` - path to dotenv file with environment variables
+- `cwd` - current working directory for finding dependencies and other files
+- `port` - port when attaching to a running process
+- `stopOnEntry` - break immediately when the program launches
+- `console` - what kind of console to use, for example, `internalConsole`, `integratedTerminal`, or `externalTerminal`
+
+## Variable substitution
+
+VS Code makes commonly used paths and other values available as variables and supports variable substitution inside strings in `launch.json`. This means that you do not have to use absolute paths in debug configurations. For example, `${workspaceFolder}` gives the root path of a workspace folder, `${file}` the file open in the active editor, and `${env:Name}` the environment variable 'Name'.
+
+You can see a full list of predefined variables in the [Variables Reference](/docs/editor/variables-reference.md) or by invoking IntelliSense inside the `launch.json` string attributes.
 
 ```json
 {
-  "key": "cmd+k",
-  "command": "-workbench.action.terminal.clear"
+  "type": "node",
+  "request": "launch",
+  "name": "Launch Program",
+  "program": "${workspaceFolder}/app.js",
+  "cwd": "${workspaceFolder}",
+  "args": ["${env:USERNAME}"]
 }
 ```
 
-Additionally, this keyboard shortcut will be overridden automatically if any extensions contribute `Cmd+K` keybindings due to how keybinding priority works. To re-enable the `Cmd+K` clear keybinding in this case, you can redefine it in user keybindings, which have a higher priority than extension keybindings:
+## Platform-specific properties
+
+`Launch.json` supports defining values (for example, arguments to be passed to the program) that depend on the operating system where the debugger is running. To do so, put a platform-specific literal into the `launch.json` file and specify the corresponding properties inside that literal.
+
+Below is an example that passes `"args"` to the program differently on Windows:
 
 ```json
 {
-  "key": "cmd+k",
-  "command": "workbench.action.terminal.clear",
-  "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "program": "${workspaceFolder}/node_modules/gulp/bin/gulpfile.js",
+      "args": ["myFolder/path/app.js"],
+      "windows": {
+        "args": ["myFolder\\path\\app.js"]
+      }
+    }
+  ]
 }
 ```
 
-### Mnemonics
+Valid operating properties are `"windows"` for Windows, `"linux"` for Linux, and `"osx"` for macOS. Properties defined in an operating system specific scope override properties defined in the global scope.
 
-Using mnemonics to access VS Code's menu (for example, `Alt+F` for File menu) is disabled by default in the terminal as these key events are often important hotkeys in shells. Set `terminal.integrated.allowMnemonics` to enable mnemonics, but note that this will disallow any `Alt` key events to go to the shell. This setting does nothing on macOS.
+Please note that the `type` property cannot be placed inside a platform-specific section, because `type` indirectly determines the platform in remote debugging scenarios, and that would result in a cyclic dependency.
 
-### Custom sequence keybindings
+In the example below, debugging the program always **stops on entry** except on macOS:
 
-The `workbench.action.terminal.sendSequence` command can be used to send a specific sequence of text to the terminal, including escape sequences that are interpreted specially by the shell. The command enables you to send Arrow keys, `Enter`, cursor moves, etc.
-
-For example, the sequence below jumps over the word to the left of the cursor (`Ctrl+Left`) and then presses `Backspace`:
-
-```jsonc
+```json
 {
-  "key": "ctrl+u",
-  "command": "workbench.action.terminal.sendSequence",
-  "args": {
-    "text": "\u001b[1;5D\u007f"
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "program": "${workspaceFolder}/node_modules/gulp/bin/gulpfile.js",
+      "stopOnEntry": true,
+      "osx": {
+        "stopOnEntry": false
+      }
+    }
+  ]
+}
+```
+
+## Global launch configuration
+
+VS Code supports adding a `"launch"` object inside your User [settings](/docs/getstarted/settings.md). This `"launch"` configuration will then be shared across your workspaces. For example:
+
+```json
+"launch": {
+    "version": "0.2.0",
+    "configurations": [{
+        "type": "node",
+        "request": "launch",
+        "name": "Launch Program",
+        "program": "${file}"
+    }]
+}
+```
+
+## Advanced breakpoint topics
+
+### Conditional breakpoints
+
+A powerful VS Code debugging feature is the ability to set conditions based on expressions, hit counts, or a combination of both.
+
+- **Expression condition**: The breakpoint will be hit whenever the expression evaluates to `true`.
+- **Hit count**: The _hit count_ controls how many times a breakpoint needs to be hit before it interrupts execution. Whether a hit count is respected, and the exact syntax of the expression, can vary among debugger extensions.
+
+You can add a condition and/or hit count when creating a source breakpoint (with the **Add Conditional Breakpoint** action) or when modifying an existing one (with the **Edit Condition** action). In both cases, an inline text box with a dropdown menu opens where you can enter expressions:
+
+![HitCount](images/debugging/hitCount.gif)
+
+Condition and hit count editing support is also supported for [function](#function-breakpoints) and exception breakpoints.
+You can initiate condition editing from the context menu or the new inline **Edit Condition** action.
+
+An example of condition editing in the **BREAKPOINTS** view:
+![condition editing in breakpoint view](images/debugging/breakpoints.gif)
+
+If a debugger does not support conditional breakpoints, the **Add Conditional Breakpoint** and **Edit Condition** actions are not available.
+
+### Triggered breakpoints
+
+A triggered breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+
+Triggered breakpoints can be set by right-clicking on the glyph margin, selecting **Add Triggered Breakpoint**, and then choosing which other breakpoint enables the breakpoint.
+
+<video src="images/debugging/debug-triggered-breakpoint.mp4" autoplay loop controls muted></video>
+
+Triggered breakpoints work for all languages, and conditional breakpoints may also be used as the trigger.
+
+### Inline breakpoints
+
+Inline breakpoints are only hit when the execution reaches the column associated with the inline breakpoint. This is particularly useful when debugging minified code which contains multiple statements in a single line.
+
+An inline breakpoint can be set using `Shift+F9` or through the context menu during a debug session. Inline breakpoints are shown inline in the editor.
+
+Inline breakpoints can also have conditions. Editing multiple breakpoints on a line is possible through the context menu in the editor's left margin.
+
+### Function breakpoints
+
+Instead of placing breakpoints directly in source code, a debugger can support creating breakpoints by specifying a function name. This is useful in situations where source is not available but a function name is known.
+
+A function breakpoint is created by pressing the **+** button in the **BREAKPOINTS** section header and entering the function name. Function breakpoints are shown with a red triangle in the **BREAKPOINTS** section.
+
+### Data breakpoints
+
+If a debugger supports data breakpoints, they can be set from the context menu in the **VARIABLES** view. The **Break on Value Change/Read/Access** commands add a data breakpoint that is hit when the value of the underlying variable changes/is read/is accessed. Data breakpoints are shown with a red hexagon in the **BREAKPOINTS** section.
+
+## Debug Console REPL
+
+Expressions can be evaluated with the **Debug Console** REPL ([Read-Eval-Print Loop](https://en.wikipedia.org/wiki/Read–eval–print_loop)) feature. To open the Debug Console, use the **Debug Console** action at the top of the Debug pane or use the **View: Debug Console** command (`Ctrl+Shift+Y`).
+
+Expressions are evaluated after you press `Enter` and the Debug Console REPL shows suggestions as you type. If you need to enter multiple lines, use `Shift+Enter` between the lines and then send all lines for evaluation with `Enter`.
+
+Debug Console input uses the mode of the active editor, which means that the Debug Console input supports syntax coloring, indentation, auto closing of quotes, and other language features.
+
+![Debug Console](images/debugging/debugconsole.png)
+
+**Note**: You must be in a running debug session to use the Debug Console REPL.
+
+## Redirect input/output to/from the debug target
+
+Redirecting input/output is debugger/runtime specific, so VS Code does not have a built-in solution that works for all debuggers.
+
+Here are two approaches you might want to consider:
+
+1. Launch the program to debug ("debug target") manually in a terminal or command prompt and redirect input/output as needed. Make sure to pass the appropriate command line options to the debug target so that a debugger can attach to it. Create and run an "attach" debug configuration that attaches to the debug target.
+
+2. If the debugger extension you are using can run the debug target in VS Code's Integrated Terminal (or an external terminal), you can try to pass the shell redirect syntax (for example, "&lt;" or "&gt;") as arguments.
+
+   Here's an example `launch.json` configuration:
+
+   ```json
+   {
+     "name": "launch program that reads a file from stdin",
+     "type": "node",
+     "request": "launch",
+     "program": "program.js",
+     "console": "integratedTerminal",
+     "args": ["<", "in.txt"]
+   }
+   ```
+
+   This approach requires that the "&lt;" syntax is passed through the debugger extension and ends up unmodified in the Integrated Terminal.
+
+## Multi-target debugging
+
+For complex scenarios that involve more than one process (for example, a client and a server), VS Code supports multi-target debugging. After you've started a first debug session, you can launch another debug session. As soon as a second session is up and running, the VS Code UI switches to _multi-target mode_:
+
+- The individual sessions now show up as top-level elements in the **CALL STACK** view.
+
+  ![Callstack View](images/debugging/debug-callstack.png)
+
+- The debug toolbar shows the currently **active session** (and all other sessions are available in a dropdown menu).
+
+  ![Debug Actions Widget](images/debugging/debug-actions-widget.png)
+
+- Debug actions (for example, all actions in the debug toolbar) are performed on the active session. The active session can be changed either by using the dropdown menu in the debug toolbar or by selecting a different element in the **CALL STACK** view.
+
+### Compound launch configurations
+
+An alternative way to start multiple debug sessions is by using a _compound_ launch configuration. You can define compound launch configurations in the `compounds` property in the `launch.json` file. Use the `configurations` attribute to list the names of two or more launch configurations that should be launched in parallel. Optionally a `preLaunchTask` can be specified that is run before the individual debug sessions are started. The boolean flag `stopAll` controls whether manually terminating one session will stop all of the compound sessions.
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Server",
+      "program": "${workspaceFolder}/server.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Client",
+      "program": "${workspaceFolder}/client.js"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Server/Client",
+      "configurations": ["Server", "Client"],
+      "preLaunchTask": "${defaultBuildTask}",
+      "stopAll": true
+    }
+  ]
+}
+```
+
+Compound launch configurations are displayed in the launch configuration dropdown menu.
+
+## Remote debugging
+
+VS Code does not support built-in remote debugging across all languages. Remote debugging is a feature of the debug extension you are using, and you should consult the extension's page in the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Debuggers&sortBy=Installs) for support and details.
+
+There is, however, one exception: the Node.js debugger included in VS Code supports remote debugging. See the [Node.js Debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) topic to learn how to configure this.
+
+## Automatically open a URI when debugging a server program
+
+Developing a web program typically requires opening a specific URL in a web browser in order to hit the server code in the debugger. VS Code has a built-in feature "**serverReadyAction**" to automate this task.
+
+Here is an example of a simple [Node.js Express](https://expressjs.com) application:
+
+```javascript
+var express = require("express");
+var app = express();
+
+app.get("/", function (req, res) {
+  res.send("Hello World!");
+});
+
+app.listen(3000, function () {
+  console.log("Example app listening on port 3000!");
+});
+```
+
+This application first installs a "Hello World" handler for the "/" URL and then starts to listen for HTTP connections on port 3000. The port is announced in the Debug Console, and typically, the developer would now type `http://localhost:3000` into their browser application.
+
+The **serverReadyAction** feature makes it possible to add a structured property `serverReadyAction` to any launch config and select an "action" to be performed:
+
+```json
+{
+  "type": "node",
+  "request": "launch",
+  "name": "Launch Program",
+  "program": "${workspaceFolder}/app.js",
+
+  "serverReadyAction": {
+    "pattern": "listening on port ([0-9]+)",
+    "uriFormat": "http://localhost:%s",
+    "action": "openExternally"
   }
 }
 ```
 
-This feature supports [variable substitution](/docs/editor/variables-reference.md).
+Here the `pattern` property describes the regular expression for matching the program's output string that announces the port. The pattern for the port number is put into parenthesis so that it is available as a regular expression capture group. In this example, we are extracting only the port number, but it is also possible to extract a full URI.
 
-The `sendSequence` command only works with the `\u0000` format for using characters via their character code (not `\x00`). Read more about these hex codes and terminal sequences in the following resources:
+The `uriFormat` property describes how the port number is turned into a URI. The first `%s` is substituted by the first capture group of the matching pattern.
 
-- [XTerm Control Sequences](https://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
-- [List of C0 and C1 control codes](https://github.com/xtermjs/xterm.js/blob/0e45909c7e79c83452493d2cd46d99c0a0bb585f/src/common/data/EscapeSequences.ts)
+The resulting URI is then opened outside of VS Code ("externally") with the standard application configured for the URI's scheme.
 
-## Confirmation dialogs
+### Trigger Debugging via Edge or Chrome
 
-In order to avoid unnecessary output and user prompts, the terminal does not show warning dialogs when processes exit. If warnings are desirable, they can be configured with the following settings:
+Alternatively, the `action` can be set to `debugWithEdge` or `debugWithChrome`. In this mode, a `webRoot` property can be added that is passed to the Chrome or Edge debug session.
 
-- `terminal.integrated.confirmOnExit` - Controls whether to confirm when the window closes if there are active debug sessions.
-- `terminal.integrated.confirmOnKill` - Controls whether to confirm killing terminals when they have child processes.
-- `terminal.integrated.showExitAlert` - Controls whether to show the alert "The terminal process terminated with exit code" when exit code is non-zero.
+To simplify things a bit, most properties are optional and we use the following fallback values:
 
-## Auto replies
+- **pattern**: `"listening on.* (https?://\\S+|[0-9]+)"` which matches the commonly used messages "listening on port 3000" or "Now listening on: https://localhost:5001".
+- **uriFormat**: `"http://localhost:%s"`
+- **webRoot**: `"${workspaceFolder}"`
 
-The terminal can automatically provide a configurable input response to the shell if an exact sequence of output is received. The most common use case is to automatically reply to a prompt when hitting `Ctrl+C` in batch scripts that ask whether the user wants to terminate the batch job. To automatically dismiss this message, add this setting:
+### Triggering an Arbitrary Launch Config
 
-```json
-{
-  "terminal.integrated.autoReplies": {
-    "Terminate batch job (Y/N)": "Y\r"
-  }
-}
-```
+In some cases, you might need to configure additional options for the browser debug session, or use a different debugger entirely. You can do this by setting `action` to `startDebugging` with a `name` property set to the name of the launch configuration to start when the `pattern` is matched.
 
-Notice that the `\r` character used here means `Enter`, and much like [custom sequence keybindings](#custom-sequence-keybindings), this feature supports sending escape sequences to the shell.
+The named launch configuration must be in the same file or folder as the one with the `serverReadyAction`.
 
-No auto replies are configured by default as providing shell input should be an explicit action or configuration by the user.
+Here the **serverReadyAction** feature in action:
 
-## Change tab stop width
+![Server ready feature in action](images/debugging/server-ready.gif)
 
-The `terminal.integrated.tabStopWidth` setting allows configuring the tab stop width when a program running in the terminal outputs `\t`. This should typically not be needed as programs will often move the cursor instead of using the `Tab` character, but may be useful in some situations.
+## Next steps
 
-## Unicode and emoji support
+To learn about VS Code's Node.js debugging support, take a look at:
 
-The terminal has both Unicode and emoji support. When these characters are used in the terminal, there are some caveats to that support:
+- [Node.js](/docs/nodejs/nodejs-debugging.md) - Describes the Node.js debugger, which is included in VS Code.
+- [TypeScript](/docs/typescript/typescript-debugging.md) - The Node.js debugger also supports TypeScript debugging.
 
-- Some Unicode symbols have ambiguous width that may change between Unicode versions. Currently we support Unicode version 6 and 11 widths, which can be configured with the `terminal.integrated.unicodeVersion` setting. The version specified should match the Unicode version used by the shell/operating system, otherwise there could be rendering issues. Note that the Unicode version of the shell/OS may not match the font's actual width.
-- Some emojis comprised of multiple characters may not render correctly, for example, skin tone modifiers.
-- Emoji support is limited on Windows.
+To see a tutorial on the basics of debugging, check out this video:
 
-## Image support
+- [Getting started with debugging in VS Code](https://www.youtube.com/watch?v=3HiLLByBWkg) - Learn about debugging in VS Code.
 
-Images in the terminal work provided they use either the Sixel or iTerm inline image protocols. This feature is disabled by default and can be enabled with the `terminal.integrated.enableImages` setting.
+To learn about debugging support for other programming languages via VS Code extensions:
 
-Current limitations:
+- [C++](/docs/cpp/cpp-debug.md)
+- [Python](/docs/python/debugging.md)
+- [Java](/docs/java/java-debugging.md)
 
-- Serialization does not work, so reloading a terminal will not retain any images ([jerch/xterm-addon-image#47](https://github.com/jerch/xterm-addon-image/issues/47)).
-- Copying the selection as HTML does not include the selected image ([jerch/xterm-addon-image#50](https://github.com/jerch/xterm-addon-image/issues/50)).
-- Animated gifs don't work ([jerch/xterm-addon-image#51](https://github.com/jerch/xterm-addon-image/issues/51)).
-- Images that are shorter than a cell will not work properly, this is a [design flaw with the sequences and also occurs in XTerm](https://github.com/microsoft/vscode/issues/183840#issuecomment-1569345048).
+To learn about VS Code's task running support, go to:
 
-## Process environment
+- [Tasks](/docs/editor/tasks.md) - Describes how to run tasks with Gulp, Grunt, and Jake and how to show errors and warnings.
 
-The process environment of the application running within the terminal is influenced by various settings and extensions and can cause the output in the VS Code terminal to look different than in other terminals.
+To write your own debugger extension, visit:
 
-### Environment inheritance
+- [Debugger Extension](/api/extension-guides/debugger-extension.md) - Uses a mock sample to illustrate the steps required to create a VS Code debug extension.
 
-When VS Code is opened, it launches a login shell environment in order to source a shell environment. This is done because developer tools are often added to the `$PATH` in a shell launch script like `~/.bash_profile`. By default, the terminal inherits this environment, depending on your [profile shell arguments](/docs/terminal/profiles.md#configuring-profiles), and means that multiple profile scripts may have run, which could cause unexpected behavior.
+## Common questions
 
-This environment inheritance can be disabled on macOS and Linux via the `terminal.integrated.inheritEnv` setting.
+### What are the supported debugging scenarios?
 
-### Interaction with `$LANG`
+Debugging of Node.js-based applications is supported on Linux, macOS, and Windows out of the box with VS Code. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Installs) available in the Marketplace.
 
-There is some special interaction with the `$LANG` environment variable, which determines how characters are presented in the terminal. This feature is configured with the `terminal.integrated.detectLocale` setting:
+### I do not see any launch configurations in the Run and Debug view dropdown. What is wrong?
 
-| Value            | Behavior                                                                                                                                                       |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `on`             | Always set `$LANG` to the most commonly desired value. The chosen value is based on the operating system locale (falling back to `en-US`) with UTF-8 encoding. |
-| `auto` (default) | Set `$LANG` similar to the `on` behavior if `$LANG` is not properly configured (is not set to a UTF or EUC encoding).                                          |
-| `off`            | Do not modify `$LANG`.                                                                                                                                         |
-
-### Extension environment contributions
-
-Extensions are able to [contribute to terminal environments](https://code.visualstudio.com/api/references/vscode-api#ExtensionContext.environmentVariableCollection), allowing them to provide some integration with the terminal. For example, the built-in Git extension injects the `GIT_ASKPASS` environment variable to allow VS Code to handle authentication to a Git remote.
-
-If an extension changes the terminal environment, any existing terminals will be relaunched if it is safe to do so, otherwise a warning will show in the terminal status. More information about the change can be viewed in the hover, which also includes a relaunch button.
-
-![A warning icon appears next to the terminal tab when a relaunch is required, information on the changes can be viewed by hovering it](images/advanced/envvarcollection-warning.png)
-
-## Windows and ConPTY
-
-VS Code's terminal is built on the [xterm.js](https://github.com/xtermjs/xterm.js) project to implement a Unix-style terminal that serializes all data into a string and pipes it through a "pseudoterminal". Historically, this was not how the terminal worked on Windows, which used the [Console API](https://learn.microsoft.com/windows/console/console-functions) to implement its console called 'conhost'.
-
-An open source project called [winpty](https://github.com/rprichard/winpty) was created to try to fix this issue by providing an emulation/translation layer between a Unix-style terminal and a Windows console. VS Code's terminal was originally implemented using only winpty. This was great at the time, but in 2018, Windows 10 received [the ConPTY API](https://devblogs.microsoft.com/commandline/windows-command-line-introducing-the-windows-pseudo-console-conpty/), which took the idea pioneered by winpty and baked it into Windows, providing a more reliable and supported system to leverage Unix-style terminals and apps on Windows.
-
-VS Code defaults to ConPTY on Windows 10+ (from build number 18309) and falls back to winpty as a legacy option for older versions of Windows. ConPTY can be explicitly disabled via the `terminal.integrated.windowsEnableConpty` settings but this should normally be avoided.
-
-Since ConPTY is an emulation layer, it does come with some quirks. The most common is that ConPTY considers itself the owner of the viewport and because of that will sometimes reprint the screen. This reprinting can cause unexpected behavior such as old content displaying after running the **Terminal: Clear** command.
-
-## Remote development
-
-This section outlines topics specific to when VS Code is connected to a remote machine using a VS Code [Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) extension.
-
-### Reducing remote input latency
-
-Local echo is a feature that helps mitigate the effect of input latency on remote windows. It writes the keystrokes in the terminal in a dimmed color before the result is confirmed by the remote. By default, the feature start running when latency is detected to be above 30 ms and the timing can be configured with `terminal.integrated.localEchoLatencyThreshold`. The color of the unconfirmed characters is defined by `terminal.integrated.localEchoStyle`.
-
-Local echo disables itself dynamically depending on the active program in the terminal. This is controlled by `terminal.integrated.localEchoExcludePrograms`, which defaults to `['vim', 'vi', 'nano', 'tmux']`. It's recommended that you disable the feature for any application or shell that is highly dynamic and/or does a lot of reprinting of the screen when typing.
-
-To disable the feature completely, use:
-
-```json
-{
-  "terminal.integrated.localEchoEnabled": false
-}
-```
-
-### Local terminals in remote windows
-
-The default **local** terminal profile can be launched in remote windows with the **Terminal: Create New Integrated Terminal (Local)** command via the Command Palette. Currently non-default profiles cannot be launched from remote windows.
+The most common problem is that you did not set up `launch.json` or there is a syntax error in that file. Alternatively, you might need to open a folder, since no-folder debugging does not support launch configurations.

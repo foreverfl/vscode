@@ -208,7 +208,7 @@ The server will now forward traffic on port 3000 to your local machine. When you
 
 ## Edit and debug
 
-From the Visual Studio Code File Explorer (`kb(workbench.view.explorer)`), navigate to your new `myExpressApp` folder and double-click the `app.js` file to open it in the editor.
+From the Visual Studio Code File Explorer (`Ctrl+Shift+E`), navigate to your new `myExpressApp` folder and double-click the `app.js` file to open it in the editor.
 
 ### IntelliSense
 

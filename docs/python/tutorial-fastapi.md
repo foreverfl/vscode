@@ -132,7 +132,7 @@ Let's create the application!
 
    Congratulations! Your FastAPI app is up and running!
 
-7. Stop the debugger by using the **Stop** button in the debug toolbar, or through `kb(workbench.action.debug.stop)`.
+7. Stop the debugger by using the **Stop** button in the debug toolbar, or through `Shift+F5`.
 
 ## Create a model for grocery list items
 
@@ -262,7 +262,7 @@ Now we need a place to store the grocery list items. For simplicity, let's start
 
     The Debug Console can be a powerful tool to quickly test expressions and better understand the state of your code at the time of a breakpoint. You can also use it to run arbitrary code, such as calling functions or printing variables. You can learn more about Python debugging in VS Code in the [Python tutorial](/docs/python/python-tutorial.md#configure-and-run-the-debugger).
 
-    You can now continue the execution of the code by selecting **Continue** in the Debug view tool bar, or by pressing `kb(workbench.action.debug.continue)`.
+    You can now continue the execution of the code by selecting **Continue** in the Debug view tool bar, or by pressing `F5`.
 
     Finally, let's add the remaining routes for the application so we can list all items or specific items, as well as remove them from our grocery list. You can leave the debugger running as it will automatically reload the application when you save the changes you make in the next step.
 
@@ -343,7 +343,7 @@ Now we need a place to store the grocery list items. For simplicity, let's start
 
 12. Save the file (`Ctrl+S`). The application should automatically reload.
 
-You can now open the `/docs` page again and test the new routes, using the debugger and the Debug Console to better understand the code execution. Once you're done, you can stop the debugger (`kb(workbench.action.debug.stop)`). You can also remove the breakpoint we added in step 4 by clicking on it.
+You can now open the `/docs` page again and test the new routes, using the debugger and the Debug Console to better understand the code execution. Once you're done, you can stop the debugger (`Shift+F5`). You can also remove the breakpoint we added in step 4 by clicking on it.
 
 Congratulations! You now have a working FastAPI application with routes to add, list, and delete items from a grocery list.
 

@@ -551,7 +551,7 @@ Some commands included below do not have default keyboard shortcuts and so are d
 | Zoom out                     | `kb(workbench.action.zoomOut)`                 | `workbench.action.zoomOut`                    |
 | Reset Zoom                   | `kb(workbench.action.zoomReset)`               | `workbench.action.zoomReset`                  |
 | Toggle Sidebar Visibility    | `kb(workbench.action.toggleSidebarVisibility)` | `workbench.action.toggleSidebarVisibility`    |
-| Show Explorer / Toggle Focus | `kb(workbench.view.explorer)`                  | `workbench.view.explorer`                     |
+| Show Explorer / Toggle Focus | `Ctrl+Shift+E`                                 | `workbench.view.explorer`                     |
 | Show Search                  | `kb(workbench.view.search)`                    | `workbench.view.search`                       |
 | Show Source Control          | `Ctrl+Shift+G`                                 | `workbench.view.scm`                          |
 | Show Run                     | `Ctrl+Shift+D`                                 | `workbench.view.debug`                        |
@@ -600,14 +600,14 @@ Some commands included below do not have default keyboard shortcuts and so are d
 
 ### Debug
 
-| Command                   | Key                                   | Command id                             |
-| ------------------------- | ------------------------------------- | -------------------------------------- |
-| Toggle Breakpoint         | `F9`                                  | `editor.debug.action.toggleBreakpoint` |
-| Start                     | `F5`                                  | `workbench.action.debug.start`         |
-| Continue                  | `kb(workbench.action.debug.continue)` | `workbench.action.debug.continue`      |
-| Start (without debugging) | `kb(workbench.action.debug.run)`      | `workbench.action.debug.run`           |
-| Pause                     | `kb(workbench.action.debug.pause)`    | `workbench.action.debug.pause`         |
-| Step Into                 | `kb(workbench.action.debug.stepInto)` | `workbench.action.debug.stepInto`      |
+| Command                   | Key                                | Command id                             |
+| ------------------------- | ---------------------------------- | -------------------------------------- |
+| Toggle Breakpoint         | `F9`                               | `editor.debug.action.toggleBreakpoint` |
+| Start                     | `F5`                               | `workbench.action.debug.start`         |
+| Continue                  | `F5`                               | `workbench.action.debug.continue`      |
+| Start (without debugging) | `Ctrl+F5`                          | `workbench.action.debug.run`           |
+| Pause                     | `kb(workbench.action.debug.pause)` | `workbench.action.debug.pause`         |
+| Step Into                 | `F11`                              | `workbench.action.debug.stepInto`      |
 
 ### Tasks
 

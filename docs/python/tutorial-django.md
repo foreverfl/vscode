@@ -228,13 +228,13 @@ You're probably already wondering if there's an easier way to run the server and
 
    This configuration tells VS Code to run `"${workspaceFolder}/manage.py"` using the selected Python interpreter and the arguments in the `args` list. Launching the VS Code debugger with this configuration, then, is the same as running `python manage.py runserver` in the VS Code Terminal with your activated virtual environment. (You can add a port number like `"5000"` to `args` if desired.) The `"django": true` entry also tells VS Code to enable debugging of Django page templates, which you see later in this tutorial.
 
-1. Test the configuration by selecting the **Run** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb(workbench.action.debug.continue)`):
+1. Test the configuration by selecting the **Run** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`F5`):
 
    ![Django tutorial: start debugging/continue arrow on the debug toolbar](images/django-tutorial/debug-continue-arrow.png)
 
 1. `Ctrl+click` the `http://127.0.0.1:8000/` URL in the terminal output window to open the browser and see that the app is running properly.
 
-1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Run** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
+1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Run** > **Stop Debugging** command (`Shift+F5`).
 
 1. You can now use the **Run** > **Start Debugging** at any time to test the app, which also has the benefit of automatically saving all modified files.
 
@@ -293,7 +293,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
    ![Django tutorial: a breakpoint set on the first line of the hello_there function](images/django-tutorial/debug-breakpoint-set.png)
 
-1. Start the debugger by selecting the **Run** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb(workbench.action.debug.continue)`):
+1. Start the debugger by selecting the **Run** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`F5`):
 
    ![Django tutorial: start debugging/continue arrow on the debug toolbar](images/django-tutorial/debug-continue-arrow.png)
 
@@ -301,7 +301,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
    ![Django tutorial: appearance of the debugging status bar](images/django-tutorial/debug-status-bar.png)
 
-   A debugging toolbar (shown below) also appears in VS Code containing commands in the following order: Pause (or Continue, `kb(workbench.action.debug.continue)`), Step Over (`F10`), Step Into (`kb(workbench.action.debug.stepInto)`), Step Out (`kb(workbench.action.debug.stepOut)`), Restart (`kb(workbench.action.debug.restart)`), and Stop (`kb(workbench.action.debug.stop)`). See [VS Code debugging](/docs/editor/debugging.md) for a description of each command.
+   A debugging toolbar (shown below) also appears in VS Code containing commands in the following order: Pause (or Continue, `F5`), Step Over (`F10`), Step Into (`F11`), Step Out (`Shift+F11`), Restart (`Ctrl+Shift+F5`), and Stop (`Shift+F5`). See [VS Code debugging](/docs/editor/debugging.md) for a description of each command.
 
    ![Django tutorial: the VS Code debug toolbar](images/shared/debug-toolbar.png)
 
@@ -335,13 +335,13 @@ Debugging gives you the opportunity to pause a running program on a particular l
    'Tue, 13 Jun, 23 at 18:03:19'
    ```
 
-1. Step through a few more lines of code, if you'd like, then select Continue (`kb(workbench.action.debug.continue)`) to let the program run. The browser window shows the result:
+1. Step through a few more lines of code, if you'd like, then select Continue (`F5`) to let the program run. The browser window shows the result:
 
    ![Django tutorial: result of the modified program](images/django-tutorial/debug-run-result.png)
 
 1. Change the line in the code to use different datetime format, for example `now.strftime("%a, %d %b, %y at %X")`, and then save the file. The Django server will automatically reload, which means the changes will be applied without the need to restart the debugger. Refresh the page on the browser to see the update.
 
-1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Run** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
+1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Run** > **Stop Debugging** command (`Shift+F5`).
 
 > **Tip**: To make it easier to repeatedly navigate to a specific URL like `http://127.0.0.1:8000/hello/VSCode`, output that URL using a `print` statement somewhere in a file like `views.py`. The URL appears in the VS Code Terminal where you can use `Ctrl+click` to open it in a browser.
 
@@ -412,7 +412,7 @@ In this section, you start by creating a single page using a template. In subseq
 
    You can see that the code is now much simpler, and concerned only with data values, because the markup and formatting is all contained in the template.
 
-1. Start the program (inside or outside of the debugger, using `kb(workbench.action.debug.run)`), navigate to a /hello/name URL, and observe the results.
+1. Start the program (inside or outside of the debugger, using `Ctrl+F5`), navigate to a /hello/name URL, and observe the results.
 
 1. Also try navigating to a /hello/name URL using a name like `<a%20value%20that%20could%20be%20HTML>` to see Django's automatic escaping at work. The "name" value shows up as plain text in the browser rather than as rendering an actual element.
 
@@ -900,7 +900,7 @@ Fortunately, the Python Extension for VS Code provides template debugging when y
 
 1. You can also work with variables in the **Debug Console** panel. (Django filters like `date`, however, are not presently available in the console.)
 
-1. When you're ready, select Continue (`kb(workbench.action.debug.continue)`) to finish running the app and view the rendered page in the browser. Stop the debugger when you're done.
+1. When you're ready, select Continue (`F5`) to finish running the app and view the rendered page in the browser. Stop the debugger when you're done.
 
 ## Optional activities
 

@@ -191,7 +191,7 @@ The debugger will start, and then stop at the first line of the file breakpoint.
 
 ![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
 
-A debug toolbar appears along the top with the following commands from left to right: continue (`F5`), step over (`F10`), step into (`kb(workbench.action.debug.stepInto)`), step out (`kb(workbench.action.debug.stepOut)`), restart (`kb(workbench.action.debug.restart)`), and stop (`kb(workbench.action.debug.stop)`).
+A debug toolbar appears along the top with the following commands from left to right: continue (`F5`), step over (`F10`), step into (`F11`), step out (`Shift+F11`), restart (`Ctrl+Shift+F5`), and stop (`Shift+F5`).
 
 ![Debugging toolbar](images/tutorial/debug-toolbar.png)
 
@@ -211,11 +211,11 @@ msg.split()
 
 ![Debugging step 3 - using the debug console](images/tutorial/debug-step-03.png)
 
-Select the blue **Continue** button on the toolbar again (or press `kb(workbench.action.debug.continue)`) to run the program to completion. "Roll a dice!" appears in the **Python Debug Console** if you switch back to it, and VS Code exits debugging mode once the program is complete.
+Select the blue **Continue** button on the toolbar again (or press `F5`) to run the program to completion. "Roll a dice!" appears in the **Python Debug Console** if you switch back to it, and VS Code exits debugging mode once the program is complete.
 
 If you restart the debugger, the debugger again stops on the first breakpoint.
 
-To stop running a program before it's complete, use the red square stop button on the debug toolbar (`kb(workbench.action.debug.stop)`), or use the **Run > Stop debugging** menu command.
+To stop running a program before it's complete, use the red square stop button on the debug toolbar (`Shift+F5`), or use the **Run > Stop debugging** menu command.
 
 For full details, see [Debugging configurations](/docs/python/debugging.md), which includes notes on how to use a specific Python interpreter for debugging.
 

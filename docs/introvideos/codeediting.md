@@ -26,7 +26,7 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 - Open a folder.
   - **File** > **Open Folder** (`kb(workbench.action.files.openFolder)`)
 - Use File Explorer to view the folder's files and subfolders.
-  - **View** > **Explorer** (`kb(workbench.view.explorer)`)
+  - **View** > **Explorer** (`Ctrl+Shift+E`)
 - Install the Node.js runtime to execute JavaScript code.
   - Find Node.js for your platform at [https://nodejs.org](https://nodejs.org)
 - Check your Node.js installation.

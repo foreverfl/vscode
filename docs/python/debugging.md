@@ -313,7 +313,7 @@ Now that an SSH tunnel has been set up to the remote computer, you can begin you
 
    ![Debugging toolbar during remote debugging](images/debugging/remote-debug-toolbar.png)
 
-   On this toolbar, the disconnect button (`kb(workbench.action.debug.stop)`) stops the debugger and allows the remote program to run to completion. The restart button (`kb(workbench.action.debug.restart)`) restarts the debugger on the local computer but does **not** restart the remote program. Use the restart button only when you've already restarted the remote program and need to reattach the debugger.
+   On this toolbar, the disconnect button (`Shift+F5`) stops the debugger and allows the remote program to run to completion. The restart button (`Ctrl+Shift+F5`) restarts the debugger on the local computer but does **not** restart the remote program. Use the restart button only when you've already restarted the remote program and need to reattach the debugger.
 
 ## Set configuration options
 
