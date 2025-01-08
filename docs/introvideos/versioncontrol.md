@@ -24,7 +24,7 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 - Install Git
   - [https://git-scm.com](https://git-scm.com)
 - Open Folder
-  - **File** > **Open Folder** (`kb(workbench.action.files.openFolder)`)
+  - **File** > **Open Folder** (`Ctrl+K Ctrl+O`)
 - Source Control
   - **View** > **Source Control (SCM)** (`Ctrl+Shift+G`)
 - Initialize repository

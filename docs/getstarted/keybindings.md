@@ -522,7 +522,7 @@ Some commands included below do not have default keyboard shortcuts and so are d
 | Command                        | Key                                                    | Command id                                         |
 | ------------------------------ | ------------------------------------------------------ | -------------------------------------------------- |
 | New File                       | `kb(workbench.action.files.newUntitledFile)`           | `workbench.action.files.newUntitledFile`           |
-| Open File...                   | `kb(workbench.action.files.openFile)`                  | `workbench.action.files.openFile`                  |
+| Open File...                   | `Ctrl+K Ctrl+O`                                        | `workbench.action.files.openFile`                  |
 | Save                           | `Ctrl+S`                                               | `workbench.action.files.save`                      |
 | Save All                       | `kb(saveAll)`                                          | `saveAll`                                          |
 | Save As...                     | `kb(workbench.action.files.saveAs)`                    | `workbench.action.files.saveAs`                    |

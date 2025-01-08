@@ -182,7 +182,7 @@ When you link to an image, the path and filename are case-sensitive. The convent
 
 The VS Code website is able to show the correct key bindings depending on the reader's operating system (macOS, Windows, or Linux).
 
-To enable this for keyboard shortcuts, use the format `kb(workbench.action.files.openFile)` where the command identifier is included in parentheses.
+To enable this for keyboard shortcuts, use the format `Ctrl+K Ctrl+O` where the command identifier is included in parentheses.
 
 > For a list of key bindings and the relevant `Command Ids`, review the [key bindings document](https://code.visualstudio.com/docs/getstarted/keybindings#_default-keyboard-shortcuts).
 

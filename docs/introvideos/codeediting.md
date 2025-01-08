@@ -24,7 +24,7 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 ## Video outline
 
 - Open a folder.
-  - **File** > **Open Folder** (`kb(workbench.action.files.openFolder)`)
+  - **File** > **Open Folder** (`Ctrl+K Ctrl+O`)
 - Use File Explorer to view the folder's files and subfolders.
   - **View** > **Explorer** (`Ctrl+Shift+E`)
 - Install the Node.js runtime to execute JavaScript code.

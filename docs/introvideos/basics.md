@@ -24,7 +24,7 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 - Download and install VS Code.
   - From [https://code.visualstudio.com/download](https://code.visualstudio.com/download)
 - Open a folder
-  - **File** > **Open Folder** (`kb(workbench.action.files.openFolder)`)
+  - **File** > **Open Folder** (`Ctrl+K Ctrl+O`)
 - File Explorer
   - **View** > **Explorer** (`Ctrl+Shift+E`)
 - Search view
