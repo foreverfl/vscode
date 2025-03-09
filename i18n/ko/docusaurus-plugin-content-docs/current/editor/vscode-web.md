@@ -1,219 +1,226 @@
 ---
 Order: 11
 Area: editor
-TOCTitle: VS Code for the Web
+TOCTitle: 웹을 위한 VS Code
 ContentId: d665a790-1da1-4f45-bc0f-c09822528e55
-PageTitle: Visual Studio Code for the Web
+PageTitle: 웹을 위한 Visual Studio Code
 DateApproved: 03/05/2025
-MetaDescription: Visual Studio Code for the Web and the vscode.dev URL
+MetaDescription: 웹을 위한 Visual Studio Code 및 vscode.dev URL
 ---
 
-# Visual Studio Code for the Web
+# 웹을 위한 Visual Studio Code {#visual-studio-code-for-the-web}
 
-Visual Studio Code for the Web provides a free, zero-install Microsoft Visual Studio Code experience running entirely in your browser, allowing you to quickly and safely browse source code repositories and make lightweight code changes. To get started, go to [https://vscode.dev](https://vscode.dev) in your browser.
+웹을 위한 Visual Studio Code는 브라우저에서 완전히 실행되는 무료, 무설치 Microsoft Visual Studio Code 경험을 제공하여 소스 코드 Repository를 빠르고 안전하게 탐색하고 가벼운 코드 변경을 할 수 있게 해줍니다. 시작하려면 브라우저에서 [https://vscode.dev](https://vscode.dev)로 이동하세요.
 
-VS Code for the Web has many of the features of VS Code Desktop that you love, including search and syntax highlighting while browsing and editing, along with extension support to work on your codebase and make simpler edits. In addition to opening repositories, forks, and pull requests from source control providers like GitHub and Azure Repos, you can also work with code that is stored on your local machine.
+웹을 위한 VS Code는 검색 및 구문 강조와 같은 VS Code 데스크톱의 많은 기능을 포함하고 있으며, 코드베이스에서 작업하고 간단한 수정을 할 수 있도록 확장 지원도 제공합니다. Repository, Fork 및 GitHub 및 Azure Repos와 같은 소스 관리 서비스의 Pull Request를 열 수 있을 뿐만 아니라, 로컬 머신에 저장된 코드로 작업할 수도 있습니다.
 
-VS Code for the Web runs entirely in your web browser, so there are certain limitations compared to the desktop experience, which you can read more about [below](#limitations).
+웹을 위한 VS Code는 완전히 웹 브라우저에서 실행되므로 데스크톱 버전에 비해 특정 제한이 있습니다. 이에 대한 자세한 내용은 [아래](#limitations)에서 확인할 수 있습니다.
 
-The following video gives a quick overview of Visual Studio Code for the Web.
+다음 비디오는 웹을 위한 Visual Studio Code에 대한 간략한 개요를 제공합니다.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/2sdXMJZKLJE" title="Introduction to Visual Studio Code for the Web" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/2sdXMJZKLJE" title="웹을 위한 Visual Studio Code 소개" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Relationship to VS Code Desktop
+## VS Code 데스크톱과의 관계 {#relationship-to-vs-code-desktop}
 
-VS Code for the Web provides a browser-based experience for navigating files and repositories and committing lightweight code changes. However, if you need access to a runtime to run, build, or debug your code, you want to use platform features such as a terminal, or you want to run extensions that aren't supported in the web, we recommend moving your work to the desktop application, [GitHub Codespaces](https://github.com/features/codespaces), or using [Remote - Tunnels](#use-your-own-compute-instance-with-remote-tunnels) for the full capabilities of VS Code. In addition, VS Code Desktop lets you use a full set of keyboard shortcuts not limited by your browser.
+웹을 위한 VS Code는 파일 및 Repository를 탐색하고 가벼운 코드 변경을 커밋하는 브라우저 기반 경험을 제공합니다. 그러나 코드를 실행, 빌드 또는 디버그할 수 있는 런타임에 접근해야 하거나, 터미널과 같은 플랫폼 기능을 사용해야 하거나, 웹에서 지원되지 않는 확장을 실행해야 하는 경우, 작업을 데스크톱 애플리케이션, [GitHub Codespaces](https://github.com/features/codespaces)로 이동하거나 [Remote - Tunnels](#use-your-own-compute-instance-with-remote-tunnels)를 사용하여 VS Code의 전체 기능을 활용하는 것을 권장합니다. 또한, VS Code 데스크톱에서는 브라우저에 의해 제한되지 않는 전체 키보드 단축키 세트를 사용할 수 있습니다.
 
-When you're ready to switch, you'll be able to ["upgrade"](#continue-working-in-a-different-environment) to the full VS Code experience with a few clicks.
+전환할 준비가 되면 몇 번의 클릭으로 전체 VS Code 경험으로 ["업그레이드"]( #continue-working-in-a-different-environment)할 수 있습니다.
 
-You can also switch between the Stable and Insiders versions of VS Code for the Web by selecting the gear icon, then **Switch to Insiders Version...**, or by navigating directly to [https://insiders.vscode.dev](https://insiders.vscode.dev).
+또한 기어 아이콘을 선택한 후 **Switch to Insiders Version...** 을 선택하거나 [https://insiders.vscode.dev](https://insiders.vscode.dev)로 직접 이동하여 웹을 위한 VS Code의 안정적인 버전과 인사이더 버전 간에 전환할 수 있습니다.
 
-## Opening a project
+## 프로젝트 열기 {#opening-a-project}
 
-By navigating to [https://vscode.dev](https://vscode.dev), you can create a new local file or project, work on an existing local project, or access source code repositories hosted elsewhere, such as on GitHub and Azure Repos (part of Azure DevOps).
+[https://vscode.dev](https://vscode.dev)로 이동하여 새로운 로컬 파일이나 프로젝트를 생성하거나 기존 로컬 프로젝트에서 작업하거나 GitHub 및 Azure Repos( Azure DevOps의 일부)와 같은 다른 곳에 호스팅된 소스 코드 Repository에 접근할 수 있습니다.
 
-You can create a new local file in the web just as you would in a VS Code Desktop environment, using **File** > **New File** from the Command Palette (`kbstyle(F1)`).
+웹에서 VS Code 데스크톱 환경과 마찬가지로 **File** > **New File**을 사용하여 새로운 로컬 파일을 생성할 수 있습니다(명령 팔레트에서 `kbstyle(F1)` 사용).
 
-## GitHub repos
+## GitHub Repository {#github-repos}
 
-You can open a GitHub repository in VS Code for the Web directly from a URL, following the schema: `https://vscode.dev/github/<organization>/<repo>`. Using the [VS Code repository](https://github.com/microsoft/vscode) as an example, this would look like: `https://vscode.dev/github/microsoft/vscode`.
+URL에서 직접 웹을 위한 VS Code에서 GitHub Repository를 열 수 있으며, URL 형식은 다음과 같습니다: `https://vscode.dev/github/<organization>/<repo>`. [VS Code Repository](https://github.com/microsoft/vscode)를 예로 들면, 다음과 같이 됩니다: `https://vscode.dev/github/microsoft/vscode`.
 
-This experience is delivered at a custom `vscode.dev/github` URL, which is powered by the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension (which is part of the broader [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) extension).
+이 경험은 [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) 확장(더 넓은 [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) 확장의 일부)에 의해 제공되는 사용자 지정 `vscode.dev/github` URL에서 제공됩니다.
 
-GitHub Repositories allows you to remotely browse and edit a repository from within the editor, without needing to pull code onto your local machine. You can learn more about the extension and how it works in our [GitHub Repositories](/docs/sourcecontrol/github.md#github-repositories-extension) guide.
+GitHub Repositories를 사용하면 코드가 로컬 머신에 풀리지 않고도 편집기 내에서 원격으로 Repository를 탐색하고 수정할 수 있습니다. 확장 및 작동 방식에 대한 자세한 내용은 [GitHub Repositories](/docs/sourcecontrol/github.md#github-repositories-extension) 가이드를 참조하세요.
 
-> **Note**: The [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension works in VS Code Desktop as well to provide fast repository browsing and editing. Once you have the extension installed, you can open a repo with the **GitHub Repositories: Open Repository...** command.
+:::note
+[GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) 확장은 VS Code 데스크톱에서도 빠른 Repository 탐색 및 편집을 제공하기 위해 작동합니다. 확장을 설치한 후에는 **GitHub Repositories: Open Repository...** 명령을 사용하여 Repository를 열 수 있습니다.
+:::
 
-You can also open GitHub repositories in `vscode.dev` through your browser's search bar (aka omnibox) by installing the `vscode.dev` [extension](https://chrome.google.com/webstore/detail/vs-code/kobakmhnkfaghloikphojodjebdelppk) for Chrome and Edge. Then, type `code` to activate the omnibox, followed by your repository's name. Suggestions are populated by your browser search history, so if the repo you want doesn't come up, you can also type in the fully qualified `<owner>/<repo>` name to open it, for example `microsoft/vscode`.
+브라우저의 검색창(즉, 옴니박스)을 통해 `vscode.dev`에서 GitHub Repository를 열 수도 있습니다. Chrome 및 Edge용 `vscode.dev` [확장](https://chrome.google.com/webstore/detail/vs-code/kobakmhnkfaghloikphojodjebdelppk)을 설치한 후, `code`를 입력하여 옴니박스를 활성화하고 Repository 이름을 입력합니다. 제안은 브라우저 검색 기록에 의해 제공되므로, 원하는 Repository가 나타나지 않으면 전체 자격이 있는 `<owner>/<repo>` 이름을 입력하여 열 수 있습니다. 예를 들어 `microsoft/vscode`와 같이 입력합니다.
 
-![Type `code` in your browser and search a GitHub repository to open in vscode.dev](images/vscode-web/chrome-omnibox-extension.png)
+![브라우저에서 `code`를 입력하고 GitHub Repository를 검색하여 vscode.dev에서 열기](images/vscode-web/chrome-omnibox-extension.png)
 
-If you're already in VS Code for the Web at [https://vscode.dev](https://vscode.dev), you can alternatively navigate to different repos via the [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) extension commands. Select the remote indicator in the lower left of the Status bar, and you'll be presented with the **Open Remote Repository...** command.
+이미 [https://vscode.dev](https://vscode.dev)에서 웹을 위한 VS Code에 있는 경우, [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) 확장 명령을 통해 다른 Repository로 탐색할 수 있습니다. 상태 표시줄의 왼쪽 하단에 있는 원격 표시기를 선택하면 **Open Remote Repository...** 명령이 표시됩니다.
 
-![GitHub Repositories](images/vscode-web/remote-repositories.png)
+![GitHub Repository](images/vscode-web/remote-repositories.png)
 
-## Azure Repos
+## Azure Repos {#azure-repos}
 
-You can open Azure Repos just like Github repos in VS Code for the Web.
+웹을 위한 VS Code에서 GitHub Repository와 마찬가지로 Azure Repos를 열 수 있습니다.
 
-When you navigate to a URL with the schema `https://vscode.dev/azurerepos/<organization>/<project>/<repo>`, you will be able to read, search the files in the repo, and commit your changes to Azure Repos. You can fetch, pull, and sync changes, and view branches.
+`https://vscode.dev/azurerepos/<organization>/<project>/<repo>` URL 형식이 있는 URL로 이동하면 Repository의 파일을 읽고 검색하며 Azure Repos에 변경 사항을 커밋할 수 있습니다. 변경 사항을 가져오고, 풀하고, 동기화하며, Branch를 볼 수 있습니다.
 
-You can open any repository, branch, or tag from Azure Repos in VS Code for the Web by prefixing `vscode.dev` to the Azure Repos URL.
+Azure Repos의 모든 Repository, Branch 또는 Tag를 VS Code for the Web에서 열려면 Azure Repos URL 앞에 `vscode.dev`를 추가하면 됩니다.
 
-Alternatively, when you are on an Azure DevOps repository or pull request, you can press (`kbstyle(.)`) to open it in VS Code for the Web.
+Azure DevOps Repository 또는 Pull Request에 있는 경우, (`kbstyle(.)`)를 눌러 웹을 위한 VS Code에서 열 수 있습니다.
 
-## More custom URLs
+## 더 많은 사용자 지정 URL {#more-custom-urls}
 
-Like in the desktop, you can customize VS Code for the Web through a rich ecosystem of extensions that support just about every back end, language, and service. `vscode.dev` includes URLs that provide shortcuts to common experiences.
+데스크톱과 마찬가지로, 웹을 위한 VS Code는 거의 모든 백엔드, 언어 및 서비스를 지원하는 풍부한 확장 생태계를 통해 사용자 지정할 수 있습니다. `vscode.dev`는 일반적인 경험에 대한 바로 가기를 제공하는 URL을 포함합니다.
 
-We've explored a couple of URLs already (`vscode.dev/github` and `vscode.dev/azurerepos`). Here's a more complete list:
-| Service | URL Structure | Docs |
+우리는 이미 몇 가지 URL(`vscode.dev/github` 및 `vscode.dev/azurerepos`)를 살펴보았습니다. 다음은 보다 완전한 목록입니다:
+
+| 서비스 | URL 구조 | 문서 |
 | --- | --- | --- |
-| GitHub | `/github/<org>/<repo>` | [More info above](#github-repos) |
-| Azure Repos | `/azurerepos/<org>/<project>/<repo>` | [More info above](#azure-repos) |
-| Visual Studio Live Share | `/editor/liveshare/<sessionId>` | [More info below](#visual-studio-live-share) |
-| Visual Studio Marketplace | `/editor/marketplace/<marketplacePublisher>`<br />`/<extensionId>/<extensionVersion>` | [Example route](https://insiders.vscode.dev/editor/marketplace/Brigit/devcontainer-image-convert/0.0.1) to edit [this extension](https://marketplace.visualstudio.com/items?itemName=Brigit.devcontainer-image-convert) |
-| Power Pages | `/power/pages` | [Power Pages docs](https://learn.microsoft.com/power-pages/configure/visual-studio-code-editor) |
-| Profiles | `/editor/profile/github/<GUID>` | [Profiles docs](/docs/editor/profiles.md#save-as-a-github-gist) |
-| Themes | `/editor/theme/<extensionId>` | [More info below](#themes) |
-| MakeCode | `/edu/makecode` | [MakeCode docs](https://arcade.makecode.com/vscode) |
-| VS Code for Education | `/edu` | [VS Code for Education landing page](https://vscodeedu.com/) |
-| Azure Machine Learning (AML) | `/+ms-toolsai.vscode-ai-remote-web` | [AML docs](https://learn.microsoft.com/azure/machine-learning/how-to-launch-vs-code-remote?view=azureml-api-2&tabs=vscode-web) |
+| GitHub | `/github/<org>/<repo>` | [위에서 참고하기](#github-repos) |
+| Azure Repos | `/azurerepos/<org>/<project>/<repo>` | [위에서 참고하기](#azure-repos) |
+| Visual Studio Live Share | `/editor/liveshare/<sessionId>` | [아래에서 참고하기](#visual-studio-live-share) |
+| Visual Studio Marketplace | `/editor/marketplace/<marketplacePublisher>`<br />`/<extensionId>/<extensionVersion>` | [이 확장 프로그램을 편집하기 위한 예시 경로](https://insiders.vscode.dev/editor/marketplace/Brigit/devcontainer-image-convert/0.0.1) |
+| Power Pages | `/power/pages` | [Power Pages 문서](https://learn.microsoft.com/power-pages/configure/visual-studio-code-editor) |
+| 프로필 | `/editor/profile/github/<GUID>` | [프로필 문서](/docs/editor/profiles.md#save-as-a-github-gist) |
+| 테마 | `/editor/theme/<extensionId>` | [아래에서 참고하기](#themes) |
+| MakeCode | `/edu/makecode` | [MakeCode 문서](https://arcade.makecode.com/vscode) |
+| 교육을 위한 VS Code | `/edu` | [교육을 위한 VS Code 랜딩 페이지](https://vscodeedu.com/) |
+| Azure Machine Learning (AML) | `/+ms-toolsai.vscode-ai-remote-web` | [AML 문서](https://learn.microsoft.com/azure/machine-learning/how-to-launch-vs-code-remote?view=azureml-api-2&tabs=vscode-web) |
 
-Please note that some URLs must be entered in a specific way (for example, `vscode.dev/editor/liveshare` requires an active Live Share session). Please review each service's documentation for specific access and usage information.
+일부 URL은 특정 방식으로 입력해야 합니다(예: `vscode.dev/editor/liveshare`는 활성 Live Share 세션이 필요합니다). 각 서비스의 문서를 검토하여 특정 접근 및 사용 정보를 확인하세요.
 
-There's more information on some of these URLs below.
+이러한 URL 중 일부에 대한 추가 정보는 아래에서 확인할 수 있습니다.
 
-### Themes
+### 테마 {#themes}
 
-You can share and experience color themes through VS Code for the Web through the URL schema: `https://vscode.dev/editor/theme/<extensionId>`.
+URL URL 형식 `https://vscode.dev/editor/theme/<extensionId>`를 통해 웹을 위한 VS Code에서 색상 테마를 공유하고 경험할 수 있습니다.
 
-For instance, you can go to [https://vscode.dev/editor/theme/sdras.night-owl](https://vscode.dev/editor/theme/sdras.night-owl) to experience the [Night Owl theme](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) without having to go through the download and install process.
+예를 들어, [https://vscode.dev/editor/theme/sdras.night-owl](https://vscode.dev/editor/theme/sdras.night-owl)로 이동하여 [Night Owl 테마](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl)를 다운로드 및 설치 과정 없이 경험할 수 있습니다.
 
-> Note: The color theme URL schema works for themes that are fully declarative (no code).
+:::note
+색상 테마 URL 형식은 완전히 선언적인 테마(코드 없음)에 대해 작동합니다.
+:::
 
-An extension can define multiple themes. You can use the schema `/editor/theme/<extensionId>/<themeName>`. If no `themeName` is specified, VS Code for the Web will take the first theme.
+확장 프로그램은 여러 테마를 정의할 수 있습니다. `/editor/theme/<extensionId>/<themeName>` URL 형식을 사용할 수 있습니다. `themeName`이 지정되지 않으면, 웹을 위한 VS Code는 첫 번째 테마를 사용합니다.
 
-As a theme author, you can add the following badge to your extension readme to allow users to easily try out your theme in VS Code for the Web (replacing `<extensionId>` with your theme extension's unique identifier):
+테마 작성자는 사용자가 웹을 위한 VS Code에서 쉽게 테마를 시도할 수 있도록 확장 README에 다음 배지를 추가할 수 있습니다(여기서 `<extensionId>`는 테마 확장의 고유 식별자로 교체):
 
 ```markdown
-[![Preview in vscode.dev](https://img.shields.io/badge/preview%20in-vscode.dev-blue)](https://vscode.dev/editor/theme/<extensionId>)
+[![vscode.dev에서 미리보기](https://img.shields.io/badge/preview%20in-vscode.dev-blue)](https://vscode.dev/editor/theme/<extensionId>)
 ```
 
-### Visual Studio Live Share
+### Visual Studio Live Share {#visual-studio-live-share}
 
-[Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) guest sessions are available in the browser through the `https://vscode.dev/editor/liveshare` URL. The `sessionId` will be passed to the extension to make joining a seamless experience.
+[Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) 게스트 세션은 `https://vscode.dev/editor/liveshare` URL을 통해 브라우저에서 사용할 수 있습니다. `sessionId`는 확장에 전달되어 원활한 경험을 제공합니다.
 
-## Continue working in a different environment
+## 다른 환경에서 계속 작업하기 {#continue-working-in-a-different-environment}
 
-In some cases, you will want to access a different environment that has the ability to run code. You can switch to working on a repository in a development environment that has support for a local file system and full language and development tooling.
+경우에 따라 코드를 실행할 수 있는 다른 환경에 접근해야 할 수 있습니다. 로컬 파일 시스템과 전체 언어 및 개발 도구를 지원하는 개발 환경에서 Repository 작업으로 전환할 수 있습니다.
 
-The GitHub Repositories extension makes it easy for you to clone the repository locally, reopen it on the desktop, or create a GitHub codespace for the current repository (if you have the [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension installed and access to create GitHub codespaces). To do this, use the **Continue Working On...** command available from the Command Palette (`kbstyle(F1)`) or click on the Remote indicator in the Status bar.
+GitHub Repositories 확장은 Repository를 로컬로 Clone하고, 데스크톱에서 다시 열거나 현재 Repository에 대한 GitHub codespace를 생성하는 것을 쉽게 만들어 줍니다( [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 확장을 설치하고 GitHub codespaces를 생성할 수 있는 접근 권한이 있는 경우). 이를 위해 명령 팔레트(`kbstyle(F1)`)에서 사용할 수 있는 **Continue Working On...** 명령을 사용하거나 상태 표시줄의 원격 표시기를 클릭하세요.
 
-## Saving and sharing work
+## 작업 저장 및 공유 {#saving-and-sharing-work}
 
-When working on a local file in the web, your work is saved automatically if you have [Auto Save](/docs/editor/codebasics.md#save--auto-save) enabled. You can also save manually as you do when working in desktop VS Code (for example **File** > **Save**).
+웹에서 로컬 파일 작업 시, [Auto Save](/docs/editor/codebasics.md#save--auto-save)가 활성화되어 있으면 작업이 자동으로 저장됩니다. 데스크톱 VS Code에서 작업할 때와 마찬가지로 수동으로 저장할 수도 있습니다(예: **File** > **Save**).
 
-When working on a remote repository, your work is saved in the browser's local storage until you commit it. If you open a repo or pull request using GitHub Repositories, you can push your changes in the Source Control view to persist any new work.
+원격 Repository에서 작업할 때, 작업은 커밋할 때까지 브라우저의 로컬 저장소에 저장됩니다. GitHub Repositories를 사용하여 Repository 또는 Pull Request을 열면, 소스 제어 보기에서 변경 사항을 푸시하여 새로운 작업을 지속할 수 있습니다.
 
-You can also continue working in other environments via [Continue Working On](#continue-working-in-a-different-environment).
+또한 [다른 환경에서 계속 작업하기](#continue-working-in-a-different-environment)를 통해 다른 환경에서 계속 작업할 수 있습니다.
 
-The first time that you use **Continue Working On** with uncommitted changes, you will have the option to bring your edits to your selected development environment using **Cloud Changes**, which uses a VS Code service to store your pending changes. This is described further in the [GitHub Repositories](/docs/sourcecontrol/github.md#continue-working-on) doc.
+커밋되지 않은 변경 사항으로 **Continue Working On**을 처음 사용할 때, **Cloud Changes**를 사용하여 선택한 개발 환경으로 편집을 가져올 수 있는 옵션이 제공됩니다. 이는 보류 중인 변경 사항을 저장하기 위해 VS Code 서비스를 사용하는 것입니다. 이에 대한 자세한 내용은 [GitHub Repositories](/docs/sourcecontrol/github.md#continue-working-on) 문서에서 확인할 수 있습니다.
 
-## Use your own compute instance with Remote Tunnels
+## Remote Tunnels로 자신의 컴퓨팅 인스턴스 사용하기 {#use-your-own-compute-instance-with-remote-tunnels}
 
-You may develop against another machine in VS Code for the Web using the [Remote - Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) extension.
+[Remote - Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) 확장을 사용하여 웹을 위한 VS Code에서 다른 머신에 대해 개발할 수 있습니다.
 
-The Remote - Tunnels extension lets you connect to a remote machine, like a desktop PC or virtual machine (VM), via a secure tunnel. You can then securely connect to that machine from anywhere, without the requirement of SSH. This lets you "bring your own compute" to vscode.dev, enabling additional scenarios like running your code in the browser.
+Remote - Tunnels 확장은 안전한 터널을 통해 데스크톱 PC 또는 가상 머신(VM)과 같은 원격 머신에 연결할 수 있게 해줍니다. 그러면 SSH 없이도 어디에서나 해당 머신에 안전하게 연결할 수 있습니다. 이를 통해 "자신의 컴퓨팅"을 vscode.dev로 가져와 브라우저에서 코드를 실행하는 등의 추가 시나리오를 가능하게 합니다.
 
-You may learn more about Remote - Tunnels in its [documentation](/docs/remote/tunnels.md).
+Remote - Tunnels에 대한 자세한 내용은 [문서](/docs/remote/tunnels.md)를 참조하세요.
 
-## Safe exploration
+## 안전한 탐색 {#safe-exploration}
 
-VS Code for the Web runs entirely in your web browser's sandbox and offers a very limited execution environment.
+웹을 위한 VS Code는 완전히 웹 브라우저의 샌드박스 내에서 실행되며 매우 제한된 실행 환경을 제공합니다.
 
-When accessing code from remote repositories, the web editor doesn't "clone" the repo, but instead loads the code by invoking the services' APIs directly from your browser; this further reduces the attack surface when cloning untrusted repositories.
+원격 Repository의 코드에 접근할 때, 웹 편집기는 Repository를 "Clone"하지 않고, 대신 브라우저에서 서비스의 API를 직접 호출하여 코드를 로드합니다. 이는 신뢰할 수 없는 Repository를 Clone할 때 공격 표면을 더욱 줄여줍니다.
 
-When working with local files, VS Code for the Web loads them through your browser's file system access APIs, which limit the scope of what the browser can access.
+로컬 파일로 작업할 때, 웹을 위한 VS Code는 브라우저의 파일 시스템 접근 API를 통해 파일을 로드하며, 이는 브라우저가 접근할 수 있는 범위를 제한합니다.
 
-## Run anywhere
+## 어디서나 실행 {#run-anywhere}
 
-Similar to [GitHub Codespaces](/docs/remote/codespaces.md), VS Code for the Web can run on tablets, like iPads.
+[GitHub Codespaces](/docs/remote/codespaces.md)와 유사하게, 웹을 위한 VS Code는 iPad와 같은 태블릿에서도 실행할 수 있습니다.
 
-## Language support
+## 언어 지원 {#language-support}
 
-Language support is a bit more nuanced on the web, including code editing, navigation, and browsing. The desktop experiences are typically powered by language services and compilers that expect a file system, runtime, and compute environment. In the browser, these experiences are powered by language services running in the browser that provide source code tokenization and syntax colorization, completions, and many single-file operations.
+언어 지원은 웹에서 조금 더 미묘하며, 코드 편집, 탐색 및 탐색을 포함합니다. 데스크톱 경험은 일반적으로 파일 시스템, 런타임 및 컴퓨팅 환경을 기대하는 언어 서비스 및 컴파일러에 의해 지원됩니다. 브라우저에서는 이러한 경험이 브라우저에서 실행되는 언어 서비스에 의해 제공되어 소스 코드 토큰화 및 구문 색상화, 완성 및 많은 단일 파일 작업을 제공합니다.
 
-Generally, experiences fall into the following categories:
+일반적으로 경험은 다음과 같은 범주로 나뉩니다:
 
-- **Good:** For most programming languages, VS Code for the Web gives you code syntax colorization, text-based completions, and bracket pair colorization. Using a [Tree-sitter](https://tree-sitter.github.io/tree-sitter) syntax tree through the [anycode extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.anycode), we're able to provide additional experiences such as **Outline/Go to Symbol** and **Symbol Search** for popular languages such as C/C++, C#, Java, PHP, Rust, and Go.
-- **Better:** The TypeScript, JavaScript, and Python experiences are all powered by language services that run natively in the browser. With these programming languages, you'll get the "**Good**" experience plus rich single file completions, semantic highlighting, syntax errors, and more.
-- **Best:** For many "webby" languages, such as JSON, HTML, CSS, and LESS, etc., the coding experience in vscode.dev is nearly identical to the desktop (including Markdown preview!).
+- **좋음:** 대부분의 프로그래밍 언어에 대해, 웹을 위한 VS Code는 코드 구문 색상화, 텍스트 기반 완성 및 괄호 쌍 색상화를 제공합니다. [Tree-sitter](https://tree-sitter.github.io/tree-sitter) 구문 트리를 [anycode 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.anycode)을 통해 사용하여 C/C++, C#, Java, PHP, Rust 및 Go와 같은 인기 있는 언어에 대해 **개요/기호로 이동** 및 **기호 검색**과 같은 추가 경험을 제공할 수 있습니다.
+- **더 좋음:** TypeScript, JavaScript 및 Python 경험은 모두 브라우저에서 네이티브로 실행되는 언어 서비스에 의해 지원됩니다. 이러한 프로그래밍 언어를 사용하면 "**좋음**" 경험에 풍부한 단일 파일 완성, 의미론적 강조, 구문 오류 등이 추가됩니다.
+- **최고:** JSON, HTML, CSS 및 LESS와 같은 많은 "웹 관련" 언어의 경우, vscode.dev에서의 코딩 경험은 데스크톱과 거의 동일합니다(마크다운 미리보기를 포함하여!).
 
-You can determine the level of language support in your current file through the Language Status Indicator in the Status bar:
+현재 파일에서 언어 지원 수준은 상태 표시줄의 언어 상태 표시기를 통해 확인할 수 있습니다:
 
-![Language status indicator](images/vscode-web/status-indicator.png)
+![언어 상태 표시기](images/vscode-web/status-indicator.png)
 
-## Limitations
+## 제한 사항 {#limitations}
 
-Since VS Code for the Web runs completely within the browser, some experiences will naturally be more constrained when compared to what you can do in the desktop app. For example, the terminal and debugger are not available, which makes sense since you can't compile, run, and debug a Rust or Go application within the browser sandbox.
+웹을 위한 VS Code는 브라우저 내에서 완전히 실행되므로, 데스크톱 앱에서 할 수 있는 것과 비교할 때 일부 경험은 자연스럽게 더 제한적입니다. 예를 들어, 터미널과 디버거는 사용할 수 없으며, 이는 브라우저 샌드박스 내에서 Rust 또는 Go 애플리케이션을 컴파일, 실행 및 디버그할 수 없기 때문에 이해할 수 있습니다.
 
-### Extensions
+### 확장 프로그램 {#extensions}
 
-Only a subset of extensions can run in the browser. You can use the Extensions view to install extensions in the web, and extensions that cannot be installed will have a warning icon and **Learn Why** link. We expect more extensions to become enabled over time.
+브라우저에서 실행할 수 있는 확장 프로그램은 일부만 가능합니다. 웹에서 확장 프로그램을 설치하려면 확장 보기에서 사용할 수 있으며, 설치할 수 없는 확장 프로그램은 경고 아이콘과 **Learn Why** 링크가 표시됩니다. 시간이 지남에 따라 더 많은 확장이 활성화될 것으로 예상합니다.
 
-![Limited extension support](images/vscode-web/extension-limit.png)
+![제한된 확장 지원](images/vscode-web/extension-limit.png)
 
-When you install an extension, it is saved in the browser's local storage. You can ensure your extensions are synced across VS Code instances, including different browsers and even the desktop, by enabling [Settings Sync](/docs/editor/settings-sync).
+확장 프로그램을 설치하면 브라우저의 로컬 저장소에 저장됩니다. [설정 동기화](/docs/editor/settings-sync)를 활성화하면 VS Code 인스턴스 간에 확장 프로그램이 동기화되며, 여기에는 다른 브라우저 및 데스크톱도 포함됩니다.
 
-When an Extension Pack contains extensions that do not run in the browser sandbox, you will get an informational message with the option to see the extensions included in the pack.
+확장 프로그램 팩에 브라우저 샌드박스에서 실행되지 않는 확장 프로그램이 포함된 경우, 패키지에 포함된 확장 프로그램을 볼 수 있는 옵션과 함께 정보 메시지가 표시됩니다.
 
-![Python extension pack limit](images/vscode-web/python-extension-limit.png)
+![Python 확장 프로그램 팩 제한](images/vscode-web/python-extension-limit.png)
 
-When extensions are executed in the browser sandbox, they are more restricted. Extensions that are purely declarative, such as most themes, snippets, or grammars, can run unmodified and are available in VS Code for the Web without any modification from the extension authors. Extensions that are running code need to be updated to support running in the browser sandbox. You can read more about what is involved to support extensions in the browser in the [web extension authors guide](/api/extension-guides/web-extensions.md).
+브라우저 샌드박스에서 실행되는 확장 프로그램은 더 제한적입니다. 대부분의 테마, 스니펫 또는 문법과 같은 순수하게 선언적인 확장 프로그램은 수정 없이 실행될 수 있으며, 확장 프로그램 작성자의 수정 없이 웹을 위한 VS Code에서 사용할 수 있습니다. 코드를 실행하는 확장 프로그램은 브라우저 샌드박스에서 실행을 지원하도록 업데이트되어야 합니다. 브라우저에서 확장 프로그램을 지원하는 데 필요한 사항에 대한 자세한 내용은 [웹 확장 프로그램 작성자 가이드](/api/extension-guides/web-extensions.md)를 참조하세요.
 
-There are also extensions that run in the browser with partial support only. A good example is a language extension that [restricts its support](/docs/nodejs/working-with-javascript.md#partial-intellisense-mode) to single files or the currently opened files.
+브라우저에서 부분적으로만 지원되는 확장 프로그램도 있습니다. 좋은 예는 [부분적인 인텔리센스 모드](/docs/nodejs/working-with-javascript.md#partial-intellisense-mode)로 지원을 제한하는 언어 확장 프로그램입니다.
 
-### File system API
+### 파일 시스템 API {#file-system-api}
 
-Edge and Chrome today support the [File System API](https://developer.mozilla.org/docs/Web/API/File_System_Access_API), allowing web pages to access the local file system. If your browser does not support the File System API, you cannot open a folder locally, but you can open files instead.
+현재 Edge와 Chrome은 [파일 시스템 API](https://developer.mozilla.org/docs/Web/API/File_System_Access_API)를 지원하여 웹 페이지가 로컬 파일 시스템에 접근할 수 있도록 합니다. 브라우저가 파일 시스템 API를 지원하지 않는 경우, 로컬 폴더를 열 수는 없지만 파일을 열 수는 있습니다.
 
-### Browser support
+### 브라우저 지원 {#browser-support}
 
-You can use VS Code for the Web in the latest versions of Chrome, Edge, Firefox, and Safari. Older versions of each browser may not work - we only guarantee support for the latest version.
+웹을 위한 VS Code는 최신 버전의 Chrome, Edge, Firefox 및 Safari에서 사용할 수 있습니다. 각 브라우저의 이전 버전은 작동하지 않을 수 있으며, 최신 버전에 대한 지원만 보장합니다.
 
-> **Tip:** One way to check the compatible browser version is to look at the version of [Playright](https://playwright.dev/) currently used for testing VS Code and review its supported browser versions. You can find the currently used Playwright version in the VS Code repo's [package.json](https://github.com/microsoft/vscode/blob/main/package.json) file at `devDependencies/@playwright/test`. Once you know the Playwright version, for example `1.37`, you can then review the **Browser Versions** section in their [Release notes](https://playwright.dev/docs/release-notes).
+:::tip
+호환되는 브라우저 버전을 확인하는 한 가지 방법은 VS Code 테스트에 현재 사용되는 [Playwright](https://playwright.dev/) 버전을 확인하고 지원되는 브라우저 버전을 검토하는 것입니다. 현재 사용 중인 Playwright 버전은 VS Code Repository의 [package.json](https://github.com/microsoft/vscode/blob/main/package.json) 파일의 `devDependencies/@playwright/test`에서 확인할 수 있습니다. Playwright 버전을 알게 되면, 예를 들어 `1.37`, 해당 버전의 **Browser Versions** 섹션을 [릴리스 노트](https://playwright.dev/docs/release-notes)에서 검토할 수 있습니다.
+:::
 
-Webviews might appear differently or have some unexpected behavior in Firefox and Safari. You can view issue queries in the VS Code GitHub repo to track issues related to specific browsers, such as with the [Safari label](https://github.com/microsoft/vscode/labels/safari) and [Firefox label](https://github.com/microsoft/vscode/labels/firefox).
+웹 화면은 Firefox 및 Safari에서 다르게 나타나거나 예상치 못한 동작을 할 수 있습니다. 특정 브라우저와 관련된 문제를 추적하기 위해 VS Code GitHub Repository에서 문제 쿼리를 확인할 수 있습니다. 예를 들어 [Safari 레이블](https://github.com/microsoft/vscode/labels/safari) 및 [Firefox 레이블](https://github.com/microsoft/vscode/labels/firefox)과 관련된 문제를 확인할 수 있습니다.
 
-There are additional steps you can take to improve your browser experience using VS Code for the Web. Review the [Additional browser setup](#additional-browser-setup) section for more information.
+웹을 위한 VS Code를 사용할 때 브라우저 경험을 개선하기 위해 취할 수 있는 추가 단계가 있습니다. 추가 브라우저 설정 섹션에서 자세한 정보를 확인하세요.
 
-### Mobile support
+### 모바일 지원 {#mobile-support}
 
-You can use VS Code for the Web on mobile devices, but smaller screens may have certain limitations.
+모바일 장치에서 웹을 위한 VS Code를 사용할 수 있지만, 작은 화면에서는 특정 제한이 있을 수 있습니다.
 
-### Keyboard shortcuts
+### 키보드 단축키 {#keyboard-shortcuts}
 
-Certain keyboard shortcuts may also work differently in the web.
+일부 키보드 단축키는 웹에서 다르게 작동할 수 있습니다.
 
-| Issue                                                                                                                              | Reason                                                                                                                                                                              |
+| 문제                                                                                                                              | 이유                                                                                                                                                                              |
 | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `kb(workbench.action.showCommands)` won't launch the Command Palette in Firefox.                                                   | `kb(workbench.action.showCommands)` is reserved in Firefox. <br /> As a workaround, use `kbstyle(F1)` to launch the Command Palette.                                                |
-| `kb(workbench.action.files.newUntitledFile)` for new file doesn't work in web.                                                     | `kb(workbench.action.files.newUntitledFile)` opens a new window instead. <br /> As a workaround, you can use `kbstyle(Ctrl+Alt+N)` (`kbstyle(Cmd+Alt+N)` on macOS).                 |
-| `kb(workbench.action.closeActiveEditor)` for closing an editor doesn't work in web.                                                | `kb(workbench.action.closeActiveEditor)` closes the current tab in browsers. <br /> As a workaround, you can use `kbstyle(Ctrl+Shift+Alt+N)` (`kbstyle(Cmd+Shift+Alt+N)` on macOS). |
-| `kb(workbench.action.tasks.build)` will not toggle the favorites bar in the browser.                                               | VS Code for the Web overrides this and redirects to the "Build" menu in the Command Palette.                                                                                        |
-| `kbstyle(Alt+Left)` and `kbstyle(Alt+Right)` should navigate within the editor but may incorrectly trigger tab history navigation. | If focus is outside the editor, these shortcuts trigger tab history navigation instead.                                                                                             |
+| `kb(workbench.action.showCommands)`는 Firefox에서 명령 팔레트를 실행하지 않습니다.                                                   | `kb(workbench.action.showCommands)`는 Firefox에서 예약되어 있습니다. <br /> 해결 방법으로, `kbstyle(F1)`을 사용하여 명령 팔레트를 실행하세요.                                                |
+| 웹에서 새 파일을 위한 `kb(workbench.action.files.newUntitledFile)`가 작동하지 않습니다.                                                     | `kb(workbench.action.files.newUntitledFile)`는 대신 새 창을 엽니다. <br /> 해결 방법으로, `kbstyle(Ctrl+Alt+N)`(`kbstyle(Cmd+Alt+N)`는 macOS에서)을 사용할 수 있습니다.                 |
+| 편집기를 닫기 위한 `kb(workbench.action.closeActiveEditor)`가 웹에서 작동하지 않습니다.                                                | `kb(workbench.action.closeActiveEditor)`는 브라우저에서 현재 탭을 닫습니다. <br /> 해결 방법으로, `kbstyle(Ctrl+Shift+Alt+N)`(`kbstyle(Cmd+Shift+Alt+N)`는 macOS에서)을 사용할 수 있습니다. |
+| `kb(workbench.action.tasks.build)`는 브라우저에서 즐겨찾기 바를 전환하지 않습니다.                                               | 웹을 위한 VS Code는 이를 재정의하고 명령 팔레트의 "Build" 메뉴로 리디렉션합니다.                                                                                        |
+| `kbstyle(Alt+Left)` 및 `kbstyle(Alt+Right)`는 편집기 내에서 탐색해야 하지만 탭 기록 탐색을 잘못 트리거할 수 있습니다. | 포커스가 편집기 외부에 있을 경우, 이러한 단축키는 대신 탭 기록 탐색을 트리거합니다.                                                                                             |
 
-## Additional browser setup
+## 추가 브라우저 설정 {#additional-browser-setup}
 
-There are additional browser configuration steps you can take when working with VS Code in a browser.
+웹에서 VS Code로 작업할 때 추가 브라우저 구성 단계를 수행할 수 있습니다.
 
-### Opening new tabs and windows
+### 새 탭 및 창 열기 {#opening-new-tabs-and-windows}
 
-In certain cases, you may need to open a new tab or window while working in VS Code for the Web. VS Code might ask you for permission to access the clipboard when reading from it. Depending on your browser, you may grant access to the clipboard or otherwise allow for pop-up windows in different ways:
+특정 경우에 웹을 위한 VS Code에서 작업하는 동안 새 탭이나 창을 열어야 할 수 있습니다. VS Code는 클립보드에서 읽을 때 클립보드 접근 권한을 요청할 수 있습니다. 브라우저에 따라 클립보드 접근을 허용하거나 팝업 창을 허용하는 방법은 다음과 같습니다:
 
-- Chrome, Edge, Firefox: Search for "site permissions" in your browser's settings, or look for the following option in the address bar on the right:
+- Chrome, Edge, Firefox: 브라우저 설정에서 "사이트 권한"을 검색하거나 주소 표시줄 오른쪽에서 다음 옵션을 찾습니다:
 
-![Allow clipboard access in the browser](images/vscode-web/allow-clipboard-access.png)
+![브라우저에서 클립보드 접근 허용](images/vscode-web/allow-clipboard-access.png)
 
-- Safari: In the Safari browser, go to **Preferences...** > **Websites** > **Pop-up Windows** > the domain you're accessing (for example, `vscode.dev`), and select **Allow** from the dropdown.
+- Safari: Safari 브라우저에서 **Preferences...** > **Websites** > **Pop-up Windows** > 접근 중인 도메인(예: `vscode.dev`)으로 이동하여 드롭다운에서 **Allow**을 선택합니다.

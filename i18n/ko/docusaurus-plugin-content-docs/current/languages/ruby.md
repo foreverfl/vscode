@@ -1,48 +1,47 @@
 ---
 Order: 15
 Area: languages
-TOCTitle: Ruby
+TOCTitle: 루비
 ContentId: 33c079a7-f8d5-48fc-9d92-16be760b42ab
-PageTitle: Ruby with Visual Studio Code
+PageTitle: Visual Studio Code에서 루비 사용하기
 DateApproved: 19/09/2024
-MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Ruby.
+MetaDescription: 루비를 위한 Visual Studio Code 편집기 기능(코드 완성, 디버깅, 스니펫, 린팅)에 대해 알아보세요.
 ---
 
-# Ruby in Visual Studio Code
+# Visual Studio Code에서 루비 사용하기 {#ruby-in-visual-studio-code}
 
-[Ruby](https://www.ruby-lang.org) is a dynamic, open-source programming language known for its simplicity and productivity. With an expressive and elegant syntax, part of the Ruby philosophy is to make developers happy. It is often used for web development with a range of different frameworks, and for scripting, allowing for fast iterations when building prototypes.
+[루비](https://www.ruby-lang.org)는 단순성과 생산성으로 잘 알려진 동적 오픈 소스 프로그래밍 언어입니다. 표현력이 풍부하고 우아한 문법을 가진 루비의 철학 중 하나는 개발자를 행복하게 만드는 것입니다. 다양한 프레임워크와 함께 웹 개발에 자주 사용되며, 프로토타입을 구축할 때 빠른 반복을 가능하게 하는 스크립팅에도 사용됩니다.
 
-This topic goes into detail about setting up and using Ruby within Visual Studio Code, with the
-[Ruby LSP](https://marketplace.visualstudio.com/items?itemName=Shopify.ruby-lsp) extension.
+이 주제에서는 Visual Studio Code 내에서 루비를 설정하고 사용하는 방법에 대해 자세히 설명하며, 
+[Ruby LSP](https://marketplace.visualstudio.com/items?itemName=Shopify.ruby-lsp) 확장에 대해 다룹니다.
 
-![Ruby extension banner](images/ruby/ruby_lsp_extension.png)
+![루비 확장 배너](images/ruby/ruby_lsp_extension.png)
 
-## Installation
+## 설치 {#installation}
 
-### Install Ruby through a version manager
+### 버전 관리자를 통해 루비 설치하기 {#install-ruby-through-a-version-manager}
 
-While Ruby is installed by default on some operating systems (such as macOS and some distributions of Linux), we recommend using a version manager such as [rbenv](https://github.com/rbenv/rbenv) to be able to access newer versions of Ruby on Windows, macOS, and Linux. Follow the [installation guidance](https://github.com/rbenv/rbenv#installation) for your platform.
+루비는 일부 운영 체제(예: macOS 및 일부 리눅스 배포판)에 기본적으로 설치되어 있지만, Windows, macOS 및 리눅스에서 최신 버전의 루비에 접근할 수 있도록 [rbenv](https://github.com/rbenv/rbenv)와 같은 버전 관리자를 사용하는 것을 권장합니다. 플랫폼에 맞는 [설치 안내](https://github.com/rbenv/rbenv#installation)를 따르세요.
 
-> **Note**: As with installing any new toolset on your machine, you'll want to make sure to restart your terminal/Command Prompt and VS Code instances to use the updated toolset location in your platform's PATH variable.
+> **참고**: 새로운 도구 세트를 설치할 때와 마찬가지로, 업데이트된 도구 세트 위치를 사용하기 위해 터미널/명령 프롬프트 및 VS Code 인스턴스를 재시작해야 합니다.
 
-### Install the Ruby LSP extension in VS Code
+### VS Code에서 Ruby LSP 확장 설치하기 {#install-the-ruby-lsp-extension-in-vs-code}
 
-You can find and install the Ruby LSP extension from within VS Code via the Extensions view
-(`kb(workbench.view.extensions)`) and searching for 'Ruby LSP'.
+VS Code 내의 확장 보기(`kb(workbench.view.extensions)`)에서 'Ruby LSP'를 검색하여 Ruby LSP 확장을 찾고 설치할 수 있습니다.
 
-![Ruby LSP extension in the Extensions view](images/ruby/ruby_lsp_extensions_view.png)
+![확장 보기에서 Ruby LSP 확장](images/ruby/ruby_lsp_extensions_view.png)
 
-We'll discuss many of Ruby LSP features in this topic but you can also refer to the extension's [documentation](https://shopify.github.io/ruby-lsp) and [repository](https://github.com/Shopify/ruby-lsp).
+이 주제에서는 Ruby LSP의 여러 기능에 대해 논의하겠지만, 확장의 [문서](https://shopify.github.io/ruby-lsp)와 [저장소](https://github.com/Shopify/ruby-lsp)를 참조할 수도 있습니다.
 
-### Check your installation
+### 설치 확인하기 {#check-your-installation}
 
-After installing, check the language status item to see the status of the Ruby LSP server. If the version manager has been configured, it should display the right Ruby version for your project. The server status should display starting or running, but not error.
+설치 후, 언어 상태 항목을 확인하여 Ruby LSP 서버의 상태를 확인하세요. 버전 관리자가 구성되었다면, 프로젝트에 맞는 올바른 루비 버전이 표시되어야 합니다. 서버 상태는 시작 중이거나 실행 중으로 표시되어야 하며, 오류는 표시되지 않아야 합니다.
 
-![Ruby LSP language status center](images/ruby/ruby_lsp_status_center.png)
+![루비 LSP 언어 상태 센터](images/ruby/ruby_lsp_status_center.png)
 
-The extension generates a `.ruby-lsp` folder automatically with a custom bundle that includes the language server gem `ruby-lsp`. No configuration should be required.
+확장은 언어 서버 젬 `ruby-lsp`를 포함하는 사용자 정의 번들과 함께 `.ruby-lsp` 폴더를 자동으로 생성합니다. 별도의 구성은 필요하지 않습니다.
 
-By default, the extension tries to automatically detect the Ruby version manager you're using and use the right versions and paths accordingly. If you want to customize that behavior, set the following configuration in your user [settings](/docs/editor/settings.md):
+기본적으로 확장은 사용 중인 루비 버전 관리자를 자동으로 감지하고, 그에 맞는 버전과 경로를 사용하려고 합니다. 이 동작을 사용자 정의하려면 사용자 [설정](/docs/editor/settings.md)에서 다음 구성을 설정하세요:
 
 ```json
 {
@@ -52,31 +51,30 @@ By default, the extension tries to automatically detect the Ruby version manager
 }
 ```
 
-The extension will automatically try to update the `ruby-lsp` language server gem periodically; if you want to force that to happen, use the Command Palette (`kb(workbench.action.showCommands)`) to execute **Ruby LSP: Update language server gem**.
+확장은 주기적으로 `ruby-lsp` 언어 서버 젬을 자동으로 업데이트하려고 합니다. 이를 강제로 실행하려면 명령 팔레트(`kb(workbench.action.showCommands)`)를 사용하여 **Ruby LSP: 언어 서버 젬 업데이트**를 실행하세요.
 
-If you have any problems, see [troubleshooting](https://shopify.github.io/ruby-lsp/troubleshooting.html) for next steps.
+문제가 발생하면 [문제 해결](https://shopify.github.io/ruby-lsp/troubleshooting.html) 섹션을 참조하여 다음 단계를 확인하세요.
 
-## Main features
+## 주요 기능 {#main-features}
 
-### Navigation and IntelliSense
+### 탐색 및 IntelliSense {#navigation-and-intellisense}
 
-The Ruby LSP provides several navigation and IntelliSense related features, such as go to definition, hover, workspace
-symbol, document symbol, completion and signature help.
+Ruby LSP는 정의로 이동, 호버, 작업 공간 기호, 문서 기호, 완성 및 서명 도움말과 같은 여러 탐색 및 IntelliSense 관련 기능을 제공합니다.
 
 <video src="images/ruby/navigation.mp4" placeholder="images/ruby/navigation-placeholder.png" autoplay loop controls
-    muted title="Demo of navigation and intellisense features">
-Sorry, your browser doesn't support HTML 5 video.
+    muted title="탐색 및 IntelliSense 기능 데모">
+죄송합니다. 귀하의 브라우저는 HTML 5 비디오를 지원하지 않습니다.
 </video>
 
-To learn more about moving quickly through your source code with VS Code, check out [Code Navigation](/docs/editor/editingevolved.md).
+VS Code를 사용하여 소스 코드를 빠르게 탐색하는 방법에 대해 더 알아보려면 [코드 탐색](/docs/editor/editingevolved.md)을 확인하세요.
 
-### Inlay hints
+### 인레이 힌트 {#inlay-hints}
 
-Ruby LSP is able to display useful information about inferred or implicit values in your code. In the example below, you can see `StandardError` being shown as the implicit exception class being rescued in an empty `rescue` call.
+Ruby LSP는 코드에서 추론된 값이나 암시적 값에 대한 유용한 정보를 표시할 수 있습니다. 아래 예제에서는 빈 `rescue` 호출에서 구출되는 암시적 예외 클래스인 `StandardError`가 표시됩니다.
 
-![Ruby program with inlay hints displayed](images/ruby/ruby_lsp_inlay_hints.png)
+![인레이 힌트가 표시된 루비 프로그램](images/ruby/ruby_lsp_inlay_hints.png)
 
-While inlay hints can be helpful for understanding your code, you can also disable the feature via the **Editor > Inlay Hints: Enabled** setting (`setting(editor.inlayHints.enabled)`) or use the following to disable this feature only for Ruby LSP:
+인레이 힌트는 코드 이해에 도움이 될 수 있지만, **편집기 > 인레이 힌트: 활성화됨** 설정(`setting(editor.inlayHints.enabled)`)을 통해 이 기능을 비활성화할 수도 있으며, Ruby LSP에 대해서만 이 기능을 비활성화하려면 다음을 사용할 수 있습니다:
 
 ```json
 "rubyLsp.enabledFeatures": {
@@ -84,141 +82,136 @@ While inlay hints can be helpful for understanding your code, you can also disab
 }
 ```
 
-### Semantic syntax highlighting
+### 의미론적 구문 강조 {#semantic-syntax-highlighting}
 
-Ruby LSP is able to use [semantic syntax highlighting](https://github.com/microsoft/vscode/wiki/Semantic-Highlighting-Overview) and styling due to its rich understanding of a project source code.
+Ruby LSP는 프로젝트 소스 코드에 대한 풍부한 이해 덕분에 [의미론적 구문 강조](https://github.com/microsoft/vscode/wiki/Semantic-Highlighting-Overview) 및 스타일링을 사용할 수 있습니다.
 
-For example, it can highlight:
+예를 들어, 다음과 같은 강조가 가능합니다:
 
-- Method invocations consistently, without confusing it with local variables.
-- Local arguments (such as method, block or lambda arguments) consistently inside the scope in which they exist.
+- 메서드 호출을 일관되게 강조하며, 로컬 변수와 혼동되지 않도록 합니다.
+- 로컬 인수(메서드, 블록 또는 람다 인수 등)를 존재하는 범위 내에서 일관되게 강조합니다.
 
-![Ruby LSP semantic highlighting](images/ruby/ruby_lsp_semantic_highlighting.png)
+![루비 LSP 의미론적 강조](images/ruby/ruby_lsp_semantic_highlighting.png)
 
-> **Note**: This screenshot is using the Spinel theme included in the [Ruby extension pack](https://marketplace.visualstudio.com/items?itemName=Shopify.ruby-extensions-pack). Themes must use the information surfaced by the Ruby LSP in order to provide rich highlighting for Ruby files.
+> **참고**: 이 스크린샷은 [루비 확장 팩](https://marketplace.visualstudio.com/items?itemName=Shopify.ruby-extensions-pack)에 포함된 Spinel 테마를 사용하고 있습니다. 테마는 루비 파일에 대한 풍부한 강조를 제공하기 위해 Ruby LSP에서 제공하는 정보를 사용해야 합니다.
 
-To use this feature, the editor must have semantic highlighting enabled.
+이 기능을 사용하려면 편집기에서 의미론적 강조가 활성화되어 있어야 합니다.
 
 ```json
 "editor.semanticHighlighting.enabled": true,
 ```
 
-### Linting and formatting
+### 린팅 및 포맷팅 {#linting-and-formatting}
 
-By default, Ruby LSP provides linting and formatting through an integration with [RuboCop](https://github.com/rubocop/rubocop). You can format your Ruby file using `kb(editor.action.formatDocument)` or by running the **Format Document** command from the Command Palette (`kb(workbench.action.showCommands)`) or the context menu in the editor.
+기본적으로 Ruby LSP는 [RuboCop](https://github.com/rubocop/rubocop)와의 통합을 통해 린팅 및 포맷팅을 제공합니다. `kb(editor.action.formatDocument)`를 사용하거나 명령 팔레트(`kb(workbench.action.showCommands)`) 또는 편집기에서의 컨텍스트 메뉴를 통해 **문서 포맷** 명령을 실행하여 루비 파일을 포맷할 수 있습니다.
 
-If your project does not use RuboCop, the Ruby LSP will format files using [SyntaxTree](https://ruby-syntax-tree.github.io/syntax_tree).
+프로젝트에서 RuboCop을 사용하지 않는 경우, Ruby LSP는 [SyntaxTree](https://ruby-syntax-tree.github.io/syntax_tree)를 사용하여 파일을 포맷합니다.
 
-![Linting a Ruby file](images/ruby/ruby_lsp_linting.png)
+![루비 파일 린팅](images/ruby/ruby_lsp_linting.png)
 
-You can also run the formatter on each save (**Editor: Format On Save**) to keep your Ruby code properly formatted automatically while you are working. To do that, you must enable format on save.
+작업 중에 루비 코드가 자동으로 올바르게 포맷되도록 하려면 각 저장 시 포맷터를 실행할 수 있습니다(**편집기: 저장 시 포맷**). 이를 위해 저장 시 포맷을 활성화해야 합니다.
 
 ```json
 "editor.formatOnSave": true
 ```
 
-The Ruby LSP extension also provides some convenient completions using format on type. For example, it will auto-continue comment lines and auto-close `end` tokens, pipes, or string interpolation curly braces. To use format on type, make sure it's enabled in the editor with:
+Ruby LSP 확장은 타입에 따른 포맷팅을 사용하여 몇 가지 편리한 완성을 제공합니다. 예를 들어, 주석 줄을 자동으로 계속 작성하고 `end` 토큰, 파이프 또는 문자열 보간 중괄호를 자동으로 닫습니다. 타입에 따른 포맷팅을 사용하려면 편집기에서 활성화되어 있어야 합니다:
 
 ```json
 "editor.formatOnType": true
 ```
 
-### Quick Fixes
+### 빠른 수정 {#quick-fixes}
 
-When the linter finds errors and warnings in your source code, Ruby LSP can often provide suggested Quick Fixes (also called Code Actions), which are available via a light bulb hover in the editor. You can quickly open available Quick Fixes via the `kb(editor.action.quickFix)`.
+린터가 소스 코드에서 오류와 경고를 발견하면, Ruby LSP는 종종 제안된 빠른 수정(코드 작업이라고도 함)을 제공할 수 있으며, 이는 편집기에서 전구 호버를 통해 사용할 수 있습니다. 사용 가능한 빠른 수정을 빠르게 열려면 `kb(editor.action.quickFix)`를 사용하세요.
 
-![Quick Fixes for linting violations](images/ruby/ruby_lsp_quickfix.png)
+![린팅 위반에 대한 빠른 수정](images/ruby/ruby_lsp_quickfix.png)
 
-Additionally, **Code Action Widget: Include Nearby Quick Fixes** (`setting(editor.codeActionWidget.includeNearbyQuickFixes)`) is a setting that is enabled on default, which will activate the nearest Quick Fix in a line from `kb(editor.action.quickFix)` (command ID `editor.action.quickFix`), no matter where your cursor is in that line.
+또한, **코드 작업 위젯: 인근 빠른 수정 포함**(`setting(editor.codeActionWidget.includeNearbyQuickFixes)`) 설정은 기본적으로 활성화되어 있으며, 이는 `kb(editor.action.quickFix)`(명령 ID `editor.action.quickFix`)에서 가장 가까운 빠른 수정을 활성화합니다. 커서가 해당 줄의 어디에 있든 상관없이 적용됩니다.
 
-The command highlights the source code that will be refactored or fixed with Quick Fixes. Normal Code Actions and non-fix refactorings can still be activated at the cursor location.
+이 명령은 빠른 수정으로 리팩토링되거나 수정될 소스 코드를 강조합니다. 일반 코드 작업 및 비수정 리팩토링은 여전히 커서 위치에서 활성화할 수 있습니다.
 
-### Refactoring
+### 리팩토링 {#refactoring}
 
-In addition to Quick Fixes, the Ruby LSP also provides refactor options through Code Actions. For example, it can extract a Ruby expression into a local variable with a single click.
+빠른 수정 외에도 Ruby LSP는 코드 작업을 통해 리팩토링 옵션을 제공합니다. 예를 들어, 클릭 한 번으로 루비 표현식을 로컬 변수로 추출할 수 있습니다.
 
-![Refactor extract to variable](images/ruby/ruby_lsp_refactor.png)
+![변수로 추출 리팩토링](images/ruby/ruby_lsp_refactor.png)
 
-## Debugging
+## 디버깅 {#debugging}
 
-The Ruby LSP extension supports debugging using the debug gem (Ruby's official debugger). Alternatively, developers can
-also install the [VS Code RDBG](https://marketplace.visualstudio.com/items?itemName=KoichiSasada.vscode-rdbg) extension
-to get debugging functionality.
+Ruby LSP 확장은 디버그 젬(루비의 공식 디버거)을 사용하여 디버깅을 지원합니다. 또는 개발자는 [VS Code RDBG](https://marketplace.visualstudio.com/items?itemName=KoichiSasada.vscode-rdbg) 확장을 설치하여 디버깅 기능을 얻을 수도 있습니다.
 
-The following documentation is for the Ruby LSP's debugger client. Please refer to [RDBG's README](https://github.com/ruby/vscode-rdbg)
-for instructions on how to configure it.
+다음 문서는 Ruby LSP의 디버거 클라이언트에 대한 것입니다. 구성 방법에 대한 지침은 [RDBG의 README](https://github.com/ruby/vscode-rdbg)를 참조하세요.
 
-### Debugging tests
+### 테스트 디버깅 {#debugging-tests}
 
-The Ruby LSP adds CodeLens buttons on top of unit tests that enable you to run examples in the Test Explorer, run them
-in a new terminal or launch the debugger. For these uses, no configuration is required.
+Ruby LSP는 테스트 탐색기에서 예제를 실행하거나 새 터미널에서 실행하거나 디버거를 시작할 수 있는 단위 테스트 위에 CodeLens 버튼을 추가합니다. 이러한 용도에는 구성할 필요가 없습니다.
 
-![Test running code lenses](images/ruby/ruby_lsp_code_lens.png)
+![테스트 실행 코드 렌즈](images/ruby/ruby_lsp_code_lens.png)
 
-### Debugging through launch tasks
+### 시작 작업을 통한 디버깅 {#debugging-through-launch-tasks}
 
-To use the debugger through launch tasks, you will need to create [debugging configurations](/docs/editor/debugging-configuration.md#launch-configurations)
-in a `launch.json` file. The configuration lets you configure the program to be executed.
+시작 작업을 통해 디버거를 사용하려면 `launch.json` 파일에 [디버깅 구성](/docs/editor/debugging-configuration.md#launch-configurations)을 생성해야 합니다. 이 구성은 실행할 프로그램을 구성할 수 있게 해줍니다.
 
-To create a `launch.json` for a Ruby program:
+루비 프로그램을 위한 `launch.json`을 생성하려면:
 
-1. In the Debug view (`kb(workbench.view.debug)`), select the **create a launch.json file** link.
-2. This displays a dropdown with several default launch configuration types. You can pick the first option, but we'll add more configurations.
-3. We can now edit the created `.vscode/launch.json` file to add more ways to launch your Ruby program for debugging.
+1. 디버그 보기(`kb(workbench.view.debug)`)에서 **launch.json 파일 생성** 링크를 선택합니다.
+2. 여러 기본 시작 구성 유형이 포함된 드롭다운이 표시됩니다. 첫 번째 옵션을 선택할 수 있지만, 더 많은 구성을 추가할 것입니다.
+3. 이제 생성된 `.vscode/launch.json` 파일을 편집하여 디버깅을 위한 루비 프로그램을 시작하는 방법을 추가할 수 있습니다.
 
-Example:
+예시:
 
 ```json
 {
     "version": "0.2.0",
     "configurations": [
-        // Launch the debugger for any given program. In this case, it will run the current file using Ruby
+        // 주어진 프로그램에 대한 디버거를 시작합니다. 이 경우 현재 파일을 루비로 실행합니다.
         {
             "type": "ruby_lsp",
-            "name": "Debug",
+            "name": "디버그",
             "request": "launch",
             "program": "ruby $\{file\}
 ",
         },
-        // Launch the debugger for the current test file
+        // 현재 테스트 파일에 대한 디버거를 시작합니다.
         {
             "type": "ruby_lsp",
             "request": "launch",
-            "name": "Debug test file",
+            "name": "테스트 파일 디버그",
             "program": "ruby -Itest $\{relativeFile\}
 "
         },
-        // Attach the debugger client to an existing Ruby process that has already been launched with the debugger
-        // server
+        // 이미 디버거 서버로 시작된 기존 루비 프로세스에 디버거 클라이언트를 연결합니다.
         {
             "type": "ruby_lsp",
             "request": "attach",
-            "name": "Attach to existing server",
+            "name": "기존 서버에 연결",
         }
     ]
 }
 ```
 
-After adding the launch configurations, we can debug Ruby programs by adding breakpoints and executing our launch tasks.
+시작 구성을 추가한 후, 중단점을 추가하고 시작 작업을 실행하여 루비 프로그램을 디버깅할 수 있습니다.
 
-1. Open a Ruby file and click the left gutter in the editor to set a break point. It should display as a red dot.
+1. 루비 파일을 열고 편집기에서 왼쪽 여백을 클릭하여 중단점을 설정합니다. 빨간 점으로 표시되어야 합니다.
 
-   ![Red breakpoint dot in the left gutter of the editor](images/ruby/ruby_lsp_breakpoint.png)
+   ![편집기 왼쪽 여백의 빨간 중단점 점](images/ruby/ruby_lsp_breakpoint.png)
 
-2. Start debugging by selecting the desired task under **Run and Debug** and clicking the start debugging button (default keyboard shortcut `kb(workbench.action.debug.start)`).
+2. **실행 및 디버그**에서 원하는 작업을 선택하고 디버깅 시작 버튼(기본 키보드 단축키 `kb(workbench.action.debug.start)`)을 클릭하여 디버깅을 시작합니다.
 
-   ![Debug session stopped at breakpoint](images/ruby/ruby_lsp_debugging_session.png)
+   ![중단점에서 중지된 디버그 세션](images/ruby/ruby_lsp_debugging_session.png)
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-This has been a brief overview showing the Ruby LSP extension features within VS Code. For more information, see the details provided in the Ruby LSP [documentation](https://shopify.github.io/ruby-lsp), including how to tune specific [VS Code editor](https://github.com/Shopify/ruby-lsp/blob/main/vscode/README.md) configurations.
+이 문서는 Visual Studio Code 내에서 Ruby LSP 확장 기능을 간략하게 소개했습니다. 더 많은 정보는 Ruby LSP [문서](https://shopify.github.io/ruby-lsp)에서 제공되는 세부 정보를 참조하세요. 여기에는 특정 [VS Code 편집기](https://github.com/Shopify/ruby-lsp/blob/main/vscode/README.md) 구성을 조정하는 방법도 포함되어 있습니다.
 
-To stay up to date on the latest features/bug fixes for the Ruby LSP extension, see the Releases page for the [monorepo](https://github.com/Shopify/ruby-lsp/releases), which includes both the server and VS Code extension implementations.
+Ruby LSP 확장의 최신 기능 및 버그 수정에 대한 정보를 얻으려면 서버 및 VS Code 확장 구현을 포함하는 [모노레포](https://github.com/Shopify/ruby-lsp/releases)의 릴리스 페이지를 확인하세요.
 
-If you have any issues or feature requests, feel free to log them in the Ruby LSP's [GitHub repo](https://github.com/Shopify/ruby-lsp/issues).
+문제나 기능 요청이 있는 경우, Ruby LSP의 [GitHub 저장소](https://github.com/Shopify/ruby-lsp/issues)에 자유롭게 기록하세요.
 
-If you'd like to learn more about VS Code, try these topics:
+VS Code에 대해 더 배우고 싶다면 다음 주제를 시도해 보세요:
 
-- [Basic Editing](/docs/editor/codebasics.md) - A quick introduction to the basics of the VS Code editor.
-- [Install an Extension](/docs/editor/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
-- [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+- [기본 편집](/docs/editor/codebasics.md) - VS Code 편집기의 기본 사항에 대한 간단한 소개입니다.
+- [확장 설치하기](/docs/editor/extension-marketplace.md) - [마켓플레이스](https://marketplace.visualstudio.com/vscode)에서 사용할 수 있는 다른 확장에 대해 알아보세요.
+- [코드 탐색](/docs/editor/editingevolved.md) - 소스 코드를 빠르게 탐색하세요.
+---

@@ -1,42 +1,44 @@
 ---
 Order: 4
 Area: intelligentapps
-TOCTitle: Bulk Run
+TOCTitle: 일괄 실행
 ContentId: 1124d141-e893-4780-aba7-b6ca13628bc5
-PageTitle: Bulk Run Prompts
+PageTitle: 일괄 실행 프롬프트
 DateApproved: 12/11/2024
-MetaDescription: Run a set of prompts in an imported dataset, individually or in a full batch towards the selected genAI models and parameters.
+MetaDescription: 선택한 genAI 모델과 매개변수에 대해 가져온 데이터 세트에서 프롬프트 집합을 개별적으로 또는 전체 배치로 실행합니다.
+sidebar_label: 일괄 실행
 ---
 
-# Run multiple prompts in bulk
+# 여러 프롬프트를 한 번에 실행하기 {#run-multiple-prompts-in-bulk}
 
-The bulk run feature in AI Toolkit enables you to run multiple prompts in batch. When you use the playground, you can only run one prompt manually at a time, in the order they're listed.
+AI Toolkit의 일괄 실행 기능을 사용하면 여러 프롬프트를 배치로 실행할 수 있습니다. 플레이그라운드를 사용할 때는 나열된 순서대로 한 번에 하나의 프롬프트만 수동으로 실행할 수 있습니다.
 
-Bulk run takes a dataset as input, where each row in the dataset has at least a prompt. Typically, the dataset has multiple rows. Once imported, you can select one or more prompts to run on the selected model. The responses are then displayed in the same dataset view. The results from running the dataset can be exported.
+일괄 실행은 데이터 세트를 입력으로 사용하며, 데이터 세트의 각 행에는 최소한 하나의 프롬프트가 포함되어 있습니다. 일반적으로 데이터 세트는 여러 행으로 구성됩니다. 데이터 세트를 가져온 후, 선택한 모델에서 실행할 하나 이상의 프롬프트를 선택할 수 있습니다. 그런 다음 응답은 동일한 데이터 세트 보기에서 표시됩니다. 데이터 세트를 실행한 결과는 내보낼 수 있습니다.
 
-## Start a bulk run
+## 일괄 실행 시작하기 {#start-a-bulk-run}
 
-1. In the AI Toolkit view, select **TOOLS** > **Bulk Run** to open the Bulk Run view
+1. AI Toolkit 보기에서 **TOOLS** > **Bulk Run**을 선택하여 일괄 실행 보기를 엽니다.
 
-1. Select either a sample dataset or import a local [JSONL](https://jsonlines.org/) file with chat prompts
+1. 샘플 데이터 세트를 선택하거나 채팅 프롬프트가 포함된 로컬 [JSONL](https://jsonlines.org/) 파일을 가져옵니다.
 
-    The JSONL file needs to have a `query` field to represent a prompt.
+    JSONL 파일에는 프롬프트를 나타내는 `query` 필드가 필요합니다.
 
-1. Once the dataset is loaded, select **Run** or **Rerun** on any prompt to run a single prompt.
+1. 데이터 세트가 로드되면, 실행할 프롬프트에서 **Run** 또는 **Rerun**을 선택하여 단일 프롬프트를 실행합니다.
 
-    Similar to testing a model in the playground, select a model, add context for your prompt, and change inference parameters.
+    플레이그라운드에서 모델을 테스트하는 것과 유사하게, 모델을 선택하고 프롬프트에 대한 컨텍스트를 추가하며 추론 매개변수를 변경합니다.
 
-    ![Bulk run prompts](./images/bulkrun/bulkrun_one.png)
+    ![일괄 실행 프롬프트](./images/bulkrun/bulkrun_one.png)
 
-1. Select **Run all** to automatically run through all queries.
+1. **Run all**을 선택하여 모든 요청을 자동으로 실행합니다.
 
-    The model responses are shown in the **response** column.
+    모델 응답은 **response** 열에 표시됩니다.
 
-    ![Run all](./images/bulkrun/runall.png)
+    ![모두 실행](./images/bulkrun/runall.png)
 
-    > [!TIP]
-    > There is an option to only run the remaining queries that have not yet been run.
+    :::tip
+    아직 실행되지 않은 나머지 요청만 실행하는 옵션이 있습니다.
+    :::
 
-1. Select the **Export** button to export the results to a JSONL format
+1. **Export** 버튼을 선택하여 결과를 JSONL 형식으로 내보냅니다.
 
-1. Select **Import** to import another dataset in JSONL format for the bulk run
+1. **Import**를 선택하여 일괄 실행을 위한 다른 JSONL 형식의 데이터 세트를 가져옵니다.

@@ -1,304 +1,309 @@
 ---
-Order: 3
-Area: editor
-TOCTitle: Extension Marketplace
-ContentId: 319916C4-93F2-471F-B448-FD416736C40C
-PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 03/05/2025
-MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
+Order: 3  
+Area: editor  
+TOCTitle: 확장 프로그램 프로그램
+ContentId: 319916C4-93F2-471F-B448-FD416736C40C  
+PageTitle: Visual Studio Code에서 확장 프로그램 관리하기  
+DateApproved: 2025/03/05  
+MetaDescription: Visual Studio Code 확장(플러그인)을 확장 프로그램을 마켓플레이스를 통해 검색, 추가, 업데이트, 비활성화 및 제거하는 방법을 알아보세요.  
+sitebar_label: 확장 프로그램
 ---
-# Extension Marketplace
 
-The features that Visual Studio Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. VS Code's rich extensibility model lets extension authors plug directly into the VS Code UI and contribute functionality through the same APIs used by VS Code.  This article explains how to find, install, and manage VS Code extensions from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/VSCode).
+# 확장 마켓플레이스 {#extension-marketplace}
 
-## Browse for extensions
+Visual Studio Code에 기본적으로 포함된 기능은 시작에 불과합니다. VS Code 확장을 통해 언어, 디버거 및 도구를 설치하여 개발 작업을 지원할 수 있습니다. VS Code의 풍부한 확장 프로그램 환경은 확장 프로그램 개발자가 VS Code UI에 직접 연결하고 VS Code에서 사용하는 동일한 API를 통해 기능을 기여할 수 있도록 합니다. 이 문서에서는 [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/VSCode)에서 VS Code 확장을 찾고, 설치하고, 관리하는 방법을 설명합니다.
 
-You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the **Activity Bar** on the side of VS Code or the **View: Extensions** command (`kb(workbench.view.extensions)`).
+## 확장 검색 {#browse-for-extensions}
 
-![Extensions view icon](images/extension-marketplace/extensions-view-icon.png)
+VS Code 내에서 확장을 검색하고 설치할 수 있습니다. VS Code의 **Activity Bar**에서 확장 아이콘을 클릭하거나 **View: Extensions** 명령(`kb(workbench.view.extensions)`)을 사용하여 확장 보기를 열 수 있습니다.
 
-This will show you a list of the most popular VS Code extensions on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode).
+![확장 보기 아이콘](images/extension-marketplace/extensions-view-icon.png)
 
-![popular extensions](images/extension-marketplace/extensions-popular.png)
+이렇게 하면 [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode)에서 가장 인기 있는 VS Code 확장 프로그램 목록이 표시됩니다.
 
-Each extension in the list includes a brief description, the publisher, the download count, and a five star rating. You can select the extension item to display the extension's details page where you can learn more.
+![인기 있는 확장](images/extension-marketplace/extensions-popular.png)
 
-> [!NOTE]
-> If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy server support](/docs/setup/network.md#proxy-server-support) for details.
+목록에는 간단한 설명, 게시자, 다운로드 수 및 별 5개를 만점으로 하는 평가가 포함되어 있습니다. 확장 프로그램을 선택하면 확장 프로그램 세부 페이지가 표시되어 더 많은 정보를 확인할 수 있습니다.
 
-## Install an extension
+:::note
+컴퓨터의 인터넷 접근이 프록시 서버를 통해 이루어지는 경우, 프록시 서버를 구성해야 합니다. 자세한 내용은 [프록시 서버 지원](/docs/setup/network.md#proxy-server-support)을 참조하세요.
+:::
 
-To install an extension, select the **Install** button. Once the installation is complete, the **Install** button will change to the **Manage** gear button.
+## 확장 프로그램 설치 {#install-an-extension}
 
-> [!IMPORTANT]
-> Extensions have the same permissions as VS Code itself. As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the extension publisher. Get more information about [extension runtime security](/docs/editor/extension-runtime-security.md) and how to protect yourself from malicious extensions.
+확장을 설치하려면 **Install** 버튼을 선택합니다. 설치가 완료되면 **Install** 버튼이 **Manage** 톱니 바퀴 버튼으로 변경됩니다.
 
-If you want to install a specific version of an extension, right-click the extension and select **Install Another Version**. You can then select a version from the available list.
+:::important
+> 확장 프로그램은 VS Code 자체와 동일한 권한을 가집니다. VS Code 버전 1.97부터 타사 게시자로부터 확장 프로그램을 처음 설치할 때, VS Code는 확장 프로그램의 게시자를 신뢰하는지 확인하는 대화 상자를 표시합니다. [확장 프로그램 런타임 보안](/docs/editor/extension-runtime-security.md) 및 악성 확장 프로그램에서 자신을 보호하는 방법에 대한 자세한 정보를 확인하세요.
+:::
 
-When [Settings Sync](/docs/editor/settings-sync.md) is enabled, you can share your VS Code configurations, such as extensions, across your machines. To install an extension and not sync it across your machines, right-click the extension and select **Install (Do not Sync)**.
+특정 버전의 확장을 설치하려면 확장을 마우스 오른쪽 버튼으로 클릭하고 **Install Another Version**를 선택합니다. 그러면 사용 가능한 목록에서 버전을 선택할 수 있습니다.
 
-### Find and install an extension
+[설정 동기화](/docs/editor/settings-sync.md)가 활성화된 경우, 확장과 같은 VS Code 구성을 여러 기기에서 공유할 수 있습니다. 확장을 설치하고 기기 간에 동기화하지 않으려면 확장을 마우스 오른쪽 버튼으로 클릭하고 **Install (Do not Sync)**을 선택합니다.
 
-For example, let's install the popular [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight) extension. This extension highlights text like 'TODO:' and 'FIXME:' in your source code so you can quickly find undone sections.
+### 확장 프로그램 찾기 및 설치 {#find-and-install-an-extension}
 
-![TODO Highlight extension highlighting in the editor](images/extension-marketplace/todo-highlighting.png)
+예를 들어, 인기 있는 [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight) 확장 프로그램을 설치해 보겠습니다. 이 확장 프로그램은 소스 코드에서 'TODO:' 및 'FIXME:'와 같은 텍스트를 강조 표시하여 완료되지 않은 섹션을 빠르게 찾을 수 있도록 합니다.
 
-In the Extensions view (`kb(workbench.view.extensions)`), type 'todo' in the search box to filter the Marketplace offerings to extensions with 'todo' in the title or metadata. You should see the **TODO Highlight** extension in the list.
+![편집기에서 강조 표시된 TODO Highlight 확장 프로그램](images/extension-marketplace/todo-highlighting.png)
 
-![Search for todo in the Extensions view](images/extension-marketplace/search-for-todo-extension.png)
+확장 프로그램 보기(`kb(workbench.view.extensions)`)에서 검색 상자에 'todo'를 입력하여 제목이나 메타데이터에 'todo'가 포함된 확장 프로그램으로 마켓플레이스 제공 항목을 필터링합니다. 목록에서 **TODO Highlight** 확장 프로그램을 확인할 수 있습니다.
 
-An extension is uniquely identified by its publisher and extension IDs. If you select the **TODO Highlight** extension, you will see the Extension details page, where you can find the extension ID, in this case, `wayou.vscode-todo-highlight`. Knowing the extension ID can be helpful if there are several similarly named extensions.
+![확장 프로그램 보기에서 todo 검색](images/extension-marketplace/search-for-todo-extension.png)
 
-![TODO Highlight extension details with extension ID highlighted](images/extension-marketplace/todo-highlight-details.png)
+확장 프로그램은 게시자 및 확장 프로그램 ID로 고유하게 식별됩니다. **TODO Highlight** 확장 프로그램을 선택하면 확장 프로그램 세부 정보 페이지가 표시되며, 여기에서 확장 프로그램 ID인 `wayou.vscode-todo-highlight`를 찾을 수 있습니다. 확장 프로그램 ID를 아는 것은 비슷한 이름의 확장 프로그램이 여러 개 있을 경우 유용할 수 있습니다.
 
-Select the **Install** button, and VS Code will download and install the extension from the Marketplace. When the installation is complete, the **Install** button will be replaced with a **Manage** gear button.
+![확장 프로그램 ID가 강조 표시된 TODO Highlight 확장 프로그램 세부 정보](images/extension-marketplace/todo-highlight-details.png)
 
-![Manage gear button](images/extension-marketplace/manage-button.png)
+**Install** 버튼을 선택하면 VS Code가 마켓플레이스에서 확장 프로그램을 다운로드하고 설치합니다. 설치가 완료되면 **Install** 버튼이 **Manage** 톱니 바퀴 버튼으로 바뀝니다.
 
-To see the TODO Highlight extension in action, open any source code file and add the text 'TODO:' and you will see the text highlighted.
+![관리 톱니 바퀴 버튼](images/extension-marketplace/manage-button.png)
 
-The TODO Highlight extension contributes the commands, **TODO-Highlight: List highlighted annotations** and **TODO-Highlight: Toggle highlight**, that you can find in the Command Palette (`kb(workbench.action.showCommands)`). The **TODO-Highlight: Toggle highlight** command lets you quickly disable or enable highlighting.
+TODO Highlight 확장 프로그램을 사용해 보려면 아무 소스 코드 파일을 열고 'TODO:'라는 텍스트를 추가하면 텍스트가 강조 표시되는 것을 볼 수 있습니다.
 
-![TODO Highlight commands in the Command Palette](images/extension-marketplace/todo-highlight-commands.png)
+TODO Highlight 확장 프로그램은 **TODO-Highlight: List highlighted annotations** 및 ***TODO-Highlight: Toggle highlight** 명령을 제공하며, 이 명령은 명령 팔레트(`kb(workbench.action.showCommands)`)에서 찾을 수 있습니다. **TODO-Highlight: Toggle highlight** 명령을 사용하면 강조 표시를 빠르게 비활성화하거나 활성화할 수 있습니다.
 
-The extension also provides settings for tuning its behavior, which you can find in the Settings editor (`kb(workbench.action.openSettings)`). For example, you might want the text search to be case insensitive and you can uncheck the **Todohighlight: Is Case Sensitive** setting.
+![명령 팔레트에서 TODO Highlight 명령](images/extension-marketplace/todo-highlight-commands.png)
 
-![TODO Highlight settings in the Settings editor](images/extension-marketplace/todo-highlight-settings.png)
+이 확장 프로그램은 동작 조정을 위한 설정도 제공하며, 이 설정은 설정 편집기(`kb(workbench.action.openSettings)`)에서 찾을 수 있습니다. 예를 들어, 텍스트 검색을 대소문자 구분 없이 하려면 **Todohighlight: Is Case Sensitive** 설정의 선택을 해제할 수 있습니다.
 
-If an extension doesn't provide the functionality you want, you can always **Uninstall** the extension from the **Manage** button context menu.
+![설정 편집기에서 TODO Highlight 설정](images/extension-marketplace/todo-highlight-settings.png)
 
-![Uninstall the TODO Highlight extension](images/extension-marketplace/todo-highlight-uninstall.png)
+원하는 기능을 제공하지 않는 확장 프로그램은 **Manage** 버튼의 컨텍스트 메뉴에서 **Uninstall**를 선택하여 언제든지 제거할 수 있습니다.
 
-This has been just one example of how to install and use an extension. The VS Code Marketplace has thousands of extensions supporting hundreds of programming languages and tasks. Everything from full featured language support for [Java](https://marketplace.visualstudio.com/items?itemName=redhat.java), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go), and [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to simple extensions that [create GUIDs](https://marketplace.visualstudio.com/items?itemName=nwallace.createGUID), change the [color theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme), or add [virtual pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets) to the editor.
+![TODO Highlight 확장 프로그램 제거](images/extension-marketplace/todo-highlight-uninstall.png)
 
-### Extension details
+이것은 확장 프로그램을 설치하고 사용하는 방법의 한 가지 사례에 불과합니다. VS Code 마켓플레이스에는 수백 개의 프로그래밍 언어와 작업을 지원하는 수천 개의 확장 프로그램이 있습니다. [Java](https://marketplace.visualstudio.com/items?itemName=redhat.java), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go), [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)와 같은 완전한 언어 지원부터 [GUID 생성](https://marketplace.visualstudio.com/items?itemName=nwallace.createGUID), [색상 테마 변경](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme), 또는 편집기에 [가상 애완동물 추가](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets)와 같은 간단한 확장 프로그램까지 다양합니다.
 
-On the extension details page, you can read the extension's README and review the extension's:
+### 확장 프로그램 세부 정보 {#extension-details}
 
-* **Feature Contributions** - The extension's additions to VS Code such as settings, commands and keyboard shortcuts, language grammars, debugger, etc.
-* **Changelog** - The extension repository CHANGELOG if available.
-* **Dependencies** - Lists if the extension depends on any other extensions.
+확장 프로그램 세부 정보 페이지에서는 확장 프로그램의 README를 읽고 확장 프로그램의 다음 내용을 검토할 수 있습니다:
 
-![extension contributions](images/extension-marketplace/extension-contributions.png)
+* **기능 기여** - 설정, 명령 및 키보드 단축키, 언어 문법, 디버거 등 VS Code에 추가된 확장 프로그램 기능.
+* **변경 로그** - 사용 가능한 경우 확장 프로그램 리포지토리의 CHANGELOG.
+* **종속성** - 확장 프로그램이 다른 확장 프로그램에 의존하는지 여부.
 
-If an extension is an Extension Pack, the **Extension Pack** section will display which extensions will be installed when you install the pack. [Extension Packs](/api/references/extension-manifest.md#extension-packs) bundle separate extensions together so they can be easily installed at one time.
+![확장 프로그램 기여](images/extension-marketplace/extension-contributions.png)
 
-![Azure Tools extension pack](images/extension-marketplace/extension-pack.png)
+확장 프로그램이 확장 프로그램 팩인 경우, **Extension Pack** 섹션에는 팩을 설치할 때 설치될 확장 프로그램이 표시됩니다. [확장 프로그램 팩](/api/references/extension-manifest.md#extension-packs)은 별도의 확장 프로그램을 함께 묶어 한 번에 쉽게 설치할 수 있도록 합니다.
 
-### Extensions view filter and commands
+![Azure Tools 확장 프로그램 팩](images/extension-marketplace/extension-pack.png)
 
-You can filter the Extensions view with the **Filter Extensions** context menu.
+### 확장 프로그램 보기 필터 및 명령 {#extensions-view-filter-and-commands}
 
-![Extensions view filter context menu](images/extension-marketplace/extensions-view-filter-menu.png)
+**Filter Extensions** 컨텍스트 메뉴를 사용하여 확장 프로그램 보기를 필터링할 수 있습니다.
 
-There are filters to show:
+![확장 프로그램 보기 필터 컨텍스트 메뉴](images/extension-marketplace/extensions-view-filter-menu.png)
 
-* The list of outdated extensions that can be updated
-* The list of currently enabled/disabled extensions
-* The list of recommended extensions based on your workspace
-* The list of globally popular extensions
+다음과 같은 필터가 있습니다:
 
-You can sort the extension list by **Install Count**, **Rating**, **Name**, **Published Date**, or **Updated Date** in either ascending or descending order. You can learn more about extension search filters [below](#extensions-view-filters).
+* 업데이트할 수 있는 오래된 확장 프로그램 목록
+* 현재 활성화/비활성화된 확장 프로그램 목록
+* 작업 공간에 따라 추천된 확장 프로그램 목록
+* 전 세계적으로 인기 있는 확장 프로그램 목록
 
-You can run additional Extensions view commands via the `...` **View and More Actions** button.
+확장 프로그램 목록은 **설치 Install Coun**, ***Rating**, **Name**, **Published Date** 또는 **Updated Date**에 따라 오름차순 또는 내림차순으로 정렬할 수 있습니다. 확장 프로그램 검색 필터에 대한 자세한 내용은 [아래](#extensions-view-filters)를 참조하세요.
 
-![more button](images/extension-marketplace/more-button.png)
+`...`  **View and More Actions** 버튼을 통해 추가 확장 프로그램 보기 명령을 실행할 수 있습니다.
 
-Through this context menu you can control extension updates, enable or disable all extensions, and use the [Extension Bisect](https://code.visualstudio.com/blogs/2021/02/16/extension-bisect) utility to isolate problematic extension behavior.
+![더 보기 버튼](images/extension-marketplace/more-button.png)
 
-### Search for an extension
+이 컨텍스트 메뉴를 통해 확장 프로그램 업데이트를 관리하고, 모든 확장 프로그램을 활성화 또는 비활성화하며, 문제 있는 확장 프로그램 동작을 격리하기 위해 [Extension Bisect](https://code.visualstudio.com/blogs/2021/02/16/extension-bisect) 유틸리티를 사용할 수 있습니다.
 
-You can clear the Search box at the top of the Extensions view and type in the name of the extension, tool, or programming language you're looking for.
+### 확장 프로그램 검색 {#search-for-an-extension}
 
-For example, typing 'python' will bring up a list of Python language extensions:
+확장 프로그램 보기 상단의 검색 상자를 지우고 찾고 있는 확장 프로그램, 도구 또는 프로그래밍 언어의 이름을 입력할 수 있습니다.
 
-![python extensions](images/extension-marketplace/extensions-python.png)
+예를 들어, 'python'을 입력하면 Python 언어 확장 프로그램 목록이 표시됩니다:
 
-If you know the exact identifier for an extension you're looking for, you can use the `@id:` prefix, for example `@id:vue.volar`. Additionally, to filter or sort results, you can use the [filter](#extensions-view-filters) and [sort](#sorting) commands, detailed below.
+![python 확장 프로그램](images/extension-marketplace/extensions-python.png)
 
-### Install a pre-release extension version
+찾고 있는 확장 프로그램의 정확한 식별자를 알고 있다면 `@id:` 접두사를 사용할 수 있습니다. 예를 들어 `@id:vue.volar`와 같이 사용할 수 있습니다. 또한 결과를 필터링하거나 정렬하려면 아래에 자세히 설명된 [필터](#extensions-view-filters) 및 [정렬](#sorting) 명령을 사용할 수 있습니다.
 
-An extension publisher may provide a pre-release version of an extension. To install a pre-release version, select the dropdown on the **Install** button and select **Install Pre-Release Version**.
+### 사전 릴리스 확장 프로그램 버전 설치 {#install-a-pre-release-extension-version}
 
-![Install pre-release version](images/extension-marketplace/extensions-install-prerelease.png)
+확장 프로그램 게시자가 확장 프로그램의 사전 릴리스 버전을 제공할 수 있습니다. 사전 릴리스 버전을 설치하려면 **Install** 버튼의 드롭다운을 선택하고 **Install Pre-Release Version**를 선택합니다.
 
-## Manage extensions
+![사전 릴리스 버전 설치](images/extension-marketplace/extensions-install-prerelease.png)
 
-VS Code makes it easy to manage your extensions. You can install, disable, update, and uninstall extensions through the Extensions view, the **Command Palette** (commands have the **Extensions:** prefix) or command-line switches.
+## 확장 프로그램 관리 {#manage-extensions}
 
-### List installed extensions
+VS Code는 확장 프로그램을 쉽게 관리할 수 있도록 합니다. 확장 프로그램 보기를 통해 확장 프로그램을 설치, 비활성화, 업데이트 및 제거할 수 있으며 Command Palette**(명령은 **Extensions:** 접두사가 붙습니다) 또는 CLI 스위치를 사용할 수 있습니다.
 
-By default, the Extensions view will show the extensions you currently have installed, and all extensions that are recommended for you. You can use the **Extensions: Focus on Installed View** command, available in the **Command Palette** (`kb(workbench.action.showCommands)`) or in the **More Actions** (`...`) dropdown menu > **Views** > **Installed**, to clear any text in the search box and show the list of all installed extensions, which includes those that have been disabled.
+### 설치된 확장 프로그램 목록 {#list-installed-extensions}
 
-### Uninstall an extension
+기본적으로 확장 프로그램 보기에는 현재 설치된 확장 프로그램과 추천된 모든 확장 프로그램이 표시됩니다. **Command Palette**(`kb(workbench.action.showCommands)`) 또는 **More Actions**(`...`) 드롭다운 메뉴 > **Views** > **Installed**에서 **Extensions: Focus on Installed View** 명령을 사용하여 검색 상자의 텍스트를 지우고 설치된 모든 확장 프로그램 목록을 표시할 수 있습니다. 이 목록에는 비활성화된 확장 프로그램도 포함됩니다.
 
-To uninstall an extension, select the **Manage** gear button at the right of an extension entry and then choose **Uninstall** from the dropdown menu. This will uninstall the extension and prompt you to restart the extension host (**Restart Extensions**).
+### 확장 프로그램 제거 {#uninstall-an-extension}
 
-![uninstall an extension](images/extension-marketplace/uninstall-extension.png)
+확장 프로그램을 제거하려면 확장 프로그램 항목 오른쪽의 **Manage** 톱니 바퀴 버튼을 선택한 다음 드롭다운 메뉴에서 **Uninstall**를 선택합니다. 이렇게 하면 확장 프로그램이 제거되고 확장 프로그램 호스트를 다시 시작하라는 메시지가 표시됩니다 (**Restart Extensions**).
 
-### Disable an extension
+![확장 프로그램 제거](images/extension-marketplace/uninstall-extension.png)
 
-If you don't want to permanently remove an extension, you can instead temporarily disable the extension by clicking the gear button at the right of an extension entry. You can disable an extension globally or just for your current Workspace. You will be prompted to restart the extension host (**Restart Extensions**) after you disable an extension.
+### 확장 프로그램 비활성화 {#disable-an-extension}
 
-If you want to quickly disable all installed extensions, there is a **Disable All Installed Extensions** command in the **Command Palette** and **More Actions** (`...`) dropdown menu.
+확장 프로그램을 영구적으로 제거하고 싶지 않은 경우, 확장 프로그램 항목 오른쪽의 톱니 바퀴 버튼을 클릭하여 확장 프로그램을 임시로 비활성화할 수 있습니다. 확장 프로그램을 전역적으로 비활성화하거나 현재 작업 공간에 대해서만 비활성화할 수 있습니다. 확장 프로그램을 비활성화한 후에는 확장 프로그램 호스트를 다시 시작하라는 메시지가 표시됩니다 (**Restart Extensions**).
 
-Extensions remain disabled for all VS Code sessions until you re-enable them.
+설치된 모든 확장 프로그램을 빠르게 비활성화하려면 **Command Palette** 및 **More Actions**(`...`) 드롭다운 메뉴에 **Disable All Installed Extensions** 명령이 있습니다.
 
-### Enable an extension
+확장 프로그램은 다시 활성화할 때까지 모든 VS Code 세션에서 비활성화된 상태로 유지됩니다.
 
-Similarly if you have disabled an extension (it will be in the **Disabled** section of the list and marked ***Disabled***), you can re-enable it with the **Enable** or **Enable (Workspace)** commands in the dropdown menu.
+### 확장 프로그램 활성화 {#enable-an-extension}
 
-![enable extension](images/extension-marketplace/enable-extension.png)
+유사하게 비활성화된 확장 프로그램(목록의 **Disabled** 섹션에 있으며 ***Disabled***으로 표시됨)을 다시 활성화하려면 드롭다운 메뉴에서 **Enable** 또는 **Enable (Workspace)** 명령을 사용할 수 있습니다.
 
-There is also an **Enable All Extensions** command in the **More Actions** (`...`) dropdown menu.
+![확장 프로그램 활성화](images/extension-marketplace/enable-extension.png)
 
-### Extension auto-update
+**More Actions**(`...`) 드롭다운 메뉴에도 **Enable All Extensions** 명령이 있습니다.
 
-VS Code checks for extension updates and installs them automatically. After an update, you are prompted to restart the extension host (**Restart Extensions**).
+### 확장 프로그램 자동 업데이트 {#extension-auto-update}
 
-If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Update for All Extensions** command or the corresponding action in the Extensions view. You can also configure the `setting(extensions.autoUpdate)` [setting](/docs/editor/settings.md). Use the **Enable Auto Update for All Extensions** command to re-enable auto update.
+VS Code는 확장 프로그램 업데이트를 확인하고 자동으로 설치합니다. 업데이트 후에는 확장 프로그램 호스트를 다시 시작하라는 메시지가 표시됩니다 (**Restart Extensions**).
 
-![Disable auto update for all extensions action](images/extension-marketplace/disable-auto-update-all-extensions.png)
+수동으로 확장 프로그램을 업데이트하려면 **Disable Auto Update for All Extensions** 명령 또는 확장 프로그램 보기의 해당 작업을 사용하여 자동 업데이트를 비활성화할 수 있습니다. 또한 `setting(extensions.autoUpdate)` [설정](/docs/editor/settings.md)을 구성할 수 있습니다. **Enable Auto Update for All Extensions** 명령을 사용하여 자동 업데이트를 다시 활성화할 수 있습니다.
 
-You can also configure auto update for individual extensions by right-clicking on an extension and toggling the **Auto Update** item.
+![모든 확장 프로그램 자동 업데이트 비활성화 작업](images/extension-marketplace/disable-auto-update-all-extensions.png)
 
-If you don't want VS Code to even check for updates, you can set the `setting(extensions.autoCheckUpdates)` setting to false.
+개별 확장 프로그램에 대해 자동 업데이트를 구성하려면 확장 프로그램을 마우스 오른쪽 버튼으로 클릭하고 **Auto Update** 항목을 전환할 수 있습니다.
 
-### Update an extension manually
+VS Code가 업데이트를 확인하지 않도록 하려면 `setting(extensions.autoCheckUpdates)` 설정을 false로 설정할 수 있습니다.
 
-If you have extensions auto-update disabled, you can quickly look for extension updates by using the **Show Outdated Extensions** command that uses the `@updates` filter. This will display any available updates for your currently installed extensions.
+### 확장 프로그램 수동 업데이트 {#update-an-extension-manually}
 
-Select the **Update** button for the outdated extension. The update will be installed, and you'll be prompted to restart the extension host (**Restart Extensions**). You can also update all your outdated extensions at one time with the **Update All Extensions** command.
+자동 업데이트가 비활성화된 경우, **Show Outdated Extensions** 명령을 사용하여 확장 프로그램 업데이트를 빠르게 확인할 수 있습니다. 이 명령은 `@updates` 필터를 사용합니다. 현재 설치된 확장 프로그램에 대한 사용 가능한 업데이트를 표시합니다.
 
-If you also have automatic checking for updates disabled, you can use the **Check for Extension Updates** command to check which of your extensions can be updated.
+오래된 확장 프로그램에 대해 **Update** 버튼을 선택합니다. 업데이트가 설치되며 확장 프로그램 호스트를 다시 시작하라는 메시지가 표시됩니다 (**Restart Extensions**). 또한 **Update All Extensions** 명령을 사용하여 한 번에 모든 오래된 확장 프로그램을 업데이트할 수 있습니다.
 
-## Recommended extensions
+자동 업데이트 확인이 비활성화된 경우, **Check for Extension Updates** 명령을 사용하여 업데이트할 수 있는 확장 프로그램을 확인할 수 있습니다.
 
-You can see a list of recommended extensions using **Show Recommended Extensions**, which sets the `@recommended` [filter](#extensions-view-filters). Extension recommendations can either be:
+## 추천 확장 프로그램 {#recommended-extensions}
 
-* **Workspace Recommendations** - Recommended by other users of your current workspace.
-* **Other Recommendations** - Recommended based on recently opened files.
+**Show Recommended Extensions**를 사용하여 추천 확장 프로그램 목록을 볼 수 있으며, 이 명령은 `@recommended` [필터](#extensions-view-filters)를 설정합니다. 확장 프로그램 추천은 다음과 같이 나눌 수 있습니다:
 
-See the section below to learn how to [contribute](#workspace-recommended-extensions) recommendations for other users in your project.
+* **작업 공간 추천** - 현재 작업 공간의 다른 사용자에 의해 추천된 확장 프로그램.
+* **기타 추천** - 최근에 열린 파일을 기반으로 추천된 확장 프로그램.
 
-### Ignoring recommendations
+다른 사용자를 위해 추천에 [기여](#workspace-recommended-extensions)하는 방법에 대한 내용은 아래 섹션을 참조하세요.
 
-To dismiss a recommendation, select on the extension item to open the Details page and then select the **Manage** gear button to display the context menu. Select the **Ignore Recommendation** menu item. Ignored recommendations will no longer be recommended to you.
+### 추천 무시하기 {#ignoring-recommendations}
 
-![Ignore extension recommendation](images/extension-marketplace/ignore-recommendation.png)
+추천을 무시하려면 확장 프로그램 항목을 선택하여 세부 정보 페이지를 열고 **Manage** 톱니 바퀴 버튼을 선택하여 컨텍스트 메뉴를 표시합니다. **Ignore Recommendation** 메뉴 항목을 선택합니다. 무시된 추천은 더 이상 추천되지 않습니다.
 
-## Configuring extensions
+![확장 프로그램 추천 무시](images/extension-marketplace/ignore-recommendation.png)
 
-VS Code extensions may have very different configurations and requirements. Some extensions contribute [settings](/docs/editor/settings.md) to VS Code, which can be modified in the Settings editor. Other extensions may have their own configuration files. Extensions may also require installation and setup of additional components like compilers, debuggers, and command-line tools. Consult the extension's README (visible in the Extensions view details page) or go to the extension page on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) (click on the extension name in the details page). Many extensions are open source and have a link to their repository on their Marketplace page.
+## 확장 프로그램 구성 {#configuring-extensions}
 
-## Command line extension management
+VS Code 확장 프로그램은 매우 다양한 구성 및 요구 사항을 가질 수 있습니다. 일부 확장 프로그램은 VS Code에 [설정](/docs/editor/settings.md)을 기여하며, 이는 설정 편집기에서 수정할 수 있습니다. 다른 확장 프로그램은 자체 구성 파일을 가질 수 있습니다. 확장 프로그램은 컴파일러, 디버거 및 CLI 도구와 같은 추가 구성 요소의 설치 및 설정을 요구할 수도 있습니다. 확장 프로그램의 README(확장 프로그램 보기 세부 정보 페이지에서 볼 수 있음)를 참조하거나 [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode)에서 확장 프로그램 페이지로 이동하세요(세부 정보 페이지에서 확장 프로그램 이름을 클릭). 많은 확장 프로그램이 오픈 소스이며 마켓플레이스 페이지에 리포지토리 링크가 있습니다.
 
-To make it easier to automate and configure VS Code, it is possible to list, install, and uninstall extensions from the [command line](/docs/editor/command-line.md). When identifying an extension, provide the full name of the form `publisher.extension`, for example `ms-python.python`.
+## CLI 확장 프로그램 관리 {#command-line-extension-management}
 
-Example:
+VS Code를 자동화하고 구성하기 쉽게 하려면 [CLI](/docs/editor/command-line.md)에서 확장 프로그램을 나열, 설치 및 제거할 수 있습니다. 확장 프로그램을 식별할 때는 `publisher.extension` 형식의 전체 이름을 제공해야 합니다. 예를 들어 `ms-python.python`과 같이 입력합니다.
+
+예시:
 
 ```bash
 code --extensions-dir <dir>
-    Set the root path for extensions.
+    확장 프로그램의 루트 경로를 설정합니다.
 code --list-extensions
-    List the installed extensions.
+    설치된 확장 프로그램을 나열합니다.
 code --show-versions
-    Show versions of installed extensions, when using --list-extension.
+    --list-extension을 사용할 때 설치된 확장 프로그램의 버전을 표시합니다.
 code --install-extension (<extension-id> | <extension-vsix-path>)
-    Installs an extension.
+    확장 프로그램을 설치합니다.
 code --uninstall-extension (<extension-id> | <extension-vsix-path>)
-    Uninstalls an extension.
+    확장 프로그램을 제거합니다.
 code --enable-proposed-api (<extension-id>)
-    Enables proposed API features for extensions. Can receive one or more extension IDs to enable individually.
+    확장 프로그램을 위한 제안된 API 기능을 활성화합니다. 개별적으로 활성화할 확장 프로그램 ID를 하나 이상 받을 수 있습니다.
 ```
 
-You can see the extension ID on the extension details page under the Marketplace Info.
+확장 프로그램 세부 정보 페이지에서 마켓플레이스 정보를 확인하여 확장 프로그램 ID를 확인할 수 있습니다.
 
-![extension identifier](images/extension-marketplace/extension-identifier.png)
+![확장 프로그램 식별자](images/extension-marketplace/extension-identifier.png)
 
-## Extensions view filters
+## 확장 프로그램 보기 필터 {#extensions-view-filters}
 
-The Extensions view search box supports filters to help you find and manage extensions. You may have seen filters such as `@installed` and `@recommended` if you used the commands **Show Installed Extensions** and **Show Recommended Extensions**. Also, there are filters available to let you sort by popularity or ratings and search by category (for example 'Linters') and tags (for example 'node'). You can see a complete listing of all filters and sort commands by typing `@` in the extensions search box and navigating through the suggestions:
+확장 프로그램 보기 검색 상자는 확장 프로그램을 찾고 관리하는 데 도움이 되는 필터를 지원합니다. **Show Installed Extensions** 및 **Show Recommended Extensions** 명령을 사용한 경우 `@installed` 및 `@recommended`와 같은 필터를 보았을 것입니다. 또한 인기 또는 평점으로 정렬하고 카테고리(예: 'Linters') 및 태그(예: 'node')로 검색할 수 있는 필터가 있습니다. 확장 프로그램 검색 상자에 `@`를 입력하고 제안 목록을 탐색하여 모든 필터 및 정렬 명령의 전체 목록을 확인할 수 있습니다:
 
-![intellisense on extension search filters](images/extension-marketplace/extension-search-filters.png)
+![확장 프로그램 검색 필터에 대한 IntelliSense](images/extension-marketplace/extension-search-filters.png)
 
-Here are some of the Extensions view filters:
+다음은 일부 확장 프로그램 보기 필터입니다:
 
-* `@builtin` - Show extensions that come with VS Code. Grouped by type (Programming Languages, Themes, etc.).
-* `@deprecated` - Show deprecated extensions.
-* `@disabled` - Show disabled installed extensions.
-* `@enabled` - Show enabled installed extensions. Extensions can be individually enabled/disabled.
-* `@featured` - Show featured extensions.
-* `@installed` - Show installed extensions.
-* `@popular` - Show popular extensions.
-* `@recentlyPublished` - Show extensions that were recently published in the Marketplace.
-* `@recommended` - Show recommended extensions. Grouped as Workspace specific or general use.
-* `@updates` - Show outdated installed extensions. A newer version is available on the Marketplace.
-* `@workspaceUnsupported` - Show extensions that are not supported for this workspace.
-* `@category` - Show extensions belonging to specified category. Below are a few of supported categories. For a complete list, type `@category` and follow the options in the suggestion list:
+* `@builtin` - VS Code와 함께 제공되는 확장 프로그램을 표시합니다. 유형별로 그룹화(프로그래밍 언어, 테마 등).
+* `@deprecated` - 더 이상 지원되지 않는 확장 프로그램을 표시합니다.
+* `@disabled` - 비활성화된 설치된 확장 프로그램을 표시합니다.
+* `@enabled` - 활성화된 설치된 확장 프로그램을 표시합니다. 확장 프로그램은 개별적으로 활성화/비활성화할 수 있습니다.
+* `@featured` - 추천된 확장 프로그램을 표시합니다.
+* `@installed` - 설치된 확장 프로그램을 표시합니다.
+* `@popular` - 인기 있는 확장 프로그램을 표시합니다.
+* `@recentlyPublished` - 마켓플레이스에 최근에 게시된 확장 프로그램을 표시합니다.
+* `@recommended` - 추천된 확장 프로그램을 표시합니다. 작업 공간 특정 또는 일반 사용으로 그룹화됩니다.
+* `@updates` - 오래된 설치된 확장 프로그램을 표시합니다. 마켓플레이스에서 더 최신 버전이 제공됩니다.
+* `@workspaceUnsupported` - 이 작업 공간에서 지원되지 않는 확장 프로그램을 표시합니다.
+* `@category` - 지정된 카테고리에 속하는 확장 프로그램을 표시합니다. 아래는 지원되는 카테고리 몇 가지입니다. 전체 목록을 보려면 `@category`를 입력하고 제안 목록의 옵션을 따르세요:
   * `@category:themes`
   * `@category:formatters`
   * `@category:linters`
   * `@category:snippets`
 
-These filters can be combined as well. For example: Use `@installed @category:themes` to view all installed themes.
+이 필터는 조합하여 사용할 수도 있습니다. 예를 들어, `@installed @category:themes`를 사용하여 설치된 모든 테마를 볼 수 있습니다.
 
-If no filter is provided, the Extensions view displays the currently installed and recommended extensions.
+필터가 제공되지 않으면 확장 프로그램 보기는 현재 설치된 확장 프로그램과 추천된 확장 프로그램을 표시합니다.
 
-### Sorting
+### 정렬 {#sorting}
 
-You can sort extensions with the `@sort` filter, which can take the following values:
+`@sort` 필터를 사용하여 확장 프로그램을 정렬할 수 있으며, 다음 값을 사용할 수 있습니다:
 
-* `installs` - Sort by Marketplace installation count, in descending order.
-* `name` - Sort alphabetically by extension name.
-* `publishedDate` - Sort by extension published date.
-* `rating` - Sort by Marketplace rating (1-5 stars), in descending order.
-* `updateDate` - Sort by extension last update name.
+* `installs` - 마켓플레이스 설치 수에 따라 내림차순으로 정렬합니다.
+* `name` - 확장 프로그램 이름에 따라 알파벳순으로 정렬합니다.
+* `publishedDate` - 확장 프로그램 게시 날짜에 따라 정렬합니다.
+* `rating` - 마켓플레이스 평점(1-5 별)에 따라 내림차순으로 정렬합니다.
+* `updateDate` - 확장 프로그램 마지막 업데이트 날짜에 따라 정렬합니다.
 
-![sort by install count](images/extension-marketplace/sort-install-count.png)
+![설치 수에 따라 정렬](images/extension-marketplace/sort-install-count.png)
 
-### Categories and tags
+### 카테고리 및 태그 {#categories-and-tags}
 
-Extensions can set **Categories** and **Tags** describing their features.
+확장 프로그램은 기능을 설명하는 **Categories** 및 **Tags**를 설정할 수 있습니다.
 
-![extension categories and tags](images/extension-marketplace/categories-and-tags.png)
+![확장 프로그램 카테고리 및 태그](images/extension-marketplace/categories-and-tags.png)
 
-You can filter on category and tag by using `category:` and `tag:`.
+`category:` 및 `tag:`를 사용하여 카테고리 및 태그로 필터링할 수 있습니다.
 
-Supported categories are: `[Azure, Data Science, Debuggers, Education, Extension Packs, Formatters, Keymaps, Language Packs, Linters, Machine Learning, Notebooks, Others, Programming Languages, SCM Providers, Snippets, Testing, Themes, Visualization]`. They can be accessed through IntelliSense in the extensions search box:
+지원되는 카테고리는: `[Azure, Data Science, Debuggers, Education, Extension Packs, Formatters, Keymaps, Language Packs, Linters, Machine Learning, Notebooks, Others, Programming Languages, SCM Providers, Snippets, Testing, Themes, Visualization]`입니다. 이들은 확장 프로그램 검색 상자에서 IntelliSense를 통해 접근할 수 있습니다:
 
-![categories debuggers](images/extension-marketplace/extension-search-categories.png)
+![디버거 카테고리](images/extension-marketplace/extension-search-categories.png)
 
-Note that you must surround the category name in quotes if it is more than one word (for example, `category:"SCM Providers"`).
+카테고리 이름이 두 단어 이상인 경우에는 따옴표로 묶어야 합니다(예: `category:"SCM Providers"`).
 
-Tags may contain any string and are not provided by IntelliSense, so review the Marketplace to find helpful tags.
+태그는 어떤 문자열도 포함할 수 있으며 IntelliSense에서 제공되지 않으므로 유용한 태그를 찾으려면 마켓플레이스를 검토하세요.
 
-## Install from a VSIX
+## VSIX에서 설치 {#install-from-a-vsix}
 
-You can manually install a VS Code extension packaged in a `.vsix` file. Using the **Install from VSIX** command in the Extensions view command dropdown, or the **Extensions: Install from VSIX** command in the **Command Palette**, point to the `.vsix` file.
+`.vsix` 파일로 패키징된 VS Code 확장 프로그램을 수동으로 설치할 수 있습니다. 확장 프로그램 보기 명령 드롭다운에서 **Install from VSIX** 명령을 사용하거나 **Command Palette**에서 **Extensions: Install from VSIX** 명령을 사용하여 `.vsix` 파일을 지정합니다.
 
-You can also install using the VS Code `--install-extension` command-line switch providing the path to the `.vsix` file.
+또한 VS Code `--install-extension` CLI 스위치를 사용하여 `.vsix` 파일의 경로를 제공하여 설치할 수 있습니다.
 
 ```bash
 code --install-extension myextension.vsix
 ```
 
-You may provide the `--install-extension` multiple times on the command line to install multiple extensions at once.
+CLI에서 여러 확장 프로그램을 한 번에 설치하려면 `--install-extension`을 여러 번 제공할 수 있습니다.
 
-> [!NOTE]
-> When you install an extension via VSIX, [auto update](#extension-auto-update) for that extension is disabled by default.
+:::note
+VSIX를 통해 확장 프로그램을 설치할 때 해당 확장 프로그램의 [자동 업데이트](#extension-auto-update)는 기본적으로 비활성화됩니다.
+:::
 
-If you'd like to learn more about packaging and publishing extensions, see our [Publishing Extensions](/api/working-with-extensions/publishing-extension.md) article in the Extension API.
+확장 프로그램을 패키징하고 게시하는 방법에 대해 더 알고 싶다면 [확장 프로그램 게시](/api/working-with-extensions/publishing-extension.md) 문서를 참조하세요.
 
-## Workspace recommended extensions
+## 작업 공간 추천 확장 프로그램 {#workspace-recommended-extensions}
 
-A good set of extensions can make working with a particular workspace or programming language more productive and you'd often like to share this list with your team or colleagues. You can create a recommended list of extensions for a workspace with the **Extensions: Configure Recommended Extensions (Workspace Folder)** command.
+좋은 확장 프로그램 세트는 특정 작업 공간이나 프로그래밍 언어로 작업할 때 생산성을 높일 수 있으며, 이 목록을 팀원이나 동료와 공유하고 싶을 것입니다. **Extensions: Configure Recommended Extensions (Workspace Folder)** 명령을 사용하여 작업 공간에 대한 추천 확장 프로그램 목록을 만들 수 있습니다.
 
-In a single folder workspace, the command creates an `extensions.json` file located in the workspace `.vscode` folder where you can add a list of extensions identifiers (\{publisherName\}.\{extensionName\}).
+단일 폴더 작업 공간에서 이 명령은 작업 공간의 `.vscode` 폴더에 `extensions.json` 파일을 생성하며, 여기에서 확장 프로그램 식별자 목록(\{publisherName\}.\{extensionName\})을 추가할 수 있습니다.
 
-In a [multi-root workspace](/docs/editor/workspaces/multi-root-workspaces.md), the command will open your `.code-workspace` file where you can list extensions under `extensions.recommendations`. You can still add extension recommendations to individual folders in a multi-root workspace by using the **Extensions: Configure Recommended Extensions (Workspace Folder)** command.
+[multi-root workspace](/docs/editor/workspaces/multi-root-workspaces.md)에서는 이 명령이 `.code-workspace` 파일을 열어 `extensions.recommendations` 아래에 확장 프로그램을 나열할 수 있습니다. 다중 루트 작업 공간에서 **Extensions: Configure Recommended Extensions (Workspace Folder)** 명령을 사용하여 개별 폴더에 확장 프로그램 추천을 추가할 수도 있습니다.
 
-An example `extensions.json` could be:
+예시 `extensions.json`은 다음과 같을 수 있습니다:
 
 ```json
 {
@@ -309,84 +314,85 @@ An example `extensions.json` could be:
 }
 ```
 
-which recommends a linter extension and a code formatter extension.
+여기서는 린터 확장 프로그램과 코드 포매터 확장 프로그램을 추천합니다.
 
-An extension is identified using its publisher identifier and extension identifier `publisher.extension`. You can see the name on the extension's detail page. VS Code will provide you with auto-completion for installed extensions inside these files.
+확장 프로그램은 게시자 식별자와 확장 프로그램 식별자 `publisher.extension`을 사용하여 식별됩니다. 확장 프로그램 세부 정보 페이지에서 이름을 확인할 수 있습니다. VS Code는 이러한 파일 내에서 설치된 확장 프로그램에 대한 자동 완성을 제공합니다.
 
-![Extension identifier](images/extension-marketplace/extension-identifier.png).
+![확장 프로그램 식별자](images/extension-marketplace/extension-identifier.png).
 
-VS Code prompts a user to install the recommended extensions when a workspace is opened for the first time. The user can also review the list with the **Extensions: Show Recommended Extensions** command.
+VS Code는 작업 공간이 처음 열릴 때 추천 확장 프로그램을 설치하라는 메시지를 사용자에게 표시합니다. 사용자는 **Extensions: Show Recommended Extensions** 명령을 사용하여 목록을 검토할 수도 있습니다.
 
-![Show Recommendations](images/extension-marketplace/recommendations.png)
+![추천 표시](images/extension-marketplace/recommendations.png)
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-Here are a few topics you may find interesting...
+여기에서 흥미로울 수 있는 몇 가지 주제를 소개합니다.
 
-* [Extension API](/api) - Start learning about the VS Code extension API.
-* [Your First Extension](/api/get-started/your-first-extension.md) - Try creating a simple Hello World extension.
-* [Publishing to the Marketplace](/api/working-with-extensions/publishing-extension.md) - Publish your own extension to the VS Code Marketplace.
+* [확장 프로그램 API](/api) - VS Code 확장 프로그램 API에 대해 배우기 시작하세요.
+* [첫 번째 확장 프로그램](/api/get-started/your-first-extension.md) - 간단한 Hello World 확장 프로그램을 만들어 보세요.
+* [마켓플레이스에 게시하기](/api/working-with-extensions/publishing-extension.md) - 자신의 확장 프로그램을 VS Code 마켓플레이스에 게시하세요.
 
-## Common questions
+## 자주 묻는 질문 {#common-questions}
 
-### Where are extensions installed?
+### 확장 프로그램은 어디에 설치되나요? {#where-are-extensions-installed}
 
-Extensions are installed in a per user extensions folder. Depending on your platform, the location is in the following folder:
+확장 프로그램은 사용자별 확장 프로그램 폴더에 설치됩니다. 플랫폼에 따라 위치는 다음과 같습니다:
 
 * **Windows** `%USERPROFILE%\.vscode\extensions`
 * **macOS** `~/.vscode/extensions`
 * **Linux** `~/.vscode/extensions`
 
-You can change the location by launching VS Code with the `--extensions-dir <dir>` command-line [option](/docs/editor/command-line.md).
+`--extensions-dir <dir>` CLI [옵션](/docs/editor/command-line.md)을 사용하여 위치를 변경할 수 있습니다.
 
-### Whenever I try to install any extension, I get a connect ETIMEDOUT error
+### 확장 프로그램을 설치하려고 할 때마다 connect ETIMEDOUT 오류가 발생합니다 {#whenever-i-try-to-install-any-extension-i-get-a-connect-etimedout-error}
 
-You may see this error if your machine is going through a proxy server to access the Internet.  See the [Proxy server support](/docs/setup/network.md#proxy-server-support) section in the setup topic for details.
+이 오류는 컴퓨터가 인터넷에 접근하기 위해 프록시 서버를 통과하는 경우 발생할 수 있습니다. 자세한 내용은 설정 주제의 [프록시 서버 지원](/docs/setup/network.md#proxy-server-support) 섹션을 참조하세요.
 
-### Can I download an extension directly from the Marketplace?
+### 마켓플레이스에서 확장 프로그램을 직접 다운로드할 수 있나요? {#can-i-download-an-extension-directly-from-the-marketplace}
 
-Some users prefer to download an extension once from the Marketplace and then install it to multiple VS Code instances from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
+일부 사용자는 마켓플레이스에서 확장 프로그램을 한 번 다운로드한 후 여러 VS Code 인스턴스에 로컬 공유를 통해 설치하는 것을 선호합니다. 이는 연결 문제나 개발 팀이 고정된 확장 프로그램 세트를 사용하고 싶을 때 유용합니다.
 
-To download an extension, search for it in the Extensions view, right-click on an extension from the results, and select **Download VSIX**.
+확장 프로그램을 다운로드하려면 확장 프로그램 보기에서 검색하고 결과에서 확장 프로그램을 마우스 오른쪽 버튼으로 클릭한 후 **VSIX 다운로드**를 선택합니다.
 
-> [!NOTE]
-> The download option is available as of VS Code release 1.96, and is only available for extensions that are not installed yet.
+:::note
+다운로드 옵션은 VS Code 버전 1.96부터 제공되며, 아직 설치되지 않은 확장 프로그램에 대해서만 사용할 수 있습니다.
+:::
 
-### Can I stop VS Code from providing extension recommendations?
+### VS Code가 확장 프로그램 추천을 제공하지 않도록 할 수 있나요? {#can-i-stop-vs-code-from-providing-extension-recommendations}
 
-Yes, if you would prefer to not have VS Code display extension recommendations in the Extensions view or through notifications, you can modify the following settings:
+예, VS Code가 확장 프로그램 보기에 확장 프로그램 추천을 표시하지 않도록 하려면 다음 설정을 수정할 수 있습니다:
 
-* `setting(extensions.showRecommendationsOnlyOnDemand)` - Set to true to remove the **RECOMMENDED** section.
-* `setting(extensions.ignoreRecommendations)` - Set to true to silence extension recommendation notifications.
+* `setting(extensions.showRecommendationsOnlyOnDemand)` - **추천됨** 섹션을 제거하려면 true로 설정합니다.
+* `setting(extensions.ignoreRecommendations)` - 확장 프로그램 추천 알림을 무시하려면 true로 설정합니다.
 
-The **Show Recommended Extensions** command is always available if you want to see recommendations.
+추천을 보고 싶다면 **추천 확장 프로그램 표시** 명령은 항상 사용할 수 있습니다.
 
-### Can I trust extensions from the Marketplace?
+### 마켓플레이스의 확장 프로그램을 신뢰할 수 있나요? {#can-i-trust-extensions-from-the-marketplace}
 
-The Visual Studio Marketplace employs several measures to protect you from malicious extensions and you can also perform various steps to determine if an extension is reliable before installing it.
+Visual Studio Marketplace는 악성 확장 프로그램으로부터 보호하기 위해 여러 가지 조치를 취하고 있으며, 확장 프로그램을 설치하기 전에 신뢰할 수 있는지 확인하기 위해 다양한 단계를 수행할 수 있습니다.
 
-As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the extension publisher.
+VS Code 버전 1.97부터 타사 게시자로부터 확장 프로그램을 처음 설치할 때, VS Code는 확장 프로그램 게시자를 신뢰하는지 확인하는 대화 상자를 표시합니다.
 
-Get more information about [extension runtime security](/docs/editor/extension-runtime-security.md).
+[확장 프로그램 런타임 보안](/docs/editor/extension-runtime-security.md)에 대한 자세한 정보를 확인하세요.
 
-### The extension signature cannot be verified by VS Code
+### VS Code에서 확장 프로그램 서명을 확인할 수 없습니다 {#the-extension-signature-cannot-be-verified-by-vs-code}
 
-The Visual Studio Marketplace signs all extensions when they are published. VS Code verifies this signature when you install an extension to check the integrity and the source of the extension package.
+Visual Studio Marketplace는 게시할 때 모든 확장 프로그램에 서명을 합니다. VS Code는 확장 프로그램을 설치할 때 이 서명을 확인하여 확장 프로그램 패키지의 무결성과 출처를 확인합니다.
 
-When you install an extension, you might see the following error message: `Cannot install extension because Visual Studio Code cannot verify the extension signature`.
+확장 프로그램을 설치할 때 다음과 같은 오류 메시지가 표시될 수 있습니다: `Cannot install extension because Visual Studio Code cannot verify the extension signature`.
 
-This error can be caused by a variety of reasons, such as an unsupported environment or even (unlikely) package integrity issues. Should you encounter this error, exercise caution before deciding to install anyway.
+이 오류는 지원되지 않는 환경이나 패키지 무결성 문제와 같은 다양한 이유로 발생할 수 있습니다. 이 오류가 발생하면 설치하기로 결정하기 전에 주의해야 합니다.
 
-It's recommended that you contact the [Visual Studio Marketplace team](mailto:vsmarketplace@microsoft.com?subject=Extension%20Signature%20Verification%20Issue) to report the issue. Make sure to include the extension ID. If you want to disable extension signature verification, you can use the `setting(extensions.verifySignature)` setting.
+문제를 보고하려면 [Visual Studio Marketplace 팀](mailto:vsmarketplace@microsoft.com?subject=Extension%20Signature%20Verification%20Issue)에 문의하는 것이 좋습니다. 확장 프로그램 ID를 포함해야 합니다. 확장 프로그램 서명 확인을 비활성화하려면 `setting(extensions.verifySignature)` 설정을 사용할 수 있습니다.
 
-### My extensions don't synchronize when connected to a remote window
+### 원격 창에 연결할 때 내 확장 프로그램이 동기화되지 않습니다 {#my-extensions-dont-synchronize-when-connected-to-a-remote-window}
 
-[Settings Sync](/docs/editor/settings-sync.md) lets you share your Visual Studio Code configurations such as settings, keyboard shortcuts, and installed extensions across your machines so you are always working with your favorite setup.
+[설정 동기화](/docs/editor/settings-sync.md)를 사용하면 설정, 키보드 단축키 및 설치된 확장 프로그램과 같은 Visual Studio Code 구성을 여러 기기에서 공유할 수 있으므로 항상 좋아하는 설정으로 작업할 수 있습니다.
 
-VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
+VS Code는 SSH, 개발 컨테이너(devcontainer) 또는 WSL과 같은 [원격](/docs/remote/remote-overview.md) 창으로 연결할 때 확장 프로그램을 동기화하지 않습니다.
 
-### Can I allow or block specific extensions in my organization?
+### 내 조직에서 특정 확장 프로그램을 허용하거나 차단할 수 있나요? {#can-i-allow-or-block-specific-extensions-in-my-organization}
 
-You can control which extensions can be installed in your organization by configuring the `extensions.allowed` application setting. If the setting is not configured, all extensions are allowed. If the setting is configured, all extensions not listed are blocked from installing.
+조직에서 설치할 수 있는 확장 프로그램을 제어하려면 `extensions.allowed` 애플리케이션 설정을 구성할 수 있습니다. 설정이 구성되지 않은 경우 모든 확장 프로그램이 허용됩니다. 설정이 구성된 경우 나열되지 않은 모든 확장 프로그램은 설치가 차단됩니다.
 
-Get more details about [configuring allowed extensions](/docs/setup/enterprise.md#configure-allowed-extensions).
+[허용된 확장 프로그램 구성](/docs/setup/enterprise.md#configure-allowed-extensions)에 대한 자세한 내용을 확인하세요.

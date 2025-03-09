@@ -1,128 +1,128 @@
 ---
 Order: 13
 Area: python
-TOCTitle: Flask Tutorial
+TOCTitle: Flask 튜토리얼
 ContentId: 593d2dd6-20f0-4ad3-8ecd-067cc47ee217
-PageTitle: Python and Flask Tutorial in Visual Studio Code
+PageTitle: Visual Studio Code에서의 Python 및 Flask 튜토리얼
 DateApproved: 03/05/2025
-MetaDescription: Python Flask tutorial showing IntelliSense, debugging, and code navigation support in Visual Studio Code, the best Python IDE.
+MetaDescription: Visual Studio Code에서 IntelliSense, 디버깅 및 코드 탐색 지원을 보여주는 Python Flask 튜토리얼, 최고의 Python IDE.
 MetaSocialImage: images/tutorial/python-social.png
 ---
 
-# Flask Tutorial in Visual Studio Code
+# Visual Studio Code에서의 Flask 튜토리얼 {#flask-tutorial-in-visual-studio-code}
 
-Flask is a lightweight Python framework for web applications that provides the basics for URL routing and page rendering.
+Flask는 URL 라우팅 및 페이지 렌더링의 기본을 제공하는 경량 Python 웹 애플리케이션 프레임워크입니다.
 
-Flask is called a "micro" framework because it doesn't directly provide features like form validation, database abstraction, authentication, and so on. Such features are instead provided by special Python packages called Flask extensions. The extensions integrate seamlessly with Flask so that they appear as if they were part of Flask itself. For example, Flask doesn't provide a page template engine, but installing Flask includes the Jinja templating engine by default. For convenience, we typically speak of these defaults as part of Flask.
+Flask는 폼 검증, 데이터베이스 추상화, 인증 등과 같은 기능을 직접 제공하지 않기 때문에 "마이크로" 프레임워크라고 불립니다. 이러한 기능은 대신 Flask 확장이라고 하는 특별한 Python 패키지에 의해 제공됩니다. 확장은 Flask와 원활하게 통합되어 마치 Flask의 일부인 것처럼 보입니다. 예를 들어, Flask는 페이지 템플릿 엔진을 제공하지 않지만 Flask를 설치하면 기본적으로 Jinja 템플릿 엔진이 포함됩니다. 편의상, 우리는 일반적으로 이러한 기본값을 Flask의 일부로 이야기합니다.
 
-In this Flask tutorial, you create a simple Flask app with three pages that use a common base template. Along the way, you experience a number of features of Visual Studio Code including using the terminal, the editor, the debugger, code snippets, and more.
+이 Flask 튜토리얼에서는 공통 기본 템플릿을 사용하는 세 개의 페이지로 구성된 간단한 Flask 앱을 생성합니다. 그 과정에서 터미널, 편집기, 디버거, 코드 스니펫 등 Visual Studio Code의 여러 기능을 경험하게 됩니다.
 
-The completed code project for this Flask tutorial can be found on GitHub: [python-sample-vscode-flask-tutorial](https://github.com/microsoft/python-sample-vscode-flask-tutorial).
+이 Flask 튜토리얼의 완성된 코드 프로젝트는 GitHub에서 확인할 수 있습니다: [python-sample-vscode-flask-tutorial](https://github.com/microsoft/python-sample-vscode-flask-tutorial).
 
-If you have any problems, you can search for answers or ask a question on the [Python extension Discussions Q&A](https://github.com/microsoft/vscode-python/discussions/categories/q-a).
+문제가 발생하면 [Python 확장 토론 Q&A](https://github.com/microsoft/vscode-python/discussions/categories/q-a)에서 답을 검색하거나 질문할 수 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-To successfully complete this Flask tutorial, you must do the following (which are the same steps as in the [general Python tutorial](/docs/python/python-tutorial.md)):
+이 Flask 튜토리얼을 성공적으로 완료하려면 다음을 수행해야 합니다(이는 [일반 Python 튜토리얼](/docs/python/python-tutorial.md)와 동일한 단계입니다):
 
-1. Install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+1. [Python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python)을 설치합니다.
 
-1. Install a version of Python 3 (for which this tutorial is written). Options include:
+1. 이 튜토리얼에 맞는 Python 3 버전을 설치합니다. 옵션은 다음과 같습니다:
 
-   - (All operating systems) A download from [python.org](https://www.python.org/downloads/); typically use the **Download** button that appears first on the page.
-   - (Linux) The built-in Python 3 installation works well, but to install other Python packages you must run `sudo apt install python3-pip` in the terminal.
-   - (macOS) An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3`.
-   - (All operating systems) A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
+   - (모든 운영 체제) [python.org](https://www.python.org/downloads/)에서 다운로드; 일반적으로 페이지에 처음 나타나는 **다운로드** 버튼을 사용합니다.
+   - (리눅스) 내장된 Python 3 설치가 잘 작동하지만 다른 Python 패키지를 설치하려면 터미널에서 `sudo apt install python3-pip`를 실행해야 합니다.
+   - (macOS) `brew install python3`를 사용하여 macOS에서 [Homebrew](https://brew.sh/)를 통해 설치합니다.
+   - (모든 운영 체제) [Anaconda](https://www.anaconda.com/download/)에서 다운로드합니다(데이터 과학 용도).
 
-1. On Windows, make sure the location of your Python interpreter is included in your PATH environment variable. You can check the location by running `path` at the command prompt. If the Python interpreter's folder isn't included, open Windows Settings, search for "environment", select **Edit environment variables for your account**, then edit the **Path** variable to include that folder.
+1. Windows에서는 Python 인터프리터의 위치가 PATH 환경 변수에 포함되어 있는지 확인합니다. 명령 프롬프트에서 `path`를 실행하여 위치를 확인할 수 있습니다. Python 인터프리터의 폴더가 포함되어 있지 않다면 Windows 설정을 열고 "환경"을 검색한 후 **내 계정의 환경 변수 편집**을 선택하여 **Path** 변수를 편집하여 해당 폴더를 포함시킵니다.
 
-## Create a project environment for the Flask tutorial
+## Flask 튜토리얼을 위한 프로젝트 환경 만들기 {#create-a-project-environment-for-the-flask-tutorial}
 
-In this section, you will create a virtual environment in which Flask is installed. Using a virtual environment avoids installing Flask into a global Python environment and gives you exact control over the libraries used in an application.
+이 섹션에서는 Flask가 설치된 가상 환경을 생성합니다. 가상 환경을 사용하면 Flask를 전역 Python 환경에 설치하는 것을 피하고 애플리케이션에서 사용되는 라이브러리를 정확하게 제어할 수 있습니다.
 
-1. On your file system, create a folder for this tutorial, such as `hello_flask`.
+1. 파일 시스템에서 이 튜토리얼을 위한 폴더를 생성합니다. 예를 들어 `hello_flask`라는 이름으로 생성합니다.
 
-1. Open this folder in VS Code by navigating to the folder in a terminal and running `code .`, or by running VS Code and using the **File** > **Open Folder** command.
+1. 터미널에서 해당 폴더로 이동한 후 `code .`를 실행하거나 VS Code를 실행하고 **파일** > **폴더 열기** 명령을 사용하여 이 폴더를 VS Code에서 엽니다.
 
-1. In VS Code, open the Command Palette (**View** > **Command Palette** or (`kb(workbench.action.showCommands)`)). Then select the **Python: Create Environment** command to create a virtual environment in your workspace. Select `venv` and then the Python environment you want to use to create it.
+1. VS Code에서 명령 팔레트를 열고(**보기** > **명령 팔레트** 또는 (`kb(workbench.action.showCommands)`)) **Python: 환경 만들기** 명령을 선택하여 작업 공간에 가상 환경을 생성합니다. `venv`를 선택한 후 사용할 Python 환경을 선택하여 생성합니다.
 
-   > **Note**: If you want to create an environment manually, or run into error in the environment creation process, visit the [Environments](/docs/python/environments.md#create-a-virtual-environment-in-the-terminal) page.
+   > **참고**: 환경을 수동으로 만들고 싶거나 환경 생성 과정에서 오류가 발생하면 [환경](/docs/python/environments.md#create-a-virtual-environment-in-the-terminal) 페이지를 방문하세요.
 
-   ![Flask tutorial: opening the Command Palette in VS Code](images/flask-tutorial/command-palette.png)
+   ![Flask 튜토리얼: VS Code에서 명령 팔레트 열기](images/flask-tutorial/command-palette.png)
 
-1. After your virtual environment creation has been completed, run [**Terminal: Create New Terminal**](/docs/terminal/basics.md) (`kb(workbench.action.terminal.new)`)) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
+1. 가상 환경 생성이 완료되면 명령 팔레트에서 [**터미널: 새 터미널 만들기**](/docs/terminal/basics.md) (`kb(workbench.action.terminal.new)`)를 실행하여 터미널을 생성하고 자동으로 가상 환경을 활성화합니다.
 
-   > **Note**: On Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Profile** to set "Command Prompt" or "Git Bash" as your default instead.
+   > **참고**: Windows에서 기본 터미널 유형이 PowerShell인 경우, 스크립트 실행이 시스템에서 비활성화되어 `activate.ps1`을 실행할 수 없다는 오류가 발생할 수 있습니다. 오류 메시지에는 스크립트를 허용하는 방법에 대한 링크가 제공됩니다. 그렇지 않으면 **터미널: 기본 프로필 선택**을 사용하여 기본값을 "명령 프롬프트" 또는 "Git Bash"로 설정합니다.
 
-1. Install Flask in the virtual environment by running the following command in the VS Code Terminal:
+1. VS Code 터미널에서 다음 명령을 실행하여 가상 환경에 Flask를 설치합니다:
 
    ```bash
    python -m pip install flask
    ```
 
-You now have a self-contained environment ready for writing Flask code. VS Code activates the environment automatically when you use **Terminal: Create New Terminal**. If you open a separate command prompt or terminal, activate the environment by running `source .venv/bin/activate` (Linux/macOS) or `.venv\Scripts\Activate.ps1` (Windows). You know the environment is activated when the command prompt shows **(.venv)** at the beginning.
+이제 Flask 코드를 작성할 준비가 된 독립적인 환경이 마련되었습니다. **터미널: 새 터미널 만들기**를 사용할 때 VS Code가 자동으로 환경을 활성화합니다. 별도의 명령 프롬프트나 터미널을 열면 `source .venv/bin/activate` (리눅스/macOS) 또는 `.venv\Scripts\Activate.ps1` (Windows)를 실행하여 환경을 활성화합니다. 명령 프롬프트에 **(.venv)**가 표시되면 환경이 활성화된 것입니다.
 
-## Create and run a minimal Flask app
+## 최소한의 Flask 앱 만들고 실행하기 {#create-and-run-a-minimal-flask-app}
 
-1. In VS Code, create a new file in your project folder named `app.py` using either **File** > **New** from the menu, pressing `kbstyle(Ctrl+N)`, or using the new file icon in the Explorer View (shown below).
+1. VS Code에서 프로젝트 폴더에 `app.py`라는 새 파일을 생성합니다. 메뉴에서 **파일** > **새로 만들기**를 선택하거나 `kbstyle(Ctrl+N)`을 누르거나 탐색기 보기에서 새 파일 아이콘을 사용합니다.
 
-   ![Flask tutorial: new file icon in Explorer View](images/flask-tutorial/new-file-icon.png)
+   ![Flask 튜토리얼: 탐색기 보기에서 새 파일 아이콘](images/flask-tutorial/new-file-icon.png)
 
-1. In `app.py`, add code to import Flask and create an instance of the Flask object. If you type the code below (instead of using copy-paste), you can observe VS Code's [IntelliSense and auto-completions](/docs/python/editing.md#autocomplete-and-intellisense):
+1. `app.py`에서 Flask를 가져오고 Flask 객체의 인스턴스를 생성하는 코드를 추가합니다. 아래 코드를 입력하면(복사-붙여넣기 대신) VS Code의 [IntelliSense 및 자동 완성](/docs/python/editing.md#autocomplete-and-intellisense)을 관찰할 수 있습니다:
 
    ```python
    from flask import Flask
    app = Flask(__name__)
    ```
 
-1. Also in `app.py`, add a function that returns content, in this case a simple string, and use Flask's `app.route` decorator to map the URL route `/` to that function:
+1. `app.py`에서도 콘텐츠를 반환하는 함수를 추가합니다. 이 경우 간단한 문자열을 반환하고 Flask의 `app.route` 데코레이터를 사용하여 URL 경로 `/`를 해당 함수에 매핑합니다:
 
    ```python
    @app.route("/")
    def home():
-       return "Hello, Flask!"
+       return "안녕하세요, Flask!"
    ```
 
-   > **Tip**: You can use multiple decorators on the same function, one per line, depending on how many different routes you want to map to the same function.
+   > **팁**: 동일한 함수에 여러 데코레이터를 사용할 수 있으며, 각 줄마다 하나씩 사용할 수 있습니다. 이는 동일한 함수에 매핑할 다양한 경로의 수에 따라 다릅니다.
 
-1. Save the `app.py` file (`kb(workbench.action.files.save)`).
+1. `app.py` 파일을 저장합니다 (`kb(workbench.action.files.save)`).
 
-1. In the Integrated Terminal, run the app by entering `python -m flask run`, which runs the Flask development server. The development server looks for `app.py` by default. When you run Flask, you should see output similar to the following:
+1. 통합 터미널에서 `python -m flask run`을 입력하여 앱을 실행합니다. 이는 Flask 개발 서버를 실행합니다. 개발 서버는 기본적으로 `app.py`를 찾습니다. Flask를 실행하면 다음과 유사한 출력이 표시됩니다:
 
    ```bash
    (.venv) D:\py\\hello_flask>python -m flask run
-    * Environment: production
-      WARNING: Do not use the development server in a production environment.
-      Use a production WSGI server instead.
-    * Debug mode: off
-    * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+    * 환경: production
+      경고: 프로덕션 환경에서 개발 서버를 사용하지 마십시오.
+      대신 프로덕션 WSGI 서버를 사용하십시오.
+    * 디버그 모드: 꺼짐
+    * http://127.0.0.1:5000/에서 실행 중 (CTRL+C를 눌러 종료)
    ```
 
-   If you see an error that the Flask module cannot be found, make sure you've run `python -m pip install flask` in your virtual environment as described at the end of the previous section.
+   Flask 모듈을 찾을 수 없다는 오류가 발생하면 이전 섹션의 설명대로 가상 환경에서 `python -m pip install flask`를 실행했는지 확인하십시오.
 
-   Also, if you want to run the development server on a different IP address or port, use the host and port command-line arguments, as with `--host=0.0.0.0 --port=80`.
+   또한, 개발 서버를 다른 IP 주소나 포트에서 실행하려면 `--host=0.0.0.0 --port=80`과 같은 호스트 및 포트 명령줄 인수를 사용하십시오.
 
-1. To open your default browser to the rendered page, `kbstyle(Ctrl+click)` the `http://127.0.0.1:5000/` URL in the terminal.
+1. 기본 브라우저에서 렌더링된 페이지를 열려면 터미널에서 `http://127.0.0.1:5000/` URL을 `kbstyle(Ctrl+click)`합니다.
 
-   ![Flask tutorial: the running app in a browser](images/flask-tutorial/app-in-browser-01.png)
+   ![Flask 튜토리얼: 브라우저에서 실행 중인 앱](images/flask-tutorial/app-in-browser-01.png)
 
-1. Observe that when you visit a URL like /, a message appears in the debug terminal showing the HTTP request:
+1. `/`와 같은 URL을 방문하면 HTTP 요청을 보여주는 메시지가 디버그 터미널에 나타나는 것을 관찰합니다:
 
    ```bash
    127.0.0.1 - - [11/Jul/2018 08:40:15] "GET / HTTP/1.1" 200 -
    ```
 
-1. Stop the app by using `kbstyle(Ctrl+C)` in the terminal.
+1. 터미널에서 `kbstyle(Ctrl+C)`를 사용하여 앱을 중지합니다.
 
-> **Tip**: When using a different filename than `app.py`, such as `webapp.py`, you will need to define an environment variable named FLASK_APP and set its value to your chosen file. Flask's development server then uses the value of FLASK_APP instead of the default file `app.py`. For more information, see [Flask command line interface](https://flask.palletsprojects.com/en/1.1.x/cli/).
+> **팁**: `app.py`가 아닌 다른 파일 이름을 사용하는 경우, 예를 들어 `webapp.py`, FLASK_APP이라는 환경 변수를 정의하고 그 값을 선택한 파일로 설정해야 합니다. Flask의 개발 서버는 기본 파일 `app.py` 대신 FLASK_APP의 값을 사용합니다. 자세한 내용은 [Flask 명령줄 인터페이스](https://flask.palletsprojects.com/en/1.1.x/cli/)를 참조하십시오.
 
-## Run the app in the debugger
+## 디버거에서 앱 실행하기 {#run-the-app-in-the-debugger}
 
-Debugging gives you the opportunity to pause a running program on a particular line of code. When a program is paused, you can examine variables, run code in the Debug Console panel, and otherwise take advantage of the features described on [Debugging](/docs/python/debugging.md). Running the debugger also automatically saves any modified files before the debugging session begins.
+디버깅은 특정 코드 줄에서 실행 중인 프로그램을 일시 중지할 수 있는 기회를 제공합니다. 프로그램이 일시 중지되면 변수를 검사하고 디버그 콘솔 패널에서 코드를 실행하며, [디버깅](/docs/python/debugging.md)에서 설명한 기능을 활용할 수 있습니다. 디버거를 실행하면 디버깅 세션이 시작되기 전에 수정된 파일이 자동으로 저장됩니다.
 
-**Before you begin**: Make sure you've stopped the running app at the end of the last section by using `kbstyle(Ctrl+C)` in the terminal. If you leave the app running in one terminal, it continues to own the port. As a result, when you run the app in the debugger using the same port, the original running app handles all the requests and you won't see any activity in the app being debugged and the program won't stop at breakpoints. In other words, if the debugger doesn't seem to be working, make sure that no other instance of the app is still running.
+**시작하기 전에**: 마지막 섹션의 끝에서 터미널에서 `kbstyle(Ctrl+C)`를 사용하여 실행 중인 앱을 중지했는지 확인합니다. 한 터미널에서 앱을 실행한 상태로 두면 포트를 계속 소유하게 됩니다. 결과적으로 동일한 포트를 사용하여 디버거에서 앱을 실행하면 원래 실행 중인 앱이 모든 요청을 처리하게 되어 디버깅 중인 앱에서는 아무런 활동도 보이지 않으며 프로그램이 중단점에서 멈추지 않습니다. 즉, 디버거가 작동하지 않는 것처럼 보인다면 다른 인스턴스의 앱이 여전히 실행되고 있지 않은지 확인하십시오.
 
-1.  Replace the contents of `app.py` with the following code, which adds a second route and function that you can step through in the debugger:
+1. `app.py`의 내용을 다음 코드로 교체합니다. 이 코드는 디버거에서 단계별로 실행할 수 있는 두 번째 경로와 함수를 추가합니다:
 
     ```python
     import re
@@ -135,7 +135,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     @app.route("/")
     def home():
-        return "Hello, Flask!"
+        return "안녕하세요, Flask!"
 
 
     @app.route("/hello/<name>")
@@ -143,42 +143,42 @@ Debugging gives you the opportunity to pause a running program on a particular l
         now = datetime.now()
         formatted_now = now.strftime("%A, %d %B, %Y at %X")
 
-        # Filter the name argument to letters only using regular expressions. URL arguments
-        # can contain arbitrary text, so we restrict to safe characters only.
+        # 정규 표현식을 사용하여 이름 인수를 문자만 필터링합니다. URL 인수는
+        # 임의의 텍스트를 포함할 수 있으므로 안전한 문자만 제한합니다.
         match_object = re.match("[a-zA-Z]+", name)
 
         if match_object:
             clean_name = match_object.group(0)
         else:
-            clean_name = "Friend"
+            clean_name = "친구"
 
-        content = "Hello there, " + clean_name + "! It's " + formatted_now
+        content = "안녕하세요, " + clean_name + "! 현재 시간은 " + formatted_now + "입니다."
         return content
     ```
 
-    The decorator used for the new URL route, `/hello/<name>`, defines an endpoint /hello/ that can accept any additional value. The identifier inside `<` and `>` in the route defines a variable that is passed to the function and can be used in your code.
+    새로운 URL 경로 `/hello/<name>`에 사용된 데코레이터는 추가 값을 수용할 수 있는 엔드포인트 /hello/를 정의합니다. 경로의 `<` 및 `>` 안의 식별자는 함수에 전달되는 변수로, 코드에서 사용할 수 있습니다.
 
-    URL routes are case-sensitive. For example, the route `/hello/<name>` is distinct from `/Hello/<name>`. If you want the same function to handle both, use decorators for each variant.
+    URL 경로는 대소문자를 구분합니다. 예를 들어, 경로 `/hello/<name>`는 `/Hello/<name>`와 다릅니다. 동일한 함수가 두 경로를 처리하도록 하려면 각 변형에 대해 데코레이터를 사용하십시오.
 
-    As described in the code comments, always filter arbitrary user-provided information to avoid various attacks on your app. In this case, the code filters the name argument to contain only letters, which avoids injection of control characters, HTML, and so forth. (When you use templates in the next section, Flask does automatic filtering and you won't need this code.)
+    코드 주석에서 설명한 대로, 다양한 공격으로부터 앱을 보호하기 위해 항상 임의의 사용자 제공 정보를 필터링해야 합니다. 이 경우, 코드는 이름 인수를 문자만 포함하도록 필터링하여 제어 문자, HTML 등을 주입하는 것을 방지합니다. (다음 섹션에서 템플릿을 사용할 때 Flask는 자동으로 필터링을 수행하므로 이 코드는 필요하지 않습니다.)
 
-1.  Set a breakpoint at the first line of code in the `hello_there` function (`now = datetime.now()`) by doing any one of the following:
+1. `hello_there` 함수의 첫 번째 코드 줄(`now = datetime.now()`)에 중단점을 설정합니다. 다음 중 하나를 수행하여 설정할 수 있습니다:
 
-    - With the cursor on that line, press `kb(editor.debug.action.toggleBreakpoint)`, or,
-    - With the cursor on that line, select the **Run** > **Toggle Breakpoint** menu command, or,
-    - Click directly in the margin to the left of the line number (a faded red dot appears when hovering there).
+    - 해당 줄에 커서를 두고 `kb(editor.debug.action.toggleBreakpoint)`를 누르거나,
+    - 해당 줄에 커서를 두고 **실행** > **중단점 전환** 메뉴 명령을 선택하거나,
+    - 줄 번호 왼쪽 여백을 클릭하여 중단점을 설정합니다(여기서 마우스를 올리면 흐릿한 빨간 점이 나타납니다).
 
-    The breakpoint appears as a red dot in the left margin:
+    중단점은 왼쪽 여백에 빨간 점으로 나타납니다:
 
-    ![Flask tutorial: a breakpoint set on the first line of the hello_there function](images/flask-tutorial/debug-breakpoint-set.png)
+    ![Flask 튜토리얼: hello_there 함수의 첫 번째 줄에 설정된 중단점](images/flask-tutorial/debug-breakpoint-set.png)
 
-1.  Switch to the **Run and Debug** view in VS Code (using the left-side activity bar or `kb(workbench.view.debug)`). You may see the message "To customize Run and Debug create a launch.json file". This means that you don't yet have a `launch.json` file containing debug configurations. VS Code can create that for you if you click on the **create a launch.json file** link:
+1. VS Code에서 **실행 및 디버그** 뷰로 전환합니다(왼쪽 사이드 활동 표시줄 또는 `kb(workbench.view.debug)` 사용). "실행 및 디버그를 사용자 정의하려면 launch.json 파일을 생성하세요"라는 메시지가 표시될 수 있습니다. 이는 아직 디버그 구성이 포함된 `launch.json` 파일이 없음을 의미합니다. **launch.json 파일 생성** 링크를 클릭하면 VS Code가 이를 생성할 수 있습니다:
 
-    ![Flask tutorial: initial view of the debug panel](images/shared/debug-panel-initial-view.png)
+    ![Flask 튜토리얼: 디버그 패널의 초기 보기](images/shared/debug-panel-initial-view.png)
 
-1.  Select the link and VS Code will prompt for a debug configuration. Select **Flask** from the dropdown and VS Code will populate a new `launch.json` file with a Flask run configuration. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
+1. 링크를 선택하면 VS Code가 디버그 구성을 요청합니다. 드롭다운에서 **Flask**를 선택하면 VS Code가 Flask 실행 구성이 포함된 새로운 `launch.json` 파일을 채웁니다. `launch.json` 파일에는 각각의 디버깅 구성이 `configuration` 배열 내의 별도의 JSON 객체로 포함되어 있습니다.
 
-1.  Scroll down to and examine the configuration, which is named "Python: Flask". This configuration contains `"module": "flask",`, which tells VS Code to run Python with `-m flask` when it starts the debugger. It also defines the FLASK_APP environment variable in the `env` property to identify the startup file, which is `app.py` by default, but allows you to easily specify a different file. If you want to change the host and/or port, you can use the `args` array.
+1. 아래로 스크롤하여 "Python: Flask"라는 이름의 구성을 확인합니다. 이 구성에는 `"module": "flask",`가 포함되어 있어 VS Code가 디버거를 시작할 때 `-m flask`로 Python을 실행하도록 지시합니다. 또한 `env` 속성에서 FLASK_APP 환경 변수를 정의하여 시작 파일을 식별합니다. 기본값은 `app.py`이지만 다른 파일을 쉽게 지정할 수 있습니다. 호스트 및/또는 포트를 변경하려면 `args` 배열을 사용할 수 있습니다.
 
         ```json
         {
@@ -200,118 +200,116 @@ Debugging gives you the opportunity to pause a running program on a particular l
         },
         ```
 
-        > **Note**: If the `env` entry in your configuration contains `"FLASK_APP": "$\{workspaceFolder\}
+        > **참고**: 구성의 `env` 항목에 `"FLASK_APP": "$\{workspaceFolder\}/app.py"`가 포함되어 있는 경우, 위와 같이 `"FLASK_APP": "app.py"`로 변경하십시오. 그렇지 않으면 "모듈 C를 가져올 수 없습니다"와 같은 오류 메시지가 표시될 수 있으며, 여기서 C는 프로젝트 폴더가 있는 드라이브 문자입니다.
 
-    /app.py"`, change it to `"FLASK_APP": "app.py"` as shown above. Otherwise you may encounter error messages like "Cannot import module C" where C is the drive letter where your project folder resides.
+        > **참고**: `launch.json`이 생성되면 편집기에서 **구성 추가** 버튼이 나타납니다. 이 버튼은 구성 목록의 시작 부분에 추가할 수 있는 추가 구성 목록을 표시합니다. (**실행** > **구성 추가** 메뉴 명령도 동일한 작업을 수행합니다.).
 
-        > **Note**: Once `launch.json` is created, an **Add Configuration** button appears in the editor. That button displays a list of additional configurations to add to the beginning of the configuration list. (The **Run** > **Add Configuration** menu command does the same action.).
+1. `launch.json`을 저장합니다 (`kb(workbench.action.files.save)`). 디버그 구성 드롭다운 목록에서 **Python: Flask** 구성을 선택합니다.
 
-1.  Save `launch.json` (`kb(workbench.action.files.save)`). In the debug configuration dropdown list select the **Python: Flask** configuration.
+    ![Flask 튜토리얼: Flask 디버깅 구성 선택](images/flask-tutorial/debug-select-configuration.png)
 
-    ![Flask tutorial: selecting the Flask debugging configuration](images/flask-tutorial/debug-select-configuration.png)
+1. **실행** > **디버깅 시작** 메뉴 명령을 선택하거나 목록 옆의 녹색 **디버깅 시작** 화살표를 선택하여 디버거를 시작합니다 (`kb(workbench.action.debug.continue)`):
 
-1.  Start the debugger by selecting the **Run** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb(workbench.action.debug.continue)`):
+    ![Flask 튜토리얼: 디버깅 시작/계속 화살표가 있는 디버그 도구 모음](images/flask-tutorial/debug-continue-arrow.png)
 
-    ![Flask tutorial: start debugging/continue arrow on the debug toolbar](images/flask-tutorial/debug-continue-arrow.png)
+    디버깅 상태를 나타내기 위해 상태 표시줄의 색상이 변경되는 것을 관찰합니다:
 
-    Observe that the status bar changes color to indicate debugging:
+    ![Flask 튜토리얼: 디버깅 상태 표시줄의 모습](images/flask-tutorial/debug-status-bar.png)
 
-    ![Flask tutorial: appearance of the debugging status bar](images/flask-tutorial/debug-status-bar.png)
+    디버깅 도구 모음(아래 그림 참조)도 VS Code에 나타나며, 다음 순서로 명령이 포함되어 있습니다: 일시 중지(또는 계속, `kb(workbench.action.debug.continue)`), 한 단계 건너뛰기(`kb(workbench.action.debug.stepOver)`), 한 단계 들어가기(`kb(workbench.action.debug.stepInto)`), 한 단계 나가기(`kb(workbench.action.debug.stepOut)`), 재시작(`kb(workbench.action.debug.restart)`), 중지(`kb(workbench.action.debug.stop)`). 각 명령에 대한 설명은 [VS Code 디버깅](/docs/editor/debugging.md)을 참조하십시오.
 
-    A debugging toolbar (shown below) also appears in VS Code containing commands in the following order: Pause (or Continue, `kb(workbench.action.debug.continue)`), Step Over (`kb(workbench.action.debug.stepOver)`), Step Into (`kb(workbench.action.debug.stepInto)`), Step Out (`kb(workbench.action.debug.stepOut)`), Restart (`kb(workbench.action.debug.restart)`), and Stop (`kb(workbench.action.debug.stop)`). See [VS Code debugging](/docs/editor/debugging.md) for a description of each command.
+    ![Flask 튜토리얼: VS Code 디버그 도구 모음](images/flask-tutorial/debug-toolbar.png)
 
-    ![Flask tutorial: the VS Code debug toolbar](images/flask-tutorial/debug-toolbar.png)
+1. "Python Debug Console" 터미널에 출력이 나타납니다. 해당 터미널에서 `http://127.0.0.1:5000/` 링크를 `kbstyle(Ctrl+click)`하여 브라우저에서 해당 URL을 엽니다. 브라우저의 주소 표시줄에서 `http://127.0.0.1:5000/hello/VSCode`로 이동합니다. 페이지가 렌더링되기 전에 VS Code는 설정한 중단점에서 프로그램을 일시 중지합니다. 중단점에 있는 작은 노란색 화살표는 다음에 실행될 코드 줄을 나타냅니다.
 
-1.  Output appears in a "Python Debug Console" terminal. `kbstyle(Ctrl+click)` the `http://127.0.0.1:5000/` link in that terminal to open a browser to that URL. In the browser's address bar, navigate to `http://127.0.0.1:5000/hello/VSCode`. Before the page renders, VS Code pauses the program at the breakpoint you set. The small yellow arrow on the breakpoint indicates that it's the next line of code to run.
+    ![Flask 튜토리얼: 중단점에서 일시 중지된 VS Code](images/flask-tutorial/debug-program-paused.png)
 
-    ![Flask tutorial: VS Code paused at a breakpoint](images/flask-tutorial/debug-program-paused.png)
+1. 한 단계 건너뛰기를 사용하여 `now = datetime.now()` 문을 실행합니다.
 
-1.  Use Step Over to run the `now = datetime.now()` statement.
+1. VS Code 창의 왼쪽에 **변수** 패널이 표시되어 `now`와 같은 지역 변수와 `name`과 같은 인수를 보여줍니다. 그 아래에는 **감시**, **호출 스택**, **중단점**을 위한 패널이 있습니다(자세한 내용은 [VS Code 디버깅](/docs/editor/debugging.md)을 참조하십시오). **로컬** 섹션에서 다양한 값을 확장해 보십시오. 값을 더블 클릭하거나(`kb(debug.setVariable)`)하여 수정할 수도 있습니다. 그러나 `now`와 같은 변수를 변경하면 프로그램이 중단될 수 있습니다. 개발자는 일반적으로 코드가 처음에 올바른 값을 생성하지 않았을 때만 값을 수정합니다.
 
-1.  On the left side of the VS Code window, you see a **Variables** pane that shows local variables, such as `now`, as well as arguments, such as `name`. Below that are panes for **Watch**, **Call Stack**, and **Breakpoints** (see [VS Code debugging](/docs/editor/debugging.md) for details). In the **Locals** section, try expanding different values. You can also double-click values (or use `kb(debug.setVariable)`) to modify them. Changing variables such as `now`, however, can break the program. Developers typically make changes only to correct values when the code didn't produce the right value to begin with.
+    ![Flask 튜토리얼: 디버깅 중 VS Code의 로컬 변수 및 인수](images/flask-tutorial/debug-local-variables.png)
 
-    ![Flask tutorial: local variables and arguments in VS Code during debugging](images/flask-tutorial/debug-local-variables.png)
-
-1.  When a program is paused, the **Debug Console** panel (which is different from the "Python Debug Console" in the Terminal panel) lets you experiment with expressions and try out bits of code using the current state of the program. For example, once you've stepped over the line `now = datetime.now()`, you might experiment with different date/time formats. In the editor, select the code that reads `now.strftime("%A, %d %B, %Y at %X")`, then right-click and select **Evaluate in Debug Console** to send that code to the debug console, where it runs:
+1. 프로그램이 일시 중지되면 **디버그 콘솔** 패널(터미널 패널의 "Python Debug Console"과는 다름)을 사용하여 표현식을 실험하고 프로그램의 현재 상태를 사용하여 코드 조각을 시도할 수 있습니다. 예를 들어, `now = datetime.now()` 줄을 건너뛰면 다양한 날짜/시간 형식으로 실험할 수 있습니다. 편집기에서 `now.strftime("%A, %d %B, %Y at %X")`라는 코드를 선택한 후 마우스 오른쪽 버튼을 클릭하고 **디버그 콘솔에서 평가**를 선택하여 해당 코드를 디버그 콘솔로 전송하여 실행합니다:
 
     ```bash
     now.strftime("%A, %d %B, %Y at %X")
-    'Wednesday, 31 October, 2018 at 18:13:39'
+    '2018년 10월 31일 수요일 18:13:39'
     ```
 
-    > **Tip**: The **Debug Console** also shows exceptions from within the app that may not appear in the terminal. For example, if you see a "Paused on exception" message in the **Call Stack** area of **Run and Debug** view, switch to the **Debug Console** to see the exception message.
+    > **팁**: **디버그 콘솔**은 터미널에 나타나지 않을 수 있는 앱 내의 예외도 표시합니다. 예를 들어, **실행 및 디버그** 뷰의 **호출 스택** 영역에 "예외에서 일시 중지됨" 메시지가 표시되면 **디버그 콘솔**로 전환하여 예외 메시지를 확인하십시오.
 
-1.  Copy that line into the > prompt at the bottom of the debug console, and try changing the formatting:
+1. 해당 줄을 디버그 콘솔 하단의 > 프롬프트에 복사하고 형식을 변경해 보십시오:
 
     ```bash
     now.strftime("%a, %d %B, %Y at %X")
-    'Wed, 31 October, 2018 at 18:13:39'
+    '2018년 10월 31일 수요일 18:13:39'
     now.strftime("%a, %d %b, %Y at %X")
-    'Wed, 31 Oct, 2018 at 18:13:39'
+    '2018년 10월 31일 수요일 18:13:39'
     now.strftime("%a, %d %b, %y at %X")
-    'Wed, 31 Oct, 18 at 18:13:39'
+    '18년 10월 31일 수요일 18:13:39'
     ```
 
-1.  Step through a few more lines of code, if you'd like, then select Continue (`kb(workbench.action.debug.continue)`) to let the program run. The browser window shows the result:
+1. 원하시면 몇 줄 더 단계별로 실행한 후 계속(`kb(workbench.action.debug.continue)`)을 선택하여 프로그램을 실행합니다. 브라우저 창에 결과가 표시됩니다:
 
-    ![Flask tutorial: result of the modified program](images/flask-tutorial/debug-run-result.png)
+    ![Flask 튜토리얼: 수정된 프로그램의 결과](images/flask-tutorial/debug-run-result.png)
 
-1.  Change the line in the code to use different datetime format, for example `now.strftime("%a, %d %b, %y at %X")`, and then save the file. The Flask server will automatically reload, which means the changes will be applied without the need to restart the debugger. Refresh the page on the browser to see the update.
+1. 코드의 줄을 변경하여 다른 날짜/시간 형식을 사용합니다. 예를 들어 `now.strftime("%a, %d %b, %y at %X")`로 변경한 후 파일을 저장합니다. Flask 서버는 자동으로 다시 로드되므로 변경 사항이 적용됩니다. 브라우저에서 페이지를 새로 고쳐 업데이트를 확인합니다.
 
-1.  Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Run** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
+1. 작업이 끝나면 브라우저를 닫고 디버거를 중지합니다. 디버거를 중지하려면 중지 도구 모음 버튼(빨간 사각형)이나 **실행** > **디버깅 중지** 명령(`kb(workbench.action.debug.stop)`)을 사용합니다.
 
-> **Tip**: To make it easier to repeatedly navigate to a specific URL like `http://127.0.0.1:5000/hello/VSCode`, output that URL using a `print` statement. The URL appears in the terminal where you can use `kbstyle(Ctrl+click)` to open it in a browser.
+> **팁**: `http://127.0.0.1:5000/hello/VSCode`와 같은 특정 URL로 반복적으로 탐색하기 쉽게 하려면 `print` 문을 사용하여 해당 URL을 출력합니다. URL은 터미널에 나타나며, 여기서 `kbstyle(Ctrl+click)`를 사용하여 브라우저에서 열 수 있습니다.
 
-## Go to Definition and Peek Definition commands
+## 정의로 이동 및 정의 미리 보기 명령 {#go-to-definition-and-peek-definition-commands}
 
-During your work with Flask or any other library, you may want to examine the code in those libraries themselves. VS Code provides two convenient commands that navigate directly to the definitions of classes and other objects in any code:
+Flask 또는 다른 라이브러리 작업 중에 해당 라이브러리의 코드를 검사하고 싶을 수 있습니다. VS Code는 클래스 및 기타 객체의 정의로 직접 이동하는 두 가지 편리한 명령을 제공합니다:
 
-- **Go to Definition** jumps from your code into the code that defines an object. For example, in `app.py`, right-click on the `Flask` class (in the line `app = Flask(__name__)`) and select **Go to Definition** (or use `kb(editor.action.revealDefinition)`), which navigates to the class definition in the Flask library.
+- **정의로 이동**는 코드에서 객체를 정의하는 코드로 점프합니다. 예를 들어, `app.py`에서 `Flask` 클래스(줄 `app = Flask(__name__)`)를 마우스 오른쪽 버튼으로 클릭하고 **정의로 이동**을 선택하면(`kb(editor.action.revealDefinition)`) Flask 라이브러리의 클래스 정의로 이동합니다.
 
-- **Peek Definition** (`kb(editor.action.peekDefinition)`, also on the right-click context menu), is similar, but displays the class definition directly in the editor (making space in the editor window to avoid obscuring any code). Press `kbstyle(Escape)` to close the Peek window or use the **x** in the upper right corner.
+- **정의 미리 보기**(`kb(editor.action.peekDefinition)`, 오른쪽 클릭 컨텍스트 메뉴에서도 사용 가능)는 유사하지만 클래스 정의를 편집기에서 직접 표시합니다(코드를 가리지 않도록 편집기 창에 공간을 만듭니다). 미리 보기 창을 닫으려면 `kbstyle(Escape)`를 누르거나 오른쪽 상단의 **x**를 사용합니다.
 
-  ![Flask tutorial: peek definition showing the Flask class inline](images/flask-tutorial/peek-definition.png)
+  ![Flask 튜토리얼: 인라인으로 Flask 클래스 미리 보기](images/flask-tutorial/peek-definition.png)
 
-## Use a template to render a page
+## 템플릿을 사용하여 페이지 렌더링하기 {#use-a-template-to-render-a-page}
 
-The app you've created so far in this tutorial generates only plain text web pages from Python code. Although it's possible to generate HTML directly in code, developers avoid such a practice because it opens the app to [cross-site scripting (XSS) attacks](https://flask.palletsprojects.com/security/#cross-site-scripting-xss). In the `hello_there` function of this tutorial, for example, one might think to format the output in code with something like `content = "<h1>Hello there, " + clean_name + "!</h1>"`, where the result in `content` is given directly to a browser. This opening allows an attacker to place malicious HTML, including JavaScript code, in the URL that ends up in `clean_name` and thus ends up being run in the browser.
+지금까지 이 튜토리얼에서 생성한 앱은 Python 코드에서 일반 텍스트 웹 페이지만 생성합니다. HTML을 코드에서 직접 생성하는 것이 가능하지만, 개발자는 이러한 관행을 피하는 것이 좋습니다. 이는 앱이 [교차 사이트 스크립팅(XSS) 공격](https://flask.palletsprojects.com/security/#cross-site-scripting-xss)에 노출될 수 있기 때문입니다. 예를 들어, 이 튜토리얼의 `hello_there` 함수에서 `content = "<h1>안녕하세요, " + clean_name + "!</h1>"`와 같이 코드를 사용하여 출력을 형식화하려고 할 수 있습니다. 여기서 `content`의 결과는 브라우저에 직접 제공됩니다. 이는 공격자가 URL에 악성 HTML, JavaScript 코드를 삽입할 수 있는 여지를 제공합니다. 이 경우 `clean_name`에 삽입된 악성 코드가 브라우저에서 실행됩니다.
 
-A much better practice is to keep HTML out of your code entirely by using **templates**, so that your code is concerned only with data values and not with rendering.
+더 나은 방법은 **템플릿**을 사용하여 HTML을 코드에서 완전히 분리하는 것입니다. 이렇게 하면 코드가 데이터 값에만 관심을 가지게 되고 렌더링에는 관여하지 않게 됩니다.
 
-- A template is an HTML file that contains placeholders for values that the code provides at run time. The templating engine takes care of making the substitutions when rendering the page. The code, therefore, concerns itself only with data values and the template concerns itself only with markup.
-- The default templating engine for Flask is [Jinja](https://jinja.palletsprojects.com), which is installed automatically when you install Flask. This engine provides flexible options including automatic escaping (to prevent XSS attacks) and template inheritance. With inheritance, you can define a base page with common markup and then build upon that base with page-specific additions.
+- 템플릿은 코드가 런타임에 제공하는 값의 자리 표시자를 포함하는 HTML 파일입니다. 템플릿 엔진은 페이지를 렌더링할 때 치환 작업을 처리합니다. 따라서 코드는 데이터 값에만 관심을 가지며 템플릿은 마크업에만 관심을 가집니다.
+- Flask의 기본 템플릿 엔진은 [Jinja](https://jinja.palletsprojects.com)로, Flask를 설치할 때 자동으로 설치됩니다. 이 엔진은 XSS 공격을 방지하기 위한 자동 이스케이프 및 템플릿 상속과 같은 유연한 옵션을 제공합니다. 상속을 사용하면 공통 마크업이 있는 기본 페이지를 정의한 다음 해당 기본 페이지를 기반으로 페이지별 추가 사항을 구축할 수 있습니다.
 
-In this section, you create a single page using a template. In the sections that follow, you configure the app to serve static files, and then create multiple pages to the app that each contains a nav bar from a base template.
+이 섹션에서는 템플릿을 사용하여 단일 페이지를 생성합니다. 이후 섹션에서는 앱이 정적 파일을 제공하도록 구성하고, 각 페이지에 기본 템플릿에서 내비게이션 바가 포함된 여러 페이지를 생성합니다.
 
-1. Inside the `hello_flask` folder, create a folder named `templates`, which is where Flask looks for templates by default.
+1. `hello_flask` 폴더 내에 Flask가 기본적으로 템플릿을 찾는 `templates`라는 폴더를 생성합니다.
 
-1. In the `templates` folder, create a file named `hello_there.html` with the contents below. This template contains two placeholders named "name" and "date", which are delineated by pairs of curly braces, `\{{` and `}}`. As you can see, you can also include formatting code in the template directly:
+1. `templates` 폴더 내에 `hello_there.html`이라는 파일을 생성하고 아래 내용을 추가합니다. 이 템플릿은 "name"과 "date"라는 두 개의 자리 표시자를 포함하고 있으며, 이는 쌍의 중괄호 `{{` 및 `}}`로 구분됩니다. 보시다시피, 템플릿 내에 직접 형식화 코드를 포함할 수도 있습니다:
 
    ```html
    <!DOCTYPE html>
    <html>
      <head>
        <meta charset="utf-8" />
-       <title>Hello, Flask</title>
+       <title>안녕하세요, Flask</title>
      </head>
      <body>
        {%if name %}
-       <strong>Hello there, \{{ name }}!</strong> It's \{{ date.strftime("%A, %d
-       %B, %Y at %X") }}. {% else %} What's your name? Provide it after /hello/
-       in the URL. {% endif %}
+       <strong>안녕하세요, \{{ name }}!</strong> 현재 시간은 \{{ date.strftime("%A, %d
+       %B, %Y at %X") }}입니다. {% else %} 당신의 이름은 무엇인가요? URL에서 /hello/
+       뒤에 제공하세요. {% endif %}
      </body>
    </html>
    ```
 
-   > **Tip**: Flask developers often use the [flask-babel](https://pythonhosted.org/Flask-Babel/) extension for date formatting, rather than `strftime`, as flask-babel takes locales and timezones into consideration.
+   > **팁**: Flask 개발자는 날짜 형식을 위해 `strftime` 대신 [flask-babel](https://pythonhosted.org/Flask-Babel/) 확장을 자주 사용합니다. 이는 로케일 및 시간대를 고려합니다.
 
-1. In `app.py`, import Flask's `render_template` function near the top of the file:
+1. `app.py`의 상단 근처에 Flask의 `render_template` 함수를 가져옵니다:
 
    ```python
    from flask import render_template
    ```
 
-1. Also in `app.py`, modify the `hello_there` function to use `render_template` to load a template and apply the named values (and add a route to recognize the case without a name). `render_template` assumes that the first argument is relative to the `templates` folder. Typically, developers name the templates the same as the functions that use them, but matching names are not required because you always refer to the exact filename in your code.
+1. `app.py`에서도 `hello_there` 함수를 수정하여 `render_template`를 사용하여 템플릿을 로드하고 이름 값을 적용합니다(이름 없이 인식할 수 있는 경로를 추가합니다). `render_template`는 첫 번째 인수가 `templates` 폴더에 상대적이라고 가정합니다. 일반적으로 개발자는 템플릿을 사용하는 함수와 동일한 이름으로 명명하지만, 코드에서 정확한 파일 이름을 참조하기 때문에 일치하는 이름이 필요하지 않습니다.
 
    ```python
    @app.route("/hello/")
@@ -324,25 +322,25 @@ In this section, you create a single page using a template. In the sections that
        )
    ```
 
-   You can see that the code is now much simpler, and concerned only with data values, because the markup and formatting is all contained in the template.
+   이제 코드는 데이터 값에만 관심을 가지게 되어 훨씬 간단해졌습니다. 마크업과 형식화는 모두 템플릿에 포함되어 있습니다.
 
-1. Start the program (inside or outside of the debugger, using `kb(workbench.action.debug.run)`), navigate to a /hello/name URL, and observe the results.
+1. 프로그램을 시작합니다(디버거 내에서 또는 외부에서 `kb(workbench.action.debug.run)` 사용). `/hello/name` URL로 이동하여 결과를 관찰합니다.
 
-1. Also try navigating to a /hello/name URL using a name like `<a%20value%20that%20could%20be%20HTML>` to see Flask's automatic escaping at work. The "name" value shows up as plain text in the browser rather than as rendering an actual element.
+1. 또한 `<a%20value%20that%20could%20be%20HTML>`와 같은 이름을 사용하여 `/hello/name` URL로 이동하여 Flask의 자동 이스케이프가 작동하는 것을 확인해 보십시오. "name" 값은 브라우저에 일반 텍스트로 표시되며 실제 요소로 렌더링되지 않습니다.
 
-## Serve static files
+## 정적 파일 제공하기 {#serve-static-files}
 
-Static files are of two types. First are those files like stylesheets to which a page template can just refer directly. Such files can live in any folder in the app, but are commonly placed within a `static` folder.
+정적 파일은 두 가지 유형이 있습니다. 첫 번째는 페이지 템플릿이 직접 참조할 수 있는 스타일시트와 같은 파일입니다. 이러한 파일은 앱의 어떤 폴더에나 존재할 수 있지만 일반적으로 `static` 폴더 내에 배치됩니다.
 
-The second type are those that you want to address in code, such as when you want to implement an API endpoint that returns a static file. For this purpose, the Flask object contains a built-in method, `send_static_file`, which generates a response with a static file contained within the app's `static` folder.
+두 번째 유형은 API 엔드포인트를 구현할 때와 같이 코드에서 다루고 싶은 파일입니다. 이를 위해 Flask 객체에는 앱의 `static` 폴더 내에 포함된 정적 파일로 응답을 생성하는 내장 메서드인 `send_static_file`이 포함되어 있습니다.
 
-The following sections demonstrate both types of static files.
+다음 섹션에서는 두 가지 유형의 정적 파일을 모두 시연합니다.
 
-### Refer to static files in a template
+### 템플릿에서 정적 파일 참조하기 {#refer-to-static-files-in-a-template}
 
-1. In the `hello_flask` folder, create a folder named `static`.
+1. `hello_flask` 폴더 내에 `static`이라는 폴더를 생성합니다.
 
-1. Within the `static` folder, create a file named `site.css` with the following contents. After entering this code, also observe the syntax highlighting that VS Code provides for CSS files, including a color preview:
+1. `static` 폴더 내에 `site.css`라는 파일을 생성하고 다음 내용을 추가합니다. 이 코드를 입력한 후, VS Code가 CSS 파일에 대해 제공하는 구문 강조 표시와 색상 미리 보기를 관찰하십시오:
 
    ```css
    .message {
@@ -351,7 +349,7 @@ The following sections demonstrate both types of static files.
    }
    ```
 
-1. In `templates/hello_there.html`, add the following line before the `</head>` tag, which creates a reference to the stylesheet.
+1. `templates/hello_there.html`에서 `</head>` 태그 이전에 다음 줄을 추가하여 스타일시트에 대한 참조를 생성합니다.
 
    ```html
    <link
@@ -361,34 +359,34 @@ The following sections demonstrate both types of static files.
    />
    ```
 
-   Flask's [url_for](https://flask.palletsprojects.com/api/#flask.url_for) tag that is used here, creates the appropriate path to the file. Because it can accept variables as arguments, `url_for` allows you to programmatically control the generated path, if desired.
+   여기서 사용된 Flask의 [url_for](https://flask.palletsprojects.com/api/#flask.url_for) 태그는 파일에 대한 적절한 경로를 생성합니다. 변수 인수를 허용할 수 있기 때문에 `url_for`를 사용하면 생성된 경로를 프로그래밍 방식으로 제어할 수 있습니다.
 
-1. Also in `templates/hello_there.html`, replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag (and also displays a message if you just use a hello/ URL without a name):
+1. 또한 `templates/hello_there.html`에서 `<body>` 요소의 내용을 다음 마크업으로 교체하여 `<strong>` 태그 대신 `message` 스타일을 사용하고 이름 없이 `/hello/` URL을 사용할 경우 메시지를 표시합니다:
 
    ```html
-   {%if name %} <span class="message">Hello there, \{{ name }}!</span> It's \{{
-   date.strftime("%A, %d %B, %Y at %X") }}. {% else %}
+   {%if name %} <span class="message">안녕하세요, \{{ name }}!</span> 현재 시간은 \{{
+   date.strftime("%A, %d %B, %Y at %X") }}입니다. {% else %}
    <span class="message"
-     >What's your name? Provide it after /hello/ in the URL.</span
+     >당신의 이름은 무엇인가요? URL에서 /hello/ 뒤에 제공하세요.</span
    >
    {% endif %}
    ```
 
-1. Run the app, navigate to a /hello/name URL, and observe that the message renders in blue. Stop the app when you're done.
+1. 앱을 실행하고 `/hello/name` URL로 이동하여 메시지가 파란색으로 렌더링되는 것을 관찰합니다. 작업이 끝나면 앱을 중지합니다.
 
-### Serve a static file from code
+### 코드에서 정적 파일 제공하기 {#serve-a-static-file-from-code}
 
-1. In the `static` folder, create a JSON data file named `data.json` with the following contents (which are meaningless sample data):
+1. `static` 폴더 내에 `data.json`이라는 JSON 데이터 파일을 생성하고 다음 내용을 추가합니다(의미 없는 샘플 데이터입니다):
 
    ```json
    {
      "01": {
-       "note": "This data is very simple because we're demonstrating only the mechanism."
+       "note": "이 데이터는 메커니즘만 보여주기 때문에 매우 간단합니다."
      }
    }
    ```
 
-1. In `app.py`, add a function with the route /api/data that returns the static data file using the `send_static_file` method:
+1. `app.py`에 `/api/data` 경로가 있는 함수를 추가하여 `send_static_file` 메서드를 사용하여 정적 데이터 파일을 반환합니다:
 
    ```python
    @app.route("/api/data")
@@ -396,23 +394,23 @@ The following sections demonstrate both types of static files.
        return app.send_static_file("data.json")
    ```
 
-1. Run the app and navigate to the /api/data endpoint to see that the static file is returned. Stop the app when you're done.
+1. 앱을 실행하고 `/api/data` 엔드포인트로 이동하여 정적 파일이 반환되는 것을 확인합니다. 작업이 끝나면 앱을 중지합니다.
 
-## Create multiple templates that extend a base template
+## 기본 템플릿을 확장하는 여러 템플릿 만들기 {#create-multiple-templates-that-extend-a-base-template}
 
-Because most web apps have more than one page, and because those pages typically share many common elements, developers separate those common elements into a base page template that other page templates can then extend (this is also called template inheritance.)
+대부분의 웹 앱은 하나 이상의 페이지를 가지며, 이러한 페이지는 일반적으로 많은 공통 요소를 공유하므로 개발자는 이러한 공통 요소를 기본 페이지 템플릿으로 분리하여 다른 페이지 템플릿이 이를 확장할 수 있도록 합니다(이를 템플릿 상속이라고도 합니다).
 
-Also, because you'll likely create many pages that extend the same template, it's helpful to create a code snippet in VS Code with which you can quickly initialize new page templates. A snippet helps you avoid tedious and error-prone copy-paste operations.
+또한 동일한 템플릿을 확장하는 여러 페이지를 만들 가능성이 높기 때문에, VS Code에서 새로운 페이지 템플릿을 신속하게 초기화할 수 있는 코드 스니펫을 만드는 것이 유용합니다. 스니펫은 단일 소스에서 일관된 코드 조각을 제공하여 기존 코드에서 복사-붙여넣기할 때 발생할 수 있는 오류를 방지합니다.
 
-The following sections walk through different parts of this process.
+다음 섹션에서는 이 프로세스의 다양한 부분을 안내합니다.
 
-### Create a base page template and styles
+### 기본 페이지 템플릿 및 스타일 만들기 {#create-a-base-page-template-and-styles}
 
-A base page template in Flask contains all the shared parts of a set of pages, including references to CSS files, script files, and so forth. Base templates also define one or more **block** tags that other templates that extend the base are expected to override. A block tag is delineated by `{% block <name> %}` and `{% endblock %}` in both the base template and extended templates.
+Flask의 기본 페이지 템플릿은 CSS 파일, 스크립트 파일 등에 대한 참조를 포함하여 페이지 집합의 모든 공유 부분을 포함합니다. 기본 템플릿은 또한 다른 템플릿이 기본 템플릿을 확장할 때 재정의할 것으로 예상되는 하나 이상의 **블록** 태그를 정의합니다. 블록 태그는 기본 템플릿과 확장된 템플릿 모두에서 `{% block <name> %}` 및 `{% endblock %}`로 구분됩니다.
 
-The following steps demonstrate creating a base template.
+다음 단계에서는 기본 템플릿을 만드는 방법을 보여줍니다.
 
-1. In the `templates` folder, create a file named `layout.html` with the contents below, which contains blocks named "title" and "content". As you can see, the markup defines a simple nav bar structure with links to Home, About, and Contact pages, which you will create in a later section. Each link again uses Flask's `url_for` tag to generate a link at runtime for the matching route.
+1. `templates` 폴더 내에 `layout.html`이라는 파일을 생성하고 아래 내용을 추가합니다. 이 파일에는 "title" 및 "content"라는 블록이 포함되어 있습니다. 마크업은 홈, 소개 및 연락처 페이지에 대한 링크가 있는 간단한 내비게이션 바 구조를 정의합니다. 이러한 페이지는 나중 섹션에서 생성할 것입니다. 각 링크는 다시 Flask의 `url_for` 태그를 사용하여 런타임에 일치하는 경로에 대한 링크를 생성합니다.
 
    ```html
    <!DOCTYPE html>
@@ -429,9 +427,9 @@ The following steps demonstrate creating a base template.
 
      <body>
        <div class="navbar">
-         <a href="\{{ url_for('home') }}" class="navbar-brand">Home</a>
-         <a href="\{{ url_for('about') }}" class="navbar-item">About</a>
-         <a href="\{{ url_for('contact') }}" class="navbar-item">Contact</a>
+         <a href="\{{ url_for('home') }}" class="navbar-brand">홈</a>
+         <a href="\{{ url_for('about') }}" class="navbar-item">소개</a>
+         <a href="\{{ url_for('contact') }}" class="navbar-item">연락처</a>
        </div>
 
        <div class="body-content">
@@ -445,7 +443,7 @@ The following steps demonstrate creating a base template.
    </html>
    ```
 
-1. Add the following styles to `static/site.css`, below the existing "message" style, and save the file. Note that this walkthrough doesn't attempt to demonstrate responsive design; these styles simply generate a reasonably interesting result.
+1. `static/site.css`에 기존 "message" 스타일 아래에 다음 스타일을 추가하고 파일을 저장합니다. 이 안내서는 반응형 디자인을 시연하려는 것이 아니므로, 이러한 스타일은 그저 적절히 흥미로운 결과를 생성합니다.
 
    ```css
    .navbar {
@@ -478,17 +476,17 @@ The following steps demonstrate creating a base template.
    }
    ```
 
-You can run the app at this point, but because you haven't made use of the base template anywhere and haven't changed any code files, the result is the same as the previous step. Complete the remaining sections to see the final effect.
+이 시점에서 앱을 실행할 수 있지만, 기본 템플릿을 어디에서도 사용하지 않았고 코드 파일도 변경하지 않았기 때문에 결과는 이전 단계와 동일합니다. 나머지 섹션을 완료하여 최종 효과를 확인하십시오.
 
-### Create a code snippet
+### 코드 스니펫 만들기 {#create-a-code-snippet}
 
-Because the three pages you create in the next section extend `layout.html`, it saves time to create a **code snippet** to initialize a new template file with the appropriate reference to the base template. A code snippet provides a consistent piece of code from a single source, which avoids errors that can creep in when using copy-paste from existing code.
+다음 섹션에서 생성할 세 페이지가 `layout.html`을 확장하므로, 기본 템플릿에 대한 적절한 참조로 새로운 템플릿 파일을 초기화할 수 있는 **코드 스니펫**을 만드는 것이 시간을 절약합니다. 코드 스니펫은 단일 소스에서 일관된 코드 조각을 제공하여 기존 코드에서 복사-붙여넣기할 때 발생할 수 있는 오류를 방지합니다.
 
-1. In VS Code, select **File** > **Preferences** > **Configure Snippets**.
+1. VS Code에서 **파일** > **환경 설정** > **스니펫 구성**을 선택합니다.
 
-1. In the list that appears, select **html**. The option may appear as "html.json" in the **Existing Snippets** section of the list if you've created snippets previously.
+1. 나타나는 목록에서 **html**을 선택합니다. 이전에 스니펫을 생성한 경우, 옵션이 목록의 **기존 스니펫** 섹션에서 "html.json"으로 나타날 수 있습니다.
 
-1. After VS Code opens `html.json`, add the following entry within the existing curly braces (the explanatory comments, not shown here, describe details such as how the `$0` line indicates where VS Code places the cursor after inserting a snippet):
+1. VS Code가 `html.json`을 열면 기존 중괄호 내에 다음 항목을 추가합니다(설명 주석은 스니펫 삽입 후 커서가 위치할 곳을 나타내는 `$0` 줄과 같은 세부 사항을 설명합니다):
 
    ```json
    "Flask Tutorial: template extending layout.html": {
@@ -506,39 +504,39 @@ Because the three pages you create in the next section extend `layout.html`, it 
    },
    ```
 
-1. Save the `html.json` file (`kb(workbench.action.files.save)`).
+1. `html.json` 파일을 저장합니다 (`kb(workbench.action.files.save)`).
 
-1. Now, whenever you start typing the snippet's prefix, such as `flext`, VS Code provides the snippet as an autocomplete option, as shown in the next section. You can also use the **Insert Snippet** command to choose a snippet from a menu.
+1. 이제 `flext`와 같은 스니펫의 접두사를 입력하기 시작하면, VS Code가 다음 섹션에 표시된 것처럼 스니펫을 자동 완성 옵션으로 제공합니다. 메뉴에서 스니펫을 선택하려면 **Insert Snippet** 명령을 사용할 수도 있습니다.
 
-For more information on code snippets in general, refer to [Creating snippets](/docs/editor/userdefinedsnippets.md).
+코드 스니펫에 대한 일반적인 정보는 [Creating snippets](/docs/editor/userdefinedsnippets.md)를 참조하십시오.
 
-### Use the code snippet to add pages
+### 코드 스니펫을 사용하여 페이지 추가하기 {#use-the-code-snippet-to-add-pages}
 
-With the code snippet in place, you can quickly create templates for the Home, About, and Contact pages.
+코드 스니펫이 준비되면, Home, About 및 Contact 페이지의 템플릿을 빠르게 생성할 수 있습니다.
 
-1. In the `templates` folder, create a new file named `home.html`, Then start typing `flext` to see the snippet appear as a completion:
+1. `templates` 폴더에 `home.html`이라는 새 파일을 생성한 후, `flext`를 입력하여 스니펫이 자동 완성으로 나타나는 것을 확인합니다:
 
-   ![Flask tutorial: autocompletion for the flextlayout code snippet](images/flask-tutorial/autocomplete-for-code-snippet.png)
+   ![Flask 튜토리얼: flextlayout 코드 스니펫에 대한 자동 완성](images/flask-tutorial/autocomplete-for-code-snippet.png)
 
-   When you select the completion, the snippet's code appears with the cursor on the snippet's insertion point:
+   자동 완성을 선택하면 스니펫의 코드가 나타나고 커서는 스니펫의 삽입 지점에 위치합니다:
 
-   ![Flask tutorial: insertion of the flextlayout code snippet](images/flask-tutorial/code-snippet-inserted.png)
+   ![Flask 튜토리얼: flextlayout 코드 스니펫의 삽입](images/flask-tutorial/code-snippet-inserted.png)
 
-1. At the insertion point in the "title" block, write `Home`, and in the "content" block, write `<p>Home page for the Visual Studio Code Flask tutorial.</p>`, then save the file. These lines are the only unique parts of the extended page template:
+1. "title" 블록의 삽입 지점에 `Home`을 작성하고, "content" 블록에 `<p>Visual Studio Code Flask 튜토리얼의 홈 페이지입니다.</p>`를 작성한 후 파일을 저장합니다. 이 줄들은 확장된 페이지 템플릿의 유일한 고유 부분입니다:
 
-1. In the `templates` folder, create `about.html`, use the snippet to insert the boilerplate markup, insert `About us` and `<p>About page for the Visual Studio Code Flask tutorial.</p>` in the "title" and "content" blocks, respectively, then save the file.
+1. `templates` 폴더에 `about.html`을 생성하고, 스니펫을 사용하여 보일러플레이트 마크업을 삽입한 후, "title" 및 "content" 블록에 각각 `About us`와 `<p>Visual Studio Code Flask 튜토리얼의 소개 페이지입니다.</p>`를 삽입한 후 파일을 저장합니다.
 
-1. Repeat the previous step to create `templates/contact.html` using `Contact us` and `<p>Contact page for the Visual Studio Code Flask tutorial.</p>` in the two content blocks.
+1. 이전 단계를 반복하여 `templates/contact.html`을 생성하고, 두 개의 콘텐츠 블록에 `Contact us`와 `<p>Visual Studio Code Flask 튜토리얼의 연락처 페이지입니다.</p>`를 사용합니다.
 
-1. In `app.py`, add functions for the /about/ and /contact/ routes that refer to their respective page templates. Also modify the `home` function to use the `home.html` template.
+1. `app.py`에서 /about/ 및 /contact/ 경로에 대한 함수를 추가하여 각 페이지 템플릿을 참조합니다. 또한 `home` 함수를 수정하여 `home.html` 템플릿을 사용하도록 합니다.
 
    ```python
-   # Replace the existing home function with the one below
+   # 기존 home 함수를 아래의 함수로 교체합니다.
    @app.route("/")
    def home():
        return render_template("home.html")
 
-   # New functions
+   # 새로운 함수들
    @app.route("/about/")
    def about():
        return render_template("about.html")
@@ -548,43 +546,43 @@ With the code snippet in place, you can quickly create templates for the Home, A
        return render_template("contact.html")
    ```
 
-### Run the app
+### 앱 실행하기 {#run-the-app}
 
-With all the page templates in place, save `app.py`, run the app, and open a browser to see the results. Navigate between the pages to verify that the page templates are properly extending the base template.
+모든 페이지 템플릿이 준비되면, `app.py`를 저장하고 앱을 실행한 후 브라우저를 열어 결과를 확인합니다. 페이지 간에 탐색하여 페이지 템플릿이 기본 템플릿을 제대로 확장하고 있는지 확인합니다.
 
-![Flask tutorial: app rendering a common nav bar from the base template](images/flask-tutorial/full-app.png)
+![Flask 튜토리얼: 기본 템플릿에서 공통 내비게이션 바를 렌더링하는 앱](images/flask-tutorial/full-app.png)
 
-> **Note**: If you're not seeing the latest changes, you might need to do a hard refresh on the page to avoid seeing a cached file.
+> **참고**: 최신 변경 사항이 보이지 않는 경우, 캐시된 파일을 피하기 위해 페이지를 강제로 새로 고쳐야 할 수 있습니다.
 
-## Optional activities
+## 선택적 활동 {#optional-activities}
 
-The following sections describe additional steps that you might find helpful in your work with Python and Visual Studio Code.
+다음 섹션에서는 Python 및 Visual Studio Code 작업에 유용할 수 있는 추가 단계를 설명합니다.
 
-### Create a requirements.txt file for the environment
+### 환경을 위한 requirements.txt 파일 만들기 {#create-a-requirementstxt-file-for-the-environment}
 
-When you share your app code through source control or some other means, it doesn't make sense to copy all the files in a virtual environment because recipients can always recreate the environment themselves.
+소스 제어 또는 다른 방법을 통해 앱 코드를 공유할 때, 수신자가 항상 환경을 재생성할 수 있기 때문에 가상 환경의 모든 파일을 복사하는 것은 의미가 없습니다.
 
-Accordingly, developers typically omit the virtual environment folder from source control and instead describe the app's dependencies using a `requirements.txt` file.
+따라서 개발자는 일반적으로 소스 제어에서 가상 환경 폴더를 생략하고 대신 `requirements.txt` 파일을 사용하여 앱의 종속성을 설명합니다.
 
-Although you can create the file by hand, you can also use the `pip freeze` command to generate the file based on the exact libraries installed in the activated environment:
+파일을 수동으로 생성할 수 있지만, 활성화된 환경에 설치된 정확한 라이브러리를 기반으로 파일을 생성하기 위해 `pip freeze` 명령을 사용할 수도 있습니다:
 
-1. With your chosen environment selected using the **Python: Select Interpreter** command, run the **Terminal: Create New Terminal** command (`kb(workbench.action.terminal.new)`)) to open a terminal with that environment activated.
+1. **Python: Select Interpreter** 명령을 사용하여 선택한 환경을 선택한 후, **Terminal: Create New Terminal** 명령(`kb(workbench.action.terminal.new)`)을 실행하여 해당 환경이 활성화된 터미널을 엽니다.
 
-1. In the terminal, run `pip freeze > requirements.txt` to create the `requirements.txt` file in your project folder.
+1. 터미널에서 `pip freeze > requirements.txt`를 실행하여 프로젝트 폴더에 `requirements.txt` 파일을 생성합니다.
 
-Anyone (or any build server) that receives a copy of the project needs only to run the `pip install -r requirements.txt` command to reinstall the packages in the original environment. (The recipient still needs to create their own virtual environment, however.)
+프로젝트의 복사본을 받는 사람(또는 빌드 서버)은 원래 환경에서 패키지를 재설치하기 위해 `pip install -r requirements.txt` 명령만 실행하면 됩니다. (수신자는 여전히 자신의 가상 환경을 생성해야 합니다.)
 
-> **Note**: `pip freeze` lists all the Python packages you have installed in the current environment, including packages you aren't currently using. The command also lists packages with exact version numbers, which you might want to convert to ranges for more flexibility in the future. For more information, see [Requirements Files](https://pip.pypa.io/en/stable/user_guide/#requirements-files) in the pip command documentation.
+> **참고**: `pip freeze`는 현재 환경에 설치된 모든 Python 패키지를 나열하며, 현재 사용하지 않는 패키지도 포함됩니다. 이 명령은 또한 정확한 버전 번호가 있는 패키지를 나열하므로, 향후 더 유연성을 위해 범위로 변환할 수 있습니다. 자세한 내용은 pip 명령 문서의 [Requirements Files](https://pip.pypa.io/en/stable/user_guide/#requirements-files)를 참조하십시오.
 
-### Refactor the project to support further development
+### 프로젝트를 리팩토링하여 추가 개발 지원하기 {#refactor-the-project-to-support-further-development}
 
-Throughout this Flask tutorial, all the app code is contained in a single `app.py` file. To allow for further development and to separate concerns, it's helpful to refactor the pieces of `app.py` into separate files.
+이 Flask 튜토리얼 전반에 걸쳐 모든 앱 코드는 단일 `app.py` 파일에 포함되어 있습니다. 추가 개발을 허용하고 관심사를 분리하기 위해, `app.py`의 구성 요소를 별도의 파일로 리팩토링하는 것이 유용합니다.
 
-1. In your project folder, create a folder for the app, such as `hello_app`, to separate its files from other project-level files like `requirements.txt` and the `.vscode` folder where VS Code stores settings and debug configuration files.
+1. 프로젝트 폴더에 `hello_app`과 같은 앱을 위한 폴더를 생성하여 이 파일들을 `requirements.txt` 및 VS Code가 설정 및 디버그 구성 파일을 저장하는 `.vscode` 폴더와 같은 다른 프로젝트 수준 파일과 분리합니다.
 
-1. Move the `static` and `templates` folders into `hello_app`, because these folders certainly contain app code.
+1. `static` 및 `templates` 폴더를 `hello_app`으로 이동합니다. 이 폴더들은 확실히 앱 코드를 포함하고 있습니다.
 
-1. In the `hello_app` folder, create a file named `views.py` that contains the routings and the view functions:
+1. `hello_app` 폴더에 라우팅 및 뷰 함수를 포함하는 `views.py`라는 파일을 생성합니다:
 
    ```python
    from flask import Flask
@@ -618,22 +616,22 @@ Throughout this Flask tutorial, all the app code is contained in a single `app.p
        return app.send_static_file("data.json")
    ```
 
-1. In the `hello_app` folder, create a file `__init__.py` with the following contents:
+1. `hello_app` 폴더에 다음 내용을 포함하는 `__init__.py` 파일을 생성합니다:
 
    ```python
    import flask
    app = flask.Flask(__name__)
    ```
 
-1. In the `hello_app` folder, create a file `webapp.py` with the following contents:
+1. `hello_app` 폴더에 다음 내용을 포함하는 `webapp.py` 파일을 생성합니다:
 
    ```python
-   # Entry point for the application.
-   from . import app    # For application discovery by the 'flask' command.
-   from . import views  # For import side-effects of setting up routes.
+   # 애플리케이션의 진입점입니다.
+   from . import app    # 'flask' 명령에 의한 애플리케이션 발견을 위해.
+   from . import views  # 라우트를 설정하는 부작용을 위해 가져옵니다.
    ```
 
-1. Open the debug configuration file `launch.json` and update the `env` property as follows to point to the startup object:
+1. 디버그 구성 파일 `launch.json`을 열고 `env` 속성을 다음과 같이 업데이트하여 시작 객체를 가리키도록 합니다:
 
    ```json
    "env": {
@@ -641,40 +639,40 @@ Throughout this Flask tutorial, all the app code is contained in a single `app.p
    },
    ```
 
-1. Delete the original `app.py` file in the project root, as its contents have been moved into other app files.
+1. 원래의 `app.py` 파일을 프로젝트 루트에서 삭제합니다. 그 내용은 다른 앱 파일로 이동되었습니다.
 
-1. Your project's structure should now be similar to the following:
+1. 이제 프로젝트의 구조는 다음과 유사해야 합니다:
 
-   ![Flask tutorial: modified project structure with separate files and folders for parts of the app](images/flask-tutorial/project-structure.png)
+   ![Flask 튜토리얼: 앱의 부분을 위한 별도의 파일 및 폴더가 있는 수정된 프로젝트 구조](images/flask-tutorial/project-structure.png)
 
-1. Run the app in the debugger again to make sure everything works. To run the app outside of the VS Code debugger, use the following steps from a terminal:
-   1. Set an environment variable for `FLASK_APP`. On Linux and macOS, use `export set FLASK_APP=webapp`; on Windows use `$env:FLASK_APP=webapp` if you're using PowerShell, or `set FLASK_APP=webapp` if you're using Command Prompt.
-   1. Navigate into the `hello_app` folder, then launch the program using `python -m flask run`.
+1. 앱이 제대로 작동하는지 확인하기 위해 디버거에서 앱을 다시 실행합니다. VS Code 디버거 외부에서 앱을 실행하려면 터미널에서 다음 단계를 따르십시오:
+   1. `FLASK_APP`에 대한 환경 변수를 설정합니다. Linux 및 macOS에서는 `export set FLASK_APP=webapp`를 사용하고, Windows에서는 PowerShell을 사용하는 경우 `$env:FLASK_APP=webapp`를 사용하거나, Command Prompt를 사용하는 경우 `set FLASK_APP=webapp`를 사용합니다.
+   1. `hello_app` 폴더로 이동한 후, `python -m flask run`을 사용하여 프로그램을 시작합니다.
 
-### Create a container for a Flask app using the Docker extension
+### Docker 확장을 사용하여 Flask 앱을 위한 컨테이너 만들기 {#create-a-container-for-a-flask-app-using-the-docker-extension}
 
-The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) makes it easy to build, manage, and deploy containerized applications from Visual Studio Code. If you're interested in learning how to create a Python container for the Flask app developed in this tutorial, check out the [Python in a container](/docs/containers/quickstart-python.md) tutorial, which will walk you through how to:
+[Docker 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)은 Visual Studio Code에서 컨테이너화된 애플리케이션을 쉽게 빌드, 관리 및 배포할 수 있게 해줍니다. 이 튜토리얼에서 개발한 Flask 앱을 위한 Python 컨테이너를 만드는 방법을 배우고 싶다면, [Python in a container](/docs/containers/quickstart-python.md) 튜토리얼을 확인해 보세요. 이 튜토리얼은 다음과 같은 방법을 안내합니다:
 
-- Create a `Dockerfile` file describing a simple Python container.
-- Build, run, and verify the functionality of a [Flask](https://flask.palletsprojects.com) app.
-- Debug the app running in a container.
+- 간단한 Python 컨테이너를 설명하는 `Dockerfile` 파일을 생성합니다.
+- [Flask](https://flask.palletsprojects.com) 앱의 기능을 빌드, 실행 및 검증합니다.
+- 컨테이너에서 실행 중인 앱을 디버깅합니다.
 
-If you have any problems, you can search for answers or ask a question on the [Python extension Discussions Q&A](https://github.com/microsoft/vscode-python/discussions/categories/q-a).
+문제가 발생하면 [Python 확장 Discussions Q&A](https://github.com/microsoft/vscode-python/discussions/categories/q-a)에서 답변을 검색하거나 질문할 수 있습니다.
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-Congratulations on completing this walkthrough of working with Flask in Visual Studio Code!
+Visual Studio Code에서 Flask 작업에 대한 이 안내서를 완료한 것을 축하합니다!
 
-The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-flask-tutorial](https://github.com/microsoft/python-sample-vscode-flask-tutorial).
+이 튜토리얼의 완성된 코드 프로젝트는 GitHub에서 찾을 수 있습니다: [python-sample-vscode-flask-tutorial](https://github.com/microsoft/python-sample-vscode-flask-tutorial).
 
-Because this tutorial has only scratched the surface of page templates, refer to the [Jinja2 documentation](https://jinja.palletsprojects.com) for more information about templates. The [Template Designer Documentation](https://jinja.palletsprojects.com/templates/#synopsis) contains all the details on the template language. You might also want to review the [official Flask tutorial](https://flask.palletsprojects.com/tutorial) as well as the documentation for Flask [extensions](https://flask.palletsprojects.com/extensions/).
+이 튜토리얼은 페이지 템플릿의 표면만 다루었으므로, 템플릿에 대한 더 많은 정보는 [Jinja2 문서](https://jinja.palletsprojects.com)를 참조하십시오. [템플릿 디자이너 문서](https://jinja.palletsprojects.com/templates/#synopsis)에는 템플릿 언어에 대한 모든 세부 정보가 포함되어 있습니다. 또한 [공식 Flask 튜토리얼](https://flask.palletsprojects.com/tutorial) 및 Flask [확장](https://flask.palletsprojects.com/extensions/)에 대한 문서를 검토하는 것도 좋습니다.
 
-To try your app on a production website, check out the tutorial [Deploy Python apps to Azure App Service using Docker Containers](https://learn.microsoft.com/azure/developer/python/tutorial-deploy-containers-01). Azure also offers a standard container, [App Service on Linux](https://learn.microsoft.com/azure/developer/python/configure-python-web-app-local-environment), to which you deploy web apps from within VS Code.
+프로덕션 웹사이트에서 앱을 시도하려면 [Docker 컨테이너를 사용하여 Azure App Service에 Python 앱 배포하기](https://learn.microsoft.com/azure/developer/python/tutorial-deploy-containers-01) 튜토리얼을 확인하세요. Azure는 또한 [Linux에서의 App Service](https://learn.microsoft.com/azure/developer/python/configure-python-web-app-local-environment)라는 표준 컨테이너를 제공하여, VS Code 내에서 웹 앱을 배포할 수 있습니다.
 
-You may also want to review the following articles in the VS Code docs that are relevant to Python:
+다음 VS Code 문서에서 Python과 관련된 다음 기사를 검토하는 것도 좋습니다:
 
-- [Editing Python code](/docs/python/editing.md)
+- [Python 코드 편집하기](/docs/python/editing.md)
 - [Linting](/docs/python/linting.md)
-- [Managing Python environments](/docs/python/environments.md)
-- [Debugging Python](/docs/python/debugging.md)
-- [Testing](/docs/python/testing.md)
+- [Python 환경 관리하기](/docs/python/environments.md)
+- [Python 디버깅하기](/docs/python/debugging.md)
+- [테스트하기](/docs/python/testing.md)

@@ -1,162 +1,162 @@
 ---
 Order: 10
 Area: getstarted
-TOCTitle: Telemetry
-PageTitle: Visual Studio Code Telemetry
+TOCTitle: 원격 측정
+PageTitle: Visual Studio Code 원격 측정
 ContentId: 47a2e3b1-24f2-42e6-a6e6-272c2a0f3218
 DateApproved: 03/05/2025
-MetaDescription: Learn about Visual Studio Code collected telemetry and how to opt out.
+MetaDescription: Visual Studio Code에서 수집한 원격 측정에 대해 배우고, 이를 비활성화하는 방법을 알아보세요.
 ---
-# Telemetry
+# 원격 측정 {#telemetry}
 
-Visual Studio Code collects telemetry data, which is used to help understand how to improve the product. For example, this usage data helps to debug issues, such as slow start-up times, and to prioritize new features.  While we appreciate the insights this data provides, we also know that not everyone wants to send usage data and you can disable telemetry as described in [disable telemetry reporting](#disable-telemetry-reporting). You can also read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more.
+Visual Studio Code는 원격 측정 데이터를 수집하여 제품 개선을 위한 이해를 돕습니다. 예를 들어, 이 사용 데이터는 느린 시작 시간과 같은 문제를 디버깅하고 새로운 기능의 우선 순위를 정하는 데 도움이 됩니다. 이 데이터가 제공하는 통찰력에 감사하지만, 모든 사용자가 사용 데이터를 전송하고 싶어하지는 않다는 것도 알고 있습니다. 원격 측정을 비활성화할 수 있는 방법은 [원격 측정 보고 비활성화](#disable-telemetry-reporting)에서 설명합니다. 또한, [개인정보 보호 성명서](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409)를 읽어보면 더 많은 정보를 얻을 수 있습니다.
 
-## Types of telemetry data
+## 원격 측정 데이터의 유형 {#types-of-telemetry-data}
 
-VS Code and this page refer to three different types of data with respect to telemetry.
+VS Code와 이 페이지는 원격 측정과 관련하여 세 가지 유형의 데이터를 언급합니다.
 
-**Crash Reports** - Crash reports collect diagnostic information when VS Code crashes and sends it to Microsoft to help understand why the crash occurred and what changes are needed to prevent the crash in the future.
+**충돌 보고서** - 충돌 보고서는 VS Code가 충돌할 때 진단 정보를 수집하고 이를 Microsoft에 전송하여 충돌이 발생한 이유와 향후 충돌을 방지하기 위해 필요한 변경 사항을 이해하는 데 도움을 줍니다.
 
-**Error Telemetry** - Error telemetry collects information about errors that do not crash the application but are unexpected.
+**오류 원격 측정** - 오류 원격 측정은 애플리케이션을 충돌시키지 않지만 예상치 못한 오류에 대한 정보를 수집합니다.
 
-**Usage Data** - Usage data collects information about how features are used and perform in VS Code which helps us prioritize future product improvements.
+**사용 데이터** - 사용 데이터는 VS Code에서 기능이 어떻게 사용되고 수행되는지에 대한 정보를 수집하여 향후 제품 개선의 우선 순위를 정하는 데 도움을 줍니다.
 
-## Disable telemetry reporting
+## 원격 측정 보고 비활성화 {#disable-telemetry-reporting}
 
-With the `setting(telemetry.telemetryLevel)` user [setting](/docs/editor/settings.md), you can control the different types of telemetry we send with a single setting. Here is a table of the different types of data sent with each value of `setting(telemetry.telemetryLevel)`:
+`setting(telemetry.telemetryLevel)` 사용자 [설정](/docs/editor/settings.md)을 사용하여 단일 설정으로 전송하는 다양한 유형의 원격 측정을 제어할 수 있습니다. 다음은 `setting(telemetry.telemetryLevel)`의 각 값에 따라 전송되는 데이터 유형의 표입니다:
 
-|       | Crash Reports         | Error Telemetry | Usage Data     |
+|       | 충돌 보고서         | 오류 원격 측정 | 사용 데이터     |
 |:------|:---------------------:|:---------------:|:--------------:|
 | all   |            ✓          |        ✓        |        ✓       |
 | error |            ✓          |        ✓        |        -       |
 | crash |            ✓          |        -        |        -       |
 | off   |            -          |        -        |        -       |
 
-For example, if you don't want to send any telemetry data to Microsoft, you can set the `setting(telemetry.telemetryLevel)` user [setting](/docs/editor/settings.md) to `off`.
+예를 들어, Microsoft에 원격 측정 데이터를 전송하고 싶지 않다면 `setting(telemetry.telemetryLevel)` 사용자 [설정](/docs/editor/settings.md)을 `off`로 설정할 수 있습니다.
 
-From **File** > **Preferences** > **Settings**, search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`. This will silence all telemetry events from VS Code going forward. Telemetry information may have been collected and sent up until the point when you disable the setting.
+**파일** > **환경 설정** > **설정**에서 `telemetry`를 검색하고 **Telemetry: Telemetry Level** 설정을 `off`로 설정하세요. 이렇게 하면 앞으로 VS Code에서 발생하는 모든 원격 측정 이벤트가 무시됩니다. 설정을 비활성화할 때까지 원격 측정 정보가 수집되고 전송되었을 수 있습니다.
 
-![disable telemetry](images/telemetry/disable-telemetry.png)
+![원격 측정 비활성화](images/telemetry/disable-telemetry.png)
 
-If you use the JSON editor for your settings, add the following line:
+설정을 위해 JSON 편집기를 사용하는 경우 다음 줄을 추가하세요:
 
 ```json
     "telemetry.telemetryLevel": "off"
 ```
 
-## Extensions and telemetry
+## 확장 프로그램과 원격 측정 {#extensions-and-telemetry}
 
-VS Code lets you add features to the product by installing Microsoft and third-party extensions. These extensions may be collecting their own usage data and are not controlled by the `setting(telemetry.telemetryLevel)` setting. Consult the specific extension's documentation to learn about its telemetry reporting and whether it can be disabled.
+VS Code는 Microsoft 및 타사 확장을 설치하여 제품에 기능을 추가할 수 있습니다. 이러한 확장은 자체 사용 데이터를 수집할 수 있으며 `setting(telemetry.telemetryLevel)` 설정으로 제어되지 않습니다. 특정 확장의 문서를 참조하여 해당 원격 측정 보고 및 비활성화 가능 여부를 확인하세요.
 
-Extension authors may refer to the ["For Extension Authors"](#for-extension-authors) section for guidance on implementing telemetry best practices within their extension.
+확장 프로그램 저자는 자신의 확장에서 원격 측정 모범 사례를 구현하는 방법에 대한 안내를 위해 ["확장 프로그램 저자를 위한"](#for-extension-authors) 섹션을 참조할 수 있습니다.
 
-## Output channel for telemetry events
+## 원격 측정 이벤트를 위한 출력 채널 {#output-channel-for-telemetry-events}
 
-If you'd like to review the telemetry events in VS Code as they are sent, you can enable tracing and it will record telemetry events. Using the **Developer: Set Log Level...** command and select log level **Trace**.  To view the logging output, go to the Output panel (`kb(workbench.action.output.toggleOutput)`) and pick **Telemetry** from the dropdown.
+VS Code에서 전송되는 원격 측정 이벤트를 검토하고 싶다면 추적 기능을 활성화하면 원격 측정 이벤트가 기록됩니다. **개발자: 로그 수준 설정...** 명령을 사용하고 로그 수준 **Trace**를 선택하세요. 로그 출력을 보려면 출력 패널(`kb(workbench.action.output.toggleOutput)`)로 이동하여 드롭다운에서 **Telemetry**를 선택하세요.
 
-![output panel log telemetry](images/telemetry/output-log-telemetry.png)
+![출력 패널 로그 원격 측정](images/telemetry/output-log-telemetry.png)
 
-When tracing telemetry events, the events are also logged to a local file `telemetry.log`, which you can view using the **Developer: Open Log File...** command and choosing **Telemetry** from the dropdown.
+원격 측정 이벤트를 추적할 때, 이벤트는 로컬 파일 `telemetry.log`에도 기록되며, **개발자: 로그 파일 열기...** 명령을 사용하고 드롭다운에서 **Telemetry**를 선택하여 볼 수 있습니다.
 
-![open telemetry log file](images/telemetry/open-telemetry-log.png)
+![원격 측정 로그 파일 열기](images/telemetry/open-telemetry-log.png)
 
-## Viewing all telemetry events
+## 모든 원격 측정 이벤트 보기 {#viewing-all-telemetry-events}
 
-If you'd like to view all the possible telemetry events that VS Code could send, you can use the `--telemetry` flag in the CLI. This will generate a JSON report that you can then view within VS Code. These reports are generated per build and do not contain extension telemetry unless the extension author adds a `telemetry.json` file to their root build directory.
+VS Code가 전송할 수 있는 모든 가능한 원격 측정 이벤트를 보려면 CLI에서 `--telemetry` 플래그를 사용할 수 있습니다. 이렇게 하면 JSON 보고서가 생성되어 VS Code 내에서 볼 수 있습니다. 이러한 보고서는 빌드별로 생성되며, 확장 프로그램 저자가 루트 빌드 디렉터리에 `telemetry.json` 파일을 추가하지 않는 한 확장 원격 측정을 포함하지 않습니다.
 
-For example, running `code --telemetry > telemetry.json && code telemetry.json` will create a `telemetry.json` file in your current working directory and then open it in VS Code. You cannot pipe the output like this, `code --telemetry | code -`, due to the length of the telemetry report.
+예를 들어, `code --telemetry > telemetry.json && code telemetry.json`를 실행하면 현재 작업 디렉터리에 `telemetry.json` 파일이 생성되고 VS Code에서 열립니다. 원격 측정 보고서의 길이 때문에 이렇게 출력할 수는 없습니다: `code --telemetry | code -`.
 
-The sections below detail the event metadata used to classify the telemetry, describe its purpose, and indicate any special handling.
+아래 섹션에서는 원격 측정을 분류하는 데 사용되는 이벤트 메타데이터를 자세히 설명하고, 그 목적을 설명하며, 특별한 처리가 필요한 경우를 나타냅니다.
 
-### Event classification
+### 이벤트 분류 {#event-classification}
 
-The `classification` field describes the type of data.
+`classification` 필드는 데이터 유형을 설명합니다.
 
-* `SystemMetaData` - Values generated by VS Code that are not personally identifiable.
-* `CallstackOrException` - Errors caused by failures in program execution. These contain stack traces that have been scrubbed of user paths.
-* `PublicNonPersonalData` - User generated data that is available to the public, for example, published extension IDs.
-* `EndUserPseudonymizedInformation` - Hashes used to identify a unique user without being able to identify who that user is. For example, a hashed Mac Address.
+* `SystemMetaData` - 개인 식별이 불가능한 VS Code에서 생성한 값입니다.
+* `CallstackOrException` - 프로그램 실행 실패로 인해 발생한 오류입니다. 여기에는 사용자 경로가 제거된 스택 추적이 포함됩니다.
+* `PublicNonPersonalData` - 공개적으로 사용 가능한 사용자 생성 데이터, 예를 들어 게시된 확장 ID입니다.
+* `EndUserPseudonymizedInformation` - 특정 사용자를 식별할 수 없도록 해시된 값입니다. 예를 들어, 해시된 MAC 주소입니다.
 
-### Event purpose
+### 이벤트 목적 {#event-purpose}
 
-The `purpose` field describes why the data is collected.
+`purpose` 필드는 데이터 수집의 이유를 설명합니다.
 
-* `PerformanceAndHealth` - To ensure that VS Code product and services are healthy and fast.
-* `FeatureInsight` - To understand feature usage and where to continue development investment.
-* `BusinessInsight` - To make decisions related to the business of VS Code, Microsoft, and GitHub.
+* `PerformanceAndHealth` - VS Code 제품 및 서비스가 건강하고 빠른지 확인하기 위해.
+* `FeatureInsight` - 기능 사용을 이해하고 개발 투자를 계속할 곳을 파악하기 위해.
+* `BusinessInsight` - VS Code, Microsoft 및 GitHub의 비즈니스와 관련된 결정을 내리기 위해.
 
-### Event endpoint
+### 이벤트 엔드포인트 {#event-endpoint}
 
-The `endpoint` field describes what data handler the data is sent to. This is normally applied to special data that requires additional scrubbing and security to protect user privacy.
+`endpoint` 필드는 데이터가 전송되는 데이터 처리기를 설명합니다. 이는 일반적으로 사용자 개인 정보를 보호하기 위해 추가적인 정리 및 보안이 필요한 특수 데이터에 적용됩니다.
 
-* `GoogleAnalyticsId` - Used on our website for Google Analytics and tracking page views. These are handled in a more sensitive manner than our normal data.
-* `MacAddressHash` - Used to identify a user of VS Code. This is hashed once on the client side and then hashed again on the pipeline side to make it impossible to identify a given user. On [VS Code for the Web](/docs/editor/vscode-web.md), a UUID is generated for this case.
-* `none` - Data does not require any special handling.
+* `GoogleAnalyticsId` - Google Analytics 및 페이지 조회수를 추적하기 위해 웹사이트에서 사용됩니다. 이는 일반 데이터보다 더 민감하게 처리됩니다.
+* `MacAddressHash` - VS Code 사용자를 식별하는 데 사용됩니다. 이는 클라이언트 측에서 한 번 해시되고, 파이프라인 측에서 다시 해시되어 특정 사용자를 식별할 수 없도록 합니다. [VS Code for the Web](/docs/editor/vscode-web.md)에서는 이 경우 UUID가 생성됩니다.
+* `none` - 데이터는 특별한 처리가 필요하지 않습니다.
 
-## GDPR and VS Code
+## GDPR 및 VS Code {#gdpr-and-vs-code}
 
-In addition to supporting the General Data Protection Regulation (GDPR), the VS Code team takes privacy very seriously. That's both for Microsoft as a company and specifically within the VS Code team.
+일반 데이터 보호 규정(GDPR)을 지원하는 것 외에도, VS Code 팀은 개인 정보를 매우 중요하게 생각합니다. 이는 Microsoft라는 회사와 VS Code 팀 내에서 모두 해당됩니다.
 
-To ensure GDPR compliance, we made several updates to VS Code, these include:
+GDPR 준수를 보장하기 위해, 우리는 VS Code에 몇 가지 업데이트를 진행했습니다. 여기에는 다음이 포함됩니다:
 
-* Making it easier to opt out of telemetry collection by placing a notification in product for all existing and new users.
-* Reviewing and classifying the telemetry that we send (documented in [our OSS codebase](https://github.com/microsoft/vscode/pull/34997)).
-* Ensuring that we have valid data retention policies in place for any data we do collect, for example crash dumps.
+* 모든 기존 및 신규 사용자를 위해 제품 내에 원격 측정 수집을 비활성화하는 알림을 배치하여 이를 더 쉽게 만들었습니다.
+* 우리가 전송하는 원격 측정을 검토하고 분류했습니다(자세한 내용은 [우리의 OSS 코드베이스](https://github.com/microsoft/vscode/pull/34997)에서 문서화됨).
+* 우리가 수집하는 데이터에 대해 유효한 데이터 보존 정책을 마련했습니다. 예를 들어, 충돌 덤프에 대한 정책입니다.
 
-In short, we have worked hard to do the right thing, for all users, as these practices apply to all geographies, not just Europe.
+간단히 말해, 우리는 모든 사용자에게 올바른 일을 하기 위해 열심히 노력했습니다. 이러한 관행은 유럽뿐만 아니라 모든 지역에 적용됩니다.
 
-One question we expect people to ask is to see the data we collect. However, we don't have a reliable way to do this as VS Code does not have a 'sign-in' experience that would uniquely identify a user.  We do send information that helps us approximate a single user for diagnostic purposes (this is based on a hash of the network adapter NIC on the desktop and a randomly assigned UUID on the web) but this is not guaranteed to be unique. For example, virtual machines (VMs) often rotate NIC IDs or allocate from a pool. This technique is sufficient to help us when working through problems, but it is not reliable enough for us to 'provide your data'.
+우리가 사람들이 물어볼 것으로 예상하는 질문 중 하나는 우리가 수집하는 데이터를 보는 것입니다. 그러나 VS Code는 사용자를 고유하게 식별할 수 있는 '로그인' 경험이 없기 때문에 이를 신뢰할 수 있는 방법으로 제공할 수 없습니다. 우리는 진단 목적으로 단일 사용자를 근사화하는 데 도움이 되는 정보를 전송하지만(이는 데스크탑의 네트워크 어댑터 NIC 해시와 웹의 무작위로 할당된 UUID를 기반으로 합니다) 이는 고유하다고 보장할 수 없습니다. 예를 들어, 가상 머신(VM)은 종종 NIC ID를 회전시키거나 풀에서 할당합니다. 이 기술은 문제를 해결하는 데 충분하지만, '당신의 데이터를 제공하는' 데는 신뢰할 수 없습니다.
 
-We expect our approach to evolve as we learn more about GDPR and the expectations of our users. We greatly appreciate the data users do send to us, as it is very valuable and VS Code is a better product for everyone because of it. And again, if you are worried about privacy, we offer the ability to disable sending telemetry as described in [disable telemetry reporting](#disable-telemetry-reporting).
+우리는 GDPR 및 사용자 기대에 대해 더 많이 배우면서 우리의 접근 방식이 발전할 것으로 기대합니다. 사용자가 보내는 데이터는 매우 귀중하며, 이 덕분에 VS Code는 모든 사용자에게 더 나은 제품이 됩니다. 다시 말하지만, 개인 정보 보호가 걱정된다면, [원격 측정 보고 비활성화](#disable-telemetry-reporting)에서 설명한 대로 원격 측정 전송을 비활성화할 수 있는 기능을 제공합니다.
 
-You can find more information about how the Visual Studio family approaches GDPR at [Visual Studio Family Data Subject Requests for the GDPR](https://learn.microsoft.com/compliance/regulatory/gdpr-dsr-visual-studio-family).
+Visual Studio 가족이 GDPR에 접근하는 방법에 대한 더 많은 정보는 [Visual Studio Family Data Subject Requests for the GDPR](https://learn.microsoft.com/compliance/regulatory/gdpr-dsr-visual-studio-family)에서 확인할 수 있습니다.
 
-## Managing online services
+## 온라인 서비스 관리 {#managing-online-services}
 
-Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing, and updating extensions, Settings Sync, or providing Natural Language Search within the Settings editor. You can choose to turn on/off features that use these services.
+충돌 보고 및 원격 측정 외에도, VS Code는 제품 업데이트 다운로드, 확장 검색, 설치 및 업데이트, 설정 동기화 또는 설정 편집기 내 자연어 검색과 같은 다양한 다른 목적으로 온라인 서비스를 사용합니다. 이러한 서비스를 사용하는 기능을 켜거나 끌 수 있습니다.
 
-Please note, that turning off these features does not put VS Code into offline mode. For example, if you search for extensions in the **Extensions** view, VS Code still searches the online VS Code Marketplace. The settings ensure that VS Code does not talk to online services without you requesting it.
+이러한 기능을 끄는 것이 VS Code를 오프라인 모드로 전환하지는 않는다는 점에 유의하세요. 예를 들어, **확장 프로그램** 보기에서 확장을 검색하면 VS Code는 여전히 온라인 VS Code 마켓플레이스를 검색합니다. 설정은 사용자가 요청하지 않는 한 VS Code가 온라인 서비스와 통신하지 않도록 보장합니다.
 
-From **File** > **Preferences** > **Settings**, and type the tag `@tag:usesOnlineServices`. This will display all settings that control the usage of online services and you can individually switch them on or off.
+**파일** > **환경 설정** > **설정**에서 태그 `@tag:usesOnlineServices`를 입력하세요. 그러면 온라인 서비스 사용을 제어하는 모든 설정이 표시되며, 개별적으로 켜거나 끌 수 있습니다.
 
-![online settings filter](images/telemetry/online-settings.png)
+![온라인 설정 필터](images/telemetry/online-settings.png)
 
-> **Note**: VS Code extensions may also use online services and may not provide settings to configure the usage of these online services, or they may not register their settings to show up when searching for `@tag:usesOnlineServices`. Consult the specific extension's documentation to learn about its usage of online services.
+> **참고**: VS Code 확장 프로그램도 온라인 서비스를 사용할 수 있으며, 이러한 온라인 서비스 사용을 구성하는 설정을 제공하지 않거나 `@tag:usesOnlineServices`를 검색할 때 표시되지 않을 수 있습니다. 특정 확장의 문서를 참조하여 온라인 서비스 사용에 대해 알아보세요.
 
-### Non-Microsoft online services used by VS Code
+### VS Code에서 사용하는 비Microsoft 온라인 서비스 {#non-microsoft-online-services-used-by-vs-code}
 
-The built-in **npm support for VS Code** extension sends requests to `https://registry.npmjs.org` and `https://registry.bower.io`.
+내장된 **VS Code용 npm 지원** 확장은 `https://registry.npmjs.org` 및 `https://registry.bower.io`에 요청을 보냅니다.
 
-The built-in **TypeScript and JavaScript Language Features** extension queries the `@types` domain at `https://registry.npmjs.org`.
+내장된 **TypeScript 및 JavaScript 언어 기능** 확장은 `https://registry.npmjs.org`의 `@types` 도메인을 쿼리합니다.
 
-When you use **Developer: Toggle Developer Tools** or **Developer: Open Webview Developer Tools**, VS Code may talk to Google servers to fetch data needed to launch Developer Tools.
+**개발자: 개발자 도구 전환** 또는 **개발자: 웹뷰 개발자 도구 열기**를 사용할 때, VS Code는 개발자 도구를 실행하는 데 필요한 데이터를 가져오기 위해 Google 서버와 통신할 수 있습니다.
 
-## Extension recommendations
+## 확장 프로그램 추천 {#extension-recommendations}
 
-VS Code provides extension recommendations based on your file types, your workspace, and your environment. File type recommendations are either precomputed or dynamic. Workspace and environment recommendations are always precomputed.
+VS Code는 파일 유형, 작업 공간 및 환경에 따라 확장 프로그램 추천을 제공합니다. 파일 유형 추천은 미리 계산된 것 또는 동적일 수 있습니다. 작업 공간 및 환경 추천은 항상 미리 계산됩니다.
 
-If you want to know why an extension is being recommended, open the extension's detail page. You can find the recommendation reason in the page header.
+확장 프로그램이 추천되는 이유를 알고 싶다면 확장 프로그램의 세부 정보 페이지를 열어보세요. 페이지 헤더에서 추천 이유를 찾을 수 있습니다.
 
-![extension recommendation based on files](images/telemetry/extension-recommendation-based-on.png)
+![파일 기반 확장 프로그램 추천](images/telemetry/extension-recommendation-based-on.png)
 
-### Precomputed recommendations
+### 미리 계산된 추천 {#precomputed-recommendations}
 
-VS Code collects telemetry about which extensions are being activated for what file types and what workspaces/folders. Specific folders are identified by computing a hash of each of the folder's Git remotes.
+VS Code는 어떤 파일 유형 및 어떤 작업 공간/폴더에 대해 어떤 확장 프로그램이 활성화되었는지에 대한 원격 측정을 수집합니다. 특정 폴더는 각 폴더의 Git 원격을 해시하여 식별됩니다.
 
-We use this information to precompute anonymous recommendations. Precomputed recommendations are instructions that spell out under which conditions an extension should be recommended. For example, when we see an interesting correlation between two extensions A and B, one instruction might be: Recommend extension B if the user has installed extension A but not B.
+우리는 이 정보를 사용하여 익명 추천을 미리 계산합니다. 미리 계산된 추천은 특정 조건에서 확장을 추천해야 하는 지침입니다. 예를 들어, 두 개의 확장 A와 B 간의 흥미로운 상관관계를 발견하면, 한 지침은 "사용자가 확장 A를 설치했지만 B를 설치하지 않은 경우 확장 B를 추천하라"일 수 있습니다.
 
-Some precomputed recommendations are shipped as part of the product while additional precomputed recommendations are fetched at runtime from an online Microsoft service. VS Code independently evaluates and executes precomputed recommendations without sending any user information to any online service.
+일부 미리 계산된 추천은 제품의 일부로 제공되며, 추가 미리 계산된 추천은 런타임에 온라인 Microsoft 서비스에서 가져옵니다. VS Code는 사용자 정보를 온라인 서비스에 전송하지 않고 독립적으로 미리 계산된 추천을 평가하고 실행합니다.
 
-### Dynamic recommendations
+### 동적 추천 {#dynamic-recommendations}
 
-When you open a file type for which VS Code does not have any precomputed recommendation, it asks the Extension Marketplace for extensions that declare that they support this file type. If the query returns extensions you don't have installed, VS Code will provide a notification.
+VS Code에 미리 계산된 추천이 없는 파일 유형을 열면, 해당 파일 유형을 지원한다고 선언한 확장 프로그램을 위해 확장 프로그램 마켓플레이스에 요청합니다. 쿼리 결과로 설치되지 않은 확장 프로그램이 반환되면, VS Code는 알림을 제공합니다.
 
-## For extension authors
+## 확장 프로그램 저자를 위한 {#for-extension-authors}
 
-Please read the [extension guides telemetry document](/api/extension-guides/telemetry.md).
+[확장 프로그램 가이드 원격 측정 문서](/api/extension-guides/telemetry.md)를 읽어주세요.
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-* [Visual Studio Code FAQ](/docs/supporting/faq.md) - Consult the Frequently Asked Questions to learn more.
-* [User and Workspace Settings](/docs/editor/settings.md) - Read about available options to customize VS Code.
-* [Key Bindings](/docs/editor/keybindings.md) - You can easily modify commonly used keyboard shortcuts.
+* [Visual Studio Code FAQ](/docs/supporting/faq.md) - 자주 묻는 질문을 참조하여 더 알아보세요.
+* [사용자 및 작업 공간 설정](/docs/editor/settings.md) - VS Code를 사용자 정의할 수 있는 옵션에 대해 읽어보세요.
+* [키 바인딩](/docs/editor/keybindings.md) - 자주 사용하는 키보드 단축키를 쉽게 수정할 수 있습니다.

@@ -3,39 +3,39 @@ Order: 6
 Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
-PageTitle: TypeScript Programming with Visual Studio Code
+PageTitle: Visual Studio Code로 TypeScript 프로그래밍하기
 DateApproved: 03/05/2025
-MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
+MetaDescription: Visual Studio Code로 TypeScript를 편집하는 최고의 방법을 알아보세요.
 MetaSocialImage: images/typescript/typescript-social.png
 ---
 
-# TypeScript in Visual Studio Code
+# Visual Studio Code에서의 TypeScript {#typescript-in-visual-studio-code}
 
-[TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components.
+[TypeScript](https://www.typescriptlang.org)는 일반 JavaScript로 컴파일되는 타입이 있는 JavaScript의 상위 집합입니다. 클래스, 모듈 및 인터페이스를 제공하여 견고한 구성 요소를 구축하는 데 도움을 줍니다.
 
-![Working with TypeScript in Visual Studio Code](images/typescript/overview.png)
+![Visual Studio Code에서 TypeScript 작업하기](images/typescript/overview.png)
 
-## Installing the TypeScript compiler
+## TypeScript 컴파일러 설치하기 {#installing-the-typescript-compiler}
 
-Visual Studio Code includes TypeScript language support but does not include the TypeScript compiler, `tsc`. You will need to install the TypeScript compiler either globally or in your workspace to transpile TypeScript source code to JavaScript (`tsc HelloWorld.ts`).
+Visual Studio Code는 TypeScript 언어 지원을 포함하지만 TypeScript 컴파일러인 `tsc`는 포함되어 있지 않습니다. TypeScript 소스 코드를 JavaScript로 변환하려면 TypeScript 컴파일러를 전역 또는 작업 공간에 설치해야 합니다 (`tsc HelloWorld.ts`).
 
-The easiest way to install TypeScript is through npm, the [Node.js Package Manager](https://www.npmjs.com/). If you have npm installed, you can install TypeScript globally (`-g`) on your computer by:
+TypeScript를 설치하는 가장 쉬운 방법은 npm, 즉 [Node.js 패키지 관리자](https://www.npmjs.com/)를 사용하는 것입니다. npm이 설치되어 있다면, 다음 명령어로 TypeScript를 전역(`-g`)으로 설치할 수 있습니다:
 
 ```bash
 npm install -g typescript
 ```
 
-You can test your install by checking the version.
+설치가 제대로 되었는지 확인하려면 버전을 확인해 보세요.
 
 ```bash
 tsc --version
 ```
 
-Another option is to install the TypeScript compiler locally in your project (`npm install --save-dev typescript`) and has the benefit of avoiding possible interactions with other TypeScript projects you may have.
+또 다른 방법은 프로젝트에 TypeScript 컴파일러를 로컬로 설치하는 것입니다 (`npm install --save-dev typescript`). 이렇게 하면 다른 TypeScript 프로젝트와의 상호작용을 피할 수 있는 장점이 있습니다.
 
-## Hello World
+## 헬로 월드 {#hello-world}
 
-Let's start with a simple Hello World Node.js example. Create a new folder `HelloWorld` and launch VS Code.
+간단한 헬로 월드 Node.js 예제로 시작해 보겠습니다. 새로운 폴더 `HelloWorld`를 만들고 VS Code를 실행하세요.
 
 ```bash
 mkdir HelloWorld
@@ -43,163 +43,163 @@ cd HelloWorld
 code .
 ```
 
-From the File Explorer, create a new file called `helloworld.ts`.
+파일 탐색기에서 `helloworld.ts`라는 새 파일을 만듭니다.
 
-![create new file](images/typescript/create-new-file.png)
+![새 파일 만들기](images/typescript/create-new-file.png)
 
-Now add the following TypeScript code. You'll notice the TypeScript keyword `let` and the `string` type declaration.
+이제 다음 TypeScript 코드를 추가하세요. TypeScript 키워드 `let`과 `string` 타입 선언이 보일 것입니다.
 
 ```typescript
 let message : string = "Hello World";
 console.log(message);
 ```
 
-To compile your TypeScript code, you can open the [Integrated Terminal](/docs/terminal/basics.md) (`kb(workbench.action.terminal.toggleTerminal)`) and type `tsc helloworld.ts`. This will compile and create a new `helloworld.js` JavaScript file.
+TypeScript 코드를 컴파일하려면 [통합 터미널](/docs/terminal/basics.md) (`kb(workbench.action.terminal.toggleTerminal)`)을 열고 `tsc helloworld.ts`를 입력하세요. 이렇게 하면 컴파일이 진행되고 새로운 `helloworld.js` JavaScript 파일이 생성됩니다.
 
-![compiled hello world](images/typescript/compiled-hello-world.png)
+![컴파일된 헬로 월드](images/typescript/compiled-hello-world.png)
 
-If you have Node.js installed, you can run `node helloworld.js`.
+Node.js가 설치되어 있다면 `node helloworld.js`를 실행할 수 있습니다.
 
-![run hello world](images/typescript/run-hello-world.png)
+![헬로 월드 실행하기](images/typescript/run-hello-world.png)
 
-If you open `helloworld.js`, you'll see that it doesn't look very different from `helloworld.ts`. The type information has been removed and `let` is now `var`.
+`helloworld.js`를 열어보면 `helloworld.ts`와 크게 다르지 않다는 것을 알 수 있습니다. 타입 정보가 제거되었고 `let`은 이제 `var`로 변경되었습니다.
 
 ```javascript
 var message = "Hello World";
 console.log(message);
 ```
 
-## IntelliSense
+## 인텔리센스 {#intellisense}
 
-IntelliSense shows you intelligent code completion, hover information, and signature help so that you can write code more quickly and correctly.
+인텔리센스는 지능형 코드 완성, 호버 정보 및 서명 도움을 제공하여 더 빠르고 정확하게 코드를 작성할 수 있도록 도와줍니다.
 
-![TypeScript small completions for String type](images/typescript/ts-intellisense.png)
+![TypeScript 문자열 타입에 대한 작은 완성](images/typescript/ts-intellisense.png)
 
-VS Code provides IntelliSense for individual TypeScript files as well as TypeScript `tsconfig.json` projects.
+VS Code는 개별 TypeScript 파일과 TypeScript `tsconfig.json` 프로젝트에 대해 인텔리센스를 제공합니다.
 
-### Hover information
+### 호버 정보 {#hover-information}
 
-Hover over a TypeScript symbol to quickly see its type information and relevant documentation:
+TypeScript 기호 위에 마우스를 올리면 해당 기호의 타입 정보와 관련 문서를 빠르게 확인할 수 있습니다:
 
-![Hover for a lodash function](images/typescript/hover.png)
+![lodash 함수에 대한 호버](images/typescript/hover.png)
 
-You can also show the hover information at the current cursor position with the `kb(editor.action.showHover)` keyboard shortcut.
+현재 커서 위치에서 호버 정보를 표시하려면 `kb(editor.action.showHover)` 키보드 단축키를 사용할 수 있습니다.
 
-### Signature help
+### 서명 도움 {#signature-help}
 
-As you write a TypeScript function call, VS Code shows information about the function signature and highlights the parameter that you are currently completing:
+TypeScript 함수 호출을 작성할 때, VS Code는 함수 서명에 대한 정보를 보여주고 현재 완성 중인 매개변수를 강조 표시합니다:
 
-![Signature help for the lodash capitalize function](images/typescript/signature-help.png)
+![lodash capitalize 함수에 대한 서명 도움](images/typescript/signature-help.png)
 
-Signature help is shown automatically when you type a `(` or `,` within a function call. Use `kb(editor.action.triggerParameterHints)`  to manually trigger signature help.
+서명 도움은 함수 호출 내에서 `(` 또는 `,`를 입력할 때 자동으로 표시됩니다. `kb(editor.action.triggerParameterHints)`를 사용하여 수동으로 서명 도움을 트리거할 수 있습니다.
 
-## Snippets
+## 스니펫 {#snippets}
 
-In addition to smart code completions, VS Code also includes basic TypeScript [snippets](/docs/editor/userdefinedsnippets.md) that are suggested as you type.
+스마트 코드 완성 외에도 VS Code는 기본 TypeScript [스니펫](/docs/editor/userdefinedsnippets.md)을 포함하고 있으며, 입력하는 동안 제안됩니다.
 
-![TypeScript 'for' snippet suggestions](images/typescript/ts-snippets.png)
+![TypeScript 'for' 스니펫 제안](images/typescript/ts-snippets.png)
 
-You can install extensions to get additional snippets or define your own snippets for TypeScript. See [User Defined Snippets](/docs/editor/userdefinedsnippets.md) for more information.
+추가 스니펫을 얻거나 TypeScript용 스니펫을 정의하려면 확장을 설치할 수 있습니다. 자세한 내용은 [사용자 정의 스니펫](/docs/editor/userdefinedsnippets.md)을 참조하세요.
 
-> **Tip**: You can disable snippets by setting `setting(editor.snippetSuggestions)` to `"none"` in your [settings](/docs/editor/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+> **팁**: `setting(editor.snippetSuggestions)`를 `"none"`으로 설정하여 스니펫을 비활성화할 수 있습니다. 스니펫을 보고 싶다면 제안에 대한 상대적 순서를 지정할 수 있습니다; 맨 위(`"top"`), 맨 아래(`"bottom"`), 또는 알파벳 순으로 인라인 정렬(`"inline"`)할 수 있습니다. 기본값은 `"inline"`입니다.
 
-## Errors and warnings
+## 오류 및 경고 {#errors-and-warnings}
 
-The TypeScript language service will analyze your program for coding problems and report errors and warnings:
+TypeScript 언어 서비스는 코드 문제를 분석하고 오류 및 경고를 보고합니다:
 
-* In the Status bar, there is a summary of all errors and warnings counts.
-* You can click on the summary or press `kb(workbench.actions.view.problems)` to display the **PROBLEMS** panel with a list of all current errors.
-* If you open a file that has errors or warnings, they will be rendered inline with the text and in the overview ruler.
+* 상태 표시줄에는 모든 오류 및 경고 수의 요약이 표시됩니다.
+* 요약을 클릭하거나 `kb(workbench.actions.view.problems)`를 눌러 현재 오류 목록이 포함된 **문제** 패널을 표시할 수 있습니다.
+* 오류나 경고가 있는 파일을 열면 텍스트와 개요 눈금자에 인라인으로 표시됩니다.
 
-![Error in the editor and Problems panel](images/typescript/ts-error.png)
+![편집기 내 오류 및 문제 패널](images/typescript/ts-error.png)
 
-To loop through errors or warnings in the current file, you can press `kb(editor.action.marker.nextInFiles)` or `kb(editor.action.marker.prevInFiles)` which will show an inline zone detailing the problem and possible Code Actions (if available):
+현재 파일의 오류나 경고를 순회하려면 `kb(editor.action.marker.nextInFiles)` 또는 `kb(editor.action.marker.prevInFiles)`를 눌러 문제 및 가능한 코드 작업(사용 가능한 경우)을 자세히 설명하는 인라인 영역을 표시할 수 있습니다:
 
-![Error inline in the editor](images/typescript/ts-error-inline.png)
+![편집기 내 인라인 오류](images/typescript/ts-error-inline.png)
 
-## Code navigation
+## 코드 탐색 {#code-navigation}
 
-Code navigation lets you quickly navigate TypeScript projects.
+코드 탐색을 통해 TypeScript 프로젝트를 빠르게 탐색할 수 있습니다.
 
-* **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
-* **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
-* **Go to References** `kb(editor.action.goToReferences)` - Show all references to a symbol.
-* **Go to Type Definition** - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
-* **Go to Implementation** `kb(editor.action.goToImplementation)` - Go to the implementations of an interface or abstract method.
+* **정의로 이동** `kb(editor.action.revealDefinition)` - 기호 정의의 소스 코드로 이동합니다.
+* **정의 미리보기** `kb(editor.action.peekDefinition)` - 기호의 정의를 보여주는 미리보기 창을 엽니다.
+* **참조로 이동** `kb(editor.action.goToReferences)` - 기호에 대한 모든 참조를 표시합니다.
+* **타입 정의로 이동** - 기호를 정의하는 타입으로 이동합니다. 클래스의 인스턴스에 대해 이 작업은 인스턴스가 정의된 위치가 아니라 클래스 자체를 표시합니다.
+* **구현으로 이동** `kb(editor.action.goToImplementation)` - 인터페이스 또는 추상 메서드의 구현으로 이동합니다.
 
-You can navigate via symbol search using the **Go to Symbol** commands from the **Command Palette** (`kb(workbench.action.showCommands)`).
+**명령 팔레트**(`kb(workbench.action.showCommands)`)에서 **기호로 이동** 명령을 사용하여 기호 검색을 통해 탐색할 수 있습니다.
 
-* **Go to Symbol in File** `kb(workbench.action.gotoSymbol)`
-* **Go to Symbol in Workspace** `kb(workbench.action.showAllSymbols)`
+* **파일 내 기호로 이동** `kb(workbench.action.gotoSymbol)`
+* **작업 공간 내 기호로 이동** `kb(workbench.action.showAllSymbols)`
 
-## Formatting
+## 포맷팅 {#formatting}
 
-VS Code includes a TypeScript formatter that provides basic code formatting with reasonable defaults.
+VS Code에는 기본 코드 포맷팅을 제공하는 TypeScript 포맷터가 포함되어 있습니다.
 
-Use the `typescript.format.*` [settings](/docs/editor/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"typescript.format.enable"` to `false` to disable it.
+`typescript.format.*` [설정](/docs/editor/settings.md)을 사용하여 중괄호가 별도의 줄에 나타나도록 하는 등 내장 포맷터를 구성할 수 있습니다. 또는 내장 포맷터가 방해가 된다면 `"typescript.format.enable"`을 `false`로 설정하여 비활성화할 수 있습니다.
 
-For more specialized code formatting styles, try installing one of the formatting extensions from the VS Code Marketplace.
+보다 전문화된 코드 포맷팅 스타일을 원한다면 VS Code 마켓플레이스에서 포맷팅 확장을 설치해 보세요.
 
-## Refactoring
+## 리팩토링 {#refactoring}
 
-VS Code includes some handy refactorings for TypeScript such as **Extract function** and **Extract constant**. Just select the source code you'd like to extract and then click on the light bulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings.
+VS Code에는 TypeScript에 대한 유용한 리팩토링 기능이 포함되어 있습니다. 예를 들어 **함수 추출** 및 **상수 추출**이 있습니다. 추출할 소스 코드를 선택한 다음, 거터의 전구 아이콘을 클릭하거나 (`kb(editor.action.quickFix)`)를 눌러 사용 가능한 리팩토링을 확인할 수 있습니다.
 
-![TypeScript refactoring](images/typescript/refactorings.png)
+![TypeScript 리팩토링](images/typescript/refactorings.png)
 
-See [Refactoring TypeScript](/docs/typescript/typescript-refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
+리팩토링 및 개별 리팩토링에 대한 키보드 단축키를 구성하는 방법에 대한 자세한 내용은 [TypeScript 리팩토링](/docs/typescript/typescript-refactoring.md)을 참조하세요.
 
-### Rename
+### 이름 바꾸기 {#rename}
 
-One of the simplest refactorings is to rename a method or variable. Press `kb(editor.action.rename)` to rename the symbol under the cursor across your TypeScript project:
+가장 간단한 리팩토링 중 하나는 메서드나 변수를 이름 바꾸는 것입니다. `kb(editor.action.rename)`를 눌러 커서 아래의 기호를 TypeScript 프로젝트 전반에 걸쳐 이름을 바꿀 수 있습니다:
 
-![Renaming a method](images/typescript/rename.png)
+![메서드 이름 바꾸기](images/typescript/rename.png)
 
-## Debugging
+## 디버깅 {#debugging}
 
-VS Code comes with great debugging support for TypeScript, including support for sourcemaps. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See [Debugging TypeScript](/docs/typescript/typescript-debugging.md) and the overall [Debugging topic](/docs/editor/debugging.md) to learn more.
+VS Code는 TypeScript에 대한 훌륭한 디버깅 지원을 제공하며, 소스 맵도 지원합니다. 중단점을 설정하고, 객체를 검사하고, 호출 스택을 탐색하고, 디버그 콘솔에서 코드를 실행할 수 있습니다. TypeScript 디버깅에 대한 자세한 내용은 [TypeScript 디버깅](/docs/typescript/typescript-debugging.md) 및 전체 [디버깅 주제](/docs/editor/debugging.md)를 참조하세요.
 
-### Debug client side
+### 클라이언트 측 디버깅 {#debug-client-side}
 
-You can debug your client-side code using a browser debugger such as the [built-in Edge and Chrome debugger](/docs/nodejs/browser-debugging.md), or the [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug).
+브라우저 디버거(예: [내장 Edge 및 Chrome 디버거](/docs/nodejs/browser-debugging.md) 또는 [Firefox 디버거](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug))를 사용하여 클라이언트 측 코드를 디버깅할 수 있습니다.
 
-### Debug server side
+### 서버 측 디버깅 {#debug-server-side}
 
-Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is a [Node.js debugging tutorial](/docs/nodejs/nodejs-tutorial.md#debug-your-express-app) to help you.
+VS Code의 내장 디버거를 사용하여 Node.js를 디버깅할 수 있습니다. 설정이 간단하며, [Node.js 디버깅 튜토리얼](/docs/nodejs/nodejs-tutorial.md#debug-your-express-app)이 도움이 될 것입니다.
 
-![debug data inspection](images/javascript/debug_data_inspection.gif)
+![디버그 데이터 검사](images/javascript/debug_data_inspection.gif)
 
-## Linters
+## 린터 {#linters}
 
-[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in TypeScript linter, TypeScript linter [extensions](/docs/editor/extension-marketplace.md) available in the Marketplace.
+[린터](https://en.wikipedia.org/wiki/Lint_%28software%29)는 의심스러운 코드에 대한 경고를 제공합니다. VS Code에는 내장 TypeScript 린터가 포함되어 있지 않지만, 마켓플레이스에서 사용할 수 있는 TypeScript 린터 [확장](/docs/editor/extension-marketplace.md)이 있습니다.
 
-[ESLint](https://eslint.org) is a popular linter, which also supports TypeScript. The [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) integrates ESLint into VS Code so you can see linting errors right in the editor and even quickly fix many of them with [Quick Fixes](/docs/typescript/typescript-refactoring.md#quick-fixes). The [ESLint plugin guide](https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin#readme) details how to configure ESLint for your TypeScript projects.
+[ESLint](https://eslint.org)는 TypeScript를 지원하는 인기 있는 린터입니다. [ESLint 확장](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)은 ESLint를 VS Code에 통합하여 편집기 내에서 린팅 오류를 바로 확인하고 [빠른 수정](/docs/typescript/typescript-refactoring.md#quick-fixes)으로 많은 오류를 신속하게 수정할 수 있습니다. [ESLint 플러그인 가이드](https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin#readme)에서는 TypeScript 프로젝트에 ESLint를 구성하는 방법에 대해 자세히 설명합니다.
 
-## TypeScript extensions
+## TypeScript 확장 {#typescript-extensions}
 
-VS Code provides many features for TypeScript out of the box. In addition to what comes built-in, you can install an extension for greater functionality.
+VS Code는 기본적으로 TypeScript에 대한 많은 기능을 제공합니다. 내장된 기능 외에도 더 많은 기능을 위해 확장을 설치할 수 있습니다.
 
 <div class="marketplace-extensions-typescript-curated"></div>
 
-> Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+> 팁: 위의 확장 타일을 클릭하여 설명 및 리뷰를 읽고 어떤 확장이 가장 적합한지 결정하세요. [마켓플레이스](https://marketplace.visualstudio.com)에서 더 많은 정보를 확인하세요.
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-To learn more, see:
+자세한 내용을 보려면 다음을 참조하세요:
 
-* [TypeScript tutorial](/docs/typescript/typescript-tutorial.md) - Create a simple Hello World TypeScript in VS Code.
-* [Editing TypeScript](/docs/typescript/typescript-editing.md) - Specific editing features for TypeScript.
-* [Refactoring TypeScript](/docs/typescript/typescript-refactoring.md) - Useful refactorings from the TypeScript language service.
-* [Compiling TypeScript](/docs/typescript/typescript-compiling.md) - Compile TypeScript to a JavaScript target version.
-* [Debugging TypeScript](/docs/typescript/typescript-debugging.md) - Learn about debugging TypeScript both server and client-side with VS Code.
+* [TypeScript 튜토리얼](/docs/typescript/typescript-tutorial.md) - VS Code에서 간단한 헬로 월드 TypeScript를 생성합니다.
+* [TypeScript 편집하기](/docs/typescript/typescript-editing.md) - TypeScript에 대한 특정 편집 기능.
+* [TypeScript 리팩토링](/docs/typescript/typescript-refactoring.md) - TypeScript 언어 서비스의 유용한 리팩토링.
+* [TypeScript 컴파일하기](/docs/typescript/typescript-compiling.md) - TypeScript를 JavaScript 대상 버전으로 컴파일합니다.
+* [TypeScript 디버깅](/docs/typescript/typescript-debugging.md) - VS Code를 사용하여 서버 및 클라이언트 측에서 TypeScript 디버깅에 대해 알아보세요.
 
-## Common questions
+## 자주 묻는 질문 {#common-questions}
 
-### Can I use the version of TypeScript that ships with VS 2022?
+### VS 2022와 함께 제공되는 TypeScript 버전을 사용할 수 있나요? {#can-i-use-the-version-of-typescript-that-ships-with-vs-2022}
 
-No, the TypeScript language service that ships with Visual Studio 2019 and 2022 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).
+아니요, Visual Studio 2019 및 2022와 함께 제공되는 TypeScript 언어 서비스는 VS Code와 호환되지 않습니다. [npm](https://www.npmjs.com/package/typescript)에서 별도의 TypeScript 버전을 설치해야 합니다.
 
-### How can I use the latest TypeScript beta with VS Code?
+### VS Code에서 최신 TypeScript 베타를 어떻게 사용할 수 있나요? {#how-can-i-use-the-latest-typescript-beta-with-vs-code}
 
-The simplest way to try out the latest TypeScript features in VS Code is to install the [JavaScript and TypeScript Nightly extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next).
+VS Code에서 최신 TypeScript 기능을 시도하는 가장 간단한 방법은 [JavaScript 및 TypeScript 나이틀리 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next)을 설치하는 것입니다.
 
-You can also [configure VS Code to use a specific TypeScript version](/docs/typescript/typescript-compiling.md#using-newer-typescript-versions).
+또한 [VS Code에서 특정 TypeScript 버전을 사용하도록 구성할 수 있습니다](/docs/typescript/typescript-compiling.md#using-newer-typescript-versions).

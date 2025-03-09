@@ -1,87 +1,88 @@
 ---
 Order: 4
 Area: editor
-TOCTitle: Extension Runtime Security
+TOCTitle: 확장 런타임 보안
 ContentId: b921a11a-ed69-4716-bc93-589ba8e01e22
-PageTitle: Visual Studio Code Extension Runtime Security
+PageTitle: Visual Studio Code 확장 런타임 보안
 DateApproved: 03/05/2025
-MetaDescription: Learn about the security measures in place for Visual Studio Code extensions, including permissions, user reliability checks, and Marketplace protections.
+MetaDescription: Visual Studio Code 확장에 대한 보안 조치, 권한, 사용자 신뢰성 검사 및 마켓플레이스 보호에 대해 알아보세요.
+sidebar_label: 확장 런타임 보안
 ---
 
-# Extension runtime security
+# 확장 런타임 보안 {#extension-runtime-security}
 
-[Extensions](/docs/editor/extension-marketplace.md) greatly enhance the functionality of Visual Studio Code. They can also introduce risks, such as malicious code execution and data privacy concerns. The [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) has many ways to protect you from bad extensions. In addition, VS Code gives you several indicators of an extension's reliability.
+[확장](/docs/editor/extension-marketplace.md)은 Visual Studio Code의 기능을 크게 향상시킵니다. 그러나 악성 코드 실행 및 데이터 프라이버시 문제와 같은 위험을 초래할 수도 있습니다. [Visual Studio 마켓플레이스](https://marketplace.visualstudio.com/vscode)에는 나쁜 확장에서 보호할 수 있는 여러 방법이 있습니다. 또한 VS Code는 확장의 신뢰성을 나타내는 여러 지표를 제공합니다.
 
-This document outlines the runtime permissions of extensions in VS Code and the measures in place to protect you from malicious extensions. You'll learn how to make an informed decision about the reliability of an extension before installing it.
+이 문서에서는 VS Code에서 확장의 런타임 권한과 악성 확장에서 보호하기 위해 마련된 조치를 설명합니다. 설치하기 전에 확장의 신뢰성에 대해 정보에 기반한 결정을 내리는 방법을 배우게 됩니다.
 
-## About extension runtime permissions
+## 확장 런타임 권한에 대한 설명 {#about-extension-runtime-permissions}
 
-The [extension host](/api/advanced-topics/extension-host.md) is responsible for running extensions in VS Code. The extension host has the same permissions as VS Code itself. This means that any action that VS Code can perform, an extension can also perform through the extension host.
+[확장 호스트](/api/advanced-topics/extension-host.md)는 VS Code에서 확장을 실행하는 역할을 합니다. 확장 호스트는 VS Code 자체와 동일한 권한을 가지고 있습니다. 이는 VS Code가 수행할 수 있는 모든 작업을 확장도 확장 호스트를 통해 수행할 수 있음을 의미합니다.
 
-For example, an extension can read and write files on your machine, make network requests, run external processes, and modify workspace settings.
+예를 들어, 확장은 귀하의 컴퓨터에서 파일을 읽고 쓸 수 있으며, 네트워크 요청을 하고, 외부 프로세스를 실행하고, 작업 공간 설정을 수정할 수 있습니다.
 
-## Extension publisher trust
+## 확장 게시자 신뢰 {#extension-publisher-trust}
 
-As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the publisher of that extension.
+VS Code 버전 1.97부터, 타사 게시자로부터 확장을 처음 설치할 때 VS Code는 해당 확장의 게시자를 신뢰하는지 확인하는 대화 상자를 표시합니다.
 
-When you trust the publisher of an extension pack or an extension with dependencies on other extensions, you are also trusting the publishers of the dependent extensions.
+확장 팩이나 다른 확장에 의존하는 확장의 게시자를 신뢰할 경우, 해당 의존 확장의 게시자도 신뢰하는 것입니다.
 
-Publishers for extensions that you installed previously are considered trusted and are automatically added to the list of trusted publishers.
+이전에 설치한 확장의 게시자는 신뢰할 수 있는 것으로 간주되며, 자동으로 신뢰할 수 있는 게시자 목록에 추가됩니다.
 
-You can manage the list of trusted extensions by using the **Extensions: Manage Trusted Extensions Publishers** command.
+**신뢰할 수 있는 확장 게시자 관리** 명령을 사용하여 신뢰할 수 있는 확장 목록을 관리할 수 있습니다.
 
 > [!IMPORTANT]
-> When you install extensions by using the [VS Code command line](/docs/editor/command-line.md#working-with-extensions), the extension's publisher is not automatically trusted.
+> [VS Code 명령줄](/docs/editor/command-line.md#working-with-extensions)을 사용하여 확장을 설치할 때, 확장 게시자는 자동으로 신뢰되지 않습니다.
 
-## Determine extension reliability
+## 확장 신뢰성 판단 {#determine-extension-reliability}
 
-Before you install an extension, you can take various steps to determine if it's reliable. The Visual Studio Marketplace provides you with information about the extension to help you make an informed decision:
+확장을 설치하기 전에 신뢰할 수 있는지 판단하기 위해 다양한 단계를 수행할 수 있습니다. Visual Studio 마켓플레이스는 정보에 기반한 결정을 내리는 데 도움이 되는 확장에 대한 정보를 제공합니다:
 
-* **Ratings & Reviews**: Read what others think about the extension.
+* **평가 및 리뷰**: 다른 사람들이 해당 확장에 대해 어떻게 생각하는지 읽어보세요.
 
-* **Q & A**: Review existing questions and the level of the publisher's responsiveness. You can also engage with the extension's publisher if you have concerns.
+* **질문 및 답변**: 기존 질문과 게시자의 응답 수준을 검토하세요. 우려 사항이 있을 경우 확장 게시자와 소통할 수도 있습니다.
 
-* **Issues, Repository, and License**: Check if the publisher provided these and if they have the support you expect.
+* **문제, 저장소 및 라이선스**: 게시자가 이러한 정보를 제공했는지, 그리고 기대하는 지원이 있는지 확인하세요.
 
-* **Verified Publisher**: Use the blue check mark next to the publisher's name and domain name as an extra signal of trust. The check mark indicates that the publisher has proven domain-name ownership to the Marketplace. It also shows that the Marketplace has verified both the existence of the domain name and the good standing of the publisher on the Marketplace for at least six months.
+* **검증된 게시자**: 게시자 이름과 도메인 이름 옆의 파란색 체크 마크를 신뢰의 추가 신호로 사용하세요. 체크 마크는 게시자가 마켓플레이스에 도메인 이름 소유권을 입증했음을 나타냅니다. 또한 마켓플레이스가 도메인 이름의 존재와 게시자가 마켓플레이스에서 최소 6개월 이상 좋은 상태에 있음을 확인했음을 보여줍니다.
 
-    ![Verified publisher](images/extension-marketplace/bluecheck.png)
+    ![검증된 게시자](images/extension-marketplace/bluecheck.png)
 
 > [!TIP]
-> If you want to enforce which extensions are allowed to be used in your organization, check out how to [configure allowed extensions in VS Code](/docs/setup/enterprise.md#configure-allowed-extensions).
+> 조직에서 사용할 수 있는 확장을 제한하려면 [VS Code에서 허용된 확장 구성](/docs/setup/enterprise.md#configure-allowed-extensions) 방법을 확인하세요.
 
-## Marketplace protections
+## 마켓플레이스 보호 조치 {#marketplace-protections}
 
-The Visual Studio Marketplace employs several mechanisms to protect you from malicious extensions:
+Visual Studio 마켓플레이스는 악성 확장에서 보호하기 위해 여러 메커니즘을 사용합니다:
 
-* **Malware scanning**: The Marketplace runs a malware scan on each extension package that's published to ensure its safety. The scan, which uses several antivirus engines, is run for each new extension and for each extension update. Until the scan is all clear, the extension won't be published in the Marketplace for public usage.
+* **악성 코드 스캔**: 마켓플레이스는 각 확장 패키지가 게시될 때 안전성을 보장하기 위해 악성 코드 스캔을 실행합니다. 여러 안티바이러스 엔진을 사용하는 이 스캔은 새로운 확장 및 각 확장 업데이트에 대해 실행됩니다. 스캔이 완료될 때까지 확장은 마켓플레이스에 공개 사용을 위해 게시되지 않습니다.
 
-* **Dynamic detection**: The Marketplace does dynamic detection by verifying the extension's runtime behavior by running it in a sandboxed environment (_clean room VM_).
+* **동적 탐지**: 마켓플레이스는 샌드박스 환경(_클린 룸 VM_)에서 확장의 런타임 동작을 실행하여 동적 탐지를 수행합니다.
 
-* **Verified publishers**: Publishers can verify (blue check mark) their identity by proving domain ownership. It shows that the publisher has proven domain-name ownership to the Marketplace. It also shows that the Marketplace has verified both the existence of the domain and the good standing of the publisher on the Marketplace for at least six months.
+* **검증된 게시자**: 게시자는 도메인 소유권을 입증하여 자신의 신원을 검증(파란색 체크 마크)할 수 있습니다. 이는 게시자가 마켓플레이스에 도메인 이름 소유권을 입증했음을 나타냅니다. 또한 마켓플레이스가 도메인의 존재와 게시자가 마켓플레이스에서 최소 6개월 이상 좋은 상태에 있음을 확인했음을 보여줍니다.
 
-* **Unusual usage monitoring**: The Marketplace monitors the downloads and usage patterns of extensions to detect unusual behavior.
+* **비정상 사용 모니터링**: 마켓플레이스는 확장의 다운로드 및 사용 패턴을 모니터링하여 비정상적인 행동을 감지합니다.
 
-* **Name squatting**: The Marketplace stops extension authors from stealing the names of official publishers, such as Microsoft or RedHat, and popular extensions, like GitHub Copilot.
+* **이름 도용 방지**: 마켓플레이스는 확장 저자가 Microsoft 또는 RedHat과 같은 공식 게시자의 이름이나 GitHub Copilot과 같은 인기 확장의 이름을 도용하는 것을 방지합니다.
 
-* **Block List**: If a malicious extension is reported and verified, or a vulnerability is found in an extension dependency, the extension is removed from the Marketplace and added to a *block list*. If the extension has been installed, it's automatically uninstalled by VS Code.
+* **차단 목록**: 악성 확장이 신고되고 확인되거나 확장 의존성에서 취약점이 발견되면 해당 확장은 마켓플레이스에서 제거되고 *차단 목록*에 추가됩니다. 확장이 설치된 경우, VS Code에 의해 자동으로 제거됩니다.
 
-* **Extension Signature Verification**: The Visual Studio Marketplace signs all extensions when they're published. VS Code checks this signature when you install an extension to verify the integrity and the source of the extension package.
+* **확장 서명 검증**: Visual Studio 마켓플레이스는 모든 확장을 게시할 때 서명합니다. VS Code는 확장을 설치할 때 이 서명을 확인하여 확장 패키지의 무결성과 출처를 검증합니다.
 
-## Report suspicious extensions
+## 의심스러운 확장 신고 {#report-suspicious-extensions}
 
-If you do see an extension that looks suspicious, report the extension to the Marketplace team. The Marketplace team provides an initial response within one business day.
+의심스러운 확장을 발견한 경우, 마켓플레이스 팀에 해당 확장을 신고하세요. 마켓플레이스 팀은 영업일 기준 1일 이내에 초기 응답을 제공합니다.
 
-To report an extension:
+확장을 신고하려면:
 
-1. Open the extension's page in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode).
+1. [Visual Studio 마켓플레이스](https://marketplace.visualstudio.com/vscode)에서 확장 페이지를 엽니다.
 
-1. Select the **Report a concern** link at the bottom of the extension **More Info** section.
+1. 확장 **추가 정보** 섹션 하단의 **우려 사항 신고** 링크를 선택합니다.
 
-## Related resources
+## 관련 리소스 {#related-resources}
 
-* Learn how to install and manage extensions in [Visual Studio Code](/docs/editor/extension-marketplace.md).
+* [Visual Studio Code](/docs/editor/extension-marketplace.md)에서 확장을 설치하고 관리하는 방법을 알아보세요.
 
-* Use [Workspace Trust](/docs/editor/workspaces/workspace-trust.md) to decide whether code in a project folder can be executed by VS Code and extensions without explicit approval. This adds an extra layer of security when working with unfamiliar code.
+* [작업 공간 신뢰](/docs/editor/workspaces/workspace-trust.md)를 사용하여 프로젝트 폴더의 코드가 VS Code 및 확장에 의해 명시적 승인 없이 실행될 수 있는지 결정하세요. 이는 낯선 코드 작업 시 추가적인 보안 계층을 제공합니다.
 
-* Configure [allowed extensions in VS Code](/docs/setup/enterprise.md#configure-allowed-extensions) to enforce which extensions are allowed to be used in your organization.
+* [VS Code에서 허용된 확장 구성](/docs/setup/enterprise.md#configure-allowed-extensions)하여 조직에서 사용할 수 있는 확장을 제한하세요.

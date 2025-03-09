@@ -1,207 +1,209 @@
 ---
 Order: 15
 Area: editor
-TOCTitle: Profiles
+TOCTitle: 프로필
 ContentId: a65efc48-5a2d-4c7d-bd23-03f0393b53f6
-PageTitle: Profiles in Visual Studio Code
+PageTitle: Visual Studio Code의 프로필
 DateApproved: 03/05/2025
-MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
+MetaDescription: Visual Studio Code에서 작업 흐름을 확장하고 작업(task) 통합을 활용하세요.
+sidebar_label: 프로필
 ---
-# Profiles in Visual Studio Code
 
-Visual Studio Code has hundreds of [settings](/docs/editor/settings.md), thousands of [extensions](/docs/editor/extension-marketplace.md), and innumerable ways to adjust the UI layout to customize the editor. VS Code **Profiles** let you create sets of customizations and quickly switch between them or share them with others. This topic explains how to create, modify, export, and import profiles by using the **Profiles editor**.
+# Visual Studio Code의 프로필 {#profiles-in-visual-studio-code}
 
-## Access the Profiles editor
+Visual Studio Code는 수백 개의 [설정](/docs/editor/settings.md), 수천 개의 [확장](/docs/editor/extension-marketplace.md), 그리고 편집기를 사용자 정의하기 위한 UI 레이아웃 조정 방법이 무수히 많습니다. VS Code **프로필**을 사용하면 사용자 정의 세트를 생성하고 이들 간에 빠르게 전환하거나 다른 사람과 공유할 수 있습니다. 이 주제에서는 **프로필 편집기**를 사용하여 프로필을 생성, 수정, 내보내기 및 가져오는 방법을 설명합니다.
 
-The **Profiles editor** enables you to create and manage your profiles in VS Code from a single place.
+## 프로필 편집기 접근 {#access-the-profiles-editor}
 
-![Screenshot that shows the Profiles editor.](images/profiles/profiles-editor.png)
+**프로필 편집기**를 사용하면 단일 장소에서 VS Code의 프로필을 생성하고 관리할 수 있습니다.
 
-You can access the Profiles editor in either of the following ways:
+![프로필 편집기를 보여주는 스크린샷.](images/profiles/profiles-editor.png)
 
-- From the **File** > **Preferences** > **Profiles** menu item
+다음 방법 중 하나로 프로필 편집기에 접근할 수 있습니다:
 
-    ![Profiles editor Menu Item](images/profiles/profiles-editor-menu-item.png)
+- **파일** > **환경 설정** > **프로필** 메뉴 항목에서
 
-- From the **Manage** gear button in the bottom of the Activity Bar.
+    ![프로필 편집기 메뉴 항목](images/profiles/profiles-editor-menu-item.png)
 
-    ![Profiles editor via the Manage button in the Activity bar](images/profiles/profiles-editor-via-manage.png)
+- 활동 바 하단의 **관리** 기어 버튼에서.
 
-## Create a Profile
+    ![활동 바의 관리 버튼을 통해 프로필 편집기 접근](images/profiles/profiles-editor-via-manage.png)
 
-VS Code treats your current configuration as the **Default Profile**. As you modify settings, install extensions, or change UI layout by moving views, these customizations are tracked in the Default Profile.
+## 프로필 생성 {#create-a-profile}
 
-To create a new profile, open the Profiles editor and select the **New Profile** button. This opens the New Profile form, where you can enter a profile name, choose an icon, and configure the contents that are included in the new profile.
+VS Code는 현재 구성을 **기본 프로필**로 취급합니다. 설정을 수정하거나, 확장을 설치하거나, 뷰를 이동하여 UI 레이아웃을 변경하면 이러한 사용자 정의가 기본 프로필에 기록됩니다.
 
-![Create Profile](images/profiles/create-profile.png)
+새 프로필을 생성하려면 프로필 편집기를 열고 **새 프로필** 버튼을 선택합니다. 그러면 프로필 이름을 입력하고 아이콘을 선택하며 새 프로필에 포함할 내용을 구성할 수 있는 새 프로필 양식이 열립니다.
 
-You can choose to either create a new profile by copying the contents from a Profile Template or from an existing profile, or to create an **Empty Profile**. An Empty Profile includes no user customizations, such as settings, extensions, snippets, etcetera.
+![프로필 생성](images/profiles/create-profile.png)
 
-![Copy from options](images/profiles/copy-from.png)
+프로필 템플릿이나 기존 프로필의 내용을 복사하여 새 프로필을 생성하거나 **빈 프로필**을 생성할 수 있습니다. 빈 프로필에는 설정, 확장, 스니펫 등과 같은 사용자 정의가 포함되지 않습니다.
 
-You can limit the new profile to only include a subset of configurations (settings, keyboard shortcuts, snippets, tasks and extensions) and use the rest of the configurations from the Default Profile. For example, you can create a profile with all configurations, except for keyboard shortcuts, and VS Code will apply the keyboard shortcuts from the Default Profile when this profile is active.
+![복사 옵션](images/profiles/copy-from.png)
 
-You can browse the contents of the template or profile you are copying from in the **Contents** section. There is an **Open** button next to each section that you can select to see its contents.
+새 프로필을 기본 프로필의 나머지 구성에서 설정할 수 있으며, 설정(설정, 키보드 단축키, 스니펫, 작업 및 확장) 중 일부만 포함하도록 제한할 수 있습니다. 예를 들어, 모든 구성을 포함하되 키보드 단축키를 제외한 프로필을 생성하면, 이 프로필이 활성화될 때 VS Code는 기본 프로필의 키보드 단축키를 적용합니다.
 
-![Configure, browse and preview profile](images/profiles/configure-browse-preview.png)
+복사할 템플릿이나 프로필의 내용을 **내용** 섹션에서 탐색할 수 있습니다. 각 섹션 옆에는 내용을 확인할 수 있는 **열기** 버튼이 있습니다.
 
-Preview the new profile before creating it by selecting the **Preview** button. This opens a new VS Code window with the new profile applied to it. Once you are happy with the preview, you can select the **Create** button to create the new profile.
+![프로필 구성, 탐색 및 미리보기](images/profiles/configure-browse-preview.png)
 
-### Check the current profile
+**미리보기** 버튼을 선택하여 새 프로필을 생성하기 전에 미리 볼 수 있습니다. 그러면 새 프로필이 적용된 새로운 VS Code 창이 열립니다. 미리 보기가 만족스러우면 **생성** 버튼을 선택하여 새 프로필을 생성할 수 있습니다.
 
-You can find the profile that is currently in use by the VS Code window in several places in the VS Code UI:
+### 현재 프로필 확인 {#check-the-current-profile}
 
-* In the VS Code title bar
+현재 VS Code 창에서 사용 중인 프로필은 VS Code UI의 여러 곳에서 확인할 수 있습니다:
 
-* In the hover text when you hover over the **Manage** button in the Activity Bar
+* VS Code 제목 표시줄에서
 
-    If you have configured an icon for the profile, this icon is used as the **Manage** button in the Activity Bar. Notice in the following screenshot that the Manage button now has a microphone icon, indicating that a profile is active.
+* 활동 바의 **관리** 버튼 위에 마우스를 올릴 때 나타나는 텍스트에서
 
-    ![Manage gear displaying icon to indicate that the user's profile is active](images/profiles/profile-gear-icon.png)
+    프로필에 대한 아이콘을 구성한 경우, 이 아이콘이 활동 바의 **관리** 버튼으로 사용됩니다. 다음 스크린샷에서 관리 버튼에 마이크 아이콘이 표시되어 프로필이 활성화되어 있음을 나타냅니다.
 
-    If you have not configured an icon, then the **Manage** gear button displays a badge with the first two letters of the active profile so you can quickly check which profile you are running.
+    ![사용자의 프로필이 활성화되어 있음을 나타내는 아이콘을 표시하는 관리 기어](images/profiles/profile-gear-icon.png)
 
-    ![Manage gear displaying 'DA' to indicate that the user's 'Data Science' profile is active](images/profiles/profile-gear-two-letters.png)
+    아이콘을 구성하지 않은 경우, **관리** 기어 버튼은 활성 프로필의 첫 두 글자를 배지로 표시하여 현재 실행 중인 프로필을 빠르게 확인할 수 있습니다.
 
-* In the Profiles editor
+    ![사용자의 '데이터 과학' 프로필이 활성화되어 있음을 나타내는 'DA'를 표시하는 관리 기어](images/profiles/profile-gear-two-letters.png)
 
-    ![Showing current profile in the Profiles editor](images/profiles/profiles-editor-in-use-profile.png)
+* 프로필 편집기에서
 
-> **Note**: If you are using the Default Profile, no profile name is displayed.
+    ![프로필 편집기에서 현재 프로필 표시](images/profiles/profiles-editor-in-use-profile.png)
 
-### Configure a profile
+> **참고**: 기본 프로필을 사용 중인 경우 프로필 이름이 표시되지 않습니다.
 
-You can configure a profile just as you would change any VS Code configuration. You can install/uninstall/disable extensions, change settings, and adjust the editor's UI layout (for example, moving and hiding views). As you apply these changes, they are then stored in your currently active profile.
+### 프로필 구성 {#configure-a-profile}
 
-### Folder & workspace associations
+프로필은 VS Code 구성 변경과 동일하게 구성할 수 있습니다. 확장을 설치/제거/비활성화하고, 설정을 변경하며, 편집기의 UI 레이아웃을 조정할 수 있습니다(예: 뷰 이동 및 숨기기). 이러한 변경 사항을 적용하면 현재 활성 프로필에 저장됩니다.
 
-When you create or select a profile, it is associated with the current folder or workspace. Whenever you open that folder, the workspace's profile becomes active. If you open another folder, the profile changes to that of the other folder, if one was already set.
+### 폴더 및 작업 공간 연결 {#folder-workspace-associations}
 
-You can view the list of folders that are associated with a profile in the **Folders & Workspaces** section of the **Profiles editor**.
+프로필을 생성하거나 선택하면 현재 폴더 또는 작업 공간과 연결됩니다. 해당 폴더를 열 때마다 작업 공간의 프로필이 활성화됩니다. 다른 폴더를 열면, 이미 설정된 경우 다른 폴더의 프로필로 변경됩니다.
 
-![Folders & Workspaces section](images/profiles/profiles-editor-folders-workspaces.png)
+프로필과 연결된 폴더 목록은 **프로필 편집기**의 **폴더 및 작업 공간** 섹션에서 확인할 수 있습니다.
 
-## Manage profiles
+![폴더 및 작업 공간 섹션](images/profiles/profiles-editor-folders-workspaces.png)
 
-### Switch profiles
+## 프로필 관리 {#manage-profiles}
 
-You can quickly switch between profiles with the **Profiles: Switch Profile** command in the Command Palette, which presents a dropdown listing your available profiles.
+### 프로필 전환 {#switch-profiles}
 
-You can also switch profiles from the **Profiles editor** by selecting the **Use this Profile for Current Window** button next to the profile you want to switch to.
+**명령 팔레트**에서 **프로필: 프로필 전환** 명령을 사용하여 프로필 간에 빠르게 전환할 수 있으며, 사용 가능한 프로필 목록이 드롭다운으로 표시됩니다.
 
-![Switch profile from the Profiles editor](images/profiles/profiles-editor-switch-profile.png)
+프로필 편집기에서 전환하려는 프로필 옆의 **현재 창에 이 프로필 사용** 버튼을 선택하여 프로필을 전환할 수도 있습니다.
 
-### Edit a profile
+![프로필 편집기에서 프로필 전환](images/profiles/profiles-editor-switch-profile.png)
 
-You can edit the name, icon, and other configurations of an existing profile in the **Profiles editor**.
+### 프로필 편집 {#edit-a-profile}
 
-### Delete a profile
+프로필 편집기에서 기존 프로필의 이름, 아이콘 및 기타 구성을 편집할 수 있습니다.
 
-You can delete a profile from the **Profiles editor** by selecting the **Delete Profile** button in the overflow actions of the profile you want to delete.
+### 프로필 삭제 {#delete-a-profile}
 
-![Delete profile from the Profiles editor](images/profiles/profiles-editor-delete-profile.png)
+프로필 편집기에서 삭제하려는 프로필의 오버플로우 작업에서 **프로필 삭제** 버튼을 선택하여 프로필을 삭제할 수 있습니다.
 
-You can also delete a profile via the **Delete Profile** command. The **Delete Profile** dropdown lets you select which profile(s) to delete.
+![프로필 편집기에서 프로필 삭제](images/profiles/profiles-editor-delete-profile.png)
 
-### Open a new window with a profile
+**프로필 삭제** 명령을 통해서도 프로필을 삭제할 수 있습니다. **프로필 삭제** 드롭다운을 사용하여 삭제할 프로필을 선택할 수 있습니다.
 
-You can choose a profile to use when you open a new VS Code window by using **Use for New Windows** option that is available in the Profile Content view in the Profiles editor.
+### 프로필로 새 창 열기 {#open-a-new-window-with-a-profile}
 
-![Configure custom profile for new window](images/profiles/profile-new-window.png)
+프로필 편집기에서 프로필 콘텐츠 보기의 **새 창에 사용** 옵션을 사용하여 새 VS Code 창을 열 때 사용할 프로필을 선택할 수 있습니다.
 
-You can directly open a new VS Code window for a specific profile by using the **File** > **New Window with Profile** menu, and selecting the profile you want to use.
+![새 창을 위한 사용자 정의 프로필 구성](images/profiles/profile-new-window.png)
 
-### Apply a setting to all profiles
+**파일** > **프로필로 새 창 열기** 메뉴를 사용하여 특정 프로필을 위한 새 VS Code 창을 직접 열 수 있으며, 사용하려는 프로필을 선택합니다.
 
-To apply a setting across all your profiles, use the **Apply Setting to all Profiles** action in the Settings editor.
+### 모든 프로필에 설정 적용 {#apply-a-setting-to-all-profiles}
 
-![Apply setting to all Profiles](images/profiles/profiles_apply_setting.png)
+모든 프로필에 설정을 적용하려면 설정 편집기에서 **모든 프로필에 설정 적용** 작업을 사용합니다.
 
-Updates to this setting from within any of your profiles are also applied to all other profiles. You can always revert this behavior by unchecking the **Apply Setting to all Profiles** action.
+![모든 프로필에 설정 적용](images/profiles/profiles_apply_setting.png)
 
-### Apply an extension to all profiles
+프로필 내에서 이 설정에 대한 업데이트는 다른 모든 프로필에도 적용됩니다. **모든 프로필에 설정 적용** 작업의 체크를 해제하면 이 동작을 언제든지 되돌릴 수 있습니다.
 
-To apply an extension across all your profiles, select the **Apply Extension to all Profiles** action in the Extensions view.
+### 모든 프로필에 확장 적용 {#apply-an-extension-to-all-profiles}
 
-![Apply an extension to all Profiles](images/profiles/profiles_apply_extension.png)
+모든 프로필에 확장을 적용하려면 확장 보기에서 **모든 프로필에 확장 적용** 작업을 선택합니다.
 
-This makes this extension available in all your profiles. You can always revert this behavior by unchecking the **Apply Extension to all Profiles** action.
+![모든 프로필에 확장 적용](images/profiles/profiles_apply_extension.png)
 
-## Synchronize profiles across machines
+이렇게 하면 이 확장이 모든 프로필에서 사용 가능해집니다. **모든 프로필에 확장 적용** 작업의 체크를 해제하면 이 동작을 언제든지 되돌릴 수 있습니다.
 
-You can use [Settings Sync](/docs/editor/settings-sync.md) to move your profiles across various machines. With Setting Sync enabled and **Profiles** checked in the **Settings Sync: Configure** drop down, all your profiles are available on the synced machines.
+## 기계 간 프로필 동기화 {#synchronize-profiles-across-machines}
 
-![Settings Sync data drop down with Profiles checked](images/profiles/settings-sync-profiles.png)
+[설정 동기화](/docs/editor/settings-sync.md)를 사용하여 다양한 기계 간에 프로필을 이동할 수 있습니다. 설정 동기화가 활성화되고 **설정 동기화: 구성** 드롭다운에서 **프로필**이 체크된 경우, 모든 프로필이 동기화된 기계에서 사용 가능합니다.
 
-> **Note**: VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
+![프로필이 체크된 설정 동기화 데이터 드롭다운](images/profiles/settings-sync-profiles.png)
 
-## Share Profiles
+> **참고**: VS Code는 [원격](/docs/remote/remote-overview.md) 창으로부터 확장을 동기화하지 않습니다. 예를 들어 SSH, 개발 컨테이너(devcontainer) 또는 WSL에 연결된 경우입니다.
 
-### Export
+## 프로필 공유 {#share-profiles}
 
-You can export a profile for saving it or sharing it with others by using the **Export...** button in the overflow actions of the profile you want to export.
+### 내보내기 {#export}
 
-![Export profile from the Profiles editor](images/profiles/profiles-editor-export-profile.png)
+프로필을 저장하거나 다른 사람과 공유하기 위해 내보내려면 내보내려는 프로필의 오버플로우 작업에서 **내보내기...** 버튼을 사용합니다.
 
-When you select **Export...**, you are prompted for the profile name and whether you want to export to either a [GitHub gist](https://docs.github.com/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists) or to your local file system.
+![프로필 편집기에서 프로필 내보내기](images/profiles/profiles-editor-export-profile.png)
 
-#### Save as a GitHub gist
+**내보내기...**를 선택하면 프로필 이름과 [GitHub gist](https://docs.github.com/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists) 또는 로컬 파일 시스템에 내보낼 것인지 여부를 묻는 메시지가 표시됩니다.
 
-After you save a profile to GitHub (you'll be prompted to log into GitHub), a dialog gives you the option to **Copy Link** for sharing your profile gist URL with others. The URL includes an autogenerated GUID and has the format `https://vscode.dev/editor/profile/github/{GUID}`. The GitHub gist is marked as **Secret**, so only those with the link can see the gist.
+#### GitHub gist로 저장 {#save-as-a-github-gist}
 
-If you launch the profile URL, it opens [VS Code for the Web](https://vscode.dev) with the Profiles editor open and the imported profile contents displayed. You can unselect profile elements if you wish, and you need to manually **Install Extensions** (via the download cloud button) if you want to continue using that profile in [VS Code for the Web](https://vscode.dev).
+프로필을 GitHub에 저장하면(로그인하라는 메시지가 표시됨) 대화 상자가 열리고, 프로필 gist URL을 다른 사람과 공유하기 위해 **링크 복사** 옵션이 제공됩니다. URL에는 자동 생성된 GUID가 포함되며 형식은 `https://vscode.dev/editor/profile/github/{GUID}`입니다. GitHub gist는 **비밀**로 표시되므로 링크가 있는 사람만 gist를 볼 수 있습니다.
 
-You also have the option to **Import Profile in Visual Studio Code**, which opens VS Code Desktop with the profile's contents displayed and an **Import Profile** button.
+프로필 URL을 열면 [VS Code for the Web](https://vscode.dev)에서 프로필 편집기가 열리고 가져온 프로필 내용이 표시됩니다. 원하시면 프로필 요소의 선택을 해제할 수 있으며, [VS Code for the Web](https://vscode.dev)에서 해당 프로필을 계속 사용하려면 수동으로 **확장 설치**(다운로드 클라우드 버튼을 통해)해야 합니다.
 
-You can review your gists at `https://gist.github.com/{username}`. From your GitHub gist page, you can rename, delete, or copy the GUID of a gist.
+또한 **Visual Studio Code에서 프로필 가져오기** 옵션이 제공되며, 이 옵션을 선택하면 VS Code Desktop이 열리고 프로필 내용이 표시되며 **프로필 가져오기** 버튼이 나타납니다.
 
-#### Save as a local file
+귀하의 gist는 `https://gist.github.com/{username}`에서 확인할 수 있습니다. GitHub gist 페이지에서 gist의 이름을 바꾸거나 삭제하거나 GUID를 복사할 수 있습니다.
 
-If you chose to save the profile as a local file, a **Save Profile** dialog lets you place the file on your local machine. A profile is persisted in a file with the extension `.code-profile`.
+#### 로컬 파일로 저장 {#save-as-a-local-file}
 
-### Import
+프로필을 로컬 파일로 저장하기로 선택한 경우, **프로필 저장** 대화 상자가 열리고 로컬 머신에 파일을 배치할 수 있습니다. 프로필은 `.code-profile` 확장자를 가진 파일에 저장됩니다.
 
-You can import an existing profile from the **Profiles editor** by selecting the **Import Profile...** button in the dropdown actions of the **New Profile** button.
+### 가져오기 {#import}
 
-![Import profile from the Profiles editor](images/profiles/profiles-editor-import-profile.png)
+프로필 편집기에서 **새 프로필** 버튼의 드롭다운 작업에서 **프로필 가져오기...** 버튼을 선택하여 기존 프로필을 가져올 수 있습니다.
 
-When you select **Import Profile...**, you are prompted for the URL of a GitHub gist or the file location of a profile via an **Import Profile** dialog. Once you have selected the profile, the [Profile creation form](#create-a-profile) opens with the profile to import pre-selected. You can continue to modify the profile and select **Create** to import the profile.
+![프로필 편집기에서 프로필 가져오기](images/profiles/profiles-editor-import-profile.png)
 
-## Uses for profiles
+**프로필 가져오기...**를 선택하면 GitHub gist의 URL 또는 프로필의 파일 위치를 묻는 **프로필 가져오기** 대화 상자가 표시됩니다. 프로필을 선택하면 [프로필 생성 양식](#create-a-profile)이 열리고 가져올 프로필이 미리 선택됩니다. 프로필을 계속 수정하고 **생성**을 선택하여 프로필을 가져올 수 있습니다.
 
-Profiles are a great way to customize VS Code to better fit your needs. In this section, we look at some common use cases for profiles.
+## 프로필 사용 사례 {#uses-for-profiles}
 
-Since profiles are remembered per workspace, they are a great way to customize VS Code for a specific programming language. For example, you can create a JavaScript frontend profile that includes the extensions, settings, and customizations you use for JavaScript development in one workspace, and have a Python backend profile that includes the extensions, settings, and customizations you use for Python development in another workspace. Using this approach, you can easily switch between workspaces and always have VS Code configured the right way.
+프로필은 VS Code를 사용자에게 더 잘 맞도록 사용자 정의하는 훌륭한 방법입니다. 이 섹션에서는 프로필의 몇 가지 일반적인 사용 사례를 살펴봅니다.
 
-### Demos
+프로필은 작업 공간별로 기억되므로 특정 프로그래밍 언어에 맞게 VS Code를 사용자 정의하는 데 유용합니다. 예를 들어, JavaScript 개발에 필요한 확장, 설정 및 사용자 정의를 포함하는 JavaScript 프론트엔드 프로필을 하나의 작업 공간에 만들고, Python 개발에 필요한 확장, 설정 및 사용자 정의를 포함하는 Python 백엔드 프로필을 다른 작업 공간에 만들 수 있습니다. 이러한 접근 방식을 사용하면 작업 공간 간에 쉽게 전환하고 항상 올바르게 구성된 VS Code를 사용할 수 있습니다.
 
-When doing a demo, you can use a profile to set up a specific configuration for your demo. For example, you can create a profile with a specific set of extensions and settings like zoom level, font size, and color theme. By doing this, a demo will not mess up your normal VS Code setup and you can customize VS Code for better visibility during your presentation.
+### 데모 {#demos}
 
-### Education
+데모를 수행할 때 특정 구성을 설정하기 위해 프로필을 사용할 수 있습니다. 예를 들어, 특정 확장 및 설정(줌 수준, 글꼴 크기, 색상 테마 등)을 포함하는 프로필을 생성할 수 있습니다. 이렇게 하면 데모가 일반 VS Code 설정을 망치지 않으며, 발표 중 가시성을 높이기 위해 VS Code를 사용자 정의할 수 있습니다.
 
-Profiles can be used to customize VS Code for students to ease the use in a classroom setting. Profiles allow educators to quickly share a customized VS Code setup with students. For example, educators can create a profile with a specific set of extensions and settings needed for a computer science class and then share that profile with students.
+### 교육 {#education}
 
-### Report VS Code issues
+프로필은 학생들이 교실 환경에서 사용하기 쉽게 VS Code를 사용자 정의하는 데 사용할 수 있습니다. 프로필을 사용하면 교육자가 학생들과 사용자 정의된 VS Code 설정을 빠르게 공유할 수 있습니다. 예를 들어, 교육자는 컴퓨터 과학 수업에 필요한 특정 확장 및 설정을 포함하는 프로필을 생성한 후 이를 학생들과 공유할 수 있습니다.
 
-One use of an Empty Profile is to reset your editor when you want to report an issue with VS Code. An Empty Profile disables all extensions and modified settings so you can quickly see if the issue is due to an extension, a setting, or is in VS Code core.
+### VS Code 문제 보고 {#report-vs-code-issues}
 
-## Profile Templates
+빈 프로필의 한 가지 용도는 VS Code의 문제를 보고할 때 편집기를 재설정하는 것입니다. 빈 프로필은 모든 확장 및 수정된 설정을 비활성화하므로 문제가 확장, 설정 또는 VS Code 핵심에 있는지 빠르게 확인할 수 있습니다.
 
-VS Code comes with a predefined set of profile templates that you can use to customize VS Code for your specific workflow. To create a new profile based on a template, select a Profile Template when going through the **Create Profile** flow.
+## 프로필 템플릿 {#profile-templates}
 
-### Python Profile Template
+VS Code는 특정 워크플로우에 맞게 VS Code를 사용자 정의하는 데 사용할 수 있는 미리 정의된 프로필 템플릿 세트를 제공합니다. 템플릿을 기반으로 새 프로필을 생성하려면 **프로필 생성** 흐름을 진행할 때 프로필 템플릿을 선택합니다.
 
-The Python profile is a good starting point for Python development. It comes with Python specific snippets and has the following extensions:
+### Python 프로필 템플릿 {#python-profile-template}
 
-* [autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring) - Generate Python docstrings automatically.
-* [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) - Create, manage, and debug containerized applications.
-* [Even Better TOML](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml) - Fully-featured TOML support for e.g. `pyproject.toml` files.
-* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, environment management, debugging, refactoring.
-* [Python Environment Manager](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager) - Manage Python environments and packages.
-* [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack - Supports SSH, WSL, and Dev Containers.
-* [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) - Integrates the [Ruff](https://github.com/charliermarsh/ruff) Python linter and formatter.
+Python 프로필은 Python 개발을 위한 좋은 출발점입니다. Python 전용 스니펫이 포함되어 있으며 다음과 같은 확장이 있습니다:
 
-This profile also sets the following settings:
+* [autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring) - Python docstring을 자동으로 생성합니다.
+* [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) - 컨테이너화된 애플리케이션을 생성, 관리 및 디버깅합니다.
+* [Even Better TOML](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml) - `pyproject.toml` 파일에 대한 완전한 TOML 지원.
+* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, 환경 관리, 디버깅, 리팩토링.
+* [Python 환경 관리자](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager) - Python 환경 및 패키지를 관리합니다.
+* [원격 개발](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) 확장 팩 - SSH, WSL 및 개발 컨테이너를 지원합니다.
+* [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) - [Ruff](https://github.com/charliermarsh/ruff) Python 린터 및 포매터를 통합합니다.
+
+이 프로필은 다음과 같은 설정도 설정합니다:
 
 ```json
     "python.analysis.autoImportCompletions": true,
@@ -209,18 +211,18 @@ This profile also sets the following settings:
     "editor.defaultFormatter": "charliermarsh.ruff"
 ```
 
-### Data Science Profile Template
+### 데이터 과학 프로필 템플릿 {#data-science-profile-template}
 
-The Data Science profile is a good starting point for all data and notebook work. It comes with specific snippets and has the following extensions:
+데이터 과학 프로필은 모든 데이터 및 노트북 작업을 위한 좋은 출발점입니다. 특정 스니펫이 포함되어 있으며 다음과 같은 확장이 있습니다:
 
-* [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler) - Data viewing, cleaning and preparation for tabular datasets and Excel/CSV/Parquet files.
-* [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) - Your AI pair programmer.
-* [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) - Use Jupyter notebooks within VS Code.
-* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, environment management, debugging, refactoring.
-* [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack - Supports SSH, WSL, and Dev Containers.
-* [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) - Integrates the [Ruff](https://github.com/charliermarsh/ruff) Python linter and formatter.
+* [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler) - 표 형식 데이터 세트 및 Excel/CSV/Parquet 파일을 위한 데이터 보기, 정리 및 준비.
+* [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) - 당신의 AI 페어 프로그래머.
+* [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) - VS Code 내에서 Jupyter 노트북 사용.
+* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, 환경 관리, 디버깅, 리팩토링.
+* [원격 개발](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) 확장 팩 - SSH, WSL 및 개발 컨테이너를 지원합니다.
+* [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) - [Ruff](https://github.com/charliermarsh/ruff) Python 린터 및 포매터를 통합합니다.
 
-This profile also sets the following settings:
+이 프로필은 다음과 같은 설정도 설정합니다:
 
 ```json
     "[python]": {
@@ -246,22 +248,22 @@ This profile also sets the following settings:
     }
 ```
 
-### Doc Writer Profile Template
+### 문서 작성자 프로필 템플릿 {#doc-writer-profile-template}
 
-The Doc Writer profile is a good lightweight setup for writing documentation. It comes with the following extensions:
+문서 작성자 프로필은 문서 작성을 위한 좋은 경량 설정입니다. 다음과 같은 확장이 포함되어 있습니다:
 
-* [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) - Spelling checker for source code.
-* [Markdown Checkboxes](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-checkbox) - Adds checkbox support to the VS Code built-in Markdown Preview.
-* [Markdown Emoji](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-emoji) - Adds emoji syntax support to Markdown Preview and notebook Markdown cells.
-* [Markdown Footnotes](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-footnotes) - Adds ^footnote syntax support to the Markdown Preview.
-* [Markdown Preview GitHub Styling](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles) - Use GitHub styling in the Markdown Preview.
-* [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) - Mermaid diagrams and flowcharts.
-* [Markdown yaml Preamble](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-yaml-preamble) - Renders YAML front matter as a table.
-* [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) - Markdown linting and style checking for Visual Studio Code.
-* [Word Count](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wordcount) - View the number of words in a Markdown document in the Status Bar.
-* [Read Time](https://marketplace.visualstudio.com/items?itemName=johnpapa.read-time) - Estimate how long it takes to read your Markdown.
+* [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) - 소스 코드의 맞춤법 검사기.
+* [Markdown Checkboxes](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-checkbox) - VS Code 내장 Markdown 미리보기에 체크박스 지원 추가.
+* [Markdown Emoji](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-emoji) - Markdown 미리보기 및 노트북 Markdown 셀에 이모지 구문 지원 추가.
+* [Markdown Footnotes](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-footnotes) - Markdown 미리보기에 ^각주 구문 지원 추가.
+* [Markdown Preview GitHub Styling](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles) - Markdown 미리보기에서 GitHub 스타일 사용.
+* [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) - Mermaid 다이어그램 및 흐름도.
+* [Markdown yaml Preamble](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-yaml-preamble) - YAML 전처리를 테이블로 렌더링합니다.
+* [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) - Visual Studio Code의 Markdown 린팅 및 스타일 검사.
+* [Word Count](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wordcount) - 상태 표시줄에서 Markdown 문서의 단어 수 보기.
+* [Read Time](https://marketplace.visualstudio.com/items?itemName=johnpapa.read-time) - Markdown을 읽는 데 걸리는 시간 추정.
 
-This profile also sets the following settings:
+이 프로필은 다음과 같은 설정도 설정합니다:
 
 ```json
     "workbench.colorTheme": "Default Light Modern",
@@ -281,24 +283,24 @@ This profile also sets the following settings:
     "workbench.startupEditor": "none"
 ```
 
-### Node.js Profile Template
+### Node.js 프로필 템플릿 {#nodejs-profile-template}
 
-The Node.js profile is a good starting point for all Node.js work. It comes with the following extensions:
+Node.js 프로필은 모든 Node.js 작업을 위한 좋은 출발점입니다. 다음과 같은 확장이 포함되어 있습니다:
 
-* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Integrates ESLint JavaScript into VS Code.
-* [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) - Create custom development environments inside a Docker container.
-* [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) - Create, manage, and debug containerized applications.
-* [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv) - Support for dotenv file syntax.
-* [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - EditorConfig Support for Visual Studio Code.
-* [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) - Code snippets for JavaScript in ES6 syntax.
-* [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) -  Use Facebook's [jest](https://jestjs.io) testing framework.
-* [Microsoft Edge Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools) - Use the Microsoft Edge Tools from within VS Code.
-* [npm Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense) - Autocomplete npm modules in import statements.
-* [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - Code formatter using [Prettier](https://prettier.io).
-* [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - REST Client for Visual Studio Code.
-* [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) - YAML language support with built-in Kubernetes syntax.
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - VS Code에 ESLint JavaScript 통합.
+* [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) - Docker 컨테이너 내에서 사용자 정의 개발 환경 생성.
+* [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) - 컨테이너화된 애플리케이션을 생성, 관리 및 디버깅합니다.
+* [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv) - dotenv 파일 구문 지원.
+* [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - Visual Studio Code에 대한 EditorConfig 지원.
+* [JavaScript (ES6) 코드 스니펫](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) - ES6 구문으로 JavaScript에 대한 코드 스니펫.
+* [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) - Facebook의 [jest](https://jestjs.io) 테스트 프레임워크 사용.
+* [Microsoft Edge Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools) - VS Code 내에서 Microsoft Edge 도구 사용.
+* [npm Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense) - import 문에서 npm 모듈 자동 완성.
+* [Prettier - 코드 포매터](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - [Prettier](https://prettier.io)를 사용하는 코드 포매터.
+* [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - Visual Studio Code용 REST 클라이언트.
+* [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) - 내장 Kubernetes 구문을 가진 YAML 언어 지원.
 
-This profile comes with the following settings:
+이 프로필은 다음과 같은 설정을 포함합니다:
 
 ```json
     "editor.formatOnPaste": true,
@@ -323,26 +325,26 @@ This profile comes with the following settings:
     }
 ```
 
-### Angular Profile Template
+### Angular 프로필 템플릿 {#angular-profile-template}
 
-The Angular profile is a good starting point for all Angular work. It comes with the following extensions:
+Angular 프로필은 모든 Angular 작업을 위한 좋은 출발점입니다. 다음과 같은 확장이 포함되어 있습니다:
 
-* [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template) - Editor services for Angular templates.
-* [Angular Schematics](https://marketplace.visualstudio.com/items?itemName=cyrilletuzi.angular-schematics) - Integrate Angular schematics (CLI commands).
-* [angular2-switcher](https://marketplace.visualstudio.com/items?itemName=infinity1207.angular2-switcher) - Easily navigate to `typescript`|`template`|`style` in angular2 project.
-* [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) - Create custom development environments inside a Docker container.
-* [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - EditorConfig Support for Visual Studio Code.
-* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Integrates ESLint JavaScript into VS Code.
-* [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) - Code snippets for JavaScript in ES6 syntax.
-* [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) - Use Facebook's [jest](https://jestjs.io) testing framework.
-* [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - Material Design Icons for Visual Studio Code.
-* [Microsoft Edge Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools) - Use the Microsoft Edge Tools from within VS Code.
-* [Playwright Test for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) - Run [Playwright](https://playwright.dev) tests in Visual Studio Code.
-* [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - Code formatter using [Prettier](https://prettier.io).
-* [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - REST Client for Visual Studio Code.
-* [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) - YAML language support with built-in Kubernetes syntax.
+* [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template) - Angular 템플릿을 위한 편집기 서비스.
+* [Angular Schematics](https://marketplace.visualstudio.com/items?itemName=cyrilletuzi.angular-schematics) - Angular 스키매틱(CLI 명령) 통합.
+* [angular2-switcher](https://marketplace.visualstudio.com/items?itemName=infinity1207.angular2-switcher) - angular2 프로젝트에서 `typescript`|`template`|`style`로 쉽게 탐색.
+* [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) - Docker 컨테이너 내에서 사용자 정의 개발 환경 생성.
+* [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - Visual Studio Code에 대한 EditorConfig 지원.
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - VS Code에 ESLint JavaScript 통합.
+* [JavaScript (ES6) 코드 스니펫](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) - ES6 구문으로 JavaScript에 대한 코드 스니펫.
+* [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) - Facebook의 [jest](https://jestjs.io) 테스트 프레임워크 사용.
+* [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - Visual Studio Code를 위한 머티리얼 디자인 아이콘.
+* [Microsoft Edge Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools) - VS Code 내에서 Microsoft Edge 도구 사용.
+* [Playwright Test for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) - Visual Studio Code에서 [Playwright](https://playwright.dev) 테스트 실행.
+* [Prettier - 코드 포매터](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - [Prettier](https://prettier.io)를 사용하는 코드 포매터.
+* [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - Visual Studio Code용 REST 클라이언트.
+* [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) - 내장 Kubernetes 구문을 가진 YAML 언어 지원.
 
-This profile sets the following settings:
+이 프로필은 다음과 같은 설정을 설정합니다:
 
 ```json
     "editor.formatOnPaste": true,
@@ -368,27 +370,27 @@ This profile sets the following settings:
     "workbench.iconTheme": "material-icon-theme"
 ```
 
-### Java General Profile Template
+### Java 일반 프로필 템플릿 {#java-general-profile-template}
 
-The Java General profile is a good starting point for all Java work. It customizes the layout to improve the Java experience and comes with the following extensions from the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack):
+Java 일반 프로필은 모든 Java 작업을 위한 좋은 출발점입니다. Java 경험을 개선하기 위해 레이아웃을 사용자 정의하며, [Java 확장 팩](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)에서 다음과 같은 확장을 포함합니다:
 
-* [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) - A lightweight Java debugger.
-* [IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode) - AI-assisted development.
-* [IntelliCode API Usage Examples](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.intellicode-api-usage-examples) - Provides code examples for over 100K different APIs.
-* [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) - Fundamental Java language support, Linting, Intellisense, formatting, refactoring.
-* [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) - Manage [Maven](https://maven.apache.org) projects and builds.
-* [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) - Manage Java projects within VS Code.
-* [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) - Run and debug JUnit or TestNG test cases.
+* [Java 디버거](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) - 경량 Java 디버거.
+* [IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode) - AI 지원 개발.
+* [IntelliCode API 사용 예제](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.intellicode-api-usage-examples) - 10만 개 이상의 다양한 API에 대한 코드 예제 제공.
+* [Red Hat의 Java(TM) 언어 지원](https://marketplace.visualstudio.com/items?itemName=redhat.java) - 기본 Java 언어 지원, 린팅, IntelliSense, 포매팅, 리팩토링.
+* [Java용 Maven](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) - [Maven](https://maven.apache.org) 프로젝트 및 빌드 관리.
+* [Java용 프로젝트 관리자](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) - VS Code 내에서 Java 프로젝트 관리.
+* [Java용 테스트 러너](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) - JUnit 또는 TestNG 테스트 케이스 실행 및 디버깅.
 
-### Java Spring Profile Template
+### Java Spring 프로필 템플릿 {#java-spring-profile-template}
 
-The Java Spring profile is a good starting point for all Java and Spring developers. It builds on the Java General profile and add the following extensions from the [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack):
+Java Spring 프로필은 모든 Java 및 Spring 개발자를 위한 좋은 출발점입니다. Java 일반 프로필을 기반으로 하며 [Spring Boot 확장 팩](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack)에서 다음과 같은 확장을 추가합니다:
 
-* [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard) - Provides Spring Boot live data visualization and observation in your running Spring applications.
-* [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot) - Rich language support for Spring Boot files.
-* [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) - Scaffold and generate Spring Boot Java projects.
+* [Spring Boot 대시보드](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard) - 실행 중인 Spring 애플리케이션에서 Spring Boot 실시간 데이터 시각화 및 관찰 제공.
+* [Spring Boot 도구](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot) - Spring Boot 파일에 대한 풍부한 언어 지원.
+* [Spring Initializr Java 지원](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) - Spring Boot Java 프로젝트 스캐폴딩 및 생성.
 
-This profile sets the following settings:
+이 프로필은 다음과 같은 설정을 설정합니다:
 
 ```json
     "[java]": {
@@ -397,46 +399,46 @@ This profile sets the following settings:
     "boot-java.rewrite.reconcile": true
 ```
 
-## Command line
+## 명령줄 {#command-line}
 
-You can launch VS Code with a specific profile via the `--profile` command-line interface option. You pass the name of the profile after the `--profile` argument and open a folder or a workspace using that profile. The command line below opens the `web-sample` folder with the "Web Development" profile:
+특정 프로필로 VS Code를 실행하려면 `--profile` 명령줄 인터페이스 옵션을 사용합니다. `--profile` 인수 뒤에 프로필 이름을 전달하고 해당 프로필을 사용하여 폴더나 작업 공간을 엽니다. 아래 명령은 "웹 개발" 프로필로 `web-sample` 폴더를 엽니다:
 
 `code ~/projects/web-sample --profile "Web Development"`
 
-If the profile specified does not exist, a new empty profile with the given name is created.
+지정된 프로필이 존재하지 않으면 주어진 이름의 새 빈 프로필이 생성됩니다.
 
-## Common Questions
+## 자주 묻는 질문 {#common-questions}
 
-### Where are profiles kept?
+### 프로필은 어디에 저장되나요? {#where-are-profiles-kept}
 
-Profiles are stored under your User configurations similar to your user settings and keyboard shortcuts.
+프로필은 사용자 설정 및 키보드 단축키와 유사하게 사용자 구성 아래에 저장됩니다.
 
 * **Windows** `%APPDATA%\Code\User\profiles`
 * **macOS** `$HOME/Library/Application\ Support/Code/User/profiles`
 * **Linux** `$HOME/.config/Code/User/profiles`
 
-If you are using the [Insiders](/insiders) version, the intermediate folder name is `Code - Insiders`.
+[Insiders](/insiders) 버전을 사용하는 경우 중간 폴더 이름은 `Code - Insiders`입니다.
 
-### What is a Temporary Profile?
+### 임시 프로필이란 무엇인가요? {#what-is-a-temporary-profile}
 
-A Temporary Profile is a profile that is not saved across VS Code sessions. You create a Temporary Profile via the **Profiles: Create a Temporary Profile** command in the Command Palette. The Temporary Profile starts as an Empty Profile and has an automatically generated name (such as **Temp 1**). You can modify the profile settings and extensions, use the profile for the lifetime of your VS Code session, but it will be deleted once you close VS Code.
+임시 프로필은 VS Code 세션 간에 저장되지 않는 프로필입니다. 명령 팔레트에서 **프로필: 임시 프로필 생성** 명령을 통해 임시 프로필을 생성합니다. 임시 프로필은 빈 프로필로 시작하며 자동 생성된 이름(예: **Temp 1**)을 가집니다. 프로필 설정 및 확장을 수정하고 VS Code 세션 동안 프로필을 사용할 수 있지만, VS Code를 닫으면 삭제됩니다.
 
-Temporary Profiles are useful if you want to try a new configuration or test an extension without modifying your default or existing profile. Restarting VS Code reenables the current profile for your workspace.
+임시 프로필은 기본 또는 기존 프로필을 수정하지 않고 새로운 구성을 시도하거나 확장을 테스트하려는 경우 유용합니다. VS Code를 재시작하면 작업 공간에 대한 현재 프로필이 다시 활성화됩니다.
 
-### Can I inherit settings from another profile?
+### 다른 프로필에서 설정을 상속할 수 있나요? {#can-i-inherit-settings-from-another-profile}
 
-Currently, it's not possible to inherit settings from another profile, where you override specific settings and keep the rest of the settings from the other profile. We're tracking this [feature request in the vscode repo](https://github.com/microsoft/vscode/issues/188612).
+현재로서는 특정 설정을 재정의하고 나머지 설정은 다른 프로필에서 유지하는 방식으로 다른 프로필에서 설정을 상속하는 것이 불가능합니다. 이 [기능 요청을 vscode 레포에서 추적하고 있습니다](https://github.com/microsoft/vscode/issues/188612).
 
-When you create a new profile, you can choose to copy the settings from another or the default profile. This creates a copy of the settings in the new profile but does not maintain a link to the profile you used as a source.
+새 프로필을 생성할 때 다른 프로필이나 기본 프로필의 설정을 복사할 수 있습니다. 이렇게 하면 새 프로필에 설정의 복사본이 생성되지만, 소스 프로필과의 링크는 유지되지 않습니다.
 
-### How can I remove the profile from my project?
+### 프로젝트에서 프로필을 제거하려면 어떻게 하나요? {#how-can-i-remove-the-profile-from-my-project}
 
-You can set your project back to the Default Profile. If you'd like to remove all profile workspace associations, you can use the **Developer: Reset Workspace Profiles Associations**, which will set all local folders currently assigned a profile back to the Default Profile. **Reset Workspace Profiles Associations** does not delete any existing profiles.
+프로젝트를 기본 프로필로 되돌릴 수 있습니다. 모든 프로필 작업 공간 연결을 제거하려면 **개발자: 작업 공간 프로필 연결 재설정**을 사용할 수 있으며, 이 작업은 현재 프로필이 할당된 모든 로컬 폴더를 기본 프로필로 되돌립니다. **작업 공간 프로필 연결 재설정**은 기존 프로필을 삭제하지 않습니다.
 
-### Why are some settings not exported when exporting a profile?
+### 프로필을 내보낼 때 일부 설정이 내보내지지 않는 이유는 무엇인가요? {#why-are-some-settings-not-exported-when-exporting-a-profile}
 
-When exporting profiles, machine-specific settings are not included because these settings would not be applicable on another machine. For example, settings that point to local paths are not included.
+프로필을 내보낼 때 기계 특정 설정은 포함되지 않습니다. 이러한 설정은 다른 기계에서 적용되지 않기 때문입니다. 예를 들어, 로컬 경로를 가리키는 설정은 포함되지 않습니다.
 
-### Why are templates not available when creating a new profile?
+### 새 프로필을 생성할 때 템플릿이 사용 가능하지 않은 이유는 무엇인가요? {#why-are-templates-not-available-when-creating-a-new-profile}
 
-Profile templates are hosted externally by VS Code and you can only download and apply a template when you are connected to the internet. Make sure to check your internet connection if you notice that profile templates are not available.
+프로필 템플릿은 VS Code에서 외부로 호스팅되며, 인터넷에 연결되어 있을 때만 템플릿을 다운로드하고 적용할 수 있습니다. 프로필 템플릿이 사용 가능하지 않은 경우 인터넷 연결을 확인하세요.

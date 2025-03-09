@@ -3,247 +3,245 @@ Order: 7
 Area: languages
 TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
-PageTitle: Markdown editing with Visual Studio Code
+PageTitle: Visual Studio Code로 Markdown 편집하기
 DateApproved: 03/05/2025
-MetaDescription: Get the best out of Visual Studio Code for Markdown
+MetaDescription: Visual Studio Code에서 Markdown을 최대한 활용하세요.
 ---
 
-# Markdown and Visual Studio Code
+# Markdown과 Visual Studio Code {#markdown-and-visual-studio-code}
 
-Working with Markdown files in Visual Studio Code is simple, straightforward, and fun. Besides VS Code's basic editing, there are a several Markdown-specific features that help you be more productive.
+Visual Studio Code에서 Markdown 파일을 다루는 것은 간단하고 직관적이며 재미있습니다. VS Code의 기본 편집 기능 외에도 생산성을 높이는 데 도움이 되는 여러 Markdown 전용 기능이 있습니다.
 
-> **Note**: To help get you started with editing Markdown files, you can use the [Doc Writer profile template](/docs/editor/profiles.md#doc-writer-profile-template) to install useful extensions (spell checker, Markdown linter) and configure appropriate setting values.
+> **참고**: Markdown 파일 편집을 시작하는 데 도움이 되도록 [Doc Writer 프로필 템플릿](/docs/editor/profiles.md#doc-writer-profile-template)을 사용하여 유용한 확장 프로그램(맞춤법 검사기, Markdown 린터)을 설치하고 적절한 설정 값을 구성할 수 있습니다.
 
-## Editing Markdown
+## Markdown 편집하기 {#editing-markdown}
 
-### Document outline
+### 문서 개요 {#document-outline}
 
-The Outline view is a separate section in the bottom of the File Explorer. When expanded, it shows the symbol tree of the currently active editor. For Markdown files, the symbol tree is the Markdown file's header hierarchy.
+개요 뷰는 파일 탐색기 하단의 별도 섹션입니다. 확장하면 현재 활성화된 편집기의 기호 트리를 보여줍니다. Markdown 파일의 경우 기호 트리는 Markdown 파일의 헤더 계층 구조입니다.
 
-![Markdown Outline view](images/Markdown/markdown-outline-view.png)
+![Markdown 개요 뷰](images/Markdown/markdown-outline-view.png)
 
-The Outline view is a great way to review your document's header structure and outline.
+개요 뷰는 문서의 헤더 구조와 개요를 검토하는 데 유용합니다.
 
-### Snippets for Markdown
+### Markdown을 위한 스니펫 {#snippets-for-markdown}
 
-VS Code includes some useful snippets that can speed up writing Markdown. This includes snippets for code blocks, images, and more. Press `kb(editor.action.triggerSuggest)` (Trigger Suggest) while editing to see a list of suggested Markdown snippets. You can also use the dedicated snippet picker by selecting **Insert Snippet** in the Command Palette.
+VS Code는 Markdown 작성을 빠르게 할 수 있는 유용한 스니펫을 포함하고 있습니다. 여기에는 코드 블록, 이미지 등을 위한 스니펫이 포함됩니다. 편집 중에 `kb(editor.action.triggerSuggest)` (제안 트리거)를 눌러 제안된 Markdown 스니펫 목록을 확인할 수 있습니다. 명령 팔레트에서 **스니펫 삽입**을 선택하여 전용 스니펫 선택기를 사용할 수도 있습니다.
 
-> **Tip:** You can add in your own User Defined Snippets for Markdown. Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
+> **팁:** Markdown을 위한 사용자 정의 스니펫을 추가할 수 있습니다. [사용자 정의 스니펫](/docs/editor/userdefinedsnippets.md)을 확인하여 방법을 알아보세요.
 
-### Go to header in file
+### 파일 내 헤더로 이동 {#go-to-header-in-file}
 
-Use `kb(workbench.action.gotoSymbol)` to quickly jump to a header in the current file.
+현재 파일의 헤더로 빠르게 이동하려면 `kb(workbench.action.gotoSymbol)`를 사용하세요.
 
-![Jumping to a header in a Markdown file](images/Markdown/go-to-symbol.png)
+![Markdown 파일에서 헤더로 점프하기](images/Markdown/go-to-symbol.png)
 
-You can browse through all headers in the file or start typing a header name to find just the one you are after. Once you've found the header you what, press `kbstyle(Enter)` to move your cursor to it. Press `kbstyle(Esc)` to cancel jumping to the header.
+파일 내 모든 헤더를 탐색하거나 헤더 이름을 입력하여 원하는 헤더를 찾을 수 있습니다. 원하는 헤더를 찾으면 `kbstyle(Enter)`를 눌러 커서를 해당 위치로 이동시킵니다. 헤더로 점프하는 것을 취소하려면 `kbstyle(Esc)`를 누르세요.
 
-### Go to header in workspace
+### 작업 공간 내 헤더로 이동 {#go-to-header-in-workspace}
 
-Use `kb(workbench.action.showAllSymbols)` to search through headers across all Markdown files in the current workspace.
+현재 작업 공간의 모든 Markdown 파일에서 헤더를 검색하려면 `kb(workbench.action.showAllSymbols)`를 사용하세요.
 
-![Jumping to a header across all Markdown files in a workspace](images/Markdown/go-to-symbol-in-workspace.png)
+![작업 공간 내 모든 Markdown 파일에서 헤더로 점프하기](images/Markdown/go-to-symbol-in-workspace.png)
 
-Start typing a header name to filter down the list and find the header you are after.
+헤더 이름을 입력하여 목록을 필터링하고 원하는 헤더를 찾을 수 있습니다.
 
-### Path completions
+### 경로 완성 {#path-completions}
 
-Path completions help with create links to files and images. These paths are shown automatically by [IntelliSense](/docs/editor/intellisense.md) as you type the path of an image or link, and can also be manually requested by using `kb(editor.action.triggerSuggest)`.
+경로 완성은 파일 및 이미지에 대한 링크를 만드는 데 도움을 줍니다. 이러한 경로는 이미지 또는 링크의 경로를 입력할 때 [IntelliSense](/docs/editor/intellisense.md)에 의해 자동으로 표시되며, `kb(editor.action.triggerSuggest)`를 사용하여 수동으로 요청할 수도 있습니다.
 
-![Path completions in a Markdown link](images/Markdown/path-completions.png)
+![Markdown 링크에서 경로 완성](images/Markdown/path-completions.png)
 
-Paths starting with `/` are resolved relative to the current workspace root, while paths staring with `./` or without any prefix are resolved relative to the current file. Path suggestions are automatically shown when you type `/` or can be manually invoked by using `kb(editor.action.triggerSuggest)`.
+`/`로 시작하는 경로는 현재 작업 공간의 루트를 기준으로 해결되며, `./`로 시작하거나 접두사가 없는 경로는 현재 파일을 기준으로 해결됩니다. `/`를 입력하면 경로 제안이 자동으로 표시되며, `kb(editor.action.triggerSuggest)`를 사용하여 수동으로 호출할 수도 있습니다.
 
-Path IntelliSense can also help you link to headers within the current file or within another Markdown file. Start the path with `#` to see completions for all the headers in the file (depending on your settings, you might need to use `kb(editor.action.triggerSuggest)` to see these):
+경로 IntelliSense는 현재 파일 내 또는 다른 Markdown 파일 내의 헤더에 링크하는 데도 도움을 줄 수 있습니다. 경로를 `#`로 시작하여 파일 내 모든 헤더에 대한 완성을 확인할 수 있습니다(설정에 따라 이러한 내용을 보려면 `kb(editor.action.triggerSuggest)`를 사용해야 할 수도 있습니다):
 
-![Header section suggestions in a Markdown link](images/Markdown/path-completions-header.png)
+![Markdown 링크에서 헤더 섹션 제안](images/Markdown/path-completions-header.png)
 
-You can disable path IntelliSense with `"markdown.suggest.paths.enabled": false`.
+경로 IntelliSense는 `"markdown.suggest.paths.enabled": false`로 비활성화할 수 있습니다.
 
-### Creating links to a header in another file
+### 다른 파일의 헤더에 링크 만들기 {#creating-links-to-a-header-in-another-file}
 
-Need to link to a header in another Markdown document but don't remember or want to type out the full file path? Try using workspace header completions! To start, just type `##` in a Markdown link to see a list of all Markdown headers from the current workspace:
+다른 Markdown 문서의 헤더에 링크를 만들어야 하지만 전체 파일 경로를 기억하지 못하거나 입력하고 싶지 않으신가요? 작업 공간 헤더 완성을 사용해 보세요! 시작하려면 Markdown 링크에 `##`를 입력하여 현재 작업 공간의 모든 Markdown 헤더 목록을 확인하세요:
 
-![Suggestions for all Markdown headers in the current workspace](images/Markdown/md-workspace-header-suggestion.png)
+![현재 작업 공간의 모든 Markdown 헤더에 대한 제안](images/Markdown/md-workspace-header-suggestion.png)
 
-Accept one of these completions to insert the full link to that header, even if it's in another file:
+이러한 완성 중 하나를 수락하여 해당 헤더에 대한 전체 링크를 삽입할 수 있습니다. 다른 파일에 있는 경우에도 가능합니다:
 
-![Adding a link to the selected header in another file](images/Markdown/md-workspace-header-suggestion-insert.png)
+![다른 파일에서 선택한 헤더에 링크 추가](images/Markdown/md-workspace-header-suggestion-insert.png)
 
-You can configure if/when workspace header completions show with the `setting(markdown.suggest.paths.includeWorkspaceHeaderCompletions)` setting. Valid setting values are:
+작업 공간 헤더 완성이 표시되는 조건은 `setting(markdown.suggest.paths.includeWorkspaceHeaderCompletions)` 설정으로 구성할 수 있습니다. 유효한 설정 값은 다음과 같습니다:
 
-- `onDoubleHash` (the default)—Show workspace header completions only after you type `##`.
-- `onSingleOrDoubleHash`—Show workspace header completions after you type `#` or `##`.
-- `never`—Never show workspace header completions.
+- `onDoubleHash` (기본값) — `##`를 입력한 후에만 작업 공간 헤더 완성을 표시합니다.
+- `onSingleOrDoubleHash` — `#` 또는 `##`를 입력한 후에 작업 공간 헤더 완성을 표시합니다.
+- `never` — 작업 공간 헤더 완성을 절대 표시하지 않습니다.
 
-Keep in mind that finding all headers in the current workspace can be expensive, so there might be a slight delay the first time they are requested, especially for workspaces with lots of Markdown files.
+현재 작업 공간의 모든 헤더를 찾는 것은 비용이 많이 들 수 있으므로, 특히 Markdown 파일이 많은 작업 공간에서는 처음 요청할 때 약간의 지연이 있을 수 있습니다.
 
-### Inserting images and links to files
+### 이미지 및 파일 링크 삽입하기 {#inserting-images-and-links-to-files}
 
-In addition to [path completion](#path-completions), VS Code also supports a few other ways to insert images and file links into your Markdown documents:
+[경로 완성](#path-completions) 외에도 VS Code는 Markdown 문서에 이미지 및 파일 링크를 삽입하는 몇 가지 다른 방법을 지원합니다:
 
-You can **Drag and drop** a file from VS Code's Explorer or from your operating system into a Markdown editor. Start by dragging a file from VS Code's Explorer over your Markdown code and then hold down `kbstyle(Shift)` to start dropping it into the file. The preview cursor shows where it will be inserted when you drop it.
+VS Code의 탐색기 또는 운영 체제에서 Markdown 편집기로 파일을 **드래그 앤 드롭**할 수 있습니다. VS Code의 탐색기에서 Markdown 코드 위로 파일을 드래그한 후 `kbstyle(Shift)`를 눌러 파일에 드롭할 수 있습니다. 미리보기 커서는 드롭할 때 삽입될 위치를 보여줍니다.
 
-![Inserting a Markdown link by dragging and dropping from the explorer](images/Markdown/drop-link.gif)
+![탐색기에서 드래그 앤 드롭으로 Markdown 링크 삽입하기](images/Markdown/drop-link.gif)
 
-If you prefer using the keyboard, you can also **Copy and paste** a file or image data into a Markdown editor. When you paste a file, a link to a file, or a URL, you can choose to insert a Markdown link or to include the link as plain text.
+키보드를 사용하는 것을 선호한다면, 파일이나 이미지 데이터를 Markdown 편집기로 **복사 및 붙여넣기**할 수도 있습니다. 파일, 링크 또는 URL을 붙여넣을 때 Markdown 링크로 삽입하거나 일반 텍스트로 링크를 포함할 수 있습니다.
 
-![Inserting a Markdown link by pasting a link in the editor](images/Markdown/markdown-paste-link.png)
+![편집기에 링크를 붙여넣어 Markdown 링크 삽입하기](images/Markdown/markdown-paste-link.png)
 
-Or you can use the **Markdown: Insert Image from Workspace** command to insert images and **Markdown: Insert Link to File in Workspace** to insert file links.
+또는 **Markdown: 작업 공간에서 이미지 삽입** 명령을 사용하여 이미지를 삽입하고, **Markdown: 작업 공간에서 파일 링크 삽입** 명령을 사용하여 파일 링크를 삽입할 수 있습니다.
 
-Inserted images use Markdown image syntax `![](path/to/image.png)`. Links insert a normal Markdown link `[](path/to/file.md)`.
+삽입된 이미지는 Markdown 이미지 구문 `![](path/to/image.png)`을 사용합니다. 링크는 일반 Markdown 링크 `[](path/to/file.md)`로 삽입됩니다.
 
-By default VS Code automatically copies dropped or pasted images outside of the workspace into your workspace. The `setting(markdown.copyFiles.destination)` setting controls where the new image file should be created. This setting maps [globs](/docs/editor/glob-patterns.md) that match on the current Markdown document to image destinations. The image destinations can also use some simple variables. See the `setting(markdown.copyFiles.destination)` setting description for information about the available variables.
+기본적으로 VS Code는 작업 공간 외부에서 드롭되거나 붙여넣기된 이미지를 자동으로 작업 공간으로 복사합니다. `setting(markdown.copyFiles.destination)` 설정은 새 이미지 파일이 생성될 위치를 제어합니다. 이 설정은 현재 Markdown 문서와 일치하는 [globs](/docs/editor/glob-patterns.md)를 이미지 대상에 매핑합니다. 이미지 대상은 일부 간단한 변수를 사용할 수도 있습니다. 사용 가능한 변수에 대한 정보는 `setting(markdown.copyFiles.destination)` 설정 설명을 참조하세요.
 
-For example, if you want every Markdown file under `/docs` in your workspace to put new media files into an `images` directory specific to the current file, you can write:
-
-```jsonc
-"markdown.copyFiles.destination": {
-  "/docs/**/*": "images/$\{documentBaseName\}
-/"
-}
-```
-
-Now when a new file is pasted in `/docs/api/readme.md`, the image file is created at `/docs/api/images/readme/image.png`.
-
-You can even use simple regular expressions to transform variables in a [similar way to snippets](/docs/editor/userdefinedsnippets.md#variable-transforms). For example, this transform uses only the first letter of the document file name when creating the media file:
+예를 들어, 작업 공간의 `/docs` 아래의 모든 Markdown 파일이 현재 파일에 특정한 `images` 디렉토리에 새 미디어 파일을 넣도록 하려면 다음과 같이 작성할 수 있습니다:
 
 ```jsonc
 "markdown.copyFiles.destination": {
-  "/docs/**/*": "images/$\{documentBaseName/(.).*/$1/\}
-/"
+  "/docs/**/*": "images/$\{documentBaseName\}/"
 }
 ```
 
-When a new file is pasted into `/docs/api/readme.md`, the image is now created under `/docs/api/images/r/image.png`.
+이제 `/docs/api/readme.md`에 새 파일이 붙여넣어지면 이미지 파일은 `/docs/api/images/readme/image.png`에 생성됩니다.
 
-### Smart selection
+변수를 변환하는 데 [스니펫](/docs/editor/userdefinedsnippets.md#variable-transforms)과 유사한 방식으로 간단한 정규 표현식을 사용할 수도 있습니다. 예를 들어, 이 변환은 미디어 파일을 생성할 때 문서 파일 이름의 첫 글자만 사용합니다:
 
-Smart selection lets you quickly expand and shrink selection in Markdown documents. This can be used to quickly select entire block elements (such as code blocks or tables) and to select the entire contents of a header section in the Markdown file.
-
-Smart selection uses the following commands:
-
-- Expand: `kb(editor.action.smartSelect.expand)`
-- Shrink: `kb(editor.action.smartSelect.shrink)`
-
-Selection applies to the following, and follows a traditional hierarchical pattern:
-
-- Headers
-- Lists
-- Block quotes
-- Fenced code blocks
-- Html code blocks
-- Paragraphs
-
-![Smart select within a Markdown document expands from a block element, to the block element containing it, to the rest of the content under a header, to the header itself](images/Markdown/smart-select.gif)
-
-### Link validation
-
-Link validation checks local links in your Markdown code to make sure they are valid. This can catch common mistakes, such linking to a header that was renamed or to a file that no longer exists on disk.
-
-![A warning shown in the editor when linking to a file that does not exist](images/Markdown/link-validation.png)
-
-Link validation is off by default. To enable it, set `"markdown.validate.enabled": true`. VS Code then analyzes Markdown links to headers, images, and other local files. Invalid links are reported as either warnings or errors. All link validation happens locally and there is no checking of external http(s) links.
-
-There are a few settings you can use to customize link validation:
-
-- `setting(markdown.validate.fileLinks.enabled)` - Enable/disable validation of links to local files: `[link](/path/to/file.md)`
-- `setting(markdown.validate.fragmentLinks.enabled)` - Enable/disable validation of links to headers in the current file: `[link](#some-header)`
-- `setting(markdown.validate.fileLinks.markdownFragmentLinks)` - Enabled/disable validation of links to headers in the other markdown file: `[link](other-file.md#some-header)`
-- `setting(markdown.validate.referenceLinks.enabled)` - Enable/disable validation of reference links: `[link][ref]`.
-- `setting(markdown.validate.ignoredLinks)` - A list of link globs that skip validation. This is useful if you link to files that don't exist on disk but do exist once the Markdown is published.
-
-### Find All References to headers and links
-
-Use the **Find All References** (`kb(references-view.findReferences)`) command to find all locations in the current workspace where a Markdown header or link is referenced:
-
-![Jumping to a header in a Markdown file](images/Markdown/find-all-references.png)
-
-**Find All References** is supported for:
-
-- Headers: `# My Header`. Shows all links to `#my-header`.
-- External links: `[text](http://example.com)`. Shows all links to `http://example.com`.
-- Internal links: `[text](./path/to/file.md)`. Shows all links to `./path/to/file.md`
-- Fragments in links: `[text](./path/to/file.md#my-header)`. Shows all links to `#my-header` in `./path/to/file.md`
-
-### Rename headers and links
-
-Tired of accidentally breaking links when you change a Markdown header? Try using **Rename Symbol** (`kb(editor.action.rename)`) instead. After you type the new header name and press `kbstyle(Enter)`, VS Code updates the header and automatically updates all links to that header:
-
-![Renaming a Markdown header to update all links to it](images/Markdown/rename-header.gif)
-
-You can also use `kb(editor.action.rename)` on:
-
-- Headers: `# My Header`. This updates all links to `#my-header`.
-- External links: `[text](http://example.com/page)`. This updates all places that linked to `http://example.com/page`
-- Internal links: `[text](./path/to/file.md)`. This renames the file `./path/to/file.md` and also updates all links to it.
-- Fragments in links: `[text](./path/to/file.md#my-header)`. This renames the header in `./path/to/file.md` and also updates all links to it.
-
-### Automatic link updates on file move or rename
-
-With automatic Markdown link updating, VS Code will automatically update Markdown links whenever a linked to file is moved or renamed. You can enable this feature with the `setting(markdown.updateLinksOnFileMove.enabled)` setting. Valid setting values are:
-
-- `never` (the default) — Don't try to update links automatically.
-- `prompt` — Confirm before updating links.
-- `always` — Update links automatically without confirmation.
-
-Automatic link updating detects renames of Markdown files, images, and directories. You can enable it for additional file types with `setting(markdown.updateLinksOnFileMove.include)`.
-
-## Markdown preview
-
-VS Code supports Markdown files out of the box. You just start writing Markdown text, save the file with the `.md` extension and then you can toggle the visualization of the editor between the code and the preview of the Markdown file; obviously, you can also open an existing Markdown file and start working with it. To switch between views, press `kb(markdown.showPreview)` in the editor. You can view the preview side-by-side (`kb(markdown.showPreviewToSide)`) with the file you are editing and see changes reflected in real-time as you edit.
-
-Here is an example with a simple file.
-
-![Markdown Preview](images/Markdown/preview.png)
-
-> **Tip:** You can also right-click on the editor Tab and select **Open Preview** (`kb(markdown.showPreview)`) or use the **Command Palette** (`kb(workbench.action.showCommands)`) to run the **Markdown: Open Preview to the Side** command (`kb(markdown.showPreviewToSide)`).
-
-### Dynamic previews and preview locking
-
-By default, Markdown previews automatically update to preview the currently active Markdown file:
-
-![The preview automatically switching to preview the current Markdown document](images/Markdown/md-dynamic-preview.gif)
-
-You can lock a Markdown preview using the **Markdown: Toggle Preview Locking** command to keep it locked to its current Markdown document. Locked previews are indicated by **\[Preview]** in the title:
-
-![A locked Markdown preview](images/Markdown/locked-preview-title.png)
-
-> **Note:** The **Markdown: Toggle Preview Locking** command is available only if Markdown preview is the active Tab.
-
-### Editor and preview synchronization
-
-VS Code automatically synchronizes the Markdown editor and the preview panes. Scroll the Markdown preview and the editor is scrolled to match the preview's viewport. Scroll the Markdown editor and the preview is scrolled to match its viewport:
-
-![Markdown Preview editor selection scroll sync](images/Markdown/preview-scroll-sync.gif)
-
-You can disable scroll synchronization using the `setting(markdown.preview.scrollPreviewWithEditor)` and `setting(markdown.preview.scrollEditorWithPreview)` [settings](/docs/editor/settings.md).
-
-The currently selected line in the editor is indicated in the Markdown preview by a light gray bar in the left margin:
-
-![Markdown Preview editor line marker](images/Markdown/preview-selection-marker.png)
-
-Additionally, double clicking an element in the Markdown preview will automatically open the editor for the file and scroll to the line nearest the clicked element.
-
-![Markdown Preview double click switches to editor](images/Markdown/double-click-preview-switch.gif)
-
-### Math formula rendering
-
-VS Code's built-in Markdown preview renders math equations using [KaTeX](https://katex.org/).
-
-![Markdown Preview rendering of math formulas with KaTeX](images/Markdown/math-formula-rendering.png)
-
-Inline math equations are wrapped in single dollar signs:
-
-```markdown
-Inline math: $x^2$
+```jsonc
+"markdown.copyFiles.destination": {
+  "/docs/**/*": "images/$\{documentBaseName/(.).*/$1/\}/"
+}
 ```
 
-You can create a math equation block with double dollar signs:
+이제 `/docs/api/readme.md`에 새 파일이 붙여넣어지면 이미지는 `/docs/api/images/r/image.png` 아래에 생성됩니다.
+
+### 스마트 선택 {#smart-selection}
+
+스마트 선택을 사용하면 Markdown 문서에서 선택 영역을 빠르게 확장하고 축소할 수 있습니다. 이를 통해 전체 블록 요소(예: 코드 블록 또는 표)를 빠르게 선택하고 Markdown 파일의 헤더 섹션의 전체 내용을 선택할 수 있습니다.
+
+스마트 선택은 다음 명령을 사용합니다:
+
+- 확장: `kb(editor.action.smartSelect.expand)`
+- 축소: `kb(editor.action.smartSelect.shrink)`
+
+선택은 다음에 적용되며 전통적인 계층 구조 패턴을 따릅니다:
+
+- 헤더
+- 목록
+- 블록 인용
+- 차단 코드 블록
+- HTML 코드 블록
+- 단락
+
+![Markdown 문서 내에서 블록 요소에서 시작하여 해당 블록 요소를 포함하는 블록 요소, 헤더 아래의 나머지 콘텐츠로 확장되고 헤더 자체로 확장되는 스마트 선택](images/Markdown/smart-select.gif)
+
+### 링크 검증 {#link-validation}
+
+링크 검증은 Markdown 코드 내의 로컬 링크가 유효한지 확인합니다. 이는 이름이 변경된 헤더나 더 이상 디스크에 존재하지 않는 파일에 링크하는 것과 같은 일반적인 실수를 잡을 수 있습니다.
+
+![존재하지 않는 파일에 링크할 때 편집기에서 표시되는 경고](images/Markdown/link-validation.png)
+
+링크 검증은 기본적으로 비활성화되어 있습니다. 이를 활성화하려면 `"markdown.validate.enabled": true`로 설정하세요. 그러면 VS Code는 헤더, 이미지 및 기타 로컬 파일에 대한 Markdown 링크를 분석합니다. 유효하지 않은 링크는 경고 또는 오류로 보고됩니다. 모든 링크 검증은 로컬에서 이루어지며 외부 http(s) 링크에 대한 검사는 없습니다.
+
+링크 검증을 사용자 정의하는 데 사용할 수 있는 몇 가지 설정이 있습니다:
+
+- `setting(markdown.validate.fileLinks.enabled)` - 로컬 파일에 대한 링크 검증 활성화/비활성화: `[link](/path/to/file.md)`
+- `setting(markdown.validate.fragmentLinks.enabled)` - 현재 파일의 헤더에 대한 링크 검증 활성화/비활성화: `[link](#some-header)`
+- `setting(markdown.validate.fileLinks.markdownFragmentLinks)` - 다른 Markdown 파일의 헤더에 대한 링크 검증 활성화/비활성화: `[link](other-file.md#some-header)`
+- `setting(markdown.validate.referenceLinks.enabled)` - 참조 링크 검증 활성화/비활성화: `[link][ref]`.
+- `setting(markdown.validate.ignoredLinks)` - 검증을 건너뛰는 링크 glob 목록. 이는 디스크에 존재하지 않지만 Markdown이 게시되면 존재하는 파일에 링크할 때 유용합니다.
+
+### 헤더 및 링크에 대한 모든 참조 찾기 {#find-all-references-to-headers-and-links}
+
+**모든 참조 찾기** (`kb(references-view.findReferences)`) 명령을 사용하여 현재 작업 공간에서 Markdown 헤더 또는 링크가 참조되는 모든 위치를 찾으세요:
+
+![Markdown 파일에서 헤더로 점프하기](images/Markdown/find-all-references.png)
+
+**모든 참조 찾기**는 다음을 지원합니다:
+
+- 헤더: `# My Header`. `#my-header`에 대한 모든 링크를 보여줍니다.
+- 외부 링크: `[text](http://example.com)`. `http://example.com`에 대한 모든 링크를 보여줍니다.
+- 내부 링크: `[text](./path/to/file.md)`. `./path/to/file.md`에 대한 모든 링크를 보여줍니다.
+- 링크의 조각: `[text](./path/to/file.md#my-header)`. `./path/to/file.md`에서 `#my-header`에 대한 모든 링크를 보여줍니다.
+
+### 헤더 및 링크 이름 바꾸기 {#rename-headers-and-links}
+
+Markdown 헤더를 변경할 때 링크가 우연히 끊어지는 것이 지겹나요? 대신 **기호 이름 바꾸기** (`kb(editor.action.rename)`)를 사용해 보세요. 새 헤더 이름을 입력하고 `kbstyle(Enter)`를 누르면 VS Code가 헤더를 업데이트하고 해당 헤더에 대한 모든 링크를 자동으로 업데이트합니다:
+
+![Markdown 헤더 이름 바꾸기로 모든 링크 업데이트](images/Markdown/rename-header.gif)
+
+다음에서도 `kb(editor.action.rename)`를 사용할 수 있습니다:
+
+- 헤더: `# My Header`. 이는 `#my-header`에 대한 모든 링크를 업데이트합니다.
+- 외부 링크: `[text](http://example.com/page)`. 이는 `http://example.com/page`에 링크된 모든 위치를 업데이트합니다.
+- 내부 링크: `[text](./path/to/file.md)`. 이는 `./path/to/file.md` 파일의 이름을 바꾸고 모든 링크를 업데이트합니다.
+- 링크의 조각: `[text](./path/to/file.md#my-header)`. 이는 `./path/to/file.md`에서 헤더의 이름을 바꾸고 모든 링크를 업데이트합니다.
+
+### 파일 이동 또는 이름 변경 시 자동 링크 업데이트 {#automatic-link-updates-on-file-move-or-rename}
+
+자동 Markdown 링크 업데이트를 사용하면 VS Code가 링크된 파일이 이동되거나 이름이 변경될 때마다 Markdown 링크를 자동으로 업데이트합니다. 이 기능은 `setting(markdown.updateLinksOnFileMove.enabled)` 설정으로 활성화할 수 있습니다. 유효한 설정 값은 다음과 같습니다:
+
+- `never` (기본값) — 링크를 자동으로 업데이트하지 않습니다.
+- `prompt` — 링크를 업데이트하기 전에 확인합니다.
+- `always` — 확인 없이 링크를 자동으로 업데이트합니다.
+
+자동 링크 업데이트는 Markdown 파일, 이미지 및 디렉토리의 이름 변경을 감지합니다. `setting(markdown.updateLinksOnFileMove.include)`를 사용하여 추가 파일 유형에 대해 활성화할 수 있습니다.
+
+## Markdown 미리보기 {#markdown-preview}
+
+VS Code는 기본적으로 Markdown 파일을 지원합니다. Markdown 텍스트 작성을 시작하고 파일을 `.md` 확장자로 저장한 후, 코드와 Markdown 파일의 미리보기 간에 편집기의 시각화를 전환할 수 있습니다. 물론 기존 Markdown 파일을 열고 작업을 시작할 수도 있습니다. 뷰 간 전환은 편집기에서 `kb(markdown.showPreview)`를 눌러 수행할 수 있습니다. 편집 중인 파일과 나란히 미리보기를(`kb(markdown.showPreviewToSide)`) 볼 수 있으며, 편집할 때 실시간으로 변경 사항이 반영됩니다.
+
+간단한 파일의 예는 다음과 같습니다.
+
+![Markdown 미리보기](images/Markdown/preview.png)
+
+> **팁:** 편집기 탭에서 마우스 오른쪽 버튼을 클릭하고 **미리보기 열기** (`kb(markdown.showPreview)`)를 선택하거나 **명령 팔레트** (`kb(workbench.action.showCommands)`)를 사용하여 **Markdown: 나란히 미리보기 열기** 명령 (`kb(markdown.showPreviewToSide)`)을 실행할 수 있습니다.
+
+### 동적 미리보기 및 미리보기 잠금 {#dynamic-previews-and-preview-locking}
+
+기본적으로 Markdown 미리보기는 현재 활성화된 Markdown 파일을 미리보기로 자동 업데이트합니다:
+
+![현재 Markdown 문서를 미리보기로 자동 전환하는 미리보기](images/Markdown/md-dynamic-preview.gif)
+
+**Markdown: 미리보기 잠금 전환** 명령을 사용하여 Markdown 미리보기를 현재 Markdown 문서에 잠글 수 있습니다. 잠긴 미리보기는 제목에 **\[Preview]**로 표시됩니다:
+
+![잠긴 Markdown 미리보기](images/Markdown/locked-preview-title.png)
+
+> **참고:** **Markdown: 미리보기 잠금 전환** 명령은 Markdown 미리보기가 활성 탭일 때만 사용할 수 있습니다.
+
+### 편집기와 미리보기 동기화 {#editor-and-preview-synchronization}
+
+VS Code는 Markdown 편집기와 미리보기 창을 자동으로 동기화합니다. Markdown 미리보기를 스크롤하면 편집기도 미리보기의 뷰포트에 맞게 스크롤됩니다. Markdown 편집기를 스크롤하면 미리보기가 해당 뷰포트에 맞게 스크롤됩니다:
+
+![Markdown 미리보기 편집기 선택 스크롤 동기화](images/Markdown/preview-scroll-sync.gif)
+
+스크롤 동기화를 비활성화하려면 `setting(markdown.preview.scrollPreviewWithEditor)` 및 `setting(markdown.preview.scrollEditorWithPreview)` [설정](/docs/editor/settings.md)을 사용할 수 있습니다.
+
+편집기에서 현재 선택된 줄은 Markdown 미리보기의 왼쪽 여백에 연한 회색 막대로 표시됩니다:
+
+![Markdown 미리보기 편집기 줄 표시기](images/Markdown/preview-selection-marker.png)
+
+또한 Markdown 미리보기에서 요소를 더블 클릭하면 해당 파일의 편집기가 자동으로 열리고 클릭한 요소에 가장 가까운 줄로 스크롤됩니다.
+
+![Markdown 미리보기에서 더블 클릭하여 편집기로 전환](images/Markdown/double-click-preview-switch.gif)
+
+### 수학 공식 렌더링 {#math-formula-rendering}
+
+VS Code의 내장 Markdown 미리보기는 [KaTeX](https://katex.org/)를 사용하여 수학 방정식을 렌더링합니다.
+
+![KaTeX로 수학 공식을 렌더링하는 Markdown 미리보기](images/Markdown/math-formula-rendering.png)
+
+인라인 수학 방정식은 단일 달러 기호로 감싸집니다:
 
 ```markdown
-Math block:
+인라인 수학: $x^2$
+```
+
+두 개의 달러 기호로 수학 방정식 블록을 만들 수 있습니다:
+
+```markdown
+수학 블록:
 
 $$
 \displaystyle
@@ -254,30 +252,30 @@ $$
 $$
 ```
 
-You can set `"markdown.math.enabled": false` to disable the rendering of math formulas in Markdown files.
+Markdown 파일에서 수학 공식을 렌더링하지 않으려면 `"markdown.math.enabled": false`로 설정할 수 있습니다.
 
-## Extending the Markdown preview
+## Markdown 미리보기 확장하기 {#extending-the-markdown-preview}
 
-Extensions can contribute custom styles and scripts to the Markdown preview to change its appearance and add new functionality. Here's a set of example extensions that customize the preview:
+확장 프로그램은 Markdown 미리보기의 모양을 변경하고 새로운 기능을 추가하기 위해 사용자 정의 스타일과 스크립트를 기여할 수 있습니다. 다음은 미리보기를 사용자 정의하는 예제 확장 프로그램 세트입니다:
 
 <div class="marketplace-extensions-markdown-preview-curated"></div>
 
-### Using your own CSS
+### 사용자 CSS 사용하기 {#using-your-own-css}
 
-You can also use your own CSS in the Markdown preview with the `"markdown.styles": []` [setting](/docs/editor/settings.md). This lists URLs for style sheets to load in the Markdown preview. These stylesheets can either be `https` URLs, or relative paths to local files in the current workspace.
+Markdown 미리보기에서 `"markdown.styles": []` [설정](/docs/editor/settings.md)을 사용하여 사용자 CSS를 사용할 수 있습니다. 이는 Markdown 미리보기에서 로드할 스타일 시트의 URL 목록입니다. 이 스타일 시트는 `https` URL이거나 현재 작업 공간의 로컬 파일에 대한 상대 경로일 수 있습니다.
 
-For example, to load a stylesheet called `Style.css` at the root of your current workspace, use **File** > **Preferences** > **Settings** to bring up the workspace `settings.json` file and make this update:
+예를 들어, 현재 작업 공간의 루트에 있는 `Style.css`라는 스타일 시트를 로드하려면 **파일** > **환경 설정** > **설정**을 사용하여 작업 공간 `settings.json` 파일을 열고 다음과 같이 업데이트하세요:
 
 ```json
-// Place your settings in this file to overwrite default and user settings.
+// 기본 및 사용자 설정을 덮어쓰려면 이 파일에 설정을 배치하세요.
 {
   "markdown.styles": ["Style.css"]
 }
 ```
 
-### Keep trailing whitespace in order to create line breaks
+### 줄 바꿈을 생성하기 위해 후행 공백 유지하기 {#keep-trailing-whitespace-in-order-to-create-line-breaks}
 
-To create [hard line breaks](https://spec.commonmark.org/0.29/#hard-line-breaks), Markdown requires two or more spaces at the end of a line. Depending on your user or workspace settings, VS Code might be configured to remove trailing whitespace. In order to keep trailing whitespace in Markdown files only, you can add these lines to your `settings.json`:
+[하드 줄 바꿈](https://spec.commonmark.org/0.29/#hard-line-breaks)을 생성하기 위해 Markdown은 줄 끝에 두 개 이상의 공백이 필요합니다. 사용자 또는 작업 공간 설정에 따라 VS Code는 후행 공백을 제거하도록 구성될 수 있습니다. Markdown 파일에서만 후행 공백을 유지하려면 `settings.json`에 다음 줄을 추가할 수 있습니다:
 
 ```json
 {
@@ -287,66 +285,66 @@ To create [hard line breaks](https://spec.commonmark.org/0.29/#hard-line-breaks)
 }
 ```
 
-## Markdown preview security
+## Markdown 미리보기 보안 {#markdown-preview-security}
 
-For security reasons, VS Code restricts the content displayed in the Markdown preview. This includes disabling script execution and only allowing resources to be loaded over `https`.
+보안상의 이유로 VS Code는 Markdown 미리보기에서 표시되는 콘텐츠를 제한합니다. 여기에는 스크립트 실행 비활성화 및 `https`를 통해서만 리소스를 로드할 수 있도록 하는 것이 포함됩니다.
 
-When the Markdown preview blocks content on a page, an alert popup is shown in the top right corner of the preview window:
+Markdown 미리보기가 페이지의 콘텐츠를 차단할 때, 미리보기 창의 오른쪽 상단에 경고 팝업이 표시됩니다:
 
-![Markdown security alert](images/Markdown/security-alert.png)
+![Markdown 보안 경고](images/Markdown/security-alert.png)
 
-You can change what content is allowed in the Markdown preview by clicking on this popup or running the **Markdown: Change preview security settings** command in any Markdown file:
+이 팝업을 클릭하거나 Markdown 파일에서 **Markdown: 미리보기 보안 설정 변경** 명령을 실행하여 Markdown 미리보기에서 허용되는 콘텐츠를 변경할 수 있습니다:
 
-![Markdown security selector](images/Markdown/security-selector.png)
+![Markdown 보안 선택기](images/Markdown/security-selector.png)
 
-The Markdown preview security settings apply to all files in the workspace.
+Markdown 미리보기 보안 설정은 작업 공간의 모든 파일에 적용됩니다.
 
-Here are the details about each of these security levels:
+다음은 각 보안 수준에 대한 세부 정보입니다:
 
-### Strict
+### 엄격 {#strict}
 
-This is the default setting. Only loads trusted content and disables script execution. Blocks `http` images.
+기본 설정입니다. 신뢰할 수 있는 콘텐츠만 로드하고 스크립트 실행을 비활성화합니다. `http` 이미지를 차단합니다.
 
-We recommended that you keep `Strict` security enabled, unless you have a very good reason to change it AND you trust all Markdown files in the workspace.
+변경할 매우 좋은 이유가 없고 작업 공간의 모든 Markdown 파일을 신뢰하지 않는 한 `엄격` 보안을 유지하는 것이 좋습니다.
 
-### Allow insecure content
+### 불안전한 콘텐츠 허용 {#allow-insecure-content}
 
-Keeps scripts disabled but allows content to be loaded over `http`.
+스크립트를 비활성화하지만 `http`를 통해 콘텐츠를 로드할 수 있도록 허용합니다.
 
-### Disable
+### 비활성화 {#disable}
 
-Disables additional security in the preview window. This allows script execution and also allows content to be loaded over `http`.
+미리보기 창에서 추가 보안을 비활성화합니다. 이는 스크립트 실행을 허용하고 `http`를 통해 콘텐츠를 로드할 수 있도록 허용합니다.
 
-## Doc Writer profile template
+## Doc Writer 프로필 템플릿 {#doc-writer-profile-template}
 
-[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with editing Markdown, you can use the [Doc Writer profile template](/docs/editor/profiles.md#doc-writer-profile-template), which is a curated profile with useful extensions and settings. You can use a profile template as is or use it as a starting point to customize further for your own workflows.
+[프로필](https://code.visualstudio.com/docs/editor/profiles)을 사용하면 현재 프로젝트나 작업에 따라 확장 프로그램, 설정 및 UI 레이아웃을 빠르게 전환할 수 있습니다. Markdown 편집을 시작하는 데 도움이 되도록 유용한 확장 프로그램과 설정이 포함된 [Doc Writer 프로필 템플릿](/docs/editor/profiles.md#doc-writer-profile-template)을 사용할 수 있습니다. 프로필 템플릿을 그대로 사용하거나 자신의 워크플로우에 맞게 추가로 사용자 정의하는 출발점으로 사용할 수 있습니다.
 
-You select a profile template through the **Profiles** > **Create Profile...** dropdown:
+**프로필** > **프로필 만들기...** 드롭다운을 통해 프로필 템플릿을 선택할 수 있습니다:
 
-![Create Profile dropdown with profile templates](images/Markdown/profile-template-dropdown.png)
+![프로필 템플릿이 있는 프로필 만들기 드롭다운](images/Markdown/profile-template-dropdown.png)
 
-Once you select a profile template, you can review the settings and extensions, and remove individual items if you don't want to include them in your new Profile. After creating the new profile based on a template, changes made to settings, extensions, or UI are persisted in your profile.
+프로필 템플릿을 선택하면 설정 및 확장을 검토하고 새 프로필에 포함하고 싶지 않은 항목을 제거할 수 있습니다. 템플릿을 기반으로 새 프로필을 만든 후에는 설정, 확장 또는 UI에 대한 변경 사항이 프로필에 유지됩니다.
 
-## Markdown extensions
+## Markdown 확장 프로그램 {#markdown-extensions}
 
-In addition to the functionality VS Code provides out of the box, you can install an extension for greater functionality.
+VS Code가 기본적으로 제공하는 기능 외에도 더 많은 기능을 위해 확장 프로그램을 설치할 수 있습니다.
 
 <div class="marketplace-extensions-markdown-curated"></div>
 
-> Tip: Select an extension tile to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+> 팁: 확장 프로그램 타일을 선택하여 설명 및 리뷰를 읽고 어떤 확장 프로그램이 가장 적합한지 결정하세요. [마켓플레이스](https://marketplace.visualstudio.com)에서 더 많은 정보를 확인하세요.
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-Read on to find out about:
+다음에 대해 알아보세요:
 
-- [CSS, SCSS, and Less](/docs/languages/css.md) - Want to edit your CSS? VS Code has great support for CSS, SCSS, and Less editing.
+- [CSS, SCSS 및 Less](/docs/languages/css.md) - CSS를 편집하고 싶으신가요? VS Code는 CSS, SCSS 및 Less 편집을 위한 훌륭한 지원을 제공합니다.
 
-## Common questions
+## 자주 묻는 질문 {#common-questions}
 
-### Is there spell checking?
+### 맞춤법 검사 기능이 있나요? {#is-there-spell-checking}
 
-Not installed with VS Code but there are spell checking extensions. Check the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) to look for useful extensions to help with your workflow.
+VS Code에 기본적으로 설치되어 있지 않지만 맞춤법 검사 확장 프로그램이 있습니다. 유용한 확장 프로그램을 찾으려면 [VS Code 마켓플레이스](https://marketplace.visualstudio.com/vscode)를 확인하세요.
 
-### Does VS Code support GitHub Flavored Markdown?
+### VS Code는 GitHub Flavored Markdown을 지원하나요? {#does-vs-code-support-github-flavored-markdown}
 
-No, VS Code targets the [CommonMark](https://commonmark.org) Markdown specification using the [markdown-it](https://github.com/markdown-it/markdown-it) library. GitHub is moving toward the CommonMark specification, which you can read about in this [update](https://github.blog/2017-03-14-a-formal-spec-for-github-markdown/).
+아니요, VS Code는 [CommonMark](https://commonmark.org) Markdown 사양을 목표로 하며 [markdown-it](https://github.com/markdown-it/markdown-it) 라이브러리를 사용합니다. GitHub는 CommonMark 사양으로 이동하고 있으며, 이에 대한 내용은 이 [업데이트](https://github.blog/2017-03-14-a-formal-spec-for-github-markdown/)에서 확인할 수 있습니다.

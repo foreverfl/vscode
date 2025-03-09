@@ -1,56 +1,47 @@
----
-Order:
-Area: editor
-TOCTitle: Why VS Code
-ContentId: FF543B32-703C-4894-9A3B-2B5BFAF8B6B8
-PageTitle: Why Visual Studio Code?
-DateApproved: 03/05/2025
-MetaDescription: Visual Studio Code provides developers with a new choice of tool that combines the simplicity of a code editor with the best tooling for their core edit-build-debug cycle. Visual Studio Code is available for macOS, Linux, and Windows.
----
-# Why did we build Visual Studio Code?
+# 왜 Visual Studio Code를 만들었나요? {#why-did-we-build-visual-studio-code}
 
-Visual Studio Code combines the simplicity of a source code editor with powerful developer tooling, like IntelliSense code completion and debugging.
+Visual Studio Code는 소스 코드 편집기의 단순함과 IntelliSense 코드 완성 및 디버깅과 같은 강력한 개발자 도구를 결합합니다.
 
-First and foremost, it is an editor that gets out of your way. The delightfully frictionless edit-build-debug cycle means less time fiddling with your environment, and more time executing on your ideas.
+무엇보다도, 이 편집기는 여러분의 작업을 방해하지 않습니다. 즐겁고 마찰 없는 편집-빌드-디버그 사이클은 환경을 조정하는 데 소요되는 시간을 줄이고, 아이디어를 실행하는 데 더 많은 시간을 할애할 수 있게 합니다.
 
-## Available for macOS, Linux, and Windows
+## macOS, Linux 및 Windows에서 사용 가능 {#available-for-macos-linux-and-windows}
 
-Visual Studio Code supports macOS, Linux, and Windows - so you can hit the ground running, no matter the platform.
+Visual Studio Code는 macOS, Linux 및 Windows를 지원하므로, 어떤 플랫폼에서든 즉시 작업을 시작할 수 있습니다.
 
-![Visual Studio Code runs on macOS, Linux and Windows](images/whyvscode/macwinlinux2.png)
+![Visual Studio Code는 macOS, Linux 및 Windows에서 실행됩니다.](images/whyvscode/macwinlinux2.png)
 
-## Edit, build, and debug with ease
+## 손쉽게 편집, 빌드 및 디버깅 {#edit-build-and-debug-with-ease}
 
-At its heart, Visual Studio Code features a lightning fast source code editor, perfect for day-to-day use. With support for hundreds of languages, VS Code helps you be instantly productive with syntax highlighting, bracket-matching, auto-indentation, box-selection, snippets, and more. Intuitive keyboard shortcuts, easy customization and community-contributed keyboard shortcut mappings let you navigate your code with ease.
+Visual Studio Code의 핵심은 일상적인 사용에 적합한 번개처럼 빠른 소스 코드 편집기입니다. 수백 가지 언어를 지원하는 VS Code는 구문 강조, 괄호 일치, 자동 들여쓰기, 박스 선택, 스니펫 등으로 즉시 생산성을 높여줍니다. 직관적인 키보드 단축키, 쉬운 사용자 정의 및 커뮤니티에서 기여한 키보드 단축키 매핑을 통해 코드를 쉽게 탐색할 수 있습니다.
 
-For serious coding, you'll often benefit from tools with more code understanding than just blocks of text. Visual Studio Code includes built-in support for IntelliSense code completion, rich semantic code understanding and navigation, and code refactoring.
+진지한 코딩을 위해서는 단순한 텍스트 블록 이상의 코드 이해가 가능한 도구가 필요합니다. Visual Studio Code는 IntelliSense 코드 완성, 풍부한 의미론적 코드 이해 및 탐색, 코드 리팩토링을 위한 내장 지원을 포함합니다.
 
-And when the coding gets tough, the tough get debugging. Debugging is often the one feature that developers miss most in a leaner coding experience, so we made it happen. Visual Studio Code includes an interactive debugger, so you can step through source code, inspect variables, view call stacks, and execute commands in the console.
+코딩이 어려워질 때, 강력한 디버깅 기능이 필요합니다. 디버깅은 종종 개발자들이 더 간소화된 코딩 경험에서 가장 그리워하는 기능 중 하나이므로, 이를 구현했습니다. Visual Studio Code에는 인터랙티브 디버거가 포함되어 있어 소스 코드를 단계별로 실행하고, 변수를 검사하며, 호출 스택을 보고, 콘솔에서 명령을 실행할 수 있습니다.
 
-VS Code also integrates with build and scripting tools to perform common tasks making everyday workflows faster. VS Code has support for Git so you can work with source control without leaving the editor including viewing pending changes diffs.
+VS Code는 또한 빌드 및 스크립팅 도구와 통합되어 일반 작업을 수행하여 일상적인 워크플로우를 더 빠르게 만듭니다. VS Code는 Git을 지원하므로 편집기를 떠나지 않고도 소스 제어 작업을 수행할 수 있으며, 보류 중인 변경 사항의 차이를 확인할 수 있습니다.
 
-## Make it your own
+## 나만의 스타일로 꾸미기 {#make-it-your-own}
 
-Customize every feature to your liking and install any number of third-party extensions. While most scenarios work "out of the box" with no configuration, VS Code also grows with you, and we encourage you to optimize your experience to suit your unique needs. VS Code is an open-source project so you can also contribute to the growing and vibrant community on GitHub.
+모든 기능을 원하는 대로 사용자 정의하고, 수많은 서드파티 확장을 설치할 수 있습니다. 대부분의 시나리오는 별도의 구성 없이 "즉시 사용 가능"하지만, VS Code는 여러분과 함께 성장하며, 여러분의 고유한 요구에 맞게 경험을 최적화하도록 권장합니다. VS Code는 오픈 소스 프로젝트이므로 GitHub에서 성장하고 활기찬 커뮤니티에 기여할 수도 있습니다.
 
-## Built with love for the Web
+## 웹을 위한 사랑으로 만들어짐 {#built-with-love-for-the-web}
 
-VS Code includes enriched built-in support for Node.js development with JavaScript and TypeScript, powered by the same underlying technologies that drive Visual Studio. VS Code also includes great tooling for web technologies such as JSX/React, HTML, CSS, SCSS, Less, and JSON.
+VS Code는 JavaScript 및 TypeScript로 Node.js 개발을 위한 풍부한 내장 지원을 포함하고 있으며, 이는 Visual Studio를 구동하는 동일한 기본 기술에 의해 지원됩니다. VS Code는 JSX/React, HTML, CSS, SCSS, Less 및 JSON과 같은 웹 기술을 위한 훌륭한 도구도 포함하고 있습니다.
 
-## Robust and extensible architecture
+## 강력하고 확장 가능한 아키텍처 {#robust-and-extensible-architecture}
 
-Architecturally, Visual Studio Code combines the best of web, native, and language-specific technologies. Using [Electron](https://github.com/electron/electron), VS Code combines web technologies such as JavaScript and Node.js with the speed and flexibility of native apps. VS Code uses a newer, faster version of the same industrial-strength HTML-based editor that has powered the "Monaco" cloud editor, Internet Explorer's F12 Tools, and other projects. Additionally, VS Code uses a tools service architecture that enables it to integrate with many of the same technologies that power Visual Studio, including Roslyn for .NET, TypeScript, the Visual Studio debugging engine, and more.
+아키텍처적으로 Visual Studio Code는 웹, 네이티브 및 언어별 기술의 장점을 결합합니다. [Electron](https://github.com/electron/electron)을 사용하여 VS Code는 JavaScript 및 Node.js와 같은 웹 기술을 네이티브 앱의 속도와 유연성과 결합합니다. VS Code는 "Monaco" 클라우드 편집기, Internet Explorer의 F12 도구 및 기타 프로젝트를 지원하는 산업 강도의 HTML 기반 편집기의 최신 버전을 사용합니다. 또한, VS Code는 Visual Studio를 구동하는 많은 동일한 기술과 통합할 수 있는 도구 서비스 아키텍처를 사용하며, 여기에는 .NET, TypeScript, Visual Studio 디버깅 엔진 등을 위한 Roslyn이 포함됩니다.
 
-Visual Studio Code includes a public extensibility model that lets developers build and use extensions, and richly customize their edit-build-debug experience.
+Visual Studio Code는 개발자가 확장을 구축하고 사용할 수 있도록 하는 공개 확장성 모델을 포함하고 있으며, 편집-빌드-디버그 경험을 풍부하게 사용자 정의할 수 있습니다.
 
-## Ready, set, code!
+## 준비, 시작, 코드 작성! {#ready-set-code}
 
-If you prefer a code editor-centric development tool or are building cross-platform web and cloud applications, we invite you to try out Visual Studio Code and let us know what you think!
+코드 편집기 중심의 개발 도구를 선호하거나 크로스 플랫폼 웹 및 클라우드 애플리케이션을 구축하고 있다면, Visual Studio Code를 사용해 보시고 여러분의 의견을 알려주십시오!
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-Read on to find out about:
+다음 내용을 읽어보세요:
 
-* [Visual Studio Code User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
-* [Intro Videos](/docs/getstarted/introvideos.md) - Learn about the VS Code editor features.
-* [Debugging](/docs/editor/debugging.md) - OK time for the really fun stuff - break, step, watch.
+* [Visual Studio Code 사용자 인터페이스](/docs/getstarted/userinterface.md) - VS Code에 대한 간단한 안내입니다.
+* [소개 비디오](/docs/getstarted/introvideos.md) - VS Code 편집기 기능에 대해 알아보세요.
+* [디버깅](/docs/editor/debugging.md) - 이제 정말 재미있는 부분입니다 - 중단, 단계별 실행, 감시.

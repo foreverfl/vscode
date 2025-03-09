@@ -1,116 +1,116 @@
 ---
 Order: 7
 Area: python
-TOCTitle: Debugging
+TOCTitle: 디버깅
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
-PageTitle: Debugging configurations for Python apps in Visual Studio Code
+PageTitle: Visual Studio Code에서 Python 앱을 위한 디버깅 구성
 DateApproved: 03/05/2025
-MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
+MetaDescription: 다양한 Python 애플리케이션을 위한 Visual Studio Code 디버거 구성에 대한 세부정보입니다.
 MetaSocialImage: images/tutorial/python-social.png
 ---
 
-# Python debugging in VS Code
+# VS Code에서 Python 디버깅 {#python-debugging-in-vs-code}
 
-The Python extension supports debugging through the [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy) for several types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger). Also see the [Flask tutorial](/docs/python/tutorial-flask.md). Both tutorials demonstrate core skills like setting breakpoints and stepping through code.
+Python 확장은 여러 유형의 Python 애플리케이션을 위한 [Python Debugger 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy)을 통해 디버깅을 지원합니다. 기본 디버깅에 대한 간단한 안내는 [튜토리얼 - 디버거 구성 및 실행](/docs/python/python-tutorial.md#configure-and-run-the-debugger)을 참조하세요. 또한 [Flask 튜토리얼](/docs/python/tutorial-flask.md)도 확인하세요. 두 튜토리얼 모두 중단점 설정 및 코드 단계 실행과 같은 핵심 기술을 보여줍니다.
 
-For general debugging features such as inspecting variables, setting breakpoints, and other activities that aren't language-dependent, review [VS Code debugging](/docs/editor/debugging.md).
+변수 검사, 중단점 설정 및 언어에 의존하지 않는 기타 활동과 같은 일반적인 디버깅 기능에 대해서는 [VS Code 디버깅](/docs/editor/debugging.md)을 검토하세요.
 
-This article mainly addresses Python-specific debugging _configurations_, including the necessary steps for specific app types and remote debugging.
+이 문서에서는 특정 앱 유형 및 원격 디버깅을 위한 필수 단계를 포함하여 Python 전용 디버깅 _구성_에 주로 다룹니다.
 
-## Python Debugger Extension
+## Python Debugger 확장 {#python-debugger-extension}
 
-The [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy) is automatically installed along with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for VS Code. It offers debugging features with [debugpy](https://pypi.org/project/debugpy/) for several types of Python applications, including scripts, web apps, remote processes and more.
+[Python Debugger 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy)은 VS Code의 [Python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python)과 함께 자동으로 설치됩니다. 이 확장은 스크립트, 웹 앱, 원격 프로세스 등 여러 유형의 Python 애플리케이션을 위한 [debugpy](https://pypi.org/project/debugpy/)와 함께 디버깅 기능을 제공합니다.
 
-To verify it's installed, open the **Extensions** view (`kb(workbench.view.extensions)`) and search for `@installed python debugger`. You should see the Python Debugger extension listed in the results.
+설치 여부를 확인하려면 **확장** 뷰(`kb(workbench.view.extensions)`)를 열고 `@installed python debugger`를 검색하세요. 결과에서 Python Debugger 확장이 나열되어야 합니다.
 
-![Python Debugger extension shown in installed extensions view in VS Code.](images/shared/python-debugger-extension.png)
+![VS Code의 설치된 확장 뷰에 표시된 Python Debugger 확장.](images/shared/python-debugger-extension.png)
 
-You can refer to the extension's [README](https://github.com/microsoft/vscode-python-debugger/blob/main/README.md) page for information on supported Python versions.
+지원되는 Python 버전에 대한 정보는 확장의 [README](https://github.com/microsoft/vscode-python-debugger/blob/main/README.md) 페이지를 참조하세요.
 
-## Initialize configurations
+## 구성 초기화 {#initialize-configurations}
 
-A configuration drives VS Code's behavior during a debugging session. Configurations are defined in a `launch.json` file that's stored in a `.vscode` folder in your workspace.
+구성은 디버깅 세션 중 VS Code의 동작을 제어합니다. 구성은 작업 공간의 `.vscode` 폴더에 저장된 `launch.json` 파일에 정의됩니다.
 
-> **Note**: To change debugging configuration, your code must be stored in a folder.
+> **참고**: 디버깅 구성을 변경하려면 코드가 폴더에 저장되어 있어야 합니다.
 
-To initialize debug configurations, first select the **Run** view in the sidebar:
+디버그 구성을 초기화하려면 먼저 사이드바에서 **실행** 뷰를 선택하세요:
 
-![Run icon](images/debugging/debug-icon.png)
+![실행 아이콘](images/debugging/debug-icon.png)
 
-If you don't yet have any configurations defined, you'll see a button to **Run and Debug** and a link to create a configuration (launch.json) file:
+아직 정의된 구성이 없다면 **실행 및 디버그** 버튼과 구성(launch.json) 파일을 생성하는 링크가 표시됩니다:
 
-![Debug toolbar settings command](images/debugging/debug-start.png)
+![디버그 도구 모음 설정 명령](images/debugging/debug-start.png)
 
-To generate a `launch.json` file with Python configurations, do the following steps:
+Python 구성이 포함된 `launch.json` 파일을 생성하려면 다음 단계를 따르세요:
 
-1. Select the **create a launch.json file** link (outlined in the image above) or use the **Run** > **Open configurations** menu command.
+1. **launch.json 파일 생성** 링크(위 이미지에서 강조 표시됨)를 선택하거나 **실행** > **구성 열기** 메뉴 명령을 사용하세요.
 
-1. Select **Python Debugger** from the debugger options list.
+1. 디버거 옵션 목록에서 **Python Debugger**를 선택하세요.
 
-1. A configuration menu will open from the Command Palette allowing you to choose the type of debug configuration you want to use for our Python project file. If you want to debug a single Python script, select **Python File** in the **Select a debug configuration** menu that appears.
+1. Command Palette에서 구성 메뉴가 열리며 Python 프로젝트 파일에 사용할 디버그 구성 유형을 선택할 수 있습니다. 단일 Python 스크립트를 디버깅하려면 나타나는 **디버그 구성 선택** 메뉴에서 **Python 파일**을 선택하세요.
 
-   ![List of Python debugger configuration options](images/shared/debug-configurations.png)
+   ![Python 디버거 구성 옵션 목록](images/shared/debug-configurations.png)
 
-   > **Note**: Starting a debugging session through the Debug Panel, `kbstyle(F5)`, or **Run > Start Debugging** when no configuration exists will also bring up the debug configuration menu, but will not create a `launch.json` file.
+   > **참고**: 구성 없이 디버그 패널, `kbstyle(F5)`, 또는 **실행 > 디버깅 시작**을 통해 디버깅 세션을 시작하면 디버그 구성 메뉴가 나타나지만 `launch.json` 파일은 생성되지 않습니다.
 
-1. The Python Debugger extension then creates and opens a `launch.json` file that contains a pre-defined configuration based on what you previously selected, in this case, **Python File**. You can modify configurations (to add arguments, for example), and also add custom configurations.
+1. 그런 다음 Python Debugger 확장은 이전에 선택한 내용을 기반으로 미리 정의된 구성이 포함된 `launch.json` 파일을 생성하고 엽니다. 이 경우 **Python 파일**입니다. 구성을 수정할 수 있으며(예: 인수를 추가) 사용자 정의 구성을 추가할 수도 있습니다.
 
-   ![Configuration json](images/debugging/configuration-json.png)
+   ![구성 json](images/debugging/configuration-json.png)
 
-The details of configuration properties are covered later in this article under [Standard configuration and options](#set-configuration-options). Other configurations are also described in this article under [Debugging specific app types](#debugging-specific-app-types).
+구성 속성의 세부 사항은 이 문서의 [표준 구성 및 옵션](#set-configuration-options) 섹션에서 다룹니다. 다른 구성은 [특정 앱 유형 디버깅](#debugging-specific-app-types) 섹션에서도 설명됩니다.
 
-## Additional configurations
+## 추가 구성 {#additional-configurations}
 
-By default, VS Code shows only the most common configurations provided by the Python Debugger extension. You can select other configurations to include in `launch.json` by using the **Add Configuration** command shown in the list and the `launch.json` editor. When you use the command, VS Code prompts you with a list of all available configurations (be sure to select the **Python** option):
+기본적으로 VS Code는 Python Debugger 확장에서 제공하는 가장 일반적인 구성만 표시합니다. **구성 추가** 명령을 사용하여 `launch.json`에 포함할 다른 구성을 선택할 수 있습니다. 명령을 사용하면 VS Code가 사용 가능한 모든 구성 목록을 표시합니다(반드시 **Python** 옵션을 선택하세요):
 
-![Adding a new Python debugging configuration](images/debugging/add-configuration.png)
+![새 Python 디버깅 구성 추가](images/debugging/add-configuration.png)
 
-Selecting the **Attach using Process ID** one yields the following result:
-![Added a configuration](images/debugging/added-configuration.png)
+**프로세스 ID 사용하여 연결**을 선택하면 다음과 같은 결과가 나타납니다:
+![구성 추가됨](images/debugging/added-configuration.png)
 
-See [Debugging specific app types](#debugging-specific-app-types) for details on all of these configurations.
+이러한 모든 구성에 대한 세부정보는 [특정 앱 유형 디버깅](#debugging-specific-app-types)에서 확인하세요.
 
-During debugging, the Status Bar shows the current configuration and the current debugging interpreter. Selecting the configuration brings up a list from which you can choose a different configuration:
+디버깅 중 상태 표시줄에는 현재 구성과 현재 디버깅 인터프리터가 표시됩니다. 구성을 선택하면 다른 구성을 선택할 수 있는 목록이 나타납니다:
 
-![Debugging Status Bar](images/debugging/debug-status-bar.png)
+![디버깅 상태 표시줄](images/debugging/debug-status-bar.png)
 
-By default, the debugger uses the same interpreter selected for your workspace, just like other features of Python extension for VS Code. To use a different interpreter for debugging specifically, set the value for `python` in `launch.json` for the applicable debugger configuration. Alternately, use the Python interpreter indicator on the Status Bar to select a different one.
+기본적으로 디버거는 VS Code의 Python 확장에서 선택한 것과 동일한 인터프리터를 사용합니다. 디버깅을 위해 다른 인터프리터를 사용하려면 해당 디버거 구성의 `launch.json`에서 `python`의 값을 설정하세요. 또는 상태 표시줄의 Python 인터프리터 표시기를 사용하여 다른 인터프리터를 선택할 수 있습니다.
 
-## Basic debugging
+## 기본 디버깅 {#basic-debugging}
 
-If you're only interested in debugging a Python script, the simplest way is to select the down-arrow next to the run button on the editor and select **Python Debugger: Debug Python File**.
+Python 스크립트를 디버깅하는 데만 관심이 있다면 가장 간단한 방법은 편집기에서 실행 버튼 옆의 아래 화살표를 선택하고 **Python Debugger: Python 파일 디버그**를 선택하는 것입니다.
 
-![Debug button on the top-right of the editor](images/debugging/debug-button-editor.png)
+![편집기 오른쪽 상단의 디버그 버튼](images/debugging/debug-button-editor.png)
 
-If you're looking to debug a web application using Flask, Django or FastAPI, the Python Debugger extension provides dynamically created debug configurations based on your project structure under the **Show all automatic debug configurations** option, through the **Run and Debug** view.
+Flask, Django 또는 FastAPI를 사용하여 웹 애플리케이션을 디버깅하려는 경우, Python Debugger 확장은 **모든 자동 디버그 구성 표시** 옵션 아래에서 프로젝트 구조에 따라 동적으로 생성된 디버그 구성을 제공합니다. 이는 **실행 및 디버그** 뷰를 통해 가능합니다.
 
-![Show all automatic debug configurations option on the run view](images/debugging/debug-auto-config.png)
+![실행 뷰에서 모든 자동 디버그 구성 표시 옵션](images/debugging/debug-auto-config.png)
 
-But if you're looking to debug other kinds of applications, you can start the debugger through the **Run** view by clicking on the **Run and Debug** button.
+다른 종류의 애플리케이션을 디버깅하려는 경우 **실행** 뷰에서 **실행 및 디버그** 버튼을 클릭하여 디버거를 시작할 수 있습니다.
 
-![Run the debugger](images/debugging/debug-run.png)
+![디버거 실행](images/debugging/debug-run.png)
 
-When no configuration has been set, you'll be given a list of debugging options. Here, you can select the appropriate option to quickly debug your code.
+구성이 설정되지 않은 경우 디버깅 옵션 목록이 표시됩니다. 여기에서 적절한 옵션을 선택하여 코드를 빠르게 디버깅할 수 있습니다.
 
-Two common options are to use the **Python File** configuration to run the currently open Python file or to use the **Attach using Process ID** configuration to attach the debugger to a process that is already running.
+두 가지 일반적인 옵션은 현재 열려 있는 Python 파일을 실행하기 위해 **Python 파일** 구성을 사용하거나 이미 실행 중인 프로세스에 디버거를 연결하기 위해 **프로세스 ID 사용하여 연결** 구성을 사용하는 것입니다.
 
-For information about creating and using debugging configurations, see the [Initialize configurations](#initialize-configurations) and [Additional configurations](#additional-configurations) sections. Once a configuration is added, it can be selected from the dropdown list and started using the **Start Debugging** button (`kbstyle(F5)`).
+디버깅 구성 생성 및 사용에 대한 정보는 [구성 초기화](#initialize-configurations) 및 [추가 구성](#additional-configurations) 섹션을 참조하세요. 구성이 추가되면 드롭다운 목록에서 선택할 수 있으며 **디버깅 시작** 버튼(`kbstyle(F5)`)을 사용하여 시작할 수 있습니다.
 
-![Start debugging button in the Run and Debug view](images/debugging/debug-start-button.png)
+![실행 및 디버그 뷰에서 디버깅 시작 버튼](images/debugging/debug-start-button.png)
 
-## Command line debugging
+## 명령줄 디버깅 {#command-line-debugging}
 
-The debugger can also be run from the command line, if `debugpy` is installed in your Python environment.
+디버거는 Python 환경에 `debugpy`가 설치되어 있는 경우 명령줄에서도 실행할 수 있습니다.
 
-### Install debugpy
+### debugpy 설치 {#install-debugpy}
 
-You can install [debugpy](https://pypi.org/project/debugpy/) using `python -m pip install --upgrade debugpy` into your Python environment.
+Python 환경에 `python -m pip install --upgrade debugpy`를 사용하여 [debugpy](https://pypi.org/project/debugpy/)를 설치할 수 있습니다.
 
-> **Tip**: While using a virtual environment is not required, it is a recommended best practice. You can create a virtual environment in VS Code by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Python: Create Virtual Environment** command (`kb(workbench.action.terminal.newWithProfilePython)`).
+> **팁**: 가상 환경을 사용하는 것은 필수가 아니지만 권장되는 모범 사례입니다. VS Code에서 Command Palette(`kb(workbench.action.showCommands)`)를 열고 **Python: 가상 환경 만들기** 명령(`kb(workbench.action.terminal.newWithProfilePython)`)을 실행하여 가상 환경을 만들 수 있습니다.
 
-### Command line syntax
+### 명령줄 구문 {#command-line-syntax}
 
-The debugger command line syntax is as follows:
+디버거 명령줄 구문은 다음과 같습니다:
 
 ```bash
 python -m debugpy
@@ -123,15 +123,15 @@ python -m debugpy
     [<arg>]...
 ```
 
-### Example
+### 예시 {#example}
 
-From the command line, you could start the debugger using a specified port (5678) and script using the following syntax. This example assumes the script is long-running and omits the `--wait-for-client` flag, meaning that the script will not wait for the client to attach.
+명령줄에서 지정된 포트(5678)와 스크립트를 사용하여 디버거를 시작할 수 있습니다. 이 예시는 스크립트가 장기 실행되며 `--wait-for-client` 플래그를 생략하므로 클라이언트가 연결될 때까지 기다리지 않습니다.
 
 ```bash
 python -m debugpy --listen 5678 ./myscript.py
 ```
 
-You would then use the following configuration to attach from the VS Code Python Debugger extension.
+그런 다음 VS Code Python Debugger 확장에서 연결하기 위해 다음 구성을 사용할 수 있습니다.
 
 ```json
 {
@@ -145,15 +145,15 @@ You would then use the following configuration to attach from the VS Code Python
 }
 ```
 
-> **Note**: Specifying host is optional for **listen**, by default 127.0.0.1 is used.
+> **참고**: **listen**에 대한 호스트 지정은 선택 사항이며 기본적으로 127.0.0.1이 사용됩니다.
 
-If you wanted to debug remote code or code running in a docker container, on the remote machine or container, you would need to modify the previous CLI command to specify a host.
+원격 코드 또는 Docker 컨테이너에서 실행 중인 코드를 디버깅하려는 경우, 이전 CLI 명령을 수정하여 호스트를 지정해야 합니다.
 
 ```bash
 python -m debugpy --listen 0.0.0.0:5678 ./myscript.py
 ```
 
-The associated configuration file would then look as follows.
+연관된 구성 파일은 다음과 같이 보일 것입니다.
 
 ```json
 {
@@ -161,85 +161,85 @@ The associated configuration file would then look as follows.
   "type": "debugpy",
   "request": "attach",
   "connect": {
-    "host": "remote-machine-name", // replace this with remote machine name
+    "host": "remote-machine-name", // 원격 머신 이름으로 교체
     "port": 5678
   }
 }
 ```
 
-> **Note**: Be aware that when you specify a host value other than `127.0.0.1` or `localhost` you are opening a port to allow access from any machine, which carries security risks. You should make sure that you're taking appropriate security precautions, such as using SSH tunnels, when doing remote debugging.
+> **참고**: `127.0.0.1` 또는 `localhost` 이외의 호스트 값을 지정하면 모든 머신에서 접근할 수 있도록 포트를 열게 되므로 보안 위험이 따릅니다. 원격 디버깅을 수행할 때 SSH 터널을 사용하는 등 적절한 보안 조치를 취하고 있는지 확인해야 합니다.
 
-### Command line options
+### 명령줄 옵션 {#command-line-options}
 
-| Flag                          | Options           | Description                                                                                                                                                                                                                                                                                                                                                                                                         |
+| 플래그                          | 옵션             | 설명                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ----------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **--listen** or **--connect** | `[<host>:]<port>` | **Required**. Specifies the host address and port for the debug adapter server to wait for incoming connections (--listen) or to connect with a client that is waiting for an incoming connection (--connect). This is the same address that is used in the VS Code debug configuration. By default, the host address is `localhost (127.0.0.1)`.                                                                   |
-| **--wait-for-client**         | none              | **Optional**. Specifies that the code should not run until there's a connection from the debug server. This setting allows you to debug from the first line of your code.                                                                                                                                                                                                                                           |
-| **--log-to**                  | `<path>`          | **Optional**. Specifies a path to an existing directory for saving logs.                                                                                                                                                                                                                                                                                                                                            |
-| **--log-to-stderr**           | none              | **Optional**. Enables debugpy to write logs directly to stderr.                                                                                                                                                                                                                                                                                                                                                     |
-| **--pid**                     | `<pid>`           | **Optional**. Specifies a process that is already running to inject the debug server into.                                                                                                                                                                                                                                                                                                                          |
-| **--configure-\<name>**       | `<value>`         | **Optional**. Sets a debug property that must be known to the debug server before the client connects. Such properties can be used directly in _launch_ configuration, but must be set in this manner for _attach_ configurations. For example, if you don't want the debug server to automatically inject itself into subprocesses created by the process you're attaching to, use `--configure-subProcess false`. |
+| **--listen** 또는 **--connect** | `[<host>:]<port>` | **필수**. 디버그 어댑터 서버가 수신 연결을 기다리거나(--listen) 클라이언트와 연결하기 위해 사용되는 호스트 주소와 포트를 지정합니다(--connect). 이는 VS Code 디버그 구성에서 사용되는 동일한 주소입니다. 기본적으로 호스트 주소는 `localhost (127.0.0.1)`입니다.                                                                   |
+| **--wait-for-client**         | 없음              | **선택 사항**. 디버그 서버에서 연결이 있을 때까지 코드를 실행하지 않도록 지정합니다. 이 설정을 통해 코드의 첫 번째 줄에서 디버깅할 수 있습니다.                                                                                                                                                                                                                                           |
+| **--log-to**                  | `<path>`          | **선택 사항**. 로그를 저장할 기존 디렉토리의 경로를 지정합니다.                                                                                                                                                                                                                                                                                                                                            |
+| **--log-to-stderr**           | 없음              | **선택 사항**. debugpy가 stderr에 직접 로그를 작성하도록 활성화합니다.                                                                                                                                                                                                                                                                                                                                                     |
+| **--pid**                     | `<pid>`           | **선택 사항**. 이미 실행 중인 프로세스를 지정하여 디버그 서버를 주입합니다.                                                                                                                                                                                                                                                                                                                          |
+| **--configure-\<name>**       | `<value>`         | **선택 사항**. 클라이언트가 연결되기 전에 디버그 서버에서 알아야 하는 디버그 속성을 설정합니다. 이러한 속성은 _launch_ 구성에서 직접 사용할 수 있지만 _attach_ 구성에서는 이 방식으로 설정해야 합니다. 예를 들어, 디버그 서버가 연결 중인 프로세스에서 생성된 하위 프로세스에 자동으로 주입되지 않도록 하려면 `--configure-subProcess false`를 사용하세요. |
 
-> **Note**: `[<arg>]` can be used to pass command-line arguments along to the app being launched.
+> **참고**: `[<arg>]`는 시작되는 앱에 명령줄 인수를 전달하는 데 사용할 수 있습니다.
 
-## Debugging by attaching over a network connection
+## 네트워크 연결을 통한 연결 디버깅 {#debugging-by-attaching-over-a-network-connection}
 
-### Local script debugging
+### 로컬 스크립트 디버깅 {#local-script-debugging}
 
-There may be instances where you need to debug a Python script that's invoked locally by another process. For example, you may be debugging a web server that runs different Python scripts for specific processing jobs. In such cases, you need to attach the VS Code debugger to the script once it's been launched:
+다른 프로세스에 의해 로컬에서 호출된 Python 스크립트를 디버깅해야 하는 경우가 있을 수 있습니다. 예를 들어, 특정 처리 작업을 위해 다양한 Python 스크립트를 실행하는 웹 서버를 디버깅하는 경우가 있습니다. 이러한 경우 스크립트가 실행된 후 VS Code 디버거를 스크립트에 연결해야 합니다:
 
-1. Run VS Code, open the folder or workspace containing the script, and create a `launch.json` for that workspace if one doesn't exist already.
+1. VS Code를 실행하고 스크립트가 포함된 폴더 또는 작업 공간을 열고, 해당 작업 공간에 대해 `launch.json`을 생성합니다(아직 없는 경우).
 
-1. In the script code, add the following and save the file:
+1. 스크립트 코드에 다음을 추가하고 파일을 저장하세요:
 
    ```python
    import debugpy
 
-   # 5678 is the default attach port in the VS Code debug configurations. Unless a host and port are specified, host defaults to 127.0.0.1
+   # 5678은 VS Code 디버그 구성의 기본 연결 포트입니다. 호스트와 포트를 지정하지 않으면 호스트는 기본적으로 127.0.0.1입니다.
    debugpy.listen(5678)
-   print("Waiting for debugger attach")
+   print("디버거 연결 대기 중")
    debugpy.wait_for_client()
    debugpy.breakpoint()
-   print('break on this line')
+   print('이 줄에서 중단')
    ```
 
-1. Open a terminal using **Terminal: Create New Terminal**, which activates the script's selected environment.
+1. **터미널: 새 터미널 만들기**를 사용하여 터미널을 열고, 스크립트의 선택된 환경을 활성화합니다.
 
-1. In the terminal, [install the debugpy package](#install-debugpy).
+1. 터미널에서 [debugpy 패키지 설치](#install-debugpy)를 수행합니다.
 
-1. In the terminal, start Python with the script, for example, `python3 myscript.py`. You should see the "Waiting for debugger attach" message that's included in the code, and the script halts at the `debugpy.wait_for_client()` call.
+1. 터미널에서 스크립트와 함께 Python을 시작합니다. 예를 들어, `python3 myscript.py`를 실행합니다. 코드에 포함된 "디버거 연결 대기 중" 메시지가 표시되고, 스크립트는 `debugpy.wait_for_client()` 호출에서 중단됩니다.
 
-1. Switch to the **Run and Debug** view (`kb(workbench.view.debug)`), select the appropriate configuration from the debugger dropdown list, and start the debugger.
+1. **실행 및 디버그** 뷰(`kb(workbench.view.debug)`)로 전환하고, 디버거 드롭다운 목록에서 적절한 구성을 선택한 후 디버거를 시작합니다.
 
-1. The debugger should stop on the `debugpy.breakpoint()` call, from which point you can use the debugger normally. You also have the option of setting other breakpoints in the script code using the UI instead of using `debugpy.breakpoint()`.
+1. 디버거는 `debugpy.breakpoint()` 호출에서 중단되며, 그 시점부터는 디버거를 정상적으로 사용할 수 있습니다. 또한 UI를 사용하여 스크립트 코드에서 다른 중단점을 설정할 수도 있습니다.
 
-### Remote script debugging with SSH
+### SSH를 통한 원격 스크립트 디버깅 {#remote-script-debugging-with-ssh}
 
-Remote debugging allows you to step through a program locally within VS Code while it runs on a remote computer. It is not necessary to install VS Code on the remote computer. For added security, you may want or need to use a secure connection, such as SSH, to the remote computer when debugging.
+원격 디버깅을 통해 원격 컴퓨터에서 실행되는 프로그램을 VS Code 내에서 로컬로 단계별로 실행할 수 있습니다. 원격 컴퓨터에 VS Code를 설치할 필요는 없습니다. 보안을 강화하기 위해 디버깅할 때 원격 컴퓨터에 대한 안전한 연결(예: SSH)을 사용해야 할 수 있습니다.
 
-> **Note**: On Windows computers, you may need to install [Windows 10 OpenSSH](https://learn.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) to have the `ssh` command.
+> **참고**: Windows 컴퓨터에서는 `ssh` 명령을 사용하기 위해 [Windows 10 OpenSSH](https://learn.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse)를 설치해야 할 수 있습니다.
 
-The following steps outline the general process to set up an SSH tunnel. An SSH tunnel allows you to work on your local machine as if you were working directly on the remote in a more secure manner than if a port was opened for public access.
+다음 단계는 SSH 터널을 설정하는 일반적인 프로세스를 설명합니다. SSH 터널을 사용하면 공용 액세스를 위해 포트를 열어두는 것보다 더 안전한 방식으로 로컬 머신에서 작업하는 것처럼 원격 머신에서 작업할 수 있습니다.
 
-**On the remote computer:**
+**원격 컴퓨터에서:**
 
-1. Enable port forwarding by opening the `sshd_config` config file (found under `/etc/ssh/` on Linux and under `%programfiles(x86)%/openssh/etc` on Windows) and adding or modifying the following setting:
+1. `/etc/ssh/` 아래에 있는 `sshd_config` 구성 파일을 열고 다음 설정을 추가하거나 수정하여 포트 포워딩을 활성화합니다:
 
    ```
    AllowTcpForwarding yes
    ```
 
-   > **Note**: The default for AllowTcpForwarding is yes, so you might not need to make a change.
+   > **참고**: AllowTcpForwarding의 기본값은 yes이므로 변경할 필요가 없을 수 있습니다.
 
-1. If you had to add or modify `AllowTcpForwarding`, restart the SSH server. On Linux/macOS, run `sudo service ssh restart`; on Windows, run `services.msc`, select OpenSSH or `sshd` in the list of services, and select **Restart**.
+1. `AllowTcpForwarding`을 추가하거나 수정해야 했다면 SSH 서버를 재시작합니다. Linux/macOS에서는 `sudo service ssh restart`를 실행하고, Windows에서는 `services.msc`를 실행하여 서비스 목록에서 OpenSSH 또는 `sshd`를 선택한 후 **재시작**을 선택합니다.
 
-**On the local computer:**
+**로컬 컴퓨터에서:**
 
-1.  Create an SSH tunnel by running `ssh -2 -L sourceport:localhost:destinationport -i identityfile user@remoteaddress`, using a selected port for `destinationport` and the appropriate username and the remote computer's IP address in `user@remoteaddress`. For example, to use port 5678 on IP address 1.2.3.4, the command would be `ssh -2 -L 5678:localhost:5678 -i identityfile user@1.2.3.4`. You can specify the path to an identity file, using the `-i` flag.
+1. `ssh -2 -L sourceport:localhost:destinationport -i identityfile user@remoteaddress`를 실행하여 SSH 터널을 생성합니다. `destinationport`에 대해 선택한 포트와 적절한 사용자 이름 및 원격 컴퓨터의 IP 주소를 사용합니다. 예를 들어, IP 주소 1.2.3.4에서 포트 5678을 사용하려면 명령은 `ssh -2 -L 5678:localhost:5678 -i identityfile user@1.2.3.4`가 됩니다. `-i` 플래그를 사용하여 신원 파일의 경로를 지정할 수 있습니다.
 
-1.  Verify that you can see a prompt in the SSH session.
+1. SSH 세션에서 프롬프트를 볼 수 있는지 확인합니다.
 
-1.  In your VS Code workspace, create a configuration for remote debugging in your `launch.json` file, setting the port to match the port used in the `ssh` command and the host to `localhost`. You use `localhost` here because you've set up the SSH tunnel.
+1. VS Code 작업 공간에서 `launch.json` 파일에 원격 디버깅을 위한 구성을 생성하고, 포트를 SSH 명령에서 사용한 포트와 일치하도록 설정하며, 호스트를 `localhost`로 설정합니다. SSH 터널을 설정했기 때문에 여기서 `localhost`를 사용합니다.
 
         ```json
         {
@@ -251,75 +251,74 @@ The following steps outline the general process to set up an SSH tunnel. An SSH 
             "pathMappings": [
                 {
                     "localRoot": "$\{workspaceFolder\}
-
-    ", // Maps C:\Users\user1\project1
-    "remoteRoot": "." // To current working directory ~/project1
+    ", // C:\Users\user1\project1에 매핑
+    "remoteRoot": "." // 현재 작업 디렉토리 ~/project1에 매핑
     }
     ]
     }
     ```
 
-**Starting debugging**
+**디버깅 시작하기**
 
-Now that an SSH tunnel has been set up to the remote computer, you can begin your debugging.
+이제 원격 컴퓨터에 대한 SSH 터널이 설정되었으므로 디버깅을 시작할 수 있습니다.
 
-1. Both computers: make sure that identical source code is available.
+1. 두 컴퓨터 모두: 동일한 소스 코드가 사용 가능해야 합니다.
 
-1. Both computers: [install debugpy](#install-debugpy).
+1. 두 컴퓨터 모두: [debugpy 설치](#install-debugpy)를 수행합니다.
 
-1. Remote computer: there are two ways to specify how to attach to the remote process.
+1. 원격 컴퓨터: 원격 프로세스에 연결하는 방법을 두 가지로 지정할 수 있습니다.
 
-   1. In the source code, add the following lines, replacing `address` with the remote computer's IP address and port number (IP address 1.2.3.4 is shown here for illustration only).
+   1. 소스 코드에 다음 줄을 추가하고, `address`를 원격 컴퓨터의 IP 주소와 포트 번호로 교체합니다(여기서는 IP 주소 1.2.3.4가 예시로 사용됩니다).
 
       ```python
       import debugpy
 
-      # Allow other computers to attach to debugpy at this IP address and port.
+      # 다른 컴퓨터가 이 IP 주소와 포트에서 debugpy에 연결할 수 있도록 허용합니다.
       debugpy.listen(('1.2.3.4', 5678))
 
-      # Pause the program until a remote debugger is attached
+      # 원격 디버거가 연결될 때까지 프로그램을 일시 중지합니다.
       debugpy.wait_for_client()
       ```
 
-      The IP address used in `listen` should be the remote computer's private IP address. You can then launch the program normally, causing it to pause until the debugger attaches.
+      `listen`에서 사용된 IP 주소는 원격 컴퓨터의 개인 IP 주소여야 합니다. 그런 다음 프로그램을 정상적으로 실행하면 디버거가 연결될 때까지 일시 중지됩니다.
 
-   1. Launch the remote process through debugpy, for example:
+   1. debugpy를 통해 원격 프로세스를 시작합니다. 예를 들어:
 
       ```bash
       python3 -m debugpy --listen 1.2.3.4:5678 --wait-for-client -m myproject
       ```
 
-      This starts the package `myproject` using `python3`, with the remote computer's private IP address of `1.2.3.4` and listening on port `5678` (you can also start the remote Python process by specifying a file path instead of using `-m`, such as `./hello.py`).
+      이는 `python3`를 사용하여 패키지 `myproject`를 시작하며, 원격 컴퓨터의 개인 IP 주소인 `1.2.3.4`에서 포트 `5678`을 수신 대기합니다(파일 경로를 지정하여 원격 Python 프로세스를 시작할 수도 있습니다. 예: `./hello.py`).
 
-1. Local computer: **Only if you modified the source code on the remote computer as outlined above**, then in the source code, add a commented-out copy of the same code added on the remote computer. Adding these lines makes sure that the source code on both computers matches line by line.
+1. 로컬 컴퓨터: **원격 컴퓨터에서 위에 설명한 대로 소스 코드를 수정한 경우에만**, 소스 코드에 원격 컴퓨터에서 추가한 동일한 코드의 주석 처리된 복사본을 추가합니다. 이러한 줄을 추가하면 두 컴퓨터의 소스 코드가 줄 단위로 일치하는지 확인할 수 있습니다.
 
    ```python
    #import debugpy
 
-   # Allow other computers to attach to debugpy at this IP address and port.
+   # 다른 컴퓨터가 이 IP 주소와 포트에서 debugpy에 연결할 수 있도록 허용합니다.
    #debugpy.listen(('1.2.3.4', 5678))
 
-   # Pause the program until a remote debugger is attached
+   # 원격 디버거가 연결될 때까지 프로그램을 일시 중지합니다.
    #debugpy.wait_for_client()
    ```
 
-1. Local computer: switch to the **Run and Debug** view (`kb(workbench.view.debug)`) in VS Code, select the **Python Debugger: Attach** configuration
+1. 로컬 컴퓨터: VS Code에서 **실행 및 디버그** 뷰(`kb(workbench.view.debug)`)로 전환하고, **Python Debugger: Attach** 구성을 선택합니다.
 
-1. Local computer: set a breakpoint in the code where you want to start debugging.
+1. 로컬 컴퓨터: 디버깅을 시작할 위치에 중단점을 설정합니다.
 
-1. Local computer: start the VS Code debugger using the modified **Python Debugger: Attach** configuration and the Start Debugging button. VS Code should stop on your locally set breakpoints, allowing you to step through the code, examine variables, and perform all other debugging actions. Expressions that you enter in the **Debug Console** are run on the remote computer as well.
+1. 로컬 컴퓨터: 수정된 **Python Debugger: Attach** 구성을 사용하여 VS Code 디버거를 시작하고 디버깅 시작 버튼을 클릭합니다. VS Code는 로컬에서 설정한 중단점에서 중단되며, 코드를 단계별로 실행하고 변수를 검사하고 모든 디버깅 작업을 수행할 수 있습니다. **디버그 콘솔**에 입력한 표현식은 원격 컴퓨터에서도 실행됩니다.
 
-   Text output to stdout, as from `print` statements, appears on both computers. Other outputs, such as graphical plots from a package like matplotlib, however, appear only on the remote computer.
+   `print` 문과 같은 stdout에 대한 텍스트 출력은 두 컴퓨터 모두에 표시됩니다. 그러나 matplotlib과 같은 패키지에서 생성된 그래픽 플롯과 같은 다른 출력은 원격 컴퓨터에만 표시됩니다.
 
-1. During remote debugging, the debugging toolbar appears as below:
+1. 원격 디버깅 중 디버깅 도구 모음은 아래와 같이 표시됩니다:
 
-   ![Debugging toolbar during remote debugging](images/debugging/remote-debug-toolbar.png)
+   ![원격 디버깅 중 디버깅 도구 모음](images/debugging/remote-debug-toolbar.png)
 
-   On this toolbar, the disconnect button (`kb(workbench.action.debug.stop)`) stops the debugger and allows the remote program to run to completion. The restart button (`kb(workbench.action.debug.restart)`) restarts the debugger on the local computer but does **not** restart the remote program. Use the restart button only when you've already restarted the remote program and need to reattach the debugger.
+   이 도구 모음에서 연결 끊기 버튼(`kb(workbench.action.debug.stop)`)은 디버거를 중지하고 원격 프로그램이 완료될 때까지 실행할 수 있도록 합니다. 재시작 버튼(`kb(workbench.action.debug.restart)`)은 로컬 컴퓨터에서 디버거를 재시작하지만 원격 프로그램은 **재시작하지 않습니다**. 원격 프로그램을 이미 재시작한 경우에만 재시작 버튼을 사용하여 디버거를 다시 연결하세요.
 
-## Set configuration options
+## 구성 옵션 설정 {#set-configuration-options}
 
-When you first create `launch.json`, there are two standard configurations that run the active file in the editor in either the integrated terminal (inside VS Code) or the external terminal (outside of VS Code):
+`launch.json`을 처음 생성할 때, 통합 터미널(내부 VS Code) 또는 외부 터미널(외부 VS Code)에서 활성 파일을 실행하는 두 가지 표준 구성이 있습니다:
 
 ```json
 {
@@ -344,9 +343,9 @@ When you first create `launch.json`, there are two standard configurations that 
 }
 ```
 
-The specific settings are described in the following sections. You can also add other settings, such as `args`, that aren't included in the standard configurations.
+특정 설정은 다음 섹션에서 설명합니다. 표준 구성에 포함되지 않은 `args`와 같은 다른 설정도 추가할 수 있습니다.
 
-> **Tip**: It's often helpful in a project to create a configuration that runs a specific startup file. For example, if you want to always launch `startup.py` with the arguments `--port 1593` when you start the debugger, create a configuration entry as follows:
+> **팁**: 프로젝트에서 특정 시작 파일을 실행하는 구성을 만드는 것이 유용할 수 있습니다. 예를 들어, 디버거를 시작할 때 항상 `startup.py`를 `--port 1593` 인수와 함께 실행하려면 다음과 같이 구성 항목을 생성하세요:
 
 ```json
  {
@@ -359,94 +358,93 @@ The specific settings are described in the following sections. You can also add 
  },
 ```
 
-### `name`
+### `name` {#name}
 
-Provides the name for the debug configuration that appears in the VS Code dropdown list.
+VS Code 드롭다운 목록에 표시되는 디버그 구성 이름을 제공합니다.
 
-### `type`
+### `type` {#type}
 
-Identifies the type of debugger to use; leave this set to `debugpy` for debugging Python code.
+사용할 디버거 유형을 식별합니다. Python 코드를 디버깅할 때는 `debugpy`로 설정하세요.
 
-### `request`
+### `request` {#request}
 
-Specifies the mode in which to start debugging:
+디버깅을 시작할 모드를 지정합니다:
 
-- `launch`: start the debugger on the file specified in `program`
-- `attach`: attach the debugger to an already running process. See [Remote debugging](#remote-script-debugging-with-ssh) for an example.
+- `launch`: `program`에 지정된 파일에서 디버거를 시작합니다.
+- `attach`: 이미 실행 중인 프로세스에 디버거를 연결합니다. [원격 디버깅](#remote-script-debugging-with-ssh)에서 예를 참조하세요.
 
-### `program`
+### `program` {#program}
 
-Provides the fully qualified path to the python program's entry module (startup file). The value `$\{file\}
-`, often used in default configurations, uses the currently active file in the editor. By specifying a specific startup file, you can always be sure of launching your program with the same entry point regardless of which files are open. For example:
+Python 프로그램의 진입 모듈(시작 파일)에 대한 전체 경로를 제공합니다. 기본 구성에서 자주 사용되는 값 `$\{file\}
+`는 편집기에서 현재 활성 파일을 사용합니다. 특정 시작 파일을 지정하면 어떤 파일이 열려 있든 항상 동일한 진입점으로 프로그램을 시작할 수 있습니다. 예를 들어:
 
 ```json
 "program": "/Users/Me/Projects/MyProject/src/event_handlers/__init__.py",
 ```
 
-You can also rely on a relative path from the workspace root. For example, if the root is `/Users/Me/Projects/MyProject` then you can use the following example:
+작업 공간 루트에서 상대 경로를 사용할 수도 있습니다. 예를 들어, 루트가 `/Users/Me/Projects/MyProject`인 경우 다음 예제를 사용할 수 있습니다:
 
 ```json
 "program": "$\{workspaceFolder\}
 /src/event_handlers/__init__.py",
 ```
 
-### `module`
+### `module` {#module}
 
-Provides the ability to specify the name of a module to be debugged, similarly to the `-m` argument when run at the command line. For more information, see [Python.org](https://docs.python.org/3/using/cmdline.html#cmdoption-m)
+명령줄에서 `-m` 인수와 유사하게 디버깅할 모듈의 이름을 지정할 수 있는 기능을 제공합니다. 자세한 내용은 [Python.org](https://docs.python.org/3/using/cmdline.html#cmdoption-m)를 참조하세요.
 
-### `python`
+### `python` {#python}
 
-The full path that points to the Python interpreter to be used for debugging.
+디버깅에 사용할 Python 인터프리터를 가리키는 전체 경로입니다.
 
-If not specified, this setting defaults to the interpreter selected for your workspace, which is equivalent to using the value `$\{command:python.interpreterPath\}
-`. To use a different interpreter, specify its path instead in the `python` property of a debug configuration.
+지정하지 않으면 이 설정은 작업 공간에 대해 선택한 인터프리터로 기본 설정됩니다. 이는 `$\{command:python.interpreterPath\}
+` 값을 사용하는 것과 같습니다. 다른 인터프리터를 사용하려면 디버그 구성의 `python` 속성에 경로를 지정하세요.
 
-Alternately, you can use a custom environment variable that's defined on each platform to contain the full path to the Python interpreter to use, so that no other folder paths are needed.
+또는 각 플랫폼에서 사용할 Python 인터프리터의 전체 경로를 포함하는 사용자 정의 환경 변수를 사용할 수 있습니다. 이 경우 다른 폴더 경로가 필요하지 않습니다.
 
-If you need to pass arguments to the Python interpreter, you can use the `pythonArgs` property.
+Python 인터프리터에 인수를 전달해야 하는 경우 `pythonArgs` 속성을 사용할 수 있습니다.
 
-### `pythonArgs`
+### `pythonArgs` {#pythonargs}
 
-Specifies arguments to pass to the Python interpreter using the syntax `"pythonArgs": ["<arg 1>", "<arg 2>",...]`.
+Python 인터프리터에 전달할 인수를 지정합니다. 구문은 `"pythonArgs": ["<arg 1>", "<arg 2>",...]`입니다.
 
-### `args`
+### `args` {#args}
 
-Specifies arguments to pass to the Python program. Each element of the argument string that's separated by a space should be contained within quotes, for example:
+Python 프로그램에 전달할 인수를 지정합니다. 공백으로 구분된 각 인수 문자열 요소는 따옴표로 묶여야 합니다. 예를 들어:
 
 ```json
 "args": ["--quiet", "--norepeat", "--port", "1593"],
 ```
 
-If you want to provide different arguments per debug run, you can set `args` to `"$\{command:pickArgs\}
-"`. This will prompt you to enter arguments each time you start a debug session.
+디버그 실행마다 다른 인수를 제공하려면 `args`를 `"$\{command:pickArgs\}
+"`로 설정하세요. 이렇게 하면 디버그 세션을 시작할 때마다 인수를 입력하라는 메시지가 표시됩니다.
 
-> **Note**: There is a difference in how `"$\{command:pickArgs\}
-"` and `["$\{command:pickArgs\}
-"]` are parsed, with specific notice to the usage of `[]`. As an array, all arguments are passed as a single string, without brackets each argument is passed as its own string.
+> **참고**: `"$\{command:pickArgs\}
+"`와 `["$\{command:pickArgs\}
+"]`의 구문 분석 방식에는 차이가 있으며, `[]` 사용에 주의해야 합니다. 배열로 사용될 경우 모든 인수가 단일 문자열로 전달되며, 괄호 없이 각 인수는 개별 문자열로 전달됩니다.
 
-### `stopOnEntry`
+### `stopOnEntry` {#stoponentry}
 
-When set to `true`, breaks the debugger at the first line of the program being debugged. If omitted (the default) or set to `false`, the debugger runs the program to the first breakpoint.
+`true`로 설정하면 디버깅 중인 프로그램의 첫 번째 줄에서 디버거가 중단됩니다. 생략되거나(`false`로 설정된 경우 기본값) 디버거는 첫 번째 중단점까지 프로그램을 실행합니다.
 
-### `console`
+### `console` {#console}
 
-Specifies how program output is displayed as long as the defaults for `redirectOutput` aren't modified.
+프로그램 출력을 표시하는 방법을 지정합니다. 기본값인 `redirectOutput`이 수정되지 않은 경우에 해당합니다.
 
-| Value                            | Where output is displayed                                                                                                                   |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"internalConsole"`              | **VS Code debug console.** If `redirectOutput` is set to False, no output is displayed.                                                     |
-| `"integratedTerminal"` (default) | [VS Code Integrated Terminal](/docs/terminal/basics.md). If `redirectOutput` is set to True, output is also displayed in the debug console. |
-| `"externalTerminal"`             | **Separate console window**. If `redirectOutput` is set to True, output is also displayed in the debug console.                             |
+| 값                            | 출력이 표시되는 위치                                                                                                                   |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"internalConsole"`              | **VS Code 디버그 콘솔.** `redirectOutput`이 False로 설정된 경우 출력이 표시되지 않습니다.                                                     |
+| `"integratedTerminal"` (기본값) | [VS Code 통합 터미널](/docs/terminal/basics.md). `redirectOutput`이 True로 설정된 경우 출력이 디버그 콘솔에도 표시됩니다. |
+| `"externalTerminal"`             | **별도의 콘솔 창**. `redirectOutput`이 True로 설정된 경우 출력이 디버그 콘솔에도 표시됩니다.                             |
 
-### `purpose`
+### `purpose` {#purpose}
 
-There is more than one way to configure the **Run** button, using the `purpose` option. Setting the option to `debug-test`, defines that the configuration should be used when debugging tests in VS Code.
-However, setting the option to `debug-in-terminal`, defines that the configuration should only be used when accessing the **Run Python File** button on the top-right of the editor (regardless of whether the **Run Python File** or **Debug Python File** options the button provides is used).
-**Note**: The `purpose` option can't be used to start the debugger through `kbstyle(F5)` or **Run > Start Debugging**.
+`purpose` 옵션을 사용하여 **실행** 버튼을 구성하는 방법이 여러 가지 있습니다. 옵션을 `debug-test`로 설정하면 구성은 VS Code에서 테스트를 디버깅할 때 사용됩니다. 그러나 옵션을 `debug-in-terminal`로 설정하면 구성은 편집기 오른쪽 상단의 **Python 파일 실행** 버튼에 접근할 때만 사용됩니다(버튼이 제공하는 **Python 파일 실행** 또는 **Python 파일 디버그** 옵션과 관계없이).
+**참고**: `purpose` 옵션은 `kbstyle(F5)` 또는 **실행 > 디버깅 시작**을 통해 디버거를 시작하는 데 사용할 수 없습니다.
 
-### `autoReload`
+### `autoReload` {#autoreload}
 
-Allows for the automatic reload of the debugger when changes are made to code after the debugger execution has hit a breakpoint. To enable this feature set `{"enable": true}` as shown in the following code.
+디버거 실행 중 중단점에 도달한 후 코드에 변경 사항이 있을 경우 디버거를 자동으로 다시 로드할 수 있도록 합니다. 이 기능을 활성화하려면 다음 코드와 같이 `{"enable": true}`로 설정하세요.
 
 ```json
 {
@@ -462,103 +460,129 @@ Allows for the automatic reload of the debugger when changes are made to code af
 }
 ```
 
-> **Note**: When the debugger performs a reload, code that runs on import might be executed again. To avoid this situation, try to only use imports, constants, and definitions in your module, placing all code into functions. Alternatively, you can also use `if __name__=="__main__"` checks.
+> **참고**: 디버거가 다시 로드할 때, 가져오기 시 실행되는 코드가 다시 실행될 수 있습니다. 이러한 상황을 피하려면 모듈에서 가져오기, 상수 및 정의만 사용하고 모든 코드를 함수에 배치하는 것이 좋습니다. 또는 `if __name__=="__main__"` 검사를 사용할 수도 있습니다.
 
-### `subProcess`
+### `subProcess` {#subprocess}
 
-Specifies whether to enable subprocess debugging. Defaults to `false`, set to `true` to enable. For more information, see [multi-target debugging](/docs/editor/debugging.md#multi-target-debugging).
+하위 프로세스 디버깅을 활성화할지 여부를 지정합니다. 기본값은 `false`이며, `true`로 설정하여 활성화합니다. 자세한 내용은 [다중 대상 디버깅](/docs/editor/debugging.md#multi-target-debugging)을 참조하세요.
 
-### `cwd`
+### `cwd` {#cwd}
 
-Specifies the current working directory for the debugger, which is the base folder for any relative paths used in code. If omitted, defaults to `$\{workspaceFolder\}
-` (the folder open in VS Code).
+디버거의 현재 작업 디렉토리를 지정합니다. 이는 코드에서 사용되는 모든 상대 경로의 기본 폴더입니다. 생략하면 기본값은 `$\{workspaceFolder\}
+`(VS Code에서 열려 있는 폴더)입니다.
 
-As an example, say `$\{workspaceFolder\}
-` contains a `py_code` folder containing `app.py`, and a `data` folder containing `salaries.csv`. If you start the debugger on `py_code/app.py`, then the relative paths to the data file vary depending on the value of `cwd`:
+예를 들어, `$\{workspaceFolder\}
+`에 `py_code` 폴더가 포함되어 있고 `app.py`가 있으며, `data` 폴더에 `salaries.csv`가 포함되어 있다고 가정합니다. `py_code/app.py`에서 디버거를 시작하면 데이터 파일에 대한 상대 경로는 `cwd`의 값에 따라 달라집니다:
 
-| cwd | Relative path to data file |
+| cwd | 데이터 파일에 대한 상대 경로 |
 | --- | -------------------------- |
 
-| Omitted or `$\{workspaceFolder\}
+| 생략되거나 `$\{workspaceFolder\}
 ` | `data/salaries.csv` |
 | `$\{workspaceFolder\}
 /py_code` | `../data/salaries.csv` |
 | `$\{workspaceFolder\}
 /data` | `salaries.csv` |
 
-### `redirectOutput`
+### `redirectOutput` {#redirectoutput}
 
-When set to `true` (the default for internalConsole), causes the debugger to print all output from the program into the VS Code debug output window. If set to `false` (the default for integratedTerminal and externalTerminal), program output is not displayed in the debugger output window.
+`true`로 설정하면(내부 콘솔의 기본값) 디버거가 프로그램의 모든 출력을 VS Code 디버그 출력 창에 인쇄합니다. `false`로 설정하면(통합 터미널 및 외부 터미널의 기본값) 프로그램 출력이 디버거 출력 창에 표시되지 않습니다.
 
-This option is typically disabled when using `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console.
+이 옵션은 일반적으로 `"console": "integratedTerminal"` 또는 `"console": "externalTerminal"`을 사용할 때 비활성화됩니다. 디버그 콘솔에 출력을 중복할 필요가 없기 때문입니다.
 
-### `justMyCode`
+### `justMyCode` {#justmycode}
 
-When omitted or set to `true` (the default), restricts debugging to user-written code only. Set to `false` to also enable debugging of standard library functions.
+생략되거나 `true`로 설정되면(기본값) 사용자 작성 코드로 디버깅을 제한합니다. `false`로 설정하면 표준 라이브러리 함수의 디버깅도 활성화됩니다.
 
-### `django`
+### `django` {#django}
+---
 
-When set to `true`, activates debugging features specific to the Django web framework.
+### 가이드라인:
+- 모든 Markdown 형식을 유지합니다: 헤더(`#`), 목록(`-`, `*`), 코드 블록(```)을 변경하지 않습니다.
+- 코드 블록을 제거하지 않습니다. 그대로 유지합니다.
+- 코드 내부의 주석은 번역하지만, 코드 자체는 번역하지 않습니다.
+  - 예시:
+    - 영어:
+      ```js
+      // This function returns a number
+      function getNumber() { return 42; }
+      ```
+    - 한국어:
+      ```js
+      // 이 함수는 숫자를 반환합니다.
+      function getNumber() { return 42; }
+      ```
+- 보이는 텍스트만 번역합니다. 링크, 파일 경로 또는 Markdown 구문은 수정하지 않습니다.
+- 헤딩(`#`)의 경우, 원본에 ID가 존재하면 번역 후에도 그대로 유지합니다.
+  - 예시:  
+    - 영어: `## Apple {#apple}`  
+    - 한국어: `## 사과 {#apple}` (ID `{#apple}`는 변경되지 않음)
+- 번역이 자연스럽게 흐르도록 합니다.  
+  - 문장 구조가 자연스러운 한국어 작문에 맞도록 합니다.  
+  - 필요에 따라 문장을 결합하거나 재구성하되, 원래 의미는 유지합니다.  
+  - 지나치게 직역하지 않도록 하며, 적절한 한국어 표현을 사용합니다.  
+  - 여러 포인트를 나열할 때는 더 읽기 쉬운 한국어 형식으로 재구성하는 것을 고려합니다.
 
-### `sudo`
+---
+`true`로 설정하면 Django 웹 프레임워크에 특정한 디버깅 기능이 활성화됩니다.
 
-When set to `true` and used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password.
+### `sudo` {#sudo}
 
-### `pyramid`
+`true`로 설정하고 `"console": "externalTerminal"`과 함께 사용하면 권한 상승이 필요한 앱을 디버깅할 수 있습니다. 비밀번호를 캡처하기 위해 외부 콘솔을 사용하는 것이 필요합니다.
 
-When set to `true`, ensures that a Pyramid app is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve).
+### `pyramid` {#pyramid}
 
-### `env`
+`true`로 설정하면 [필요한 `pserve` 명령](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve)으로 Pyramid 앱이 시작됩니다.
 
-Sets optional environment variables for the debugger process beyond system environment variables, which the debugger always inherits. The values for these variables must be entered as strings.
+### `env` {#env}
 
-### `envFile`
+디버거 프로세스에 대한 선택적 환경 변수를 설정합니다. 이 변수들은 시스템 환경 변수를 넘어 디버거가 항상 상속받는 변수입니다. 이러한 변수의 값은 문자열로 입력해야 합니다.
 
-Optional path to a file that contains environment variable definitions. See [Configuring Python environments - environment variable definitions file](/docs/python/environments.md#environment-variable-definitions-file).
+### `envFile` {#envfile}
 
-### `gevent`
+환경 변수 정의가 포함된 파일에 대한 선택적 경로입니다. [Python 환경 구성 - 환경 변수 정의 파일](/docs/python/environments.md#environment-variable-definitions-file)을 참조하십시오.
 
-If set to `true`, enables debugging of [gevent monkey-patched code](https://www.gevent.org/intro.html).
+### `gevent` {#gevent}
 
-### `jinja`
+`true`로 설정하면 [gevent 몽키 패치된 코드](https://www.gevent.org/intro.html)의 디버깅이 활성화됩니다.
 
-When set to `true`, activates debugging features specific to the [Jinja](https://jinja.palletsprojects.com) templating framework.
+### `jinja` {#jinja}
 
-## Breakpoints and logpoints
+`true`로 설정하면 [Jinja](https://jinja.palletsprojects.com) 템플릿 프레임워크에 특정한 디버깅 기능이 활성화됩니다.
 
-The Python Debugger extension supports [breakpoints](/docs/editor/debugging.md#breakpoints) and [logpoints](/docs/editor/debugging.md#logpoints) for debugging code. For a short walkthrough of basic debugging and using breakpoints, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger).
+## 중단점 및 로그 포인트 {#breakpoints-and-logpoints}
 
-### Conditional breakpoints
+Python Debugger 확장은 코드 디버깅을 위한 [중단점](/docs/editor/debugging.md#breakpoints) 및 [로그 포인트](/docs/editor/debugging.md#logpoints)를 지원합니다. 기본 디버깅 및 중단점 사용에 대한 간단한 안내는 [튜토리얼 - 디버거 구성 및 실행](/docs/python/python-tutorial.md#configure-and-run-the-debugger)을 참조하십시오.
 
-Breakpoints can also be set to trigger based on expressions, hit counts, or a combination of both. The Python Debugger extension supports hit counts that are integers, in addition to integers preceded by the `==`, `>`, `>=`, `<`, `<=`, and `% `operators. For example, you could set a breakpoint to trigger after five occurrences by setting a hit count of `>5` For more information, see [conditional breakpoints](/docs/editor/debugging.md#conditional-breakpoints) in the main VS Code debugging article.
+### 조건부 중단점 {#conditional-breakpoints}
 
-### Invoking a breakpoint in code
+중단점은 표현식, 히트 수 또는 두 가지 조합에 따라 트리거되도록 설정할 수 있습니다. Python Debugger 확장은 정수 외에도 `==`, `>`, `>=`, `<`, `<=`, 및 `%` 연산자가 앞에 붙은 정수의 히트 수를 지원합니다. 예를 들어, 히트 수를 `>5`로 설정하여 다섯 번 발생한 후에 중단점이 트리거되도록 설정할 수 있습니다. 자세한 내용은 [조건부 중단점](/docs/editor/debugging.md#conditional-breakpoints)을 참조하십시오.
 
-In your Python code, you can call `debugpy.breakpoint()` at any point where you want to pause the debugger during a debugging session.
+### 코드에서 중단점 호출하기 {#invoking-a-breakpoint-in-code}
 
-### Breakpoint validation
+Python 코드에서 디버깅 세션 중에 디버거를 일시 중지하고 싶은 지점에 `debugpy.breakpoint()`를 호출할 수 있습니다.
 
-The Python Debugger extension automatically detects breakpoints that are set on non-executable lines, such as `pass` statements or the middle of a multiline statement. In such cases, running the debugger moves the breakpoint to the nearest valid line to ensure that code execution stops at that point.
+### 중단점 검증 {#breakpoint-validation}
 
-## Debugging specific app types
+Python Debugger 확장은 `pass` 문이나 다중 문장 중간과 같이 실행할 수 없는 줄에 설정된 중단점을 자동으로 감지합니다. 이러한 경우, 디버거를 실행하면 중단점이 가장 가까운 유효한 줄로 이동하여 코드 실행이 해당 지점에서 중지되도록 합니다.
 
-The configuration dropdown provides various different options for general app types:
+## 특정 앱 유형 디버깅 {#debugging-specific-app-types}
 
-| Configuration                                                                                                                                                                                                                                                                 | Description                                                                                        |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| Attach                                                                                                                                                                                                                                                                        | See [Remote debugging](#debugging-by-attaching-over-a-network-connection) in the previous section. |
-| Django                                                                                                                                                                                                                                                                        | Specifies `"program": "$\{workspaceFolder\}                                                        |
-| /manage.py"`, `"args": ["runserver"]`. Also adds `"django": true` to enable debugging of Django HTML templates.                                                                                                                                                               |
-| Flask                                                                                                                                                                                                                                                                         | See [Flask debugging](#flask-debugging) below.                                                     |
-| Gevent                                                                                                                                                                                                                                                                        | Adds `"gevent": true` to the standard integrated terminal configuration.                           |
-| Pyramid                                                                                                                                                                                                                                                                       | Removes `program`, adds `"args": ["$\{workspaceFolder\}                                            |
-| /development.ini"]`, adds `"jinja": true`for enabling template debugging, and adds`"pyramid": true`to ensure that the program is launched with [the necessary`pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
+구성 드롭다운은 일반 앱 유형에 대한 다양한 옵션을 제공합니다:
 
-Specific steps are also needed for remote debugging and Google App Engine. For details on debugging tests, see [Testing](/docs/python/testing.md).
+| 구성                                                                                                                                                                                                                                                                 | 설명                                                                                             |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Attach                                                                                                                                                                                                                                                                | 이전 섹션의 [원격 디버깅](#debugging-by-attaching-over-a-network-connection)을 참조하십시오. |
+| Django                                                                                                                                                                                                                                                                | `"program": "$\{workspaceFolder\}/manage.py"`, `"args": ["runserver"]`를 지정합니다. 또한 Django HTML 템플릿 디버깅을 활성화하기 위해 `"django": true`를 추가합니다. |
+| Flask                                                                                                                                                                                                                                                                 | 아래의 [Flask 디버깅](#flask-debugging)을 참조하십시오.                                        |
+| Gevent                                                                                                                                                                                                                                                                | 표준 통합 터미널 구성에 `"gevent": true`를 추가합니다.                                         |
+| Pyramid                                                                                                                                                                                                                                                                 | `program`을 제거하고 `"args": ["$\{workspaceFolder\}/development.ini"]`를 추가하며, 템플릿 디버깅을 활성화하기 위해 `"jinja": true`를 추가하고, [필요한 `pserve` 명령](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve)으로 프로그램이 시작되도록 `"pyramid": true`를 추가합니다. |
 
-To debug an app that requires administrator privileges, use `"console": "externalTerminal"` and `"sudo": "True"`.
+원격 디버깅 및 Google App Engine에 대한 특정 단계도 필요합니다. 테스트 디버깅에 대한 자세한 내용은 [테스트](/docs/python/testing.md)를 참조하십시오.
 
-### Flask debugging
+관리자 권한이 필요한 앱을 디버깅하려면 `"console": "externalTerminal"` 및 `"sudo": "True"`를 사용하십시오.
+
+### Flask 디버깅 {#flask-debugging}
 
 ```json
 {
@@ -577,12 +601,11 @@ To debug an app that requires administrator privileges, use `"console": "externa
 },
 ```
 
-As you can see, this configuration specifies `"env": {"FLASK_APP": "app.py"}` and `"args": ["run", "--no-debugger"]`. The `"module": "flask"` property is used instead of `program`. (You may see `"FLASK_APP": "$\{workspaceFolder\}
-/app.py"` in the `env` property, in which case modify the configuration to refer to only the filename. Otherwise, you may see "Cannot import module C" errors where C is a drive letter.)
+보시다시피, 이 구성은 `"env": {"FLASK_APP": "app.py"}` 및 `"args": ["run", "--no-debugger"]`를 지정합니다. `"module": "flask"` 속성이 `program` 대신 사용됩니다. (환경 속성에서 `"FLASK_APP": "$\{workspaceFolder\}/app.py"`를 볼 수 있는 경우, 구성을 파일 이름만 참조하도록 수정하십시오. 그렇지 않으면 C라는 드라이브 문자에서 "Cannot import module C" 오류가 발생할 수 있습니다.)
 
-The `"jinja": true` setting also enables debugging for Flask's default Jinja templating engine.
+`"jinja": true` 설정은 Flask의 기본 Jinja 템플릿 엔진에 대한 디버깅도 활성화합니다.
 
-If you want to run Flask's development server in development mode, use the following configuration:
+Flask의 개발 서버를 개발 모드에서 실행하려면 다음 구성을 사용하십시오:
 
 ```json
 {
@@ -603,35 +626,35 @@ If you want to run Flask's development server in development mode, use the follo
 
 <a name="debugger-not-working"></a>
 
-## Troubleshooting
+## 문제 해결 {#troubleshooting}
 
-There are many reasons why the debugger may not work. Sometimes the debug console reveals specific causes, but the main reasons are as follows:
+디버거가 작동하지 않는 이유는 여러 가지가 있습니다. 때때로 디버그 콘솔이 특정 원인을 드러내지만, 주요 이유는 다음과 같습니다:
 
-- Make sure the [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy) is installed and enabled in VS Code by opening the **Extensions** view (`kb(workbench.view.extensions)`) and searching for `@installed python debugger`.
+- [Python Debugger 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy)이 설치되어 있고 VS Code에서 활성화되어 있는지 확인합니다. **확장** 뷰(`kb(workbench.view.extensions)`)를 열고 `@installed python debugger`를 검색합니다.
 
-- The path to the python executable is incorrect: check the path of your selected interpreter by running the **Python: Select Interpreter** command and looking at the current value:
+- Python 실행 파일의 경로가 잘못되었습니다: **Python: 인터프리터 선택** 명령을 실행하여 선택한 인터프리터의 경로를 확인하고 현재 값을 확인합니다:
 
-  ![Troubleshooting wrong Python interpreter when debugging](images/debugging/debug-troubleshooting-wrong-path.png)
+  ![디버깅 중 잘못된 Python 인터프리터 문제 해결](images/debugging/debug-troubleshooting-wrong-path.png)
 
-- You have `"type"` set to the deprecated value `"python"` in your `launch.json` file: replace `"python"` with `"debugpy"` instead to work with the Python Debugger extension.
+- `launch.json` 파일에서 `"type"`이 더 이상 사용되지 않는 값인 `"python"`으로 설정되어 있습니다: `"python"`을 `"debugpy"`로 교체하여 Python Debugger 확장과 함께 작동하도록 합니다.
 
-- There are invalid expressions in the watch window: clear all expressions from the Watch window and restart the debugger.
-- If you're working with a multi-threaded app that uses native thread APIs (such as the Win32 `CreateThread` function rather than the Python threading APIs), it's presently necessary to include the following source code at the top of whichever file you want to debug:
+- 감시 창에 잘못된 표현식이 있습니다: 감시 창에서 모든 표현식을 지우고 디버거를 다시 시작합니다.
+- 네이티브 스레드 API(예: Python 스레딩 API 대신 Win32 `CreateThread` 함수)를 사용하는 다중 스레드 앱에서 작업하는 경우, 디버깅하려는 파일의 맨 위에 다음 소스 코드를 포함해야 합니다:
 
   ```python
   import debugpy
   debugpy.debug_this_thread()
   ```
 
-- If you are working with a **Linux** system, you may receive a "timed out" error message when trying to apply a debugger to any running process. To prevent this, you can temporarily run the following command:
+- **Linux** 시스템에서 작업하는 경우, 실행 중인 프로세스에 디버거를 적용하려고 할 때 "timed out" 오류 메시지가 표시될 수 있습니다. 이를 방지하려면 다음 명령을 임시로 실행할 수 있습니다:
 
   ```bash
   echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
   ```
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-- [Python environments](/docs/python/environments.md) - Control which Python interpreter is used for editing and debugging.
-- [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
-- [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
-- [General debugging](/docs/editor/debugging.md) - Learn about the debugging features of VS Code.
+- [Python 환경](/docs/python/environments.md) - 편집 및 디버깅에 사용되는 Python 인터프리터를 제어합니다.
+- [테스트](/docs/python/testing.md) - 테스트 환경을 구성하고 테스트를 발견, 실행 및 디버깅합니다.
+- [설정 참조](/docs/python/settings-reference.md) - VS Code의 Python 관련 설정을 전체적으로 탐색합니다.
+- [일반 디버깅](/docs/editor/debugging.md) - VS Code의 디버깅 기능에 대해 알아봅니다.

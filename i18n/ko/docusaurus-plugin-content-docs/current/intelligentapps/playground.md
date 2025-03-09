@@ -1,45 +1,46 @@
 ---
 Order: 3
 Area: intelligentapps
-TOCTitle: Playground
+TOCTitle: 플레이그라운드
 ContentId: e919aee8-fd2e-401b-9d83-0ff6f98b23ba
-PageTitle: AI Model Playground
+PageTitle: AI 모델 플레이그라운드
 DateApproved: 12/11/2024
-MetaDescription: Chat with selected generative AI model in playground. Change system prompt and parameters. Add attachment for Multi-Modal models. Keep chat history.
+MetaDescription: 플레이그라운드에서 선택한 생성 AI 모델과 대화하세요. 시스템 프롬프트와 매개변수를 변경하세요. 다중 모달 모델을 위한 첨부 파일을 추가하세요. 채팅 기록을 유지하세요.
+sidebar_label: 플레이그라운드
 ---
 
-# AI Toolkit playground
+# AI Toolkit 플레이그라운드 {#ai-toolkit-playground}
 
-The AI Toolkit playground enables you to interact with your AI models and try different prompts with different model parameter settings. You can also use the playground to interact with multi-modal models that support attachment of different input formats.
+AI Tooklit 플레이그라운드는 AI 모델과 상호작용하고 다양한 모델 매개변수 설정으로 다양한 프롬프트를 시도할 수 있게 해줍니다. 또한, 다양한 입력 형식의 첨부를 지원하는 다중 모달 모델과 상호작용하는 데에도 플레이그라운드를 사용할 수 있습니다.
 
-![Playground view](./images/playground/playground.png)
+![플레이그라운드 보기](./images/playground/playground.png)
 
-## Test a model in the playground
+## 플레이그라운드에서 모델 테스트하기 {#test-a-model-in-the-playground}
 
-To access the playground:
+플레이그라운드에 접근하려면:
 
-- In AI Toolkit view, select **Playground**
+- AI Tooklit 뷰에서 **Playground**를 선택합니다.
 
-- Select **Load in Playground** or **Try in Playground** from a model card in the model catalog
+- 모델 카탈로그에서 모델 카드의 **Load in Playground** 또는 **Try in Playground**를 선택합니다.
 
-To test a model in the playground, follow these steps:
+플레이그라운드에서 모델을 테스트하려면 다음 단계를 따르세요:
 
-1. In **Model Preferences**, select a model from the dropdown list
+1. **Model Preferences**에서 드롭다운 목록에서 모델을 선택합니다.
 
-    ![Select a model and configure context instructions in the playground.](./images/playground/parameters.png)
+    ![모델을 선택하고 플레이그라운드에서 컨텍스트 지침을 구성합니다.](./images/playground/parameters.png)
 
-1. Optionally, add context instructions to guide the model response
+1. 선택적으로, 모델의 응답을 조정할 수 있도록 추가 지침을 제공할 수 있습니다.
 
-1. Optionally, configure the model parameters
+1. 선택적으로, 모델 매개변수를 구성합니다.
 
-1. Enter a chat prompt in the chat input box
+1. 채팅 입력 상자에 채팅 프롬프트를 입력합니다.
 
-    From the chat input box, you can also clear chat history or add attachments for the prompt.
+    채팅 입력 상자에서 채팅 기록을 지우거나 프롬프트에 대한 첨부 파일을 추가할 수도 있습니다.
 
-## Add attachments for multi-modal models
+## 다중 모달 모델을 위한 첨부 파일 추가하기 {#add-attachments-for-multi-modal-models}
 
-Multi-modal models are models that can process multiple types of input, such as text, images, audio, or video. By attaching files to your chat prompt, you can ask questions about the contents of these files.
+다중 모달 모델은 텍스트, 이미지, 오디오 또는 비디오와 같은 여러 유형의 입력을 처리할 수 있는 모델입니다. 채팅 프롬프트에 파일을 첨부함으로써 이러한 파일의 내용에 대해 질문할 수 있습니다.
 
-For the models that support attachments, the attachment icon (paperclip) will show in the chat input box. Select the icon, and follow the instructions to attach one or more local files and use them with your prompt.
+첨부 파일을 지원하는 모델의 경우, 채팅 입력 상자에 첨부 아이콘(종이 클립)이 표시됩니다. 아이콘을 선택하고 지침에 따라 하나 이상의 로컬 파일을 첨부하여 프롬프트와 함께 사용하세요.
 
-![Adding attachments](./images/playground/attachment.png)
+![첨부 파일 추가하기](./images/playground/attachment.png)

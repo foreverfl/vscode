@@ -3,67 +3,69 @@ Order: 3
 Area: languages
 TOCTitle: JSON
 ContentId: FB3B14D9-A59A-4968-ACFC-5FB5D4E9B70E
-PageTitle: JSON editing in Visual Studio Code
-DateApproved: 03/05/2025
-MetaDescription: Edit JSON files in Visual Studio Code
+PageTitle: Visual Studio Code에서 JSON 편집하기
+DateApproved: 2025/03/05
+MetaDescription: Visual Studio Code에서 JSON 파일을 편집하는 방법을 알아보세요.
+sidebar_label: JSON
 ---
-# Editing JSON with Visual Studio Code
 
-JSON is a data format that is common in configuration files like `package.json` or `project.json`. We also use it extensively in Visual Studio Code for our configuration files. When opening a file that ends with `.json`, VS Code provides features to make it simpler to write or modify the file's content.
+# Visual Studio Code로 JSON 편집하기 {#editing-json-with-visual-studio-code}
 
-![JSON within VS Code](images/json/json_hero.png)
+JSON은 `package.json` 또는 `project.json`과 같은 구성 파일에서 일반적으로 사용되는 데이터 형식입니다. 우리는 Visual Studio Code에서 구성 파일을 위해 이를 광범위하게 사용합니다. `.json`으로 끝나는 파일을 열면 VS Code는 파일의 내용을 작성하거나 수정하는 것을 더 쉽게 만들어주는 기능을 제공합니다.
 
-## IntelliSense and validation
+![VS Code 내 JSON](images/json/json_hero.png)
 
-For properties and values, both for JSON data with or without a schema, we offer up suggestions as you type with IntelliSense. You can also manually see suggestions with the **Trigger Suggestions** command (`kb(editor.action.triggerSuggest)`).
+## IntelliSense 및 검증 {#intellisense-and-validation}
 
-We also perform structural and value verification based on an associated JSON schema giving you red squiggles. To disable validation, use the `setting(json.validate.enable)` [setting](/docs/editor/settings.md).
+스키마가 있는 JSON 데이터와 없는 JSON 데이터 모두에 대해 속성과 값에 대한 제안을 입력하는 동안 IntelliSense를 통해 제공합니다. 또한 **Trigger Suggestions** 명령(`kb(editor.action.triggerSuggest)`)을 사용하여 수동으로 제안을 볼 수 있습니다.
+
+우리는 또한 관련 JSON 스키마를 기반으로 구조 및 값 검증을 수행하여 빨간 물결선을 표시합니다. 검증을 비활성화하려면 `setting(json.validate.enable)` [설정](/docs/editor/settings.md)을 사용하세요.
 
 ![IntelliSense](images/json/intellisense.png)
 
-### Package and project dependencies
+### 패키지 및 프로젝트 종속성 {#package-and-project-dependencies}
 
-We also offer IntelliSense for specific value sets such as package and project dependencies in `package.json`, `project.json`, and `bower.json`.
+우리는 또한 `package.json`, `project.json`, `bower.json`에서 패키지 및 프로젝트 종속성과 같은 특정 값 집합에 대한 IntelliSense를 제공합니다.
 
-## Quick navigation
+## 빠른 탐색 {#quick-navigation}
 
-JSON files can get large and we support quick navigation to properties using the **Go to Symbol** command (`kb(workbench.action.gotoSymbol)`).
+JSON 파일은 커질 수 있으며, **Go to Symbol** 명령(`kb(workbench.action.gotoSymbol)`)을 사용하여 속성으로 빠르게 탐색할 수 있습니다.
 
-![Goto Symbol](images/json/gotosymbol.png)
+![기호로 이동](images/json/gotosymbol.png)
 
-## Hovers
+## 호버 {#hovers}
 
-When you hover over properties and values for JSON data with or without schema, we will provide additional context.
+스키마 여부와 관계없이, JSON 데이터의 속성이나 값 위에 마우스를 올리면 추가적인 정보를 확인할 수 있습니다.
 
-![Hover](images/json/hoverandtoggle.png)
+![호버](images/json/hoverandtoggle.png)
 
-## Formatting
+## 정렬 {#formatting}
 
-You can format your JSON document using `kb(editor.action.formatDocument)` or **Format Document** from the context menu.
+`kb(editor.action.formatDocument)` 또는 컨텍스트 메뉴에서 **Format Document**을 사용하여 JSON 문서를 정렬할 수 있습니다.
 
-## Folding
+## 접기 {#folding}
 
-You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Folding regions are available for all object and array elements.
+라인 번호와 라인 시작 사이의 접기 아이콘을 사용하여 소스 코드의 영역을 접을 수 있습니다. 모든 객체 및 배열 요소에 대해 접기 영역을 사용할 수 있습니다.
 
-## JSON with Comments
+## 주석이 있는 JSON {#json-with-comments}
 
-In addition to the default JSON mode following the [JSON specification](https://www.json.org/), VS Code also has a **JSON with Comments** (jsonc) mode. This mode is used for the VS Code configuration files such as `settings.json`, `tasks.json`, or `launch.json`. When in the **JSON with Comments** mode, you can use single line (`//`) as well as block comments (`/* */`) as used in JavaScript. The mode also accepts trailing commas, but they are discouraged and the editor will display a warning.
+[JSON 사양](https://www.json.org/)을 따르는 기본 JSON 모드 외에도, VS Code에는 **JSON with Comments**(jsonc) 모드가 있습니다. 이 모드는 `settings.json`, `tasks.json`, 또는 `launch.json`과 같은 VS Code 구성 파일에 사용됩니다. **JSON with Comments** 모드에서는 JavaScript에서 사용되는 단일 행(`//`) 및 블록 주석(`/* */`)을 사용할 수 있습니다. 이 모드는 후행 쉼표도 허용하지만, 권장되지 않으며 편집기에서 경고를 표시합니다.
 
-The current editor mode is indicated in the editor's Status Bar. Select the mode indicator to change the mode and to configure how file extensions are associated to modes. You can also directly modify the `setting(files.associations)` [setting](/docs/languages/overview.md#add-a-file-extension-to-a-language) to associate file names or file name patterns to `jsonc`.
+현재 편집기 모드는 편집기의 상태 표시줄에 표시됩니다. 모드 표시기를 선택하여 모드를 변경하고 파일 확장이 모드에 어떻게 연결되는지 구성할 수 있습니다. 또한 `setting(files.associations)` [설정](/docs/languages/overview.md#add-a-file-extension-to-a-language)을 직접 수정하여 파일 이름 또는 파일 이름 패턴을 `jsonc`에 연결할 수 있습니다.
 
-## JSON schemas and settings
+## JSON 스키마 및 설정 {#json-schemas-and-settings}
 
-To understand the structure of JSON files, we use [JSON schemas](https://json-schema.org/). JSON schemas describe the shape of the JSON file, as well as value sets, default values, and descriptions. The JSON support shipped with VS Code supports all draft versions from draft 4 to draft 7, with limited support for drafts 2019-09 and 2020-12.
+JSON 파일의 구조를 이해하기 위해 [JSON 스키마](https://json-schema.org/)를 사용합니다. JSON 스키마는 JSON 파일의 형태와 값 집합, 기본값 및 설명을 설명합니다. VS Code에 포함된 JSON 지원은 초안 4부터 초안 7까지의 모든 초안 버전을 지원하며, 초안 2019-09 및 2020-12에 대해서는 제한된 지원을 제공합니다.
 
-Servers like [JSON Schema Store](https://www.schemastore.org) provide schemas for most of the common JSON-based configuration files. However, schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
+[JSON Schema Store](https://www.schemastore.org)와 같은 서버는 대부분의 일반적인 JSON 기반 구성 파일에 대한 스키마를 제공합니다. 그러나 스키마는 VS Code 작업 공간의 파일이나 VS Code 설정 파일에서도 정의할 수 있습니다.
 
-The association of a JSON file to a schema can be done either in the JSON file itself using the `$schema` attribute, or in the User or Workspace [settings](/docs/editor/settings.md) (**File** > **Preferences** > **Settings**) under the property `setting(json.schemas)`.
+JSON 파일을 스키마에 연결하는 것은 JSON 파일 자체에서 `$schema` 속성을 사용하거나 사용자 또는 작업 공간 [설정](/docs/editor/settings.md) (**File** > **Preferences** > **Settings**)에서 `setting(json.schemas)` 속성 아래에서 수행할 수 있습니다.
 
-VS Code extensions can also define schemas and schema mapping. That's why VS Code already knows about the schema of some well-known JSON files such as `package.json`, `bower.json`, and `tsconfig.json`.
+VS Code 확장 프로그램도 스키마 및 스키마 매핑을 정의할 수 있습니다. 그래서 VS Code는 이미 `package.json`, `bower.json`, 및 `tsconfig.json`과 같은 잘 알려진 JSON 파일의 스키마를 알고 있습니다.
 
-### Mapping in the JSON
+### JSON에서의 매핑 {#mapping-in-the-json}
 
-In the following example, the JSON file specifies that its contents follow the [CoffeeLint](https://coffeelint.github.io/) schema.
+다음 예제에서 JSON 파일은 그 내용이 [CoffeeLint](https://coffeelint.github.io/) 스키마를 따름을 지정합니다.
 
 ```json
 {
@@ -72,11 +74,11 @@ In the following example, the JSON file specifies that its contents follow the [
 }
 ```
 
-Note that this syntax is VS Code-specific and not part of the [JSON Schema specification](https://json-schema.org/specification). Adding the `$schema` key changes the JSON itself, which systems consuming the JSON might not expect, for example, schema validation might fail. If this is the case, you can use one of the other mapping methods.
+이 구문은 VS Code 전용이며 [JSON 스키마 사양](https://json-schema.org/specification)의 일부가 아닙니다. `$schema` 키를 추가하면 JSON 자체가 변경되며, JSON을 소비하는 시스템은 이를 예상하지 못할 수 있습니다. 예를 들어, 스키마 검증이 실패할 수 있습니다. 이 경우 다른 매핑 방법 중 하나를 사용할 수 있습니다.
 
-### Mapping in the User Settings
+### 사용자 설정에서의 매핑 {#mapping-in-the-user-settings}
 
-The following excerpt from User [Settings](/docs/editor/settings.md) shows how `.babelrc` files are mapped to the [babelrc](https://babeljs.io/docs/usage/babelrc) schema located on [https://json.schemastore.org/babelrc](https://json.schemastore.org/babelrc).
+다음은 사용자 [설정](/docs/editor/settings.md)에서 `.babelrc` 파일이 [babelrc](https://babeljs.io/docs/usage/babelrc) 스키마에 매핑되는 방법을 보여주는 발췌입니다. 이 스키마는 [https://json.schemastore.org/babelrc](https://json.schemastore.org/babelrc)에 위치합니다.
 
 ```json
 "json.schemas": [
@@ -89,11 +91,13 @@ The following excerpt from User [Settings](/docs/editor/settings.md) shows how `
 ]
 ```
 
->**Tip:** In addition to defining a schema for `.babelrc`, also make sure that `.babelrc` is associated to the JSON language mode. This is also done in the settings using the `files.association` array setting.
+:::tip
+`.babelrc`에 대한 스키마를 정의하는 것 외에도, `.babelrc`가 JSON 언어 모드에 연결되어 있는지 확인하세요. 이는 `files.association` 배열 설정을 사용하여 설정에서 수행됩니다.
+:::
 
-### Mapping to a schema in the workspace
+### 작업 공간에서 스키마에 매핑 {#mapping-to-a-schema-in-the-workspace}
 
-To map a schema that is located in the workspace, use a relative path. In this example, a file in the workspace root called `myschema.json` will be used as the schema for all files ending with `.foo.json`.
+작업 공간에 위치한 스키마에 매핑하려면 상대 경로를 사용합니다. 이 예제에서는 작업 공간 루트에 있는 `myschema.json` 파일이 `.foo.json`으로 끝나는 모든 파일의 스키마로 사용됩니다.
 
 ```json
 "json.schemas": [
@@ -106,9 +110,9 @@ To map a schema that is located in the workspace, use a relative path. In this e
 ]
 ```
 
-### Mapping to a schema defined in settings
+### 설정에서 정의된 스키마에 매핑 {#mapping-to-a-schema-defined-in-settings}
 
-To map a schema that is defined in the User or Workspace settings, use the `schema` property. In this example, a schema is defined that will be used for all files named `.myconfig`.
+사용자 또는 작업 공간 설정에서 정의된 스키마에 매핑하려면 `schema` 속성을 사용합니다. 이 예제에서는 `.myconfig`라는 이름의 모든 파일에 사용될 스키마가 정의됩니다.
 
 ```json
 "json.schemas": [
@@ -129,13 +133,13 @@ To map a schema that is defined in the User or Workspace settings, use the `sche
 ]
 ```
 
-### Mapping a schema in an extension
+### 확장에서 스키마 매핑 {#mapping-a-schema-in-an-extension}
 
-Schemas and schema associations can also be defined by an extension. Check out the [jsonValidation contribution point](/api/references/contribution-points.md#contributesjsonvalidation).
+스키마 및 스키마 연결은 확장 프로그램에 의해 정의될 수도 있습니다. [jsonValidation 기여 지점](/api/references/contribution-points.md#contributesjsonvalidation)을 확인하세요.
 
-### File match syntax
+### 파일 매치 구문 {#file-match-syntax}
 
-The file match syntax supports the '*' wildcard. Also, you can define exclusion patterns, starting with '!'. For an association to match, at least one pattern needs to match and the last matching pattern must not be an exclusion pattern.
+파일 매치 구문은 '*' 와일드카드를 지원합니다. 또한 '!'로 시작하는 제외 패턴을 정의할 수 있습니다. 연결이 일치하려면 최소한 하나의 패턴이 일치해야 하며, 마지막으로 일치하는 패턴은 제외 패턴이 아니어야 합니다.
 
 ```json
   "json.schemas": [
@@ -149,11 +153,11 @@ The file match syntax supports the '*' wildcard. Also, you can define exclusion 
   ]
 ```
 
-### Define snippets in JSON schemas
+### JSON 스키마에서 스니펫 정의 {#define-snippets-in-json-schemas}
 
-JSON schemas describe the shape of the JSON file, as well as value sets and default values, which are used by the JSON language support to provide completion proposals. If you are a schema author and want to provide even more customized completion proposals, you can also specify snippets in the schema.
+JSON 스키마는 JSON 파일의 형태와 값 집합 및 기본값을 설명하며, 이는 JSON 언어 지원이 완성 제안을 제공하는 데 사용됩니다. 스키마 작성자라면 더 맞춤화된 완성 제안을 제공하기 위해 스키마에 스니펫을 지정할 수도 있습니다.
 
-The following example shows a schema for a keyboard shortcut settings file defining a snippet:
+다음 예제는 스니펫을 정의하는 키보드 단축키 설정 파일에 대한 스키마를 보여줍니다:
 
 ```json
 {
@@ -179,22 +183,22 @@ The following example shows a schema for a keyboard shortcut settings file defin
 }
 ```
 
-This is an example in a JSON schema:
+이것은 JSON 스키마의 예입니다:
 
-![Default snippets in JSON schema](images/json/defaultSnippets.png)
+![JSON 스키마의 기본 스니펫](images/json/defaultSnippets.png)
 
-Use the property `defaultSnippets` to specify any number of snippets for the given JSON object.
+`defaultSnippets` 속성을 사용하여 주어진 JSON 객체에 대해 원하는 만큼의 스니펫을 지정할 수 있습니다.
 
-- `label` and `description` will be shown in the completion selection dialog. If no label is provided, a stringified object representation of the snippet will be shown as label instead.
-- `body` is the JSON object that is stringified and inserted when the completion is selected by the user. [Snippet syntax](/docs/editor/userdefinedsnippets.md#snippet-syntax) can be used inside strings literals to define tabstops, placeholders, and variables. If a string starts with `^`, the string content will be inserted as-is, not stringified. You can use this to specify snippets for numbers and booleans.
+- `label`과 `description`은 완성 선택 대화 상자에 표시됩니다. 레이블이 제공되지 않으면 스니펫의 문자열화된 객체 표현이 대신 레이블로 표시됩니다.
+- `body`는 사용자가 완성을 선택할 때 문자열화되어 삽입되는 JSON 객체입니다. 문자열 리터럴 내에서 탭 정지, 자리 표시자 및 변수를 정의하기 위해 [스니펫 구문](/docs/editor/userdefinedsnippets.md#snippet-syntax)을 사용할 수 있습니다. 문자열이 `^`로 시작하면 문자열 내용이 그대로 삽입되며, 문자열화되지 않습니다. 이를 사용하여 숫자 및 불리언에 대한 스니펫을 지정할 수 있습니다.
 
-Note that `defaultSnippets` is not part of the JSON schema specification but a VS Code-specific schema extension.
+`defaultSnippets`는 JSON 스키마 사양의 일부가 아니라 VS Code 전용 스키마 확장입니다.
 
-### Use rich formatting in hovers
+### 호버에서 풍부한 포맷팅 사용 {#use-rich-formatting-in-hovers}
 
-VS Code will use the standard `description` field from the [JSON Schema specification](https://json-schema.org/specification) in order to provide information about properties on hover and during autocomplete.
+VS Code는 속성에 대한 정보를 제공하기 위해 [JSON 스키마 사양](https://json-schema.org/specification)의 표준 `description` 필드를 사용하여 호버 및 자동 완성 중에 정보를 제공합니다.
 
-If you want your descriptions to support formatting like links, you can opt in by using [Markdown](/docs/languages/markdown.md) in your formatting with the `markdownDescription` property.
+설명이 링크와 같은 포맷팅을 지원하도록 하려면, `markdownDescription` 속성을 사용하여 포맷팅에 [Markdown](/docs/languages/markdown.md)을 사용할 수 있습니다.
 
 ```json
 {
@@ -203,17 +207,17 @@ If you want your descriptions to support formatting like links, you can opt in b
    "properties": {
        "name" : {
            "type": "string",
-           "description": "The name of the entry",
-           "markdownDescription": "The name of the entry. [See the documentation](https://example.com)"
+           "description": "항목의 이름",
+           "markdownDescription": "항목의 이름입니다. [문서 보기](https://example.com)"
        }
    }
 }
 ```
 
-Note that `markdownDescription` is not part of the JSON schema specification but a VS Code-specific schema extension.
+`markdownDescription`은 JSON 스키마 사양의 일부가 아니라 VS Code 전용 스키마 확장입니다.
 
-### Offline mode
+### 오프라인 모드 {#offline-mode}
 
-`setting(json.schemaDownload.enable)` controls whether the JSON extension fetches JSON schemas from `http` and `https`.
+`setting(json.schemaDownload.enable)`는 JSON 확장이 `http` 및 `https`에서 JSON 스키마를 가져오는지 여부를 제어합니다.
 
-A warning triangle will show in the status bar when the current editor would like to use schemas that cannot be downloaded.
+현재 편집기가 다운로드할 수 없는 스키마를 사용하려고 할 때 상태 표시줄에 경고 삼각형이 표시됩니다.

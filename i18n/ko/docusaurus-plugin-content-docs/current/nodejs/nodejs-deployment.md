@@ -1,25 +1,25 @@
 ---
 Order: 4
 Area: nodejs
-TOCTitle: Deploy Node.js Apps
-PageTitle: Node.js Deployment with Visual Studio Code
+TOCTitle: Node.js 앱 배포
+PageTitle: Visual Studio Code를 통한 Node.js 배포
 ContentId: 856a4a73-a4b4-4418-b88d-1f65d0ba7824
-MetaDescription: Node.js Deployment to Azure with Visual Studio Code
+MetaDescription: Visual Studio Code를 통한 Azure에 Node.js 배포
 DateApproved: 03/05/2025
 ---
 
-# Deploy Node.js Web Apps
+# Node.js 웹 앱 배포 {#deploy-nodejs-web-apps}
 
-The [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extensions for Visual Studio Code make it easy to deploy Node.js applications.
+Visual Studio Code용 [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) 확장 프로그램을 사용하면 Node.js 애플리케이션을 쉽게 배포할 수 있습니다.
 
-![Azure Tools extension](images/azure/azure-tools.png)
+![Azure Tools 확장 프로그램](images/azure/azure-tools.png)
 
-## Deployment tutorials
+## 배포 튜토리얼 {#deployment-tutorials}
 
-These tutorials from Microsoft Learn describe different ways of creating and deploying Node.js apps to Azure via Visual Studio Code:
+Microsoft Learn의 이 튜토리얼에서는 Visual Studio Code를 통해 Azure에 Node.js 앱을 생성하고 배포하는 다양한 방법을 설명합니다:
 
-| Tutorial                                                                                                                                          | Description                                                                 | Related Tools                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Deploy Azure Functions](https://learn.microsoft.com/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api)                      | Build and manage Azure Functions serverless apps <br /> directly in VS Code | [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) <br /> [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) <br /> [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)                                                                     |
-| [Deploy using Azure Portal <br /> and Azure App Service](https://learn.microsoft.com/azure/app-service/tutorial-nodejs-mongodb-app)               | Manage Azure resources directly in VS Code <br /> with Azure App Service    | [MongoDB](https://www.mongodb.com/docs/manual/installation/) <br /> [Azure Portal](https://portal.azure.com/)                                                                                                                                                                                                                                                                                                     |
-| [Deploy using Docker](https://learn.microsoft.com/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01) | Deploy your website using a Docker container                                | [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) <br /> [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) <br /> [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) <br /> [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) |
+| 튜토리얼                                                                                                                                          | 설명                                                                     | 관련 도구                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Azure Functions 배포](https://learn.microsoft.com/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api)                      | VS Code에서 직접 Azure Functions 서버리스 앱을 구축하고 관리합니다. <br /> | [Azure 리소스](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) <br /> [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) <br /> [Azure 데이터베이스](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)                                                                     |
+| [Azure Portal 및 Azure App Service를 사용한 배포](https://learn.microsoft.com/azure/app-service/tutorial-nodejs-mongodb-app)               | Azure App Service를 통해 VS Code에서 직접 Azure 리소스를 관리합니다. <br /> | [MongoDB](https://www.mongodb.com/docs/manual/installation/) <br /> [Azure Portal](https://portal.azure.com/)                                                                                                                                                                                                                                                                                                     |
+| [Docker를 사용한 배포](https://learn.microsoft.com/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01) | Docker 컨테이너를 사용하여 웹사이트를 배포합니다.                       | [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) <br /> [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) <br /> [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) <br /> [Azure 리소스](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) |

@@ -1,51 +1,52 @@
 ---
 Order: 17
 Area: editor
-TOCTitle: Snippets
+TOCTitle: 코드 조각
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
-PageTitle: Snippets in Visual Studio Code
+PageTitle: Visual Studio Code의 코드 조각
 DateApproved: 03/05/2025
-MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
+MetaDescription: Visual Studio Code에 코드 조각을 추가하는 것은 개인적으로 사용하거나 공개 확장 마켓플레이스에서 다른 사람과 공유하는 것이 쉽습니다. TextMate .tmSnippets 파일이 지원됩니다.
+sidebar_label: 코드 조각
 ---
 
-# Snippets in Visual Studio Code
+# Visual Studio Code의 코드 조각 {#snippets-in-visual-studio-code}
 
-Code snippets are templates that make it easier to enter repeating code patterns, such as loops or conditional-statements.
+코드 조각은 반복되는 코드 패턴(예: 루프 또는 조건문)을 입력하는 것을 더 쉽게 만들어주는 템플릿입니다.
 
-In Visual Studio Code, snippets appear in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with other suggestions, as well as in a dedicated snippet picker (**Insert Snippet** in the Command Palette). There is also support for tab-completion: Enable it with `"editor.tabCompletion": "on"`, type a **snippet prefix** (trigger text), and press `kb(insertSnippet)` to insert a snippet.
+Visual Studio Code에서는 코드 조각이 IntelliSense(`kb(editor.action.triggerSuggest)`)에 다른 제안과 혼합되어 나타나며, 전용 코드 조각 선택기(**Insert Snippet** in the Command Palette)에서도 볼 수 있습니다. 탭 완전성도 지원됩니다: `"editor.tabCompletion": "on"`으로 활성화하고, **코드 조각 접두사**(트리거 텍스트)를 입력한 후 `kb(insertSnippet)`를 눌러 코드 조각을 삽입할 수 있습니다.
 
-The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exceptions of 'interpolated shell code' and the use of `\u`; both are not supported.
+코드 조각 구문은 [TextMate 코드 조각 구문](https://manual.macromates.com/en/snippets)을 따르며, '보간된 셸 코드'와 `\u`의 사용은 지원되지 않습니다.
 
 ![ajax snippet](images/userdefinedsnippets/ajax-snippet.gif)
 
-## Built-in snippets
+## 내장 코드 조각 {#built-in-snippets}
 
-VS Code has built-in snippets for a number of languages such as: JavaScript, TypeScript, Markdown, and PHP.
+VS Code는 JavaScript, TypeScript, Markdown 및 PHP와 같은 여러 언어에 대한 내장 코드 조각을 제공합니다.
 
 ![builtin javascript snippet](images/userdefinedsnippets/builtin-javascript-snippets.png)
 
-You can see the available snippets for a language by running the **Insert Snippet** command in the Command Palette to get a list of the snippets for the language of the current file. However, keep in mind that this list also includes user snippets that you have defined, and any snippets provided by extensions you have installed.
+현재 파일의 언어에 대한 코드 조각 목록을 얻으려면 Command Palette에서 **Insert Snippet** 명령을 실행하여 사용할 수 있는 코드 조각을 확인할 수 있습니다. 그러나 이 목록에는 사용자가 정의한 코드 조각과 설치한 확장에서 제공하는 코드 조각도 포함된다는 점을 유의해야 합니다.
 
-## Install snippets from the Marketplace
+## 마켓플레이스에서 코드 조각 설치하기 {#install-snippets-from-the-marketplace}
 
-Many [extensions](/docs/editor/extension-marketplace.md) on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) include snippets. You can search for extensions that contains snippets in the Extensions view (`kb(workbench.view.extensions)`) using the `@category:"snippets"` filter.
+많은 [확장 프로그램](/docs/editor/extension-marketplace.md)이 [VS Code 마켓플레이스](https://marketplace.visualstudio.com/vscode)에서 코드 조각을 포함하고 있습니다. 확장 보기(`kb(workbench.view.extensions)`)에서 `@category:"snippets"` 필터를 사용하여 코드 조각이 포함된 확장을 검색할 수 있습니다.
 
 ![Searching for extensions with snippets](images/userdefinedsnippets/category-snippets.png)
 
-If you find an extension you want to use, install it, then restart VS Code and the new snippets will be available.
+사용하고 싶은 확장을 찾으면 설치한 후 VS Code를 재시작하면 새로운 코드 조각을 사용할 수 있습니다.
 
-## Create your own snippets
+## 나만의 코드 조각 만들기 {#create-your-own-snippets}
 
-You can easily define your own snippets without any extension. To create or edit your own snippets, select **Configure Snippets** under **File** > **Preferences**, and then select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear, or the **New Global Snippets file** option if they should appear for all languages. VS Code manages the creation and refreshing of the underlying snippets file(s) for you.
+확장 프로그램 없이도 쉽게 나만의 코드 조각을 정의할 수 있습니다. 나만의 코드 조각을 만들거나 편집하려면 **File** > **Preferences**에서 **Configure Snippets**를 선택한 다음, 코드 조각이 나타날 언어([언어 식별자](/docs/languages/identifiers.md))를 선택하거나 모든 언어에 대해 나타나게 하려면 **New Global Snippets file** 옵션을 선택합니다. VS Code는 기본 코드 조각 파일의 생성 및 새로 고침을 관리합니다.
 
 ![snippet dropdown](images/userdefinedsnippets/snippet-dropdown.png)
 
-Snippets files are written in JSON, support C-style comments, and can define an unlimited number of snippets. Snippets support most TextMate syntax for dynamic behavior, intelligently format whitespace based on the insertion context, and allow easy multiline editing.
+코드 조각 파일은 JSON 형식으로 작성되며, C 스타일 주석을 지원하고 무제한의 코드 조각을 정의할 수 있습니다. 코드 조각은 동적 동작을 위한 대부분의 TextMate 구문을 지원하며, 삽입 컨텍스트에 따라 공백을 지능적으로 포맷하고 쉽게 여러 줄 편집을 허용합니다.
 
-Below is an example of a `for` loop snippet for JavaScript:
+아래는 JavaScript의 `for` 루프 코드 조각 예시입니다:
 
 ```json
-// in file 'Code/User/snippets/javascript.json'
+// 'Code/User/snippets/javascript.json' 파일 내
 {
     "For Loop": {
         "prefix": [
@@ -59,122 +60,122 @@ Below is an example of a `for` loop snippet for JavaScript:
           "\t$0",
           "}"
         ],
-        "description": "A for loop."
+        "description": "for 루프입니다."
     }
 }
 ```
 
-In the example above:
+위 예시에서:
 
-- "For Loop" is the snippet name. It is displayed via IntelliSense if no `description` is provided.
-- `prefix` defines one or more trigger words that display the snippet in IntelliSense. Substring matching is performed on prefixes, so in this case, "fc" could match "for-const".
-- `body` is one or more lines of content, which will be joined as multiple lines upon insertion. Newlines and embedded tabs will be formatted according to the context in which the snippet is inserted.
-- `description` is an optional description of the snippet displayed by IntelliSense.
+- "For Loop"는 코드 조각의 이름입니다. `description`이 제공되지 않으면 IntelliSense를 통해 표시됩니다.
+- `prefix`는 IntelliSense에서 코드 조각을 표시하는 하나 이상의 트리거 단어를 정의합니다. 접두사에 대한 부분 문자열 일치가 수행되므로 이 경우 "fc"는 "for-const"와 일치할 수 있습니다.
+- `body`는 삽입 시 여러 줄로 결합될 하나 이상의 내용 줄입니다. 줄 바꿈 및 내장 탭은 코드 조각이 삽입되는 컨텍스트에 따라 포맷됩니다.
+- `description`은 IntelliSense에 표시되는 코드 조각의 선택적 설명입니다.
 
-Additionally, the `body` of the example above has three placeholders (listed in order of traversal): `$\{1:array\}
+또한, 위 예시의 `body`에는 세 개의 자리 표시자(탐색 순서에 따라 나열됨)가 있습니다: `$\{1:array\}
 `, `$\{2:element\}
-`, and `$0`. You can quickly jump to the next placeholder with `kb(jumpToNextSnippetPlaceholder)`, at which point you may edit the placeholder or jump to the next one. The string after the colon `:` (if any) is the default text, for example `element` in `$\{2:element\}
-`. Placeholder traversal order is ascending by number, starting from one; zero is an optional special case that always comes last, and exits snippet mode with the cursor at the specified position.
+`, 및 `$0`. `kb(jumpToNextSnippetPlaceholder)`를 사용하여 다음 자리 표시자로 빠르게 이동할 수 있으며, 이 시점에서 자리 표시자를 편집하거나 다음 자리 표시자로 이동할 수 있습니다. 콜론 `:` 뒤의 문자열(있는 경우)은 기본 텍스트로, 예를 들어 `$\{2:element\}
+`의 경우 `element`입니다. 자리 표시자 탐색 순서는 1부터 시작하여 숫자가 오름차순으로 진행되며, 0은 항상 마지막에 오는 선택적 특수 케이스로, 지정된 위치에 커서를 두고 코드 조각 모드를 종료합니다.
 
-### File template snippets
+### 파일 템플릿 코드 조각 {#file-template-snippets}
 
-You can add the `isFileTemplate` attribute to your snippet's definition if the snippet is intended to populate or replace a file's contents. File template snippets are displayed in a dropdown when you run the **Snippets: Populate File from Snippet** command in a new or existing file.
+코드 조각이 파일의 내용을 채우거나 대체하는 용도라면 코드 조각 정의에 `isFileTemplate` 속성을 추가할 수 있습니다. 파일 템플릿 코드 조각은 새 파일이나 기존 파일에서 **Snippets: Populate File from Snippet** 명령을 실행할 때 드롭다운에 표시됩니다.
 
-## Snippet scope
+## 코드 조각 범위 {#snippet-scope}
 
-Snippets are scoped so that only relevant snippets are suggested. Snippets can be scoped by either:
+코드 조각은 관련 코드 조각만 제안되도록 범위가 지정됩니다. 코드 조각은 다음 중 하나로 범위가 지정될 수 있습니다:
 
-1. the **language(s)** to which snippets are scoped (possibly all)
-2. the **project(s)** to which snippets are scoped (probably all)
+1. 코드 조각이 범위가 지정된 **언어**(모든 언어일 수 있음)
+2. 코드 조각이 범위가 지정된 **프로젝트**(아마도 모든 프로젝트)
 
-### Language snippet scope
+### 언어 코드 조각 범위 {#language-snippet-scope}
 
-Every snippet is scoped to one, several, or all ("global") languages based on whether it is defined in:
+모든 코드 조각은 다음에 따라 하나, 여러 개 또는 모든("전역") 언어에 범위가 지정됩니다:
 
-1. a **language** snippet file
-2. a **global** snippet file
+1. **언어** 코드 조각 파일에 정의된 경우
+2. **전역** 코드 조각 파일에 정의된 경우
 
-Single-language user-defined snippets are defined in a specific language's snippet file (for example `javascript.json`), which you can access by language identifier through **Snippets: Configure Snippets**. A snippet is only accessible when editing the language for which it is defined.
+단일 언어 사용자 정의 코드 조각은 특정 언어의 코드 조각 파일(예: `javascript.json`)에 정의되며, **Snippets: Configure Snippets**를 통해 언어 식별자로 접근할 수 있습니다. 코드 조각은 정의된 언어를 편집할 때만 접근할 수 있습니다.
 
-Multi-language and global user-defined snippets are all defined in "global" snippet files (JSON with the file suffix `.code-snippets`), which is also accessible through **Snippets: Configure Snippets**. In a global snippets file, a snippet definition may have an additional `scope` property that takes one or more [language identifiers](/docs/languages/identifiers.md), which makes the snippet available only for those specified languages. If no `scope` property is given, then the global snippet is available in **all** languages.
+다중 언어 및 전역 사용자 정의 코드 조각은 모두 "전역" 코드 조각 파일(파일 접미사가 `.code-snippets`인 JSON)에 정의되며, **Snippets: Configure Snippets**를 통해 접근할 수 있습니다. 전역 코드 조각 파일에서 코드 조각 정의는 하나 이상의 [언어 식별자](/docs/languages/identifiers.md)를 사용하는 추가 `scope` 속성을 가질 수 있으며, 이는 코드 조각이 지정된 언어에만 사용 가능하게 합니다. `scope` 속성이 주어지지 않으면 전역 코드 조각은 **모든** 언어에서 사용 가능합니다.
 
-Most user-defined snippets are scoped to a single language, and so are defined in a language-specific snippet file.
+대부분의 사용자 정의 코드 조각은 단일 언어에 범위가 지정되며, 따라서 언어별 코드 조각 파일에 정의됩니다.
 
-### Project snippet scope
+### 프로젝트 코드 조각 범위 {#project-snippet-scope}
 
-You can also have a global snippets file (JSON with file suffix `.code-snippets`) scoped to your project. Project-folder snippets are created with the **New Snippets file for '\<folder-name\>'...** option in the **Snippets: Configure Snippets** dropdown menu and are located at the root of the project in a `.vscode` folder. Project snippet files are useful for sharing snippets with all users working in that project. Project-folder snippets are similar to global snippets and can be scoped to specific languages through the `scope` property.
+프로젝트에 범위가 지정된 전역 코드 조각 파일(JSON 형식으로 파일 접미사가 `.code-snippets`)도 가질 수 있습니다. 프로젝트 폴더 코드 조각은 **Snippets: Configure Snippets** 드롭다운 메뉴에서 **New Snippets file for '\<folder-name\>'...** 옵션을 사용하여 생성되며, 프로젝트의 루트에 `.vscode` 폴더에 위치합니다. 프로젝트 코드 조각 파일은 해당 프로젝트에서 작업하는 모든 사용자와 코드 조각을 공유하는 데 유용합니다. 프로젝트 폴더 코드 조각은 전역 코드 조각과 유사하며 `scope` 속성을 통해 특정 언어에 범위가 지정될 수 있습니다.
 
-## Snippet syntax
+## 코드 조각 구문 {#snippet-syntax}
 
-The `body` of a snippet can use special constructs to control cursors and the text being inserted. The following are supported features and their syntaxes:
+코드 조각의 `body`는 커서와 삽입되는 텍스트를 제어하기 위해 특별한 구조를 사용할 수 있습니다. 다음은 지원되는 기능과 그 구문입니다:
 
-### Tabstops
+### 탭 정지 {#tabstops}
 
-With tabstops, you can make the editor cursor move inside a snippet. Use `$1`, `$2` to specify cursor locations. The number is the order in which tabstops will be visited, whereas `$0` denotes the final cursor position. Multiple occurrences of the same tabstop are linked and updated in sync.
+탭 정지를 사용하면 코드 조각 내에서 편집기 커서를 이동할 수 있습니다. `$1`, `$2`를 사용하여 커서 위치를 지정합니다. 숫자는 탭 정지가 방문될 순서를 나타내며, `$0`은 최종 커서 위치를 나타냅니다. 동일한 탭 정자의 여러 발생은 연결되어 동기화됩니다.
 
-### Placeholders
+### 자리 표시자 {#placeholders}
 
-Placeholders are tabstops with values, like `$\{1:foo\}
-`. The placeholder text will be inserted and selected such that it can be easily changed. Placeholders can be nested, like `$\{1:another ${2:placeholder\}
-}`.
+자리 표시자는 값이 있는 탭 정지로, 예를 들어 `$\{1:foo\}
+`와 같습니다. 자리 표시자 텍스트는 삽입되고 선택되어 쉽게 변경할 수 있도록 합니다. 자리 표시자는 중첩될 수 있으며, 예를 들어 `$\{1:another ${2:placeholder\}
+}`와 같습니다.
 
-### Choice
+### 선택 {#choice}
 
-Placeholders can have choices as values. The syntax is a comma-separated enumeration of values, enclosed with the pipe-character, for example `$\{1|one,two,three|\}
-`. When the snippet is inserted and the placeholder selected, choices will prompt the user to pick one of the values.
+자리 표시자는 값을 선택할 수 있습니다. 구문은 파이프 문자로 둘러싸인 값의 쉼표로 구분된 열거입니다. 예를 들어 `$\{1|one,two,three|\}
+`. 코드 조각이 삽입되고 자리 표시자가 선택되면, 선택 사항이 사용자에게 값 중 하나를 선택하라는 메시지를 표시합니다.
 
-### Variables
+### 변수 {#variables}
 
-With `$name` or `$\{name:default\}
-`, you can insert the value of a variable. When a variable isn't set, its **default** or the empty string is inserted. When a variable is unknown (that is, its name isn't defined) the name of the variable is inserted and it is transformed into a placeholder.
+`$name` 또는 `$\{name:default\}
+`를 사용하여 변수의 값을 삽입할 수 있습니다. 변수가 설정되지 않은 경우 기본값 또는 빈 문자열이 삽입됩니다. 변수가 알려지지 않은 경우(즉, 이름이 정의되지 않은 경우) 변수의 이름이 삽입되고 자리 표시자로 변환됩니다.
 
-The following variables can be used:
+다음 변수를 사용할 수 있습니다:
 
-- `TM_SELECTED_TEXT` The currently selected text or the empty string
-- `TM_CURRENT_LINE` The contents of the current line
-- `TM_CURRENT_WORD` The contents of the word under cursor or the empty string
-- `TM_LINE_INDEX` The zero-index based line number
-- `TM_LINE_NUMBER` The one-index based line number
-- `TM_FILENAME` The filename of the current document
-- `TM_FILENAME_BASE` The filename of the current document without its extensions
-- `TM_DIRECTORY` The directory of the current document
-- `TM_FILEPATH` The full file path of the current document
-- `RELATIVE_FILEPATH` The relative (to the opened workspace or folder) file path of the current document
-- `CLIPBOARD` The contents of your clipboard
-- `WORKSPACE_NAME` The name of the opened workspace or folder
-- `WORKSPACE_FOLDER` The path of the opened workspace or folder
-- `CURSOR_INDEX` The zero-index based cursor number
-- `CURSOR_NUMBER` The one-index based cursor number
+- `TM_SELECTED_TEXT` 현재 선택된 텍스트 또는 빈 문자열
+- `TM_CURRENT_LINE` 현재 줄의 내용
+- `TM_CURRENT_WORD` 커서 아래의 단어 내용 또는 빈 문자열
+- `TM_LINE_INDEX` 0 기반 줄 번호
+- `TM_LINE_NUMBER` 1 기반 줄 번호
+- `TM_FILENAME` 현재 문서의 파일 이름
+- `TM_FILENAME_BASE` 현재 문서의 파일 이름(확장자 제외)
+- `TM_DIRECTORY` 현재 문서의 디렉토리
+- `TM_FILEPATH` 현재 문서의 전체 파일 경로
+- `RELATIVE_FILEPATH` 현재 문서의 상대 경로(열린 작업 공간 또는 폴더 기준)
+- `CLIPBOARD` 클립보드의 내용
+- `WORKSPACE_NAME` 열린 작업 공간 또는 폴더의 이름
+- `WORKSPACE_FOLDER` 열린 작업 공간 또는 폴더의 경로
+- `CURSOR_INDEX` 0 기반 커서 번호
+- `CURSOR_NUMBER` 1 기반 커서 번호
 
-For inserting the current date and time:
+현재 날짜와 시간을 삽입하려면:
 
-- `CURRENT_YEAR` The current year
-- `CURRENT_YEAR_SHORT` The current year's last two digits
-- `CURRENT_MONTH` The month as two digits (example '02')
-- `CURRENT_MONTH_NAME` The full name of the month (example 'July')
-- `CURRENT_MONTH_NAME_SHORT` The short name of the month (example 'Jul')
-- `CURRENT_DATE` The day of the month as two digits (example '08')
-- `CURRENT_DAY_NAME` The name of day (example 'Monday')
-- `CURRENT_DAY_NAME_SHORT` The short name of the day (example 'Mon')
-- `CURRENT_HOUR` The current hour in 24-hour clock format
-- `CURRENT_MINUTE` The current minute as two digits
-- `CURRENT_SECOND` The current second as two digits
-- `CURRENT_SECONDS_UNIX` The number of seconds since the Unix epoch
-- `CURRENT_TIMEZONE_OFFSET` The current UTC time zone offset as `+HH:MM` or `-HH:MM` (example `-07:00`).
+- `CURRENT_YEAR` 현재 연도
+- `CURRENT_YEAR_SHORT` 현재 연도의 마지막 두 자리
+- `CURRENT_MONTH` 두 자리로 표시된 월(예: '02')
+- `CURRENT_MONTH_NAME` 월의 전체 이름(예: 'July')
+- `CURRENT_MONTH_NAME_SHORT` 월의 짧은 이름(예: 'Jul')
+- `CURRENT_DATE` 두 자리로 표시된 일(예: '08')
+- `CURRENT_DAY_NAME` 요일의 이름(예: 'Monday')
+- `CURRENT_DAY_NAME_SHORT` 요일의 짧은 이름(예: 'Mon')
+- `CURRENT_HOUR` 24시간 형식의 현재 시각
+- `CURRENT_MINUTE` 두 자리로 표시된 현재 분
+- `CURRENT_SECOND` 두 자리로 표시된 현재 초
+- `CURRENT_SECONDS_UNIX` 유닉스 시대 이후의 초 수
+- `CURRENT_TIMEZONE_OFFSET` 현재 UTC 시간대 오프셋(`+HH:MM` 또는 `-HH:MM`, 예: `-07:00`)
 
-For inserting random values:
+무작위 값을 삽입하려면:
 
-- `RANDOM` 6 random Base-10 digits
-- `RANDOM_HEX` 6 random Base-16 digits
-- `UUID` A Version 4 UUID
+- `RANDOM` 6자리 무작위 10진수
+- `RANDOM_HEX` 6자리 무작위 16진수
+- `UUID` 버전 4 UUID
 
-For inserting line or block comments, honoring the current language:
+현재 언어에 맞춰 줄 또는 블록 주석을 삽입하려면:
 
-- `BLOCK_COMMENT_START` Example output: in PHP `/*` or in HTML `<!--`
-- `BLOCK_COMMENT_END` Example output: in PHP `*/` or in HTML `-->`
-- `LINE_COMMENT` Example output: in PHP `//`
+- `BLOCK_COMMENT_START` 예시 출력: PHP에서 `/*` 또는 HTML에서 `<!--`
+- `BLOCK_COMMENT_END` 예시 출력: PHP에서 `*/` 또는 HTML에서 `-->`
+- `LINE_COMMENT` 예시 출력: PHP에서 `//`
 
-The snippet below inserts `/* Hello World */` in JavaScript files and `<!-- Hello World -->` in HTML files:
+아래의 코드 조각은 JavaScript 파일에 `/* Hello World */`를 삽입하고 HTML 파일에 `<!-- Hello World -->`를 삽입합니다:
 
 ```json
 {
@@ -186,57 +187,52 @@ The snippet below inserts `/* Hello World */` in JavaScript files and `<!-- Hell
 }
 ```
 
-### Variable transforms
+### 변수 변환 {#variable-transforms}
 
-Transformations allow you to modify the value of a variable before it is inserted. The definition of a transformation consists of three parts:
+변환을 사용하면 삽입되기 전에 변수의 값을 수정할 수 있습니다. 변환의 정의는 세 부분으로 구성됩니다:
 
-1. A regular expression that is matched against the value of a variable, or the empty string when the variable cannot be resolved.
-2. A "format string" that allows to reference matching groups from the regular expression. The format string allows for conditional inserts and simple modifications.
-3. Options that are passed to the regular expression.
+1. 변수의 값에 대해 일치하는 정규 표현식 또는 변수를 해결할 수 없는 경우 빈 문자열.
+2. 정규 표현식에서 일치하는 그룹을 참조할 수 있는 "형식 문자열". 형식 문자열은 조건부 삽입 및 간단한 수정을 허용합니다.
+3. 정규 표현식에 전달되는 옵션.
 
-The following example inserts the name of the current file without its ending, so from `foo.txt` it makes `foo`.
+다음 예시는 현재 파일의 이름에서 끝을 제외한 부분을 삽입합니다. 즉, `foo.txt`에서 `foo`로 변환됩니다.
 
 ```
 $\{TM_FILENAME/(.*)\\..+$/$1/\}
 
   |           |         |  |
-  |           |         |  |-> no options
+  |           |         |  |-> 옵션 없음
   |           |         |
-  |           |         |-> references the contents of the first
-  |           |             capture group
+  |           |         |-> 첫 번째 캡처 그룹의 내용을 참조합니다.
   |           |
-  |           |-> regex to capture everything before
-  |               the final `.suffix`
+  |           |-> 최종 `.suffix` 이전의 모든 내용을 캡처하는 정규 표현식입니다.
   |
-  |-> resolves to the filename
+  |-> 파일 이름으로 해결됩니다.
 ```
 
-### Placeholder-Transform
+### 자리 표시자 변환 {#placeholder-transform}
 
-Like a Variable-Transform, a transformation of a placeholder allows changing the inserted text for the placeholder when moving to the next tab stop.
-The inserted text is matched with the regular expression and the match or matches - depending on the options - are replaced with the specified replacement format text.
-Every occurrence of a placeholder can define its own transformation independently using the value of the first placeholder.
-The format for Placeholder-Transforms is the same as for Variable-Transforms.
+변수 변환과 유사하게, 자리 표시자의 변환은 다음 탭 정지로 이동할 때 자리 표시자에 삽입된 텍스트를 변경할 수 있습니다. 삽입된 텍스트는 정규 표현식과 일치하며, 일치하는 항목은 지정된 대체 형식 텍스트로 교체됩니다. 자리 표시자의 모든 발생은 첫 번째 자리 표시자의 값을 사용하여 독립적으로 자신의 변환을 정의할 수 있습니다. 자리 표시자 변환의 형식은 변수 변환과 동일합니다.
 
-### Transform examples
+### 변환 예시 {#transform-examples}
 
-The examples are shown within double quotes, as they would appear inside a snippet body, to illustrate the need to double escape certain characters. Sample transformations and the resulting output for the filename `example-123.456-TEST.js`.
+예시는 코드 조각 본문 내에서 나타나는 방식으로 이중 따옴표로 표시되어 특정 문자를 이중으로 이스케이프해야 함을 설명합니다. 샘플 변환 및 결과 출력은 파일 이름 `example-123.456-TEST.js`에 대한 것입니다.
 
-| Example | Output | Explanation |
+| 예시 | 출력 | 설명 |
 | ------- | ------ | ----------- |
 
 `"$\{TM_FILENAME/[\\.]/_/\}
-"` | `example-123_456-TEST.js` | Replace the first `.` with `_`
+"` | `example-123_456-TEST.js` | 첫 번째 `.`을 `_`로 교체
 `"$\{TM_FILENAME/[\\.-]/_/g\}
-"` | `example_123_456_TEST_js` | Replace each `.` or `-` with `_`
+"` | `example_123_456_TEST_js` | 각 `.` 또는 `-`을 `_`로 교체
 `"$\{TM_FILENAME/(.*)/${1:/upcase\}
-/}"` | `EXAMPLE-123.456-TEST.JS` | Change to all uppercase
+/}"` | `EXAMPLE-123.456-TEST.JS` | 모두 대문자로 변경
 `"$\{TM_FILENAME/[^0-9a-z]//gi\}
-"` | `example123456TESTjs` | Remove non-alphanumeric characters
+"` | `example123456TESTjs` | 비알파벳 숫자 제거
 
-### Grammar
+### 문법 {#grammar}
 
-Below is the EBNF ([extended Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus-Naur_form)) for snippets. With `\` (backslash), you can escape `$`, `}`, and `\`. Within choice elements, the backslash also escapes comma and pipe characters. Only the characters required to be escaped can be escaped, so `$` should not be escaped within these constructs and neither `$` or `}` should be escaped inside choice constructs.
+아래는 코드 조각에 대한 EBNF([확장된 바쿠스-노르 형식](https://en.wikipedia.org/wiki/Extended_Backus-Naur_form))입니다. `\`(백슬래시)를 사용하여 `$`, `}`, 및 `\`를 이스케이프할 수 있습니다. 선택 요소 내에서는 백슬래시가 쉼표 및 파이프 문자를 이스케이프합니다. 이스케이프해야 하는 문자만 이스케이프할 수 있으므로, 이러한 구조 내에서는 `$`를 이스케이프하지 않아야 하며, 선택 구조 내에서는 `$` 또는 `}`를 이스케이프하지 않아야 합니다.
 
 ```
 any         ::= tabstop | placeholder | choice | variable | text
@@ -276,13 +272,13 @@ if          ::= text
 else        ::= text
 ```
 
-## Using TextMate snippets
+## TextMate 코드 조각 사용하기 {#using-textmate-snippets}
 
-You can also use existing TextMate snippets (.tmSnippets) with VS Code. See the [Using TextMate Snippets](/api/language-extensions/snippet-guide.md#using-textmate-snippets) topic in our Extension API section to learn more.
+기존의 TextMate 코드 조각(.tmSnippets)을 VS Code와 함께 사용할 수도 있습니다. [TextMate 코드 조각 사용하기](/api/language-extensions/snippet-guide.md#using-textmate-snippets) 주제를 참조하여 자세히 알아보세요.
 
-## Assign keyboard shortcuts to snippets
+## 코드 조각에 키보드 단축키 할당하기 {#assign-keyboard-shortcuts-to-snippets}
 
-You can create custom [keyboard shortcuts](/docs/editor/keybindings.md) to insert specific snippets. Open `keybindings.json` (**Preferences: Open Keyboard Shortcuts File**), which defines all your keyboard shortcuts, and add a keyboard shortcut passing `"snippet"` as an extra argument:
+특정 코드 조각을 삽입하기 위해 사용자 정의 [키보드 단축키](/docs/editor/keybindings.md)를 만들 수 있습니다. 모든 키보드 단축키를 정의하는 `keybindings.json` 파일(**Preferences: Open Keyboard Shortcuts File**)을 열고, `"snippet"`을 추가 인수로 전달하여 키보드 단축키를 추가합니다:
 
 ```json
 {
@@ -295,9 +291,9 @@ You can create custom [keyboard shortcuts](/docs/editor/keybindings.md) to inser
 }
 ```
 
-The keyboard shortcut will invoke the **Insert Snippet** command but instead of prompting you to select a snippet, it will insert the provided snippet. You define the custom [keybinding](/docs/editor/keybindings.md) as usual with a keyboard shortcut, command ID, and optional [when clause context](/docs/editor/keybindings.md#when-clause-contexts) for when the keyboard shortcut is enabled.
+이 키보드 단축키는 **Insert Snippet** 명령을 호출하지만, 코드 조각을 선택하라는 메시지를 표시하는 대신 제공된 코드 조각을 삽입합니다. 사용자 정의 [키 바인딩](/docs/editor/keybindings.md)은 일반적으로 키보드 단축키, 명령 ID 및 키보드 단축키가 활성화될 때의 선택적 [when 절 컨텍스트](/docs/editor/keybindings.md#when-clause-contexts)로 정의합니다.
 
-Also, instead of using the `snippet` argument value to define your snippet inline, you can reference an existing snippet by using the `langId` and `name` arguments. The `langId` argument selects the language for which the snippet denoted by `name` is inserted, e.g the sample below selects the `myFavSnippet` that's available for `csharp`-files.
+또한, 인라인으로 코드 조각을 정의하는 대신 `langId` 및 `name` 인수를 사용하여 기존 코드 조각을 참조할 수 있습니다. `langId` 인수는 `name`으로 표시된 코드 조각이 삽입될 언어를 선택합니다. 예를 들어 아래 샘플은 `csharp` 파일에 사용할 수 있는 `myFavSnippet`을 선택합니다.
 
 ```json
 {
@@ -311,40 +307,41 @@ Also, instead of using the `snippet` argument value to define your snippet inlin
 }
 ```
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-- [Command Line](/docs/editor/command-line.md) - VS Code has a rich command-line interface to open or diff files and install extensions.
-- [Extension API](/api) - Learn about other ways to extend VS Code.
-- [Snippet Guide](/api/language-extensions/snippet-guide.md) - You can package snippets for use in VS Code.
+- [명령줄](/docs/editor/command-line.md) - VS Code는 파일을 열거나 비교하고 확장을 설치하는 풍부한 명령줄 인터페이스를 제공합니다.
+- [확장 API](/api) - VS Code를 확장하는 다른 방법에 대해 알아보세요.
+- [코드 조각 가이드](/api/language-extensions/snippet-guide.md) - VS Code에서 사용할 코드 조각을 패키징할 수 있습니다.
 
-## Common questions
+## 자주 묻는 질문 {#common-questions}
 
-### What if I want to use existing TextMate snippets from a .tmSnippet file?
+### .tmSnippet 파일의 기존 TextMate 코드 조각을 사용하고 싶다면 어떻게 하나요? {#what-if-i-want-to-use-existing-textmate-snippets-from-a-tmsnippet-file}
 
-You can easily package TextMate snippets files for use in VS Code. See [Using TextMate Snippets](/api/language-extensions/snippet-guide.md#using-textmate-snippets) in our Extension API documentation.
+VS Code에서 사용할 TextMate 코드 조각 파일을 쉽게 패키징할 수 있습니다. [TextMate 코드 조각 사용하기](/api/language-extensions/snippet-guide.md#using-textmate-snippets)에서 자세한 내용을 확인하세요.
 
-### How do I have a snippet place a variable in the pasted script?
+### 코드 조각에 변수를 붙여넣으려면 어떻게 하나요? {#how-do-i-have-a-snippet-place-a-variable-in-the-pasted-script}
 
-To have a variable in the pasted script, you need to escape the '$' of the `$variable` name so that it isn't parsed by the snippet expansion phase.
+붙여넣은 스크립트에 변수를 포함하려면 `$`의 `$variable` 이름을 이스케이프하여 코드 조각 확장 단계에서 구문 분석되지 않도록 해야 합니다.
 
 ```json
 "VariableSnippet":{
     "prefix": "_Var",
     "body": "\\$MyVar = 2",
-    "description": "A basic snippet that places a variable into script with the $ prefix"
+    "description": "변수를 $ 접두사와 함께 스크립트에 배치하는 기본 코드 조각입니다."
   }
 ```
 
-This results in the pasted snippet as:
+이 결과 붙여넣은 코드 조각은 다음과 같습니다:
 
 ```
 $MyVar = 2
 ```
 
-### Can I remove snippets from IntelliSense?
+### IntelliSense에서 코드 조각을 제거할 수 있나요? {#can-i-remove-snippets-from-intellisense}
 
-Yes, you can hide specific snippets from showing in IntelliSense (completion list) by selecting the **Hide from IntelliSense** button to the right of snippet items in the **Insert Snippet** command dropdown.
+네, **Insert Snippet** 명령 드롭다운에서 코드 조각 항목 오른쪽에 있는 **Hide from IntelliSense** 버튼을 선택하여 특정 코드 조각이 IntelliSense(완성 목록)에 표시되지 않도록 숨길 수 있습니다.
 
 ![Hide from IntelliSense button in Insert Snippet dropdown](images/userdefinedsnippets/hide-from-intellisense.png)
 
-You can still select the snippet with the **Insert Snippet** command but the hidden snippet won't be displayed in IntelliSense.
+여전히 **Insert Snippet** 명령으로 코드 조각을 선택할 수 있지만, 숨겨진 코드 조각은 IntelliSense에 표시되지 않습니다.
+---

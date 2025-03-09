@@ -1,5 +1,11 @@
 {
   "files.autoSave": "afterDelay",
   "terminal.integrated.suggest.enabled": true,
-  "mdx.server.enable": false
+  "mdx.server.enable": false,
+  "markdownlint.config": {
+    "MD004": false,
+    "MD028": false,
+    "MD033": false,
+    "MD036": false
+  }
 }

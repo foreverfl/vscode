@@ -1,154 +1,110 @@
----
-Order: 8
-Area: languages
-TOCTitle: PowerShell
-ContentId: 8688bb6d-793e-4a37-aed2-5af4cfe89940
-PageTitle: PowerShell editing with Visual Studio Code
-DateApproved: 02/20/2025
-MetaDescription: Learn about using PowerShell in Visual Studio Code
----
-# PowerShell in Visual Studio Code
+# PowerShell in Visual Studio Code {#powershell-in-visual-studio-code}
 
-[PowerShell][24] is a task-based command-line shell and scripting language built on [.NET][23] that
-provides a powerful toolset for administrators on any platform.
+[PowerShell][24]은 [.NET][23] 위에 구축된 작업 기반의 명령줄 셸 및 스크립팅 언어로, 모든 플랫폼에서 관리자를 위한 강력한 도구 세트를 제공합니다.
 
-The Microsoft [PowerShell][31] extension for Visual Studio Code (VS Code) provides rich language
-support and capabilities such as syntax completions, definition tracking, and linting for
-PowerShell. The extension should work everywhere VS Code is supported using
-[PowerShell 7+ currently supported versions][17].
+Microsoft의 [PowerShell][31] 확장은 Visual Studio Code (VS Code)에서 PowerShell에 대한 풍부한 언어 지원과 구문 완성, 정의 추적, 린팅과 같은 기능을 제공합니다. 이 확장은 [PowerShell 7+ 현재 지원되는 버전][17]을 사용하는 모든 VS Code 지원 환경에서 작동해야 합니다.
 
-Support for Windows PowerShell 5.1 is provided on a best effort basis. [.NET Framework 4.8][18] or
-higher is required.
+Windows PowerShell 5.1에 대한 지원은 최선을 다해 제공됩니다. [.NET Framework 4.8][18] 이상이 필요합니다.
 
-[VS Code Remote Development][13] Environments, including [GitHub Codespaces][19] and
-[VS Code Server][14] are supported.
+[VS Code Remote Development][13] 환경, [GitHub Codespaces][19] 및 [VS Code Server][14]가 지원됩니다.
 
 > [!IMPORTANT]
-> [Visual Studio Code for the Web][12] is only supported for limited functionality such as basic
-> syntax highlighting, as the PowerShell engine can't run in this environment.
+> [Visual Studio Code for the Web][12]은 PowerShell 엔진이 이 환경에서 실행될 수 없기 때문에 기본적인 구문 강조와 같은 제한된 기능만 지원됩니다.
 
-We actively test the following configurations:
+다음 구성에서 적극적으로 테스트합니다:
 
-- **Windows Server 2022** with Windows PowerShell 5.1 and PowerShell 7+
-- **macOS 14.7** with PowerShell 7+
-- **Ubuntu 24.04** with PowerShell 7+
+- **Windows Server 2022**에서 Windows PowerShell 5.1 및 PowerShell 7+
+- **macOS 14.7**에서 PowerShell 7+
+- **Ubuntu 24.04**에서 PowerShell 7+
 
-On Windows, we also test with and without Constrained Language Mode enabled.
+Windows에서는 제한된 언어 모드가 활성화된 경우와 그렇지 않은 경우 모두 테스트합니다.
 
-## Installing the PowerShell extension
+## Installing the PowerShell extension {#installing-the-powershell-extension}
 
-The PowerShell extension can be installed from the Visual Studio Code Marketplace by clicking the
-[Install Button][44]. You can also install the PowerShell extension from within VS Code by opening
-the **Extensions** view with keyboard shortcut `kb(workbench.view.extensions)`, typing _PowerShell_,
-and selecting the PowerShell extension:
+PowerShell 확장은 Visual Studio Code Marketplace에서 [설치 버튼][44]을 클릭하여 설치할 수 있습니다. 또한 VS Code 내에서 **Extensions** 뷰를 열고 키보드 단축키 `kb(workbench.view.extensions)`를 사용하여 _PowerShell_을 입력하고 PowerShell 확장을 선택하여 설치할 수 있습니다:
 
 ![PowerShell extension][40]
 
-## Major features
+## Major features {#major-features}
 
-- [Syntax highlighting][20]
-- Advanced built-in [code snippets][08]
-- [IntelliSense][05] for cmdlets and more
-- [Problems][09] reported by [PowerShell Script Analyzer][11]
-- [Go to Definition][02] of cmdlets, variables, classes and more
-- [Find References][04] of cmdlets, variables, classes and more
-- Document and Workspace [Symbol Navigation][03]
-- Symbol-based [Outline View][10]
-- Run selected PowerShell code in current terminal using `kbstyle(F8)`
-- Launch online help for the symbol under the cursor using `kbstyle(Ctrl + F1)`
-- PowerShell [Debugger][29] integration
-- An Extension Terminal that can interact with the debugger (try `Set-PSBreakpoint`!)
-- PowerShell ISE theme available in the [theme picker][07]
-- Also try ISE mode using `kb(workbench.action.showCommands)` then search for "Enable ISE Mode"
+- [구문 강조][20]
+- 고급 내장 [코드 스니펫][08]
+- cmdlet 및 기타에 대한 [IntelliSense][05]
+- [PowerShell 스크립트 분석기][11]에 의해 보고된 [문제][09]
+- cmdlet, 변수, 클래스 및 기타의 [정의로 이동][02]
+- cmdlet, 변수, 클래스 및 기타의 [참조 찾기][04]
+- 문서 및 작업 공간 [기호 탐색][03]
+- 기호 기반 [개요 보기][10]
+- 현재 터미널에서 선택한 PowerShell 코드를 `kbstyle(F8)`을 사용하여 실행
+- 커서 아래 기호에 대한 온라인 도움말을 `kbstyle(Ctrl + F1)`을 사용하여 시작
+- PowerShell [디버거][29] 통합
+- 디버거와 상호작용할 수 있는 확장 터미널 (시도해 보세요: `Set-PSBreakpoint`!)
+- [테마 선택기][07]에서 사용할 수 있는 PowerShell ISE 테마
+- `kb(workbench.action.showCommands)`를 사용하여 ISE 모드를 시도한 후 "Enable ISE Mode"를 검색
 
-### Debugging
+### Debugging {#debugging}
 
-The PowerShell extension uses the built-in [debugging interface][01] of VS Code to allow for
-debugging of PowerShell scripts and modules. For more information about debugging PowerShell, see
-[Using VS Code][29].
+PowerShell 확장은 VS Code의 내장 [디버깅 인터페이스][01]를 사용하여 PowerShell 스크립트 및 모듈을 디버깅할 수 있도록 합니다. PowerShell 디버깅에 대한 자세한 내용은 [Using VS Code][29]를 참조하세요.
 
-### Multi-version support
+### Multi-version support {#multi-version-support}
 
-You can configure the PowerShell extension to use any supported version of PowerShell installed on
-your machine by following [these instructions][28].
+PowerShell 확장은 [이 지침][28]을 따라 머신에 설치된 지원되는 PowerShell 버전을 사용할 수 있도록 구성할 수 있습니다.
 
-Or run the **PowerShell: Show Session Menu** command from the Command Palette
-(`kb(workbench.action.showCommands)`).
+또는 명령 팔레트에서 **PowerShell: Show Session Menu** 명령을 실행합니다 (`kb(workbench.action.showCommands)`).
 
-### CodeLens support
+### CodeLens support {#codelens-support}
 
-CodeLenses are a VS Code feature to provide actionable, contextual information that's displayed
-within the source code.
+CodeLens는 소스 코드 내에서 표시되는 실행 가능한 맥락 정보를 제공하는 VS Code 기능입니다.
 
-CodeLens features include:
+CodeLens 기능에는 다음이 포함됩니다:
 
-- Pester **Run tests** and **Debug tests**.
+- Pester **테스트 실행** 및 **테스트 디버그**.
 
   ![Pester CodeLens Integration][39]
 
-- Pester symbol support
+- Pester 기호 지원
 
   ![CodeLens Pester Symbol Support][38]
 
-- Function, variable, class, and other symbol references
+- 함수, 변수, 클래스 및 기타 기호 참조
 
-  CodeLens reference support shows the number of times a symbol is referenced within your
-  code and allows you to jump to specific references.
+  CodeLens 참조 지원은 코드 내에서 기호가 참조된 횟수를 보여주고 특정 참조로 점프할 수 있게 해줍니다.
 
   ![CodeLens Function Reference Support][37]
 
-### PSScriptAnalyzer integration
+### PSScriptAnalyzer integration {#psscriptanalyzer-integration}
 
-[PSScriptAnalyzer][30] is a PowerShell module that provides a static source code checker for modules
-and scripts. **PSScriptAnalyzer** has rules that verify the quality of PowerShell code. These rules
-are based on PowerShell best practices identified by the PowerShell Team and the community.
-**PSScriptAnalyzer** generates diagnostic records (errors and warnings) to inform users about
-potential code defects and suggests possible solutions for improvements.
+[PSScriptAnalyzer][30]는 모듈 및 스크립트에 대한 정적 소스 코드 검사기를 제공하는 PowerShell 모듈입니다. **PSScriptAnalyzer**는 PowerShell 코드의 품질을 검증하는 규칙을 가지고 있습니다. 이러한 규칙은 PowerShell 팀과 커뮤니티에서 식별한 PowerShell 모범 사례를 기반으로 합니다. **PSScriptAnalyzer**는 잠재적인 코드 결함에 대해 사용자에게 알리고 개선을 위한 가능한 솔루션을 제안하는 진단 기록(오류 및 경고)을 생성합니다.
 
-The PowerShell extension includes **PSScriptAnalyzer** by default, and automatically performs
-analysis on PowerShell script files you edit in VS Code.
+PowerShell 확장은 기본적으로 **PSScriptAnalyzer**를 포함하고 있으며, VS Code에서 편집하는 PowerShell 스크립트 파일에 대해 자동으로 분석을 수행합니다.
 
-**PSScriptAnalyzer** comes with a collection of built-in rules that check various aspects of
-PowerShell source code such as presence of uninitialized variables, usage of **PSCredential** type,
-usage of `Invoke-Expression`, and others. The module also allows you to include or exclude specific
-rules.
+**PSScriptAnalyzer**는 초기화되지 않은 변수의 존재, **PSCredential** 유형의 사용, `Invoke-Expression`의 사용 등 PowerShell 소스 코드의 다양한 측면을 검사하는 내장 규칙 모음을 제공합니다. 이 모듈은 특정 규칙을 포함하거나 제외할 수 있도록 합니다.
 
-To disable **PSScriptAnalyzer**, open your settings (`kb(workbench.action.openSettings)`), browse
-**Extensions**, select the **PowerShell** extension, and deselect the checkbox for **Script
-Analysis: Enable** (`powershell.scriptAnalysis.enable`).
+**PSScriptAnalyzer**를 비활성화하려면 설정을 열고 (`kb(workbench.action.openSettings)`), **Extensions**를 찾아 **PowerShell** 확장을 선택한 후 **Script Analysis: Enable** (`powershell.scriptAnalysis.enable`)의 체크박스를 선택 해제합니다.
 
 ![PSScriptAnalyzer Settings][42]
 
-**PSScriptAnalyzer** also provides code formatting. You can invoke automatic document formatting
-with the **Format Document** command or the (`kb(editor.action.formatDocument)`) keyboard shortcut.
+**PSScriptAnalyzer**는 코드 형식 지정도 제공합니다. **문서 형식 지정** 명령이나 (`kb(editor.action.formatDocument)`) 키보드 단축키를 사용하여 자동 문서 형식 지정을 호출할 수 있습니다.
 
-### Pester integration
+### Pester integration {#pester-integration}
 
-[Pester][33] is a framework for running unit tests to execute and Windows PowerShell 5.1 comes with
-**Pester** 3.40 preinstalled. To update **Pester** or to install the latest version on other
-platforms, follow the [Pester installation instructions][34].
+[Pester][33]는 단위 테스트를 실행하기 위한 프레임워크이며 Windows PowerShell 5.1에는 **Pester** 3.40이 미리 설치되어 있습니다. **Pester**를 업데이트하거나 다른 플랫폼에 최신 버전을 설치하려면 [Pester 설치 지침][34]을 따르세요.
 
-## PowerShell extension settings
+## PowerShell extension settings {#powershell-extension-settings}
 
-You can customize VS Code [settings][06] from the **File** > **Preferences** > **Settings** menu item.
+VS Code [설정][06]은 **파일** > **환경 설정** > **설정** 메뉴 항목에서 사용자 지정할 수 있습니다.
 
-You can also select the gear icon located in the lower left corner of the Activity Bar.
+활동 표시줄의 왼쪽 하단에 있는 기어 아이콘을 선택할 수도 있습니다.
 
 ![codeGear][36]
 
-You can also use the keyboard shortcut `kb(workbench.action.openSettings)` to open your settings.
-You can still open the `settings.json` file using **Preferences: Open User Settings (JSON)** command from
-the Command Palette (`kb(workbench.action.showCommands)`) or by changing the default settings editor
-with the `"workbench.settings.editor"` setting.
+키보드 단축키 `kb(workbench.action.openSettings)`를 사용하여 설정을 열 수도 있습니다. 명령 팔레트에서 **Preferences: Open User Settings (JSON)** 명령을 사용하여 `settings.json` 파일을 열거나 `"workbench.settings.editor"` 설정으로 기본 설정 편집기를 변경하여 열 수 있습니다.
 
-Go to [User and Workspace settings][06] for more information on configuring VS Code settings.
+VS Code 설정 구성에 대한 자세한 내용은 [사용자 및 작업 공간 설정][06]을 참조하세요.
 
-### Types.ps1xml and Format.ps1xml files
+### Types.ps1xml and Format.ps1xml files {#typesps1xml-and-formatps1xml-files}
 
-PowerShell `.ps1xml` files are used to extend the type system and define output formatting. For more
-information on these files, see the official PowerShell documentation on [Types.ps1xml][26] and
-[Format.ps1xml][25]. You can get IntelliSense features when authoring `.ps1xml` files by installing
-the [XML extension by Red Hat][32]. After installing, add this configuration to your user settings:
+PowerShell `.ps1xml` 파일은 유형 시스템을 확장하고 출력 형식을 정의하는 데 사용됩니다. 이러한 파일에 대한 자세한 내용은 [Types.ps1xml][26] 및 [Format.ps1xml][25]에 대한 공식 PowerShell 문서를 참조하세요. `.ps1xml` 파일을 작성할 때 IntelliSense 기능을 얻으려면 [Red Hat의 XML 확장][32]을 설치하세요. 설치 후 사용자 설정에 다음 구성을 추가합니다:
 
 ```json
 "xml.fileAssociations": [
@@ -163,104 +119,49 @@ the [XML extension by Red Hat][32]. After installing, add this configuration to 
 ]
 ```
 
-This configuration tells the XML extension to use the official XML schemas from the PowerShell
-repository for all `.ps1xml` files. Configuring these schemas enables the following features in
-`ps1xml` files:
+이 구성은 XML 확장에 PowerShell 리포지토리의 공식 XML 스키마를 모든 `.ps1xml` 파일에 사용하도록 지시합니다. 이러한 스키마를 구성하면 `ps1xml` 파일에서 다음 기능을 사용할 수 있습니다:
 
-- Syntax error reporting
-- Schema validation
-- Tag and attribute completion
-- Autoclose tags
-- Symbol highlighting
-- Document folding
-- Document symbols and outline
-- Renaming support
-- Document formatting
+- 구문 오류 보고
+- 스키마 검증
+- 태그 및 속성 완성
+- 태그 자동 닫기
+- 기호 강조
+- 문서 접기
+- 문서 기호 및 개요
+- 이름 바꾸기 지원
+- 문서 형식 지정
 
-## Example scripts
+## Example scripts {#example-scripts}
 
-Example scripts are included with the extension and can be found at the following path.
+예제 스크립트는 확장과 함께 포함되어 있으며 다음 경로에서 찾을 수 있습니다.
 
 `~/.vscode/extensions/ms-vscode.PowerShell-<version>/examples`
 
-To open or view the examples in VS Code, run the following from your PowerShell command prompt:
+VS Code에서 예제를 열거나 보려면 PowerShell 명령 프롬프트에서 다음을 실행하세요:
 
 ```powershell
 code (Get-ChildItem ~\.vscode\extensions\ms-vscode.PowerShell-*\examples)[-1]
 ```
 
-You can also open the examples from the Command Palette (`kb(workbench.action.showCommands)`) with
-the **PowerShell: Open Examples Folder** command.
+명령 팔레트 (`kb(workbench.action.showCommands)`)에서 **PowerShell: Open Examples Folder** 명령을 사용하여 예제를 열 수도 있습니다.
 
 ![Open PowerShell Examples][43]
 
-## Additional resources
+## Additional resources {#additional-resources}
 
-There are more detailed articles in the PowerShell documentation. Start with [Using VS Code][27].
+PowerShell 문서에는 더 자세한 기사가 있습니다. [Using VS Code][27]에서 시작하세요.
 
-Check out the [troubleshooting guide][21] for answers to common questions.
+자주 묻는 질문에 대한 답변은 [문제 해결 가이드][21]를 확인하세요.
 
-For more information on debugging, check out the _Hey, Scripting Guy!_ two-part blog post series
-written by [@keithHill][35] on debugging with the PowerShell extension:
+디버깅에 대한 자세한 내용은 PowerShell 확장을 사용한 디버깅에 대한 [@keithHill][35]이 작성한 _Hey, Scripting Guy!_ 두 부분 블로그 시리즈를 확인하세요:
 
-- [Debugging PowerShell script in Visual Studio Code - Part 1][15]
-- [Debugging PowerShell script in Visual Studio Code - Part 2][16]
+- [Visual Studio Code에서 PowerShell 스크립트 디버깅 - 1부][15]
+- [Visual Studio Code에서 PowerShell 스크립트 디버깅 - 2부][16]
 
-## Testing new features and providing feedback
+## Testing new features and providing feedback {#testing-new-features-and-providing-feedback}
 
-We would encourage you to try the _pre-release_ version whenever possible. When a
-_Pre-Release_ is available, it can be installed from the marketplace using the **Switch to
-Pre-Release Version** button. You can switch back to the stable version of the extension
-by using the **Switch to Release Version** button that will appear. You can also downgrade
-to other versions of the extension using the arrow next to the **Uninstall** button and
-choosing **Install Another Version...**.
+가능한 경우 _사전 릴리스_ 버전을 사용해 보시기 바랍니다. _사전 릴리스_가 사용 가능할 때는 **사전 릴리스 버전으로 전환** 버튼을 사용하여 마켓플레이스에서 설치할 수 있습니다. 안정적인 버전으로 다시 전환하려면 나타나는 **릴리스 버전으로 전환** 버튼을 사용하세요. **제거** 버튼 옆의 화살표를 사용하여 다른 버전으로 다운그레이드하고 **다른 버전 설치...**를 선택할 수도 있습니다.
 
-![Screenshot showing the button to switch to a pre-release version.][41]
+![사전 릴리스 버전으로 전환하는 버튼을 보여주는 스크린샷.][41]
 
-If you find a bug, [open an issue][22] and revert to the stable version while we fix it.
-
-<!-- link references -->
-[01]: /docs/editor/debugging
-[02]: /docs/editor/editingevolved#_go-to-definition
-[03]: /docs/editor/editingevolved#_open-symbol-by-name
-[04]: /docs/editor/editingevolved#_reference-information
-[05]: /docs/editor/intellisense
-[06]: /docs/editor/settings
-[07]: /docs/editor/themes
-[08]: /docs/editor/userdefinedsnippets
-[09]: /docs/getstarted/tips-and-tricks#_errors-and-warnings
-[10]: /docs/getstarted/userinterface#_outline-view
-[11]: http://github.com/PowerShell/PSScriptAnalyzer
-[12]: https://code.visualstudio.com/docs/editor/vscode-web
-[13]: https://code.visualstudio.com/docs/remote/remote-overview
-[14]: https://code.visualstudio.com/docs/remote/vscode-server
-[15]: https://devblogs.microsoft.com/scripting/debugging-powershell-script-in-visual-studio-code-part-1/
-[16]: https://devblogs.microsoft.com/scripting/debugging-powershell-script-in-visual-studio-code-part-2/
-[17]: https://docs.microsoft.com/en-us/powershell/scripting/powershell-support-lifecycle
-[18]: https://dotnet.microsoft.com/download/dotnet-framework
-[19]: https://github.com/features/codespaces
-[20]: https://github.com/PowerShell/EditorSyntax
-[21]: https://github.com/PowerShell/vscode-powershell/blob/main/docs/troubleshooting.md#troubleshooting-powershell-extension-issues
-[22]: https://github.com/PowerShell/vscode-powershell/issues/new/choose
-[23]: https://learn.microsoft.com/dotnet
-[24]: https://learn.microsoft.com/powershell/
-[25]: https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_format.ps1xml
-[26]: https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_types.ps1xml
-[27]: https://learn.microsoft.com/powershell/scripting/dev-cross-plat/vscode/using-vscode
-[28]: https://learn.microsoft.com/powershell/scripting/dev-cross-plat/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension
-[29]: https://learn.microsoft.com/powershell/scripting/dev-cross-plat/vscode/using-vscode#debugging-with-visual-studio-code
-[30]: https://learn.microsoft.com/powershell/utility-modules/psscriptanalyzer/overview
-[31]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell
-[32]: https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml
-[33]: https://pester.dev/
-[34]: https://pester.dev/docs/introduction/installation
-[35]: https://twitter.com/r_keith_hill
-[36]: images/powershell/codeGear.png
-[37]: images/powershell/codeLensFuncRef.gif
-[38]: images/powershell/codeLensPesterSymbol.gif
-[39]: images/powershell/pesterCodeLens.png
-[40]: images/powershell/PowerShellExtension.png
-[41]: images/powershell/prerelease-switch.png
-[42]: images/powershell/pssaExtensionSetting.png
-[43]: images/powershell/pwshExamples.png
-[44]: vscode:extension/ms-vscode.PowerShell
+버그를 발견하면 [문제를 열고][22] 수정하는 동안 안정적인 버전으로 되돌리세요.

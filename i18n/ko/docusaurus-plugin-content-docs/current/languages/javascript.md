@@ -3,41 +3,41 @@ Order: 2
 Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
-PageTitle: JavaScript Programming with Visual Studio Code
+PageTitle: Visual Studio Code로 JavaScript 프로그래밍
 DateApproved: 03/05/2025
-MetaDescription: Get the best out of Visual Studio Code for JavaScript development
+MetaDescription: JavaScript 개발을 위한 Visual Studio Code의 최적 활용 방법
 ---
 
-# JavaScript in Visual Studio Code
+# Visual Studio Code에서의 JavaScript {#javascript-in-visual-studio-code}
 
-Visual Studio Code includes built-in JavaScript IntelliSense, debugging, formatting, code navigation, refactorings, and many other advanced language features.
+Visual Studio Code는 내장된 JavaScript IntelliSense, 디버깅, 포맷팅, 코드 탐색, 리팩토링 및 기타 많은 고급 언어 기능을 포함하고 있습니다.
 
-![Working with JavaScript in Visual Studio Code](images/javascript/overview.png)
+![Visual Studio Code에서 JavaScript 작업하기](images/javascript/overview.png)
 
-Most of these features just work out of the box, while some may require basic configuration to get the best experience. This page summarizes the JavaScript features that VS Code ships with. Extensions from the [VS Code Marketplace](https://marketplace.visualstudio.com) can augment or change most of these built-in features. For a more in-depth guide on how these features work and can be configured, see [Working with JavaScript](/docs/nodejs/working-with-javascript.md).
+이 기능들 중 대부분은 기본적으로 작동하지만, 최상의 경험을 위해 기본적인 구성이 필요할 수 있습니다. 이 페이지는 VS Code와 함께 제공되는 JavaScript 기능을 요약합니다. [VS Code Marketplace](https://marketplace.visualstudio.com)에서의 확장 프로그램은 이러한 내장 기능을 보강하거나 변경할 수 있습니다. 이러한 기능이 작동하는 방식과 구성 방법에 대한 보다 심층적인 가이드는 [JavaScript 작업하기](/docs/nodejs/working-with-javascript.md)를 참조하세요.
 
-## IntelliSense
+## IntelliSense {#intellisense}
 
-IntelliSense shows you intelligent code completion, hover information, and signature information so that you can write code more quickly and correctly.
+IntelliSense는 코드 완성, 호버 정보 및 서명 정보를 제공하여 더 빠르고 정확하게 코드를 작성할 수 있도록 도와줍니다.
 
 <video src="images/javascript/intellisense.mp4" placeholder="images/javascript/intellisense-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
+    죄송합니다. 귀하의 브라우저는 HTML 5 비디오를 지원하지 않습니다.
 </video>
 
-VS Code provides IntelliSense within your JavaScript projects; for many npm libraries such as `React`, `lodash`, and `express`; and for other platforms such as `node`, serverless, or IoT.
+VS Code는 JavaScript 프로젝트 내에서 IntelliSense를 제공하며, `React`, `lodash`, `express`와 같은 많은 npm 라이브러리 및 `node`, 서버리스 또는 IoT와 같은 다른 플랫폼에서도 지원합니다.
 
-See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for information about VS Code's JavaScript IntelliSense, how to configure it, and help troubleshooting common IntelliSense problems.
+VS Code의 JavaScript IntelliSense에 대한 정보, 구성 방법 및 일반적인 IntelliSense 문제 해결에 대한 도움은 [JavaScript 작업하기](/docs/nodejs/working-with-javascript.md)를 참조하세요.
 
-## JavaScript projects (jsconfig.json)
+## JavaScript 프로젝트 (jsconfig.json) {#javascript-projects-jsconfigjson}
 
-A [jsconfig.json](/docs/languages/jsconfig.md) file defines a JavaScript project in VS Code. While `jsconfig.json` files are not required, you will want to create one in cases such as:
+[jsconfig.json](/docs/languages/jsconfig.md) 파일은 VS Code에서 JavaScript 프로젝트를 정의합니다. `jsconfig.json` 파일은 필수는 아니지만, 다음과 같은 경우에는 생성하는 것이 좋습니다:
 
-* If not all JavaScript files in your workspace should be considered part of a single JavaScript project. `jsconfig.json` files let you exclude some files from showing up in IntelliSense.
-* To ensure that a subset of JavaScript files in your workspace is treated as a single project. This is useful if you are working with legacy code that uses implicit globals dependencies instead of `imports` for dependencies.
-* If your workspace contains more than one project context, such as front-end and back-end JavaScript code. For multi-project workspaces, create a `jsconfig.json` at the root folder of each project.
-* You are using the TypeScript compiler to down-level compile JavaScript source code.
+* 작업 공간의 모든 JavaScript 파일이 단일 JavaScript 프로젝트의 일부로 간주되지 않아야 할 경우. `jsconfig.json` 파일을 사용하면 IntelliSense에 표시되는 일부 파일을 제외할 수 있습니다.
+* 작업 공간의 일부 JavaScript 파일이 단일 프로젝트로 처리되도록 보장하기 위해. 이는 `imports` 대신 암묵적인 전역 종속성을 사용하는 레거시 코드 작업 시 유용합니다.
+* 작업 공간에 프론트엔드 및 백엔드 JavaScript 코드와 같은 여러 프로젝트 컨텍스트가 포함된 경우. 다중 프로젝트 작업 공간의 경우 각 프로젝트의 루트 폴더에 `jsconfig.json`을 생성하세요.
+* TypeScript 컴파일러를 사용하여 JavaScript 소스 코드를 다운레벨 컴파일하는 경우.
 
-To define a basic JavaScript project, add a `jsconfig.json` at the root of your workspace:
+기본 JavaScript 프로젝트를 정의하려면 작업 공간의 루트에 `jsconfig.json`을 추가하세요:
 
 ```json
 {
@@ -51,97 +51,97 @@ To define a basic JavaScript project, add a `jsconfig.json` at the root of your 
 }
 ```
 
-See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for more advanced `jsconfig.json` configuration.
+보다 고급 `jsconfig.json` 구성에 대한 정보는 [JavaScript 작업하기](/docs/nodejs/working-with-javascript.md)를 참조하세요.
 
 > [!TIP]
-> To check if a JavaScript file is part of JavaScript project, just open the file in VS Code  and run the **JavaScript: Go to Project Configuration** command. This command opens the `jsconfig.json` that references the JavaScript file. A notification is shown if the file is not part of any `jsconfig.json` project.
+> JavaScript 파일이 JavaScript 프로젝트의 일부인지 확인하려면 VS Code에서 파일을 열고 **JavaScript: 프로젝트 구성으로 이동** 명령을 실행하세요. 이 명령은 JavaScript 파일을 참조하는 `jsconfig.json`을 엽니다. 파일이 어떤 `jsconfig.json` 프로젝트의 일부가 아닌 경우 알림이 표시됩니다.
 
-## Snippets
+## 스니펫 {#snippets}
 
-VS Code includes basic JavaScript [snippets](/docs/editor/userdefinedsnippets.md) that are suggested as you type;
+VS Code는 입력할 때 제안되는 기본 JavaScript [스니펫](/docs/editor/userdefinedsnippets.md)을 포함하고 있습니다;
 
 <video src="images/javascript/snippets.mp4" placeholder="images/javascript/snippets-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
+    죄송합니다. 귀하의 브라우저는 HTML 5 비디오를 지원하지 않습니다.
 </video>
 
-There are many extensions that provide additional snippets, including snippets for popular frameworks such as Redux or Angular. You can even [define your own snippets](/docs/editor/userdefinedsnippets.md).
+Redux나 Angular와 같은 인기 프레임워크에 대한 추가 스니펫을 제공하는 많은 확장 프로그램이 있습니다. 심지어 [자신만의 스니펫을 정의할 수도 있습니다](/docs/editor/userdefinedsnippets.md).
 
 > [!TIP]
-> To disable snippets suggestions, set `setting(editor.snippetSuggestions)` to `"none"` in your [settings](/docs/editor/settings.md) file. The `setting(editor.snippetSuggestions)` setting also lets you change where snippets appear in the suggestions: at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+> 스니펫 제안을 비활성화하려면 [설정](/docs/editor/settings.md) 파일에서 `setting(editor.snippetSuggestions)`를 `"none"`으로 설정하세요. `setting(editor.snippetSuggestions)` 설정은 스니펫이 제안 목록에서 나타나는 위치를 변경할 수 있습니다: 상단(`"top"`), 하단(`"bottom"`), 또는 알파벳 순서로 인라인(`"inline"`)으로 정렬됩니다. 기본값은 `"inline"`입니다.
 
-## JSDoc support
+## JSDoc 지원 {#jsdoc-support}
 
-VS Code understands many standard [JSDoc](https://jsdoc.app) annotations, and uses these annotations to provide rich [IntelliSense](#intellisense). You can optionally even use the type information from JSDoc comments to [type check your JavaScript](#type-checking).
-
-<video src="images/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
-</video>
-
-Quickly create JSDoc comments for functions by typing `/**` before the function declaration, and select the **JSDoc comment** snippet suggestion:
+VS Code는 많은 표준 [JSDoc](https://jsdoc.app) 주석을 이해하며, 이러한 주석을 사용하여 풍부한 [IntelliSense](#intellisense)를 제공합니다. 선택적으로 JSDoc 주석의 타입 정보를 사용하여 [JavaScript의 타입 검사를 수행할 수도 있습니다](#type-checking).
 
 <video src="images/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
+    죄송합니다. 귀하의 브라우저는 HTML 5 비디오를 지원하지 않습니다.
 </video>
 
-To disable JSDoc comment suggestions, set `"javascript.suggest.completeJSDocs": false`.
+함수 선언 앞에 `/**`를 입력하여 JSDoc 주석을 빠르게 생성하고, **JSDoc 주석** 스니펫 제안을 선택하세요:
 
-## Hover Information
+<video src="images/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
+    죄송합니다. 귀하의 브라우저는 HTML 5 비디오를 지원하지 않습니다.
+</video>
 
-Hover over a JavaScript symbol to quickly see its type information and relevant documentation.
+JSDoc 주석 제안을 비활성화하려면 `"javascript.suggest.completeJSDocs": false`로 설정하세요.
 
-![Hovering over a JavaScript variable to see its type information](images/javascript/hover.png)
+## 호버 정보 {#hover-information}
 
-The `kb(editor.action.showHover)` keyboard shortcut shows this hover information at the current cursor position.
+JavaScript 기호 위에 마우스를 올리면 해당 기호의 타입 정보와 관련 문서를 빠르게 확인할 수 있습니다.
 
-## Signature Help
+![JavaScript 변수 위에 마우스를 올려 타입 정보를 확인하는 모습](images/javascript/hover.png)
 
-As you write JavaScript function calls, VS Code shows information about the function signature and highlights the parameter that you are currently completing:
+`kb(editor.action.showHover)` 키보드 단축키를 사용하면 현재 커서 위치에서 이 호버 정보를 표시합니다.
 
-![Signature help for some DOM methods](images/javascript/signature-help.png)
+## 서명 도움말 {#signature-help}
 
-Signature help is shown automatically when you type a `(` or `,` within a function call. Press `kb(editor.action.triggerParameterHints)`  to manually trigger signature help.
+JavaScript 함수 호출을 작성할 때, VS Code는 함수 서명에 대한 정보를 표시하고 현재 완료 중인 매개변수를 강조 표시합니다:
 
-## Auto imports
+![일부 DOM 메서드에 대한 서명 도움말](images/javascript/signature-help.png)
 
-Automatic imports speed up coding by suggesting available variables throughout your project and its dependencies. When you select one of these suggestions, VS Code automatically adds an import for it to the top of the file.
+서명 도움말은 함수 호출 내에서 `(` 또는 `,`를 입력할 때 자동으로 표시됩니다. `kb(editor.action.triggerParameterHints)`를 눌러 서명 도움말을 수동으로 트리거할 수 있습니다.
 
-Just start typing to see [suggestions](#intellisense) for all available JavaScript symbols in your current project. Auto import suggestions show where they will be imported from:
+## 자동 가져오기 {#auto-imports}
 
-![Global symbols are shown in the suggestion list](images/javascript/auto-import-before.png)
+자동 가져오기는 프로젝트와 그 종속성 전반에 걸쳐 사용 가능한 변수를 제안하여 코딩 속도를 높입니다. 이러한 제안 중 하나를 선택하면 VS Code는 자동으로 파일 상단에 가져오기를 추가합니다.
 
-If you choose one of these auto import suggestions, VS Code adds an import for it.
+입력을 시작하면 현재 프로젝트에서 사용 가능한 모든 JavaScript 기호에 대한 [제안](#intellisense)을 확인할 수 있습니다. 자동 가져오기 제안은 어디에서 가져올 것인지 보여줍니다:
 
-In this example, VS Code adds an import for `Button` from [material-ui](https://material-ui.com) to the top of the file:
+![제안 목록에 전역 기호가 표시됩니다](images/javascript/auto-import-before.png)
 
-![After selecting a symbol from a different file, an import is added for it automatically](images/javascript/auto-import-after.png)
+이러한 자동 가져오기 제안 중 하나를 선택하면 VS Code가 가져오기를 추가합니다.
 
-To disable auto imports, set `"javascript.suggest.autoImports"` to `false`.
+이 예에서 VS Code는 [material-ui](https://material-ui.com)에서 `Button`에 대한 가져오기를 파일 상단에 추가합니다:
+
+![다른 파일에서 기호를 선택한 후 자동으로 가져오기가 추가됩니다](images/javascript/auto-import-after.png)
+
+자동 가져오기를 비활성화하려면 `"javascript.suggest.autoImports"`를 `false`로 설정하세요.
 
 > [!TIP]
-> VS Code tries to infer the best import style to use. You can explicitly configure the preferred quote style and path style for imports added to your code with the `setting(javascript.preferences.quoteStyle)` and `setting(javascript.preferences.importModuleSpecifier)` settings.
+> VS Code는 사용할 최상의 가져오기 스타일을 유추하려고 합니다. 코드에 추가된 가져오기에 대한 선호하는 따옴표 스타일과 경로 스타일을 `setting(javascript.preferences.quoteStyle)` 및 `setting(javascript.preferences.importModuleSpecifier)` 설정으로 명시적으로 구성할 수 있습니다.
 
-### Add imports on paste
+### 붙여넣기 시 가져오기 추가 {#add-imports-on-paste}
 
-When you copy and paste code between editors, VS Code can automatically add imports when the code is pasted. When you paste code that contains an undefined symbol, a paste control is shown that lets you choose between pasting as plain text or to add imports.
+편집기 간에 코드를 복사하고 붙여넣을 때, VS Code는 코드가 붙여넣어질 때 자동으로 가져오기를 추가할 수 있습니다. 정의되지 않은 기호가 포함된 코드를 붙여넣으면, 일반 텍스트로 붙여넣거나 가져오기를 추가하는 옵션을 선택할 수 있는 붙여넣기 제어가 표시됩니다.
 
-<video src="images/javascript/jsts-update-imports-paste.mp4" title="Copy code from one editor to another shows the paste widget and results in adding imports when pasting. " autoplay loop controls muted></video>
+<video src="images/javascript/jsts-update-imports-paste.mp4" title="한 편집기에서 다른 편집기로 코드를 복사하면 붙여넣기 위젯이 표시되고 붙여넣기 시 가져오기가 추가됩니다." autoplay loop controls muted></video>
 
-This feature is enabled by default, but you can disable it by toggling the `setting(javascript.updateImportsOnPaste.enabled)` setting.
+이 기능은 기본적으로 활성화되어 있지만, `setting(javascript.updateImportsOnPaste.enabled)` 설정을 전환하여 비활성화할 수 있습니다.
 
-You can make paste with imports the default behavior, without showing the paste control, by configuring the `setting(editor.pasteAs.preferences)` setting. Include `text.updateImports.jsts` or `text.updateImports` to always add imports when pasting.
+붙여넣기 제어를 표시하지 않고 가져오기가 포함된 붙여넣기를 기본 동작으로 설정하려면 `setting(editor.pasteAs.preferences)` 설정을 구성하세요. `text.updateImports.jsts` 또는 `text.updateImports`를 포함하여 붙여넣기 시 항상 가져오기를 추가합니다.
 
-## Organize Imports
+## 가져오기 정리 {#organize-imports}
 
-The **Organize Imports** Source Action sorts the imports in a JavaScript file and removes any unused imports:
+**가져오기 정리** 소스 작업은 JavaScript 파일의 가져오기를 정렬하고 사용되지 않는 가져오기를 제거합니다:
 
-<!-- TODO: replace with js specific example -->
+<!-- TODO: js 특정 예제로 교체 -->
 <video src="images/javascript/organize-imports.mp4" placeholder="images/javascript/organize-imports-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
+    죄송합니다. 귀하의 브라우저는 HTML 5 비디오를 지원하지 않습니다.
 </video>
 
-You can run **Organize Imports** from the **Source Action** context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
+**소스 작업** 컨텍스트 메뉴에서 **가져오기 정리**를 실행하거나 `kb(editor.action.organizeImports)` 키보드 단축키를 사용하여 실행할 수 있습니다.
 
-Organize imports can also be done automatically when you save a JavaScript file by setting:
+JavaScript 파일을 저장할 때 자동으로 가져오기를 정리하도록 설정할 수 있습니다:
 
 ```json
 "editor.codeActionsOnSave": {
@@ -149,92 +149,92 @@ Organize imports can also be done automatically when you save a JavaScript file 
 }
 ```
 
-## Update imports on file move
+## 파일 이동 시 가져오기 업데이트 {#update-imports-on-file-move}
 
-When you move or rename a file that is imported by other files in your JavaScript project, VS Code can automatically update all import paths that reference the moved file:
+JavaScript 프로젝트에서 다른 파일에 의해 가져온 파일을 이동하거나 이름을 변경할 때, VS Code는 이동된 파일을 참조하는 모든 가져오기 경로를 자동으로 업데이트할 수 있습니다:
 
 <video src="images/javascript/update-imports.mp4" placeholder="images/javascript/update-imports-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
+    죄송합니다. 귀하의 브라우저는 HTML 5 비디오를 지원하지 않습니다.
 </video>
 
-The `setting(javascript.updateImportsOnFileMove.enabled)` setting controls this behavior. Valid settings values are:
+`setting(javascript.updateImportsOnFileMove.enabled)` 설정이 이 동작을 제어합니다. 유효한 설정 값은 다음과 같습니다:
 
-* `"prompt"` - The default. Asks if paths should be updated for each file move.
-* `"always"` - Always automatically update paths.
-* `"never"` - Do not update paths automatically and do not prompt.
+* `"prompt"` - 기본값. 각 파일 이동에 대해 경로를 업데이트할지 묻습니다.
+* `"always"` - 항상 자동으로 경로를 업데이트합니다.
+* `"never"` - 경로를 자동으로 업데이트하지 않으며 묻지 않습니다.
 
-## Formatting
+## 포맷팅 {#formatting}
 
-VS Code's built-in JavaScript formatter provides basic code formatting with reasonable defaults.
+VS Code의 내장 JavaScript 포맷터는 합리적인 기본값으로 기본 코드 포맷팅을 제공합니다.
 
-The `javascript.format.*` [settings](/docs/editor/settings.md) configure the built-in formatter. Or, if the built-in formatter is getting in the way, set `"javascript.format.enable"` to `false` to disable it.
+`javascript.format.*` [설정](/docs/editor/settings.md)은 내장 포맷터를 구성합니다. 또는 내장 포맷터가 방해가 된다면 `"javascript.format.enable"`을 `false`로 설정하여 비활성화할 수 있습니다.
 
-For more specialized code formatting styles, try installing one of the JavaScript formatting extensions from the [Marketplace](https://marketplace.visualstudio.com/vscode).
+보다 전문화된 코드 포맷팅 스타일을 위해 [Marketplace](https://marketplace.visualstudio.com/vscode)에서 JavaScript 포맷팅 확장 프로그램을 설치해 보세요.
 
-## JSX and auto closing tags
+## JSX 및 자동 닫기 태그 {#jsx-and-auto-closing-tags}
 
-All of VS Code's JavaScript features also work with [JSX](https://reactjs.org/docs/introducing-jsx.html):
+VS Code의 모든 JavaScript 기능은 [JSX](https://reactjs.org/docs/introducing-jsx.html)와 함께 작동합니다:
 
 ![JSX IntelliSense](images/javascript/jsx.png)
 
-You can use JSX syntax in both normal `*.js` files and in `*.jsx` files.
+정상 `*.js` 파일과 `*.jsx` 파일 모두에서 JSX 구문을 사용할 수 있습니다.
 
-VS Code also includes JSX-specific features such as autoclosing of JSX tags:
+VS Code는 JSX 태그의 자동 닫기와 같은 JSX 전용 기능도 포함하고 있습니다:
 
 <video src="images/javascript/tag-complete.mp4" placeholder="images/javascript/tag-complete-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
+    죄송합니다. 귀하의 브라우저는 HTML 5 비디오를 지원하지 않습니다.
 </video>
 
-Set `"javascript.autoClosingTags"` to `false` to disable JSX tag closing.
+JSX 태그 닫기를 비활성화하려면 `"javascript.autoClosingTags"`를 `false`로 설정하세요.
 
-## Code navigation
+## 코드 탐색 {#code-navigation}
 
-Code navigation lets you quickly navigate JavaScript projects.
+코드 탐색을 통해 JavaScript 프로젝트를 빠르게 탐색할 수 있습니다.
 
-* **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
-* **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
-* **Go to References** `kb(editor.action.goToReferences)` - Show all references to a symbol.
-* **Go to Type Definition** - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
+* **정의로 이동** `kb(editor.action.revealDefinition)` - 기호 정의의 소스 코드로 이동합니다.
+* **정의 미리 보기** `kb(editor.action.peekDefinition)` - 기호의 정의를 보여주는 미리 보기 창을 엽니다.
+* **참조로 이동** `kb(editor.action.goToReferences)` - 기호에 대한 모든 참조를 표시합니다.
+* **타입 정의로 이동** - 기호를 정의하는 타입으로 이동합니다. 클래스의 인스턴스인 경우, 인스턴스가 정의된 위치가 아닌 클래스 자체를 표시합니다.
 
-You can navigate via symbol search using the **Go to Symbol** commands from the **Command Palette** (`kb(workbench.action.showCommands)`).
+**명령 팔레트**에서 **기호로 이동** 명령을 사용하여 기호 검색을 통해 탐색할 수 있습니다 (`kb(workbench.action.showCommands)`).
 
-* **Go to Symbol in File** `kb(workbench.action.gotoSymbol)`
-* **Go to Symbol in Workspace** `kb(workbench.action.showAllSymbols)`
+* **파일 내 기호로 이동** `kb(workbench.action.gotoSymbol)`
+* **작업 공간 내 기호로 이동** `kb(workbench.action.showAllSymbols)`
 
-## Rename
+## 이름 바꾸기 {#rename}
 
-Press `kb(editor.action.rename)` to rename the symbol under the cursor across your JavaScript project:
+`kb(editor.action.rename)`를 눌러 커서 아래의 기호를 JavaScript 프로젝트 전반에서 이름을 바꿀 수 있습니다:
 
-![Renaming a variable](images/javascript/rename.png)
+![변수 이름 바꾸기](images/javascript/rename.png)
 
-## Refactoring
+## 리팩토링 {#refactoring}
 
-VS Code includes some handy refactorings for JavaScript such as **Extract function** and **Extract constant**. Just select the source code you'd like to extract and then click on the lightbulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings.
+VS Code는 **함수 추출** 및 **상수 추출**과 같은 JavaScript에 대한 유용한 리팩토링 기능을 포함하고 있습니다. 추출하려는 소스 코드를 선택한 후, 거터의 전구를 클릭하거나 (`kb(editor.action.quickFix)`) 눌러 사용 가능한 리팩토링을 확인하세요.
 
-![JavaScript refactoring](images/javascript/refactorings.png)
+![JavaScript 리팩토링](images/javascript/refactorings.png)
 
-Available refactorings include:
+사용 가능한 리팩토링에는 다음이 포함됩니다:
 
-* Extract to method or function.
-* Extract to constant.
-* Convert between named imports and namespace imports.
-* Move to new file.
+* 메서드 또는 함수로 추출하기.
+* 상수로 추출하기.
+* 명명된 가져오기와 네임스페이스 가져기 간 변환.
+* 새 파일로 이동하기.
 
-See [Refactorings](/docs/editor/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
+리팩토링 및 개별 리팩토링에 대한 키보드 단축키를 구성하는 방법에 대한 자세한 내용은 [리팩토링](/docs/editor/refactoring.md)을 참조하세요.
 
-Additionally, **Code Action Widget: Include Nearby Quick Fixes** (`setting(editor.codeActionWidget.includeNearbyQuickFixes)`) is a setting that is enabled on default, which will activate the nearest Quick Fix in a line from `kb(editor.action.quickFix)` (command ID `editor.action.quickFix`), no matter where your cursor is in that line.
+또한, **코드 작업 위젯: 인근 빠른 수정 포함** (`setting(editor.codeActionWidget.includeNearbyQuickFixes)`)은 기본적으로 활성화된 설정으로, 커서가 있는 줄에서 `kb(editor.action.quickFix)` (명령 ID `editor.action.quickFix`)의 가장 가까운 빠른 수정을 활성화합니다.
 
-The command highlights the source code that will be refactored or fixed with Quick Fixes. Normal Code Actions and non-fix refactorings can still be activated at the cursor location.
+이 명령은 리팩토링되거나 빠른 수정으로 수정될 소스 코드를 강조 표시합니다. 일반 코드 작업 및 비수정 리팩토링은 여전히 커서 위치에서 활성화할 수 있습니다.
 
-## Unused variables and unreachable code
+## 사용되지 않는 변수 및 도달할 수 없는 코드 {#unused-variables-and-unreachable-code}
 
-Unused JavaScript code, such the else block of an `if` statement that is always true or an unreferenced import, is faded out in the editor:
+사용되지 않는 JavaScript 코드는 항상 참인 `if` 문 블록의 else 블록이나 참조되지 않은 가져오기와 같이 편집기에서 흐릿하게 표시됩니다:
 
-![Unreachable source code faded out](images/javascript/unreachable.png)
+![도달할 수 없는 소스 코드가 흐릿하게 표시됨](images/javascript/unreachable.png)
 
-You can quickly remove this unused code by placing the cursor on it and triggering the Quick Fix command (`kb(editor.action.quickFix)`) or clicking on the lightbulb.
+커서를 해당 코드 위에 놓고 빠른 수정 명령 (`kb(editor.action.quickFix)`)을 트리거하거나 전구를 클릭하여 이 사용되지 않는 코드를 빠르게 제거할 수 있습니다.
 
-To disable fading out of unused code, set `"editor.showUnused"` to `false`. You can also disable fading of unused code only in JavaScript by setting:
+사용되지 않는 코드의 흐릿한 표시를 비활성화하려면 `"editor.showUnused"`를 `false`로 설정하세요. JavaScript에서만 사용되지 않는 코드의 흐릿한 표시를 비활성화하려면:
 
 ```json
 "[javascript]": {
@@ -245,199 +245,199 @@ To disable fading out of unused code, set `"editor.showUnused"` to `false`. You 
 },
 ```
 
-## Code Actions on Save
+## 저장 시 코드 작업 {#code-actions-on-save}
 
-The `setting(editor.codeActionsOnSave)` setting lets you configure a set of Code Actions that are run when a file is saved. For example, you can enable organize imports on save by setting:
+`setting(editor.codeActionsOnSave)` 설정을 사용하면 파일이 저장될 때 실행되는 코드 작업 집합을 구성할 수 있습니다. 예를 들어, 저장 시 가져오기를 정리하도록 설정하려면:
 
 ```json
-// On explicit save, run fixAll source action. On auto save (window or focus change), run organizeImports source action.
+// 명시적 저장 시 모든 소스 작업을 실행합니다. 자동 저장(창 또는 포커스 변경) 시 가져오기 정리 소스 작업을 실행합니다.
 "editor.codeActionsOnSave": {
     "source.fixAll": "explicit",
     "source.organizeImports": "always",
 }
 ```
 
-As of today, the following enums are supported:
-* `explicit` (default): Triggers Code Actions when explicitly saved. Same as `true`.
-* `always`: Triggers Code Actions when explicitly saved and on Auto Saves from window or focus changes.
-* `never`: Never triggers Code Actions on save. Same as `false`.
+현재 지원되는 열거형은 다음과 같습니다:
+* `explicit` (기본값): 명시적으로 저장할 때 코드 작업을 트리거합니다. `true`와 동일합니다.
+* `always`: 명시적으로 저장할 때와 창 또는 포커스 변경 시 자동 저장 시 코드 작업을 트리거합니다.
+* `never`: 저장 시 코드 작업을 트리거하지 않습니다. `false`와 동일합니다.
 
-You can also set `setting(editor.codeActionsOnSave)` to an array of Code Actions to execute in order.
+또한, 실행할 코드 작업의 배열로 `setting(editor.codeActionsOnSave)`를 설정할 수 있습니다.
 
-Here are some source actions:
+다음은 일부 소스 작업입니다:
 
-* `"organizeImports"` -  Enables organize imports on save.
-* `"fixAll"` - Auto Fix on Save computes all possible fixes in one round (for all providers including ESLint).
-* `"fixAll.eslint"` -  Auto Fix only for ESLint.
-* `"addMissingImports"` - Adds all missing imports on save.
+* `"organizeImports"` - 저장 시 가져오기를 정리합니다.
+* `"fixAll"` - 저장 시 모든 가능한 수정을 한 번에 계산합니다(모든 제공자 포함 ESLint).
+* `"fixAll.eslint"` - ESLint에 대해서만 자동 수정을 수행합니다.
+* `"addMissingImports"` - 저장 시 모든 누락된 가져오기를 추가합니다.
 
-See [Node.js/JavaScript](/docs/nodejs/working-with-javascript) for more information.
+자세한 내용은 [Node.js/JavaScript](/docs/nodejs/working-with-javascript)를 참조하세요.
 
-## Code suggestions
+## 코드 제안 {#code-suggestions}
 
-VS Code automatically suggests some common code simplifications such as converting a chain of `.then` calls on a promise to use `async` and `await`
+VS Code는 약속의 `.then` 호출 체인을 `async` 및 `await`를 사용하도록 변환하는 것과 같은 일반적인 코드 단순화를 자동으로 제안합니다.
 
 <video src="images/javascript/code-suggestions-convert-async.mp4" placeholder="images/javascript/code-suggestions-convert-async-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
+    죄송합니다. 귀하의 브라우저는 HTML 5 비디오를 지원하지 않습니다.
 </video>
 
-Set `"javascript.suggestionActions.enabled"` to `false` to disable suggestions.
+제안을 비활성화하려면 `"javascript.suggestionActions.enabled"`를 `false`로 설정하세요.
 
-## Enhance completions with AI
+## AI로 완성도 향상 {#enhance-completions-with-ai}
 
-[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+[GitHub Copilot](https://copilot.github.com/)는 코드를 더 빠르고 스마트하게 작성하는 데 도움을 주는 AI 기반 코드 완성 도구입니다. VS Code에서 [GitHub Copilot 확장 프로그램](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)을 사용하여 코드를 생성하거나 생성된 코드에서 학습할 수 있습니다.
 
-[![GitHub Copilot extension in the VS Code Marketplace](images/javascript/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
+[![VS Code Marketplace의 GitHub Copilot 확장 프로그램](images/javascript/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 
-GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
+GitHub Copilot은 다양한 언어와 다양한 프레임워크에 대한 제안을 제공하며, Python, JavaScript, TypeScript, Ruby, Go, C# 및 C++에 특히 잘 작동합니다.
 
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
+Copilot을 시작하는 방법에 대한 자세한 내용은 [Copilot 문서](/docs/editor/github-copilot.md)를 참조하세요.
 
-Once you have the Copilot extension installed and enabled, you can test it our for your JavaScript projects.
+Copilot 확장 프로그램을 설치하고 활성화한 후, JavaScript 프로젝트에서 테스트해 볼 수 있습니다.
 
-Create a new file - you can use the **File: New File** command in the Command Palette (`kbstyle(F1)`).
+새 파일을 생성하세요 - 명령 팔레트에서 **파일: 새 파일** 명령을 사용할 수 있습니다 (`kbstyle(F1)`).
 
-In the JavaScript file, type the following function header:
+JavaScript 파일에서 다음 함수 헤더를 입력하세요:
 
 ```js
 function calculateDaysBetweenDates(begin, end) {
 ```
 
-Copilot will provide a suggestion like the following - use `kbstyle(Tab)` to accept the suggestion:
+Copilot은 다음과 같은 제안을 제공합니다 - 제안을 수락하려면 `kbstyle(Tab)`를 사용하세요:
 
-![Copilot JavaScript ghost text suggestion](images/javascript/js-suggest.png)
+![Copilot JavaScript 유령 텍스트 제안](images/javascript/js-suggest.png)
 
-## Inlay hints
+## 인레이 힌트 {#inlay-hints}
 
-Inlay hints add additional inline information to source code to help you understand what the code does.
+인레이 힌트는 소스 코드에 추가적인 인라인 정보를 추가하여 코드의 기능을 이해하는 데 도움을 줍니다.
 
-**Parameter name inlay hints** show the names of parameters in function calls:
+**매개변수 이름 인레이 힌트**는 함수 호출에서 매개변수의 이름을 보여줍니다:
 
-![Parameter name inlay hints](images/javascript/inlay-parameters.png)
+![매개변수 이름 인레이 힌트](images/javascript/inlay-parameters.png)
 
-This can help you understand the meaning of each argument at a glance, which is especially helpful for functions that take Boolean flags or have parameters that are easy to mix up.
+이것은 각 인자의 의미를 한눈에 이해하는 데 도움을 주며, 특히 불리언 플래그를 사용하는 함수나 혼동하기 쉬운 매개변수가 있는 함수에 유용합니다.
 
-To enable parameter name hints, set `javascript.inlayHints.parameterNames`. There are three possible values:
+매개변수 이름 힌트를 활성화하려면 `javascript.inlayHints.parameterNames`를 설정하세요. 가능한 값은 세 가지입니다:
 
-* `none` — Disable parameter inlay hints.
-* `literals` — Only show inlay hints for literals (string, number, Boolean).
-* `all` — Show inlay hints for all arguments.
+* `none` — 매개변수 인레이 힌트를 비활성화합니다.
+* `literals` — 리터럴(문자열, 숫자, 불리언)에 대해서만 인레이 힌트를 표시합니다.
+* `all` — 모든 인자에 대해 인레이 힌트를 표시합니다.
 
-**Variable type inlay hints** show the types of variables that don't have explicit type annotations.
+**변수 타입 인레이 힌트**는 명시적인 타입 주석이 없는 변수의 타입을 보여줍니다.
 
-Setting: `setting(javascript.inlayHints.variableTypes.enabled)`
+설정: `setting(javascript.inlayHints.variableTypes.enabled)`
 
-![Variable type inlay hints](images/javascript/inlay-var-types.png)
+![변수 타입 인레이 힌트](images/javascript/inlay-var-types.png)
 
-**Property type inlay hints** show the type of class properties that don't have an explicit type annotation.
+**속성 타입 인레이 힌트**는 명시적인 타입 주석이 없는 클래스 속성의 타입을 보여줍니다.
 
-Setting: `setting(javascript.inlayHints.propertyDeclarationTypes.enabled)`
+설정: `setting(javascript.inlayHints.propertyDeclarationTypes.enabled)`
 
-![Property type inlay hints](images/javascript/inlay-property-types.png)
+![속성 타입 인레이 힌트](images/javascript/inlay-property-types.png)
 
-**Parameter type hints**  show the types of implicitly typed parameters.
+**매개변수 타입 힌트**는 암묵적으로 타입이 지정된 매개변수의 타입을 보여줍니다.
 
-Setting: `setting(javascript.inlayHints.parameterTypes.enabled)`
+설정: `setting(javascript.inlayHints.parameterTypes.enabled)`
 
-![Parameter type inlay hints](images/javascript/inlay-parameter-types.png)
+![매개변수 타입 인레이 힌트](images/javascript/inlay-parameter-types.png)
 
-**Return type inlay hints** show the return types of functions that don't have an explicit type annotation.
+**반환 타입 인레이 힌트**는 명시적인 타입 주석이 없는 함수의 반환 타입을 보여줍니다.
 
-Setting: `setting(javascript.inlayHints.functionLikeReturnTypes.enabled)`
+설정: `setting(javascript.inlayHints.functionLikeReturnTypes.enabled)`
 
-![Return type inlay hints](images/javascript/inlay-return-type.png)
+![반환 타입 인레이 힌트](images/javascript/inlay-return-type.png)
 
-## References CodeLens
+## 참조 CodeLens {#references-codelens}
 
-The JavaScript references CodeLens displays an inline count of reference for classes, methods, properties, and exported objects:
+JavaScript 참조 CodeLens는 클래스, 메서드, 속성 및 내보낸 객체에 대한 참조 수를 인라인으로 표시합니다:
 
-![JavaScript references CodeLens](images/javascript/references-codelens.png)
+![JavaScript 참조 CodeLens](images/javascript/references-codelens.png)
 
-To enable the references CodeLens, set `"javascript.referencesCodeLens.enabled"` to `true`.
+참조 CodeLens를 활성화하려면 `"javascript.referencesCodeLens.enabled"`를 `true`로 설정하세요.
 
-Click on the reference count to quickly browse a list of references:
+참조 수를 클릭하면 참조 목록을 빠르게 탐색할 수 있습니다:
 
-![JavaScript references CodeLens peek](images/javascript/references-codelens-peek.png)
+![JavaScript 참조 CodeLens 미리 보기](images/javascript/references-codelens-peek.png)
 
-## Linters
+## 린터 {#linters}
 
-[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in JavaScript linter, many JavaScript linter [extensions](/docs/editor/extension-marketplace.md) available in the marketplace.
+[린터](https://en.wikipedia.org/wiki/Lint_%28software%29)는 의심스러운 코드에 대한 경고를 제공합니다. VS Code에는 내장된 JavaScript 린터가 포함되어 있지 않지만, 마켓플레이스에서 사용할 수 있는 많은 JavaScript 린터 [확장 프로그램](/docs/editor/extension-marketplace.md)이 있습니다.
 
 <div class="marketplace-extensions-javascript-linters-curated"></div>
 
 > [!TIP]
-> This list is dynamically queried from the [VS Code Marketplace](https://marketplace.visualstudio.com). Read the description and reviews to decide if the extension is right for you.
+> 이 목록은 [VS Code Marketplace](https://marketplace.visualstudio.com)에서 동적으로 쿼리됩니다. 설명과 리뷰를 읽고 확장 프로그램이 적합한지 결정하세요.
 
-## Type checking
+## 타입 검사 {#type-checking}
 
-You can leverage some of TypeScript's advanced type checking and error reporting functionality in regular JavaScript files too. This is a great way to catch common programming mistakes. These type checks also enable some exciting Quick Fixes for JavaScript, including **Add missing import** and **Add missing property**.
+일반 JavaScript 파일에서도 TypeScript의 고급 타입 검사 및 오류 보고 기능을 활용할 수 있습니다. 이는 일반적인 프로그래밍 실수를 잡는 좋은 방법입니다. 이러한 타입 검사는 **누락된 가져오기 추가** 및 **누락된 속성 추가**와 같은 흥미로운 빠른 수정을 가능하게 합니다.
 
-![Using type checking and Quick Fixes in a JavaScript file](images/javascript/checkjs-example.gif)
+![JavaScript 파일에서 타입 검사 및 빠른 수정 사용하기](images/javascript/checkjs-example.gif)
 
-TypeScript tried to infer types in `.js` files the same way it does in `.ts` files. When types cannot be inferred, they can be specified explicitly with JSDoc comments. You can read more about how TypeScript uses JSDoc for JavaScript type checking in [Working with JavaScript](/docs/nodejs/working-with-javascript.md).
+TypeScript는 `.js` 파일에서 타입을 유추하려고 시도하며, `.ts` 파일에서와 동일한 방식으로 작동합니다. 타입을 유추할 수 없는 경우, JSDoc 주석을 사용하여 명시적으로 지정할 수 있습니다. JavaScript 타입 검사에 대한 JSDoc 사용 방법에 대한 자세한 내용은 [JavaScript 작업하기](/docs/nodejs/working-with-javascript.md)를 참조하세요.
 
-Type checking of JavaScript is optional and opt-in. Existing JavaScript validation tools such as ESLint can be used alongside built-in type checking functionality.
+JavaScript의 타입 검사는 선택 사항이며, 선택적으로 활성화할 수 있습니다. ESLint와 같은 기존 JavaScript 검증 도구는 내장된 타입 검사 기능과 함께 사용할 수 있습니다.
 
-## Debugging
+## 디버깅 {#debugging}
 
-VS Code comes with great debugging support for JavaScript. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See the [Debugging topic](/docs/editor/debugging.md) to learn more.
+VS Code는 JavaScript에 대한 훌륭한 디버깅 지원을 제공합니다. 중단점을 설정하고, 객체를 검사하고, 호출 스택을 탐색하고, 디버그 콘솔에서 코드를 실행하세요. 자세한 내용은 [디버깅 주제](/docs/editor/debugging.md)를 참조하세요.
 
-### Debug client side
+### 클라이언트 측 디버깅 {#debug-client-side}
 
-You can debug your client-side code using a browser debugger such as our built-in debugger for Edge and Chrome, or the [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug).
+브라우저 디버거(Edge 및 Chrome의 내장 디버거 또는 [Firefox 디버거](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug))를 사용하여 클라이언트 측 코드를 디버깅할 수 있습니다.
 
-### Debug server side
+### 서버 측 디버깅 {#debug-server-side}
 
-Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is a [Node.js debugging tutorial](/docs/nodejs/nodejs-tutorial.md#debug-your-express-app) to help you.
+내장 디버거를 사용하여 VS Code에서 Node.js를 디버깅하세요. 설정이 간단하며, [Node.js 디버깅 튜토리얼](/docs/nodejs/nodejs-tutorial.md#debug-your-express-app)을 통해 도움을 받을 수 있습니다.
 
-![debug data inspection](images/javascript/debug_data_inspection.gif)
+![디버그 데이터 검사](images/javascript/debug_data_inspection.gif)
 
-## Popular extensions
+## 인기 있는 확장 프로그램 {#popular-extensions}
 
-VS Code ships with excellent support for JavaScript but you can additionally install debuggers, snippets, linters, and other JavaScript tools through [extensions](/docs/editor/extension-marketplace.md).
+VS Code는 JavaScript에 대한 훌륭한 지원을 제공하지만, 추가로 디버거, 스니펫, 린터 및 기타 JavaScript 도구를 [확장 프로그램](/docs/editor/extension-marketplace.md)을 통해 설치할 수 있습니다.
 
 <div class="marketplace-extensions-javascript-curated"></div>
 
 > [!TIP]
-> The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+> 위에 표시된 확장 프로그램은 동적으로 쿼리됩니다. 위의 확장 프로그램 타일을 클릭하여 설명과 리뷰를 읽고 어떤 확장 프로그램이 가장 적합한지 결정하세요. [Marketplace](https://marketplace.visualstudio.com)에서 더 많은 정보를 확인하세요.
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-Read on to find out about:
+다음에 대해 알아보세요:
 
-* [Working with JavaScript](/docs/nodejs/working-with-javascript.md) - More detailed information about VS Code's JavaScript support and how to troubleshoot common issues.
-* [jsconfig.json](/docs/languages/jsconfig.md) - Detailed description of the `jsconfig.json` project file.
-* [IntelliSense](/docs/editor/intellisense.md) - Learn more about IntelliSense and how to use it effectively for your language.
-* [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
-* [Node.js](/docs/nodejs/nodejs-tutorial.md) - A walkthrough to create an Express Node.js application.
-* [TypeScript](/docs/languages/typescript.md) - VS Code has great support for TypeScript, which brings structure and strong typing to your JavaScript code.
+* [JavaScript 작업하기](/docs/nodejs/working-with-javascript.md) - VS Code의 JavaScript 지원에 대한 보다 자세한 정보와 일반적인 문제 해결 방법.
+* [jsconfig.json](/docs/languages/jsconfig.md) - `jsconfig.json` 프로젝트 파일에 대한 자세한 설명.
+* [IntelliSense](/docs/editor/intellisense.md) - IntelliSense에 대해 더 배우고 언어에 효과적으로 사용하는 방법.
+* [디버깅](/docs/editor/debugging.md) - 애플리케이션 디버깅 설정 방법.
+* [Node.js](/docs/nodejs/nodejs-tutorial.md) - Express Node.js 애플리케이션을 만드는 방법.
+* [TypeScript](/docs/languages/typescript.md) - VS Code는 JavaScript 코드에 구조와 강력한 타입을 제공하는 TypeScript에 대한 훌륭한 지원을 제공합니다.
 
-## Common questions
+## 자주 묻는 질문 {#common-questions}
 
-### Does VS Code support JSX and React Native?
+### VS Code는 JSX 및 React Native를 지원하나요? {#does-vs-code-support-jsx-and-react-native}
 
-VS Code supports **JSX** and **React Native**. You will get IntelliSense for **React/JSX** and **React Native** from automatically downloaded type declaration (typings) files from the [npmjs](https://www.npmjs.com) type declaration file repository. Additionally, you can install the popular [React Native extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native) from  the Marketplace.
+VS Code는 **JSX** 및 **React Native**를 지원합니다. 자동으로 다운로드된 타입 선언(타이핑) 파일에서 **React/JSX** 및 **React Native**에 대한 IntelliSense를 받을 수 있습니다. 또한, 마켓플레이스에서 인기 있는 [React Native 확장 프로그램](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native)을 설치할 수 있습니다.
 
-To enable ES6 import statements for **React Native**, you need to set the `allowSyntheticDefaultImports` compiler option to `true`. This tells the compiler to create synthetic default members and you get IntelliSense. **React Native** uses **Babel** behind the scenes to create the proper run-time code with default members. If you also want to do debugging of **React Native** code, you can install the [React Native Extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native).
+**React Native**에 대한 ES6 가져오기 문을 활성화하려면 `allowSyntheticDefaultImports` 컴파일러 옵션을 `true`로 설정해야 합니다. 이는 컴파일러에게 합성 기본 멤버를 생성하도록 지시하며 IntelliSense를 받을 수 있습니다. **React Native**는 기본 멤버와 함께 적절한 런타임 코드를 생성하기 위해 **Babel**을 사용합니다. **React Native** 코드를 디버깅하려면 [React Native 확장 프로그램](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native)을 설치할 수 있습니다.
 
-### Does VS Code support the Dart programming language and the Flutter framework?
+### VS Code는 Dart 프로그래밍 언어와 Flutter 프레임워크를 지원하나요? {#does-vs-code-support-the-dart-programming-language-and-the-flutter-framework}
 
-Yes, there are VS Code extensions for both [Dart](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code) and [Flutter](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter) development. You can learn more at the [Flutter.dev](https://flutter.dev/docs/development/tools/vs-code) documentation.
+예, [Dart](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code) 및 [Flutter](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter) 개발을 위한 VS Code 확장 프로그램이 있습니다. [Flutter.dev](https://flutter.dev/docs/development/tools/vs-code) 문서에서 더 많은 정보를 확인할 수 있습니다.
 
-### IntelliSense is not working for external libraries
+### IntelliSense가 외부 라이브러리에 대해 작동하지 않아요 {#intellisense-is-not-working-for-external-libraries}
 
-`Automatic Type Acquisition` works for dependencies downloaded by npm (specified in `package.json`), Bower (specified in `bower.json`), and for many of the most common libraries listed in your folder structure (for example `jquery-3.1.1.min.js`).
+`자동 타입 획득`은 npm( `package.json`에 지정됨), Bower( `bower.json`에 지정됨)로 다운로드된 종속성 및 폴더 구조에 나열된 가장 일반적인 라이브러리(예: `jquery-3.1.1.min.js`)에 대해 작동합니다.
 
-**ES6 Style imports are not working.**
+**ES6 스타일 가져오기가 작동하지 않습니다.**
 
-When you want to use ES6 style imports but some type declaration (typings) files do not yet use ES6 style exports, then set the [TypeScript compiler option](https://www.typescriptlang.org/docs/handbook/compiler-options.html) `allowSyntheticDefaultImports` to true.
+ES6 스타일 가져오기를 사용하고 싶지만 일부 타입 선언(타이핑) 파일이 아직 ES6 스타일 내보내기를 사용하지 않는 경우, [TypeScript 컴파일러 옵션](https://www.typescriptlang.org/docs/handbook/compiler-options.html) `allowSyntheticDefaultImports`를 `true`로 설정하세요.
 
 ```json
 {
     "compilerOptions": {
         "module": "CommonJS",
         "target": "ES6",
-        // This is the line you want to add
+        // 추가할 줄입니다.
         "allowSyntheticDefaultImports": true
     },
     "exclude": [
@@ -447,16 +447,17 @@ When you want to use ES6 style imports but some type declaration (typings) files
 }
 ```
 
-### Can I debug minified/uglified JavaScript?
+### 축소/압축된 JavaScript를 디버깅할 수 있나요? {#can-i-debug-minifieduglified-javascript}
 
-Yes, you can. You can see this working using JavaScript source maps in the [Node.js Debugging](/docs/nodejs/nodejs-debugging.md) topic.
+예, 가능합니다. [Node.js 디버깅](/docs/nodejs/nodejs-debugging.md) 주제를 사용하여 JavaScript 소스 맵을 사용하는 방법을 확인할 수 있습니다.
 
-### How do I disable Syntax Validation when using non-ES6 constructs?
+### 비 ES6 구문을 사용할 때 구문 검사를 비활성화하려면 어떻게 하나요? {#how-do-i-disable-syntax-validation-when-using-non-es6-constructs}
 
-Some users want to use syntax constructs like the proposed pipeline (`|>`) operator. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `setting(javascript.validate.enable)` [setting](/docs/editor/settings.md).
+일부 사용자는 제안된 파이프라인(`|>`) 연산자와 같은 구문 구성을 사용하고 싶어합니다. 그러나 현재 이러한 구문은 VS Code의 JavaScript 언어 서비스에서 지원되지 않으며 오류로 표시됩니다. 이러한 미래 기능을 여전히 사용하고 싶어하는 사용자에게는 `setting(javascript.validate.enable)` [설정](/docs/editor/settings.md)을 제공합니다.
 
-With `javascript.validate.enable: false`, you disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](https://eslint.org) to validate your source code.
+`javascript.validate.enable: false`로 설정하면 모든 내장 구문 검사를 비활성화합니다. 이렇게 하면 [ESLint](https://eslint.org)와 같은 린터를 사용하여 소스 코드를 검증하는 것이 좋습니다.
 
-### Can I use other JavaScript tools like Flow?
+### Flow와 같은 다른 JavaScript 도구를 사용할 수 있나요? {#can-i-use-other-javascript-tools-like-flow}
 
-Yes, but some of [Flow's](https://flow.org) language features such as type and error checking may interfere with VS Code's built-in JavaScript support. To learn how to disable VS Code's built-in JavaScript support, see [Disable JavaScript support](/docs/nodejs/working-with-javascript.md#disable-javascript-support).
+예, 그러나 [Flow](https://flow.org)의 언어 기능 중 일부인 타입 및 오류 검사가 VS Code의 내장 JavaScript 지원과 충돌할 수 있습니다. VS Code의 내장 JavaScript 지원을 비활성화하는 방법에 대한 자세한 내용은 [JavaScript 지원 비활성화](/docs/nodejs/working-with-javascript.md#disable-javascript-support)를 참조하세요.
+---

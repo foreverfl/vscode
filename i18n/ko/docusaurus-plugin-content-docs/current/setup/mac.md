@@ -3,80 +3,84 @@ Order: 3
 Area: setup
 TOCTitle: macOS
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
-PageTitle: Running Visual Studio Code on macOS
+PageTitle: macOS에서 Visual Studio Code 실행하기
 DateApproved: 03/05/2025
-MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
+MetaDescription: Mac (macOS)에서 Visual Studio Code를 설치하고 실행하세요.
+sidebar_label: macOS
 ---
-# Visual Studio Code on macOS
+# macOS에서 Visual Studio Code {#visual-studio-code-on-macos}
 
-## Installation
+## 설치 {#installation}
 
-1. [Download and install Visual Studio Code](#install-vs-code-on-macos)
+1. [Visual Studio Code 다운로드 및 설치](#install-vs-code-on-macos)
 
-    > [!NOTE]
-    > VS Code ships monthly releases and supports [auto-update](#updates) when a new release is available.
+    :::note
+    VS Code는 매월 릴리스를 제공하며, 새로운 릴리스가 있을 때 [자동 업데이트](#updates)를 지원합니다.
+    :::
 
-1. [Install additional components](/docs/setup/additional-components.md)
+1. [추가 구성 요소 설치](/docs/setup/additional-components.md)
 
-    Install Git, Node.js, TypeScript, language runtimes, and more.
+    Git, Node.js, TypeScript, 언어 런타임 등을 설치합니다.
 
-1. [Install VS Code extensions from the Visual Studio Marketplace](https://marketplace.visualstudio.com/VSCode)
+1. [Visual Studio Marketplace에서 VS Code 확장 설치](https://marketplace.visualstudio.com/VSCode)
 
-    Customize VS Code with themes, formatters, language extensions and debuggers for your favorite languages, and more.
+    테마, 포맷터, 언어 확장 및 좋아하는 언어의 디버거로 VS Code를 사용자 정의합니다.
 
-1. [Set up AI-assisted coding with GitHub Copilot](/docs/copilot/setup-simplified.md)
+1. [GitHub Copilot로 AI 지원 코딩 설정](/docs/copilot/setup-simplified.md)
 
-    > [!TIP]
-    > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+    :::tip
+    아직 Copilot 구독이 없다면, [Copilot 무료 요금제](https://github.com/github-copilot/signup)에 가입하여 무료로 Copilot을 사용할 수 있으며, 월별 완료 및 채팅 상호작용 한도가 제공됩니다.
+    :::
 
-1. [Get started with the VS Code tutorial](/docs/getstarted/getting-started.md)
+1. [VS Code 튜토리얼 시작하기](/docs/getstarted/getting-started.md)
 
-    Discover the user interface and key features of VS Code.
+    VS Code의 사용자 인터페이스와 주요 기능을 알아보세요.
 
-## Install VS Code on macOS
+## macOS에 VS Code 설치하기 {#install-vs-code-on-macos}
 
-1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534106) for macOS.
+1. [macOS용 Visual Studio Code 다운로드](https://go.microsoft.com/fwlink/?LinkID=534106).
 
-1. Open the browser's download list and locate the downloaded app or archive.
+1. 브라우저의 다운로드 목록을 열고 다운로드한 앱 또는 압축 파일을 찾습니다.
 
-1. If archive, extract the archive contents. Use double-click for some browsers or select the 'magnifying glass' icon with Safari.
+1. 압축 파일인 경우, 압축 파일 내용을 추출합니다. 일부 브라우저에서는 더블 클릭을 사용하거나 Safari에서 '돋보기' 아이콘을 선택합니다.
 
-1. Drag `Visual Studio Code.app` to the **Applications** folder, making it available in the macOS Launchpad.
+1. `Visual Studio Code.app`를 **Applications** 폴더로 드래그하여 macOS Launchpad에서 사용할 수 있도록 합니다.
 
-1. Open VS Code from the **Applications** folder, by double clicking the icon.
+1. **Applications** 폴더에서 아이콘을 더블 클릭하여 VS Code를 엽니다.
 
-1. Add VS Code to your Dock by right-clicking on the icon, located in the Dock, to bring up the context menu and choosing **Options**, **Keep in Dock**.
+1. Dock에 VS Code를 추가하려면 Dock에 있는 아이콘을 오른쪽 클릭하여 컨텍스트 메뉴를 열고 **Options**, **Keep in Dock**를 선택합니다.
 
-## Launch VS Code from the command line
+## 명령줄에서 VS Code 실행하기 {#launch-vs-code-from-the-command-line}
 
-To run VS Code from the terminal by typing `code`, add it the `$PATH` environment variable:
+터미널에서 `code`를 입력하여 VS Code를 실행하려면 `$PATH` 환경 변수에 추가합니다:
 
-### Configure the path with VS Code
+### VS Code로 경로 구성하기 {#configure-the-path-with-vs-code}
 
-1. Launch VS Code
+1. VS Code를 실행합니다.
 
-1. Open the **Command Palette** (`kbstyle(Cmd+Shift+P)`), type 'shell command', and run the **Shell Command: Install 'code' command in PATH** command.
+1. **명령 팔레트** (`kbstyle(Cmd+Shift+P)`)를 열고 'shell command'를 입력한 후 **Shell Command: Install 'code' command in PATH** 명령을 실행합니다.
 
-    ![macOS shell commands](images/mac/shell-command.png)
+    ![macOS 셸 명령](images/mac/shell-command.png)
 
-1. Restart the terminal for the new `$PATH` value to take effect.
+1. 새로운 `$PATH` 값이 적용되도록 터미널을 재시작합니다.
 
-    You can now type 'code .' in any folder to start editing files in that folder.
+    이제 어떤 폴더에서든 'code .'를 입력하여 해당 폴더의 파일을 편집할 수 있습니다.
 
-> [!NOTE]
-> If you still have the old `code` alias in your `.bash_profile` (or equivalent) from an early VS Code version, remove it and replace it by running the **Shell Command: Install 'code' command in PATH** command.
+:::note
+이전 VS Code 버전에서 `.bash_profile` (또는 동등한 파일)에 오래된 `code` 별칭이 남아 있다면, 이를 제거하고 **Shell Command: Install 'code' command in PATH** 명령을 실행하여 교체하세요.
+:::
 
-### Manually configure the path
+### 수동으로 경로 구성하기 {#manually-configure-the-path}
 
-To manually add VS Code to your path:
+VS Code를 수동으로 경로에 추가하려면:
 
-1. Run the following commands:
+1. 다음 명령을 실행합니다:
 
     **Zsh**:
 
     ```zsh
     cat << EOF >> ~/.zprofile
-    # Add Visual Studio Code (code)
+    # Visual Studio Code 추가 (code)
     export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
     EOF
     ```
@@ -85,56 +89,58 @@ To manually add VS Code to your path:
 
     ```bash
     cat << EOF >> ~/.bash_profile
-    # Add Visual Studio Code (code)
+    # Visual Studio Code 추가 (code)
     export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
     EOF
     ```
 
-    > [!NOTE]
-    > The leading slash `\` is required to prevent `$PATH` from expanding during the concatenation. Remove the leading slash if you want to run the export command directly in a terminal.
+    :::note
+    앞의 슬래시 `\`는 연결 중에 `$PATH`가 확장되지 않도록 하기 위해 필요합니다. 터미널에서 직접 export 명령을 실행하려면 앞의 슬래시를 제거하세요.
+    :::
 
-1. Start a new terminal to pick up your changes.
+1. 변경 사항을 반영하기 위해 새로운 터미널을 시작합니다.
 
-    You can now type 'code .' in any folder to start editing files in that folder.
+    이제 어떤 폴더에서든 'code .'를 입력하여 해당 폴더의 파일을 편집할 수 있습니다.
 
-## Updates
+## 업데이트 {#updates}
 
-VS Code ships monthly [releases](/updates) and supports auto-update when a new release is available. If you're prompted by VS Code, accept the newest update and it will get installed (you won't need to do anything else to get the latest bits).
+VS Code는 매월 [릴리스](/updates)를 제공하며, 새로운 릴리스가 있을 때 자동 업데이트를 지원합니다. VS Code에서 업데이트를 요청하면 최신 업데이트를 수락하고 설치됩니다 (최신 버전을 받기 위해 추가 작업이 필요하지 않습니다).
 
-> [!NOTE]
-> You can [disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates) if you prefer to update VS Code on your own schedule.
+:::note
+원하신다면 [자동 업데이트 비활성화](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates)할 수 있습니다.
+:::
 
-## Touch Bar support
+## 터치 바 지원 {#touch-bar-support}
 
-Out of the box, VS Code adds the following Touch Bar actions:
+기본적으로 VS Code는 다음과 같은 터치 바 작업을 추가합니다:
 
-* To navigate in the editor history
-* The full Debug tool bar to control the debugger on your Touch Bar:
+* 편집기 기록에서 탐색
+* 터치 바에서 디버거를 제어하기 위한 전체 디버그 도구 모음:
 
-![macOS Touch Bar](images/mac/touchbar.gif)
+![macOS 터치 바](images/mac/touchbar.gif)
 
-## Mojave privacy protections
+## 모하비 개인 정보 보호 보호 기능 {#mojave-privacy-protections}
 
-On macOS Mojave, you might see dialogs saying "Visual Studio Code would like to access your \{calendar/contacts/photos\}." This is due to the new privacy protections in Mojave and is not specific to VS Code. The same dialogs might be displayed when running other applications as well. The dialog is shown once for each type of personal data and it is fine to choose **Don't Allow**, since VS Code does not need access to those folders.
+macOS 모하비에서 "Visual Studio Code가 귀하의 \{캘린더/연락처/사진\}에 접근하려고 합니다."라는 대화 상자가 표시될 수 있습니다. 이는 모하비의 새로운 개인 정보 보호 보호 기능 때문이며, VS Code에만 해당되는 것은 아닙니다. 다른 애플리케이션을 실행할 때도 동일한 대화 상자가 표시될 수 있습니다. 개인 데이터 유형마다 한 번씩 대화 상자가 표시되며, VS Code가 해당 폴더에 접근할 필요가 없으므로 **Don't Allow**를 선택해도 괜찮습니다.
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-Once you have installed VS Code, these topics will help you learn more about it:
+VS Code를 설치한 후, 다음 주제를 통해 더 많은 정보를 알아보세요:
 
-* [VS Code tutorial](/docs/getstarted/getting-started.md) - A quick hands-on tour of the key features of VS Code.
-* [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) - A collection of productivity tips for working with VS Code.
-* [AI-assisted coding](/docs/copilot/overview.md) - Learn about using GitHub Copilot in VS Code to help you write code faster.
+* [VS Code 튜토리얼](/docs/getstarted/getting-started.md) - VS Code의 주요 기능을 빠르게 체험해보세요.
+* [팁과 요령](/docs/getstarted/tips-and-tricks.md) - VS Code로 작업할 때 유용한 생산성 팁 모음입니다.
+* [AI 지원 코딩](/docs/copilot/overview.md) - VS Code에서 GitHub Copilot을 사용하여 코드를 더 빠르게 작성하는 방법을 알아보세요.
 
-## Common questions
+## 자주 묻는 질문 {#common-questions}
 
-### Why do I see "Visual Studio Code would like access to your calendar."
+### "Visual Studio Code가 귀하의 캘린더에 접근하려고 합니다."라는 메시지가 표시되는 이유는 무엇인가요? {#why-do-i-see-visual-studio-code-would-like-access-to-your-calendar}
 
-If you are running macOS Mojave version, you may see dialogs saying "Visual Studio Code would like to access your \{calendar/contacts/photos\}." This is due to the new privacy protections in Mojave [discussed above](#mojave-privacy-protections). It is fine to choose **Don't Allow** since VS Code does not need access to those folders.
+macOS 모하비 버전을 실행 중이라면 "Visual Studio Code가 귀하의 \{캘린더/연락처/사진\}에 접근하려고 합니다."라는 대화 상자가 표시될 수 있습니다. 이는 위에서 언급한 모하비의 새로운 개인 정보 보호 보호 기능 때문입니다. VS Code가 해당 폴더에 접근할 필요가 없으므로 **허용하지 않기**를 선택해도 괜찮습니다.
 
-### VS Code fails to update
+### VS Code 업데이트 실패 {#vs-code-fails-to-update}
 
-If VS Code doesn't update once it restarts, it might be set under quarantine by macOS. Follow the steps in this [issue](https://github.com/microsoft/vscode/issues/7426#issuecomment-425093469) for resolution.
+VS Code가 재시작 후 업데이트되지 않는 경우, macOS에 의해 격리 상태로 설정되었을 수 있습니다. 이 [문제](https://github.com/microsoft/vscode/issues/7426#issuecomment-425093469)의 단계를 따라 해결하세요.
 
-### Does VS Code run on Apple silicon machines?
+### VS Code는 Apple 실리콘 머신에서 실행되나요? {#does-vs-code-run-on-apple-silicon-machines}
 
-Yes, VS Code supports macOS Arm64 builds that can run on Macs with the Apple silicon chipsets. You can install the Universal build, which includes both Intel and Apple silicon builds, or one of the platform-specific builds.
+네, VS Code는 Apple 실리콘 칩셋이 장착된 Mac에서 실행할 수 있는 macOS Arm64 빌드를 지원합니다. Intel 및 Apple 실리콘 빌드를 모두 포함하는 유니버설 빌드를 설치하거나 플랫폼별 빌드 중 하나를 선택할 수 있습니다.

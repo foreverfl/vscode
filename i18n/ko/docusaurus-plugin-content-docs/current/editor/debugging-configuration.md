@@ -5,24 +5,24 @@ MetaDescription: Learn how to configure debugging in Visual Studio Code with lau
 MetaSocialImage: images/debugging/debugging-social.png
 ---
 
-# Visual Studio Code debug configuration
+# Visual Studio Code 디버그 구성 {#visual-studio-code-debug-configuration}
 
-For complex debugging scenarios or applications, you need to create a `launch.json` file to specify the debugger configuration. For example, to specify the application entry point, attach to a running application, or to set environment variables.
+복잡한 디버깅 시나리오나 애플리케이션의 경우, 디버거 구성을 지정하기 위해 `launch.json` 파일을 생성해야 합니다. 예를 들어, 애플리케이션 진입점을 지정하거나, 실행 중인 애플리케이션에 연결하거나, 환경 변수를 설정하는 경우입니다.
 
-To learn more about debugging in VS Code, see [Debugging in Visual Studio Code](/docs/editor/debugging.md).
+VS Code에서 디버깅에 대해 더 알아보려면 [Visual Studio Code에서 디버깅하기](/docs/editor/debugging.md)를 참조하세요.
 
 > [!TIP]
-> Copilot in VS Code can help you create a launch configuration for your project. Get more info about [generating a launch configuration with Copilot](#generate-a-launch-configuration-with-ai).
+> VS Code의 Copilot은 프로젝트에 대한 런치 구성을 생성하는 데 도움을 줄 수 있습니다. [Copilot으로 런치 구성 생성하기](#generate-a-launch-configuration-with-ai)에 대한 자세한 정보를 확인하세요.
 
-## Launch configurations
+## 런치 구성 {#launch-configurations}
 
-For simple applications or debugging scenarios, you can run and debug a program without specific debugging configurations. Use the `kb(workbench.action.debug.start)` key and VS Code will try to run your currently active file.
+간단한 애플리케이션이나 디버깅 시나리오의 경우, 특정 디버깅 구성 없이 프로그램을 실행하고 디버깅할 수 있습니다. `kb(workbench.action.debug.start)` 키를 사용하면 VS Code가 현재 활성 파일을 실행하려고 시도합니다.
 
-However, for most debugging scenarios you need to create a debugging configuration (_launch configuration_). For example, to specify the application entry point, attach to a running application, or set environment variables. Creating a launch configuration file is also beneficial because it allows you to configure and save debugging setup details with your project.
+그러나 대부분의 디버깅 시나리오에서는 디버깅 구성(_런치 구성_)을 생성해야 합니다. 예를 들어, 애플리케이션 진입점을 지정하거나, 실행 중인 애플리케이션에 연결하거나, 환경 변수를 설정하는 경우입니다. 런치 구성 파일을 생성하는 것도 유용한데, 이는 프로젝트와 함께 디버깅 설정 세부정보를 구성하고 저장할 수 있게 해줍니다.
 
-VS Code stores debugging configuration information in a `launch.json` file located in the `.vscode` folder in your workspace (project root folder), or in your [user settings](/docs/editor/debugging-configuration.md#global-launch-configuration) or [workspace settings](/docs/editor/workspaces/multi-root-workspaces.md#workspace-launch-configurations).
+VS Code는 디버깅 구성 정보를 작업 공간의 `.vscode` 폴더에 위치한 `launch.json` 파일에 저장하거나, [사용자 설정](/docs/editor/debugging-configuration.md#global-launch-configuration) 또는 [작업 공간 설정](/docs/editor/workspaces/multi-root-workspaces.md#workspace-launch-configurations)에 저장합니다.
 
-The following snippet describes a sample configuration for debugging a Node.js application:
+다음 스니펫은 Node.js 애플리케이션을 디버깅하기 위한 샘플 구성을 설명합니다:
 
 ```json
 {
@@ -35,138 +35,133 @@ The following snippet describes a sample configuration for debugging a Node.js a
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "$\{workspaceFolder\}
-\\app.js"
+            "program": "${workspaceFolder}\\app.js"
         }
     ]
 }
 ```
 
-VS Code also supports [compound launch configurations](#compound-launch-configurations) for starting multiple configurations at the same time.
+VS Code는 또한 여러 구성을 동시에 시작하기 위한 [복합 런치 구성](#compound-launch-configurations)을 지원합니다.
 
 > [!NOTE]
-> You can debug a simple application even if you don't have a folder open in VS Code, but it is not possible to manage launch configurations and set up advanced debugging.
+> 폴더가 열려 있지 않더라도 간단한 애플리케이션을 디버깅할 수 있지만, 런치 구성을 관리하고 고급 디버깅을 설정하는 것은 불가능합니다.
 
-## Create a debug configuration file
+## 디버그 구성 파일 생성 {#create-a-debug-configuration-file}
 
-To create an initial `launch.json` file:
+초기 `launch.json` 파일을 생성하려면:
 
-1. Select **create a launch.json file** in the Run and Debug view.
+1. 실행 및 디버그 뷰에서 **launch.json 파일 생성**을 선택합니다.
 
-   ![launch configuration](images/debugging/launch-configuration.png)
+   ![런치 구성](images/debugging/launch-configuration.png)
 
-1. VS Code tries to detect your debug environment. If it's unable to do so, you can choose it manually:
+2. VS Code가 디버그 환경을 감지하려고 시도합니다. 감지할 수 없는 경우, 수동으로 선택할 수 있습니다:
 
-   ![debug environment selector](images/debugging/debug-environments.png)
+   ![디버그 환경 선택기](images/debugging/debug-environments.png)
 
-   Based on the selected debug environment, VS Code creates a starter configuration in the `launch.json` file.
+   선택한 디버그 환경에 따라 VS Code는 `launch.json` 파일에 시작 구성을 생성합니다.
 
-1. In the Explorer view (`kb(workbench.view.explorer)`), notice that VS Code created a `.vscode` folder and added the `launch.json` file to your workspace.
+3. 탐색기 뷰(`kb(workbench.view.explorer)`)에서 VS Code가 `.vscode` 폴더를 생성하고 `launch.json` 파일을 작업 공간에 추가한 것을 확인합니다.
 
-   ![launch.json in Explorer](images/debugging/launch-json-in-explorer.png)
+   ![탐색기에서 launch.json](images/debugging/launch-json-in-explorer.png)
 
-You can now edit the `launch.json` file to add more configurations or modify existing ones.
+이제 `launch.json` 파일을 편집하여 더 많은 구성을 추가하거나 기존 구성을 수정할 수 있습니다.
 
-### Add a configuration to launch.json
+### launch.json에 구성 추가 {#add-a-configuration-to-launchjson}
 
-To add a new configuration to an existing `launch.json`, use one of the following techniques:
+기존 `launch.json`에 새 구성을 추가하려면 다음 기술 중 하나를 사용하세요:
 
-- Press the **Add Configuration** button and then select a snippet to add a predefined configuration.
-- Use IntelliSense if your cursor is located inside the configurations array.
-- Choose the **Run** > **Add Configuration** menu option.
+- **구성 추가** 버튼을 눌러 미리 정의된 구성을 추가할 스니펫을 선택합니다.
+- 커서가 구성 배열 안에 있을 때 IntelliSense를 사용합니다.
+- **실행** > **구성 추가** 메뉴 옵션을 선택합니다.
 
-![launch json suggestions](images/debugging/add-config.gif)
+![launch json 제안](images/debugging/add-config.gif)
 
-### Generate a launch configuration with AI
+### AI로 런치 구성 생성 {#generate-a-launch-configuration-with-ai}
 
-With Copilot in VS Code, you can accelerate the process of creating a launch configuration for your project. To generate a launch configuration with Copilot:
+VS Code의 Copilot을 사용하면 프로젝트에 대한 런치 구성 생성 프로세스를 가속화할 수 있습니다. Copilot으로 런치 구성을 생성하려면:
 
-1. Open the Chat view with `kb(workbench.action.chat.open)`, or select **Open Chat** from the Copilot menu in the title bar.
+1. `kb(workbench.action.chat.open)`로 채팅 뷰를 열거나, 제목 표시줄의 Copilot 메뉴에서 **채팅 열기**를 선택합니다.
 
-1. Enter the `/startDebugging` chat prompt to generate a debug configuration.
+2. 디버그 구성을 생성하기 위해 `/startDebugging` 채팅 프롬프트를 입력합니다.
 
-   Alternatively, you can also enter a custom prompt, like _generate a debug config for an express app #codebase_.
+   또는 _express 앱에 대한 디버그 구성 생성 #codebase_와 같은 사용자 정의 프롬프트를 입력할 수도 있습니다.
 
-   This can be useful if your workspace has files with different languages.
+   이는 작업 공간에 다양한 언어의 파일이 있는 경우 유용할 수 있습니다.
 
    > [!NOTE]
-   > The `#codebase` chat variable gives Copilot the context of your project, which helps it generate a more accurate response.
+   > `#codebase` 채팅 변수는 Copilot에 프로젝트의 맥락을 제공하여 보다 정확한 응답을 생성하는 데 도움이 됩니다.
 
-1. Apply the suggested configuration, and then start debugging.
+3. 제안된 구성을 적용한 후 디버깅을 시작합니다.
 
-## Start a debugging session with a launch configuration
+## 런치 구성으로 디버깅 세션 시작 {#start-a-debugging-session-with-a-launch-configuration}
 
-To start a debug session with a launch configuration:
+런치 구성으로 디버그 세션을 시작하려면:
 
-1. Select the configuration named **Launch Program** using the **Configuration dropdown** in the **Run and Debug** view.
+1. 실행 및 디버그 뷰의 **구성 드롭다운**에서 **프로그램 실행**이라는 구성을 선택합니다.
 
-   The list of available configurations matches those in the `launch.json` file.
+   사용 가능한 구성 목록은 `launch.json` 파일의 구성과 일치합니다.
 
-   ![Screenshot that shows the launch configuration dropdown.](images/debugging/launch-configuration-dropdown.png)
+   ![런치 구성 드롭다운 스크린샷](images/debugging/launch-configuration-dropdown.png)
 
-1. Start your debug session with `kb(workbench.action.debug.start)` or select **Start Debugging** (play icon) in **Run and Debug** view.
+2. `kb(workbench.action.debug.start)`로 디버그 세션을 시작하거나 **실행 및 디버그** 뷰에서 **디버깅 시작**(재생 아이콘)을 선택합니다.
 
-Alternatively, you can run your configuration through the **Command Palette** (`kb(workbench.action.showCommands)`) by filtering on **Debug: Select and Start Debugging** or typing `'debug '` and selecting the configuration you want to debug.
+또는 **명령 팔레트**(`kb(workbench.action.showCommands)`)를 통해 **디버그: 선택 및 디버깅 시작**을 필터링하거나 `'debug '`를 입력하고 디버깅할 구성을 선택할 수 있습니다.
 
-## Launch versus attach configurations
+## 런치 구성과 연결 구성 {#launch-versus-attach-configurations}
 
-In VS Code, there are two core debugging modes, **Launch** and **Attach**, which handle two different workflows and segments of developers. Depending on your workflow, it can be confusing to know what type of configuration is appropriate for your project.
+VS Code에는 두 가지 핵심 디버깅 모드인 **런치**와 **연결**이 있으며, 이는 서로 다른 워크플로우우와 개발자 세그먼트를 처리합니다. 워크플로우우에 따라 어떤 유형의 구성이 프로젝트에 적합한지 혼란스러울 수 있습니다.
 
-If you come from a browser Developer Tools background, you might not be used to "launching from your tool," since your browser instance is already open. When you open DevTools, you are simply **attaching** DevTools to your open browser tab. On the other hand, if you come from a server or desktop background, it's quite normal to have your editor **launch** your process for you, and your editor automatically attaches its debugger to the newly launched process.
+브라우저 개발자 도구 배경에서 온 경우, "도구에서 실행하는 것"에 익숙하지 않을 수 있습니다. 브라우저 인스턴스는 이미 열려 있기 때문입니다. DevTools를 열면 단순히 열린 브라우저 탭에 DevTools를 **연결**하는 것입니다. 반면, 서버나 데스크톱 배경에서 온 경우, 편집기가 프로세스를 **실행**하는 것이 일반적이며, 편집기가 자동으로 새로 실행된 프로세스에 디버거를 연결합니다.
 
-The best way to explain the difference between launch and attach is to think of a launch configuration as a recipe for how to start your app in debug mode _before_ VS Code attaches to it, while an attach configuration is a recipe for how to connect VS Code's debugger to an app or process that's _already_ running.
+런치와 연결의 차이를 설명하는 가장 좋은 방법은 런치 구성을 디버그 모드에서 앱을 시작하는 방법에 대한 레시피로 생각하는 것입니다. _VS Code가 연결하기 전에_, 반면 연결 구성은 _이미_ 실행 중인 앱이나 프로세스에 VS Code의 디버거를 연결하는 방법에 대한 레시피입니다.
 
-VS Code debuggers typically support launching a program in debug mode or attaching to an already running program in debug mode. Depending on the request (`attach` or `launch`), different attributes are required, and VS Code's `launch.json` validation and suggestions should help with that.
+VS Code 디버거는 일반적으로 디버그 모드에서 프로그램을 실행하거나 이미 실행 중인 프로그램에 디버그 모드로 연결하는 것을 지원합니다. 요청(`attach` 또는 `launch`)에 따라 필요한 속성이 다르며, VS Code의 `launch.json` 유효성 검사 및 제안이 이에 도움이 됩니다.
 
-## Launch.json attributes
+## launch.json 속성 {#launchjson-attributes}
 
-There are many `launch.json` attributes to help support different debuggers and debugging scenarios. You can use IntelliSense (`kb(editor.action.triggerSuggest)`) to see the list of available attributes once you have specified a value for the `type` attribute. The attributes available in launch configurations vary from debugger to debugger.
+다양한 디버거와 디버깅 시나리오를 지원하기 위해 많은 `launch.json` 속성이 있습니다. `type` 속성에 대한 값을 지정하면 IntelliSense(`kb(editor.action.triggerSuggest)`)를 사용하여 사용 가능한 속성 목록을 볼 수 있습니다. 런치 구성에서 사용할 수 있는 속성은 디버거마다 다릅니다.
 
-![launch json suggestions](images/debugging/launch-json-suggestions.png)
+![launch json 제안](images/debugging/launch-json-suggestions.png)
 
-An attribute that is available for one debugger doesn't automatically work for other debuggers too. If you see red squiggles in your launch configuration, hover over them to learn what the problem is and try to fix them before launching a debug session.
+하나의 디버거에 대해 사용 가능한 속성이 다른 디버거에서도 자동으로 작동하지는 않습니다. 런치 구성에서 빨간 물결선이 보이면, 마우스를 올려 문제를 확인하고 디버그 세션을 시작하기 전에 수정하세요.
 
-The following attributes are mandatory for every launch configuration:
+모든 런치 구성에 필수적인 속성은 다음과 같습니다:
 
-- `type` - the type of debugger to use for this launch configuration. Every installed debug extension introduces a type: `node` for the built-in Node debugger, for example, or `php` and `go` for the PHP and Go extensions.
-- `request` - the request type of this launch configuration. Currently, `setting(launch)` and `attach` are supported.
-- `name` - the reader-friendly name to appear in the Debug launch configuration dropdown.
+- `type` - 이 런치 구성에 사용할 디버거의 유형입니다. 설치된 모든 디버그 확장은 유형을 도입합니다: 예를 들어, 내장 Node 디버거의 경우 `node`, PHP 및 Go 확장의 경우 각각 `php`와 `go`입니다.
+- `request` - 이 런치 구성의 요청 유형입니다. 현재 `setting(launch)`와 `attach`가 지원됩니다.
+- `name` - 디버그 런치 구성 드롭다운에 표시될 사용자 친화적인 이름입니다.
 
-Here are some optional attributes available to all launch configurations:
+모든 런치 구성에서 사용할 수 있는 선택적 속성은 다음과 같습니다:
 
-- `presentation` - using the `order`, `group`, and `hidden` attributes in the `presentation` object, you can sort, group, and hide configurations and compounds in the Debug configuration dropdown and in the Debug quick pick.
-- `preLaunchTask` - to launch a task before the start of a debug session, set this attribute to the label of a task specified in [tasks.json](/docs/editor/tasks.md) (in the workspace's `.vscode` folder). Or, this can be set to `$\{defaultBuildTask\}
-` to use your default build task.
-- `postDebugTask` - to launch a task at the very end of a debug session, set this attribute to the name of a task specified in [tasks.json](/docs/editor/tasks.md) (in the workspace's `.vscode` folder).
-- `internalConsoleOptions` - this attribute controls the visibility of the Debug console panel during a debugging session.
-- `debugServer` - **for debug extension authors only**: this attribute allows you to connect to a specified port instead of launching the debug adapter.
-- `serverReadyAction` - if you want to open a URL in a web browser whenever the program under debugging outputs a specific message to the debug console or integrated terminal. For details see section [Automatically open a URI when debugging a server program](#automatically-open-a-uri-when-debugging-a-server-program) below.
+- `presentation` - `presentation` 객체의 `order`, `group`, 및 `hidden` 속성을 사용하여 디버그 구성 드롭다운 및 디버그 빠른 선택에서 구성을 정렬, 그룹화 및 숨길 수 있습니다.
+- `preLaunchTask` - 디버그 세션 시작 전에 작업을 실행하려면 이 속성을 [tasks.json](/docs/editor/tasks.md)에서 지정한 작업의 레이블로 설정합니다(작업 공간의 `.vscode` 폴더에 있음). 또는 기본 빌드 작업을 사용하려면 `$\{defaultBuildTask\}`로 설정할 수 있습니다.
+- `postDebugTask` - 디버그 세션이 끝날 때 작업을 실행하려면 이 속성을 [tasks.json](/docs/editor/tasks.md)에서 지정한 작업의 이름으로 설정합니다(작업 공간의 `.vscode` 폴더에 있음).
+- `internalConsoleOptions` - 이 속성은 디버깅 세션 동안 디버그 콘솔 패널의 가시성을 제어합니다.
+- `debugServer` - **디버그 확장 작성자 전용**: 이 속성은 디버그 어댑터를 시작하는 대신 지정된 포트에 연결할 수 있게 해줍니다.
+- `serverReadyAction` - 디버깅 중인 프로그램이 디버그 콘솔이나 통합 터미널에 특정 메시지를 출력할 때마다 URL을 웹 브라우저에서 열고 싶다면 이 속성을 사용합니다. 자세한 내용은 아래 [서버 프로그램 디버깅 시 URI 자동 열기](#automatically-open-a-uri-when-debugging-a-server-program) 섹션을 참조하세요.
 
-Many debuggers support some of the following attributes:
+많은 디버거가 다음 속성 중 일부를 지원합니다:
 
-- `program` - executable or file to run when launching the debugger
-- `args` - arguments passed to the program to debug
-- `env` - environment variables (the value `null` can be used to "undefine" a variable)
-- `envFile` - path to dotenv file with environment variables
-- `cwd` - current working directory for finding dependencies and other files
-- `port` - port when attaching to a running process
-- `stopOnEntry` - break immediately when the program launches
-- `console` - what kind of console to use, for example, `internalConsole`, `integratedTerminal`, or `externalTerminal`
+- `program` - 디버거를 실행할 때 실행할 실행 파일 또는 파일
+- `args` - 디버깅할 프로그램에 전달되는 인수
+- `env` - 환경 변수(값 `null`을 사용하여 변수를 "정의 해제"할 수 있음)
+- `envFile` - 환경 변수가 포함된 dotenv 파일의 경로
+- `cwd` - 종속성 및 기타 파일을 찾기 위한 현재 작업 디렉토리
+- `port` - 실행 중인 프로세스에 연결할 때 사용할 포트
+- `stopOnEntry` - 프로그램이 시작될 때 즉시 중단
+- `console` - 사용할 콘솔의 종류, 예를 들어 `internalConsole`, `integratedTerminal`, 또는 `externalTerminal`
 
-## Variable substitution
+## 변수 치환 {#variable-substitution}
 
-VS Code makes commonly used paths and other values available as variables and supports variable substitution inside strings in `launch.json`. This means that you do not have to use absolute paths in debug configurations. For example, `$\{workspaceFolder\}
-` gives the root path of a workspace folder, `$\{file\}
-` the file open in the active editor, and `$\{env:Name\}
-` the environment variable 'Name'.
+VS Code는 일반적으로 사용되는 경로 및 기타 값을 변수로 제공하며, `launch.json`의 문자열 내에서 변수 치환을 지원합니다. 즉, 디버그 구성에서 절대 경로를 사용할 필요가 없습니다. 예를 들어, `$\{workspaceFolder\}`는 작업 공간 폴더의 루트 경로를 제공하고, `$\{file\}`는 활성 편집기에서 열린 파일을, `$\{env:Name\}`은 환경 변수 'Name'을 제공합니다.
 
-You can see a full list of predefined variables in the [Variables Reference](/docs/reference/variables-reference.md) or by invoking IntelliSense inside the `launch.json` string attributes.
+정의된 변수의 전체 목록은 [변수 참조](/docs/reference/variables-reference.md)에서 확인하거나 `launch.json` 문자열 속성 내에서 IntelliSense를 호출하여 확인할 수 있습니다.
 
 ```json
 {
     "type": "node",
     "request": "launch",
-    "name": "Launch Program",
+    "name": "프로그램 실행",
     "program": "$\{workspaceFolder\}
 /app.js",
     "cwd": "$\{workspaceFolder\}
@@ -176,11 +171,11 @@ You can see a full list of predefined variables in the [Variables Reference](/do
 }
 ```
 
-## Platform-specific properties
+## 플랫폼별 속성 {#platform-specific-properties}
 
-VS Code supports defining debugging configuration settings (for example, arguments to be passed to the program) that depend on the operating system where the debugger is running. To do so, put a platform-specific literal in the `launch.json` file and specify the corresponding properties inside that literal.
+VS Code는 디버거가 실행되는 운영 체제에 따라 디버깅 구성 설정(예: 프로그램에 전달할 인수)을 정의하는 것을 지원합니다. 이를 위해 `launch.json` 파일에 플랫폼별 리터럴을 넣고 해당 리터럴 내에 해당 속성을 지정합니다.
 
-The following example shows how to pass `"args"` to the program differently on Windows:
+다음 예제는 Windows에서 프로그램에 `"args"`를 다르게 전달하는 방법을 보여줍니다:
 
 ```json
 {
@@ -189,7 +184,7 @@ The following example shows how to pass `"args"` to the program differently on W
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "프로그램 실행",
             "program": "$\{workspaceFolder\}
 /node_modules/gulp/bin/gulpfile.js",
             "args": ["myFolder/path/app.js"],
@@ -201,11 +196,11 @@ The following example shows how to pass `"args"` to the program differently on W
 }
 ```
 
-Valid operating system properties are `"windows"` for Windows, `"linux"` for Linux, and `"osx"` for macOS. Properties defined in an operating system specific scope override properties defined in the global scope.
+유효한 운영 체제 속성은 Windows의 경우 `"windows"`, Linux의 경우 `"linux"`, macOS의 경우 `"osx"`입니다. 운영 체제 특정 범위에서 정의된 속성은 전역 범위에서 정의된 속성을 덮어씁니다.
 
-The `type` property cannot be placed inside a platform-specific section because `type` indirectly determines the platform in remote debugging scenarios, which would result in a cyclic dependency.
+`type` 속성은 플랫폼별 섹션 내에 배치할 수 없습니다. 이는 `type`이 원격 디버깅 시나리오에서 플랫폼을 간접적으로 결정하기 때문에 순환 종속성이 발생할 수 있습니다.
 
-In the following example, debugging the program always **stops on entry**, except on macOS:
+다음 예제에서는 프로그램이 항상 **진입 시 중단**되지만, macOS에서는 그렇지 않습니다:
 
 ```json
 {
@@ -214,7 +209,7 @@ In the following example, debugging the program always **stops on entry**, excep
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "프로그램 실행",
             "program": "$\{workspaceFolder\}
 /node_modules/gulp/bin/gulpfile.js",
             "stopOnEntry": true,
@@ -226,9 +221,9 @@ In the following example, debugging the program always **stops on entry**, excep
 }
 ```
 
-## Global launch configuration
+## 전역 런치 구성 {#global-launch-configuration}
 
-You can define launch configurations that are available across all your workspaces. To specify a global launch configuration, add a launch configuration object in your `setting(launch)` user setting. This `launch` configuration is then shared across your workspaces. For example:
+모든 작업 공간에서 사용할 수 있는 런치 구성을 정의할 수 있습니다. 전역 런치 구성을 지정하려면 `setting(launch)` 사용자 설정에 런치 구성 객체를 추가합니다. 이 `launch` 구성은 작업 공간 간에 공유됩니다. 예를 들어:
 
 ```json
 "launch": {
@@ -236,28 +231,28 @@ You can define launch configurations that are available across all your workspac
     "configurations": [{
         "type": "node",
         "request": "launch",
-        "name": "Launch Program",
+        "name": "프로그램 실행",
         "program": "$\{file\}
 "
     }]
 }
 ```
 
-## Redirect input/output to/from the debug target
+## 디버그 대상에 대한 입력/출력 리디렉션 {#redirect-inputoutput-tofrom-the-debug-target}
 
-Redirecting input/output is debugger or runtime specific, so VS Code does not have a built-in solution that works for all debuggers.
+입력/출력 리디렉션은 디버거나 런타임에 따라 다르므로 VS Code는 모든 디버거에 대해 작동하는 내장 솔루션이 없습니다.
 
-Here are two approaches you might want to consider:
+고려할 수 있는 두 가지 접근 방식은 다음과 같습니다:
 
-- Launch the program to debug ("debug target") manually in a terminal or command prompt and redirect input/output as needed. Ensure that you pass the appropriate command line options to the debug target so that a debugger can attach to it. Create and run an "attach" debug configuration that attaches to the debug target.
+- 프로그램을 수동으로 터미널이나 명령 프롬프트에서 디버그("디버그 대상")하고 필요에 따라 입력/출력을 리디렉션합니다. 디버거가 연결할 수 있도록 디버그 대상에 적절한 명령줄 옵션을 전달해야 합니다. 디버그 대상을 연결하는 "연결" 디버그 구성을 생성하고 실행합니다.
 
-- If the debugger extension you are using can run the debug target in VS Code's Integrated Terminal (or an external terminal), you can try to pass the shell redirect syntax (for example, `<` or `>`) as arguments.
+- 사용하는 디버거 확장이 VS Code의 통합 터미널(또는 외부 터미널)에서 디버그 대상을 실행할 수 있는 경우, 인수로 셸 리디렉션 구문(예: `<` 또는 `>`)을 전달해 볼 수 있습니다.
 
-  Here's an example `launch.json` configuration:
+  다음은 `launch.json` 구성의 예입니다:
 
   ```json
   {
-    "name": "launch program that reads a file from stdin",
+    "name": "stdin에서 파일을 읽는 프로그램 실행",
     "type": "node",
     "request": "launch",
     "program": "program.js",
@@ -266,15 +261,15 @@ Here are two approaches you might want to consider:
   }
   ```
 
-  This approach requires that the `<` syntax is passed through the debugger extension and ends up unmodified in the Integrated Terminal.
+  이 접근 방식은 `<` 구문이 디버거 확장을 통해 전달되고 통합 터미널에서 수정되지 않은 채로 남아 있어야 합니다.
 
-### Compound launch configurations
+### 복합 런치 구성 {#compound-launch-configurations}
 
-An alternative way to start multiple debug sessions is by using a _compound_ launch configuration. You can define compound launch configurations in the `compounds` property in the `launch.json` file.
+여러 디버그 세션을 시작하는 또 다른 방법은 _복합_ 런치 구성을 사용하는 것입니다. `launch.json` 파일의 `compounds` 속성에서 복합 런치 구성을 정의할 수 있습니다.
 
-Use the `configurations` attribute to list the names of two or more launch configurations that should be launched in parallel.
+`configurations` 속성을 사용하여 병렬로 실행해야 할 두 개 이상의 런치 구성 이름을 나열합니다.
 
-Optionally, specify a `preLaunchTask` task that is run before the individual debug sessions are started. The boolean flag `stopAll` controls whether manually terminating one session stops all of the compound sessions.
+선택적으로, 개별 디버그 세션이 시작되기 전에 실행되는 `preLaunchTask` 작업을 지정할 수 있습니다. 부울 플래그 `stopAll`은 수동으로 하나의 세션을 종료할 때 모든 복합 세션을 중지할지 여부를 제어합니다.
 
 ```json
 {
@@ -283,22 +278,22 @@ Optionally, specify a `preLaunchTask` task that is run before the individual deb
         {
             "type": "node",
             "request": "launch",
-            "name": "Server",
+            "name": "서버",
             "program": "$\{workspaceFolder\}
 /server.js"
         },
         {
             "type": "node",
             "request": "launch",
-            "name": "Client",
+            "name": "클라이언트",
             "program": "$\{workspaceFolder\}
 /client.js"
         }
     ],
     "compounds": [
         {
-            "name": "Server/Client",
-            "configurations": ["Server", "Client"],
+            "name": "서버/클라이언트",
+            "configurations": ["서버", "클라이언트"],
             "preLaunchTask": "$\{defaultBuildTask\}
 ",
             "stopAll": true
@@ -307,13 +302,13 @@ Optionally, specify a `preLaunchTask` task that is run before the individual deb
 }
 ```
 
-Compound launch configurations are also displayed in the launch configuration dropdown menu.
+복합 런치 구성은 런치 구성 드롭다운 메뉴에도 표시됩니다.
 
-## Automatically open a URI when debugging a server program
+## 서버 프로그램 디버깅 시 URI 자동 열기 {#automatically-open-a-uri-when-debugging-a-server-program}
 
-Developing a web program typically requires opening a specific URL in a web browser in order to hit the server code in the debugger. VS Code has a built-in feature "**serverReadyAction**" to automate this task.
+웹 프로그램을 개발할 때는 일반적으로 디버거에서 서버 코드를 실행하기 위해 특정 URL을 웹 브라우저에서 열어야 합니다. VS Code에는 이 작업을 자동화하기 위한 내장 기능인 "**serverReadyAction**"이 있습니다.
 
-Here is an example of a simple [Node.js Express](https://expressjs.com) application:
+다음은 간단한 [Node.js Express](https://expressjs.com) 애플리케이션의 예입니다:
 
 ```javascript
 var express = require("express");
@@ -324,64 +319,64 @@ app.get("/", function (req, res) {
 });
 
 app.listen(3000, function () {
-  console.log("Example app listening on port 3000!");
+  console.log("예제 앱이 포트 3000에서 실행 중입니다!");
 });
 ```
 
-This application first installs a "Hello World" handler for the "/" URL and then starts to listen for HTTP connections on port 3000. The port is announced in the Debug Console, and typically, the developer would now type `http://localhost:3000` into their browser application.
+이 애플리케이션은 먼저 "/" URL에 대한 "Hello World" 핸들러를 설치한 후 포트 3000에서 HTTP 연결을 수신 대기합니다. 포트는 디버그 콘솔에 발표되며, 일반적으로 개발자는 이제 브라우저 애플리케이션에 `http://localhost:3000`을 입력합니다.
 
-The **serverReadyAction** feature makes it possible to add a structured property `serverReadyAction` to any launch config and select an "action" to be performed:
+**serverReadyAction** 기능을 사용하면 모든 런치 구성에 구조화된 속성 `serverReadyAction`을 추가하고 수행할 "작업"을 선택할 수 있습니다:
 
 ```json
 {
   "type": "node",
   "request": "launch",
-  "name": "Launch Program",
+  "name": "프로그램 실행",
   "program": "$\{workspaceFolder\}
 /app.js",
 
   "serverReadyAction": {
-    "pattern": "listening on port ([0-9]+)",
+    "pattern": "포트 ([0-9]+)에서 수신 대기 중",
     "uriFormat": "http://localhost:%s",
     "action": "openExternally"
   }
 }
 ```
 
-Here the `pattern` property describes the regular expression for matching the program's output string that announces the port. The pattern for the port number is put into parenthesis so that it is available as a regular expression capture group. In this example, we are extracting only the port number, but it is also possible to extract a full URI.
+여기서 `pattern` 속성은 프로그램의 출력 문자열에서 포트를 발표하는 정규 표현식을 설명합니다. 포트 번호에 대한 패턴은 괄호로 묶여 정규 표현식 캡처 그룹으로 사용할 수 있습니다. 이 예제에서는 포트 번호만 추출하고 있지만, 전체 URI를 추출하는 것도 가능합니다.
 
-The `uriFormat` property describes how the port number is turned into a URI. The first `%s` is substituted by the first capture group of the matching pattern.
+`uriFormat` 속성은 포트 번호가 URI로 변환되는 방법을 설명합니다. 첫 번째 `%s`는 일치하는 패턴의 첫 번째 캡처 그룹으로 대체됩니다.
 
-The resulting URI is then opened outside of VS Code ("externally") with the standard application configured for the URI's scheme.
+결과 URI는 VS Code 외부("외부")에서 URI의 스킴에 대해 구성된 표준 애플리케이션으로 열립니다.
 
-### Trigger debugging via Microsoft Edge or Chrome
+### Microsoft Edge 또는 Chrome을 통한 디버깅 트리거 {#trigger-debugging-via-microsoft-edge-or-chrome}
 
-Alternatively, the `action` can be set to `debugWithEdge` or `debugWithChrome`. In this mode, a `webRoot` property can be added that is passed to the Chrome or Microsoft Edge debug session.
+대안으로, `action`을 `debugWithEdge` 또는 `debugWithChrome`으로 설정할 수 있습니다. 이 모드에서는 Chrome 또는 Microsoft Edge 디버그 세션에 전달되는 `webRoot` 속성을 추가할 수 있습니다.
 
-To simplify things a bit, most properties are optional and we use the following fallback values:
+조금 더 간단하게 하기 위해 대부분의 속성은 선택적이며 다음과 같은 기본값을 사용합니다:
 
-- **pattern**: `"listening on.* (https?://\\S+|[0-9]+)"` which matches the commonly used messages "listening on port 3000" or "Now listening on: https://localhost:5001".
+- **pattern**: `"listening on.* (https?://\\S+|[0-9]+)"`는 일반적으로 사용되는 메시지 "포트 3000에서 수신 대기 중" 또는 "Now listening on: https://localhost:5001" 과 일치합니다.
 - **uriFormat**: `"http://localhost:%s"`
 - **webRoot**: `"$\{workspaceFolder\}
 "`
 
-### Triggering an arbitrary launch config
+### 임의의 런치 구성 트리거 {#triggering-an-arbitrary-launch-config}
 
-In some cases, you might need to configure more options for the browser debug session, or use a different debugger entirely. You can do this by setting `action` to `startDebugging` with a `name` property set to the name of the launch configuration to start when the `pattern` is matched.
+경우에 따라 브라우저 디버그 세션에 대해 더 많은 옵션을 구성해야 하거나 전혀 다른 디버거를 사용해야 할 수도 있습니다. 이를 위해 `action`을 `startDebugging`으로 설정하고 `pattern`이 일치할 때 시작할 런치 구성의 이름을 설정합니다.
 
-The named launch configuration must be in the same file or folder as the one with the `serverReadyAction`.
+명명된 런치 구성은 `serverReadyAction`이 있는 파일 또는 폴더와 동일한 파일 또는 폴더에 있어야 합니다.
 
-Here the **serverReadyAction** feature in action:
+여기 **serverReadyAction** 기능이 작동하는 모습입니다:
 
-<video src="images/debugging/server-ready.mp4" title="Server ready feature in action" autoplay loop controls muted></video>
+<video src="images/debugging/server-ready.mp4" title="서버 준비 기능 작동 중" autoplay loop controls muted></video>
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-- [Tasks](/docs/editor/tasks.md) - Describes how to run tasks with Gulp, Grunt, and Jake and how to show errors and warnings.
-- [Variables Reference](/docs/reference/variables-reference.md) - Describes the variables available in VS Code.
+- [작업](/docs/editor/tasks.md) - Gulp, Grunt 및 Jake로 작업을 실행하는 방법과 오류 및 경고를 표시하는 방법을 설명합니다.
+- [변수 참조](/docs/reference/variables-reference.md) - VS Code에서 사용할 수 있는 변수를 설명합니다.
 
-## Common questions
+## 자주 묻는 질문 {#common-questions}
 
-### I do not see any launch configurations in the Run and Debug view dropdown. What is wrong?
+### 실행 및 디버그 뷰 드롭다운에서 런치 구성이 보이지 않습니다. 무엇이 잘못되었나요? {#i-do-not-see-any-launch-configurations-in-the-run-and-debug-view-dropdown-what-is-wrong}
 
-The most common problem is that you did not set up `launch.json` or there is a syntax error in that file. Alternatively, you might need to open a folder, since no-folder debugging does not support launch configurations.
+가장 일반적인 문제는 `launch.json`을 설정하지 않았거나 해당 파일에 구문 오류가 있다는 것입니다. 또는 폴더를 열어야 할 수도 있습니다. 폴더가 없는 디버깅은 런치 구성을 지원하지 않습니다.

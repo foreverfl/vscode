@@ -1,176 +1,176 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
 DateApproved: 03/05/2025
-MetaDescription: This tutorial gives you an overview of the key features of Visual Studio Code to help you get started quickly.
+MetaDescription: 이 튜토리얼은 Visual Studio Code의 주요 기능에 대한 개요를 제공하여 빠르게 시작할 수 있도록 도와줍니다.
 ---
 
-# Tutorial: Get started with Visual Studio Code
+# 튜토리얼: Visual Studio Code 시작하기 {#tutorial-get-started-with-visual-studio-code}
 
-In this tutorial, you learn about the key features of Visual Studio Code to help you get started with coding quickly. You learn about the different components of the user interface and how to customize it to your liking. You then write some code and use the built-in code editing features, such as IntelliSense and Code Actions, and you learn about running and debugging your code. By installing a language extension, you add support for a different programming language.
+이 튜토리얼에서는 코딩을 빠르게 시작할 수 있도록 Visual Studio Code의 주요 기능에 대해 배웁니다. 사용자 인터페이스의 다양한 구성 요소와 이를 원하는 대로 사용자화하는 방법을 배우게 됩니다. 그런 다음 코드를 작성하고 IntelliSense 및 코드 작업과 같은 내장 코드 편집 기능을 사용하며, 코드를 실행하고 디버깅하는 방법에 대해 배웁니다. 언어 확장을 설치하여 다른 프로그래밍 언어에 대한 지원을 추가합니다.
 
 > [!TIP]
-> If you prefer to follow along with a video, you can watch the [Getting Started video](https://www.youtube.com/watch?v=B-s71n0dHUk), which covers the same steps as this tutorial.
+> 비디오를 따라하는 것을 선호하신다면, 이 튜토리얼과 동일한 단계를 다루는 [시작하기 비디오](https://www.youtube.com/watch?v=B-s71n0dHUk)를 시청할 수 있습니다.
 
-## Prerequisites
+## 사전 요구 사항 {#prerequisites}
 
-- [Download and install Visual Studio Code on your computer](https://code.visualstudio.com/download)
+- [컴퓨터에 Visual Studio Code 다운로드 및 설치하기](https://code.visualstudio.com/download)
 
-## Open a folder in VS Code
+## VS Code에서 폴더 열기 {#open-a-folder-in-vs-code}
 
-You can use VS Code to work on individual files to make quick edits, or you can open a folder, also known as a _workspace_.
+VS Code를 사용하여 개별 파일에서 빠른 수정을 하거나, _작업 공간_이라고도 하는 폴더를 열 수 있습니다.
 
-Let's start by creating a folder and opening it in VS Code. You'll use this folder throughout the tutorial.
+폴더를 생성하고 VS Code에서 여는 것으로 시작하겠습니다. 이 폴더는 튜토리얼 전반에 걸쳐 사용됩니다.
 
-1. Open Visual Studio Code.
+1. Visual Studio Code를 엽니다.
 
-   When you first open VS Code, you should see the **Welcome** page with different actions to get started.
+   VS Code를 처음 열면 시작할 수 있는 다양한 작업이 있는 **환영** 페이지가 표시됩니다.
 
-1. Select **File** > **Open Folder...** from the menu to open a folder.
+1. 메뉴에서 **파일** > **폴더 열기...**를 선택하여 폴더를 엽니다.
 
-   ![Screenshot that shows VS Code after opening a folder, highlighting the Explorer view.](images/getting-started/open-folder.png)
+   ![폴더를 연 후 VS Code의 스크린샷으로, 탐색기 뷰가 강조 표시되어 있습니다.](images/getting-started/open-folder.png)
 
-1. Select **New Folder**, create a new folder named `vscode101`, and then select **Select Folder** (**Open** on macOS).
+1. **새 폴더**를 선택하고 `vscode101`이라는 새 폴더를 만든 다음 **폴더 선택**(**macOS에서는 열기**)를 선택합니다.
 
-   The folder you create is the root of your workspace.
+   생성한 폴더는 작업 공간의 루트입니다.
 
-1. On the Workspace Trust dialog, select **Yes, I trust the authors** to enable all features in the workspace.
+1. 작업 공간 신뢰 대화 상자에서 **예, 저자는 신뢰합니다**를 선택하여 작업 공간의 모든 기능을 활성화합니다.
 
-   ![Screenshot that shows the Workspace Trust dialog.](images/getting-started/workspace-trust.png)
+   ![작업 공간 신뢰 대화 상자의 스크린샷입니다.](images/getting-started/workspace-trust.png)
 
-   Because you created the folder on your computer, you can trust the code in the folder.
+   컴퓨터에 폴더를 생성했기 때문에 폴더의 코드를 신뢰할 수 있습니다.
 
    > [!IMPORTANT]
-   > Workspace Trust lets you decide whether code in your project folder can be executed by VS Code. When you download code from the internet, you should first review it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editor/workspaces/workspace-trust.md).
+   > 작업 공간 신뢰는 프로젝트 폴더의 코드가 VS Code에 의해 실행될 수 있는지 여부를 결정할 수 있게 해줍니다. 인터넷에서 코드를 다운로드할 때는 먼저 안전하게 실행할 수 있는지 검토해야 합니다. [작업 공간 신뢰](/docs/editor/workspaces/workspace-trust.md)에 대한 자세한 정보를 확인하세요.
 
-1. You should now see the **Explorer** view on the left, showing the name of the folder.
+1. 이제 왼쪽에 **탐색기** 뷰가 표시되며 폴더의 이름이 나타납니다.
 
-   You'll use the Explorer view to view and manage the files and folders in your workspace.
+   탐색기 뷰를 사용하여 작업 공간의 파일과 폴더를 보고 관리합니다.
 
 > [!TIP]
-> When you open a folder in VS Code, VS Code can restore the UI state for that folder, such as the open files, the active view, and the layout of the editor. You can also configure settings that only apply to that folder, or define debug configurations. Get more info about [workspaces](/docs/editor/workspaces/workspaces.md).
+> VS Code에서 폴더를 열면 VS Code가 해당 폴더의 UI 상태를 복원할 수 있습니다. 열린 파일, 활성 뷰 및 편집기 레이아웃과 같은 상태를 복원합니다. 해당 폴더에만 적용되는 설정을 구성하거나 디버그 구성을 정의할 수도 있습니다. [작업 공간](/docs/editor/workspaces/workspaces.md)에 대한 자세한 정보를 확인하세요.
 
-## Explore the user interface
+## 사용자 인터페이스 탐색하기 {#explore-the-user-interface}
 
-Now that you have a folder open in VS Code, let's take a quick tour of the user interface.
+이제 VS Code에서 폴더를 열었으므로 사용자 인터페이스를 간단히 둘러보겠습니다.
 
-### Switch between views with the Activity Bar
+### 활동 표시줄로 뷰 전환하기 {#switch-between-views-with-the-activity-bar}
 
-1. Use the Activity Bar to switch between different views.
+1. 활동 표시줄을 사용하여 다양한 뷰 간에 전환합니다.
 
-   ![Screenshot that highlights the Activity Bar.](images/getting-started/activity-bar.png)
+   ![활동 표시줄을 강조 표시한 스크린샷입니다.](images/getting-started/activity-bar.png)
 
    > [!TIP]
-   > Hover over the Activity Bar to see the name of each view and the corresponding keyboard shortcut. You can toggle a view open and closed by selecting the view again or pressing the keyboard shortcut.
+   > 활동 표시줄 위에 마우스를 올리면 각 뷰의 이름과 해당 키보드 단축키를 확인할 수 있습니다. 뷰를 다시 선택하거나 키보드 단축키를 눌러 뷰를 열고 닫을 수 있습니다.
 
-1. When you select a view in the Activity Bar, the **Primary Side Bar** opens to show view-specific information.
+1. 활동 표시줄에서 뷰를 선택하면 **기본 사이드 바**가 열려 뷰에 특정한 정보를 표시합니다.
 
-   For example, the Run and Debug view enables you to configure and start debugging sessions.
+   예를 들어, 실행 및 디버그 뷰를 사용하면 디버깅 세션을 구성하고 시작할 수 있습니다.
 
-   ![Screenshot that shows the Activity Bar and the Run and Debug view in the Primary Side Bar.](images/getting-started/activity-bar-and-side-bar.png)
+   ![활동 표시줄과 기본 사이드 바의 실행 및 디버그 뷰를 보여주는 스크린샷입니다.](images/getting-started/activity-bar-and-side-bar.png)
 
-### View and edit files with the Editor
+### 편집기로 파일 보기 및 편집하기 {#view-and-edit-files-with-the-editor}
 
-1. Select the Explorer view in the Activity Bar, and select the **New File...** button to create a new file in your workspace.
+1. 활동 표시줄에서 탐색기 뷰를 선택하고 **새 파일...** 버튼을 선택하여 작업 공간에 새 파일을 만듭니다.
 
-   ![Screenshot that shows the New File button in the Explorer view.](images/getting-started/explorer-new-file.png)
+   ![탐색기 뷰에서 새 파일 버튼을 보여주는 스크린샷입니다.](images/getting-started/explorer-new-file.png)
 
-1. Enter the name `index.html` and press `kbstyle(Enter)`.
+1. `index.html`이라는 이름을 입력하고 `kbstyle(Enter)`를 누릅니다.
 
-   A file is added to your workspace and an Editor opens in the main area of the window.
+   파일이 작업 공간에 추가되고 편집기가 창의 주요 영역에 열립니다.
 
-   ![Screenshot that shows the Editor in the main area of the window.](images/getting-started/new-file-editor.png)
+   ![창의 주요 영역에 있는 편집기를 보여주는 스크린샷입니다.](images/getting-started/new-file-editor.png)
 
-1. Start typing some HTML code in the `index.html` file.
+1. `index.html` 파일에 HTML 코드를 입력하기 시작합니다.
 
-   As you type, you should see suggestions popping up that help you complete your code (_IntelliSense_). You can use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate the suggestions, and `kbstyle(Tab)` to insert the selected suggestion.
+   입력하는 동안 코드 완성을 돕는 제안이 나타나는 것을 볼 수 있습니다 (_IntelliSense_). 제안 사이를 탐색하려면 `kbstyle(Up)` 및 `kbstyle(Down)` 키를 사용하고, 선택한 제안을 삽입하려면 `kbstyle(Tab)`을 사용합니다.
 
-1. Add more files to your workspace and notice that each file opens a new Editor tab.
+1. 작업 공간에 더 많은 파일을 추가하고 각 파일이 새 편집기 탭을 여는 것을 확인합니다.
 
-   You can open as many editors as you like and view them side by side vertically or horizontally. Learn more about [side by side editing](/docs/getstarted/userinterface.md#side-by-side-editing).
+   원하는 만큼 편집기를 열 수 있으며, 수직 또는 수평으로 나란히 볼 수 있습니다. [나란히 편집하기](/docs/getstarted/userinterface.md#side-by-side-editing)에 대한 자세한 정보를 확인하세요.
 
-   ![Screenshot that shows multiple Editor tabs.](images/getting-started/multiple-editors.png)
+   ![여러 편집기 탭을 보여주는 스크린샷입니다.](images/getting-started/multiple-editors.png)
 
-### Access the terminal from the Panel area
+### 패널 영역에서 터미널 접근하기 {#access-the-terminal-from-the-panel-area}
 
-1. VS Code has an integrated terminal. Open it by pressing `kb(workbench.action.terminal.toggleTerminal)`.
+1. VS Code에는 통합 터미널이 있습니다. `kb(workbench.action.terminal.toggleTerminal)`를 눌러 엽니다.
 
-   You can choose between different shells, such as PowerShell, Command Prompt, or Bash, depending on your operating system configuration.
+   운영 체제 구성에 따라 PowerShell, 명령 프롬프트 또는 Bash와 같은 다양한 셸 중에서 선택할 수 있습니다.
 
-   ![Screenshot that shows the Panel area with the Terminal view.](images/getting-started/vscode-panel.png)
+   ![터미널 뷰가 있는 패널 영역의 스크린샷입니다.](images/getting-started/vscode-panel.png)
 
-1. In the terminal, enter the following command to create a new file in your workspace.
+1. 터미널에서 다음 명령을 입력하여 작업 공간에 새 파일을 만듭니다.
 
    ```bash
    echo "Hello, VS Code" > greetings.txt
    ```
 
-   The default working folder is the root of your workspace. Notice that the Explorer view automatically picks up and shows the new file.
+   기본 작업 폴더는 작업 공간의 루트입니다. 탐색기 뷰가 자동으로 새 파일을 감지하고 표시하는 것을 확인하세요.
 
-   ![Screenshot that shows the Explorer view with the new file.](images/getting-started/terminal-new-file.png)
+   ![새 파일이 있는 탐색기 뷰의 스크린샷입니다.](images/getting-started/terminal-new-file.png)
 
-1. You can open multiple terminals simultaneously. Select the **Launch Profile** dropdown to view the available shells and choose one.
+1. 여러 개의 터미널을 동시에 열 수 있습니다. **시작 프로필** 드롭다운을 선택하여 사용 가능한 셸을 보고 선택합니다.
 
-   ![Screenshot that shows the Launch Profile dropdown with the available shells.](images/getting-started/terminal-launch-profile.png)
+   ![사용 가능한 셸이 있는 시작 프로필 드롭다운의 스크린샷입니다.](images/getting-started/terminal-launch-profile.png)
 
-### Access commands with the Command Palette
+### 명령 팔레트로 명령 접근하기 {#access-commands-with-the-command-palette}
 
-1. Open the **Command Palette** by pressing `kb(workbench.action.showCommands)`. You can also use the **View** > **Command Palette...** menu item.
+1. `kb(workbench.action.showCommands)`를 눌러 **명령 팔레트**를 엽니다. 또는 **보기** > **명령 팔레트...** 메뉴 항목을 사용할 수 있습니다.
 
-   Many of the commands in VS Code are available through the Command Palette. When you install extensions, they can also add commands to the Command Palette.
+   VS Code의 많은 명령은 명령 팔레트를 통해 사용할 수 있습니다. 확장을 설치하면 명령 팔레트에 명령을 추가할 수도 있습니다.
 
-   ![Screenshot that shows the Command Palette.](images/getting-started/command-palette.png)
+   ![명령 팔레트를 보여주는 스크린샷입니다.](images/getting-started/command-palette.png)
 
    > [!TIP]
-   > Notice that the Command Palette shows the default keyboard shortcut for commands that have one. You can use the keyboard shortcut to run the command directly.
+   > 명령 팔레트는 해당 명령에 기본 키보드 단축키가 있는 경우 기본 키보드 단축키를 표시합니다. 키보드 단축키를 사용하여 명령을 직접 실행할 수 있습니다.
 
-1. The Command Palette supports different modes of operation:
+1. 명령 팔레트는 다양한 작동 모드를 지원합니다:
 
-   1. After the `>` symbol, start typing to filter the command list. For example, type `move terminal` to find commands to move the terminal to a new window.
+   1. `>` 기호 뒤에 입력하여 명령 목록을 필터링합니다. 예를 들어, `move terminal`을 입력하여 터미널을 새 창으로 이동하는 명령을 찾습니다.
 
-      ![Screenshot that shows the Command Palette, listing the entries for moving the terminal.](images/getting-started/command-palette-move-terminal.png)
+      ![터미널 이동 항목을 나열한 명령 팔레트를 보여주는 스크린샷입니다.](images/getting-started/command-palette-move-terminal.png)
 
-   1. Remove the `>` character and start typing to search for files in your workspace. You can use the `kb(workbench.action.quickOpen)` keyboard shortcut to open the Command Palette and start searching for files directly.
+   1. `>` 문자를 제거하고 입력하여 작업 공간의 파일을 검색합니다. `kb(workbench.action.quickOpen)` 키보드 단축키를 사용하여 명령 팔레트를 열고 파일을 직접 검색할 수 있습니다.
 
-      ![Screenshot that shows the Quick Open feature in the Command Palette.](images/getting-started/quick-open.png)
+      ![명령 팔레트에서 빠른 열기 기능을 보여주는 스크린샷입니다.](images/getting-started/quick-open.png)
 
 > [!TIP]
-> VS Code uses fuzzy matching to find files or commands. For example, typing `odks` returns the `Open Default Keyboard Shortcuts` command.
+> VS Code는 퍼지 매칭을 사용하여 파일이나 명령을 찾습니다. 예를 들어, `odks`를 입력하면 `Open Default Keyboard Shortcuts` 명령이 반환됩니다.
 
-## Configure VS Code settings
+## VS Code 설정 구성하기 {#configure-vs-code-settings}
 
-You can customize almost every part of VS Code by configuring settings. You can use the **Settings Editor** to modify the settings in VS Code or directly modify the `settings.json` file.
+VS Code의 거의 모든 부분을 설정을 구성하여 사용자화할 수 있습니다. **설정 편집기**를 사용하여 VS Code의 설정을 수정하거나 `settings.json` 파일을 직접 수정할 수 있습니다.
 
-1. Press `kb(workbench.action.openSettings)` to open the Settings Editor (or select the **File** > **Preferences** > **Settings** menu item).
+1. `kb(workbench.action.openSettings)`를 눌러 설정 편집기를 엽니다 (또는 **파일** > **환경 설정** > **설정** 메뉴 항목을 선택합니다).
 
-   ![Screenshot that shows the Settings Editor.](images/getting-started/settings-editor.png)
-
-   > [!TIP]
-   > Use the search box to filter the list of settings that are shown.
-
-1. By default, VS Code doesn't automatically save modified files. Select a value from the Auto Save dropdown to change this behavior.
-
-   ![Screenshot that shows the Auto Save dropdown in the Settings Editor.](images/getting-started/settings-editor-auto-save.png)
-
-   VS Code automatically applies changes to settings. When you modify a file in your workspace, it should now be automatically saved.
-
-1. To revert a setting to its default value, select the gear icon next to the setting and select **Reset Setting**.
-
-   ![Screenshot that shows the gear icon next to a setting in the Settings Editor.](images/getting-started/settings-editor-reset-setting.png)
+   ![설정 편집기를 보여주는 스크린샷입니다.](images/getting-started/settings-editor.png)
 
    > [!TIP]
-   > You can quickly find all modified settings by typing `@modified` in the search box or selecting the **Modified** filter.
+   > 검색 상자를 사용하여 표시되는 설정 목록을 필터링합니다.
 
-1. You can use the tabs in the Settings Editor to switch between **User** settings and **Workspace** settings.
+1. 기본적으로 VS Code는 수정된 파일을 자동으로 저장하지 않습니다. 자동 저장 드롭다운에서 값을 선택하여 이 동작을 변경합니다.
 
-   User settings apply across all your workspaces. Workspace settings only apply to the current workspace. Workspace settings override user settings. Get more information about [settings in VS Code](/docs/editor/settings.md).
+   ![설정 편집기에서 자동 저장 드롭다운을 보여주는 스크린샷입니다.](images/getting-started/settings-editor-auto-save.png)
 
-## Write some code
+   VS Code는 설정 변경 사항을 자동으로 적용합니다. 작업 공간에서 파일을 수정하면 이제 자동으로 저장됩니다.
 
-VS Code has built-in support for JavaScript, TypeScript, HTML, CSS, and more. In this tutorial, you create a sample JavaScript file and use some of the code editing features that VS Code offers.
+1. 설정을 기본값으로 되돌리려면 설정 옆의 기어 아이콘을 선택하고 **설정 재설정**을 선택합니다.
 
-VS Code supports many programming languages and in a next step, you'll [install a language extension](#step-6-install-a-language-extension) to add support for a different language, namely Python.
+   ![설정 편집기에서 설정 옆의 기어 아이콘을 보여주는 스크린샷입니다.](images/getting-started/settings-editor-reset-setting.png)
 
-1.  In the Explorer view, create a new file `app.js`, and start typing the following JavaScript code:
+   > [!TIP]
+   > 검색 상자에 `@modified`를 입력하거나 **수정됨** 필터를 선택하여 모든 수정된 설정을 빠르게 찾을 수 있습니다.
+
+1. 설정 편집기에서 **사용자** 설정과 **작업 공간** 설정 간에 전환할 수 있습니다.
+
+   사용자 설정은 모든 작업 공간에 적용됩니다. 작업 공간 설정은 현재 작업 공간에만 적용됩니다. 작업 공간 설정은 사용자 설정을 덮어씁니다. [VS Code의 설정](/docs/editor/settings.md)에 대한 자세한 정보를 확인하세요.
+
+## 코드 작성하기 {#write-some-code}
+
+VS Code는 JavaScript, TypeScript, HTML, CSS 등 다양한 언어에 대한 기본 지원을 제공합니다. 이 튜토리얼에서는 샘플 JavaScript 파일을 생성하고 VS Code가 제공하는 일부 코드 편집 기능을 사용합니다.
+
+VS Code는 많은 프로그래밍 언어를 지원하며, 다음 단계에서는 다른 언어인 Python에 대한 지원을 추가하기 위해 [언어 확장을 설치합니다](#step-6-install-a-language-extension).
+
+1. 탐색기 뷰에서 새 파일 `app.js`를 만들고 다음 JavaScript 코드를 입력하기 시작합니다:
 
     ```javascript
     function sayHello(name) {
@@ -180,77 +180,75 @@ VS Code supports many programming languages and in a next step, you'll [install 
     sayHello("VS Code");
     ```
 
-    As you type, you should see suggestions popping up that help you complete your code (_IntelliSense_). You can use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate the suggestions, and `kbstyle(Tab)` to insert the selected suggestion.
+    입력하는 동안 코드 완성을 돕는 제안이 나타나는 것을 볼 수 있습니다 (_IntelliSense_). 제안 사이를 탐색하려면 `kbstyle(Up)` 및 `kbstyle(Down)` 키를 사용하고, 선택한 제안을 삽입하려면 `kbstyle(Tab)`을 사용합니다.
 
-    Notice also the formatting of the code (_syntax highlighting_), to help you distinguish between different parts of the code.
+    코드의 형식 (_구문 강조_)도 확인하여 코드의 다양한 부분을 구분할 수 있도록 돕습니다.
 
-    ![Screen capture that shows IntelliSense in action for a JavaScript file.](images/getting-started/javascript-intellisense.gif)
+    ![JavaScript 파일에서 IntelliSense가 작동하는 모습을 보여주는 화면 캡처입니다.](images/getting-started/javascript-intellisense.gif)
 
-1.  When you put the cursor on the string `Hello,`, you should see a lightbulb icon appear to indicate there's a Code Action.
+1. 문자열 `Hello,` 위에 커서를 두면 코드 작업을 나타내는 전구 아이콘이 나타납니다.
 
-    You can also use the `kb(editor.action.triggerSuggest)` keyboard shortcut to open the lightbulb menu.
+    `kb(editor.action.triggerSuggest)` 키보드 단축키를 사용하여 전구 메뉴를 열 수도 있습니다.
 
-1.  Select the lightbulb icon, and then select **Convert to template string**.
+1. 전구 아이콘을 선택한 다음 **템플릿 문자열로 변환**을 선택합니다.
 
-        ![Screenshot that shows the lightbulb Code Action to convert a string concatenation to a template string.](images/getting-started/code-action-template-string.png)
+        ![문자열 연결을 템플릿 문자열로 변환하는 코드 작업의 전구 스크린샷입니다.](images/getting-started/code-action-template-string.png)
 
-        Code Actions are suggestions to apply quick fixes to your code. In this case, the Code Action converts `""Hello, " + name` into a [template string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) `` `Hello, $\{name\}
+        코드 작업은 코드에 대한 빠른 수정 적용을 위한 제안입니다. 이 경우 코드 작업은 `""Hello, " + name`을 [템플릿 문자열](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) `` `Hello, $\{name\}` ``으로 변환합니다. 이는 문자열에 표현식을 삽입하기 위한 특별한 JavaScript 구성입니다.
 
-    ` ``, which is a special JavaScript construct to embed expressions in strings.
+코드 [편집 기능](/docs/editor/codebasics.md), [IntelliSense](/docs/editor/intellisense.md), [코드 탐색](/docs/editor/editingevolved.md), 및 [리팩토링](/docs/editor/refactoring.md)에 대한 자세한 정보를 확인하세요.
 
-Learn more about code [editing features](/docs/editor/codebasics.md), [IntelliSense](/docs/editor/intellisense.md), [code navigation](/docs/editor/editingevolved.md), and [refactoring](/docs/editor/refactoring.md) in VS Code.
+## 소스 제어 사용하기 {#use-source-control}
 
-## Use source control
+Visual Studio Code는 통합 소스 제어 관리(SCM)를 제공하며, 기본적으로 [Git](https://git-scm.com/) 지원이 포함되어 있습니다.
 
-Visual Studio Code has integrated source control management (SCM) and includes [Git](https://git-scm.com/) support out-of-the-box.
+이제 이전에 만든 변경 사항을 커밋하기 위해 내장 Git 지원을 사용해 보겠습니다.
 
-Let's use the built-in Git support to commit the changes you've made previously.
+1. 활동 표시줄에서 **소스 제어** 뷰를 선택하여 소스 제어 뷰를 엽니다.
 
-1. Select the **Source Control** view in the Activity Bar to open the Source Control view.
+   ![소스 제어 뷰를 보여주는 스크린샷으로, 활동 표시줄의 버튼이 강조 표시되어 있습니다.](images/getting-started/source-control-view.png)
 
-   ![Screenshot that shows the Source Control view, highlighting the button in the Activity Bar.](images/getting-started/source-control-view.png)
+1. 컴퓨터에 [Git](https://git-scm.com/)이 설치되어 있는지 확인합니다. Git이 설치되어 있지 않으면 소스 제어 뷰에 컴퓨터에 설치할 수 있는 버튼이 표시됩니다.
 
-1. Make sure you have [Git](https://git-scm.com/) installed on your computer. If you don't have Git installed, you'll see a button in the Source Control view to install it on your machine.
+1. **저장소 초기화**를 선택하여 작업 공간에 대한 새 Git 저장소를 만듭니다.
 
-1. Select **Initialize Repository** to create a new Git repository for your workspace.
+   ![소스 제어 뷰를 보여주는 스크린샷으로, 저장소 초기화 버튼이 강조 표시되어 있습니다.](images/getting-started/source-control-initialize.png)
 
-   ![Screenshot that shows the Source Control view, highlighting the Initialize Repository button.](images/getting-started/source-control-initialize.png)
+   저장소를 초기화한 후 소스 제어 뷰는 작업 공간에서 변경한 사항을 보여줍니다.
 
-   After you initialize a repository, the Source Control view shows the changes you've made in your workspace.
+1. 파일 위에 마우스를 올리고 파일 옆의 `+`를 선택하여 개별 변경 사항을 스테이징할 수 있습니다.
 
-1. You can stage individual changes by hovering over a file and selecting `+` next to a file.
-
-   ![Screenshot that shows the Source Control view with changes in the workspace.](images/getting-started/source-control-changes.png)
+   ![작업 공간의 변경 사항이 있는 소스 제어 뷰를 보여주는 스크린샷입니다.](images/getting-started/source-control-changes.png)
 
    > [!TIP]
-   > To stage all changes, hover over **Changes** and select the **Stage All Changes** button.
+   > 모든 변경 사항을 스테이징하려면 **변경 사항** 위에 마우스를 올리고 **모든 변경 사항 스테이징** 버튼을 선택합니다.
 
-1. Enter a commit message, for example `Add hello function`, and then select the **Commit** to commit the changes to your Git repository.
+1. 커밋 메시지를 입력합니다. 예를 들어 `Add hello function`이라고 입력한 다음 **커밋**을 선택하여 변경 사항을 Git 저장소에 커밋합니다.
 
-   ![Screenshot that shows the Source Control view with a commit message.](images/getting-started/source-control-commit.png)
+   ![커밋 메시지가 있는 소스 제어 뷰를 보여주는 스크린샷입니다.](images/getting-started/source-control-commit.png)
 
    > [!TIP]
-   > Select **Graph** in the Source Control view to show a visual representation of the commit history of your Git repository.
+   > 소스 제어 뷰에서 **그래프**를 선택하여 Git 저장소의 커밋 기록을 시각적으로 표시합니다.
 
-There's a lot more to discover about source control in VS Code. Get more info about [source control in VS Code](/docs/sourcecontrol/overview.md).
+VS Code에서 소스 제어에 대해 더 많은 것을 발견할 수 있습니다. [VS Code의 소스 제어](/docs/sourcecontrol/overview.md)에 대한 자세한 정보를 확인하세요.
 
-## Install a language extension
+## 언어 확장 설치하기 {#install-a-language-extension}
 
-VS Code has a rich ecosystem of extensions that let you add languages, debuggers, and tools to your installation to support your specific development workflow. There are thousands of extensions available in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode).
+VS Code는 특정 개발 워크플로우를 지원하기 위해 언어, 디버거 및 도구를 설치에 추가할 수 있는 풍부한 확장 생태계를 가지고 있습니다. [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode)에는 수천 개의 확장이 있습니다.
 
-Let's install a language extension to add support for Python, or any other programming language you are interested in.
+Python 또는 관심 있는 다른 프로그래밍 언어에 대한 지원을 추가하기 위해 언어 확장을 설치해 보겠습니다.
 
-1. Select the **Extensions** view in the Activity Bar.
+1. 활동 표시줄에서 **확장** 뷰를 선택합니다.
 
-   The Extensions view enables you to browse and install extensions from within VS Code.
+   확장 뷰를 사용하면 VS Code 내에서 확장을 탐색하고 설치할 수 있습니다.
 
-   ![Screenshot that shows the Extensions view, highlighting the Extensions icon in the Activity Bar.](images/getting-started/extensions-view.png)
+   ![확장 뷰를 보여주는 스크린샷으로, 활동 표시줄의 확장 아이콘이 강조 표시되어 있습니다.](images/getting-started/extensions-view.png)
 
-1. Enter _Python_ in the Extension view search box to browse for Python-related extensions. Select the **Python** extension published by Microsoft, and then select the **Install** button.
+1. 확장 뷰 검색 상자에 _Python_을 입력하여 Python 관련 확장을 탐색합니다. Microsoft에서 게시한 **Python** 확장을 선택한 다음 **설치** 버튼을 선택합니다.
 
-   ![Screenshot that shows the Extensions view with a search for Python extensions.](images/getting-started/extensions-search-python.png)
+   ![Python 확장을 검색한 확장 뷰의 스크린샷입니다.](images/getting-started/extensions-search-python.png)
 
-1. Now, create a new Python file `hello.py` in your workspace, and start typing the following Python code:
+1. 이제 작업 공간에 새 Python 파일 `hello.py`를 만들고 다음 Python 코드를 입력하기 시작합니다:
 
    ```python
    def say_hello(name):
@@ -259,93 +257,93 @@ Let's install a language extension to add support for Python, or any other progr
    say_hello("VS Code")
    ```
 
-   Notice that you now also get suggestions and IntelliSense for the Python code.
+   이제 Python 코드에 대한 제안 및 IntelliSense도 제공되는 것을 확인하세요.
 
-   ![Screen capture that shows IntelliSense in action for a Python file.](images/getting-started/python-intellisense.gif)
+   ![Python 파일에서 IntelliSense가 작동하는 모습을 보여주는 화면 캡처입니다.](images/getting-started/python-intellisense.gif)
 
-## Run and debug your code
+## 코드 실행 및 디버깅하기 {#run-and-debug-your-code}
 
-VS Code has built-in support for running and debugging Node.js applications. In this tutorial, you use the Python extension you installed in the previous step to debug a Python program.
+VS Code는 Node.js 애플리케이션을 실행하고 디버깅하는 기본 지원을 제공합니다. 이 튜토리얼에서는 이전 단계에서 설치한 Python 확장을 사용하여 Python 프로그램을 디버깅합니다.
 
-Let's debug the `hello.py` program that you created in the previous step.
+이제 이전 단계에서 만든 `hello.py` 프로그램을 디버깅해 보겠습니다.
 
-1. Make sure that [Python 3](https://www.python.org/downloads/) is installed on your computer.
+1. 컴퓨터에 [Python 3](https://www.python.org/downloads/)가 설치되어 있는지 확인합니다.
 
-   If there's no Python interpreter installed on your computer, you'll see a notification in the lower right corner of the window. Select **Select Interpreter** to open the **Command Palette** and select the Python interpreter you want to use or install one.
+   컴퓨터에 Python 인터프리터가 설치되어 있지 않으면 창의 오른쪽 하단에 알림이 표시됩니다. **인터프리터 선택**을 선택하여 **명령 팔레트**를 열고 사용하려는 Python 인터프리터를 선택하거나 설치합니다.
 
-1. In the `hello.py` file, place the cursor on the `print` line and press `kbstyle(F9)` to set a breakpoint.
+1. `hello.py` 파일에서 `print` 줄에 커서를 두고 `kbstyle(F9)`를 눌러 중단점을 설정합니다.
 
-   A red dot appears in the left margin of the editor, indicating that a breakpoint is set. With a breakpoint, you can pause the execution of your program at a specific line of code.
+   편집기의 왼쪽 여백에 빨간 점이 나타나 중단점이 설정되었음을 나타냅니다. 중단점을 사용하면 특정 코드 줄에서 프로그램 실행을 일시 중지할 수 있습니다.
 
-   ![Screenshot that shows a breakpoint in the editor.](images/getting-started/python-set-breakpoint.png)
+   ![편집기에서 중단점을 보여주는 스크린샷입니다.](images/getting-started/python-set-breakpoint.png)
 
-1. Press `kbstyle(F5)` to start a debugging session.
+1. `kbstyle(F5)`를 눌러 디버깅 세션을 시작합니다.
 
-   1. Select the Python debugger:
+   1. Python 디버거를 선택합니다:
 
-      ![Screenshot that shows the Quick Pick menu to select the Python debug configuration.](images/getting-started/python-select-debugger.png)
+      ![Python 디버그 구성을 선택하기 위한 빠른 선택 메뉴를 보여주는 스크린샷입니다.](images/getting-started/python-select-debugger.png)
 
-   1. Choose to run the current Python file:
+   1. 현재 Python 파일을 실행하도록 선택합니다:
 
-      ![Screenshot that shows the Quick Pick menu to select the Python debug configuration.](images/getting-started/python-debug-configuration.png)
+      ![Python 디버그 구성을 선택하기 위한 빠른 선택 메뉴를 보여주는 스크린샷입니다.](images/getting-started/python-debug-configuration.png)
 
-1. Notice that the program starts and that the execution stops at the breakpoint you set.
+1. 프로그램이 시작되고 설정한 중단점에서 실행이 중지되는 것을 확인합니다.
 
-   ![Screenshot that shows the program stopped at a breakpoint in the editor, highlighting the Variables view to inspect variables.](images/getting-started/vscode-debugging.png)
-
-   > [!TIP]
-   > Inspect the value of the `name` variable by hovering over it in the editor while the execution is paused. You can view the value of variables at any time in the **Variables** view in the **Run and Debug** view.
-
-1. Press the **Continue** button in the Debug toolbar or press `kbstyle(F5)` to continue the execution.
-
-   ![Screenshot that shows the Debug toolbar with the Continue button highlighted.](images/getting-started/debug-toolbar-play.png)
-
-There are many more debugging features in VS Code, such as watch variables, conditional breakpoints, and launch configurations. Dive into the details of [debugging in VS Code](/docs/editor/debugging.md).
-
-## Enhance your coding with AI and GitHub Copilot
-
-GitHub Copilot is an AI-powered assistant that helps you write code faster, and can help you with a wide range of tasks, such as code completion, code refactoring, and fixing errors.
-
-Let's get started by getting code suggestions from Copilot.
-
-1. Make sure you have set up Copilot in VS Code. Follow the steps in our [Copilot Setup](/docs/copilot/setup.md) guide.
+   ![편집기에서 중단점에 멈춘 프로그램을 보여주며, 변수를 검사하기 위한 변수 뷰가 강조 표시되어 있습니다.](images/getting-started/vscode-debugging.png)
 
    > [!TIP]
-   > If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+   > 실행이 일시 중지된 동안 편집기에서 `name` 변수 위에 마우스를 올려 변수의 값을 검사할 수 있습니다. **실행 및 디버그** 뷰의 **변수** 뷰에서 언제든지 변수의 값을 볼 수 있습니다.
 
-1. In the `hello.py` file, place the cursor at the end of the file and type this function header.
+1. 디버그 도구 모음에서 **계속** 버튼을 누르거나 `kbstyle(F5)`를 눌러 실행을 계속합니다.
+
+   ![계속 버튼이 강조 표시된 디버그 도구 모음을 보여주는 스크린샷입니다.](images/getting-started/debug-toolbar-play.png)
+
+VS Code에는 감시 변수, 조건부 중단점 및 시작 구성과 같은 더 많은 디버깅 기능이 있습니다. [VS Code에서 디버깅](/docs/editor/debugging.md)의 세부 정보를 확인하세요.
+
+## AI 및 GitHub Copilot으로 코딩 향상하기 {#enhance-your-coding-with-ai-and-github-copilot}
+
+GitHub Copilot은 코드를 더 빠르게 작성할 수 있도록 도와주는 AI 기반 도우미로, 코드 완성, 코드 리팩토링 및 오류 수정과 같은 다양한 작업을 도와줍니다.
+
+Copilot에서 코드 제안을 받는 것으로 시작해 보겠습니다.
+
+1. VS Code에서 Copilot을 설정했는지 확인합니다. [Copilot 설정](/docs/copilot/setup.md) 가이드를 따라 설정하세요.
+
+   > [!TIP]
+   > Copilot 구독이 아직 없다면, [Copilot 무료 요금제](https://github.com/github-copilot/signup)에 가입하여 무료로 Copilot을 사용할 수 있으며, 월간 완료 및 채팅 상호작용 한도가 제공됩니다.
+
+1. `hello.py` 파일에서 파일 끝에 커서를 두고 다음 함수 헤더를 입력합니다.
 
    ```python
    def say_day_of_week(date)
    ```
 
-   GitHub Copilot will automatically suggest the rest of the function. Accept the code suggestion by pressing `kbstyle(Tab)`.
+   GitHub Copilot이 자동으로 함수의 나머지 부분을 제안합니다. 제안된 코드를 수락하려면 `kbstyle(Tab)`을 누릅니다.
 
-1. Next, let's invoke our new function.
+1. 이제 새 함수를 호출해 보겠습니다.
 
    ```python
    say_day_of_week(date.today())
    ```
 
-   Notice that there's a squiggle on the `date` keyword, indicating that there's an error.
+   `date` 키워드에 물결표가 표시되어 오류가 있음을 나타냅니다.
 
-1. Put the cursor, on the `date` keyword, select the _lightbulb_ icon, and then select **Fix with Copilot**.
+1. `date` 키워드 위에 커서를 두고 전구 아이콘을 선택한 다음 **Copilot으로 수정**을 선택합니다.
 
-   ![Screenshot that shows the lightbulb Code Action to fix an error with Copilot.](images/getting-started/code-action-fix-with-copilot.png)
+   ![Copilot으로 오류를 수정하는 코드 작업의 전구 스크린샷입니다.](images/getting-started/code-action-fix-with-copilot.png)
 
-   GitHub Copilot will suggest a fix for the error. Select **Accept** if you're happy with the suggestion.
+   GitHub Copilot이 오류 수정을 제안합니다. 제안이 마음에 들면 **수락**을 선택합니다.
 
    > [!TIP]
-   > You can also use the `kb(editor.action.quickFix)` keyboard shortcut to manually trigger a quick fix.
+   > `kb(editor.action.quickFix)` 키보드 단축키를 사용하여 수동으로 빠른 수정을 트리거할 수도 있습니다.
 
-There's a lot more you can do with Copilot in VS Code. Discover more about GitHub Copilot in VS Code with our [Copilot Quickstart](/docs/copilot/getting-started.md).
+VS Code에서 Copilot으로 할 수 있는 일이 더 많습니다. [VS Code에서 GitHub Copilot](/docs/copilot/getting-started.md)에 대한 자세한 정보를 확인하세요.
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-Congratulations! You've completed the tutorial and explored some of the key features of Visual Studio Code. Now that you've learned the basics of Visual Studio Code, get more info about how to:
+축하합니다! 튜토리얼을 완료하고 Visual Studio Code의 주요 기능을 탐색했습니다. 이제 Visual Studio Code의 기본 사항을 배웠으므로 다음에 대한 자세한 정보를 확인하세요:
 
-- [Discover and run unit tests for your code](/docs/editor/testing.md)
+- [코드에 대한 단위 테스트 발견 및 실행하기](/docs/editor/testing.md)
 
-- [Use the integrated terminal](/docs/terminal/getting-started.md)
+- [통합 터미널 사용하기](/docs/terminal/getting-started.md)
 
-- [Set up a remote development environment](/docs/remote/remote-overview.md)
+- [원격 개발 환경 설정하기](/docs/remote/remote-overview.md)

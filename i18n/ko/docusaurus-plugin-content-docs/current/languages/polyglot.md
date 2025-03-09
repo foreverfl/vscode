@@ -1,29 +1,20 @@
----
-Order: 21
-Area: languages
-TOCTitle: Polyglot
-ContentId: 4bbd7ad1-8420-4ddd-a86f-442497e597b1
-PageTitle: Polyglot Programming with Notebooks in Visual Studio Code
-DateApproved: 03/05/2025
-MetaDescription: Polyglot Notebooks for multiple programming languages in Visual Studio Code.
----
-# Polyglot Notebooks in VS Code
+# VS Code의 다국어 노트북 {#polyglot-notebooks-in-vs-code}
 
-**What is Polyglot Programming?**
+**다국어 프로그래밍이란 무엇인가요?**
 
-Polyglot programming is the practice of using multiple programming languages to leverage the strength of each language for different tasks.
+다국어 프로그래밍은 여러 프로그래밍 언어를 사용하여 각 언어의 강점을 다양한 작업에 활용하는 방법입니다.
 
-**What are Notebooks?**
+**노트북이란 무엇인가요?**
 
-Notebooks are interactive files that allow the mixing of executable code, visualizations, equations, and narrative text. Notebooks are composed of code cells that make it easy to quickly iterate on code. Popularized by the open-source project [Jupyter](https://jupyter.org/), they have become the de facto tool for [Python data science](/docs/datascience/overview.md) and a great resource for teaching or learning a new programming language and quick prototyping.
+노트북은 실행 가능한 코드, 시각화, 방정식 및 서술 텍스트를 혼합할 수 있는 인터랙티브 파일입니다. 노트북은 코드 셀로 구성되어 있어 코드를 빠르게 반복할 수 있습니다. 오픈 소스 프로젝트 [Jupyter](https://jupyter.org/)에 의해 대중화되었으며, [Python 데이터 과학](/docs/datascience/overview.md)에서 사실상 표준 도구가 되었고, 새로운 프로그래밍 언어를 가르치거나 배우고 빠른 프로토타입을 만드는 데 훌륭한 자원입니다.
 
-## Polyglot Notebooks
+## 다국어 노트북 {#polyglot-notebooks}
 
-When polyglot programming meets notebooks, you get Polyglot Notebooks! As opposed to traditional notebooks that are typically used with Python, the [Polyglot Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) extension allows you to use multiple programming languages natively all in the same notebook in Visual Studio Code! No more needing wrapper libraries or magic commands to work with your favorite languages in the same notebook!
+다국어 프로그래밍과 노트북이 만나면 다국어 노트북이 탄생합니다! 전통적으로 Python과 함께 사용되는 노트북과는 달리, [다국어 노트북](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) 확장 기능은 Visual Studio Code에서 동일한 노트북 내에서 여러 프로그래밍 언어를 네이티브로 사용할 수 있게 해줍니다! 이제 좋아하는 언어로 작업하기 위해 래퍼 라이브러리나 마법 명령이 필요하지 않습니다!
 
-![Polyglot Notebooks Extension](images/polyglot/polyglot_ext.png)
+![다국어 노트북 확장](images/polyglot/polyglot_ext.png)
 
-### Languages supported
+### 지원되는 언어 {#languages-supported}
 
 - C#
 - F#
@@ -34,71 +25,71 @@ When polyglot programming meets notebooks, you get Polyglot Notebooks! As oppose
 - SQL
 - KQL (Kusto Query Language)
 
-## Features
+## 기능 {#features}
 
-In addition to executing the code for the languages above, you can take advantage of:
+위의 언어에 대한 코드를 실행하는 것 외에도 다음과 같은 기능을 활용할 수 있습니다:
 
-- **Connecting to and querying from** Microsoft SQL Server databases and Kusto clusters.
+- **Microsoft SQL Server 데이터베이스 및 Kusto 클러스터에 연결하고 쿼리하기**.
 
-- **Language server support** such as IntelliSense, autocompletion, and syntax highlighting _for each language_.
+- **각 언어에 대한 IntelliSense, 자동 완성 및 구문 강조**와 같은 **언어 서버 지원**.
 
-- **Variable sharing** between languages that ensures a continuous workflow within the notebook. (Variable sharing not available for HTML and Mermaid)
+- **노트북 내에서 지속적인 워크플로우우를 보장하는 언어 간의 **변수 공유**. (HTML 및 Mermaid에 대한 변수 공유는 제공되지 않음)
 
-- **Variable Explorer** to check state of variables and the subkernel variables exist in.
+- **변수 상태 및 해당 변수가 존재하는 서브커널을 확인할 수 있는 **변수 탐색기**.
 
-- **Full portability between Jupyter/JupyterLab**.
+- **Jupyter/JupyterLab 간의 완전한 이식성**.
 
-To learn about all the features, visit the VS Code Marketplace [Polyglot Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) extension.
+모든 기능에 대해 알아보려면 VS Code Marketplace의 [다국어 노트북](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) 확장을 방문하세요.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-To use Polyglot Notebooks in VS Code, you will need:
+VS Code에서 다국어 노트북을 사용하려면 다음이 필요합니다:
 
-- [Polyglot Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) extension
+- [다국어 노트북](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) 확장
 - [.NET 7 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
 
-### Why do I need the .NET SDK?
+### .NET SDK가 필요한 이유는 무엇인가요? {#why-do-i-need-the-net-sdk}
 
-The Polyglot Notebooks extension is powered by .NET Interactive, which is a cutting edge and innovative engine built on .NET technology that can run multiple languages and share variables between them. In Polyglot Notebooks, this engine behaves as the notebook's kernel and is the reason that the .NET 7 SDK is required.
+다국어 노트북 확장은 여러 언어를 실행하고 변수 간에 공유할 수 있는 .NET 기술 기반의 최첨단 혁신 엔진인 .NET Interactive에 의해 구동됩니다. 다국어 노트북에서 이 엔진은 노트북의 커널처럼 작동하며, 이 때문에 .NET 7 SDK가 필요합니다.
 
-## Getting started
+## 시작하기 {#getting-started}
 
-1. To create your first polyglot notebook, open the Command Palette (`kb(workbench.action.showCommands)`) and select **Polyglot Notebooks: Create new blank notebook**, select `.ipynb`, and select the language you'd like to start with.
+1. 첫 번째 다국어 노트북을 만들려면 명령 팔레트(`kb(workbench.action.showCommands)`)를 열고 **다국어 노트북: 새 빈 노트북 만들기**를 선택한 후, `.ipynb`를 선택하고 시작할 언어를 선택하세요.
 
-   You can also create a notebook by creating a new file and giving it the extension `.ipynb`. In this case, make sure that **.NET Interactive** is selected as the kernel of the notebook in the top right.
+   새 파일을 만들고 확장자를 `.ipynb`로 지정하여 노트북을 만들 수도 있습니다. 이 경우, 오른쪽 상단에서 **.NET Interactive**가 노트북의 커널로 선택되어 있는지 확인하세요.
 
-   ![Kernel Picker](images/polyglot/kernel_picker.png)
+   ![커널 선택기](images/polyglot/kernel_picker.png)
 
-2. By default, added cells will be the same language as the cell above it. To change the language, select the language picker in the bottom right of the cell.
+2. 기본적으로 추가된 셀은 위의 셀과 동일한 언어가 됩니다. 언어를 변경하려면 셀의 오른쪽 하단에 있는 언어 선택기를 선택하세요.
 
-   ![Cell Language Picker](images/polyglot/language_picker.png)
+   ![셀 언어 선택기](images/polyglot/language_picker.png)
 
-3. Get coding!
+3. 코딩을 시작하세요!
 
-   ![Example of Polyglot Notebook](images/polyglot/polyglot_nb_example.png)
+   ![다국어 노트북 예시](images/polyglot/polyglot_nb_example.png)
 
-## Working with data
+## 데이터 작업하기 {#working-with-data}
 
-Connect to and query Microsoft SQL Server databases and Kusto clusters.
+Microsoft SQL Server 데이터베이스 및 Kusto 클러스터에 연결하고 쿼리하세요.
 
-To get more detailed instructions on connecting to and working with data sources, visit the [Working with Data](https://github.com/dotnet/interactive/blob/main/docs/working-with-data.md) documentation.
+데이터 소스에 연결하고 작업하는 방법에 대한 자세한 지침은 [데이터 작업하기](https://github.com/dotnet/interactive/blob/main/docs/working-with-data.md) 문서를 방문하세요.
 
-![Connecting to SQL Example](images/polyglot/SQL_connection_example.png)
+![SQL 연결 예시](images/polyglot/SQL_connection_example.png)
 
-## Language server support
+## 언어 서버 지원 {#language-server-support}
 
-Each language in Polyglot Notebooks gets a first-class editing experience with language server support such as autocompletion, syntax highlighting, and signature help.
+다국어 노트북의 각 언어는 자동 완성, 구문 강조 및 서명 도움말과 같은 언어 서버 지원을 통해 일류 편집 경험을 제공합니다.
 
-## Variable Sharing and Variable Explorer
+## 변수 공유 및 변수 탐색기 {#variable-sharing-and-variable-explorer}
 
-Share variables between languages using the `#!set` command and check on the values of variables for each language using the Variable explorer. Note that if you were previously using the `#!share` command, it will continue to work. Select the **Variables** icon in the global toolbar to open the Variable explorer.
+`#!set` 명령을 사용하여 언어 간에 변수를 공유하고 변수 탐색기를 사용하여 각 언어의 변수 값을 확인하세요. 이전에 `#!share` 명령을 사용하고 있었다면 계속 작동합니다. 전역 도구 모음에서 **변수** 아이콘을 선택하여 변수 탐색기를 엽니다.
 
-<video src="images/polyglot/SQLJavaScript.mp4" placeholder="images/polyglot/SQLJavaScript.mp4" autoplay loop controls muted title="Video showing user sharing variables between SQL and JavaScript">
-    Sorry, your browser doesn't support HTML 5 video.
+<video src="images/polyglot/SQLJavaScript.mp4" placeholder="images/polyglot/SQLJavaScript.mp4" autoplay loop controls muted title="SQL과 JavaScript 간에 변수를 공유하는 사용자 비디오">
+    죄송합니다. 귀하의 브라우저는 HTML 5 비디오를 지원하지 않습니다.
 </video>
 
-To learn more about variable sharing, visit the [Variable Sharing](https://github.com/dotnet/interactive/blob/main/docs/variable-sharing.md) documentation.
+변수 공유에 대해 더 알아보려면 [변수 공유](https://github.com/dotnet/interactive/blob/main/docs/variable-sharing.md) 문서를 방문하세요.
 
-## Feature requests and feedback
+## 기능 요청 및 피드백 {#feature-requests-and-feedback}
 
-The Polyglot Notebooks extension is powered by .NET Interactive and you can provide feedback and enter issues on the [.NET Interactive GitHub repository](https://github.com/dotnet/interactive/issues).
+다국어 노트북 확장은 .NET Interactive에 의해 구동되며, [.NET Interactive GitHub 리포지토리](https://github.com/dotnet/interactive/issues)에서 피드백을 제공하고 문제를 제출할 수 있습니다.

@@ -1,92 +1,92 @@
 ---
 Order: 6
 Area: nodejs
-TOCTitle: React Tutorial
+TOCTitle: React 튜토리얼
 ContentId: 2dd2eeff-2eb3-4a0c-a59d-ea9a0b10c468
-PageTitle: React JavaScript Tutorial in Visual Studio Code
+PageTitle: Visual Studio Code에서의 React JavaScript 튜토리얼
 DateApproved: 03/05/2025
-MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
+MetaDescription: Visual Studio Code 편집기에서 IntelliSense, 디버깅 및 코드 탐색 지원을 보여주는 React JavaScript 튜토리얼입니다.
 ---
 
-# Using React in Visual Studio Code
+# Visual Studio Code에서 React 사용하기 {#using-react-in-visual-studio-code}
 
-[React](https://reactjs.org) is a popular JavaScript library developed by Facebook for building user interfaces. The Visual Studio Code editor supports React.js IntelliSense and code navigation out of the box.
+[React](https://reactjs.org)는 사용자 인터페이스를 구축하기 위해 Facebook에서 개발한 인기 있는 JavaScript 라이브러리입니다. Visual Studio Code 편집기는 React.js IntelliSense 및 코드 탐색을 기본적으로 지원합니다.
 
-![Welcome to React](images/reactjs/welcome-to-react.png)
+![React에 오신 것을 환영합니다](images/reactjs/welcome-to-react.png)
 
-## Welcome to React
+## React에 오신 것을 환영합니다 {#welcome-to-react}
 
-We'll be using the `create-react-app` [generator](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app) for this tutorial. To use the generator as well as run the React application server, you'll need [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (Node.js package manager) installed. npm is included with Node.js which you can download and install from [Node.js downloads](https://nodejs.org/en/download/).
+이번 튜토리얼에서는 `create-react-app` [제너레이터](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)를 사용할 것입니다. 제너레이터를 사용하고 React 애플리케이션 서버를 실행하려면 [Node.js](https://nodejs.org/) JavaScript 런타임과 [npm](https://www.npmjs.com/) (Node.js 패키지 관리자)을 설치해야 합니다. npm은 Node.js에 포함되어 있으며, [Node.js 다운로드](https://nodejs.org/en/download/)에서 다운로드하여 설치할 수 있습니다.
 
-> **Tip**: To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version` in a terminal or command prompt.
+> **팁**: Node.js와 npm이 올바르게 설치되었는지 테스트하려면 터미널이나 명령 프롬프트에 `node --version`과 `npm --version`을 입력할 수 있습니다.
 
-You can now create a new React application by typing:
+이제 다음 명령어를 입력하여 새로운 React 애플리케이션을 생성할 수 있습니다:
 
 ```bash
 npx create-react-app my-app
 ```
 
-where `my-app` is the name of the folder for your application. This may take a few minutes to create the React application and install its dependencies.
+여기서 `my-app`은 애플리케이션의 폴더 이름입니다. React 애플리케이션을 생성하고 종속성을 설치하는 데 몇 분이 걸릴 수 있습니다.
 
-> **Note**: If you've previously installed `create-react-app` globally via `npm install -g create-react-app`, we recommend you uninstall the package using `npm uninstall -g create-react-app` to ensure that npx always uses the latest version.
+> **참고**: 이전에 `npm install -g create-react-app`을 통해 `create-react-app`을 전역으로 설치한 경우, npx가 항상 최신 버전을 사용하도록 보장하기 위해 `npm uninstall -g create-react-app`을 사용하여 패키지를 제거하는 것이 좋습니다.
 
-Let's quickly run our React application by navigating to the new folder and typing `npm start` to start the web server and open the application in a browser:
+새로운 폴더로 이동하여 `npm start`를 입력하여 웹 서버를 시작하고 브라우저에서 애플리케이션을 열어 빠르게 React 애플리케이션을 실행해 보겠습니다:
 
 ```bash
 cd my-app
 npm start
 ```
 
-<!-- TBD mention yarn and link -->
+<!-- TBD yarn 언급 및 링크 -->
 
-You should see the React logo and a link to "Learn React" on [http://localhost:3000](http://localhost:3000) in your browser. We'll leave the web server running while we look at the application with VS Code.
+브라우저에서 [http://localhost:3000](http://localhost:3000)에서 React 로고와 "Learn React" 링크를 볼 수 있어야 합니다. 애플리케이션을 VS Code로 살펴보는 동안 웹 서버를 계속 실행해 두겠습니다.
 
-To open your React application in VS Code, open another terminal or command prompt window, navigate to the `my-app` folder and type `code .`:
+VS Code에서 React 애플리케이션을 열려면 다른 터미널이나 명령 프롬프트 창을 열고 `my-app` 폴더로 이동한 후 `code .`을 입력합니다:
 
 ```bash
 cd my-app
 code .
 ```
 
-### Markdown preview
+### Markdown 미리보기 {#markdown-preview}
 
-In the File Explorer, one file you'll see is the application `README.md` Markdown file. This has lots of great information about the application and React in general. A nice way to review the README is by using the VS Code [Markdown Preview](/docs/languages/markdown.md#markdown-preview). You can open the preview in either the current editor group (**Markdown: Open Preview** `kb(markdown.showPreview)`) or in a new editor group to the side (**Markdown: Open Preview to the Side** `kb(markdown.showPreviewToSide)`). You'll get nice formatting, hyperlink navigation to headers, and syntax highlighting in code blocks.
+파일 탐색기에서 볼 수 있는 파일 중 하나는 애플리케이션의 `README.md` Markdown 파일입니다. 이 파일에는 애플리케이션 및 React에 대한 유용한 정보가 많이 포함되어 있습니다. README를 검토하는 좋은 방법은 VS Code의 [Markdown 미리보기](/docs/languages/markdown.md#markdown-preview)를 사용하는 것입니다. 현재 편집기 그룹에서 미리보기를 열거나 (**Markdown: Open Preview** `kb(markdown.showPreview)`) 새 편집기 그룹에서 옆으로 열 수 있습니다 (**Markdown: Open Preview to the Side** `kb(markdown.showPreviewToSide)`). 멋진 형식, 헤더에 대한 하이퍼링크 탐색 및 코드 블록의 구문 강조를 제공합니다.
 
-![README Markdown Preview](images/reactjs/markdown-preview.png)
+![README Markdown 미리보기](images/reactjs/markdown-preview.png)
 
-### Syntax highlighting and bracket matching
+### 구문 강조 및 괄호 일치 {#syntax-highlighting-and-bracket-matching}
 
-Now expand the `src` folder and select the `index.js` file. You'll notice that VS Code has syntax highlighting for the various source code elements and, if you put the cursor on a parenthesis, the matching bracket is also selected.
+이제 `src` 폴더를 확장하고 `index.js` 파일을 선택합니다. VS Code가 다양한 소스 코드 요소에 대해 구문 강조를 제공하며, 괄호 위에 커서를 두면 일치하는 괄호도 선택된다는 것을 알 수 있습니다.
 
-![React bracket matching](images/reactjs/bracket-matching.png)
+![React 괄호 일치](images/reactjs/bracket-matching.png)
 
-### IntelliSense
+### IntelliSense {#intellisense}
 
-As you start typing in `index.js`, you'll see smart suggestions or completions.
+`index.js`에 입력하기 시작하면 스마트 제안이나 완성을 볼 수 있습니다.
 
-![React IntelliSense suggestions](images/reactjs/suggestions.png)
+![React IntelliSense 제안](images/reactjs/suggestions.png)
 
-After you select a suggestion and type `.`, you see the types and methods on the object through [IntelliSense](/docs/editor/intellisense.md).
+제안을 선택하고 `.`을 입력하면 [IntelliSense](/docs/editor/intellisense.md)를 통해 객체의 유형 및 메서드를 볼 수 있습니다.
 
 ![React IntelliSense](images/reactjs/intellisense.png)
 
-VS Code uses the TypeScript language service for its JavaScript code intelligence and it has a feature called [Automatic Type Acquisition](/docs/nodejs/working-with-javascript.md#typings-and-automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
+VS Code는 JavaScript 코드 인텔리전스를 위해 TypeScript 언어 서비스를 사용하며, [자동 타입 획득](/docs/nodejs/working-with-javascript.md#typings-and-automatic-type-acquisition) (ATA)라는 기능이 있습니다. ATA는 `package.json`에 참조된 npm 모듈에 대한 npm 타입 선언 파일(`*.d.ts`)을 다운로드합니다.
 
-If you select a method, you'll also get parameter help:
+메서드를 선택하면 매개변수 도움말도 제공됩니다:
 
-![React parameter help](images/reactjs/parameter-help.png)
+![React 매개변수 도움말](images/reactjs/parameter-help.png)
 
-### Go to Definition, Peek definition
+### 정의로 이동, 정의 미리보기 {#go-to-definition-peek-definition}
 
-Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.revealDefinition)`) or **Peek Definition** (`kb(editor.action.peekDefinition)`). Put the cursor over the `App`, right click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) will open showing the `App` definition from `App.js`.
+TypeScript 언어 서비스를 통해 VS Code는 **정의로 이동** (`kb(editor.action.revealDefinition)`) 또는 **정의 미리보기** (`kb(editor.action.peekDefinition)`)를 통해 편집기에서 타입 정의 정보를 제공할 수 있습니다. `App` 위에 커서를 두고 마우스 오른쪽 버튼을 클릭한 후 **정의 미리보기**를 선택합니다. 그러면 `App.js`에서 `App` 정의를 보여주는 [미리보기 창](/docs/editor/editingevolved.md#peek)이 열립니다.
 
-![React Peek definition](images/reactjs/peek-definition.png)
+![React 정의 미리보기](images/reactjs/peek-definition.png)
 
-Press `kbstyle(Escape)` to close the Peek window.
+`kbstyle(Escape)`를 눌러 미리보기 창을 닫습니다.
 
-## Hello World
+## Hello World {#hello-world}
 
-Let's update the sample application to "Hello World!". Create a component inside `index.js` called `HelloWorld` that contains a H1 header with "Hello, world!" and replace the `<App />` tag in `root.render` with `<HelloWorld />`.
+샘플 애플리케이션을 "Hello World!"로 업데이트해 보겠습니다. `index.js` 안에 "Hello, world!"라는 H1 헤더를 포함하는 `HelloWorld`라는 컴포넌트를 만들고, `root.render`의 `<App />` 태그를 `<HelloWorld />`로 교체합니다.
 
 ```js
 import React from "react";
@@ -106,35 +106,35 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// 애플리케이션의 성능을 측정하려면 결과를 기록할 함수를 전달하세요
+// (예: reportWebVitals(console.log))
+// 또는 분석 엔드포인트로 전송하세요. 자세한 내용은: https://bit.ly/CRA-vitals
 reportWebVitals();
 ```
 
-Once you save the `index.js` file, the running instance of the server will update the web page and you'll see "Hello World!" when you refresh your browser.
+`index.js` 파일을 저장하면 서버의 실행 인스턴스가 웹 페이지를 업데이트하고 브라우저를 새로 고침할 때 "Hello World!"를 볼 수 있습니다.
 
-> **Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/editor/settings.md).
+> **팁**: VS Code는 기본적으로 지연 후 파일을 저장하는 자동 저장을 지원합니다. 자동 저장을 켜려면 **파일** 메뉴에서 **자동 저장** 옵션을 확인하거나 `files.autoSave` 사용자 [설정](/docs/editor/settings.md)을 직접 구성하세요.
 
 ![Hello, world](images/reactjs/hello-world.png)
 
-## Debugging React
+## React 디버깅 {#debugging-react}
 
-To debug the client side React code, we'll use the built-in JavaScript debugger.
+클라이언트 측 React 코드를 디버깅하기 위해 내장된 JavaScript 디버거를 사용할 것입니다.
 
-> Note: This tutorial assumes you have the Edge browser installed. If you want to debug using Chrome, replace the launch `type` with `chrome`. There is also a debugger for the [Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug) browser.
+> 참고: 이 튜토리얼은 Edge 브라우저가 설치되어 있다고 가정합니다. Chrome을 사용하여 디버깅하려면 `type`을 `chrome`으로 변경하세요. [Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug) 브라우저에 대한 디버거도 있습니다.
 
-### Set a breakpoint
+### 중단점 설정 {#set-a-breakpoint}
 
-To set a breakpoint in `index.js`, click on the gutter to the left of the line numbers. This will set a breakpoint which will be visible as a red circle.
+`index.js`에서 중단점을 설정하려면 줄 번호 왼쪽의 여백을 클릭합니다. 이렇게 하면 빨간 원으로 표시되는 중단점이 설정됩니다.
 
-![Set a breakpoint](images/reactjs/breakpoint.png)
+![중단점 설정](images/reactjs/breakpoint.png)
 
-### Configure the debugger
+### 디버거 구성 {#configure-the-debugger}
 
-We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the **Run and Debug** view (`kb(workbench.view.debug)`) and select the **create a launch.json file** link to create a `launch.json` debugger configuration file. Choose **Web App (Edge)** from the **Select debugger** dropdown list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
+먼저 [디버거](/docs/editor/debugging.md)를 구성해야 합니다. 이를 위해 **실행 및 디버그** 뷰 (`kb(workbench.view.debug)`)로 이동하고 **launch.json 파일 만들기** 링크를 선택하여 `launch.json` 디버거 구성 파일을 생성합니다. **디버거 선택** 드롭다운 목록에서 **Web App (Edge)**를 선택합니다. 이렇게 하면 웹사이트를 시작하는 구성이 포함된 새로운 `.vscode` 폴더에 `launch.json` 파일이 생성됩니다.
 
-We need to make one change for our example: change the port of the `url` from `8080` to `3000`. Your `launch.json` should look like this:
+예제를 위해 하나의 변경을 해야 합니다: `url`의 포트를 `8080`에서 `3000`으로 변경합니다. `launch.json`은 다음과 같아야 합니다:
 
 ```json
 {
@@ -152,45 +152,45 @@ We need to make one change for our example: change the port of the `url` from `8
 }
 ```
 
-Ensure that your development server is running (`npm start`). Then press `kb(workbench.action.debug.start)` or the green arrow to launch the debugger and open a new browser instance. The source code where the breakpoint is set runs on startup before the debugger was attached, so we won't hit the breakpoint until we refresh the web page. Refresh the page and you should hit your breakpoint.
+개발 서버가 실행 중인지 확인하세요 (`npm start`). 그런 다음 `kb(workbench.action.debug.start)`를 누르거나 녹색 화살표를 눌러 디버거를 시작하고 새로운 브라우저 인스턴스를 엽니다. 중단점이 설정된 소스 코드는 디버거가 연결되기 전에 시작 시 실행되므로 웹 페이지를 새로 고침할 때까지 중단점에 도달하지 않습니다. 페이지를 새로 고침하면 중단점에 도달해야 합니다.
 
-![Debugger hitting breakpoint](images/reactjs/hit-breakpoint.png)
+![디버거가 중단점에 도달함](images/reactjs/hit-breakpoint.png)
 
-You can step through your source code (`kb(workbench.action.debug.stepOver)`), inspect variables such as `HelloWorld`, and see the call stack of the client side React application.
+소스 코드를 단계별로 실행할 수 있으며 (`kb(workbench.action.debug.stepOver)`), `HelloWorld`와 같은 변수를 검사하고 클라이언트 측 React 애플리케이션의 호출 스택을 볼 수 있습니다.
 
-![Debug element variable](images/reactjs/debug-variable.png)
+![디버그 요소 변수](images/reactjs/debug-variable.png)
 
-For more information about the debugger and its available options, check out our documentation on [browser debugging](/docs/nodejs/browser-debugging.md).
+디버거 및 사용 가능한 옵션에 대한 자세한 내용은 [브라우저 디버깅](/docs/nodejs/browser-debugging.md) 문서를 참조하세요.
 
-### Live editing and debugging
+### 실시간 편집 및 디버깅 {#live-editing-and-debugging}
 
-If you are using [webpack](https://webpack.js.org/) together with your React app, you can have a more efficient workflow by taking advantage of webpack's HMR mechanism which enables you to have live editing and debugging directly from VS Code. You can learn more in this [Live edit and debug your React apps directly from VS Code](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f) blog post and the [webpack Hot Module Replacement documentation](https://webpack.js.org/concepts/hot-module-replacement/).
+[webpack](https://webpack.js.org/)을 React 앱과 함께 사용하면 VS Code에서 직접 실시간 편집 및 디버깅을 할 수 있는 더 효율적인 워크플로우를 가질 수 있습니다. 이에 대한 자세한 내용은 [VS Code에서 React 앱을 직접 실시간으로 편집하고 디버깅하기](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f) 블로그 게시물과 [webpack 핫 모듈 교체 문서](https://webpack.js.org/concepts/hot-module-replacement/)를 참조하세요.
 
-## Linting
+## 린팅 {#linting}
 
-Linters analyze your source code and can warn you about potential problems before you run your application. The JavaScript language services included with VS Code has syntax error checking support by default, which you can see in action in the **Problems** panel (**View** > **Problems** `kb(workbench.actions.view.problems)`).
+린터는 소스 코드를 분석하고 애플리케이션을 실행하기 전에 잠재적인 문제에 대해 경고할 수 있습니다. VS Code에 포함된 JavaScript 언어 서비스는 기본적으로 구문 오류 검사 지원을 제공하며, 이는 **문제** 패널 (**보기** > **문제** `kb(workbench.actions.view.problems)`)에서 확인할 수 있습니다.
 
-Try making a small error in your React source code and you'll see a red squiggle and an error in the **Problems** panel.
+React 소스 코드에서 작은 오류를 만들어 보면 빨간 물결선과 함께 **문제** 패널에 오류가 표시됩니다.
 
-![JavaScript error](images/reactjs/js-error.png)
+![JavaScript 오류](images/reactjs/js-error.png)
 
-Linters can provide more sophisticated analysis, enforcing coding conventions and detecting anti-patterns. A popular JavaScript linter is [ESLint](https://eslint.org/). ESLint, when combined with the ESLint VS Code [extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint), provides a great in-product linting experience.
+린터는 더 정교한 분석을 제공하여 코딩 규칙을 강제하고 안티 패턴을 감지할 수 있습니다. 인기 있는 JavaScript 린터는 [ESLint](https://eslint.org/)입니다. ESLint는 ESLint VS Code [확장](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint)과 결합하여 훌륭한 제품 내 린팅 경험을 제공합니다.
 
-First, install the ESLint command-line tool:
+먼저 ESLint 명령줄 도구를 설치합니다:
 
 ```bash
 npm install -g eslint
 ```
 
-Then install the ESLint extension by going to the **Extensions** view and typing 'eslint'.
+그런 다음 **확장** 뷰로 이동하여 'eslint'를 입력하여 ESLint 확장을 설치합니다.
 
-![ESLint extension](images/reactjs/eslint-extension.png)
+![ESLint 확장](images/reactjs/eslint-extension.png)
 
-Once the ESLint extension is installed and VS Code reloaded, you'll want to create an ESLint configuration file, `.eslintrc.js`. You can create one using the extension's **ESLint: Create ESLint configuration** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
+ESLint 확장이 설치되고 VS Code가 다시 로드되면 ESLint 구성 파일인 `.eslintrc.js`를 생성해야 합니다. **명령 팔레트** (`kb(workbench.action.showCommands)`)에서 확장의 **ESLint: Create ESLint configuration** 명령을 사용하여 생성할 수 있습니다.
 
-![Find the configuration command](images/reactjs/create-eslintrc.png)
+![구성 명령 찾기](images/reactjs/create-eslintrc.png)
 
-The command will prompt you to answer a series of questions in the **Terminal** panel. Take the defaults, and it will create a `.eslintrc.js` file in your project root that looks something like this:
+명령이 **터미널** 패널에서 일련의 질문에 답하도록 요청합니다. 기본값을 선택하면 프로젝트 루트에 다음과 같은 `.eslintrc.js` 파일이 생성됩니다:
 
 ```js
 module.exports = {
@@ -211,13 +211,13 @@ module.exports = {
 };
 ```
 
-ESLint will now analyze open files and shows a warning in `index.js` about 'App' being defined but never used.
+이제 ESLint가 열린 파일을 분석하고 `index.js`에서 'App'이 정의되었지만 사용되지 않았다는 경고를 표시합니다.
 
-![App is unused](images/reactjs/app-is-unused.png)
+![App이 사용되지 않음](images/reactjs/app-is-unused.png)
 
-You can modify the ESLint [rules](https://eslint.org/docs/rules/) in the `.eslintrc.js` file.
+`.eslintrc.js` 파일에서 ESLint [규칙](https://eslint.org/docs/rules/)을 수정할 수 있습니다.
 
-Let's add an error rule for extra semi-colons:
+여기서 추가 세미콜론에 대한 오류 규칙을 추가해 보겠습니다:
 
 ```js
  "rules": {
@@ -225,36 +225,36 @@ Let's add an error rule for extra semi-colons:
     }
 ```
 
-Now when you mistakenly have multiple semicolons on a line, you'll see an error (red squiggle) in the editor and error entry in the **Problems** panel.
+이제 한 줄에 세미콜론이 여러 개 있는 실수를 하면 편집기에서 오류(빨간 물결선)와 **문제** 패널에 오류 항목이 표시됩니다.
 
-![Extra semicolon error](images/reactjs/extra-semi-error.png)
+![추가 세미콜론 오류](images/reactjs/extra-semi-error.png)
 
-## Popular Starter Kits
+## 인기 있는 스타터 키트 {#popular-starter-kits}
 
-In this tutorial, we used the `create-react-app` generator to create a simple React application. There are lots of great samples and starter kits available to help build your first React application.
+이번 튜토리얼에서는 `create-react-app` 제너레이터를 사용하여 간단한 React 애플리케이션을 만들었습니다. 첫 번째 React 애플리케이션을 구축하는 데 도움이 되는 훌륭한 샘플과 스타터 키트가 많이 있습니다.
 
-### VS Code React Sample
+### VS Code React 샘플 {#vs-code-react-sample}
 
-This is a [sample](https://github.com/microsoft/vscode-react-sample) React application, which creates a simple TODO application and includes the source code for a Node.js [Express](https://expressjs.com/) server. It also shows how to use the [Babel](https://babeljs.io) ES6 transpiler and then use [webpack](https://webpack.js.org/) to bundle the site assets.
+이것은 [샘플](https://github.com/microsoft/vscode-react-sample) React 애플리케이션으로, 간단한 TODO 애플리케이션을 생성하고 Node.js [Express](https://expressjs.com/) 서버의 소스 코드를 포함합니다. 또한 [Babel](https://babeljs.io) ES6 트랜스파일러를 사용하는 방법과 [webpack](https://webpack.js.org/)을 사용하여 사이트 자산을 번들하는 방법을 보여줍니다.
 
-### TypeScript React
+### TypeScript React {#typescript-react}
 
-If you're curious about TypeScript and React, you can also create a TypeScript version of the `create-react-app` application by specifying that you want to use the TypeScript template:
+TypeScript와 React에 대해 궁금하다면 TypeScript 템플릿을 사용하여 `create-react-app` 애플리케이션의 TypeScript 버전을 생성할 수 있습니다:
 
 ```bash
 npx create-react-app my-app --template typescript
 ```
 
-See the details at [Adding TypeScript](https://create-react-app.dev/docs/adding-typescript) on the [Create React App site](https://create-react-app.dev).
+자세한 내용은 [TypeScript 추가하기](https://create-react-app.dev/docs/adding-typescript)에서 확인할 수 있습니다.
 
-### Angular
+### Angular {#angular}
 
-[Angular](https://angular.io/) is another popular web framework. If you'd like to see an example of Angular working with VS Code, check out the [Debugging with Angular CLI](https://github.com/microsoft/vscode-recipes/tree/main/Angular-CLI) recipe. It will walk you through creating an Angular application and configuring the `launch.json` file for the JavaScript debugger.
+[Angular](https://angular.io/)는 또 다른 인기 있는 웹 프레임워크입니다. VS Code와 함께 작동하는 Angular의 예를 보고 싶다면 [Angular CLI로 디버깅하기](https://github.com/microsoft/vscode-recipes/tree/main/Angular-CLI) 레시피를 확인하세요. Angular 애플리케이션을 생성하고 JavaScript 디버거를 위한 `launch.json` 파일을 구성하는 방법을 안내합니다.
 
-## Common questions
+## 자주 묻는 질문 {#common-questions}
 
-### Can I get IntelliSense within declarative JSX?
+### 선언적 JSX 내에서 IntelliSense를 받을 수 있나요? {#can-i-get-intellisense-within-declarative-jsx}
 
-Yes. For example, if you open the `create-react-app` project's `App.js` file, you can see IntelliSense within the React JSX in the `render()` method.
+네. 예를 들어, `create-react-app` 프로젝트의 `App.js` 파일을 열면 `render()` 메서드 내의 React JSX에서 IntelliSense를 볼 수 있습니다.
 
 ![JSX IntelliSense](images/reactjs/jsx-intellisense.png)

@@ -1,64 +1,65 @@
 ---
 Order: 10
 Area: nodejs
-TOCTitle: Debugging Recipes
+TOCTitle: 디버깅 레시피
 ContentId: 215832f9-d5bd-4cea-8cea-bfc4dc7ff7d1
-PageTitle: JavaScript Debugging Recipes for Visual Studio Code
+PageTitle: Visual Studio Code를 위한 JavaScript 디버깅 레시피
 DateApproved: 03/05/2025
-MetaDescription:  Learn more about how to setup debugging in Visual Studio Code with debugging recipes
+MetaDescription: Visual Studio Code에서 디버깅 레시피를 통해 디버깅 설정 방법에 대해 알아보세요.
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---
-# JavaScript Debugging Recipes
+# JavaScript 디버깅 레시피 {#javascript-debugging-recipes}
 
-Visual Studio Code supports debugging of many languages and platforms via debuggers that are either built-in or contributed by extensions.
+Visual Studio Code는 내장된 디버거 또는 확장 프로그램에서 제공하는 디버거를 통해 많은 언어와 플랫폼의 디버깅을 지원합니다.
 
-To make it easier to get started with debugging, we have made a collection of debugging "recipes" which contain the steps and configuration you need to set up debugging for your favorite platform. The recipes are in GitHub at [https://github.com/microsoft/vscode-recipes](https://github.com/microsoft/vscode-recipes).
+디버깅을 쉽게 시작할 수 있도록, 우리는 좋아하는 플랫폼의 디버깅을 설정하는 데 필요한 단계와 구성을 포함한 디버깅 "레시피" 모음을 만들었습니다. 레시피는 GitHub에서 확인할 수 있습니다: [https://github.com/microsoft/vscode-recipes](https://github.com/microsoft/vscode-recipes).
 
-## Debug server-side JavaScript in Node.js
+## Node.js에서 서버 측 JavaScript 디버깅 {#debug-server-side-javascript-in-nodejs}
 
-The Visual Studio Code editor supports debugging Node.js applications via the built-in [Node.js](https://nodejs.org/) debugger.
+Visual Studio Code 편집기는 내장된 [Node.js](https://nodejs.org/) 디버거를 통해 Node.js 애플리케이션의 디버깅을 지원합니다.
 
-![Node.js logo](images/recipes/nodejs.png)
+![Node.js 로고](images/recipes/nodejs.png)
 
-**Recipes:**
+**레시피:**
 
-* [Debugging Node.js with Nodemon](https://github.com/microsoft/vscode-recipes/tree/main/nodemon)
-* [Debugging Node.js AWS Lambda functions](https://github.com/microsoft/vscode-recipes/tree/main/debugging-lambda-functions)
+* [Nodemon으로 Node.js 디버깅하기](https://github.com/microsoft/vscode-recipes/tree/main/nodemon)
+* [Node.js AWS Lambda 함수 디버깅하기](https://github.com/microsoft/vscode-recipes/tree/main/debugging-lambda-functions)
 
-## Debug client-side JavaScript in Browsers
+## 브라우저에서 클라이언트 측 JavaScript 디버깅 {#debug-client-side-javascript-in-browsers}
 
-The Visual Studio Code editor supports debugging of JavaScript running in [Microsoft Edge](https://www.microsoft.com/edge) and [Google Chrome](https://www.google.com/chrome/).
+Visual Studio Code 편집기는 [Microsoft Edge](https://www.microsoft.com/edge)와 [Google Chrome](https://www.google.com/chrome/)에서 실행되는 JavaScript의 디버깅을 지원합니다.
 
-![JavaScript, Edge, and Chrome logo](images/recipes/browsers.png)
+![JavaScript, Edge, Chrome 로고](images/recipes/browsers.png)
 
-You can read more about debugging browsers works in the [Browser Debugging documentation](/docs/nodejs/browser-debugging.md).
+브라우저 디버깅에 대한 자세한 내용은 [브라우저 디버깅 문서](/docs/nodejs/browser-debugging.md)에서 확인할 수 있습니다.
 
-**Recipes:**
+**레시피:**
 
-* [Debugging Angular apps with Angular CLI](https://github.com/microsoft/vscode-recipes/tree/main/Angular-CLI)
-* [Debugging Next.js apps](https://github.com/microsoft/vscode-recipes/tree/main/Next-js)
-* [Debugging Meteor apps](https://github.com/microsoft/vscode-recipes/tree/main/meteor)
-* [Debugging Vue.js apps](https://github.com/microsoft/vscode-recipes/tree/main/vuejs-cli)
-* [Debugging Mocha tests](https://github.com/microsoft/vscode-recipes/tree/main/debugging-mocha-tests)
-* [Debugging Jest tests](https://github.com/microsoft/vscode-recipes/tree/main/debugging-jest-tests)
+* [Angular CLI로 Angular 앱 디버깅하기](https://github.com/microsoft/vscode-recipes/tree/main/Angular-CLI)
+* [Next.js 앱 디버깅하기](https://github.com/microsoft/vscode-recipes/tree/main/Next-js)
+* [Meteor 앱 디버깅하기](https://github.com/microsoft/vscode-recipes/tree/main/meteor)
+* [Vue.js 앱 디버깅하기](https://github.com/microsoft/vscode-recipes/tree/main/vuejs-cli)
+* [Mocha 테스트 디버깅하기](https://github.com/microsoft/vscode-recipes/tree/main/debugging-mocha-tests)
+* [Jest 테스트 디버깅하기](https://github.com/microsoft/vscode-recipes/tree/main/debugging-jest-tests)
 
-**Blog posts**:
+**블로그 게시물**:
 
-* [Live edit and debug your React apps directly from VS Code](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f)
-* [Super-charged live editing and JavaScript debugging for Angular using VS Code](https://medium.com/@auchenberg/super-charged-live-editing-and-javascript-debugging-for-angular-using-visual-studio-code-c29da251ec71)
+* [VS Code에서 React 앱을 직접 라이브 편집 및 디버깅하기](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f)
+* [VS Code를 사용한 Angular의 슈퍼 차지된 라이브 편집 및 JavaScript 디버깅](https://medium.com/@auchenberg/super-charged-live-editing-and-javascript-debugging-for-angular-using-visual-studio-code-c29da251ec71)
 
-## Electron - Debug Electron applications
+## Electron - Electron 애플리케이션 디버깅 {#electron---debug-electron-applications}
 
-The Visual Studio Code editor supports debugging [Electron](https://www.electronjs.org) applications via the built-in JavaScript debugger.
+Visual Studio Code 편집기는 내장된 JavaScript 디버거를 통해 [Electron](https://www.electronjs.org) 애플리케이션의 디버깅을 지원합니다.
 
-![electron logo](images/recipes/electron.png)
+![Electron 로고](images/recipes/electron.png)
 
-**Recipes:**
+**레시피:**
 
-* [Debugging Electron Main and Renderer processes](https://github.com/microsoft/vscode-recipes/tree/main/Electron)
+* [Electron 메인 및 렌더러 프로세스 디버깅하기](https://github.com/microsoft/vscode-recipes/tree/main/Electron)
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-* [Debugging](/docs/editor/debugging.md) - Read about general VS Code debugging features.
-* [Node.js Debugging](/docs/nodejs/nodejs-debugging.md) - Learn about the built-in Node.js debugger.
-* [Video: Getting started with debugging in VS Code](https://www.youtube.com/watch?v=3HiLLByBWkg) - Learn about debugging in VS Code.
+* [디버깅](/docs/editor/debugging.md) - 일반적인 VS Code 디버깅 기능에 대해 읽어보세요.
+* [Node.js 디버깅](/docs/nodejs/nodejs-debugging.md) - 내장된 Node.js 디버거에 대해 알아보세요.
+* [비디오: VS Code에서 디버깅 시작하기](https://www.youtube.com/watch?v=3HiLLByBWkg) - VS Code에서 디버깅에 대해 알아보세요.
+---

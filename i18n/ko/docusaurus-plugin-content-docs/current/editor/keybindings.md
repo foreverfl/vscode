@@ -1,71 +1,72 @@
 ---
 Order: 8
 Area: getstarted
-TOCTitle: Keyboard Shortcuts
+TOCTitle: 키보드 단축키
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
-PageTitle: Visual Studio Code keyboard shortcuts
+PageTitle: Visual Studio Code 키보드 단축키
 DateApproved: 03/05/2025
-MetaDescription: Here you will find the complete list of keyboard shortcuts for Visual Studio Code and how to change them.
+MetaDescription: 여기에서 Visual Studio Code의 모든 키보드 단축키 목록과 이를 변경하는 방법을 찾을 수 있습니다.
 MetaSocialImage: images/keybinding/customization-keybindings-social.png
+sidebar_label: 키보드 단축키
 ---
 
-# Keyboard shortcuts for Visual Studio Code
+# Visual Studio Code의 키보드 단축키 {#keyboard-shortcuts-for-visual-studio-code}
 
-Visual Studio Code lets you perform most tasks directly from the keyboard. This article explains how you can modify the default keyboard shorts that come with VS Code.
-
-> [!NOTE]
-> If you visit this page on a Mac, you will see the keyboard shortcuts for the Mac. If you visit using Windows or Linux, you will see the keys for that platform. If you need the keyboard shortcuts for another platform, hover your mouse over the key you are interested in.
-
-## Keyboard Shortcuts editor
-
-VS Code provides a rich keyboard shortcut editing experience with the Keyboard Shortcuts editor. The editor lists all available commands with and without keyboard shortcuts, and enables you to change, remove, or reset their keyboard shortcuts using the available actions. To find commands or keyboard shortcuts, use the search box and enter a command or shortcut to filter the list.
-
-To open the Keyboard Shortcuts editor, select the **File** > **Preferences** > **Keyboard Shortcuts** menu, or use the **Preferences: Open Keyboard Shortcuts** command (`kb(workbench.action.openGlobalKeybindings)`) in the Command Palette.
-
-![Keyboard Shortcuts](images/keybinding/keyboard-shortcuts.gif)
+Visual Studio Code는 대부분의 작업을 키보드에서 직접 수행할 수 있도록 해줍니다. 이 문서에서는 VS Code와 함께 제공되는 기본 키보드 단축키를 수정하는 방법을 설명합니다.
 
 > [!NOTE]
-> The keyboard shortcuts match your current keyboard layout. For example, keyboard shortcut `kbstyle(Cmd+\)` in US keyboard layout will be shown as `kbstyle(Ctrl+Shift+Alt+Cmd+7)` when the layout is changed to German. The dialog to change a keyboard shortcut assigns the correct and desired keyboard shortcut according to your keyboard layout.
+> Mac에서 이 페이지를 방문하면 Mac용 키보드 단축키가 표시됩니다. Windows 또는 Linux를 사용하여 방문하면 해당 플랫폼의 키가 표시됩니다. 다른 플랫폼의 키보드 단축키가 필요하면 관심 있는 키 위에 마우스를 올려놓으세요.
 
-## Customize shortcuts for UI actions
+## 키보드 단축키 편집기 {#keyboard-shortcuts-editor}
 
-To customize a keyboard shortcut for a UI action, right-click on any action item in your workbench, and select **Configure Keybinding**. This opens the Keyboard Shortcuts editor, filtered to the corresponding command. If the action has a `when` clause, it's automatically included, making it easier to set up your keyboard shortcuts just the way you need them.
+VS Code는 키보드 단축키 편집기를 통해 풍부한 키보드 단축키 편집 경험을 제공합니다. 편집기에는 키보드 단축키가 있는 모든 명령과 없는 명령이 나열되며, 사용 가능한 작업을 통해 키보드 단축키를 변경, 제거 또는 재설정할 수 있습니다. 명령이나 키보드 단축키를 찾으려면 검색 상자를 사용하여 명령이나 단축키를 입력하여 목록을 필터링하세요.
 
-<video src="images/keybinding/customize-keybinding.mp4" title="Video that shows how to customize the keyboard shortcut for the split editor action." autoplay loop controls muted></video>
+키보드 단축키 편집기를 열려면 **파일** > **환경 설정** > **키보드 단축키** 메뉴를 선택하거나 명령 팔레트에서 **환경 설정: 키보드 단축키 열기** 명령(`kb(workbench.action.openGlobalKeybindings)`)을 사용하세요.
 
-## Keymap extensions
+![키보드 단축키](images/keybinding/keyboard-shortcuts.gif)
 
-Keymap extensions modify the VS Code shortcuts to match those of other editors, so you don't need to learn new keyboard shortcuts.
+> [!NOTE]
+> 키보드 단축키는 현재 키보드 레이아웃에 맞춰져 있습니다. 예를 들어, 미국 키보드 레이아웃에서의 키보드 단축키 `kbstyle(Cmd+\)`는 레이아웃이 독일어로 변경되면 `kbstyle(Ctrl+Shift+Alt+Cmd+7)`로 표시됩니다. 키보드 단축키를 변경하는 대화 상자는 키보드 레이아웃에 따라 올바르고 원하는 키보드 단축키를 할당합니다.
 
-Select the **File** > **Preferences** > **Migrate Keyboard Shortcuts from...** menu to get a list of popular keymap extensions. There is also a [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs) of extensions in the Marketplace.
+## UI 작업을 위한 단축키 사용자 정의 {#customize-shortcuts-for-ui-actions}
+
+UI 작업에 대한 키보드 단축키를 사용자 정의하려면 작업 공간의 작업 항목을 마우스 오른쪽 버튼으로 클릭하고 **키 바인딩 구성**을 선택하세요. 그러면 해당 명령으로 필터링된 키보드 단축키 편집기가 열립니다. 작업에 `when` 절이 있는 경우 자동으로 포함되어, 필요한 대로 키보드 단축키를 설정하는 것이 더 쉬워집니다.
+
+<video src="images/keybinding/customize-keybinding.mp4" title="분할 편집기 작업에 대한 키보드 단축키를 사용자 정의하는 방법을 보여주는 비디오." autoplay loop controls muted></video>
+
+## 키맵 확장 {#keymap-extensions}
+
+키맵 확장은 VS Code의 단축키를 다른 편집기의 단축키와 일치하도록 수정하므로 새로운 키보드 단축키를 배울 필요가 없습니다.
+
+**파일** > **환경 설정** > **키보드 단축키 마이그레이션...** 메뉴를 선택하여 인기 있는 키맵 확장 목록을 가져올 수 있습니다. 또한 마켓플레이스에는 [키맵 카테고리](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs) 확장이 있습니다.
 
 <div class="marketplace-extensions-curated-keymaps"></div>
 
-## Keyboard Shortcuts reference
+## 키보드 단축키 참조 {#keyboard-shortcuts-reference}
 
-We have a printable version of the default keyboard shortcuts. Select **Help** > **Keyboard Shortcut Reference** to display a condensed PDF version suitable for printing as an easy reference.
+기본 키보드 단축키의 인쇄 가능한 버전이 있습니다. **도움말** > **키보드 단축키 참조**를 선택하여 인쇄하기에 적합한 압축 PDF 버전을 표시합니다.
 
-The following links provide access to the three platform-specific versions (US English keyboard):
+다음 링크를 통해 세 가지 플랫폼별 버전(미국 영어 키보드)에 접근할 수 있습니다:
 
 - [Windows](https://go.microsoft.com/fwlink/?linkid=832145)
 - [macOS](https://go.microsoft.com/fwlink/?linkid=832143)
 - [Linux](https://go.microsoft.com/fwlink/?linkid=832144)
 
-## Detecting keyboard shortcut conflicts
+## 키보드 단축키 충돌 감지 {#detecting-keyboard-shortcut-conflicts}
 
-If you have many extensions installed or you have modified your keyboard shortcuts, there might be keyboard shortcut conflicts, where the same keyboard shortcut is mapped to multiple commands. This can result in confusing behavior, especially if different keyboard shortcuts are going in and out of scope as you move around the editor.
+많은 확장을 설치했거나 키보드 단축키를 수정한 경우, 동일한 키보드 단축키가 여러 명령에 매핑되는 키보드 단축키 충돌이 발생할 수 있습니다. 이는 편집기에서 이동할 때 서로 다른 키보드 단축키가 범위에 들어가고 나가는 경우 혼란스러운 동작을 초래할 수 있습니다.
 
-Right-click on an item in the list of keyboard shortcuts, and select **Show Same Keybindings** to view all entries with the same keyboard shortcut.
+키보드 단축키 목록에서 항목을 마우스 오른쪽 버튼으로 클릭하고 **동일한 키 바인딩 표시**를 선택하여 동일한 키보드 단축키를 가진 모든 항목을 볼 수 있습니다.
 
-![show keyboard shortcut conflicts menu](images/keybinding/show-conflicts-menu.png)
+![키보드 단축키 충돌 메뉴 표시](images/keybinding/show-conflicts-menu.png)
 
-## Troubleshooting keyboard shortcuts
+## 키보드 단축키 문제 해결 {#troubleshooting-keyboard-shortcuts}
 
-To troubleshoot keyboard shortcut problems, you can execute the command **Developer: Toggle Keyboard Shortcuts Troubleshooting**. This activates logging of dispatched keyboard shortcuts and opens the Output panel with the corresponding log file.
+키보드 단축키 문제를 해결하려면 **개발자: 키보드 단축키 문제 해결 전환** 명령을 실행할 수 있습니다. 이 명령은 전송된 키보드 단축키의 로깅을 활성화하고 해당 로그 파일이 있는 출력 패널을 엽니다.
 
-You can then press your desired keyboard shortcut and check what keyboard shortcut VS Code detects and what command is invoked.
+그런 다음 원하는 키보드 단축키를 눌러 VS Code가 감지하는 키보드 단축키와 호출되는 명령을 확인할 수 있습니다.
 
-For example, when pressing `cmd+/` in a code editor on macOS, the logging output would be:
+예를 들어, macOS의 코드 편집기에서 `cmd+/`를 누르면 로깅 출력은 다음과 같습니다:
 
 ```
 [KeybindingService]: / Received  keydown event - modifiers: [meta], code: MetaLeft, keyCode: 91, key: Meta
@@ -77,79 +78,79 @@ For example, when pressing `cmd+/` in a code editor on macOS, the logging output
 [KeybindingService]: \ From 2 keybinding entries, matched editor.action.commentLine, when: editorTextFocus && !editorReadonly, source: built-in.
 ```
 
-In the example log, the first keydown event is for the `MetaLeft` key (`cmd`) and cannot be dispatched. The second keydown event is for the `Slash` key (`/`) and is dispatched as `meta+[Slash]`. There were two keyboard shortcut entries mapped from `meta+[Slash]` and the one that matched was for the command `editor.action.commentLine`, which has the `when` condition `editorTextFocus && !editorReadonly` and is a built-in keyboard shortcut entry.
+예제 로그에서 첫 번째 keydown 이벤트는 `MetaLeft` 키(`cmd`)에 대한 것이며 전송할 수 없습니다. 두 번째 keydown 이벤트는 `Slash` 키(`/`)에 대한 것이며 `meta+[Slash]`로 전송됩니다. `meta+[Slash]`에서 매핑된 두 개의 키보드 단축키 항목이 있었고, 일치한 것은 `editor.action.commentLine` 명령에 대한 것으로, `when` 조건은 `editorTextFocus && !editorReadonly`이며 기본 제공 키보드 단축키 항목입니다.
 
-## Viewing modified keyboard shortcuts
+## 수정된 키보드 단축키 보기 {#viewing-modified-keyboard-shortcuts}
 
-To filter the list to only show the shortcuts you have modified, select the **Show User Keybindings** command in the **More Actions** (**...**) menu. This applies the `@source:user` filter to the **Keyboard Shortcuts** editor (**Source** is 'User').
+수정한 단축키만 표시하도록 목록을 필터링하려면 **더 많은 작업**(**...**) 메뉴에서 **사용자 키 바인딩 표시** 명령을 선택하세요. 이렇게 하면 **키보드 단축키** 편집기에서 `@source:user` 필터가 적용됩니다 (**소스**는 '사용자'입니다).
 
-![Default Keyboard Shortcuts](images/keybinding/user-keyboard-shortcuts.png)
+![기본 키보드 단축키](images/keybinding/user-keyboard-shortcuts.png)
 
-## Advanced customization
+## 고급 사용자 정의 {#advanced-customization}
 
-VS Code keeps track of the keyboard shortcuts you have customized in the `keybindings.json` file. For advanced customization, you can also directly modify the `keybindings.json` file.
+VS Code는 `keybindings.json` 파일에서 사용자 정의한 키보드 단축키를 추적합니다. 고급 사용자 정의를 위해 `keybindings.json` 파일을 직접 수정할 수도 있습니다.
 
-To open the `keybindings.json` file:
+`keybindings.json` 파일을 열려면:
 
-- Open **Keyboard Shortcuts** editor, and then select the **Open Keyboard Shortcuts (JSON)** button on the right of the editor title bar.
+- **키보드 단축키** 편집기를 열고, 편집기 제목 표시줄 오른쪽에 있는 **키보드 단축키 열기 (JSON)** 버튼을 선택하세요.
 
-  ![Open Keyboard Shortcuts JSON button](images/keybinding/open-keyboard-shortcuts-json.png)
+  ![키보드 단축키 JSON 열기 버튼](images/keybinding/open-keyboard-shortcuts-json.png)
 
-- Alternatively, use the **Open Default Keyboard Shortcuts (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`).
+- 또는 명령 팔레트에서 **기본 키보드 단축키 열기 (JSON)** 명령을 사용하세요 (`kb(workbench.action.showCommands)`).
 
-## Keyboard rules
+## 키보드 규칙 {#keyboard-rules}
 
-A keyboard shortcut configuration in VS Code is also known as a _keyboard rule_. Each rule consists of the following attributes:
+VS Code의 키보드 단축키 구성은 _키보드 규칙_이라고도 합니다. 각 규칙은 다음 속성으로 구성됩니다:
 
-- `key`: describes the pressed key(s), for example `kb(actions.find)`.
-- `command`: the identifier of the VS Code command to execute, for example `workbench.view.explorer` to open the Explorer view.
-- `when`: (optional) clause containing a boolean expression that is evaluated depending on the current [context](#when-clause-contexts).
+- `key`: 눌린 키를 설명합니다. 예: `kb(actions.find)`.
+- `command`: 실행할 VS Code 명령의 식별자입니다. 예: 탐색기 보기를 열기 위한 `workbench.view.explorer`.
+- `when`: (선택 사항) 현재 [컨텍스트](#when-clause-contexts)에 따라 평가되는 부울 표현식을 포함하는 절입니다.
 
-Chords (two separate keypress actions) are described by separating the two keypresses with a space. For example, `kbstyle(Ctrl+K Ctrl+C)`.
+코드(두 개의 개별 키 입력 동작)는 두 키 입력을 공백으로 구분하여 설명합니다. 예: `kbstyle(Ctrl+K Ctrl+C)`.
 
-When a key is pressed, the following evaluation rules are applied:
+키가 눌리면 다음 평가 규칙이 적용됩니다:
 
-- Rules are evaluated from **bottom** to **top**.
-- The first rule that matches both the `key` and `when` clause, is accepted.
-- If a rule is found, no more rules are processed.
-- If a rule is found and has a `command` set, the `command` is executed.
+- 규칙은 **아래에서 위로** 평가됩니다.
+- `key`와 `when` 절 모두에 일치하는 첫 번째 규칙이 수용됩니다.
+- 규칙이 발견되면 더 이상 규칙이 처리되지 않습니다.
+- 규칙이 발견되고 `command`가 설정된 경우 해당 `command`가 실행됩니다.
 
-The additional `keybindings.json` rules are appended at runtime to the bottom of the default rules, thus allowing them to overwrite the default rules. The `keybindings.json` file is watched by VS Code, so editing it while VS Code is running will update the rules at run-time.
+추가 `keybindings.json` 규칙은 런타임에 기본 규칙의 하단에 추가되어 기본 규칙을 덮어쓸 수 있습니다. VS Code는 `keybindings.json` 파일을 감시하므로 VS Code가 실행 중일 때 이를 편집하면 런타임에 규칙이 업데이트됩니다.
 
-The keyboard shortcuts dispatching is done by analyzing a list of rules that are expressed in JSON. Here are some examples:
+키보드 단축키 전송은 JSON으로 표현된 규칙 목록을 분석하여 수행됩니다. 다음은 몇 가지 예입니다:
 
 ```json
-// Keyboard shortcuts that are active when the focus is in the editor
+// 편집기에 포커스가 있을 때 활성화되는 키보드 단축키
 { "key": "home",            "command": "cursorHome",                  "when": "editorTextFocus" },
 { "key": "shift+home",      "command": "cursorHomeSelect",            "when": "editorTextFocus" },
 
-// Keyboard shortcuts that are complementary
+// 상호 보완적인 키보드 단축키
 { "key": "f5",              "command": "workbench.action.debug.continue", "when": "inDebugMode" },
 { "key": "f5",              "command": "workbench.action.debug.start",    "when": "!inDebugMode" },
 
-// Global keyboard shortcuts
+// 전역 키보드 단축키
 { "key": "ctrl+f",          "command": "actions.find" },
 { "key": "alt+left",        "command": "workbench.action.navigateBack" },
 { "key": "alt+right",       "command": "workbench.action.navigateForward" },
 
-// Global keyboard shortcuts using chords (two separate keypress actions)
+// 코드(두 개의 개별 키 입력 동작)를 사용하는 전역 키보드 단축키
 { "key": "ctrl+k enter",    "command": "workbench.action.keepEditor" },
 { "key": "ctrl+k ctrl+w",   "command": "workbench.action.closeAllEditors" },
 ```
 
-## Accepted keys
+## 허용된 키 {#accepted-keys}
 
-The `key` is made up of modifiers and the key itself.
+`key`는 수정자와 키 자체로 구성됩니다.
 
-The following modifiers are accepted:
+다음 수정자가 허용됩니다:
 
-| Platform | Modifiers                                                              |
+| 플랫폼   | 수정자                                                              |
 | -------- | ---------------------------------------------------------------------- |
 | macOS    | `kbstyle(Ctrl+)`, `kbstyle(Shift+)`, `kbstyle(Alt+)`, `kbstyle(Cmd+)`  |
 | Windows  | `kbstyle(Ctrl+)`, `kbstyle(Shift+)`, `kbstyle(Alt+)`, `kbstyle(Win+)`  |
 | Linux    | `kbstyle(Ctrl+)`, `kbstyle(Shift+)`, `kbstyle(Alt+)`, `kbstyle(Meta+)` |
 
-The following keys are accepted:
+다음 키가 허용됩니다:
 
 - `kbstyle(f1-f19)`, `kbstyle(a-z)`, `kbstyle(0-9)`
 - `` kbstyle(`) ``, `kbstyle(-)`, `kbstyle(=)`, `kbstyle([)`, `kbstyle(])`, `kbstyle(\)`, `kbstyle(;)`, `kbstyle(')`, `kbstyle(,)`, `kbstyle(.)`, `kbstyle(/)`
@@ -159,11 +160,11 @@ The following keys are accepted:
 - `kbstyle(numpad0-numpad9)`, `kbstyle(numpad_multiply)`, `kbstyle(numpad_add)`, `kbstyle(numpad_separator)`
 - `kbstyle(numpad_subtract)`, `kbstyle(numpad_decimal)`, `kbstyle(numpad_divide)`
 
-## Command arguments
+## 명령 인수 {#command-arguments}
 
-You can invoke a command with arguments. This is useful if you often perform the same operation on a specific file or folder. You can add a custom keyboard shortcut to do exactly what you want.
+인수와 함께 명령을 호출할 수 있습니다. 이는 특정 파일이나 폴더에서 동일한 작업을 자주 수행하는 경우 유용합니다. 원하는 작업을 정확히 수행하는 사용자 정의 키보드 단축키를 추가할 수 있습니다.
 
-The following is an example overriding the `kbstyle(Enter)` key to print some text:
+다음은 `kbstyle(Enter)` 키를 재정의하여 텍스트를 인쇄하는 예입니다:
 
 ```json
 {
@@ -174,17 +175,17 @@ The following is an example overriding the `kbstyle(Enter)` key to print some te
 }
 ```
 
-The `type` command will receive `{"text": "Hello World"}` as its first argument, and add "Hello World" to the file instead of producing the default command.
+`type` 명령은 `{"text": "Hello World"}`를 첫 번째 인수로 받아들이고, 기본 명령을 생성하는 대신 파일에 "Hello World"를 추가합니다.
 
-For more information on commands that take arguments, refer to [Built-in Commands](/api/references/commands.md).
+인수를 받는 명령에 대한 자세한 내용은 [내장 명령](/api/references/commands.md)을 참조하세요.
 
-## Running multiple commands
+## 여러 명령 실행 {#running-multiple-commands}
 
-A keyboard shortcut can be configured to run multiple commands sequentially by using the command `runCommands`.
+키보드 단축키는 `runCommands` 명령을 사용하여 여러 명령을 순차적으로 실행하도록 구성할 수 있습니다.
 
-- Run several commands without arguments:
+- 인수 없이 여러 명령 실행:
 
-  The following example copies the current line down, marks the current line as a comment, and moves the cursor to the copied line.
+  다음 예제는 현재 줄을 아래로 복사하고, 현재 줄을 주석으로 표시하며, 커서를 복사한 줄로 이동합니다.
 
   ```json
   {
@@ -201,9 +202,9 @@ A keyboard shortcut can be configured to run multiple commands sequentially by u
   },
   ```
 
-- To pass arguments to commands:
+- 명령에 인수 전달:
 
-  This example creates a new untitled TypeScript file and inserts a custom snippet.
+  이 예제는 새로운 제목 없는 TypeScript 파일을 만들고 사용자 정의 스니펫을 삽입합니다.
 
   ```json
   {
@@ -230,9 +231,9 @@ A keyboard shortcut can be configured to run multiple commands sequentially by u
   },
   ```
 
-Note that commands run by `runCommands` receive the value of `"args"` as the first argument. In the previous example, `workbench.action.files.newUntitledFile` receives `{"languageId": "typescript" }` as its first and only argument.
+`runCommands`에 의해 실행되는 명령은 `"args"`의 값을 첫 번째 인수로 받습니다. 이전 예제에서 `workbench.action.files.newUntitledFile`은 `{"languageId": "typescript" }`를 첫 번째이자 유일한 인수로 받습니다.
 
-To pass several arguments, you need to have `"args"` as an array:
+여러 인수를 전달하려면 `"args"`를 배열로 만들어야 합니다:
 
 ```json
 {
@@ -241,7 +242,7 @@ To pass several arguments, you need to have `"args"` as an array:
   "args": {
     "commands": [
       {
-        // command invoked with 2 arguments: vscode.executeCommand("myCommand", "arg1", "arg2")
+        // 2개의 인수로 호출된 명령: vscode.executeCommand("myCommand", "arg1", "arg2")
         "command": "myCommand",
         "args": ["arg1", "arg2"]
       }
@@ -250,78 +251,78 @@ To pass several arguments, you need to have `"args"` as an array:
 }
 ```
 
-To pass an array as the first argument, wrap the array in another array: `"args": [ [1, 2, 3] ]`.
+첫 번째 인수로 배열을 전달하려면 배열을 다른 배열로 감싸야 합니다: `"args": [ [1, 2, 3] ]`.
 
-## Removing a keyboard shortcut
+## 키보드 단축키 제거 {#removing-a-keyboard-shortcut}
 
-To remove a keyboard shortcut, right-click on the entry in the Keyboard Shortcuts editor, and select **Remove Keybinding**.
+키보드 단축키를 제거하려면 키보드 단축키 편집기에서 항목을 마우스 오른쪽 버튼으로 클릭하고 **키 바인딩 제거**를 선택하세요.
 
-To remove a keyboard shortcut by using the `keybindings.json` file, add a `-` to the `command` and the rule will be a removal rule.
+`keybindings.json` 파일을 사용하여 키보드 단축키를 제거하려면 `command` 앞에 `-`를 추가하면 해당 규칙이 제거 규칙이 됩니다.
 
-Here is an example:
+다음은 예제입니다:
 
 ```json
-// In Default Keyboard Shortcuts
+// 기본 키보드 단축키에서
 ...
 { "key": "tab", "command": "tab", "when": ... },
 { "key": "tab", "command": "jumpToNextSnippetPlaceholder", "when": ... },
 { "key": "tab", "command": "acceptSelectedSuggestion", "when": ... },
 ...
 
-// To remove the second rule, for example, add in keybindings.json:
+// 예를 들어 두 번째 규칙을 제거하려면 keybindings.json에 추가합니다:
 { "key": "tab", "command": "-jumpToNextSnippetPlaceholder" }
 
 ```
 
-To override a specific keyboard shortcut rule with an empty action, you can specify an empty command:
+특정 키보드 단축키 규칙을 빈 작업으로 재정의하려면 빈 명령을 지정할 수 있습니다:
 
 ```json
-// To override and disable any `tab` keyboard shortcut, for example, add in keybindings.json:
+// 예를 들어 모든 `tab` 키보드 단축키를 재정의하고 비활성화하려면 keybindings.json에 추가합니다:
 { "key": "tab", "command": "" }
 ```
 
-## Keyboard layouts
+## 키보드 레이아웃 {#keyboard-layouts}
 
 > [!NOTE]
-> This section relates only to keyboard shortcuts, not to typing in the editor.
+> 이 섹션은 키보드 단축키와 관련이 있으며, 편집기에서의 입력과는 관련이 없습니다.
 
-Keys are string representations for virtual keys and do not necessarily relate to the produced character when they are pressed. More precisely:
+키는 가상 키에 대한 문자열 표현이며 눌렸을 때 생성되는 문자와 반드시 관련이 있는 것은 아닙니다. 보다 정확하게 말하면:
 
-- Reference: [Virtual-Key Codes (Windows)](https://msdn.microsoft.com/library/windows/desktop/dd375731)
-- `kbstyle(tab)` for `VK_TAB` (`0x09`)
-- `kbstyle(;)` for `VK_OEM_1` (`0xBA`)
-- `kbstyle(=)` for `VK_OEM_PLUS` (`0xBB`)
-- `kbstyle(,)` for `VK_OEM_COMMA` (`0xBC`)
-- `kbstyle(-)` for `VK_OEM_MINUS` (`0xBD`)
-- `kbstyle(.)` for `VK_OEM_PERIOD` (`0xBE`)
-- `kbstyle(/)` for `VK_OEM_2` (`0xBF`)
-- `` kbstyle(`) `` for `VK_OEM_3` (`0xC0`)
-- `kbstyle([)` for `VK_OEM_4` (`0xDB`)
-- `kbstyle(\)` for `VK_OEM_5` (`0xDC`)
-- `kbstyle(])` for `VK_OEM_6` (`0xDD`)
-- `kbstyle(')` for `VK_OEM_7` (`0xDE`)
-- etc.
+- 참조: [가상 키 코드 (Windows)](https://msdn.microsoft.com/library/windows/desktop/dd375731)
+- `kbstyle(tab)`는 `VK_TAB` (`0x09`)
+- `kbstyle(;)`는 `VK_OEM_1` (`0xBA`)
+- `kbstyle(=)`는 `VK_OEM_PLUS` (`0xBB`)
+- `kbstyle(,)`는 `VK_OEM_COMMA` (`0xBC`)
+- `kbstyle(-)`는 `VK_OEM_MINUS` (`0xBD`)
+- `kbstyle(.)`는 `VK_OEM_PERIOD` (`0xBE`)
+- `kbstyle(/)`는 `VK_OEM_2` (`0xBF`)
+- `` kbstyle(`) ``는 `VK_OEM_3` (`0xC0`)
+- `kbstyle([)`는 `VK_OEM_4` (`0xDB`)
+- `kbstyle(\)`는 `VK_OEM_5` (`0xDC`)
+- `kbstyle(])`는 `VK_OEM_6` (`0xDD`)
+- `kbstyle(')`는 `VK_OEM_7` (`0xDE`)
+- 기타.
 
-Different keyboard layouts usually reposition these virtual keys or change the characters produced when they are pressed. When using a different keyboard layout than the standard US, Visual Studio Code does the following:
+다양한 키보드 레이아웃은 일반적으로 이러한 가상 키의 위치를 변경하거나 눌렸을 때 생성되는 문자를 변경합니다. 표준 미국 키보드 레이아웃과 다른 키보드 레이아웃을 사용할 때 Visual Studio Code는 다음과 같이 처리합니다:
 
-All the keyboard shortcuts are rendered in the UI using the current system's keyboard layout. For example, `Split Editor` when using a French (France) keyboard layout is now rendered as `kbstyle(Ctrl+*)`:
+모든 키보드 단축키는 현재 시스템의 키보드 레이아웃을 사용하여 UI에 표시됩니다. 예를 들어, 프랑스(프랑스) 키보드 레이아웃을 사용할 때 `Split Editor`는 이제 `kbstyle(Ctrl+*)`로 표시됩니다:
 
-![render keyboard shortcut](images/keybinding/render-key-binding.png)
+![키보드 단축키 렌더링](images/keybinding/render-key-binding.png)
 
-When editing `keybindings.json`, VS Code highlights misleading keyboard shortcuts, those that are represented in the file with the character produced under the standard US keyboard layout, but that need pressing keys with different labels under the current system's keyboard layout. For example, here is how the default keyboard shortcut rules look like when using a French (France) keyboard layout:
+`keybindings.json`을 편집할 때 VS Code는 잘못된 키보드 단축키를 강조 표시합니다. 이는 파일에 표준 미국 키보드 레이아웃에서 생성된 문자로 표현되지만 현재 시스템의 키보드 레이아웃에서 다른 레이블이 있는 키를 눌러야 하는 경우입니다. 예를 들어, 프랑스(프랑스) 키보드 레이아웃을 사용할 때 기본 키보드 단축키 규칙은 다음과 같이 보입니다:
 
-![keybindings.json guidance](images/keybinding/keybindings-json.png)
+![keybindings.json 안내](images/keybinding/keybindings-json.png)
 
-There is also a UI control that helps input the keyboard shortcut rule when editing `keybindings.json`. To launch the **Define Keybinding** control, press `kb(editor.action.defineKeybinding)`. The control listens for key presses and renders the serialized JSON representation in the text box and below it, the keys that VS Code has detected under your current keyboard layout. Once you've typed the key combination you want, you can press `kbstyle(Enter)` and a rule snippet is inserted.
+`keybindings.json`을 편집할 때 키보드 단축키 규칙을 입력하는 데 도움이 되는 UI 컨트롤도 있습니다. **키 바인딩 정의** 컨트롤을 시작하려면 `kb(editor.action.defineKeybinding)`를 누르세요. 이 컨트롤은 키 입력을 수신하고 텍스트 상자에 직렬화된 JSON 표현을 렌더링하며, 아래에는 현재 키보드 레이아웃에서 VS Code가 감지한 키가 표시됩니다. 원하는 키 조합을 입력한 후 `kbstyle(Enter)`를 누르면 규칙 스니펫이 삽입됩니다.
 
-![keyboard shortcut widget](images/keybinding/key-binding-widget.png)
+![키보드 단축키 위젯](images/keybinding/key-binding-widget.png)
 
 > [!NOTE]
-> On Linux, VS Code detects your current keyboard layout on startup, and then caches this information. We recommend that you restart VS Code when you change your keyboard layout.
+> Linux에서는 VS Code가 시작 시 현재 키보드 레이아웃을 감지하고 이 정보를 캐시합니다. 키보드 레이아웃을 변경할 때 VS Code를 다시 시작하는 것이 좋습니다.
 
-## Keyboard layout-independent bindings
+## 키보드 레이아웃 독립적인 바인딩 {#keyboard-layout-independent-bindings}
 
-Using scan codes, it is possible to define keyboard shortcuts that do not change with the change of the keyboard layout. For example:
+스캔 코드를 사용하면 키보드 레이아웃 변경에 따라 변경되지 않는 키보드 단축키를 정의할 수 있습니다. 예를 들어:
 
 ```json
 {
@@ -331,7 +332,7 @@ Using scan codes, it is possible to define keyboard shortcuts that do not change
 }
 ```
 
-Accepted scan codes:
+허용된 스캔 코드는 다음과 같습니다:
 
 - `kbstyle([F1]-[F19])`, `kbstyle([KeyA]-[KeyZ])`, `kbstyle([Digit0]-[Digit9])`
 - `kbstyle([Backquote])`, `kbstyle([Minus])`, `kbstyle([Equal])`, `kbstyle([BracketLeft])`, `kbstyle([BracketRight])`, `kbstyle([Backslash])`, `kbstyle([Semicolon])`, `kbstyle([Quote])`, `kbstyle([Comma])`, `kbstyle([Period])`, `kbstyle([Slash])`
@@ -341,44 +342,44 @@ Accepted scan codes:
 - `kbstyle([Numpad0]-[Numpad9])`, `kbstyle([NumpadMultiply])`, `kbstyle([NumpadAdd])`, `kbstyle([NumpadComma])`
 - `kbstyle([NumpadSubtract])`, `kbstyle([NumpadDecimal])`, `kbstyle([NumpadDivide])`
 
-## when clause contexts
+## when 절 컨텍스트 {#when-clause-contexts}
 
-VS Code gives you precise control over when your keyboard shortcuts are enabled through the optional `when` clause. If your keyboard shortcut doesn't have a `when` clause, the keyboard shortcut is globally available at all times. A `when` clause evaluates to either true or false for enabling keyboard shortcuts.
+VS Code는 선택적 `when` 절을 통해 키보드 단축키가 활성화되는 정확한 제어를 제공합니다. 키보드 단축키에 `when` 절이 없으면 키보드 단축키는 항상 전역적으로 사용 가능합니다. `when` 절은 키보드 단축키를 활성화하기 위해 true 또는 false로 평가됩니다.
 
-VS Code sets various context keys and specific values depending on what elements are visible and active in the VS Code UI. For example, the built-in **Start Debugging** command has the keyboard shortcut `kb(workbench.action.debug.start)`, which is only enabled when there is an appropriate debugger available (context `debuggersAvailable` is true) and the editor isn't in debug mode (context `inDebugMode` is false):
+VS Code는 UI에서 어떤 요소가 보이고 활성화되어 있는지에 따라 다양한 컨텍스트 키와 특정 값을 설정합니다. 예를 들어, 내장된 **디버깅 시작** 명령은 키보드 단축키 `kb(workbench.action.debug.start)`를 가지며, 이는 적절한 디버거가 사용 가능할 때만 활성화됩니다(컨텍스트 `debuggersAvailable`가 true) 및 편집기가 디버그 모드에 있지 않을 때(컨텍스트 `inDebugMode`가 false):
 
-![Start Debugging when clause in the Keyboard Shorts editor](images/keybinding/start-debugging-when-clause.png)
+![디버깅 시작 when 절 키보드 단축키 편집기](images/keybinding/start-debugging-when-clause.png)
 
-You can also view a keyboard shortcut's when clause directly in the default `keybinding.json` (**Preferences: Open Default Keyboard Shortcuts (JSON)**):
+기본 `keybinding.json`에서 키보드 단축키의 when 절을 직접 볼 수도 있습니다 (**환경 설정: 기본 키보드 단축키 열기 (JSON)**):
 
 ```json
 { "key": "f5",  "command": "workbench.action.debug.start",
                    "when": "debuggersAvailable && !inDebugMode" },
 ```
 
-### Conditional operators
+### 조건부 연산자 {#conditional-operators}
 
-For `when` clause conditional expressions, the following conditional operators are useful for keyboard shortcuts:
+`when` 절 조건 표현식에 대해 다음 조건부 연산자가 키보드 단축키에 유용합니다:
 
-| Operator   | Symbol            | Example                                    |
-| ---------- | ----------------- | ------------------------------------------ |
-| Equality   | `==`              | `"editorLangId == typescript"`             |
-| Inequality | `!=`              | `"resourceExtname != .js"`                 |
-| Or         | <code>\|\|</code> | `"isLinux`<code>\|\|</code>`isWindows"`    |
-| And        | `&&`              | `"textInputFocus && !editorReadonly"`      |
-| Matches    | `=~`              | `"resourceScheme =~ /^untitled$\|^file$/"` |
+| 연산자   | 기호              | 예시                                        |
+| -------- | ----------------- | ------------------------------------------ |
+| 동등성   | `==`              | `"editorLangId == typescript"`             |
+| 부등호   | `!=`              | `"resourceExtname != .js"`                 |
+| 또는      | <code>\|\|</code> | `"isLinux`<code>\|\|</code>`isWindows"`    |
+| 그리고    | `&&`              | `"textInputFocus && !editorReadonly"`      |
+| 일치      | `=~`              | `"resourceScheme =~ /^untitled$\|^file$/"` |
 
-You can find the full list of when clause conditional operators in the [when clause contexts](/api/references/when-clause-contexts.md#conditional-operators) reference.
+`when` 절 조건부 연산자의 전체 목록은 [when 절 컨텍스트](/api/references/when-clause-contexts.md#conditional-operators) 참조에서 확인할 수 있습니다.
 
-### Available contexts
+### 사용 가능한 컨텍스트 {#available-contexts}
 
-You can find some of the available `when` clause contexts in the [when clause context reference](/api/references/when-clause-contexts.md).
+사용 가능한 `when` 절 컨텍스트의 일부는 [when 절 컨텍스트 참조](/api/references/when-clause-contexts.md)에서 확인할 수 있습니다.
 
-The list there isn't exhaustive and you can find other `when` clause contexts by searching and filtering in the Keyboard Shortcuts editor (**Preferences: Open Keyboard Shortcuts** ) or reviewing the default `keybindings.json` file (**Preferences: Open Default Keyboard Shortcuts (JSON)**).
+거기 목록은 포괄적이지 않으며, 키보드 단축키 편집기에서 검색하고 필터링하거나 기본 `keybindings.json` 파일을 검토하여 다른 `when` 절 컨텍스트를 찾을 수 있습니다 (**환경 설정: 기본 키보드 단축키 열기 (JSON)**).
 
-## Custom keyboard shortcuts for refactorings
+## 리팩토링을 위한 사용자 정의 키보드 단축키 {#custom-keyboard-shortcuts-for-refactorings}
 
-The `editor.action.codeAction` command lets you configure keyboard shortcuts for specific [Refactorings](/docs/editor/refactoring.md) (Code Actions). For example, the keyboard shortcut below triggers the **Extract function** refactoring Code Action:
+`editor.action.codeAction` 명령을 사용하면 특정 [리팩토링](/docs/editor/refactoring.md) (코드 작업)에 대한 키보드 단축키를 구성할 수 있습니다. 예를 들어, 아래의 키보드 단축키는 **함수 추출** 리팩토링 코드 작업을 트리거합니다:
 
 ```json
 {
@@ -390,42 +391,43 @@ The `editor.action.codeAction` command lets you configure keyboard shortcuts for
 }
 ```
 
-This is covered in depth in the [Refactoring](/docs/editor/refactoring.md#keyboard-shortcuts-for-code-actions) article, where you can learn about different kinds of Code Actions and how to prioritize them in the case of multiple possible refactorings.
+이 내용은 [리팩토링](/docs/editor/refactoring.md#keyboard-shortcuts-for-code-actions) 문서에서 자세히 다루고 있으며, 다양한 종류의 코드 작업과 여러 가능한 리팩토링의 경우 우선 순위를 정하는 방법에 대해 배울 수 있습니다.
 
-## Related resources
+## 관련 리소스 {#related-resources}
 
-- [VS Code default keyboard shortcuts reference](/docs/reference/default-keybindings.md)
+- [VS Code 기본 키보드 단축키 참조](/docs/reference/default-keybindings.md)
 
-## Common questions
+## 자주 묻는 질문 {#common-questions}
 
-### How can I find out what command is bound to a specific key?
+### 특정 키에 바인딩된 명령을 어떻게 확인할 수 있나요? {#how-can-i-find-out-what-command-is-bound-to-a-specific-key}
 
-In the Keyboard Shortcuts editor, you can filter on specific keystrokes to see which commands are bound to which keys. In the following screenshot, you can see that `kbstyle(Ctrl+Shift+P)` is bound to **Show All Commands** to bring up the Command Palette.
+키보드 단축키 편집기에서 특정 키 입력으로 필터링하여 어떤 명령이 어떤 키에 바인딩되어 있는지 확인할 수 있습니다. 다음 스크린샷에서 `kbstyle(Ctrl+Shift+P)`가 **모든 명령 표시**에 바인딩되어 명령 팔레트를 호출하는 것을 볼 수 있습니다.
 
-![Keyboard shortcuts quick outline](images/keybinding/filter-on-keys.png)
+![키보드 단축키 빠른 개요](images/keybinding/filter-on-keys.png)
 
-### How to add a keyboard shortcut to an action, for example, add Ctrl+D to Delete Lines
+### 작업에 키보드 단축키를 추가하려면 어떻게 하나요? 예를 들어, Ctrl+D를 줄 삭제에 추가하려면 {#how-to-add-a-keyboard-shortcut-to-an-action-for-example-add-ctrld-to-delete-lines}
 
-Find a rule that triggers the action in the **Default Keyboard Shortcuts** and write a modified version of it in your `keybindings.json` file:
+**기본 키보드 단축키**에서 작업을 트리거하는 규칙을 찾아 `keybindings.json` 파일에 수정된 버전을 작성하세요:
 
 ```json
-// Original, in Default Keyboard Shortcuts
+// 기본 키보드 단축키에서
 { "key": "ctrl+shift+k",          "command": "editor.action.deleteLines",
                                      "when": "editorTextFocus" },
-// Modified, in User/keybindings.json, Ctrl+D now will also trigger this action
+// 수정된 버전, 사용자/keybindings.json에서, 이제 Ctrl+D도 이 작업을 트리거합니다
 { "key": "ctrl+d",                "command": "editor.action.deleteLines",
                                      "when": "editorTextFocus" },
 ```
 
-### How can I add a keyboard shortcut for only certain file types?
+### 특정 파일 유형에 대해서만 키보드 단축키를 추가하려면 어떻게 하나요? {#how-can-i-add-a-keyboard-shortcut-for-only-certain-file-types}
 
-Use the `editorLangId` context key in your `when` clause:
+`when` 절에서 `editorLangId` 컨텍스트 키를 사용하세요:
 
 ```json
 { "key": "shift+alt+a",           "command": "editor.action.blockComment",
                                      "when": "editorTextFocus && editorLangId == csharp" },
 ```
 
-### I have modified my keyboard shortcuts in `keybindings.json`; why don't they work?
+### `keybindings.json`에서 키보드 단축키를 수정했는데 왜 작동하지 않나요? {#i-have-modified-my-keyboard-shortcuts-in-keybindingsjson-why-dont-they-work}
 
-The most common problem is a syntax error in the file. Otherwise, try removing the `when` clause or picking a different `key`. Unfortunately, at this point, it is a trial and error process.
+가장 일반적인 문제는 파일의 구문 오류입니다. 그렇지 않으면 `when` 절을 제거하거나 다른 `key`를 선택해 보세요. 불행히도 이 시점에서는 시행착오 과정이 필요합니다.
+---

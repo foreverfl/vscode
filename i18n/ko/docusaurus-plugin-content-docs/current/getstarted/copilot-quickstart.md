@@ -1,8 +1,9 @@
 ---
 ContentId: b9184911-c822-4ea4-b19b-aba239313c88
 DateApproved: 03/05/2025
-MetaDescription: Get started with GitHub Copilot in Visual Studio Code and create your first AI-powered suggestions in the editor.
+MetaDescription: Visual Studio Code에서 GitHub Copilot을 시작하고 편집기에서 첫 번째 AI 기반 제안을 생성하세요.
 ---
-# Quickstart: Getting started with GitHub Copilot in VS Code
+# 빠른 시작: VS Code에서 GitHub Copilot 시작하기 {#quickstart-getting-started-with-github-copilot-in-vs-code}
 
-This page is redirected to /docs/copilot/getting-started.md and only exists to keep the "Copilot Quickstart" TOC item.
+이 페이지는 /docs/copilot/getting-started.md로 리디렉션되며 "Copilot 빠른 시작" TOC 항목을 유지하기 위해 존재합니다.
+---

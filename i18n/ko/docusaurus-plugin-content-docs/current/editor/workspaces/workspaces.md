@@ -1,50 +1,50 @@
 ---
 Order: 20
 Area: editor
-TOCTitle: Workspaces
+TOCTitle: 작업 공간
 ContentId: 0144ad9a-14df-41b5-9629-cbba7dbfc396
-PageTitle: Workspaces in Visual Studio Code
+PageTitle: Visual Studio Code의 작업 공간
 DateApproved: 03/05/2025
-MetaDescription: Learn about Visual Studio Code workspaces
+MetaDescription: Visual Studio Code 작업 공간에 대해 알아보세요.
 ---
-# What is a VS Code workspace?
+# VS Code 작업 공간이란 무엇인가요? {#what-is-a-vs-code-workspace}
 
-A Visual Studio Code *workspace* is the collection of one or more folders that are opened in a VS Code window (instance). In most cases, you will have a single folder opened as the workspace. However, depending on your development workflow, you can include more than one folder, using an advanced configuration called [Multi-root workspaces](#multiroot-workspaces).
+Visual Studio Code의 *작업 공간*은 VS Code 창(인스턴스)에서 열려 있는 하나 이상의 폴더의 모음입니다. 대부분의 경우, 단일 폴더가 작업 공간으로 열리게 됩니다. 그러나 개발 워크플로우우에 따라 [다중 루트 작업 공간](#multiroot-workspaces)이라는 고급 구성을 사용하여 여러 폴더를 포함할 수 있습니다.
 
-The concept of a workspace enables VS Code to:
+작업 공간의 개념은 VS Code가 다음을 가능하게 합니다:
 
-* Configure settings that only apply to a specific folder or folders but not others.
-* Persist [task](/docs/editor/tasks.md) and [debugger launch](/docs/editor/debugging.md) configurations that are only valid in the context of that workspace.
-* Store and restore UI state associated with that workspace (for example, the files that are opened).
-* Selectively enable or disable extensions only for that workspace.
+* 특정 폴더 또는 폴더에만 적용되는 설정을 구성할 수 있습니다.
+* 해당 작업 공간의 맥락에서만 유효한 [작업](/docs/editor/tasks.md) 및 [디버거 실행](/docs/editor/debugging.md) 구성을 유지할 수 있습니다.
+* 해당 작업 공간과 관련된 UI 상태를 저장하고 복원할 수 있습니다(예: 열린 파일).
+* 해당 작업 공간에 대해서만 선택적으로 확장을 활성화하거나 비활성화할 수 있습니다.
 
-You may see the terms "folder" and "workspace" used interchangeably in VS Code documentation, issues, and community discussions. Think of a workspace as the root of a project that has extra VS Code knowledge and capabilities.
+VS Code 문서, 이슈 및 커뮤니티 토론에서 "폴더"와 "작업 공간"이라는 용어가 서로 바꿔 사용되는 것을 볼 수 있습니다. 작업 공간을 프로젝트의 루트로 생각하되, 추가적인 VS Code 지식과 기능이 포함되어 있다고 이해하면 됩니다.
 
-> **Note:** It is also possible to open VS Code without a workspace. For example, when you open a new VS Code window by selecting a file from your platform's **File** menu, you will not be inside a workspace. In this mode, some of VS Code's capabilities are reduced but you can still open text files and edit them.
+> **참고:** 작업 공간 없이 VS Code를 여는 것도 가능합니다. 예를 들어, 플랫폼의 **파일** 메뉴에서 파일을 선택하여 새 VS Code 창을 열면 작업 공간 안에 있지 않게 됩니다. 이 모드에서는 VS Code의 일부 기능이 제한되지만, 여전히 텍스트 파일을 열고 편집할 수 있습니다.
 
-## How do I open a VS Code "workspace"?
+## VS Code "작업 공간"을 여는 방법은 무엇인가요? {#how-do-i-open-a-vs-code-workspace}
 
-You can open a workspace by using the **File** > **Open Folder...** menu, and then selecting a folder.
+**파일** > **폴더 열기...** 메뉴를 사용하여 작업 공간을 열 수 있으며, 그런 다음 폴더를 선택합니다.
 
-Alternatively, if you launch VS Code from a terminal, you can pass the path to a folder as the first argument to the `code` command for opening. For example, use the following command to open the current folder (`.`) with VS Code:
+또는 터미널에서 VS Code를 실행하는 경우, `code` 명령의 첫 번째 인수로 폴더의 경로를 전달하여 열 수 있습니다. 예를 들어, 현재 폴더(`.`)를 VS Code로 열려면 다음 명령을 사용하세요:
 
 ```bash
 code .
 ```
 
-## Single-folder workspaces
+## 단일 폴더 작업 공간 {#single-folder-workspaces}
 
-You don't have to do anything for a folder to become a VS Code workspace other than open the folder with VS Code. Once you open a folder, VS Code automatically keeps track of configuration, such as your open files or editor layout. When you reopen that folder in VS Code, the editor will be as you left it previously.
+폴더를 VS Code 작업 공간으로 만들기 위해서는 VS Code로 폴더를 여는 것 외에는 아무것도 할 필요가 없습니다. 폴더를 열면 VS Code가 자동으로 열린 파일이나 편집기 레이아웃과 같은 구성을 추적합니다. 이후 VS Code에서 해당 폴더를 다시 열면, 편집기는 이전에 남겨둔 상태로 열립니다.
 
-You can also add other folder-specific configurations, such as workspace-specific [settings](/docs/editor/settings.md) (versus global user settings), [task definitions](/docs/editor/tasks.md), and [debugging launch](/docs/editor/debugging.md) files (see below in the [workspace settings](#workspace-settings) section).
+또한 작업 공간 특정 [설정](/docs/editor/settings.md) (전역 사용자 설정과 대조되는) 및 [작업 정의](/docs/editor/tasks.md), [디버깅 실행](/docs/editor/debugging.md) 파일과 같은 다른 폴더 특정 구성을 추가할 수 있습니다(아래 [작업 공간 설정](#workspace-settings) 섹션 참조).
 
-![Single-folder workspace](images/workspaces/single-folder-workspace.png)
+![단일 폴더 작업 공간](images/workspaces/single-folder-workspace.png)
 
-*A single-folder workspace opened inside VS Code*
+*VS Code 내에서 열린 단일 폴더 작업 공간*
 
-## Multi-root workspaces
+## 다중 루트 작업 공간 {#multi-root-workspaces}
 
-[Multi-root workspaces](/docs/editor/workspaces/multi-root-workspaces.md) are an advanced capability of VS Code that allows you to configure multiple distinct folders to be part of the same workspace. Instead of opening a folder as workspace, you open a `<name>.code-workspace` JSON file that lists all folders of the workspace. For example:
+[다중 루트 작업 공간](/docs/editor/workspaces/multi-root-workspaces.md)은 여러 개의 개별 폴더를 동일한 작업 공간의 일부로 구성할 수 있는 VS Code의 고급 기능입니다. 폴더를 작업 공간으로 여는 대신, 작업 공간의 모든 폴더를 나열하는 `<name>.code-workspace` JSON 파일을 엽니다. 예를 들어:
 
 ```json
 {
@@ -59,84 +59,85 @@ You can also add other folder-specific configurations, such as workspace-specifi
 }
 ```
 
-![Multi-root workspace](images/workspaces/multi-root-workspace.png)
+![다중 루트 작업 공간](images/workspaces/multi-root-workspace.png)
 
-*A multi-root workspace opened in VS Code*
+*VS Code에서 열린 다중 루트 작업 공간*
 
-> **Note:** The visual difference of having a folder opened versus opening a `.code-workspace` file can be subtle. To give you a hint that a `.code-workspace` file has been opened, some areas of the user interface (for example, the root of the File Explorer) show an extra **(Workspace)** suffix next to the name.
+> **참고:** 폴더를 열 때와 `.code-workspace` 파일을 열 때의 시각적 차이는 미세할 수 있습니다. `.code-workspace` 파일이 열렸다는 힌트를 주기 위해, 사용자 인터페이스의 일부 영역(예: 파일 탐색기의 루트)에서는 이름 옆에 추가적인 **(작업 공간)** 접미사가 표시됩니다.
 
-### Untitled multi-root workspaces
+### 제목 없는 다중 루트 작업 공간 {#untitled-multi-root-workspaces}
 
-You can flexibly add or remove folders in your workspace. Start off by opening a folder in VS Code, and then later add more folders as you see fit.
+작업 공간에서 폴더를 유연하게 추가하거나 제거할 수 있습니다. 먼저 VS Code에서 폴더를 열고, 이후 필요에 따라 더 많은 폴더를 추가하면 됩니다.
 
-![File Explorer context menu, highlighting options to add or remove folders to the workspace](images/workspaces/add-remove-folder-in-workspace.png)
+![파일 탐색기 컨텍스트 메뉴, 작업 공간에 폴더를 추가하거나 제거하는 옵션 강조](images/workspaces/add-remove-folder-in-workspace.png)
 
-*File Explorer context menu for adding or removing a folder in a workspace*
+*작업 공간에 폴더를 추가하거나 제거하기 위한 파일 탐색기 컨텍스트 메뉴*
 
-Unless you have already opened a `.code-workspace` file, the first time you add a second folder to a workspace, VS Code automatically creates an *untitled* workspace. In the background, VS Code automatically maintains a `untitled.code-workspace` file for you that contains all the folders and workspace settings from your current session. The workspace remains *untitled* until you decide to save it to disk.
+`.code-workspace` 파일을 이미 열지 않았다면, 작업 공간에 두 번째 폴더를 추가하는 첫 번째 시도에서 VS Code는 자동으로 *제목 없음* 작업 공간을 생성합니다. 백그라운드에서 VS Code는 현재 세션의 모든 폴더와 작업 공간 설정을 포함하는 `untitled.code-workspace` 파일을 자동으로 유지합니다. 사용자가 디스크에 저장하기로 결정할 때까지 작업 공간은 *제목 없음* 상태로 남아 있습니다.
 
-![Untitled multi-root workspace](images/workspaces/untitled-workspace.png)
+![제목 없는 다중 루트 작업 공간](images/workspaces/untitled-workspace.png)
 
-*An untitled multi-root workspace opened in VS Code*
+*VS Code에서 열린 제목 없는 다중 루트 작업 공간*
 
-> **Note:** There is no difference between an untitled workspace and a saved workspace, other than the fact that an untitled workspace is automatically created for you for your convenience, and will always restore until you save it. VS Code automatically deletes untitled workspaces (after asking you for confirmation) when you close a window in which an untitled workspace is opened.
+> **참고:** 제목 없는 작업 공간과 저장된 작업 공간 간에는 차이가 없습니다. 제목 없는 작업 공간은 편의를 위해 자동으로 생성되며, 저장할 때까지 항상 복원됩니다. VS Code는 제목 없는 작업 공간이 열린 창을 닫을 때(확인 요청 후) 제목 없는 작업 공간을 자동으로 삭제합니다.
 
-## Workspace settings
+## 작업 공간 설정 {#workspace-settings}
 
-Workspace settings enable you to configure settings in the context of the workspace you have opened. Workspace settings always override the global user settings. They are physically stored in a JSON file and their location depends on whether you opened a folder as a workspace, or whether you opened a `.code-workspace` file.
+작업 공간 설정은 열린 작업 공간의 맥락에서 설정을 구성할 수 있게 해줍니다. 작업 공간 설정은 항상 전역 사용자 설정을 덮어씁니다. 이들은 JSON 파일에 물리적으로 저장되며, 폴더를 작업 공간으로 열었는지, 아니면 `.code-workspace` 파일을 열었는지에 따라 위치가 달라집니다.
 
-Refer to the [settings](/docs/editor/settings.md) documentation for a comprehensive explanation of setting scopes and their file locations.
+설정 범위 및 파일 위치에 대한 포괄적인 설명은 [설정](/docs/editor/settings.md) 문서를 참조하세요.
 
-### Single-folder workspace settings
+### 단일 폴더 작업 공간 설정 {#single-folder-workspace-settings}
 
-Workspace settings are stored in `.vscode/settings.json` when you open a folder as a workspace.
+작업 공간 설정은 폴더를 작업 공간으로 열 때 `.vscode/settings.json`에 저장됩니다.
 
-![Single-folder workspace settings](images/workspaces/single-folder-settings.png)
+![단일 폴더 작업 공간 설정](images/workspaces/single-folder-settings.png)
 
-*The Settings editor when a folder is opened as workspace*
+*폴더가 작업 공간으로 열릴 때의 설정 편집기*
 
-### Multi-root workspace settings
+### 다중 루트 작업 공간 설정 {#multi-root-workspace-settings}
 
-When you open a `.code-workspace` as workspace, all workspace settings are added into the `.code-workspace` file.
+`.code-workspace` 파일을 작업 공간으로 열면 모든 작업 공간 설정이 `.code-workspace` 파일에 추가됩니다.
 
-You can still configure settings per root folder, and the Settings editor will present a third setting scope called **Folder Settings**:
+여전히 루트 폴더별로 설정을 구성할 수 있으며, 설정 편집기에서는 **폴더 설정**이라는 세 번째 설정 범위를 제공합니다:
 
-![Multi-root settings](images/workspaces/multi-root-settings.png)
+![다중 루트 설정](images/workspaces/multi-root-settings.png)
 
-*The Settings editor when a multi-root workspace is opened*
+*다중 루트 작업 공간이 열릴 때의 설정 편집기*
 
-Settings configured per folder override settings defined in the `.code-workspace`.
+폴더별로 구성된 설정은 `.code-workspace`에 정의된 설정을 덮어씁니다.
 
-## Workspace tasks and launch configurations
+## 작업 공간 작업 및 실행 구성 {#workspace-tasks-and-launch-configurations}
 
-Similar to how [workspace settings](#workspace-settings) are specific to a workspace, tasks and launch configurations can also be scoped to a workspace.
+[작업 공간 설정](#workspace-settings)과 유사하게, 작업 및 실행 구성도 작업 공간에 특정할 수 있습니다.
 
-Depending on whether you have a folder opened as workspace or a `.code-workspace` file, the location of workspace task and launch configurations is either inside the `.vscode` folder, or inside the `.code-workspace` file. In addition, task and launch configurations can always be defined at the level of a folder, even when you have opened a `.code-workspace` file.
+폴더를 작업 공간으로 열었는지, 아니면 `.code-workspace` 파일을 열었는지에 따라 작업 공간 작업 및 실행 구성의 위치는 `.vscode` 폴더 내에 있거나 `.code-workspace` 파일 내에 있습니다. 또한, 작업 및 실행 구성은 `.code-workspace` 파일을 열었을 때도 폴더 수준에서 정의할 수 있습니다.
 
-Refer to [tasks](/docs/editor/tasks.md) and [debugging](/docs/editor/debugging.md) chapters for a more comprehensive overview of how to use tasks and launch configurations in VS Code.
+VS Code에서 작업 및 실행 구성을 사용하는 방법에 대한 보다 포괄적인 개요는 [작업](/docs/editor/tasks.md) 및 [디버깅](/docs/editor/debugging.md) 장을 참조하세요.
 
-## Common questions
+## 자주 묻는 질문 {#common-questions}
 
-### What is the benefit of multi-root workspace over a folder?
+### 다중 루트 작업 공간의 장점은 무엇인가요? {#what-is-the-benefit-of-multi-root-workspace-over-a-folder}
 
-The most obvious advantage is that a multi-root workspace allows you to work with multiple projects that may not be stored inside the same parent folder on disk. You can pick folders from anywhere to add to the workspace.
+가장 명백한 장점은 다중 루트 작업 공간을 사용하면 디스크의 동일한 상위 폴더에 저장되지 않은 여러 프로젝트를 동시에 작업할 수 있다는 점입니다. 작업 공간에 추가할 폴더를 어디서든 선택할 수 있습니다.
 
-Even if you are mainly working in a single-folder-based project, you can benefit from using `.code-workspace` files. You can store multiple `.code-workspace` files inside the folder to provide a scoped folder-view of certain aspects of the project depending on the scenario (for example `client.code-workspace`, `server.code-workspace` to filter out unrelated folders from the File Explorer). Since `.code-workspace` files support relative paths for the `folders` section, these workspace files work for everyone, independent of where the folder is stored.
+주로 단일 폴더 기반 프로젝트에서 작업하더라도 `.code-workspace` 파일을 사용하면 이점을 누릴 수 있습니다. 특정 시나리오에 따라 프로젝트의 특정 측면에 대한 범위가 지정된 폴더 뷰를 제공하기 위해 폴더 내에 여러 `.code-workspace` 파일을 저장할 수 있습니다(예: `client.code-workspace`, `server.code-workspace`는 파일 탐색기에서 관련 없는 폴더를 필터링합니다). `.code-workspace` 파일은 `folders` 섹션에 대한 상대 경로를 지원하므로, 이러한 작업 공간 파일은 폴더가 저장된 위치와 관계없이 모든 사용자에게 작동합니다.
 
-Finally, if for some projects you want to apply the same set of workspace settings or tasks/launch configurations, consider adding these into a `.code-workspace` file and add or remove these folders from that workspace.
+마지막으로, 특정 프로젝트에 대해 동일한 작업 공간 설정이나 작업/실행 구성을 적용하려는 경우, 이를 `.code-workspace` 파일에 추가하고 해당 작업 공간에서 폴더를 추가하거나 제거하는 것을 고려해 보세요.
 
-### Why is VS Code restoring all untitled workspaces on a restart?
+### VS Code가 재시작 시 모든 제목 없는 작업 공간을 복원하는 이유는 무엇인가요? {#why-is-vs-code-restoring-all-untitled-workspaces-on-a-restart}
 
-Untitled workspaces are designed to be something you must explicitly decide to keep or not. The first time an untitled workspace is created, VS Code adds the specified folders into the workspace file and also adds all existing workspace settings. This user data is always restored and displayed in a VS Code window until the untitled workspace is saved or deleted.
+제목 없는 작업 공간은 사용자가 명시적으로 유지할지 여부를 결정해야 하는 것으로 설계되었습니다. 제목 없는 작업 공간이 처음 생성될 때, VS Code는 지정된 폴더를 작업 공간 파일에 추가하고 모든 기존 작업 공간 설정도 추가합니다. 이 사용자 데이터는 제목 없는 작업 공간이 저장되거나 삭제될 때까지 항상 복원되어 VS Code 창에 표시됩니다.
 
-### How do I delete an untitled workspace?
+### 제목 없는 작업 공간을 삭제하는 방법은 무엇인가요? {#how-do-i-delete-an-untitled-workspace}
 
-You can delete an untitled workspace by closing its window and dismissing the prompt to save the untitled workspace.
+제목 없는 작업 공간의 창을 닫고 제목 없는 작업 공간을 저장하라는 프롬프트를 무시하면 제목 없는 작업 공간을 삭제할 수 있습니다.
 
-### Can I use a multi-root workspace without folders?
+### 폴더 없이 다중 루트 작업 공간을 사용할 수 있나요? {#can-i-use-a-multi-root-workspace-without-folders}
 
-It is possible to leave the `folders` section of a `.code-workspace` file empty so that you end up with an instance of VS Code that does not show any root folders. You can still store workspace settings and even tasks or launch configurations in this case.
+`.code-workspace` 파일의 `folders` 섹션을 비워 두면 루트 폴더가 표시되지 않는 VS Code 인스턴스를 만들 수 있습니다. 이 경우에도 작업 공간 설정 및 작업 또는 실행 구성을 저장할 수 있습니다.
 
-### Does VS Code support projects or solutions?
+### VS Code는 프로젝트나 솔루션을 지원하나요? {#does-vs-code-support-projects-or-solutions}
 
-VS Code doesn't have the concept of a "project" or "solution" as they are sometimes defined in other development tools, such as Visual Studio IDE. You might see the term "project" used in VS Code documentation, but it usually means "the thing you're working on". Depending on your programming language or framework, the toolset itself might support something called a "project" to help define build configurations or enumerate included files.
+VS Code는 Visual Studio IDE와 같은 다른 개발 도구에서 정의되는 "프로젝트"나 "솔루션"의 개념이 없습니다. VS Code 문서에서 "프로젝트"라는 용어를 볼 수 있지만, 일반적으로 "당신이 작업하고 있는 것"을 의미합니다. 프로그래밍 언어나 프레임워크에 따라 도구 세트 자체가 빌드 구성을 정의하거나 포함된 파일을 나열하는 데 도움이 되는 "프로젝트"라는 것을 지원할 수 있습니다.
+---
