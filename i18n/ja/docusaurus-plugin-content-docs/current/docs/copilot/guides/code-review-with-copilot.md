@@ -7,4 +7,4 @@ MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to review
 ---
 # Review code with Copilot
 
-This page is redirected to <https://docs.github.com/en/copilot/using-github-copilot/code-review/using-copilot-code-review> and only exists to keep the "Review code with Copilot" TOC item.
+This page is redirected to https://docs.github.com/en/copilot/using-github-copilot/code-review/using-copilot-code-review and only exists to keep the "Review code with Copilot" TOC item.

@@ -1,4 +1,4 @@
----
+<!-- ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
 DateApproved: 03/05/2025
@@ -28,7 +28,7 @@ This listing is compiled from the [`vscode.d.ts`](https://github.com/microsoft/v
 <a name="authentication.onDidChangeSessions"></a><span class="ts"id={3209}data-target="#details-3209" data-toggle="collapse"><span class="ident">onDidChangeSessions</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#AuthenticationSessionsChangeEvent">AuthenticationSessionsChangeEvent</a>&gt;</span>
 
 <div class="details collapse" id="details-3209">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the authentication sessions of an authentication provider have
+<div class="comment"><p>An <a href={##Event}event</a> which fires when the authentication sessions of an authentication provider have
 been added, removed, or changed.</p>
 </div>
 </div>
@@ -52,7 +52,7 @@ to VS Code that implement GitHub and Microsoft authentication: their providerId&
 </div></td></tr>
 <tr><td><a name="scopes"></a><span class="ts"id={3201}data-target="#details-3201" data-toggle="collapse"><span class="ident">scopes</span><span>: </span><a class="type-intrinsic">string</a>[]</span></td><td><div class="comment"><p>A list of scopes representing the permissions requested. These are dependent on the authentication provider</p>
 </div></td></tr>
-<tr><td><a name="options"></a><span class="ts"id={3202}data-target="#details-3202" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#AuthenticationGetSessionOptions">AuthenticationGetSessionOptions</a> &#38; {createIfNone: <a class="type-intrinsic">true</a>}</span></td><td><div class="comment"><p>The <a href="#GetSessionOptions">getSessionOptions</a> to use</p>
+<tr><td><a name="options"></a><span class="ts"id={3202}data-target="#details-3202" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#AuthenticationGetSessionOptions">AuthenticationGetSessionOptions</a> &#38; {createIfNone: <a class="type-intrinsic">true</a>}</span></td><td><div class="comment"><p>The <a href={##GetSessionOptions}getSessionOptions</a> to use</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#AuthenticationSession">AuthenticationSession</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to an authentication session</p>
@@ -78,7 +78,7 @@ to VS Code that implement GitHub and Microsoft authentication: their providerId&
 </div></td></tr>
 <tr><td><a name="scopes"></a><span class="ts"id={3207}data-target="#details-3207" data-toggle="collapse"><span class="ident">scopes</span><span>: </span><a class="type-intrinsic">string</a>[]</span></td><td><div class="comment"><p>A list of scopes representing the permissions requested. These are dependent on the authentication provider</p>
 </div></td></tr>
-<tr><td><a name="options"></a><span class="ts"id={3208}data-target="#details-3208" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#AuthenticationGetSessionOptions">AuthenticationGetSessionOptions</a></span></td><td><div class="comment"><p>The <a href="#GetSessionOptions">getSessionOptions</a> to use</p>
+<tr><td><a name="options"></a><span class="ts"id={3208}data-target="#details-3208" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#AuthenticationGetSessionOptions">AuthenticationGetSessionOptions</a></span></td><td><div class="comment"><p>The <a href={##GetSessionOptions}getSessionOptions</a> to use</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#AuthenticationSession">AuthenticationSession</a> &#124; <a class="type-intrinsic">undefined</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to an authentication session if available, or undefined if there are no sessions</p>
@@ -91,12 +91,12 @@ to VS Code that implement GitHub and Microsoft authentication: their providerId&
 
 <div class="comment"><p>Namespace for dealing with commands. In short, a command is a function with a
 unique identifier. The function is sometimes also called <em>command handler</em>.</p>
-<p>Commands can be added to the editor using the <a href="#commands.registerCommand">registerCommand</a>
-and <a href="#commands.registerTextEditorCommand">registerTextEditorCommand</a> functions. Commands
-can be executed <a href="#commands.executeCommand">manually</a> or from a UI gesture. Those are:</p>
+<p>Commands can be added to the editor using the <a href={##commands.registerCommand}registerCommand</a>
+and <a href={##commands.registerTextEditorCommand}registerTextEditorCommand</a> functions. Commands
+can be executed <a href={##commands.executeCommand}manually</a> or from a UI gesture. Those are:</p>
 <ul>
 <li>palette - Use the <code>commands</code>-section in <code>package.json</code> to make a command show in
-the <a href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">command palette</a>.</li>
+the <a href={https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette}>command palette</a>.</li>
 <li>keybinding - Use the <code>keybindings</code>-section in <code>package.json</code> to enable
 <a href="https://code.visualstudio.com/docs/getstarted/keybindings#_customizing-shortcuts">keybindings</a>
 for your extension.</li>
@@ -106,13 +106,15 @@ when invoking an editor command not all argument types are supported.</p>
 <p>This is a sample that registers a command handler and adds an entry for that command to the palette. First
 register a command handler with the identifier <code>extension.sayHello</code>.</p>
 
-<pre><code class="lang-javascript">commands.registerCommand(&#39;extension.sayHello&#39;, () =&gt; {
+```javascript
+commands.registerCommand(&#39;extension.sayHello&#39;, () =&gt; {
     window.showInformationMessage(&#39;Hello World!&#39;);
 });
-</code></pre>
+```
 <p>Second, bind the command identifier to a title under which it will show in the palette (<code>package.json</code>).</p>
 
-<pre><code class="lang-json">{
+```json
+{
     &quot;contributes&quot;: {
         &quot;commands&quot;: [{
             &quot;command&quot;: &quot;extension.sayHello&quot;,
@@ -120,7 +122,7 @@ register a command handler with the identifier <code>extension.sayHello</code>.<
         }]
     }
 }
-</code></pre>
+```
 </div>
 
 #### Functions
@@ -132,7 +134,7 @@ register a command handler with the identifier <code>extension.sayHello</code>.<
 <ul>
 <li><em>Note 1:</em> When executing an editor command not all types are allowed to
 be passed as arguments. Allowed are the primitive types <code>string</code>, <code>boolean</code>,
-<code>number</code>, <code>undefined</code>, and <code>null</code>, as well as <a href="#Position"><code>Position</code></a>, <a href="#Range"><code>Range</code></a>, <a href="#Uri"><code>Uri</code></a> and <a href="#Location"><code>Location</code></a>.</li>
+<code>number</code>, <code>undefined</code>, and <code>null</code>, as well as <a href={##Position"><code>Position</code></a>, <a href="#Range"><code>Range</code></a>, <a href="#Uri"><code>Uri</code></a> and <a href="#Location}<code>Location</code></a>.</li>
 <li><em>Note 2:</em> There are no restrictions when executing commands that have been contributed
 by extensions.</li>
 </ul>
@@ -199,10 +201,10 @@ will cause an error.</p>
 <div class="details collapse" id="details-2683">
 <div class="comment"><p>Registers a text editor command that can be invoked via a keyboard shortcut,
 a menu item, an action, or directly.</p>
-<p>Text editor commands are different from ordinary <a href="#commands.registerCommand">commands</a> as
+<p>Text editor commands are different from ordinary <a href={##commands.registerCommand}commands</a> as
 they only execute when there is an active editor when the command is called. Also, the
 command handler of an editor command has access to the active editor and to an
-<a href="#TextEditorEdit">edit</a>-builder. Note that the edit-builder is only valid while the
+<a href={##TextEditorEdit}edit</a>-builder. Note that the edit-builder is only valid while the
 callback executes.</p>
 </div>
 <div class="signature">
@@ -210,7 +212,7 @@ callback executes.</p>
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="command"></a><span class="ts"id={2684}data-target="#details-2684" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>A unique identifier for the command.</p>
 </div></td></tr>
-<tr><td><a name="callback"></a><span class="ts"id={2685}data-target="#details-2685" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(textEditor: <a class="type-ref" href="#TextEditor">TextEditor</a>, edit: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>, args: <a class="type-intrinsic">any</a>[]) =&gt; <a class="type-intrinsic">void</a></span></td><td><div class="comment"><p>A command handler function with access to an <a href="#TextEditor">editor</a> and an <a href="#TextEditorEdit">edit</a>.</p>
+<tr><td><a name="callback"></a><span class="ts"id={2685}data-target="#details-2685" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(textEditor: <a class="type-ref" href="#TextEditor">TextEditor</a>, edit: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>, args: <a class="type-intrinsic">any</a>[]) =&gt; <a class="type-intrinsic">void</a></span></td><td><div class="comment"><p>A command handler function with access to an <a href={##TextEditor">editor</a> and an <a href="#TextEditorEdit}edit</a>.</p>
 </div></td></tr>
 <tr><td><a name="thisArg"></a><span class="ts"id={2691}data-target="#details-2691" data-toggle="collapse"><span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-intrinsic">any</a></span></td><td><div class="comment"><p>The <code>this</code> context used when invoking the handler function.</p>
 </div></td></tr>
@@ -230,7 +232,7 @@ callback executes.</p>
 <a name="comments.createCommentController"></a><span class="ts"id={3194}data-target="#details-3194" data-toggle="collapse"><span class="ident">createCommentController</span><span>(</span><span class="ident">id</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">label</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-ref" href="#CommentController">CommentController</a></span>
 
 <div class="details collapse" id="details-3194">
-<div class="comment"><p>Creates a new <a href="#CommentController">comment controller</a> instance.</p>
+<div class="comment"><p>Creates a new <a href={##CommentController}comment controller</a> instance.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -240,7 +242,7 @@ callback executes.</p>
 <tr><td><a name="label"></a><span class="ts"id={3196}data-target="#details-3196" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>A human-readable string for the comment controller.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#CommentController">CommentController</a></span></td><td><div class="comment"><p>An instance of <a href="#CommentController">comment controller</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#CommentController">CommentController</a></span></td><td><div class="comment"><p>An instance of <a href={##CommentController}comment controller</a>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -256,7 +258,7 @@ callback executes.</p>
 <a name="debug.activeDebugConsole"></a><span class="ts"id={3145}data-target="#details-3145" data-toggle="collapse"><span class="ident">activeDebugConsole</span><span>: </span><a class="type-ref" href="#DebugConsole">DebugConsole</a></span>
 
 <div class="details collapse" id="details-3145">
-<div class="comment"><p>The currently active <a href="#DebugConsole">debug console</a>.
+<div class="comment"><p>The currently active <a href={##DebugConsole}debug console</a>.
 If no debug session is active, output sent to the debug console is not shown.</p>
 </div>
 </div>
@@ -264,7 +266,7 @@ If no debug session is active, output sent to the debug console is not shown.</p
 <a name="debug.activeDebugSession"></a><span class="ts"id={3144}data-target="#details-3144" data-toggle="collapse"><span class="ident">activeDebugSession</span><span>: </span><a class="type-ref" href="#DebugSession">DebugSession</a> &#124; <a class="type-intrinsic">undefined</a></span>
 
 <div class="details collapse" id="details-3144">
-<div class="comment"><p>The currently active <a href="#DebugSession">debug session</a> or <code>undefined</code>. The active debug session is the one
+<div class="comment"><p>The currently active <a href={##DebugSession}debug session</a> or <code>undefined</code>. The active debug session is the one
 represented by the debug action floating window or the one currently shown in the dropdown menu of the debug action floating window.
 If no debug session is active, the value is <code>undefined</code>.</p>
 </div>
@@ -282,7 +284,7 @@ If no debug session is active, the value is <code>undefined</code>.</p>
 <a name="debug.onDidChangeActiveDebugSession"></a><span class="ts"id={3147}data-target="#details-3147" data-toggle="collapse"><span class="ident">onDidChangeActiveDebugSession</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#DebugSession">DebugSession</a> &#124; <a class="type-intrinsic">undefined</a>&gt;</span>
 
 <div class="details collapse" id="details-3147">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the <a href="#debug.activeDebugSession">active debug session</a>
+<div class="comment"><p>An <a href={##Event">event</a> which fires when the <a href="#debug.activeDebugSession}active debug session</a>
 has changed. <em>Note</em> that the event also fires when the active debug session changes
 to <code>undefined</code>.</p>
 </div>
@@ -291,28 +293,28 @@ to <code>undefined</code>.</p>
 <a name="debug.onDidChangeBreakpoints"></a><span class="ts"id={3151}data-target="#details-3151" data-toggle="collapse"><span class="ident">onDidChangeBreakpoints</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#BreakpointsChangeEvent">BreakpointsChangeEvent</a>&gt;</span>
 
 <div class="details collapse" id="details-3151">
-<div class="comment"><p>An <a href="#Event">event</a> that is emitted when the set of breakpoints is added, removed, or changed.</p>
+<div class="comment"><p>An <a href={##Event}event</a> that is emitted when the set of breakpoints is added, removed, or changed.</p>
 </div>
 </div>
 
 <a name="debug.onDidReceiveDebugSessionCustomEvent"></a><span class="ts"id={3149}data-target="#details-3149" data-toggle="collapse"><span class="ident">onDidReceiveDebugSessionCustomEvent</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#DebugSessionCustomEvent">DebugSessionCustomEvent</a>&gt;</span>
 
 <div class="details collapse" id="details-3149">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when a custom DAP event is received from the <a href="#DebugSession">debug session</a>.</p>
+<div class="comment"><p>An <a href={##Event">event</a> which fires when a custom DAP event is received from the <a href="#DebugSession}debug session</a>.</p>
 </div>
 </div>
 
 <a name="debug.onDidStartDebugSession"></a><span class="ts"id={3148}data-target="#details-3148" data-toggle="collapse"><span class="ident">onDidStartDebugSession</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#DebugSession">DebugSession</a>&gt;</span>
 
 <div class="details collapse" id="details-3148">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when a new <a href="#DebugSession">debug session</a> has been started.</p>
+<div class="comment"><p>An <a href={##Event">event</a> which fires when a new <a href="#DebugSession}debug session</a> has been started.</p>
 </div>
 </div>
 
 <a name="debug.onDidTerminateDebugSession"></a><span class="ts"id={3150}data-target="#details-3150" data-toggle="collapse"><span class="ident">onDidTerminateDebugSession</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#DebugSession">DebugSession</a>&gt;</span>
 
 <div class="details collapse" id="details-3150">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when a <a href="#DebugSession">debug session</a> has terminated.</p>
+<div class="comment"><p>An <a href={##Event">event</a> which fires when a <a href="#DebugSession}debug session</a> has terminated.</p>
 </div>
 </div>
 
@@ -345,7 +347,7 @@ If the source descriptor uses a reference number, a specific debug Uri (scheme &
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="source"></a><span class="ts"id={3181}data-target="#details-3181" data-toggle="collapse"><span class="ident">source</span><span>: </span><a class="type-ref" href="#DebugProtocolSource">DebugProtocolSource</a></span></td><td><div class="comment"><p>An object conforming to the <a href="https://microsoft.github.io/debug-adapter-protocol/specification#Types_Source">Source</a> type defined in the Debug Adapter Protocol.</p>
+<tr><td><a name="source"></a><span class="ts"id={3181}data-target="#details-3181" data-toggle="collapse"><span class="ident">source</span><span>: </span><a class="type-ref" href="#DebugProtocolSource">DebugProtocolSource</a></span></td><td><div class="comment"><p>An object conforming to the <a href={#https://microsoft.github.io/debug-adapter-protocol/specification#Types_Source}Source</a> type defined in the Debug Adapter Protocol.</p>
 </div></td></tr>
 <tr><td><a name="session"></a><span class="ts"id={3182}data-target="#details-3182" data-toggle="collapse"><span class="ident">session</span><span>?</span><span>: </span><a class="type-ref" href="#DebugSession">DebugSession</a></span></td><td><div class="comment"><p>An optional debug session that will be used when the source descriptor uses a reference number to load the contents from an active debug session.</p>
 </div></td></tr>
@@ -359,7 +361,7 @@ If the source descriptor uses a reference number, a specific debug Uri (scheme &
 <a name="debug.registerDebugAdapterDescriptorFactory"></a><span class="ts"id={3158}data-target="#details-3158" data-toggle="collapse"><span class="ident">registerDebugAdapterDescriptorFactory</span><span>(</span><span class="ident">debugType</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">factory</span><span>: </span><a class="type-ref" href="#DebugAdapterDescriptorFactory">DebugAdapterDescriptorFactory</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 
 <div class="details collapse" id="details-3158">
-<div class="comment"><p>Register a <a href="#DebugAdapterDescriptorFactory">debug adapter descriptor factory</a> for a specific debug type.
+<div class="comment"><p>Register a <a href={##DebugAdapterDescriptorFactory}debug adapter descriptor factory</a> for a specific debug type.
 An extension is only allowed to register a DebugAdapterDescriptorFactory for the debug type(s) defined by the extension. Otherwise an error is thrown.
 Registering more than one DebugAdapterDescriptorFactory for a debug type results in an error.</p>
 </div>
@@ -368,10 +370,10 @@ Registering more than one DebugAdapterDescriptorFactory for a debug type results
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="debugType"></a><span class="ts"id={3159}data-target="#details-3159" data-toggle="collapse"><span class="ident">debugType</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The debug type for which the factory is registered.</p>
 </div></td></tr>
-<tr><td><a name="factory"></a><span class="ts"id={3160}data-target="#details-3160" data-toggle="collapse"><span class="ident">factory</span><span>: </span><a class="type-ref" href="#DebugAdapterDescriptorFactory">DebugAdapterDescriptorFactory</a></span></td><td><div class="comment"><p>The <a href="#DebugAdapterDescriptorFactory">debug adapter descriptor factory</a> to register.</p>
+<tr><td><a name="factory"></a><span class="ts"id={3160}data-target="#details-3160" data-toggle="collapse"><span class="ident">factory</span><span>: </span><a class="type-ref" href="#DebugAdapterDescriptorFactory">DebugAdapterDescriptorFactory</a></span></td><td><div class="comment"><p>The <a href={##DebugAdapterDescriptorFactory}debug adapter descriptor factory</a> to register.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this factory when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this factory when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -387,10 +389,10 @@ Registering more than one DebugAdapterDescriptorFactory for a debug type results
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="debugType"></a><span class="ts"id={3163}data-target="#details-3163" data-toggle="collapse"><span class="ident">debugType</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The debug type for which the factory is registered or &#39;*&#39; for matching all debug types.</p>
 </div></td></tr>
-<tr><td><a name="factory"></a><span class="ts"id={3164}data-target="#details-3164" data-toggle="collapse"><span class="ident">factory</span><span>: </span><a class="type-ref" href="#DebugAdapterTrackerFactory">DebugAdapterTrackerFactory</a></span></td><td><div class="comment"><p>The <a href="#DebugAdapterTrackerFactory">debug adapter tracker factory</a> to register.</p>
+<tr><td><a name="factory"></a><span class="ts"id={3164}data-target="#details-3164" data-toggle="collapse"><span class="ident">factory</span><span>: </span><a class="type-ref" href="#DebugAdapterTrackerFactory">DebugAdapterTrackerFactory</a></span></td><td><div class="comment"><p>The <a href={##DebugAdapterTrackerFactory}debug adapter tracker factory</a> to register.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this factory when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this factory when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -399,8 +401,8 @@ Registering more than one DebugAdapterDescriptorFactory for a debug type results
 <a name="debug.registerDebugConfigurationProvider"></a><span class="ts"id={3153}data-target="#details-3153" data-toggle="collapse"><span class="ident">registerDebugConfigurationProvider</span><span>(</span><span class="ident">debugType</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DebugConfigurationProvider">DebugConfigurationProvider</a>, <span class="ident">triggerKind</span><span>?</span><span>: </span><a class="type-ref" href="#DebugConfigurationProviderTriggerKind">DebugConfigurationProviderTriggerKind</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 
 <div class="details collapse" id="details-3153">
-<div class="comment"><p>Register a <a href="#DebugConfigurationProvider">debug configuration provider</a> for a specific debug type.
-The optional <a href="#DebugConfigurationProviderTriggerKind">triggerKind</a> can be used to specify when the <code>provideDebugConfigurations</code> method of the provider is triggered.
+<div class="comment"><p>Register a <a href={##DebugConfigurationProvider}debug configuration provider</a> for a specific debug type.
+The optional <a href={##DebugConfigurationProviderTriggerKind}triggerKind</a> can be used to specify when the <code>provideDebugConfigurations</code> method of the provider is triggered.
 Currently two trigger kinds are possible: with the value <code>Initial</code> (or if no trigger kind argument is given) the <code>provideDebugConfigurations</code> method is used to provide the initial debug configurations to be copied into a newly created launch.json.
 With the trigger kind <code>Dynamic</code> the <code>provideDebugConfigurations</code> method is used to dynamically determine debug configurations to be presented to the user (in addition to the static configurations from the launch.json).
 Please note that the <code>triggerKind</code> argument only applies to the <code>provideDebugConfigurations</code> method: so the <code>resolveDebugConfiguration</code> methods are not affected at all.
@@ -411,12 +413,12 @@ More than one provider can be registered for the same type.</p>
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="debugType"></a><span class="ts"id={3154}data-target="#details-3154" data-toggle="collapse"><span class="ident">debugType</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="provider"></a><span class="ts"id={3155}data-target="#details-3155" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DebugConfigurationProvider">DebugConfigurationProvider</a></span></td><td><div class="comment"><p>The <a href="#DebugConfigurationProvider">debug configuration provider</a> to register.</p>
+<tr><td><a name="provider"></a><span class="ts"id={3155}data-target="#details-3155" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DebugConfigurationProvider">DebugConfigurationProvider</a></span></td><td><div class="comment"><p>The <a href={##DebugConfigurationProvider}debug configuration provider</a> to register.</p>
 </div></td></tr>
-<tr><td><a name="triggerKind"></a><span class="ts"id={3156}data-target="#details-3156" data-toggle="collapse"><span class="ident">triggerKind</span><span>?</span><span>: </span><a class="type-ref" href="#DebugConfigurationProviderTriggerKind">DebugConfigurationProviderTriggerKind</a></span></td><td><div class="comment"><p>The <a href="#DebugConfigurationProviderTrigger">trigger</a> for which the &#39;provideDebugConfiguration&#39; method of the provider is registered. If <code>triggerKind</code> is missing, the value <code>DebugConfigurationProviderTriggerKind.Initial</code> is assumed.</p>
+<tr><td><a name="triggerKind"></a><span class="ts"id={3156}data-target="#details-3156" data-toggle="collapse"><span class="ident">triggerKind</span><span>?</span><span>: </span><a class="type-ref" href="#DebugConfigurationProviderTriggerKind">DebugConfigurationProviderTriggerKind</a></span></td><td><div class="comment"><p>The <a href={##DebugConfigurationProviderTrigger}trigger</a> for which the &#39;provideDebugConfiguration&#39; method of the provider is registered. If <code>triggerKind</code> is missing, the value <code>DebugConfigurationProviderTriggerKind.Initial</code> is assumed.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -442,7 +444,7 @@ More than one provider can be registered for the same type.</p>
 
 <div class="details collapse" id="details-3166">
 <div class="comment"><p>Start debugging by using either a named launch or named compound configuration,
-or by directly passing a <a href="#DebugConfiguration">DebugConfiguration</a>.
+or by directly passing a <a href={##DebugConfiguration}DebugConfiguration</a>.
 The named configurations are looked up in &#39;.vscode/launch.json&#39; found in the given folder.
 Before debugging starts, all unsaved files are saved and the launch configurations are brought up-to-date.
 Folder specific variables used in the configuration (e.g. &#39;${workspaceFolder}&#39;) are resolved against the given folder.</p>
@@ -450,11 +452,11 @@ Folder specific variables used in the configuration (e.g. &#39;${workspaceFolder
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="folder"></a><span class="ts"id={3167}data-target="#details-3167" data-toggle="collapse"><span class="ident">folder</span><span>: </span><a class="type-ref" href="#WorkspaceFolder">WorkspaceFolder</a> &#124; <a class="type-intrinsic">undefined</a></span></td><td><div class="comment"><p>The <a href="#WorkspaceFolder">workspace folder</a> for looking up named configurations and resolving variables or <code>undefined</code> for a non-folder setup.</p>
+<tr><td><a name="folder"></a><span class="ts"id={3167}data-target="#details-3167" data-toggle="collapse"><span class="ident">folder</span><span>: </span><a class="type-ref" href="#WorkspaceFolder">WorkspaceFolder</a> &#124; <a class="type-intrinsic">undefined</a></span></td><td><div class="comment"><p>The <a href={##WorkspaceFolder}workspace folder</a> for looking up named configurations and resolving variables or <code>undefined</code> for a non-folder setup.</p>
 </div></td></tr>
-<tr><td><a name="nameOrConfiguration"></a><span class="ts"id={3168}data-target="#details-3168" data-toggle="collapse"><span class="ident">nameOrConfiguration</span><span>: </span><a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#DebugConfiguration">DebugConfiguration</a></span></td><td><div class="comment"><p>Either the name of a debug or compound configuration or a <a href="#DebugConfiguration">DebugConfiguration</a> object.</p>
+<tr><td><a name="nameOrConfiguration"></a><span class="ts"id={3168}data-target="#details-3168" data-toggle="collapse"><span class="ident">nameOrConfiguration</span><span>: </span><a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#DebugConfiguration">DebugConfiguration</a></span></td><td><div class="comment"><p>Either the name of a debug or compound configuration or a <a href={##DebugConfiguration}DebugConfiguration</a> object.</p>
 </div></td></tr>
-<tr><td><a name="parentSessionOrOptions"></a><span class="ts"id={3169}data-target="#details-3169" data-toggle="collapse"><span class="ident">parentSessionOrOptions</span><span>?</span><span>: </span><a class="type-ref" href="#DebugSession">DebugSession</a> &#124; <a class="type-ref" href="#DebugSessionOptions">DebugSessionOptions</a></span></td><td><div class="comment"><p>Debug session options. When passed a parent <a href="#DebugSession">debug session</a>, assumes options with just this parent session.</p>
+<tr><td><a name="parentSessionOrOptions"></a><span class="ts"id={3169}data-target="#details-3169" data-toggle="collapse"><span class="ident">parentSessionOrOptions</span><span>?</span><span>: </span><a class="type-ref" href="#DebugSession">DebugSession</a> &#124; <a class="type-ref" href="#DebugSessionOptions">DebugSessionOptions</a></span></td><td><div class="comment"><p>Debug session options. When passed a parent <a href={##DebugSession}debug session</a>, assumes options with just this parent session.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-intrinsic">boolean</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves when debugging could be successfully started.</p>
@@ -471,7 +473,7 @@ Folder specific variables used in the configuration (e.g. &#39;${workspaceFolder
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="session"></a><span class="ts"id={3172}data-target="#details-3172" data-toggle="collapse"><span class="ident">session</span><span>?</span><span>: </span><a class="type-ref" href="#DebugSession">DebugSession</a></span></td><td><div class="comment"><p>The <a href="#DebugSession">debug session</a> to stop; if omitted all sessions are stopped.</p>
+<tr><td><a name="session"></a><span class="ts"id={3172}data-target="#details-3172" data-toggle="collapse"><span class="ident">session</span><span>?</span><span>: </span><a class="type-ref" href="#DebugSession">DebugSession</a></span></td><td><div class="comment"><p>The <a href={##DebugSession}debug session</a> to stop; if omitted all sessions are stopped.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-intrinsic">void</a>&gt;</span></td><td><div class="comment"></div></td></tr>
@@ -530,7 +532,7 @@ environment that has no representation of an application root folder.</p>
 Subsystem for Linux or <code>ssh-remote</code> for remotes using a secure shell.</p>
 <p><em>Note</em> that the value is <code>undefined</code> when there is no remote extension host but that the
 value is defined in all extension hosts (local and remote) in case a remote extension host
-exists. Use <a href="#Extension.extensionKind"><code>Extension#extensionKind</code></a> to know if
+exists. Use <a href={##Extension.extensionKind}<code>Extension#extensionKind</code></a> to know if
 a specific extension runs remote or not.</p>
 </div>
 </div>
@@ -584,16 +586,17 @@ from the local machine to <code>target</code> on the remote and returns a local 
 the port forwarding tunnel is managed by VS Code and the tunnel can be closed by the user.</p>
 <p><em>Note</em> that uris passed through <code>openExternal</code> are automatically resolved and you should not call <code>asExternalUri</code> on them.</p>
 <h4 id="-vscode-env-urischeme-"><code>vscode.env.uriScheme</code></h4>
-<p>Creates a uri that - if opened in a browser (e.g. via <code>openExternal</code>) - will result in a registered <a href="#UriHandler">UriHandler</a>
+<p>Creates a uri that - if opened in a browser (e.g. via <code>openExternal</code>) - will result in a registered <a href={##UriHandler}UriHandler</a>
 to trigger.</p>
 <p>Extensions should not make any assumptions about the resulting uri and should not alter it in anyway.
 Rather, extensions can e.g. use this uri in an authentication flow, by adding the uri as callback query
 argument to the server to authenticate to.</p>
 <p><em>Note</em> that if the server decides to add additional query parameters to the uri (e.g. a token or secret), it
-will appear in the uri that is passed to the <a href="#UriHandler">UriHandler</a>.</p>
+will appear in the uri that is passed to the <a href={##UriHandler}UriHandler</a>.</p>
 <p><strong>Example</strong> of an authentication flow:</p>
 
-<pre><code class="lang-typescript">vscode.window.registerUriHandler({
+```typescript
+vscode.window.registerUriHandler({
   handleUri(uri: vscode.Uri): vscode.ProviderResult&lt;void&gt; {
     if (uri.path === &#39;/did-authenticate&#39;) {
       console.log(uri.toString());
@@ -603,7 +606,7 @@ will appear in the uri that is passed to the <a href="#UriHandler">UriHandler</a
 
 const callableUri = await vscode.env.asExternalUri(vscode.Uri.parse(`${vscode.env.uriScheme}://my.extension/did-authenticate`));
 await vscode.env.openExternal(callableUri);
-</code></pre>
+```
 <p><em>Note</em> that extensions should not cache the result of <code>asExternalUri</code> as the resolved uri may become invalid due to
 a system or user action — for example, in remote cases, a user may close a port forwarding tunnel that was opened by
 <code>asExternalUri</code>.</p>
@@ -629,7 +632,7 @@ used scheme this can be:</p>
 <li>a mail client (<code>mailto:</code>)</li>
 <li>VSCode itself (<code>vscode:</code> from <code>vscode.env.uriScheme</code>)</li>
 </ul>
-<p><em>Note</em> that <a href="#window.showTextDocument"><code>showTextDocument</code></a> is the right
+<p><em>Note</em> that <a href={##window.showTextDocument}<code>showTextDocument</code></a> is the right
 way to open a text document inside the editor, not this function.</p>
 </div>
 <div class="signature">
@@ -647,11 +650,12 @@ way to open a text document inside the editor, not this function.</p>
 ## extensions
 
 <div class="comment"><p>Namespace for dealing with installed extensions. Extensions are represented
-by an <a href="#Extension">extension</a>-interface which enables reflection on them.</p>
+by an <a href={##Extension}extension</a>-interface which enables reflection on them.</p>
 <p>Extension writers can provide APIs to other extensions by returning their API public
 surface from the <code>activate</code>-call.</p>
 
-<pre><code class="lang-javascript">export function activate(context: vscode.ExtensionContext) {
+```javascript
+export function activate(context: vscode.ExtensionContext) {
     let api = {
         sum(a, b) {
             return a + b;
@@ -663,16 +667,17 @@ surface from the <code>activate</code>-call.</p>
     // &#39;export&#39; public api-surface
     return api;
 }
-</code></pre>
+```
 <p>When depending on the API of another extension add an <code>extensionDependencies</code>-entry
-to <code>package.json</code>, and use the <a href="#extensions.getExtension">getExtension</a>-function
-and the <a href="#Extension.exports">exports</a>-property, like below:</p>
+to <code>package.json</code>, and use the <a href={##extensions.getExtension}getExtension</a>-function
+and the <a href={##Extension.exports}exports</a>-property, like below:</p>
 
-<pre><code class="lang-javascript">let mathExt = extensions.getExtension(&#39;genius.math&#39;);
+```javascript
+let mathExt = extensions.getExtension(&#39;genius.math&#39;);
 let importedApi = mathExt.exports;
 
 console.log(importedApi.mul(42, 1));
-</code></pre>
+```
 </div>
 
 #### Variables
@@ -732,27 +737,28 @@ installed, uninstalled, enabled or disabled.</p>
 
 ## languages
 
-<div class="comment"><p>Namespace for participating in language-specific editor <a href="https://code.visualstudio.com/docs/editor/editingevolved">features</a>,
+<div class="comment"><p>Namespace for participating in language-specific editor <a href={#https://code.visualstudio.com/docs/editor/editingevolved}features</a>,
 like IntelliSense, code actions, diagnostics etc.</p>
 <p>Many programming languages exist and there is huge variety in syntaxes, semantics, and paradigms. Despite that, features
 like automatic word-completion, code navigation, or code checking have become popular across different tools for different
 programming languages.</p>
 <p>The editor provides an API that makes it simple to provide such common features by having all UI and actions already in place and
 by allowing you to participate by providing data only. For instance, to contribute a hover all you have to do is provide a function
-that can be called with a <a href="#TextDocument">TextDocument</a> and a <a href="#Position">Position</a> returning hover info. The rest, like tracking the
+that can be called with a <a href={##TextDocument">TextDocument</a> and a <a href="#Position}Position</a> returning hover info. The rest, like tracking the
 mouse, positioning the hover, keeping the hover stable etc. is taken care of by the editor.</p>
 
-<pre><code class="lang-javascript">languages.registerHoverProvider(&#39;javascript&#39;, {
+```javascript
+languages.registerHoverProvider(&#39;javascript&#39;, {
     provideHover(document, position, token) {
         return new Hover(&#39;I am a hover!&#39;);
     }
 });
-</code></pre>
-<p>Registration is done using a <a href="#DocumentSelector">document selector</a> which is either a language ID, like <code>javascript</code> or
-a more complex <a href="#DocumentFilter">filter</a> like <code>{ language: &#39;typescript&#39;, scheme: &#39;file&#39; }</code>. Matching a document against such
-a selector will result in a <a href="#languages.match">score</a> that is used to determine if and how a provider shall be used. When
-scores are equal the provider that came last wins. For features that allow full arity, like <a href="#languages.registerHoverProvider">hover</a>,
-the score is only checked to be <code>&gt;0</code>, for other features, like <a href="#languages.registerCompletionItemProvider">IntelliSense</a> the
+```
+<p>Registration is done using a <a href={##DocumentSelector}document selector</a> which is either a language ID, like <code>javascript</code> or
+a more complex <a href={##DocumentFilter}filter</a> like <code>{ language: &#39;typescript&#39;, scheme: &#39;file&#39; }</code>. Matching a document against such
+a selector will result in a <a href={##languages.match}score</a> that is used to determine if and how a provider shall be used. When
+scores are equal the provider that came last wins. For features that allow full arity, like <a href={##languages.registerHoverProvider}hover</a>,
+the score is only checked to be <code>&gt;0</code>, for other features, like <a href={##languages.registerCompletionItemProvider}IntelliSense</a> the
 score is used for determining the order in which providers are asked to participate.</p>
 </div>
 
@@ -761,7 +767,7 @@ score is used for determining the order in which providers are asked to particip
 <a name="languages.onDidChangeDiagnostics"></a><span class="ts"id={3012}data-target="#details-3012" data-toggle="collapse"><span class="ident">onDidChangeDiagnostics</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#DiagnosticChangeEvent">DiagnosticChangeEvent</a>&gt;</span>
 
 <div class="details collapse" id="details-3012">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the global set of diagnostics changes. This is
+<div class="comment"><p>An <a href={##Event}event</a> which fires when the global set of diagnostics changes. This is
 newly added and removed diagnostics.</p>
 </div>
 </div>
@@ -776,7 +782,7 @@ newly added and removed diagnostics.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="name"></a><span class="ts"id={3019}data-target="#details-3019" data-toggle="collapse"><span class="ident">name</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The <a href="#DiagnosticCollection.name">name</a> of the collection.</p>
+<tr><td><a name="name"></a><span class="ts"id={3019}data-target="#details-3019" data-toggle="collapse"><span class="ident">name</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The <a href={##DiagnosticCollection.name}name</a> of the collection.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#DiagnosticCollection">DiagnosticCollection</a></span></td><td><div class="comment"><p>A new diagnostic collection.</p>
@@ -796,7 +802,7 @@ newly added and removed diagnostics.</p>
 <tr><td><a name="resource"></a><span class="ts"id={3015}data-target="#details-3015" data-toggle="collapse"><span class="ident">resource</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A resource</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Diagnostic">Diagnostic</a>[]</span></td><td><div class="comment"><p>An array of <a href="#Diagnostic">diagnostics</a> objects or an empty array.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Diagnostic">Diagnostic</a>[]</span></td><td><div class="comment"><p>An array of <a href={##Diagnostic}diagnostics</a> objects or an empty array.</p>
 </div></td></tr>
 </table>
 </div>
@@ -833,13 +839,13 @@ newly added and removed diagnostics.</p>
 <a name="languages.match"></a><span class="ts"id={3009}data-target="#details-3009" data-toggle="collapse"><span class="ident">match</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a><span>)</span><span>: </span><a class="type-intrinsic">number</a></span>
 
 <div class="details collapse" id="details-3009">
-<div class="comment"><p>Compute the match between a document <a href="#DocumentSelector">selector</a> and a document. Values
+<div class="comment"><p>Compute the match between a document <a href={##DocumentSelector}selector</a> and a document. Values
 greater than zero mean the selector matches the document.</p>
 <p>A match is computed according to these rules:</p>
 <ol>
-<li>When <a href="#DocumentSelector"><code>DocumentSelector</code></a> is an array, compute the match for each contained <code>DocumentFilter</code> or language identifier and take the maximum value.</li>
-<li>A string will be desugared to become the <code>language</code>-part of a <a href="#DocumentFilter"><code>DocumentFilter</code></a>, so <code>&quot;fooLang&quot;</code> is like <code>{ language: &quot;fooLang&quot; }</code>.</li>
-<li>A <a href="#DocumentFilter"><code>DocumentFilter</code></a> will be matched against the document by comparing its parts with the document. The following rules apply:<ol>
+<li>When <a href={##DocumentSelector}<code>DocumentSelector</code></a> is an array, compute the match for each contained <code>DocumentFilter</code> or language identifier and take the maximum value.</li>
+<li>A string will be desugared to become the <code>language</code>-part of a <a href={##DocumentFilter}<code>DocumentFilter</code></a>, so <code>&quot;fooLang&quot;</code> is like <code>{ language: &quot;fooLang&quot; }</code>.</li>
+<li>A <a href={##DocumentFilter}<code>DocumentFilter</code></a> will be matched against the document by comparing its parts with the document. The following rules apply:<ol>
 <li>When the <code>DocumentFilter</code> is empty (<code>{}</code>) the result is <code>0</code></li>
 <li>When <code>scheme</code>, <code>language</code>, or <code>pattern</code> are defined but one doesn’t match, the result is <code>0</code></li>
 <li>Matching against <code>*</code> gives a score of <code>5</code>, matching via equality or via a glob-pattern gives a score of <code>10</code></li>
@@ -849,7 +855,8 @@ greater than zero mean the selector matches the document.</p>
 </ol>
 <p>Samples:</p>
 
-<pre><code class="lang-js">// default document from disk (file-scheme)
+```js
+// default document from disk (file-scheme)
 doc.uri; //&#39;file:///my/file.js&#39;
 doc.languageId; // &#39;javascript&#39;
 match(&#39;javascript&#39;, doc); // 10;
@@ -865,7 +872,7 @@ doc.languageId; // &#39;javascript&#39;
 match(&#39;javascript&#39;, doc); // 10;
 match({language: &#39;javascript&#39;, scheme: &#39;git&#39;}, doc); // 10;
 match(&#39;*&#39;, doc); // 5
-</code></pre>
+```
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -894,7 +901,7 @@ match(&#39;*&#39;, doc); // 5
 <tr><td><a name="provider"></a><span class="ts"id={3130}data-target="#details-3130" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#CallHierarchyProvider">CallHierarchyProvider</a></span></td><td><div class="comment"><p>A call hierarchy provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -918,7 +925,7 @@ not cause a failure of the whole operation.</p>
 <tr><td><a name="metadata"></a><span class="ts"id={3029}data-target="#details-3029" data-toggle="collapse"><span class="ident">metadata</span><span>?</span><span>: </span><a class="type-ref" href="#CodeActionProviderMetadata">CodeActionProviderMetadata</a></span></td><td><div class="comment"><p>Metadata about the kind of code actions the provider provides.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -940,7 +947,7 @@ not cause a failure of the whole operation.</p>
 <tr><td><a name="provider"></a><span class="ts"id={3033}data-target="#details-3033" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeLensProvider">CodeLensProvider</a></span></td><td><div class="comment"><p>A code lens provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -962,7 +969,7 @@ not cause a failure of the whole operation.</p>
 <tr><td><a name="provider"></a><span class="ts"id={3118}data-target="#details-3118" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentColorProvider">DocumentColorProvider</a></span></td><td><div class="comment"><p>A color provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -973,13 +980,13 @@ not cause a failure of the whole operation.</p>
 <div class="details collapse" id="details-3021">
 <div class="comment"><p>Register a completion provider.</p>
 <p>Multiple providers can be registered for a language. In that case providers are sorted
-by their <a href="#languages.match">score</a> and groups of equal score are sequentially asked for
+by their <a href={##languages.match}score</a> and groups of equal score are sequentially asked for
 completion items. The process stops when one or many providers of a group return a
 result. A failing provider (rejected promise or exception) will not fail the whole
 operation.</p>
 <p>A completion item provider can be associated with a set of <code>triggerCharacters</code>. When trigger
 characters are being typed, completions are requested but only from providers that registered
-the typed character. Because of that trigger characters should be different than <a href="#LanguageConfiguration.wordPattern">word characters</a>,
+the typed character. Because of that trigger characters should be different than <a href={##LanguageConfiguration.wordPattern}word characters</a>,
 a common trigger character is <code>.</code> to trigger member completions.</p>
 </div>
 <div class="signature">
@@ -992,7 +999,7 @@ a common trigger character is <code>.</code> to trigger member completions.</p>
 <tr><td><a name="triggerCharacters"></a><span class="ts"id={3024}data-target="#details-3024" data-toggle="collapse"><span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-intrinsic">string</a>[]</span></td><td><div class="comment"><p>Trigger completion when the user types one of the characters.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1014,7 +1021,7 @@ not cause a failure of the whole operation.</p>
 <tr><td><a name="provider"></a><span class="ts"id={3049}data-target="#details-3049" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DeclarationProvider">DeclarationProvider</a></span></td><td><div class="comment"><p>A declaration provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1036,7 +1043,7 @@ not cause a failure of the whole operation.</p>
 <tr><td><a name="provider"></a><span class="ts"id={3037}data-target="#details-3037" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DefinitionProvider">DefinitionProvider</a></span></td><td><div class="comment"><p>A definition provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1047,7 +1054,7 @@ not cause a failure of the whole operation.</p>
 <div class="details collapse" id="details-3089">
 <div class="comment"><p>Register a formatting provider for a document.</p>
 <p>Multiple providers can be registered for a language. In that case providers are sorted
-by their <a href="#languages.match">score</a> and the best-matching provider is used. Failure
+by their <a href={##languages.match}score</a> and the best-matching provider is used. Failure
 of the selected provider will cause a failure of the whole operation.</p>
 </div>
 <div class="signature">
@@ -1058,7 +1065,7 @@ of the selected provider will cause a failure of the whole operation.</p>
 <tr><td><a name="provider"></a><span class="ts"id={3091}data-target="#details-3091" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentFormattingEditProvider">DocumentFormattingEditProvider</a></span></td><td><div class="comment"><p>A document formatting edit provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1069,7 +1076,7 @@ of the selected provider will cause a failure of the whole operation.</p>
 <div class="details collapse" id="details-3059">
 <div class="comment"><p>Register a document highlight provider.</p>
 <p>Multiple providers can be registered for a language. In that case providers are sorted
-by their <a href="#languages.match">score</a> and groups sequentially asked for document highlights.
+by their <a href={##languages.match}score</a> and groups sequentially asked for document highlights.
 The process stops when a provider returns a <code>non-falsy</code> or <code>non-failure</code> result.</p>
 </div>
 <div class="signature">
@@ -1080,7 +1087,7 @@ The process stops when a provider returns a <code>non-falsy</code> or <code>non-
 <tr><td><a name="provider"></a><span class="ts"id={3061}data-target="#details-3061" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentHighlightProvider">DocumentHighlightProvider</a></span></td><td><div class="comment"><p>A document highlight provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1102,7 +1109,7 @@ not cause a failure of the whole operation.</p>
 <tr><td><a name="provider"></a><span class="ts"id={3114}data-target="#details-3114" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentLinkProvider">DocumentLinkProvider</a></span></td><td><div class="comment"><p>A document link provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1112,11 +1119,11 @@ not cause a failure of the whole operation.</p>
 
 <div class="details collapse" id="details-3093">
 <div class="comment"><p>Register a formatting provider for a document range.</p>
-<p><em>Note:</em> A document range provider is also a <a href="#DocumentFormattingEditProvider">document formatter</a>
-which means there is no need to <a href="#languages.registerDocumentFormattingEditProvider">register</a> a document
+<p><em>Note:</em> A document range provider is also a <a href={##DocumentFormattingEditProvider}document formatter</a>
+which means there is no need to <a href={##languages.registerDocumentFormattingEditProvider}register</a> a document
 formatter when also registering a range provider.</p>
 <p>Multiple providers can be registered for a language. In that case providers are sorted
-by their <a href="#languages.match">score</a> and the best-matching provider is used. Failure
+by their <a href={##languages.match}score</a> and the best-matching provider is used. Failure
 of the selected provider will cause a failure of the whole operation.</p>
 </div>
 <div class="signature">
@@ -1127,7 +1134,7 @@ of the selected provider will cause a failure of the whole operation.</p>
 <tr><td><a name="provider"></a><span class="ts"id={3095}data-target="#details-3095" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentRangeFormattingEditProvider">DocumentRangeFormattingEditProvider</a></span></td><td><div class="comment"><p>A document range formatting edit provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1143,7 +1150,7 @@ to resolve the first request. Once the full document provider resolves the first
 provided via the range provider will be discarded and from that point forward, only the document provider
 will be used.</p>
 <p>Multiple providers can be registered for a language. In that case providers are sorted
-by their <a href="#languages.match">score</a> and the best-matching provider is used. Failure
+by their <a href={##languages.match}score</a> and the best-matching provider is used. Failure
 of the selected provider will cause a failure of the whole operation.</p>
 </div>
 <div class="signature">
@@ -1155,7 +1162,7 @@ of the selected provider will cause a failure of the whole operation.</p>
 </div></td></tr>
 <tr><td><a name="legend"></a><span class="ts"id={3087}data-target="#details-3087" data-toggle="collapse"><span class="ident">legend</span><span>: </span><a class="type-ref" href="#SemanticTokensLegend">SemanticTokensLegend</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1166,7 +1173,7 @@ of the selected provider will cause a failure of the whole operation.</p>
 <div class="details collapse" id="details-3079">
 <div class="comment"><p>Register a semantic tokens provider for a whole document.</p>
 <p>Multiple providers can be registered for a language. In that case providers are sorted
-by their <a href="#languages.match">score</a> and the best-matching provider is used. Failure
+by their <a href={##languages.match}score</a> and the best-matching provider is used. Failure
 of the selected provider will cause a failure of the whole operation.</p>
 </div>
 <div class="signature">
@@ -1178,7 +1185,7 @@ of the selected provider will cause a failure of the whole operation.</p>
 </div></td></tr>
 <tr><td><a name="legend"></a><span class="ts"id={3082}data-target="#details-3082" data-toggle="collapse"><span class="ident">legend</span><span>: </span><a class="type-ref" href="#SemanticTokensLegend">SemanticTokensLegend</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1202,7 +1209,7 @@ not cause a failure of the whole operation.</p>
 <tr><td><a name="metaData"></a><span class="ts"id={3066}data-target="#details-3066" data-toggle="collapse"><span class="ident">metaData</span><span>?</span><span>: </span><a class="type-ref" href="#DocumentSymbolProviderMetadata">DocumentSymbolProviderMetadata</a></span></td><td><div class="comment"><p>metadata about the provider</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1223,7 +1230,7 @@ VS Code will evaluate the expression in the active debug session and will show t
 <tr><td><a name="provider"></a><span class="ts"id={3057}data-target="#details-3057" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#EvaluatableExpressionProvider">EvaluatableExpressionProvider</a></span></td><td><div class="comment"><p>An evaluatable expression provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1248,7 +1255,7 @@ not cause a failure of the whole operation.</p>
 <tr><td><a name="provider"></a><span class="ts"id={3122}data-target="#details-3122" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#FoldingRangeProvider">FoldingRangeProvider</a></span></td><td><div class="comment"><p>A folding range provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1270,7 +1277,7 @@ not cause a failure of the whole operation.</p>
 <tr><td><a name="provider"></a><span class="ts"id={3053}data-target="#details-3053" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#HoverProvider">HoverProvider</a></span></td><td><div class="comment"><p>A hover provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1292,7 +1299,7 @@ not cause a failure of the whole operation.</p>
 <tr><td><a name="provider"></a><span class="ts"id={3041}data-target="#details-3041" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#ImplementationProvider">ImplementationProvider</a></span></td><td><div class="comment"><p>An implementation provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1303,7 +1310,7 @@ not cause a failure of the whole operation.</p>
 <div class="details collapse" id="details-3097">
 <div class="comment"><p>Register a formatting provider that works on type. The provider is active when the user enables the setting <code>editor.formatOnType</code>.</p>
 <p>Multiple providers can be registered for a language. In that case providers are sorted
-by their <a href="#languages.match">score</a> and the best-matching provider is used. Failure
+by their <a href={##languages.match}score</a> and the best-matching provider is used. Failure
 of the selected provider will cause a failure of the whole operation.</p>
 </div>
 <div class="signature">
@@ -1318,7 +1325,7 @@ of the selected provider will cause a failure of the whole operation.</p>
 <tr><td><a name="moreTriggerCharacter"></a><span class="ts"id={3101}data-target="#details-3101" data-toggle="collapse"><span>...</span><span class="ident">moreTriggerCharacter</span><span>: </span><a class="type-intrinsic">string</a>[]</span></td><td><div class="comment"><p>More trigger characters.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1340,7 +1347,7 @@ not cause a failure of the whole operation.</p>
 <tr><td><a name="provider"></a><span class="ts"id={3073}data-target="#details-3073" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#ReferenceProvider">ReferenceProvider</a></span></td><td><div class="comment"><p>A reference provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1351,7 +1358,7 @@ not cause a failure of the whole operation.</p>
 <div class="details collapse" id="details-3075">
 <div class="comment"><p>Register a rename provider.</p>
 <p>Multiple providers can be registered for a language. In that case providers are sorted
-by their <a href="#languages.match">score</a> and asked in sequence. The first provider producing a result
+by their <a href={##languages.match}score</a> and asked in sequence. The first provider producing a result
 defines the result of the whole operation.</p>
 </div>
 <div class="signature">
@@ -1362,7 +1369,7 @@ defines the result of the whole operation.</p>
 <tr><td><a name="provider"></a><span class="ts"id={3077}data-target="#details-3077" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#RenameProvider">RenameProvider</a></span></td><td><div class="comment"><p>A rename provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1384,7 +1391,7 @@ not cause a failure of the whole operation.</p>
 <tr><td><a name="provider"></a><span class="ts"id={3126}data-target="#details-3126" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#SelectionRangeProvider">SelectionRangeProvider</a></span></td><td><div class="comment"><p>A selection range provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1395,7 +1402,7 @@ not cause a failure of the whole operation.</p>
 <div class="details collapse" id="details-3103">
 <div class="comment"><p>Register a signature help provider.</p>
 <p>Multiple providers can be registered for a language. In that case providers are sorted
-by their <a href="#languages.match">score</a> and called sequentially until a provider returns a
+by their <a href={##languages.match}score</a> and called sequentially until a provider returns a
 valid result.</p>
 </div>
 <div class="signature">
@@ -1408,7 +1415,7 @@ valid result.</p>
 <tr><td><a name="triggerCharacters"></a><span class="ts"id={3106}data-target="#details-3106" data-toggle="collapse"><span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-intrinsic">string</a>[]</span></td><td><div class="comment"><p>Trigger signature help when the user types one of the characters, like <code>,</code> or <code>(</code>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1446,7 +1453,7 @@ not cause a failure of the whole operation.</p>
 <tr><td><a name="provider"></a><span class="ts"id={3045}data-target="#details-3045" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#TypeDefinitionProvider">TypeDefinitionProvider</a></span></td><td><div class="comment"><p>A type definition provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1466,7 +1473,7 @@ a failure of the whole operation.</p>
 <tr><td><a name="provider"></a><span class="ts"id={3069}data-target="#details-3069" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#WorkspaceSymbolProvider">WorkspaceSymbolProvider</a></span></td><td><div class="comment"><p>A workspace symbol provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1475,7 +1482,7 @@ a failure of the whole operation.</p>
 <a name="languages.setLanguageConfiguration"></a><span class="ts"id={3132}data-target="#details-3132" data-toggle="collapse"><span class="ident">setLanguageConfiguration</span><span>(</span><span class="ident">language</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">configuration</span><span>: </span><a class="type-ref" href="#LanguageConfiguration">LanguageConfiguration</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 
 <div class="details collapse" id="details-3132">
-<div class="comment"><p>Set a <a href="#LanguageConfiguration">language configuration</a> for a language.</p>
+<div class="comment"><p>Set a <a href={##LanguageConfiguration}language configuration</a> for a language.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1485,7 +1492,7 @@ a failure of the whole operation.</p>
 <tr><td><a name="configuration"></a><span class="ts"id={3134}data-target="#details-3134" data-toggle="collapse"><span class="ident">configuration</span><span>: </span><a class="type-ref" href="#LanguageConfiguration">LanguageConfiguration</a></span></td><td><div class="comment"><p>Language configuration.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unsets this configuration.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unsets this configuration.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1494,10 +1501,10 @@ a failure of the whole operation.</p>
 <a name="languages.setTextDocumentLanguage"></a><span class="ts"id={3005}data-target="#details-3005" data-toggle="collapse"><span class="ident">setTextDocumentLanguage</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">languageId</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 
 <div class="details collapse" id="details-3005">
-<div class="comment"><p>Set (and change) the <a href="#TextDocument.languageId">language</a> that is associated
+<div class="comment"><p>Set (and change) the <a href={##TextDocument.languageId}language</a> that is associated
 with the given document.</p>
-<p><em>Note</em> that calling this function will trigger the <a href="#workspace.onDidCloseTextDocument"><code>onDidCloseTextDocument</code></a> event
-followed by the <a href="#workspace.onDidOpenTextDocument"><code>onDidOpenTextDocument</code></a> event.</p>
+<p><em>Note</em> that calling this function will trigger the <a href={##workspace.onDidCloseTextDocument}<code>onDidCloseTextDocument</code></a> event
+followed by the <a href={##workspace.onDidOpenTextDocument}<code>onDidOpenTextDocument</code></a> event.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1522,7 +1529,7 @@ followed by the <a href="#workspace.onDidOpenTextDocument"><code>onDidOpenTextDo
 <a name="scm.inputBox"></a><span class="ts"id={3136}data-target="#details-3136" data-toggle="collapse"><span class="ident">inputBox</span><span>: </span><a class="type-ref" href="#SourceControlInputBox">SourceControlInputBox</a></span>
 
 <div class="details collapse" id="details-3136">
-<div class="comment"><p>The <a href="#SourceControlInputBox">input box</a> for the last source control
+<div class="comment"><p>The <a href={##SourceControlInputBox}input box</a> for the last source control
 created by the extension.</p>
 <ul>
 <li><em>deprecated</em> - Use SourceControl.inputBox instead</li>
@@ -1535,7 +1542,7 @@ created by the extension.</p>
 <a name="scm.createSourceControl"></a><span class="ts"id={3138}data-target="#details-3138" data-toggle="collapse"><span class="ident">createSourceControl</span><span>(</span><span class="ident">id</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">label</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">rootUri</span><span>?</span><span>: </span><a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-ref" href="#SourceControl">SourceControl</a></span>
 
 <div class="details collapse" id="details-3138">
-<div class="comment"><p>Creates a new <a href="#SourceControl">source control</a> instance.</p>
+<div class="comment"><p>Creates a new <a href={##SourceControl}source control</a> instance.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1547,7 +1554,7 @@ created by the extension.</p>
 <tr><td><a name="rootUri"></a><span class="ts"id={3141}data-target="#details-3141" data-toggle="collapse"><span class="ident">rootUri</span><span>?</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>An optional Uri of the root of the source control. E.g.: <code>Uri.parse(workspaceRoot)</code>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#SourceControl">SourceControl</a></span></td><td><div class="comment"><p>An instance of <a href="#SourceControl">source control</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#SourceControl">SourceControl</a></span></td><td><div class="comment"><p>An instance of <a href={##SourceControl}source control</a>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1656,7 +1663,7 @@ contributed through extensions.</p>
 <tr><td><a name="provider"></a><span class="ts"id={2644}data-target="#details-2644" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#TaskProvider">TaskProvider</a></span></td><td><div class="comment"><p>A task provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1722,14 +1729,14 @@ input most recently.</p>
 <a name="window.onDidChangeActiveColorTheme"></a><span class="ts"id={2913}data-target="#details-2913" data-toggle="collapse"><span class="ident">onDidChangeActiveColorTheme</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#ColorTheme">ColorTheme</a>&gt;</span>
 
 <div class="details collapse" id="details-2913">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the active color theme is changed or has changes.</p>
+<div class="comment"><p>An <a href={##Event}event</a> which fires when the active color theme is changed or has changes.</p>
 </div>
 </div>
 
 <a name="window.onDidChangeActiveTerminal"></a><span class="ts"id={2711}data-target="#details-2711" data-toggle="collapse"><span class="ident">onDidChangeActiveTerminal</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#Terminal">Terminal</a> &#124; <a class="type-intrinsic">undefined</a>&gt;</span>
 
 <div class="details collapse" id="details-2711">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the <a href="#window.activeTerminal">active terminal</a>
+<div class="comment"><p>An <a href={##Event">event</a> which fires when the <a href="#window.activeTerminal}active terminal</a>
 has changed. <em>Note</em> that the event also fires when the active terminal changes
 to <code>undefined</code>.</p>
 </div>
@@ -1738,7 +1745,7 @@ to <code>undefined</code>.</p>
 <a name="window.onDidChangeActiveTextEditor"></a><span class="ts"id={2703}data-target="#details-2703" data-toggle="collapse"><span class="ident">onDidChangeActiveTextEditor</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a> &#124; <a class="type-intrinsic">undefined</a>&gt;</span>
 
 <div class="details collapse" id="details-2703">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the <a href="#window.activeTextEditor">active editor</a>
+<div class="comment"><p>An <a href={##Event">event</a> which fires when the <a href="#window.activeTextEditor}active editor</a>
 has changed. <em>Note</em> that the event also fires when the active editor changes
 to <code>undefined</code>.</p>
 </div>
@@ -1747,35 +1754,35 @@ to <code>undefined</code>.</p>
 <a name="window.onDidChangeTextEditorOptions"></a><span class="ts"id={2707}data-target="#details-2707" data-toggle="collapse"><span class="ident">onDidChangeTextEditorOptions</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditorOptionsChangeEvent">TextEditorOptionsChangeEvent</a>&gt;</span>
 
 <div class="details collapse" id="details-2707">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the options of an editor have changed.</p>
+<div class="comment"><p>An <a href={##Event}event</a> which fires when the options of an editor have changed.</p>
 </div>
 </div>
 
 <a name="window.onDidChangeTextEditorSelection"></a><span class="ts"id={2705}data-target="#details-2705" data-toggle="collapse"><span class="ident">onDidChangeTextEditorSelection</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditorSelectionChangeEvent">TextEditorSelectionChangeEvent</a>&gt;</span>
 
 <div class="details collapse" id="details-2705">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the selection in an editor has changed.</p>
+<div class="comment"><p>An <a href={##Event}event</a> which fires when the selection in an editor has changed.</p>
 </div>
 </div>
 
 <a name="window.onDidChangeTextEditorViewColumn"></a><span class="ts"id={2708}data-target="#details-2708" data-toggle="collapse"><span class="ident">onDidChangeTextEditorViewColumn</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditorViewColumnChangeEvent">TextEditorViewColumnChangeEvent</a>&gt;</span>
 
 <div class="details collapse" id="details-2708">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the view column of an editor has changed.</p>
+<div class="comment"><p>An <a href={##Event}event</a> which fires when the view column of an editor has changed.</p>
 </div>
 </div>
 
 <a name="window.onDidChangeTextEditorVisibleRanges"></a><span class="ts"id={2706}data-target="#details-2706" data-toggle="collapse"><span class="ident">onDidChangeTextEditorVisibleRanges</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditorVisibleRangesChangeEvent">TextEditorVisibleRangesChangeEvent</a>&gt;</span>
 
 <div class="details collapse" id="details-2706">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the visible ranges of an editor has changed.</p>
+<div class="comment"><p>An <a href={##Event}event</a> which fires when the visible ranges of an editor has changed.</p>
 </div>
 </div>
 
 <a name="window.onDidChangeVisibleTextEditors"></a><span class="ts"id={2704}data-target="#details-2704" data-toggle="collapse"><span class="ident">onDidChangeVisibleTextEditors</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>[]&gt;</span>
 
 <div class="details collapse" id="details-2704">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the array of <a href="#window.visibleTextEditors">visible editors</a>
+<div class="comment"><p>An <a href={##Event">event</a> which fires when the array of <a href="#window.visibleTextEditors}visible editors</a>
 has changed.</p>
 </div>
 </div>
@@ -1783,7 +1790,7 @@ has changed.</p>
 <a name="window.onDidChangeWindowState"></a><span class="ts"id={2715}data-target="#details-2715" data-toggle="collapse"><span class="ident">onDidChangeWindowState</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#WindowState">WindowState</a>&gt;</span>
 
 <div class="details collapse" id="details-2715">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the focus state of the current window
+<div class="comment"><p>An <a href={##Event}event</a> which fires when the focus state of the current window
 changes. The value of the event represents whether the window is focused.</p>
 </div>
 </div>
@@ -1791,15 +1798,15 @@ changes. The value of the event represents whether the window is focused.</p>
 <a name="window.onDidCloseTerminal"></a><span class="ts"id={2713}data-target="#details-2713" data-toggle="collapse"><span class="ident">onDidCloseTerminal</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#Terminal">Terminal</a>&gt;</span>
 
 <div class="details collapse" id="details-2713">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when a terminal is disposed.</p>
+<div class="comment"><p>An <a href={##Event}event</a> which fires when a terminal is disposed.</p>
 </div>
 </div>
 
 <a name="window.onDidOpenTerminal"></a><span class="ts"id={2712}data-target="#details-2712" data-toggle="collapse"><span class="ident">onDidOpenTerminal</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#Terminal">Terminal</a>&gt;</span>
 
 <div class="details collapse" id="details-2712">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when a terminal has been created, either through the
-<a href="#window.createTerminal">createTerminal</a> API or commands.</p>
+<div class="comment"><p>An <a href={##Event}event</a> which fires when a terminal has been created, either through the
+<a href={##window.createTerminal}createTerminal</a> API or commands.</p>
 </div>
 </div>
 
@@ -1808,15 +1815,15 @@ changes. The value of the event represents whether the window is focused.</p>
 <a name="window.createInputBox"></a><span class="ts"id={2821}data-target="#details-2821" data-toggle="collapse"><span class="ident">createInputBox</span><span>(</span><span>)</span><span>: </span><a class="type-ref" href="#InputBox">InputBox</a></span>
 
 <div class="details collapse" id="details-2821">
-<div class="comment"><p>Creates a <a href="#InputBox">InputBox</a> to let the user enter some text input.</p>
-<p>Note that in many cases the more convenient <a href="#window.showInputBox">window.showInputBox</a>
-is easier to use. <a href="#window.createInputBox">window.createInputBox</a> should be used
-when <a href="#window.showInputBox">window.showInputBox</a> does not offer the required flexibility.</p>
+<div class="comment"><p>Creates a <a href={##InputBox}InputBox</a> to let the user enter some text input.</p>
+<p>Note that in many cases the more convenient <a href={##window.showInputBox}window.showInputBox</a>
+is easier to use. <a href={##window.createInputBox}window.createInputBox</a> should be used
+when <a href={##window.showInputBox}window.showInputBox</a> does not offer the required flexibility.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#InputBox">InputBox</a></span></td><td><div class="comment"><p>A new <a href="#InputBox">InputBox</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#InputBox">InputBox</a></span></td><td><div class="comment"><p>A new <a href={##InputBox}InputBox</a>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1825,7 +1832,7 @@ when <a href="#window.showInputBox">window.showInputBox</a> does not offer the r
 <a name="window.createOutputChannel"></a><span class="ts"id={2823}data-target="#details-2823" data-toggle="collapse"><span class="ident">createOutputChannel</span><span>(</span><span class="ident">name</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-ref" href="#OutputChannel">OutputChannel</a></span>
 
 <div class="details collapse" id="details-2823">
-<div class="comment"><p>Creates a new <a href="#OutputChannel">output channel</a> with the given name.</p>
+<div class="comment"><p>Creates a new <a href={##OutputChannel}output channel</a> with the given name.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1841,16 +1848,16 @@ when <a href="#window.showInputBox">window.showInputBox</a> does not offer the r
 <a name="window.createQuickPick"></a><span class="ts"id={2818}data-target="#details-2818" data-toggle="collapse"><span class="ident">createQuickPick</span><span>&lt;</span>T extends <a class="type-ref" href="#QuickPickItem">QuickPickItem</a><span>&gt;</span><span>(</span><span>)</span><span>: </span><a class="type-ref" href="#QuickPick">QuickPick</a>&lt;<a class="type-intrinsic">T</a>&gt;</span>
 
 <div class="details collapse" id="details-2818">
-<div class="comment"><p>Creates a <a href="#QuickPick">QuickPick</a> to let the user pick an item from a list
+<div class="comment"><p>Creates a <a href={##QuickPick}QuickPick</a> to let the user pick an item from a list
 of items of type T.</p>
-<p>Note that in many cases the more convenient <a href="#window.showQuickPick">window.showQuickPick</a>
-is easier to use. <a href="#window.createQuickPick">window.createQuickPick</a> should be used
-when <a href="#window.showQuickPick">window.showQuickPick</a> does not offer the required flexibility.</p>
+<p>Note that in many cases the more convenient <a href={##window.showQuickPick}window.showQuickPick</a>
+is easier to use. <a href={##window.createQuickPick}window.createQuickPick</a> should be used
+when <a href={##window.showQuickPick}window.showQuickPick</a> does not offer the required flexibility.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#QuickPick">QuickPick</a>&lt;<a class="type-intrinsic">T</a>&gt;</span></td><td><div class="comment"><p>A new <a href="#QuickPick">QuickPick</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#QuickPick">QuickPick</a>&lt;<a class="type-intrinsic">T</a>&gt;</span></td><td><div class="comment"><p>A new <a href={##QuickPick}QuickPick</a>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1859,7 +1866,7 @@ when <a href="#window.showQuickPick">window.showQuickPick</a> does not offer the
 <a name="window.createStatusBarItem"></a><span class="ts"id={2863}data-target="#details-2863" data-toggle="collapse"><span class="ident">createStatusBarItem</span><span>(</span><span class="ident">alignment</span><span>?</span><span>: </span><a class="type-ref" href="#StatusBarAlignment">StatusBarAlignment</a>, <span class="ident">priority</span><span>?</span><span>: </span><a class="type-intrinsic">number</a><span>)</span><span>: </span><a class="type-ref" href="#StatusBarItem">StatusBarItem</a></span>
 
 <div class="details collapse" id="details-2863">
-<div class="comment"><p>Creates a status bar <a href="#StatusBarItem">item</a>.</p>
+<div class="comment"><p>Creates a status bar <a href={##StatusBarItem}item</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1878,7 +1885,7 @@ when <a href="#window.showQuickPick">window.showQuickPick</a> does not offer the
 <a name="window.createTerminal"></a><span class="ts"id={2867}data-target="#details-2867" data-toggle="collapse"><span class="ident">createTerminal</span><span>(</span><span class="ident">name</span><span>?</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">shellPath</span><span>?</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">shellArgs</span><span>?</span><span>: </span><a class="type-intrinsic">string</a>[] &#124; <a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-ref" href="#Terminal">Terminal</a></span>
 
 <div class="details collapse" id="details-2867">
-<div class="comment"><p>Creates a <a href="#Terminal">Terminal</a> with a backing shell process. The cwd of the terminal will be the workspace
+<div class="comment"><p>Creates a <a href={##Terminal}Terminal</a> with a backing shell process. The cwd of the terminal will be the workspace
 directory if it exists.</p>
 <ul>
 <li><em>throws</em> - When running in an environment where a new process cannot be started.</li>
@@ -1893,7 +1900,7 @@ directory if it exists.</p>
 </div></td></tr>
 <tr><td><a name="shellArgs"></a><span class="ts"id={2870}data-target="#details-2870" data-toggle="collapse"><span class="ident">shellArgs</span><span>?</span><span>: </span><a class="type-intrinsic">string</a>[] &#124; <a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>Optional args for the custom shell executable. A string can be used on Windows only which
 allows specifying shell args in
-<a href="https://msdn.microsoft.com/en-au/08dfcab2-eb6e-49a4-80eb-87d4076c98c6">command-line format</a>.</p>
+<a href={#https://msdn.microsoft.com/en-au/08dfcab2-eb6e-49a4-80eb-87d4076c98c6}command-line format</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Terminal">Terminal</a></span></td><td><div class="comment"><p>A new Terminal.</p>
@@ -1905,7 +1912,7 @@ allows specifying shell args in
 <a name="window.createTerminal"></a><span class="ts"id={2871}data-target="#details-2871" data-toggle="collapse"><span class="ident">createTerminal</span><span>(</span><span class="ident">options</span><span>: </span><a class="type-ref" href="#TerminalOptions">TerminalOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Terminal">Terminal</a></span>
 
 <div class="details collapse" id="details-2871">
-<div class="comment"><p>Creates a <a href="#Terminal">Terminal</a> with a backing shell process.</p>
+<div class="comment"><p>Creates a <a href={##Terminal}Terminal</a> with a backing shell process.</p>
 <ul>
 <li><em>throws</em> - When running in an environment where a new process cannot be started.</li>
 </ul>
@@ -1925,12 +1932,12 @@ allows specifying shell args in
 <a name="window.createTerminal"></a><span class="ts"id={2873}data-target="#details-2873" data-toggle="collapse"><span class="ident">createTerminal</span><span>(</span><span class="ident">options</span><span>: </span><a class="type-ref" href="#ExtensionTerminalOptions">ExtensionTerminalOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Terminal">Terminal</a></span>
 
 <div class="details collapse" id="details-2873">
-<div class="comment"><p>Creates a <a href="#Terminal">Terminal</a> where an extension controls its input and output.</p>
+<div class="comment"><p>Creates a <a href={##Terminal}Terminal</a> where an extension controls its input and output.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="options"></a><span class="ts"id={2874}data-target="#details-2874" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#ExtensionTerminalOptions">ExtensionTerminalOptions</a></span></td><td><div class="comment"><p>An <a href="#ExtensionTerminalOptions">ExtensionTerminalOptions</a> object describing
+<tr><td><a name="options"></a><span class="ts"id={2874}data-target="#details-2874" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#ExtensionTerminalOptions">ExtensionTerminalOptions</a></span></td><td><div class="comment"><p>An <a href={##ExtensionTerminalOptions}ExtensionTerminalOptions</a> object describing
 the characteristics of the new terminal.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
@@ -1960,17 +1967,17 @@ the characteristics of the new terminal.</p>
 <a name="window.createTreeView"></a><span class="ts"id={2881}data-target="#details-2881" data-toggle="collapse"><span class="ident">createTreeView</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">viewId</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">options</span><span>: </span><a class="type-ref" href="#TreeViewOptions">TreeViewOptions</a>&lt;<a class="type-intrinsic">T</a>&gt;<span>)</span><span>: </span><a class="type-ref" href="#TreeView">TreeView</a>&lt;<a class="type-intrinsic">T</a>&gt;</span>
 
 <div class="details collapse" id="details-2881">
-<div class="comment"><p>Create a <a href="#TreeView">TreeView</a> for the view contributed using the extension point <code>views</code>.</p>
+<div class="comment"><p>Create a <a href={##TreeView}TreeView</a> for the view contributed using the extension point <code>views</code>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="viewId"></a><span class="ts"id={2883}data-target="#details-2883" data-toggle="collapse"><span class="ident">viewId</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>Id of the view contributed using the extension point <code>views</code>.</p>
 </div></td></tr>
-<tr><td><a name="options"></a><span class="ts"id={2884}data-target="#details-2884" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#TreeViewOptions">TreeViewOptions</a>&lt;<a class="type-intrinsic">T</a>&gt;</span></td><td><div class="comment"><p>Options for creating the <a href="#TreeView">TreeView</a></p>
+<tr><td><a name="options"></a><span class="ts"id={2884}data-target="#details-2884" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#TreeViewOptions">TreeViewOptions</a>&lt;<a class="type-intrinsic">T</a>&gt;</span></td><td><div class="comment"><p>Options for creating the <a href={##TreeView}TreeView</a></p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#TreeView">TreeView</a>&lt;<a class="type-intrinsic">T</a>&gt;</span></td><td><div class="comment"><p>a <a href="#TreeView">TreeView</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#TreeView">TreeView</a>&lt;<a class="type-intrinsic">T</a>&gt;</span></td><td><div class="comment"><p>a <a href={##TreeView}TreeView</a>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -2004,8 +2011,8 @@ the characteristics of the new terminal.</p>
 <div class="details collapse" id="details-2902">
 <div class="comment"><p>Register a provider for custom editors for the <code>viewType</code> contributed by the <code>customEditors</code> extension point.</p>
 <p>When a custom editor is opened, VS Code fires an <code>onCustomEditor:viewType</code> activation event. Your extension
-must register a <a href="#CustomTextEditorProvider"><code>CustomTextEditorProvider</code></a>, <a href="#CustomReadonlyEditorProvider"><code>CustomReadonlyEditorProvider</code></a>,
-<a href="#CustomEditorProvider"><code>CustomEditorProvider</code></a>for <code>viewType</code> as part of activation.</p>
+must register a <a href={##CustomTextEditorProvider"><code>CustomTextEditorProvider</code></a>, <a href="#CustomReadonlyEditorProvider}<code>CustomReadonlyEditorProvider</code></a>,
+<a href={##CustomEditorProvider}<code>CustomEditorProvider</code></a>for <code>viewType</code> as part of activation.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -2044,16 +2051,16 @@ must register a <a href="#CustomTextEditorProvider"><code>CustomTextEditorProvid
 <a name="window.registerTreeDataProvider"></a><span class="ts"id={2876}data-target="#details-2876" data-toggle="collapse"><span class="ident">registerTreeDataProvider</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">viewId</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">treeDataProvider</span><span>: </span><a class="type-ref" href="#TreeDataProvider">TreeDataProvider</a>&lt;<a class="type-intrinsic">T</a>&gt;<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 
 <div class="details collapse" id="details-2876">
-<div class="comment"><p>Register a <a href="#TreeDataProvider">TreeDataProvider</a> for the view contributed using the extension point <code>views</code>.
-This will allow you to contribute data to the <a href="#TreeView">TreeView</a> and update if the data changes.</p>
-<p><strong>Note:</strong> To get access to the <a href="#TreeView">TreeView</a> and perform operations on it, use <a href="#window.createTreeView">createTreeView</a>.</p>
+<div class="comment"><p>Register a <a href={##TreeDataProvider}TreeDataProvider</a> for the view contributed using the extension point <code>views</code>.
+This will allow you to contribute data to the <a href={##TreeView}TreeView</a> and update if the data changes.</p>
+<p><strong>Note:</strong> To get access to the <a href={##TreeView">TreeView</a> and perform operations on it, use <a href="#window.createTreeView}createTreeView</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="viewId"></a><span class="ts"id={2878}data-target="#details-2878" data-toggle="collapse"><span class="ident">viewId</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>Id of the view contributed using the extension point <code>views</code>.</p>
 </div></td></tr>
-<tr><td><a name="treeDataProvider"></a><span class="ts"id={2879}data-target="#details-2879" data-toggle="collapse"><span class="ident">treeDataProvider</span><span>: </span><a class="type-ref" href="#TreeDataProvider">TreeDataProvider</a>&lt;<a class="type-intrinsic">T</a>&gt;</span></td><td><div class="comment"><p>A <a href="#TreeDataProvider">TreeDataProvider</a> that provides tree data for the view</p>
+<tr><td><a name="treeDataProvider"></a><span class="ts"id={2879}data-target="#details-2879" data-toggle="collapse"><span class="ident">treeDataProvider</span><span>: </span><a class="type-ref" href="#TreeDataProvider">TreeDataProvider</a>&lt;<a class="type-intrinsic">T</a>&gt;</span></td><td><div class="comment"><p>A <a href={##TreeDataProvider}TreeDataProvider</a> that provides tree data for the view</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"></div></td></tr>
@@ -2064,7 +2071,7 @@ This will allow you to contribute data to the <a href="#TreeView">TreeView</a> a
 <a name="window.registerUriHandler"></a><span class="ts"id={2886}data-target="#details-2886" data-toggle="collapse"><span class="ident">registerUriHandler</span><span>(</span><span class="ident">handler</span><span>: </span><a class="type-ref" href="#UriHandler">UriHandler</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 
 <div class="details collapse" id="details-2886">
-<div class="comment"><p>Registers a <a href="#UriHandler">uri handler</a> capable of handling system-wide <a href="#Uri">uris</a>.
+<div class="comment"><p>Registers a <a href={##UriHandler">uri handler</a> capable of handling system-wide <a href="#Uri}uris</a>.
 In case there are multiple windows open, the topmost window will handle the uri.
 A uri handler is scoped to the extension it is contributed from; it will only
 be able to handle uris which are directed to the extension itself. A uri must respect
@@ -2098,7 +2105,7 @@ the current extension is about to be handled.</li>
 <div class="details collapse" id="details-2889">
 <div class="comment"><p>Registers a webview panel serializer.</p>
 <p>Extensions that support reviving should have an <code>&quot;onWebviewPanel:viewType&quot;</code> activation event and
-make sure that <a href="#registerWebviewPanelSerializer">registerWebviewPanelSerializer</a> is called during activation.</p>
+make sure that <a href={##registerWebviewPanelSerializer}registerWebviewPanelSerializer</a> is called during activation.</p>
 <p>Only a single serializer may be registered at a time for a given <code>viewType</code>.</p>
 </div>
 <div class="signature">
@@ -2139,12 +2146,12 @@ make sure that <a href="#registerWebviewPanelSerializer">registerWebviewPanelSer
 
 <div class="details collapse" id="details-2835">
 <div class="comment"><p>Set a message to the status bar. This is a short hand for the more powerful
-status bar <a href="#window.createStatusBarItem">items</a>.</p>
+status bar <a href={##window.createStatusBarItem}items</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="text"></a><span class="ts"id={2836}data-target="#details-2836" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The message to show, supports icon substitution as in status bar <a href="#StatusBarItem.text">items</a>.</p>
+<tr><td><a name="text"></a><span class="ts"id={2836}data-target="#details-2836" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The message to show, supports icon substitution as in status bar <a href={##StatusBarItem.text}items</a>.</p>
 </div></td></tr>
 <tr><td><a name="hideAfterTimeout"></a><span class="ts"id={2837}data-target="#details-2837" data-toggle="collapse"><span class="ident">hideAfterTimeout</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>Timeout in milliseconds after which the message will be disposed.</p>
 </div></td></tr>
@@ -2159,12 +2166,12 @@ status bar <a href="#window.createStatusBarItem">items</a>.</p>
 
 <div class="details collapse" id="details-2838">
 <div class="comment"><p>Set a message to the status bar. This is a short hand for the more powerful
-status bar <a href="#window.createStatusBarItem">items</a>.</p>
+status bar <a href={##window.createStatusBarItem}items</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="text"></a><span class="ts"id={2839}data-target="#details-2839" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The message to show, supports icon substitution as in status bar <a href="#StatusBarItem.text">items</a>.</p>
+<tr><td><a name="text"></a><span class="ts"id={2839}data-target="#details-2839" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The message to show, supports icon substitution as in status bar <a href={##StatusBarItem.text}items</a>.</p>
 </div></td></tr>
 <tr><td><a name="hideWhenDone"></a><span class="ts"id={2840}data-target="#details-2840" data-toggle="collapse"><span class="ident">hideWhenDone</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-intrinsic">any</a>&gt;</span></td><td><div class="comment"><p>Thenable on which completion (resolve or reject) the message will be disposed.</p>
 </div></td></tr>
@@ -2179,14 +2186,14 @@ status bar <a href="#window.createStatusBarItem">items</a>.</p>
 
 <div class="details collapse" id="details-2841">
 <div class="comment"><p>Set a message to the status bar. This is a short hand for the more powerful
-status bar <a href="#window.createStatusBarItem">items</a>.</p>
+status bar <a href={##window.createStatusBarItem}items</a>.</p>
 <p><em>Note</em> that status bar messages stack and that they must be disposed when no
 longer used.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="text"></a><span class="ts"id={2842}data-target="#details-2842" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The message to show, supports icon substitution as in status bar <a href="#StatusBarItem.text">items</a>.</p>
+<tr><td><a name="text"></a><span class="ts"id={2842}data-target="#details-2842" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The message to show, supports icon substitution as in status bar <a href={##StatusBarItem.text}items</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A disposable which hides the status bar message.</p>
@@ -2200,7 +2207,7 @@ longer used.</p>
 <div class="details collapse" id="details-2765">
 <div class="comment"><p>Show an error message.</p>
 <ul>
-<li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
+<li><em>see</em> - <a href={##window.showInformationMessage}showInformationMessage</a></li>
 </ul>
 </div>
 <div class="signature">
@@ -2222,7 +2229,7 @@ longer used.</p>
 <div class="details collapse" id="details-2768">
 <div class="comment"><p>Show an error message.</p>
 <ul>
-<li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
+<li><em>see</em> - <a href={##window.showInformationMessage}showInformationMessage</a></li>
 </ul>
 </div>
 <div class="signature">
@@ -2246,7 +2253,7 @@ longer used.</p>
 <div class="details collapse" id="details-2772">
 <div class="comment"><p>Show an error message.</p>
 <ul>
-<li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
+<li><em>see</em> - <a href={##window.showInformationMessage}showInformationMessage</a></li>
 </ul>
 </div>
 <div class="signature">
@@ -2268,7 +2275,7 @@ longer used.</p>
 <div class="details collapse" id="details-2776">
 <div class="comment"><p>Show an error message.</p>
 <ul>
-<li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
+<li><em>see</em> - <a href={##window.showInformationMessage}showInformationMessage</a></li>
 </ul>
 </div>
 <div class="signature">
@@ -2334,7 +2341,7 @@ clickable buttons.</p>
 <div class="details collapse" id="details-2738">
 <div class="comment"><p>Show an information message.</p>
 <ul>
-<li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
+<li><em>see</em> - <a href={##window.showInformationMessage}showInformationMessage</a></li>
 </ul>
 </div>
 <div class="signature">
@@ -2356,7 +2363,7 @@ clickable buttons.</p>
 <div class="details collapse" id="details-2742">
 <div class="comment"><p>Show an information message.</p>
 <ul>
-<li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
+<li><em>see</em> - <a href={##window.showInformationMessage}showInformationMessage</a></li>
 </ul>
 </div>
 <div class="signature">
@@ -2520,22 +2527,22 @@ for saving-purposes.</p>
 <a name="window.showTextDocument"></a><span class="ts"id={2717}data-target="#details-2717" data-toggle="collapse"><span class="ident">showTextDocument</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a>, <span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
 
 <div class="details collapse" id="details-2717">
-<div class="comment"><p>Show the given document in a text editor. A <a href="#ViewColumn">column</a> can be provided
-to control where the editor is being shown. Might change the <a href="#window.activeTextEditor">active editor</a>.</p>
+<div class="comment"><p>Show the given document in a text editor. A <a href={##ViewColumn}column</a> can be provided
+to control where the editor is being shown. Might change the <a href={##window.activeTextEditor}active editor</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="document"></a><span class="ts"id={2718}data-target="#details-2718" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>A text document to be shown.</p>
 </div></td></tr>
-<tr><td><a name="column"></a><span class="ts"id={2719}data-target="#details-2719" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span></td><td><div class="comment"><p>A view column in which the <a href="#TextEditor">editor</a> should be shown. The default is the <a href="#ViewColumn.Active">active</a>, other values
-are adjusted to be <code>Min(column, columnCount + 1)</code>, the <a href="#ViewColumn.Active">active</a>-column is not adjusted. Use <a href="#ViewColumn.Beside"><code>ViewColumn.Beside</code></a>
+<tr><td><a name="column"></a><span class="ts"id={2719}data-target="#details-2719" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span></td><td><div class="comment"><p>A view column in which the <a href={##TextEditor">editor</a> should be shown. The default is the <a href="#ViewColumn.Active}active</a>, other values
+are adjusted to be <code>Min(column, columnCount + 1)</code>, the <a href={##ViewColumn.Active">active</a>-column is not adjusted. Use <a href="#ViewColumn.Beside}<code>ViewColumn.Beside</code></a>
 to open the editor to the side of the currently active one.</p>
 </div></td></tr>
 <tr><td><a name="preserveFocus"></a><span class="ts"id={2720}data-target="#details-2720" data-toggle="collapse"><span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p>When <code>true</code> the editor will not take focus.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to an <a href="#TextEditor">editor</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to an <a href={##TextEditor}editor</a>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -2544,18 +2551,18 @@ to open the editor to the side of the currently active one.</p>
 <a name="window.showTextDocument"></a><span class="ts"id={2721}data-target="#details-2721" data-toggle="collapse"><span class="ident">showTextDocument</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#TextDocumentShowOptions">TextDocumentShowOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
 
 <div class="details collapse" id="details-2721">
-<div class="comment"><p>Show the given document in a text editor. <a href="#TextDocumentShowOptions">Options</a> can be provided
-to control options of the editor is being shown. Might change the <a href="#window.activeTextEditor">active editor</a>.</p>
+<div class="comment"><p>Show the given document in a text editor. <a href={##TextDocumentShowOptions}Options</a> can be provided
+to control options of the editor is being shown. Might change the <a href={##window.activeTextEditor}active editor</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="document"></a><span class="ts"id={2722}data-target="#details-2722" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>A text document to be shown.</p>
 </div></td></tr>
-<tr><td><a name="options"></a><span class="ts"id={2723}data-target="#details-2723" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#TextDocumentShowOptions">TextDocumentShowOptions</a></span></td><td><div class="comment"><p>(#TextDocumentShowOptions) to configure the behavior of showing the <a href="#TextEditor">editor</a>.</p>
+<tr><td><a name="options"></a><span class="ts"id={2723}data-target="#details-2723" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#TextDocumentShowOptions">TextDocumentShowOptions</a></span></td><td><div class="comment"><p>(#TextDocumentShowOptions) to configure the behavior of showing the <a href={##TextEditor}editor</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to an <a href="#TextEditor">editor</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to an <a href={##TextEditor}editor</a>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -2566,7 +2573,7 @@ to control options of the editor is being shown. Might change the <a href="#wind
 <div class="details collapse" id="details-2724">
 <div class="comment"><p>A short-hand for <code>openTextDocument(uri).then(document =&gt; showTextDocument(document, options))</code>.</p>
 <ul>
-<li><em>see</em> - <a href="#openTextDocument">openTextDocument</a></li>
+<li><em>see</em> - <a href={##openTextDocument}openTextDocument</a></li>
 </ul>
 </div>
 <div class="signature">
@@ -2574,10 +2581,10 @@ to control options of the editor is being shown. Might change the <a href="#wind
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="uri"></a><span class="ts"id={2725}data-target="#details-2725" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A resource identifier.</p>
 </div></td></tr>
-<tr><td><a name="options"></a><span class="ts"id={2726}data-target="#details-2726" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#TextDocumentShowOptions">TextDocumentShowOptions</a></span></td><td><div class="comment"><p>(#TextDocumentShowOptions) to configure the behavior of showing the <a href="#TextEditor">editor</a>.</p>
+<tr><td><a name="options"></a><span class="ts"id={2726}data-target="#details-2726" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#TextDocumentShowOptions">TextDocumentShowOptions</a></span></td><td><div class="comment"><p>(#TextDocumentShowOptions) to configure the behavior of showing the <a href={##TextEditor}editor</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to an <a href="#TextEditor">editor</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to an <a href={##TextEditor}editor</a>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -2588,7 +2595,7 @@ to control options of the editor is being shown. Might change the <a href="#wind
 <div class="details collapse" id="details-2748">
 <div class="comment"><p>Show a warning message.</p>
 <ul>
-<li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
+<li><em>see</em> - <a href={##window.showInformationMessage}showInformationMessage</a></li>
 </ul>
 </div>
 <div class="signature">
@@ -2610,7 +2617,7 @@ to control options of the editor is being shown. Might change the <a href="#wind
 <div class="details collapse" id="details-2751">
 <div class="comment"><p>Show a warning message.</p>
 <ul>
-<li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
+<li><em>see</em> - <a href={##window.showInformationMessage}showInformationMessage</a></li>
 </ul>
 </div>
 <div class="signature">
@@ -2634,7 +2641,7 @@ to control options of the editor is being shown. Might change the <a href="#wind
 <div class="details collapse" id="details-2755">
 <div class="comment"><p>Show a warning message.</p>
 <ul>
-<li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
+<li><em>see</em> - <a href={##window.showInformationMessage}showInformationMessage</a></li>
 </ul>
 </div>
 <div class="signature">
@@ -2656,7 +2663,7 @@ to control options of the editor is being shown. Might change the <a href="#wind
 <div class="details collapse" id="details-2759">
 <div class="comment"><p>Show a warning message.</p>
 <ul>
-<li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
+<li><em>see</em> - <a href={##window.showInformationMessage}showInformationMessage</a></li>
 </ul>
 </div>
 <div class="signature">
@@ -2678,7 +2685,7 @@ to control options of the editor is being shown. Might change the <a href="#wind
 <a name="window.showWorkspaceFolderPick"></a><span class="ts"id={2805}data-target="#details-2805" data-toggle="collapse"><span class="ident">showWorkspaceFolderPick</span><span>(</span><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#WorkspaceFolderPickOptions">WorkspaceFolderPickOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#WorkspaceFolder">WorkspaceFolder</a> &#124; <a class="type-intrinsic">undefined</a>&gt;</span>
 
 <div class="details collapse" id="details-2805">
-<div class="comment"><p>Shows a selection list of <a href="#workspace.workspaceFolders">workspace folders</a> to pick from.
+<div class="comment"><p>Shows a selection list of <a href={##workspace.workspaceFolders}workspace folders</a> to pick from.
 Returns <code>undefined</code> if no folder is open.</p>
 </div>
 <div class="signature">
@@ -2698,19 +2705,19 @@ Returns <code>undefined</code> if no folder is open.</p>
 <div class="details collapse" id="details-2851">
 <div class="comment"><p>Show progress in the editor. Progress is shown while running the given callback
 and while the promise it returned isn&#39;t resolved nor rejected. The location at which
-progress should show (and other details) is defined via the passed <a href="#ProgressOptions"><code>ProgressOptions</code></a>.</p>
+progress should show (and other details) is defined via the passed <a href={##ProgressOptions}<code>ProgressOptions</code></a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="options"></a><span class="ts"id={2853}data-target="#details-2853" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#ProgressOptions">ProgressOptions</a></span></td><td><div class="comment"></div></td></tr>
 <tr><td><a name="task"></a><span class="ts"id={2854}data-target="#details-2854" data-toggle="collapse"><span class="ident">task</span><span>: </span>(progress: <a class="type-ref" href="#Progress">Progress</a>&lt;{increment: <a class="type-intrinsic">number</a>, message: <a class="type-intrinsic">string</a>}&gt;, token: <a class="type-ref" href="#CancellationToken">CancellationToken</a>) =&gt; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-intrinsic">R</a>&gt;</span></td><td><div class="comment"><p>A callback returning a promise. Progress state can be reported with
-the provided <a href="#Progress">progress</a>-object.</p>
+the provided <a href={##Progress}progress</a>-object.</p>
 <p>To report discrete progress, use <code>increment</code> to indicate how much work has been completed. Each call with
 a <code>increment</code> value will be summed up and reflected as overall progress until 100% is reached (a value of
 e.g. <code>10</code> accounts for <code>10%</code> of work done).
 Note that currently only <code>ProgressLocation.Notification</code> is capable of showing discrete progress.</p>
-<p>To monitor if the operation has been cancelled by the user, use the provided <a href="#CancellationToken"><code>CancellationToken</code></a>.
+<p>To monitor if the operation has been cancelled by the user, use the provided <a href={##CancellationToken}<code>CancellationToken</code></a>.
 Note that currently only <code>ProgressLocation.Notification</code> is supporting to show a cancel button to cancel the
 long running operation.</p>
 </div></td></tr>
@@ -2734,7 +2741,7 @@ its returned promise isn&#39;t resolve or rejected.</p>
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="task"></a><span class="ts"id={2846}data-target="#details-2846" data-toggle="collapse"><span class="ident">task</span><span>: </span>(progress: <a class="type-ref" href="#Progress">Progress</a>&lt;<a class="type-intrinsic">number</a>&gt;) =&gt; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-intrinsic">R</a>&gt;</span></td><td><div class="comment"><p>A callback returning a promise. Progress increments can be reported with
-the provided <a href="#Progress">progress</a>-object.</p>
+the provided <a href={##Progress}progress</a>-object.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-intrinsic">R</a>&gt;</span></td><td><div class="comment"><p>The thenable the task did return.</p>
@@ -2748,8 +2755,8 @@ the provided <a href="#Progress">progress</a>-object.</p>
 <div class="comment"><p>Namespace for dealing with the current workspace. A workspace is the representation
 of the folder that has been opened. There is no workspace when just a file but not a
 folder has been opened.</p>
-<p>The workspace offers support for <a href="#workspace.createFileSystemWatcher">listening</a> to fs
-events and for <a href="#workspace.findFiles">finding</a> files. Both perform well and run <em>outside</em>
+<p>The workspace offers support for <a href={##workspace.createFileSystemWatcher}listening</a> to fs
+events and for <a href={##workspace.findFiles}finding</a> files. Both perform well and run <em>outside</em>
 the editor-process so that they should be always used instead of nodejs-equivalents.</p>
 </div>
 
@@ -2758,7 +2765,7 @@ the editor-process so that they should be always used instead of nodejs-equivale
 <a name="workspace.fs"></a><span class="ts"id={2915}data-target="#details-2915" data-toggle="collapse"><span class="ident">fs</span><span>: </span><a class="type-ref" href="#FileSystem">FileSystem</a></span>
 
 <div class="details collapse" id="details-2915">
-<div class="comment"><p>A <a href="#FileSystem">file system</a> instance that allows to interact with local and remote
+<div class="comment"><p>A <a href={##FileSystem}file system</a> instance that allows to interact with local and remote
 files, e.g. <code>vscode.workspace.fs.readDirectory(someUri)</code> allows to retrieve all entries
 of a directory or <code>vscode.workspace.fs.stat(anotherUri)</code> returns the meta data for a
 file.</p>
@@ -2779,7 +2786,7 @@ has been opened.</p>
 <div class="comment"><p>The folder that is open in the editor. <code>undefined</code> when no folder
 has been opened.</p>
 <ul>
-<li><em>deprecated</em> - Use <a href="#workspace.workspaceFolders"><code>workspaceFolders</code></a> instead.</li>
+<li><em>deprecated</em> - Use <a href={##workspace.workspaceFolders}<code>workspaceFolders</code></a> instead.</li>
 </ul>
 </div>
 </div>
@@ -2809,8 +2816,9 @@ is untitled, the returned URI will use the <code>untitled:</code> scheme</li>
 open the workspace again after it has been closed.</p>
 <p><strong>Example:</strong></p>
 
-<pre><code class="lang-typescript">vscode.commands.executeCommand(&#39;vscode.openFolder&#39;, uriOfWorkspace);
-</code></pre>
+```typescript
+vscode.commands.executeCommand(&#39;vscode.openFolder&#39;, uriOfWorkspace);
+```
 <p><strong>Note:</strong> it is not advised to use <code>workspace.workspaceFile</code> to write
 configuration data into the file. You can use <code>workspace.getConfiguration().update()</code>
 for that purpose which will work both when a single folder is opened as
@@ -2831,16 +2839,16 @@ well as an untitled or saved workspace.</p>
 <a name="workspace.onDidChangeConfiguration"></a><span class="ts"id={2984}data-target="#details-2984" data-toggle="collapse"><span class="ident">onDidChangeConfiguration</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#ConfigurationChangeEvent">ConfigurationChangeEvent</a>&gt;</span>
 
 <div class="details collapse" id="details-2984">
-<div class="comment"><p>An event that is emitted when the <a href="#WorkspaceConfiguration">configuration</a> changed.</p>
+<div class="comment"><p>An event that is emitted when the <a href={##WorkspaceConfiguration}configuration</a> changed.</p>
 </div>
 </div>
 
 <a name="workspace.onDidChangeTextDocument"></a><span class="ts"id={2971}data-target="#details-2971" data-toggle="collapse"><span class="ident">onDidChangeTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocumentChangeEvent">TextDocumentChangeEvent</a>&gt;</span>
 
 <div class="details collapse" id="details-2971">
-<div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is changed. This usually happens
-when the <a href="#TextDocument.getText">contents</a> changes but also when other things like the
-<a href="#TextDocument.isDirty">dirty</a>-state changes.</p>
+<div class="comment"><p>An event that is emitted when a <a href={##TextDocument}text document</a> is changed. This usually happens
+when the <a href={##TextDocument.getText}contents</a> changes but also when other things like the
+<a href={##TextDocument.isDirty}dirty</a>-state changes.</p>
 </div>
 </div>
 
@@ -2854,10 +2862,10 @@ when the <a href="#TextDocument.getText">contents</a> changes but also when othe
 <a name="workspace.onDidCloseTextDocument"></a><span class="ts"id={2970}data-target="#details-2970" data-toggle="collapse"><span class="ident">onDidCloseTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 
 <div class="details collapse" id="details-2970">
-<div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is disposed or when the language ID
-of a text document <a href="#languages.setTextDocumentLanguage">has been changed</a>.</p>
+<div class="comment"><p>An event that is emitted when a <a href={##TextDocument}text document</a> is disposed or when the language ID
+of a text document <a href={##languages.setTextDocumentLanguage}has been changed</a>.</p>
 <p><em>Note 1:</em> There is no guarantee that this event fires when an editor tab is closed, use the
-<a href="#window.onDidChangeVisibleTextEditors"><code>onDidChangeVisibleTextEditors</code></a>-event to know when editors change.</p>
+<a href={##window.onDidChangeVisibleTextEditors}<code>onDidChangeVisibleTextEditors</code></a>-event to know when editors change.</p>
 <p><em>Note 2:</em> A document can be open but not shown in an editor which means this event can fire
 for a document that has not been shown in an editor.</p>
 </div>
@@ -2868,9 +2876,9 @@ for a document that has not been shown in an editor.</p>
 <div class="details collapse" id="details-2975">
 <div class="comment"><p>An event that is emitted when files have been created.</p>
 <p><em>Note:</em> This event is triggered by user gestures, like creating a file from the
-explorer, or from the <a href="#workspace.applyEdit"><code>workspace.applyEdit</code></a>-api, but this event is <em>not</em> fired when
+explorer, or from the <a href={##workspace.applyEdit}<code>workspace.applyEdit</code></a>-api, but this event is <em>not</em> fired when
 files change on disk, e.g triggered by another application, or when using the
-<a href="#FileSystem"><code>workspace.fs</code></a>-api.</p>
+<a href={##FileSystem}<code>workspace.fs</code></a>-api.</p>
 </div>
 </div>
 
@@ -2879,9 +2887,9 @@ files change on disk, e.g triggered by another application, or when using the
 <div class="details collapse" id="details-2977">
 <div class="comment"><p>An event that is emitted when files have been deleted.</p>
 <p><em>Note 1:</em> This event is triggered by user gestures, like deleting a file from the
-explorer, or from the <a href="#workspace.applyEdit"><code>workspace.applyEdit</code></a>-api, but this event is <em>not</em> fired when
+explorer, or from the <a href={##workspace.applyEdit}<code>workspace.applyEdit</code></a>-api, but this event is <em>not</em> fired when
 files change on disk, e.g triggered by another application, or when using the
-<a href="#FileSystem"><code>workspace.fs</code></a>-api.</p>
+<a href={##FileSystem}<code>workspace.fs</code></a>-api.</p>
 <p><em>Note 2:</em> When deleting a folder with children only one event is fired.</p>
 </div>
 </div>
@@ -2889,14 +2897,14 @@ files change on disk, e.g triggered by another application, or when using the
 <a name="workspace.onDidOpenTextDocument"></a><span class="ts"id={2969}data-target="#details-2969" data-toggle="collapse"><span class="ident">onDidOpenTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 
 <div class="details collapse" id="details-2969">
-<div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is opened or when the language ID
-of a text document <a href="#languages.setTextDocumentLanguage">has been changed</a>.</p>
-<p>To add an event listener when a visible text document is opened, use the <a href="#TextEditor">TextEditor</a> events in the
-<a href="#window">window</a> namespace. Note that:</p>
+<div class="comment"><p>An event that is emitted when a <a href={##TextDocument}text document</a> is opened or when the language ID
+of a text document <a href={##languages.setTextDocumentLanguage}has been changed</a>.</p>
+<p>To add an event listener when a visible text document is opened, use the <a href={##TextEditor}TextEditor</a> events in the
+<a href={##window}window</a> namespace. Note that:</p>
 <ul>
-<li>The event is emitted before the <a href="#TextDocument">document</a> is updated in the
-<a href="#window.activeTextEditor">active text editor</a></li>
-<li>When a <a href="#TextDocument">text document</a> is already open (e.g.: open in another <a href="#window.visibleTextEditors">visible text editor</a>) this event is not emitted</li>
+<li>The event is emitted before the <a href={##TextDocument}document</a> is updated in the
+<a href={##window.activeTextEditor}active text editor</a></li>
+<li>When a <a href={##TextDocument">text document</a> is already open (e.g.: open in another <a href="#window.visibleTextEditors}visible text editor</a>) this event is not emitted</li>
 </ul>
 </div>
 </div>
@@ -2906,9 +2914,9 @@ of a text document <a href="#languages.setTextDocumentLanguage">has been changed
 <div class="details collapse" id="details-2979">
 <div class="comment"><p>An event that is emitted when files have been renamed.</p>
 <p><em>Note 1:</em> This event is triggered by user gestures, like renaming a file from the
-explorer, and from the <a href="#workspace.applyEdit"><code>workspace.applyEdit</code></a>-api, but this event is <em>not</em> fired when
+explorer, and from the <a href={##workspace.applyEdit}<code>workspace.applyEdit</code></a>-api, but this event is <em>not</em> fired when
 files change on disk, e.g triggered by another application, or when using the
-<a href="#FileSystem"><code>workspace.fs</code></a>-api.</p>
+<a href={##FileSystem}<code>workspace.fs</code></a>-api.</p>
 <p><em>Note 2:</em> When renaming a folder with children only one event is fired.</p>
 </div>
 </div>
@@ -2916,7 +2924,7 @@ files change on disk, e.g triggered by another application, or when using the
 <a name="workspace.onDidSaveTextDocument"></a><span class="ts"id={2973}data-target="#details-2973" data-toggle="collapse"><span class="ident">onDidSaveTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 
 <div class="details collapse" id="details-2973">
-<div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is saved to disk.</p>
+<div class="comment"><p>An event that is emitted when a <a href={##TextDocument}text document</a> is saved to disk.</p>
 </div>
 </div>
 
@@ -2925,9 +2933,9 @@ files change on disk, e.g triggered by another application, or when using the
 <div class="details collapse" id="details-2974">
 <div class="comment"><p>An event that is emitted when files are being created.</p>
 <p><em>Note 1:</em> This event is triggered by user gestures, like creating a file from the
-explorer, or from the <a href="#workspace.applyEdit"><code>workspace.applyEdit</code></a>-api. This event is <em>not</em> fired when
+explorer, or from the <a href={##workspace.applyEdit}<code>workspace.applyEdit</code></a>-api. This event is <em>not</em> fired when
 files change on disk, e.g triggered by another application, or when using the
-<a href="#FileSystem"><code>workspace.fs</code></a>-api.</p>
+<a href={##FileSystem}<code>workspace.fs</code></a>-api.</p>
 <p><em>Note 2:</em> When this event is fired, edits to files that are are being created cannot be applied.</p>
 </div>
 </div>
@@ -2937,9 +2945,9 @@ files change on disk, e.g triggered by another application, or when using the
 <div class="details collapse" id="details-2976">
 <div class="comment"><p>An event that is emitted when files are being deleted.</p>
 <p><em>Note 1:</em> This event is triggered by user gestures, like deleting a file from the
-explorer, or from the <a href="#workspace.applyEdit"><code>workspace.applyEdit</code></a>-api, but this event is <em>not</em> fired when
+explorer, or from the <a href={##workspace.applyEdit}<code>workspace.applyEdit</code></a>-api, but this event is <em>not</em> fired when
 files change on disk, e.g triggered by another application, or when using the
-<a href="#FileSystem"><code>workspace.fs</code></a>-api.</p>
+<a href={##FileSystem}<code>workspace.fs</code></a>-api.</p>
 <p><em>Note 2:</em> When deleting a folder with children only one event is fired.</p>
 </div>
 </div>
@@ -2949,9 +2957,9 @@ files change on disk, e.g triggered by another application, or when using the
 <div class="details collapse" id="details-2978">
 <div class="comment"><p>An event that is emitted when files are being renamed.</p>
 <p><em>Note 1:</em> This event is triggered by user gestures, like renaming a file from the
-explorer, and from the <a href="#workspace.applyEdit"><code>workspace.applyEdit</code></a>-api, but this event is <em>not</em> fired when
+explorer, and from the <a href={##workspace.applyEdit}<code>workspace.applyEdit</code></a>-api, but this event is <em>not</em> fired when
 files change on disk, e.g triggered by another application, or when using the
-<a href="#FileSystem"><code>workspace.fs</code></a>-api.</p>
+<a href={##FileSystem}<code>workspace.fs</code></a>-api.</p>
 <p><em>Note 2:</em> When renaming a folder with children only one event is fired.</p>
 </div>
 </div>
@@ -2959,10 +2967,10 @@ files change on disk, e.g triggered by another application, or when using the
 <a name="workspace.onWillSaveTextDocument"></a><span class="ts"id={2972}data-target="#details-2972" data-toggle="collapse"><span class="ident">onWillSaveTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocumentWillSaveEvent">TextDocumentWillSaveEvent</a>&gt;</span>
 
 <div class="details collapse" id="details-2972">
-<div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> will be saved to disk.</p>
+<div class="comment"><p>An event that is emitted when a <a href={##TextDocument}text document</a> will be saved to disk.</p>
 <p><em>Note 1:</em> Subscribers can delay saving by registering asynchronous work. For the sake of data integrity the editor
 might save without firing this event. For instance when shutting down with dirty files.</p>
-<p><em>Note 2:</em> Subscribers are called sequentially and they can <a href="#TextDocumentWillSaveEvent.waitUntil">delay</a> saving
+<p><em>Note 2:</em> Subscribers are called sequentially and they can <a href={##TextDocumentWillSaveEvent.waitUntil}delay</a> saving
 by registering asynchronous work. Protection against misbehaving listeners is implemented as such:</p>
 <ul>
 <li>there is an overall time budget that all listeners share and if that is exhausted no further listener is called</li>
@@ -2978,7 +2986,7 @@ by registering asynchronous work. Protection against misbehaving listeners is im
 
 <div class="details collapse" id="details-2952">
 <div class="comment"><p>Make changes to one or many resources or create, delete, and rename resources as defined by the given
-<a href="#WorkspaceEdit">workspace edit</a>.</p>
+<a href={##WorkspaceEdit}workspace edit</a>.</p>
 <p>All changes of a workspace edit are applied in the same order in which they have been added. If
 multiple textual inserts are made at the same position, these strings appear in the resulting text
 in the order the &#39;inserts&#39; were made, unless that are interleaved with resource edits. Invalid sequences
@@ -3003,13 +3011,13 @@ not be attempted, when a single edit fails.</p>
 
 <div class="details collapse" id="details-2925">
 <div class="comment"><p>Returns a path that is relative to the workspace folder or folders.</p>
-<p>When there are no <a href="#workspace.workspaceFolders">workspace folders</a> or when the path
+<p>When there are no <a href={##workspace.workspaceFolders}workspace folders</a> or when the path
 is not contained in them, the input is returned.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="pathOrUri"></a><span class="ts"id={2926}data-target="#details-2926" data-toggle="collapse"><span class="ident">pathOrUri</span><span>: </span><a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A path or uri. When a uri is given its <a href="#Uri.fsPath">fsPath</a> is used.</p>
+<tr><td><a name="pathOrUri"></a><span class="ts"id={2926}data-target="#details-2926" data-toggle="collapse"><span class="ident">pathOrUri</span><span>: </span><a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A path or uri. When a uri is given its <a href={##Uri.fsPath}fsPath</a> is used.</p>
 </div></td></tr>
 <tr><td><a name="includeWorkspaceFolder"></a><span class="ts"id={2927}data-target="#details-2927" data-toggle="collapse"><span class="ident">includeWorkspaceFolder</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p>When <code>true</code> and when the given path is contained inside a
 workspace folder the name of the workspace is prepended. Defaults to <code>true</code> when there are
@@ -3028,13 +3036,13 @@ multiple workspace folders and <code>false</code> otherwise.</p>
 <div class="comment"><p>Creates a file system watcher.</p>
 <p>A glob pattern that filters the file events on their absolute path must be provided. Optionally,
 flags to ignore certain kinds of events can be provided. To stop listening to events the watcher must be disposed.</p>
-<p><em>Note</em> that only files within the current <a href="#workspace.workspaceFolders">workspace folders</a> can be watched.</p>
+<p><em>Note</em> that only files within the current <a href={##workspace.workspaceFolders}workspace folders</a> can be watched.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="globPattern"></a><span class="ts"id={2938}data-target="#details-2938" data-toggle="collapse"><span class="ident">globPattern</span><span>: </span><a class="type-ref" href="#GlobPattern">GlobPattern</a></span></td><td><div class="comment"><p>A <a href="#GlobPattern">glob pattern</a> that is applied to the absolute paths of created, changed,
-and deleted files. Use a <a href="#RelativePattern">relative pattern</a> to limit events to a certain <a href="#WorkspaceFolder">workspace folder</a>.</p>
+<tr><td><a name="globPattern"></a><span class="ts"id={2938}data-target="#details-2938" data-toggle="collapse"><span class="ident">globPattern</span><span>: </span><a class="type-ref" href="#GlobPattern">GlobPattern</a></span></td><td><div class="comment"><p>A <a href={##GlobPattern}glob pattern</a> that is applied to the absolute paths of created, changed,
+and deleted files. Use a <a href={##RelativePattern">relative pattern</a> to limit events to a certain <a href="#WorkspaceFolder}workspace folder</a>.</p>
 </div></td></tr>
 <tr><td><a name="ignoreCreateEvents"></a><span class="ts"id={2939}data-target="#details-2939" data-toggle="collapse"><span class="ident">ignoreCreateEvents</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p>Ignore when files have been created.</p>
 </div></td></tr>
@@ -3052,7 +3060,7 @@ and deleted files. Use a <a href="#RelativePattern">relative pattern</a> to limi
 <a name="workspace.findFiles"></a><span class="ts"id={2943}data-target="#details-2943" data-toggle="collapse"><span class="ident">findFiles</span><span>(</span><span class="ident">include</span><span>: </span><a class="type-ref" href="#GlobPattern">GlobPattern</a>, <span class="ident">exclude</span><span>?</span><span>: </span><a class="type-ref" href="#GlobPattern">GlobPattern</a> &#124; <a class="type-intrinsic">null</a>, <span class="ident">maxResults</span><span>?</span><span>: </span><a class="type-intrinsic">number</a>, <span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Uri">Uri</a>[]&gt;</span>
 
 <div class="details collapse" id="details-2943">
-<div class="comment"><p>Find files across all <a href="#workspace.workspaceFolders">workspace folders</a> in the workspace.</p>
+<div class="comment"><p>Find files across all <a href={##workspace.workspaceFolders}workspace folders</a> in the workspace.</p>
 <ul>
 <li><em>example</em> - findFiles(&#39;<strong>/*.js&#39;, &#39;</strong>/node_modules/**&#39;, 10)</li>
 </ul>
@@ -3060,11 +3068,11 @@ and deleted files. Use a <a href="#RelativePattern">relative pattern</a> to limi
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="include"></a><span class="ts"id={2944}data-target="#details-2944" data-toggle="collapse"><span class="ident">include</span><span>: </span><a class="type-ref" href="#GlobPattern">GlobPattern</a></span></td><td><div class="comment"><p>A <a href="#GlobPattern">glob pattern</a> that defines the files to search for. The glob pattern
-will be matched against the file paths of resulting matches relative to their workspace. Use a <a href="#RelativePattern">relative pattern</a>
-to restrict the search results to a <a href="#WorkspaceFolder">workspace folder</a>.</p>
+<tr><td><a name="include"></a><span class="ts"id={2944}data-target="#details-2944" data-toggle="collapse"><span class="ident">include</span><span>: </span><a class="type-ref" href="#GlobPattern">GlobPattern</a></span></td><td><div class="comment"><p>A <a href={##GlobPattern}glob pattern</a> that defines the files to search for. The glob pattern
+will be matched against the file paths of resulting matches relative to their workspace. Use a <a href={##RelativePattern}relative pattern</a>
+to restrict the search results to a <a href={##WorkspaceFolder}workspace folder</a>.</p>
 </div></td></tr>
-<tr><td><a name="exclude"></a><span class="ts"id={2945}data-target="#details-2945" data-toggle="collapse"><span class="ident">exclude</span><span>?</span><span>: </span><a class="type-ref" href="#GlobPattern">GlobPattern</a> &#124; <a class="type-intrinsic">null</a></span></td><td><div class="comment"><p>A <a href="#GlobPattern">glob pattern</a> that defines files and folders to exclude. The glob pattern
+<tr><td><a name="exclude"></a><span class="ts"id={2945}data-target="#details-2945" data-toggle="collapse"><span class="ident">exclude</span><span>?</span><span>: </span><a class="type-ref" href="#GlobPattern">GlobPattern</a> &#124; <a class="type-intrinsic">null</a></span></td><td><div class="comment"><p>A <a href={##GlobPattern}glob pattern</a> that defines files and folders to exclude. The glob pattern
 will be matched against the file paths of resulting matches relative to their workspace. When <code>undefined</code> only default excludes will
 apply, when <code>null</code> no excludes will apply.</p>
 </div></td></tr>
@@ -3074,7 +3082,7 @@ apply, when <code>null</code> no excludes will apply.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Uri">Uri</a>[]&gt;</span></td><td><div class="comment"><p>A thenable that resolves to an array of resource identifiers. Will return no results if no
-<a href="#workspace.workspaceFolders">workspace folders</a> are opened.</p>
+<a href={##workspace.workspaceFolders}workspace folders</a> are opened.</p>
 </div></td></tr>
 </table>
 </div>
@@ -3106,7 +3114,7 @@ like <code>{ myExt: { setting: { doIt: true }}}</code> and <code>getConfiguratio
 <a name="workspace.getWorkspaceFolder"></a><span class="ts"id={2922}data-target="#details-2922" data-toggle="collapse"><span class="ident">getWorkspaceFolder</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-ref" href="#WorkspaceFolder">WorkspaceFolder</a> &#124; <a class="type-intrinsic">undefined</a></span>
 
 <div class="details collapse" id="details-2922">
-<div class="comment"><p>Returns the <a href="#WorkspaceFolder">workspace folder</a> that contains a given uri.</p>
+<div class="comment"><p>Returns the <a href={##WorkspaceFolder}workspace folder</a> that contains a given uri.</p>
 <ul>
 <li>returns <code>undefined</code> when the given uri doesn&#39;t match any workspace folder</li>
 <li>returns the <em>input</em> when the given uri is a workspace folder itself</li>
@@ -3128,18 +3136,18 @@ like <code>{ myExt: { setting: { doIt: true }}}</code> and <code>getConfiguratio
 
 <div class="details collapse" id="details-2956">
 <div class="comment"><p>Opens a document. Will return early if this document is already open. Otherwise
-the document is loaded and the <a href="#workspace.onDidOpenTextDocument">didOpen</a>-event fires.</p>
-<p>The document is denoted by an <a href="#Uri">uri</a>. Depending on the <a href="#Uri.scheme">scheme</a> the
+the document is loaded and the <a href={##workspace.onDidOpenTextDocument}didOpen</a>-event fires.</p>
+<p>The document is denoted by an <a href={##Uri">uri</a>. Depending on the <a href="#Uri.scheme}scheme</a> the
 following rules apply:</p>
 <ul>
 <li><code>file</code>-scheme: Open a file on disk, will be rejected if the file does not exist or cannot be loaded.</li>
 <li><code>untitled</code>-scheme: A new file that should be saved on disk, e.g. <code>untitled:c:\frodo\new.js</code>. The language
 will be derived from the file name.</li>
-<li>For all other schemes contributed <a href="#TextDocumentContentProvider">text document content providers</a> and
-<a href="#FileSystemProvider">file system providers</a> are consulted.</li>
+<li>For all other schemes contributed <a href={##TextDocumentContentProvider}text document content providers</a> and
+<a href={##FileSystemProvider}file system providers</a> are consulted.</li>
 </ul>
 <p><em>Note</em> that the lifecycle of the returned document is owned by the editor and not by the extension. That means an
-<a href="#workspace.onDidCloseTextDocument"><code>onDidClose</code></a>-event can occur at any time after opening it.</p>
+<a href={##workspace.onDidCloseTextDocument}<code>onDidClose</code></a>-event can occur at any time after opening it.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -3147,7 +3155,7 @@ will be derived from the file name.</li>
 <tr><td><a name="uri"></a><span class="ts"id={2957}data-target="#details-2957" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>Identifies the resource to open.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a <a href="#TextDocument">document</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a <a href={##TextDocument}document</a>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -3158,7 +3166,7 @@ will be derived from the file name.</li>
 <div class="details collapse" id="details-2958">
 <div class="comment"><p>A short-hand for <code>openTextDocument(Uri.file(fileName))</code>.</p>
 <ul>
-<li><em>see</em> - <a href="#openTextDocument">openTextDocument</a></li>
+<li><em>see</em> - <a href={##openTextDocument}openTextDocument</a></li>
 </ul>
 </div>
 <div class="signature">
@@ -3167,7 +3175,7 @@ will be derived from the file name.</li>
 <tr><td><a name="fileName"></a><span class="ts"id={2959}data-target="#details-2959" data-toggle="collapse"><span class="ident">fileName</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>A name of a file on disk.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a <a href="#TextDocument">document</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a <a href={##TextDocument}document</a>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -3186,7 +3194,7 @@ specify the <em>language</em> and/or the <em>content</em> of the document.</p>
 <tr><td><a name="options"></a><span class="ts"id={2961}data-target="#details-2961" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span>{content: <a class="type-intrinsic">string</a>, language: <a class="type-intrinsic">string</a>}</span></td><td><div class="comment"><p>Options to control how the document will be created.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a <a href="#TextDocument">document</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a <a href={##TextDocument}document</a>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -3202,14 +3210,14 @@ has been claimed by another provider or when it is reserved.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="scheme"></a><span class="ts"id={2991}data-target="#details-2991" data-toggle="collapse"><span class="ident">scheme</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The uri-<a href="#Uri.scheme">scheme</a> the provider registers for.</p>
+<tr><td><a name="scheme"></a><span class="ts"id={2991}data-target="#details-2991" data-toggle="collapse"><span class="ident">scheme</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The uri-<a href={##Uri.scheme}scheme</a> the provider registers for.</p>
 </div></td></tr>
 <tr><td><a name="provider"></a><span class="ts"id={2992}data-target="#details-2992" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#FileSystemProvider">FileSystemProvider</a></span></td><td><div class="comment"><p>The filesystem provider.</p>
 </div></td></tr>
 <tr><td><a name="options"></a><span class="ts"id={2993}data-target="#details-2993" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span>{isCaseSensitive: <a class="type-intrinsic">boolean</a>, isReadonly: <a class="type-intrinsic">boolean</a>}</span></td><td><div class="comment"><p>Immutable metadata about the provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -3231,7 +3239,7 @@ has been claimed by another provider or when it is reserved.</p>
 <tr><td><a name="provider"></a><span class="ts"id={2988}data-target="#details-2988" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#TaskProvider">TaskProvider</a></span></td><td><div class="comment"><p>A task provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -3251,7 +3259,7 @@ has been claimed by another provider or when it is reserved.</p>
 <tr><td><a name="provider"></a><span class="ts"id={2968}data-target="#details-2968" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#TextDocumentContentProvider">TextDocumentContentProvider</a></span></td><td><div class="comment"><p>A content provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href={##Disposable}disposable</a> that unregisters this provider when being disposed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -3277,35 +3285,38 @@ has been claimed by another provider or when it is reserved.</p>
 <a name="workspace.updateWorkspaceFolders"></a><span class="ts"id={2929}data-target="#details-2929" data-toggle="collapse"><span class="ident">updateWorkspaceFolders</span><span>(</span><span class="ident">start</span><span>: </span><a class="type-intrinsic">number</a>, <span class="ident">deleteCount</span><span>: </span><a class="type-intrinsic">number</a> &#124; <a class="type-intrinsic">undefined</a> &#124; <a class="type-intrinsic">null</a>, <span>...</span><span class="ident">workspaceFoldersToAdd</span><span>: </span>{name: <a class="type-intrinsic">string</a>, uri: <a class="type-ref" href="#Uri">Uri</a>}[]<span>)</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 
 <div class="details collapse" id="details-2929">
-<div class="comment"><p>This method replaces <code>deleteCount</code> <a href="#workspace.workspaceFolders">workspace folders</a> starting at index <code>start</code>
+<div class="comment"><p>This method replaces <code>deleteCount</code> <a href={##workspace.workspaceFolders}workspace folders</a> starting at index <code>start</code>
 by an optional set of <code>workspaceFoldersToAdd</code> on the <code>vscode.workspace.workspaceFolders</code> array. This &quot;splice&quot;
 behavior can be used to add, remove and change workspace folders in a single operation.</p>
 <p>If the first workspace folder is added, removed or changed, the currently executing extensions (including the
 one that called this method) will be terminated and restarted so that the (deprecated) <code>rootPath</code> property is
 updated to point to the first workspace folder.</p>
-<p>Use the <a href="#onDidChangeWorkspaceFolders"><code>onDidChangeWorkspaceFolders()</code></a> event to get notified when the
+<p>Use the <a href={##onDidChangeWorkspaceFolders}<code>onDidChangeWorkspaceFolders()</code></a> event to get notified when the
 workspace folders have been updated.</p>
 <p><strong>Example:</strong> adding a new workspace folder at the end of workspace folders</p>
 
-<pre><code class="lang-typescript">workspace.updateWorkspaceFolders(workspace.workspaceFolders ? workspace.workspaceFolders.length : 0, null, { uri: ...});
-</code></pre>
+```typescript
+workspace.updateWorkspaceFolders(workspace.workspaceFolders ? workspace.workspaceFolders.length : 0, null, { uri: ...});
+```
 <p><strong>Example:</strong> removing the first workspace folder</p>
 
-<pre><code class="lang-typescript">workspace.updateWorkspaceFolders(0, 1);
-</code></pre>
+```typescript
+workspace.updateWorkspaceFolders(0, 1);
+```
 <p><strong>Example:</strong> replacing an existing workspace folder with a new one</p>
 
-<pre><code class="lang-typescript">workspace.updateWorkspaceFolders(0, 1, { uri: ...});
-</code></pre>
+```typescript
+workspace.updateWorkspaceFolders(0, 1, { uri: ...});
+```
 <p>It is valid to remove an existing workspace folder and add it again with a different name
 to rename that folder.</p>
-<p><strong>Note:</strong> it is not valid to call <a href="#updateWorkspaceFolders">updateWorkspaceFolders()</a> multiple times
-without waiting for the <a href="#onDidChangeWorkspaceFolders"><code>onDidChangeWorkspaceFolders()</code></a> to fire.</p>
+<p><strong>Note:</strong> it is not valid to call <a href={##updateWorkspaceFolders}updateWorkspaceFolders()</a> multiple times
+without waiting for the <a href={##onDidChangeWorkspaceFolders}<code>onDidChangeWorkspaceFolders()</code></a> to fire.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="start"></a><span class="ts"id={2930}data-target="#details-2930" data-toggle="collapse"><span class="ident">start</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>the zero-based location in the list of currently opened <a href="#WorkspaceFolder">workspace folders</a>
+<tr><td><a name="start"></a><span class="ts"id={2930}data-target="#details-2930" data-toggle="collapse"><span class="ident">start</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>the zero-based location in the list of currently opened <a href={##WorkspaceFolder}workspace folders</a>
 from which to start deleting workspace folders.</p>
 </div></td></tr>
 <tr><td><a name="deleteCount"></a><span class="ts"id={2931}data-target="#details-2931" data-toggle="collapse"><span class="ident">deleteCount</span><span>: </span><a class="type-intrinsic">number</a> &#124; <a class="type-intrinsic">undefined</a> &#124; <a class="type-intrinsic">null</a></span></td><td><div class="comment"><p>the optional number of workspace folders to remove.</p>
@@ -3341,13 +3352,13 @@ in invalid workspace folder state (e.g. 2 folders with the same URI).</p>
 <div class="comment"><p>Role of the widget which defines how a screen reader interacts with it.
 The role should be set in special cases when for example a tree-like element behaves like a checkbox.
 If role is not specified VS Code will pick the appropriate role automatically.
-More about aria roles can be found here <a href="https://w3c.github.io/aria/#widget_roles">https://w3c.github.io/aria/#widget_roles</a></p>
+More about aria roles can be found here <a href={#https://w3c.github.io/aria/#widget_roles}https://w3c.github.io/aria/#widget_roles</a></p>
 </div>
 </div>
 
 ### <a name="AuthenticationGetSessionOptions"></a><span class="code-item" id=2619>AuthenticationGetSessionOptions</span>
 
-<div class="comment"><p>Options to be used when getting an <a href="#AuthenticationSession">AuthenticationSession</a> from an <a href="#AuthenticationProvider">AuthenticationProvider</a>.</p>
+<div class="comment"><p>Options to be used when getting an <a href={##AuthenticationSession">AuthenticationSession</a> from an <a href="#AuthenticationProvider}AuthenticationProvider</a>.</p>
 </div>
 
 #### Properties
@@ -3357,8 +3368,8 @@ More about aria roles can be found here <a href="https://w3c.github.io/aria/#wid
 <div class="details collapse" id="details-2621">
 <div class="comment"><p>Whether the existing user session preference should be cleared.</p>
 <p>For authentication providers that support being signed into multiple accounts at once, the user will be
-prompted to select an account to use when <a href="#authentication.getSession">getSession</a> is called. This preference
-is remembered until <a href="#authentication.getSession">getSession</a> is called with this flag.</p>
+prompted to select an account to use when <a href={##authentication.getSession}getSession</a> is called. This preference
+is remembered until <a href={##authentication.getSession}getSession</a> is called with this flag.</p>
 <p>Defaults to false.</p>
 </div>
 </div>
@@ -3376,7 +3387,7 @@ allows quietly prompting the user to sign in.</p>
 
 ### <a name="AuthenticationProviderInformation"></a><span class="code-item" id=2622>AuthenticationProviderInformation</span>
 
-<div class="comment"><p>Basic information about an <a href="#AuthenticationProvider">authenticationProvider</a></p>
+<div class="comment"><p>Basic information about an <a href={##AuthenticationProvider}authenticationProvider</a></p>
 </div>
 
 #### Properties
@@ -3427,13 +3438,13 @@ allows quietly prompting the user to sign in.</p>
 
 <div class="details collapse" id="details-2615">
 <div class="comment"><p>The permissions granted by the session&#39;s access token. Available scopes
-are defined by the <a href="#AuthenticationProvider">AuthenticationProvider</a>.</p>
+are defined by the <a href={##AuthenticationProvider}AuthenticationProvider</a>.</p>
 </div>
 </div>
 
 ### <a name="AuthenticationSessionAccountInformation"></a><span class="code-item" id=2616>AuthenticationSessionAccountInformation</span>
 
-<div class="comment"><p>The information of an account associated with an <a href="#AuthenticationSession">AuthenticationSession</a>.</p>
+<div class="comment"><p>The information of an account associated with an <a href={##AuthenticationSession}AuthenticationSession</a>.</p>
 </div>
 
 #### Properties
@@ -3454,7 +3465,7 @@ are defined by the <a href="#AuthenticationProvider">AuthenticationProvider</a>.
 
 ### <a name="AuthenticationSessionsChangeEvent"></a><span class="code-item" id=2625>AuthenticationSessionsChangeEvent</span>
 
-<div class="comment"><p>An <a href="#Event">event</a> which fires when an <a href="#AuthenticationSession">AuthenticationSession</a> is added, removed, or changed.</p>
+<div class="comment"><p>An <a href={##Event">event</a> which fires when an <a href="#AuthenticationSession}AuthenticationSession</a> is added, removed, or changed.</p>
 </div>
 
 #### Properties
@@ -3462,7 +3473,7 @@ are defined by the <a href="#AuthenticationProvider">AuthenticationProvider</a>.
 <a name="AuthenticationSessionsChangeEvent.provider"></a><span class="ts"id={2626}data-target="#details-2626" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#AuthenticationProviderInformation">AuthenticationProviderInformation</a></span>
 
 <div class="details collapse" id="details-2626">
-<div class="comment"><p>The <a href="#AuthenticationProvider">authenticationProvider</a> that has had its sessions change.</p>
+<div class="comment"><p>The <a href={##AuthenticationProvider}authenticationProvider</a> that has had its sessions change.</p>
 </div>
 </div>
 
@@ -3529,7 +3540,7 @@ are defined by the <a href="#AuthenticationProvider">AuthenticationProvider</a>.
 
 ### <a name="BreakpointsChangeEvent"></a><span class="code-item" id=2497>BreakpointsChangeEvent</span>
 
-<div class="comment"><p>An event describing the changes to the set of <a href="#Breakpoint">breakpoints</a>.</p>
+<div class="comment"><p>An event describing the changes to the set of <a href={##Breakpoint}breakpoints</a>.</p>
 </div>
 
 #### Properties
@@ -3593,7 +3604,7 @@ are defined by the <a href="#AuthenticationProvider">AuthenticationProvider</a>.
 
 <div class="details collapse" id="details-1257">
 <div class="comment"><p>The range at which at which the calls appears. This is relative to the caller
-denoted by <a href="#CallHierarchyIncomingCall.from"><code>this.from</code></a>.</p>
+denoted by <a href={##CallHierarchyIncomingCall.from}<code>this.from</code></a>.</p>
 </div>
 </div>
 
@@ -3659,7 +3670,7 @@ of call hierarchy.</p>
 
 <div class="details collapse" id="details-1246">
 <div class="comment"><p>The range that should be selected and revealed when this symbol is being picked, e.g. the name of a function.
-Must be contained by the <a href="#CallHierarchyItem.range"><code>range</code></a>.</p>
+Must be contained by the <a href={##CallHierarchyItem.range}<code>range</code></a>.</p>
 </div>
 </div>
 
@@ -3708,8 +3719,8 @@ Must be contained by the <a href="#CallHierarchyItem.range"><code>range</code></
 
 <div class="details collapse" id="details-1264">
 <div class="comment"><p>The range at which this item is called. This is the range relative to the caller, e.g the item
-passed to <a href="#CallHierarchyProvider.provideCallHierarchyOutgoingCalls"><code>provideCallHierarchyOutgoingCalls</code></a>
-and not <a href="#CallHierarchyOutgoingCall.to"><code>this.to</code></a>.</p>
+passed to <a href={##CallHierarchyProvider.provideCallHierarchyOutgoingCalls}<code>provideCallHierarchyOutgoingCalls</code></a>
+and not <a href={##CallHierarchyOutgoingCall.to}<code>this.to</code></a>.</p>
 </div>
 </div>
 
@@ -3803,7 +3814,7 @@ signaled by returning <code>undefined</code> or <code>null</code>.</p>
 operation to request cancellation, like cancelling a request
 for completion items because the user continued to type.</p>
 <p>To get an instance of a <code>CancellationToken</code> use a
-<a href="#CancellationTokenSource">CancellationTokenSource</a>.</p>
+<a href={##CancellationTokenSource}CancellationTokenSource</a>.</p>
 </div>
 
 #### Properties
@@ -3818,13 +3829,13 @@ for completion items because the user continued to type.</p>
 <a name="CancellationToken.onCancellationRequested"></a><span class="ts"id={435}data-target="#details-435" data-toggle="collapse"><span class="ident">onCancellationRequested</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-intrinsic">any</a>&gt;</span>
 
 <div class="details collapse" id="details-435">
-<div class="comment"><p>An <a href="#Event">event</a> which fires upon cancellation.</p>
+<div class="comment"><p>An <a href={##Event}event</a> which fires upon cancellation.</p>
 </div>
 </div>
 
 ### <a name="CancellationTokenSource"></a><span class="code-item" id=436>CancellationTokenSource</span>
 
-<div class="comment"><p>A cancellation source creates and controls a <a href="#CancellationToken">cancellation token</a>.</p>
+<div class="comment"><p>A cancellation source creates and controls a <a href={##CancellationToken}cancellation token</a>.</p>
 </div>
 
 #### Properties
@@ -3913,7 +3924,7 @@ opening and closing brackets.</p>
 
 <div class="comment"><p>A code action represents a change that can be performed in code, e.g. to fix a problem or
 to refactor code.</p>
-<p>A CodeAction must set either <a href="#CodeAction.edit"><code>edit</code></a> and/or a <a href="#CodeAction.command"><code>command</code></a>. If both are supplied, the <code>edit</code> is applied first, then the command is executed.</p>
+<p>A CodeAction must set either <a href={##CodeAction.edit"><code>edit</code></a> and/or a <a href="#CodeAction.command}<code>command</code></a>. If both are supplied, the <code>edit</code> is applied first, then the command is executed.</p>
 </div>
 
 #### Constructors
@@ -3922,8 +3933,8 @@ to refactor code.</p>
 
 <div class="details collapse" id="details-597">
 <div class="comment"><p>Creates a new code action.</p>
-<p>A code action must have at least a <a href="#CodeAction.title">title</a> and <a href="#CodeAction.edit">edits</a>
-and/or a <a href="#CodeAction.command">command</a>.</p>
+<p>A code action must have at least a <a href={##CodeAction.title">title</a> and <a href="#CodeAction.edit}edits</a>
+and/or a <a href={##CodeAction.command}command</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -3943,7 +3954,7 @@ and/or a <a href="#CodeAction.command">command</a>.</p>
 <a name="CodeAction.command"></a><span class="ts"id={590}data-target="#details-590" data-toggle="collapse"><span class="ident">command</span><span>?</span><span>: </span><a class="type-ref" href="#Command">Command</a></span>
 
 <div class="details collapse" id="details-590">
-<div class="comment"><p>A <a href="#Command">command</a> this code action executes.</p>
+<div class="comment"><p>A <a href={##Command}command</a> this code action executes.</p>
 <p>If this command throws an exception, VS Code displays the exception message to users in the editor at the
 current cursor position.</p>
 </div>
@@ -3952,7 +3963,7 @@ current cursor position.</p>
 <a name="CodeAction.diagnostics"></a><span class="ts"id={589}data-target="#details-589" data-toggle="collapse"><span class="ident">diagnostics</span><span>?</span><span>: </span><a class="type-ref" href="#Diagnostic">Diagnostic</a>[]</span>
 
 <div class="details collapse" id="details-589">
-<div class="comment"><p><a href="#Diagnostic">Diagnostics</a> that this code action resolves.</p>
+<div class="comment"><p><a href={##Diagnostic}Diagnostics</a> that this code action resolves.</p>
 </div>
 </div>
 
@@ -3961,13 +3972,13 @@ current cursor position.</p>
 <div class="details collapse" id="details-593">
 <div class="comment"><p>Marks that the code action cannot currently be applied.</p>
 <ul>
-<li><p>Disabled code actions are not shown in automatic <a href="https://code.visualstudio.com/docs/editor/editingevolved#_code-action">lightbulb</a>
+<li><p>Disabled code actions are not shown in automatic <a href={#https://code.visualstudio.com/docs/editor/editingevolved#_code-action}lightbulb</a>
 code action menu.</p>
 </li>
 <li><p>Disabled actions are shown as faded out in the code action menu when the user request a more specific type
 of code action, such as refactorings.</p>
 </li>
-<li><p>If the user has a <a href="https://code.visualstudio.com/docs/editor/refactoring#_keybindings-for-code-actions">keybinding</a>
+<li><p>If the user has a <a href={#https://code.visualstudio.com/docs/editor/refactoring#_keybindings-for-code-actions}keybinding</a>
 that auto applies a code action and only a disabled code actions are returned, VS Code will show the user an
 error message with <code>reason</code> in the editor.</p>
 </li>
@@ -3978,7 +3989,7 @@ error message with <code>reason</code> in the editor.</p>
 <a name="CodeAction.edit"></a><span class="ts"id={588}data-target="#details-588" data-toggle="collapse"><span class="ident">edit</span><span>?</span><span>: </span><a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a></span>
 
 <div class="details collapse" id="details-588">
-<div class="comment"><p>A <a href="#WorkspaceEdit">workspace edit</a> this code action performs.</p>
+<div class="comment"><p>A <a href={##WorkspaceEdit}workspace edit</a> this code action performs.</p>
 </div>
 </div>
 
@@ -3995,7 +4006,7 @@ A refactoring should be marked preferred if it is the most reasonable choice of 
 <a name="CodeAction.kind"></a><span class="ts"id={591}data-target="#details-591" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-ref" href="#CodeActionKind">CodeActionKind</a></span>
 
 <div class="details collapse" id="details-591">
-<div class="comment"><p><a href="#CodeActionKind">Kind</a> of the code action.</p>
+<div class="comment"><p><a href={##CodeActionKind}Kind</a> of the code action.</p>
 <p>Used to filter code actions.</p>
 </div>
 </div>
@@ -4010,7 +4021,7 @@ A refactoring should be marked preferred if it is the most reasonable choice of 
 ### <a name="CodeActionContext"></a><span class="code-item" id=583>CodeActionContext</span>
 
 <div class="comment"><p>Contains additional diagnostic information about the context in which
-a <a href="#CodeActionProvider.provideCodeActions">code action</a> is run.</p>
+a <a href={##CodeActionProvider.provideCodeActions}code action</a> is run.</p>
 </div>
 
 #### Properties
@@ -4026,7 +4037,7 @@ a <a href="#CodeActionProvider.provideCodeActions">code action</a> is run.</p>
 
 <div class="details collapse" id="details-585">
 <div class="comment"><p>Requested kind of actions to return.</p>
-<p>Actions not of this kind are filtered out before being shown by the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_code-action">lightbulb</a>.</p>
+<p>Actions not of this kind are filtered out before being shown by the <a href={#https://code.visualstudio.com/docs/editor/editingevolved#_code-action}lightbulb</a>.</p>
 </div>
 </div>
 
@@ -4113,7 +4124,7 @@ can also trigger code actions with a specific kind with the <code>editor.action.
 <div class="details collapse" id="details-567">
 <div class="comment"><p>Base kind for source actions: <code>source</code></p>
 <p>Source code actions apply to the entire file. They must be explicitly requested and will not show in the
-normal <a href="https://code.visualstudio.com/docs/editor/editingevolved#_code-action">lightbulb</a> menu. Source actions
+normal <a href={#https://code.visualstudio.com/docs/editor/editingevolved#_code-action}lightbulb</a> menu. Source actions
 can be run on save using <code>editor.codeActionsOnSave</code> and are also shown in the <code>source</code> context menu.</p>
 </div>
 </div>
@@ -4216,8 +4227,8 @@ but not <code>&quot;unicorn.refactor.extract&quot;</code>, or <code>&quot;refact
 ### <a name="CodeActionProvider"></a><span class="code-item" id=600>CodeActionProvider&lt;T&gt;</span>
 
 <div class="comment"><p>The code action interface defines the contract between extensions and
-the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_code-action">lightbulb</a> feature.</p>
-<p>A code action can be any command that is <a href="#commands.getCommands">known</a> to the system.</p>
+the <a href={#https://code.visualstudio.com/docs/editor/editingevolved#_code-action}lightbulb</a> feature.</p>
+<p>A code action can be any command that is <a href={##commands.getCommands}known</a> to the system.</p>
 </div>
 
 #### Methods
@@ -4250,7 +4261,7 @@ signaled by returning <code>undefined</code>, <code>null</code>, or an empty arr
 <a name="CodeActionProvider.resolveCodeAction"></a><span class="ts"id={609}data-target="#details-609" data-toggle="collapse"><span class="ident">resolveCodeAction</span><span>(</span><span class="ident">codeAction</span><span>: </span><a class="type-intrinsic">T</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-intrinsic">T</a>&gt;</span>
 
 <div class="details collapse" id="details-609">
-<div class="comment"><p>Given a code action fill in its <a href="#CodeAction.edit"><code>edit</code></a>-property. Changes to
+<div class="comment"><p>Given a code action fill in its <a href={##CodeAction.edit}<code>edit</code></a>-property. Changes to
 all other properties, like title, are ignored. A code action that has an edit
 will not be resolved.</p>
 <p><em>Note</em> that a code action provider that returns commands, not code actions, cannot successfully
@@ -4274,7 +4285,7 @@ returned.</p>
 
 ### <a name="CodeActionProviderMetadata"></a><span class="code-item" id=612>CodeActionProviderMetadata</span>
 
-<div class="comment"><p>Metadata about the type of code actions that a <a href="#CodeActionProvider">CodeActionProvider</a> provides.</p>
+<div class="comment"><p>Metadata about the type of code actions that a <a href={##CodeActionProvider}CodeActionProvider</a> provides.</p>
 </div>
 
 #### Properties
@@ -4300,7 +4311,7 @@ VS Code will use the documentation for <code>RefactorExtract</code> instead of t
 <a name="CodeActionProviderMetadata.providedCodeActionKinds"></a><span class="ts"id={613}data-target="#details-613" data-toggle="collapse"><span class="ident">providedCodeActionKinds</span><span>?</span><span>: </span><a class="type-ref" href="#ReadonlyArray">ReadonlyArray</a>&lt;<a class="type-ref" href="#CodeActionKind">CodeActionKind</a>&gt;</span>
 
 <div class="details collapse" id="details-613">
-<div class="comment"><p>List of <a href="#CodeActionKind">CodeActionKinds</a> that a <a href="#CodeActionProvider">CodeActionProvider</a> may return.</p>
+<div class="comment"><p>List of <a href={##CodeActionKind">CodeActionKinds</a> that a <a href="#CodeActionProvider}CodeActionProvider</a> may return.</p>
 <p>This list is used to determine if a given <code>CodeActionProvider</code> should be invoked or not.
 To avoid unnecessary computation, every <code>CodeActionProvider</code> should list use <code>providedCodeActionKinds</code>. The
 list of kinds may either be generic, such as <code>[CodeActionKind.Refactor]</code>, or list out every kind provided,
@@ -4310,15 +4321,15 @@ such as <code>[CodeActionKind.Refactor.Extract.append(&#39;function&#39;), CodeA
 
 ### <a name="CodeLens"></a><span class="code-item" id=618>CodeLens</span>
 
-<div class="comment"><p>A code lens represents a <a href="#Command">command</a> that should be shown along with
+<div class="comment"><p>A code lens represents a <a href={##Command}command</a> that should be shown along with
 source text, like the number of references, a way to run tests, etc.</p>
 <p>A code lens is <em>unresolved</em> when no command is associated to it. For performance
 reasons the creation of a code lens and resolving should be done to two stages.</p>
 <ul>
-<li><em>see</em> - <a href="#CodeLensProvider.provideCodeLenses">CodeLensProvider.provideCodeLenses</a></li>
+<li><em>see</em> - <a href={##CodeLensProvider.provideCodeLenses}CodeLensProvider.provideCodeLenses</a></li>
 </ul>
 <ul>
-<li><em>see</em> - <a href="#CodeLensProvider.resolveCodeLens">CodeLensProvider.resolveCodeLens</a></li>
+<li><em>see</em> - <a href={##CodeLensProvider.resolveCodeLens}CodeLensProvider.resolveCodeLens</a></li>
 </ul>
 </div>
 
@@ -4367,7 +4378,7 @@ reasons the creation of a code lens and resolving should be done to two stages.<
 
 ### <a name="CodeLensProvider"></a><span class="code-item" id=626>CodeLensProvider&lt;T&gt;</span>
 
-<div class="comment"><p>A code lens provider adds <a href="#Command">commands</a> to source text. The commands will be shown
+<div class="comment"><p>A code lens provider adds <a href={##Command}commands</a> to source text. The commands will be shown
 as dedicated horizontal lines in between the source text.</p>
 </div>
 
@@ -4385,9 +4396,9 @@ as dedicated horizontal lines in between the source text.</p>
 <a name="CodeLensProvider.provideCodeLenses"></a><span class="ts"id={630}data-target="#details-630" data-toggle="collapse"><span class="ident">provideCodeLenses</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-intrinsic">T</a>[]&gt;</span>
 
 <div class="details collapse" id="details-630">
-<div class="comment"><p>Compute a list of <a href="#CodeLens">lenses</a>. This call should return as fast as possible and if
+<div class="comment"><p>Compute a list of <a href={##CodeLens}lenses</a>. This call should return as fast as possible and if
 computing the commands is expensive implementors should only return code lens objects with the
-range set and implement <a href="#CodeLensProvider.resolveCodeLens">resolve</a>.</p>
+range set and implement <a href={##CodeLensProvider.resolveCodeLens}resolve</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -4408,7 +4419,7 @@ signaled by returning <code>undefined</code>, <code>null</code>, or an empty arr
 
 <div class="details collapse" id="details-634">
 <div class="comment"><p>This function will be called for each visible code lens, usually when scrolling and after
-calls to <a href="#CodeLensProvider.provideCodeLenses">compute</a>-lenses.</p>
+calls to <a href={##CodeLensProvider.provideCodeLenses}compute</a>-lenses.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -4526,7 +4537,7 @@ calls to <a href="#CodeLensProvider.provideCodeLenses">compute</a>-lenses.</p>
 
 ### <a name="ColorPresentation"></a><span class="code-item" id=1186>ColorPresentation</span>
 
-<div class="comment"><p>A color presentation object describes how a <a href="#Color"><code>color</code></a> should be represented as text and what
+<div class="comment"><p>A color presentation object describes how a <a href={##Color}<code>color</code></a> should be represented as text and what
 edits are required to refer to it from source code.</p>
 <p>For some languages one color can have multiple presentations, e.g. css can represent the color red with
 the constant <code>Red</code>, the hex-value <code>#ff0000</code>, or in rgba and hsla forms. In csharp other representations
@@ -4556,8 +4567,8 @@ apply, e.g. <code>System.Drawing.Color.Red</code>.</p>
 <a name="ColorPresentation.additionalTextEdits"></a><span class="ts"id={1189}data-target="#details-1189" data-toggle="collapse"><span class="ident">additionalTextEdits</span><span>?</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a>[]</span>
 
 <div class="details collapse" id="details-1189">
-<div class="comment"><p>An optional array of additional <a href="#TextEdit">text edits</a> that are applied when
-selecting this color presentation. Edits must not overlap with the main <a href="#ColorPresentation.textEdit">edit</a> nor with themselves.</p>
+<div class="comment"><p>An optional array of additional <a href={##TextEdit}text edits</a> that are applied when
+selecting this color presentation. Edits must not overlap with the main <a href={##ColorPresentation.textEdit}edit</a> nor with themselves.</p>
 </div>
 </div>
 
@@ -4573,8 +4584,8 @@ this color presentation.</p>
 <a name="ColorPresentation.textEdit"></a><span class="ts"id={1188}data-target="#details-1188" data-toggle="collapse"><span class="ident">textEdit</span><span>?</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a></span>
 
 <div class="details collapse" id="details-1188">
-<div class="comment"><p>An <a href="#TextEdit">edit</a> which is applied to a document when selecting
-this presentation for the color.  When <code>falsy</code> the <a href="#ColorPresentation.label">label</a>
+<div class="comment"><p>An <a href={##TextEdit}edit</a> which is applied to a document when selecting
+this presentation for the color.  When <code>falsy</code> the <a href={##ColorPresentation.label}label</a>
 is used.</p>
 </div>
 </div>
@@ -4641,7 +4652,7 @@ invoked with.</p>
 <div class="details collapse" id="details-28">
 <div class="comment"><p>The identifier of the actual command handler.</p>
 <ul>
-<li><em>see</em> - <a href="#commands.registerCommand">commands.registerCommand</a>.</li>
+<li><em>see</em> - <a href={##commands.registerCommand}commands.registerCommand</a>.</li>
 </ul>
 </div>
 </div>
@@ -4670,7 +4681,7 @@ invoked with.</p>
 <a name="Comment.author"></a><span class="ts"id={2579}data-target="#details-2579" data-toggle="collapse"><span class="ident">author</span><span>: </span><a class="type-ref" href="#CommentAuthorInformation">CommentAuthorInformation</a></span>
 
 <div class="details collapse" id="details-2579">
-<div class="comment"><p>The <a href="#CommentAuthorInformation">author information</a> of the comment</p>
+<div class="comment"><p>The <a href={##CommentAuthorInformation}author information</a> of the comment</p>
 </div>
 </div>
 
@@ -4688,7 +4699,8 @@ invoked with.</p>
 For example, a comment is given a context value as <code>editable</code>. When contributing actions to <code>comments/comment/title</code>
 using <code>menus</code> extension point, you can specify context value for key <code>comment</code> in <code>when</code> expression like <code>comment == editable</code>.</p>
 
-<pre><code class="lang-json">    &quot;contributes&quot;: {
+```json
+    &quot;contributes&quot;: {
         &quot;menus&quot;: {
             &quot;comments/comment/title&quot;: [
                 {
@@ -4698,7 +4710,7 @@ using <code>menus</code> extension point, you can specify context value for key 
             ]
         }
     }
-</code></pre>
+```
 <p>This will show action <code>extension.deleteComment</code> only for comments with <code>contextValue</code> is <code>editable</code>.</p>
 </div>
 </div>
@@ -4706,7 +4718,7 @@ using <code>menus</code> extension point, you can specify context value for key 
 <a name="Comment.label"></a><span class="ts"id={2582}data-target="#details-2582" data-toggle="collapse"><span class="ident">label</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
 
 <div class="details collapse" id="details-2582">
-<div class="comment"><p>Optional label describing the <a href="#Comment">Comment</a>
+<div class="comment"><p>Optional label describing the <a href={##Comment}Comment</a>
 Label will be rendered next to authorName if exists.</p>
 </div>
 </div>
@@ -4714,20 +4726,20 @@ Label will be rendered next to authorName if exists.</p>
 <a name="Comment.mode"></a><span class="ts"id={2578}data-target="#details-2578" data-toggle="collapse"><span class="ident">mode</span><span>: </span><a class="type-ref" href="#CommentMode">CommentMode</a></span>
 
 <div class="details collapse" id="details-2578">
-<div class="comment"><p><a href="#CommentMode">Comment mode</a> of the comment</p>
+<div class="comment"><p><a href={##CommentMode}Comment mode</a> of the comment</p>
 </div>
 </div>
 
 <a name="Comment.reactions"></a><span class="ts"id={2581}data-target="#details-2581" data-toggle="collapse"><span class="ident">reactions</span><span>?</span><span>: </span><a class="type-ref" href="#CommentReaction">CommentReaction</a>[]</span>
 
 <div class="details collapse" id="details-2581">
-<div class="comment"><p>Optional reactions of the <a href="#Comment">comment</a></p>
+<div class="comment"><p>Optional reactions of the <a href={##Comment}comment</a></p>
 </div>
 </div>
 
 ### <a name="CommentAuthorInformation"></a><span class="code-item" id=2568>CommentAuthorInformation</span>
 
-<div class="comment"><p>Author information of a <a href="#Comment">comment</a></p>
+<div class="comment"><p>Author information of a <a href={##Comment}comment</a></p>
 </div>
 
 #### Properties
@@ -4748,7 +4760,7 @@ Label will be rendered next to authorName if exists.</p>
 
 ### <a name="CommentController"></a><span class="code-item" id=2594>CommentController</span>
 
-<div class="comment"><p>A comment controller is able to provide <a href="#CommentThread">comments</a> support to the editor and
+<div class="comment"><p>A comment controller is able to provide <a href={##CommentThread}comments</a> support to the editor and
 provide users various ways to interact with comments.</p>
 </div>
 
@@ -4757,7 +4769,7 @@ provide users various ways to interact with comments.</p>
 <a name="CommentController.commentingRangeProvider"></a><span class="ts"id={2598}data-target="#details-2598" data-toggle="collapse"><span class="ident">commentingRangeProvider</span><span>?</span><span>: </span><a class="type-ref" href="#CommentingRangeProvider">CommentingRangeProvider</a></span>
 
 <div class="details collapse" id="details-2598">
-<div class="comment"><p>Optional commenting range provider. Provide a list <a href="#Range">ranges</a> which support commenting to any given resource uri.</p>
+<div class="comment"><p>Optional commenting range provider. Provide a list <a href={##Range}ranges</a> which support commenting to any given resource uri.</p>
 <p>If not provided, users can leave comments in any document opened in the editor.</p>
 </div>
 </div>
@@ -4786,7 +4798,7 @@ provide users various ways to interact with comments.</p>
 <a name="CommentController.reactionHandler"></a><span class="ts"id={2604}data-target="#details-2604" data-toggle="collapse"><span class="ident">reactionHandler</span><span>?</span><span>: </span>(comment: <a class="type-ref" href="#Comment">Comment</a>, reaction: <a class="type-ref" href="#CommentReaction">CommentReaction</a>) =&gt; <a class="type-ref" href="#Promise">Promise</a>&lt;<a class="type-intrinsic">void</a>&gt;</span>
 
 <div class="details collapse" id="details-2604">
-<div class="comment"><p>Optional reaction handler for creating and deleting reactions on a <a href="#Comment">comment</a>.</p>
+<div class="comment"><p>Optional reaction handler for creating and deleting reactions on a <a href={##Comment}comment</a>.</p>
 </div>
 </div>
 
@@ -4795,7 +4807,7 @@ provide users various ways to interact with comments.</p>
 <a name="CommentController.createCommentThread"></a><span class="ts"id={2600}data-target="#details-2600" data-toggle="collapse"><span class="ident">createCommentThread</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">comments</span><span>: </span><a class="type-ref" href="#Comment">Comment</a>[]<span>)</span><span>: </span><a class="type-ref" href="#CommentThread">CommentThread</a></span>
 
 <div class="details collapse" id="details-2600">
-<div class="comment"><p>Create a <a href="#CommentThread">comment thread</a>. The comment thread will be displayed in visible text editors (if the resource matches)
+<div class="comment"><p>Create a <a href={##CommentThread}comment thread</a>. The comment thread will be displayed in visible text editors (if the resource matches)
 and Comments Panel once created.</p>
 </div>
 <div class="signature">
@@ -4817,7 +4829,7 @@ and Comments Panel once created.</p>
 
 <div class="details collapse" id="details-2610">
 <div class="comment"><p>Dispose this comment controller.</p>
-<p>Once disposed, all <a href="#CommentThread">comment threads</a> created by this comment controller will also be removed from the editor
+<p>Once disposed, all <a href={##CommentThread}comment threads</a> created by this comment controller will also be removed from the editor
 and Comments Panel.</p>
 </div>
 <div class="signature">
@@ -4830,7 +4842,7 @@ and Comments Panel.</p>
 
 ### <a name="CommentingRangeProvider"></a><span class="code-item" id=2586>CommentingRangeProvider</span>
 
-<div class="comment"><p>Commenting range provider for a <a href="#CommentController">comment controller</a>.</p>
+<div class="comment"><p>Commenting range provider for a <a href={##CommentController}comment controller</a>.</p>
 </div>
 
 #### Methods
@@ -4853,7 +4865,7 @@ and Comments Panel.</p>
 
 ### <a name="CommentMode"></a><span class="code-item" id=2555>CommentMode</span>
 
-<div class="comment"><p>Comment mode of a <a href="#Comment">comment</a></p>
+<div class="comment"><p>Comment mode of a <a href={##Comment}comment</a></p>
 </div>
 
 #### Enumeration members
@@ -4872,7 +4884,7 @@ and Comments Panel.</p>
 
 ### <a name="CommentOptions"></a><span class="code-item" id=2591>CommentOptions</span>
 
-<div class="comment"><p>Represents a <a href="#CommentController">comment controller</a>&#39;s <a href="#CommentController.options">options</a>.</p>
+<div class="comment"><p>Represents a <a href={##CommentController">comment controller</a>&#39;s <a href="#CommentController.options}options</a>.</p>
 </div>
 
 #### Properties
@@ -4893,7 +4905,7 @@ and Comments Panel.</p>
 
 ### <a name="CommentReaction"></a><span class="code-item" id=2571>CommentReaction</span>
 
-<div class="comment"><p>Reactions of a <a href="#Comment">comment</a></p>
+<div class="comment"><p>Reactions of a <a href={##Comment}comment</a></p>
 </div>
 
 #### Properties
@@ -4901,7 +4913,7 @@ and Comments Panel.</p>
 <a name="CommentReaction.authorHasReacted"></a><span class="ts"id={2575}data-target="#details-2575" data-toggle="collapse"><span class="ident">authorHasReacted</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 
 <div class="details collapse" id="details-2575">
-<div class="comment"><p>Whether the <a href="CommentAuthorInformation">author</a> of the comment has reacted to this reaction</p>
+<div class="comment"><p>Whether the <a href={#CommentAuthorInformation}author</a> of the comment has reacted to this reaction</p>
 </div>
 </div>
 
@@ -4943,7 +4955,7 @@ and Comments Panel.</p>
 <a name="CommentReply.thread"></a><span class="ts"id={2584}data-target="#details-2584" data-toggle="collapse"><span class="ident">thread</span><span>: </span><a class="type-ref" href="#CommentThread">CommentThread</a></span>
 
 <div class="details collapse" id="details-2584">
-<div class="comment"><p>The active <a href="#CommentThread">comment thread</a></p>
+<div class="comment"><p>The active <a href={##CommentThread}comment thread</a></p>
 </div>
 </div>
 
@@ -4970,7 +4982,7 @@ and Comments Panel.</p>
 
 ### <a name="CommentThread"></a><span class="code-item" id=2558>CommentThread</span>
 
-<div class="comment"><p>A collection of <a href="#Comment">comments</a> representing a conversation at a particular range in a document.</p>
+<div class="comment"><p>A collection of <a href={##Comment}comments</a> representing a conversation at a particular range in a document.</p>
 </div>
 
 #### Properties
@@ -5015,14 +5027,14 @@ using <code>menus</code> extension point, you can specify context value for key 
             ]
         }
     }
-</code></pre><p>This will show action <code>extension.deleteCommentThread</code> only for comment threads with <code>contextValue</code> is <code>editable</code>.</p>
+```<p>This will show action <code>extension.deleteCommentThread</code> only for comment threads with <code>contextValue</code> is <code>editable</code>.</p>
 </div>
 </div>
 
 <a name="CommentThread.label"></a><span class="ts"id={2565}data-target="#details-2565" data-toggle="collapse"><span class="ident">label</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
 
 <div class="details collapse" id="details-2565">
-<div class="comment"><p>The optional human-readable label describing the <a href="#CommentThread">Comment Thread</a></p>
+<div class="comment"><p>The optional human-readable label describing the <a href={##CommentThread}Comment Thread</a></p>
 </div>
 </div>
 
@@ -5059,7 +5071,7 @@ at the first line of the range.</p>
 
 ### <a name="CommentThreadCollapsibleState"></a><span class="code-item" id=2552>CommentThreadCollapsibleState</span>
 
-<div class="comment"><p>Collapsible state of a <a href="#CommentThread">comment thread</a></p>
+<div class="comment"><p>Collapsible state of a <a href={##CommentThread}comment thread</a></p>
 </div>
 
 #### Enumeration members
@@ -5079,7 +5091,7 @@ at the first line of the range.</p>
 ### <a name="CompletionContext"></a><span class="code-item" id=1135>CompletionContext</span>
 
 <div class="comment"><p>Contains additional information about the context in which
-<a href="#CompletionItemProvider.provideCompletionItems">completion provider</a> is triggered.</p>
+<a href={##CompletionItemProvider.provideCompletionItems}completion provider</a> is triggered.</p>
 </div>
 
 #### Properties
@@ -5103,18 +5115,18 @@ at the first line of the range.</p>
 ### <a name="CompletionItem"></a><span class="code-item" id=1100>CompletionItem</span>
 
 <div class="comment"><p>A completion item represents a text snippet that is proposed to complete text that is being typed.</p>
-<p>It is sufficient to create a completion item from just a <a href="#CompletionItem.label">label</a>. In that
-case the completion item will replace the <a href="#TextDocument.getWordRangeAtPosition">word</a>
-until the cursor with the given label or <a href="#CompletionItem.insertText">insertText</a>. Otherwise the
-given <a href="#CompletionItem.textEdit">edit</a> is used.</p>
+<p>It is sufficient to create a completion item from just a <a href={##CompletionItem.label}label</a>. In that
+case the completion item will replace the <a href={##TextDocument.getWordRangeAtPosition}word</a>
+until the cursor with the given label or <a href={##CompletionItem.insertText}insertText</a>. Otherwise the
+given <a href={##CompletionItem.textEdit}edit</a> is used.</p>
 <p>When selecting a completion item in the editor its defined or synthesized text edit will be applied
-to <em>all</em> cursors/selections whereas <a href="#CompletionItem.additionalTextEdits">additionalTextEdits</a> will be
+to <em>all</em> cursors/selections whereas <a href={##CompletionItem.additionalTextEdits}additionalTextEdits</a> will be
 applied as provided.</p>
 <ul>
-<li><em>see</em> - <a href="#CompletionItemProvider.provideCompletionItems">CompletionItemProvider.provideCompletionItems</a></li>
+<li><em>see</em> - <a href={##CompletionItemProvider.provideCompletionItems}CompletionItemProvider.provideCompletionItems</a></li>
 </ul>
 <ul>
-<li><em>see</em> - <a href="#CompletionItemProvider.resolveCompletionItem">CompletionItemProvider.resolveCompletionItem</a></li>
+<li><em>see</em> - <a href={##CompletionItemProvider.resolveCompletionItem}CompletionItemProvider.resolveCompletionItem</a></li>
 </ul>
 </div>
 
@@ -5124,7 +5136,7 @@ applied as provided.</p>
 
 <div class="details collapse" id="details-1120">
 <div class="comment"><p>Creates a new completion item.</p>
-<p>Completion items must have at least a <a href="#CompletionItem.label">label</a> which then
+<p>Completion items must have at least a <a href={##CompletionItem.label}label</a> which then
 will be used as insert text as well as for sorting and filtering.</p>
 </div>
 <div class="signature">
@@ -5132,7 +5144,7 @@ will be used as insert text as well as for sorting and filtering.</p>
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="label"></a><span class="ts"id={1121}data-target="#details-1121" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The label of the completion.</p>
 </div></td></tr>
-<tr><td><a name="kind"></a><span class="ts"id={1122}data-target="#details-1122" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-ref" href="#CompletionItemKind">CompletionItemKind</a></span></td><td><div class="comment"><p>The <a href="#CompletionItemKind">kind</a> of the completion.</p>
+<tr><td><a name="kind"></a><span class="ts"id={1122}data-target="#details-1122" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-ref" href="#CompletionItemKind">CompletionItemKind</a></span></td><td><div class="comment"><p>The <a href={##CompletionItemKind}kind</a> of the completion.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#CompletionItem">CompletionItem</a></span></td><td><div class="comment"></div></td></tr>
@@ -5145,8 +5157,8 @@ will be used as insert text as well as for sorting and filtering.</p>
 <a name="CompletionItem.additionalTextEdits"></a><span class="ts"id={1117}data-target="#details-1117" data-toggle="collapse"><span class="ident">additionalTextEdits</span><span>?</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a>[]</span>
 
 <div class="details collapse" id="details-1117">
-<div class="comment"><p>An optional array of additional <a href="#TextEdit">text edits</a> that are applied when
-selecting this completion. Edits must not overlap with the main <a href="#CompletionItem.textEdit">edit</a>
+<div class="comment"><p>An optional array of additional <a href={##TextEdit}text edits</a> that are applied when
+selecting this completion. Edits must not overlap with the main <a href={##CompletionItem.textEdit}edit</a>
 nor with themselves.</p>
 </div>
 </div>
@@ -5154,9 +5166,9 @@ nor with themselves.</p>
 <a name="CompletionItem.command"></a><span class="ts"id={1118}data-target="#details-1118" data-toggle="collapse"><span class="ident">command</span><span>?</span><span>: </span><a class="type-ref" href="#Command">Command</a></span>
 
 <div class="details collapse" id="details-1118">
-<div class="comment"><p>An optional <a href="#Command">command</a> that is executed <em>after</em> inserting this completion. <em>Note</em> that
+<div class="comment"><p>An optional <a href={##Command}command</a> that is executed <em>after</em> inserting this completion. <em>Note</em> that
 additional modifications to the current document should be described with the
-<a href="#CompletionItem.additionalTextEdits">additionalTextEdits</a>-property.</p>
+<a href={##CompletionItem.additionalTextEdits}additionalTextEdits</a>-property.</p>
 </div>
 </div>
 
@@ -5188,10 +5200,10 @@ about this item, like type or symbol information.</p>
 
 <div class="details collapse" id="details-1107">
 <div class="comment"><p>A string that should be used when filtering a set of
-completion items. When <code>falsy</code> the <a href="#CompletionItem.label">label</a>
+completion items. When <code>falsy</code> the <a href={##CompletionItem.label}label</a>
 is used.</p>
 <p>Note that the filter text is matched against the leading word (prefix) which is defined
-by the <a href="#CompletionItem.range"><code>range</code></a>-property.
+by the <a href={##CompletionItem.range}<code>range</code></a>-property.
 prefix.</p>
 </div>
 </div>
@@ -5200,7 +5212,7 @@ prefix.</p>
 
 <div class="details collapse" id="details-1109">
 <div class="comment"><p>A string or snippet that should be inserted in a document when selecting
-this completion. When <code>falsy</code> the <a href="#CompletionItem.label">label</a>
+this completion. When <code>falsy</code> the <a href={##CompletionItem.label}label</a>
 is used.</p>
 </div>
 </div>
@@ -5208,7 +5220,7 @@ is used.</p>
 <a name="CompletionItem.keepWhitespace"></a><span class="ts"id={1115}data-target="#details-1115" data-toggle="collapse"><span class="ident">keepWhitespace</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 
 <div class="details collapse" id="details-1115">
-<div class="comment"><p>Keep whitespace of the <a href="#CompletionItem.insertText">insertText</a> as is. By default, the editor adjusts leading
+<div class="comment"><p>Keep whitespace of the <a href={##CompletionItem.insertText}insertText</a> as is. By default, the editor adjusts leading
 whitespace of new lines so that they match the indentation of the line for which the item is accepted - setting
 this to <code>true</code> will prevent that.</p>
 </div>
@@ -5244,11 +5256,11 @@ that match best is selected.</p>
 
 <div class="details collapse" id="details-1110">
 <div class="comment"><p>A range or a insert and replace range selecting the text that should be replaced by this completion item.</p>
-<p>When omitted, the range of the <a href="#TextDocument.getWordRangeAtPosition">current word</a> is used as replace-range
-and as insert-range the start of the <a href="#TextDocument.getWordRangeAtPosition">current word</a> to the
+<p>When omitted, the range of the <a href={##TextDocument.getWordRangeAtPosition}current word</a> is used as replace-range
+and as insert-range the start of the <a href={##TextDocument.getWordRangeAtPosition}current word</a> to the
 current position is used.</p>
-<p><em>Note 1:</em> A range must be a <a href="#Range.isSingleLine">single line</a> and it must
-<a href="#Range.contains">contain</a> the position at which completion has been <a href="#CompletionItemProvider.provideCompletionItems">requested</a>.
+<p><em>Note 1:</em> A range must be a <a href={##Range.isSingleLine}single line</a> and it must
+<a href={##Range.contains">contain</a> the position at which completion has been <a href="#CompletionItemProvider.provideCompletionItems}requested</a>.
 <em>Note 2:</em> A insert range must be a prefix of a replace range, that means it must be contained and starting at the same position.</p>
 </div>
 </div>
@@ -5257,13 +5269,13 @@ current position is used.</p>
 
 <div class="details collapse" id="details-1106">
 <div class="comment"><p>A string that should be used when comparing this item
-with other items. When <code>falsy</code> the <a href="#CompletionItem.label">label</a>
+with other items. When <code>falsy</code> the <a href={##CompletionItem.label}label</a>
 is used.</p>
 <p>Note that <code>sortText</code> is only used for the initial ordering of completion
 items. When having a leading word (prefix) ordering is based on how
 well completion match that prefix and the initial ordering is only used
 when completions match equal. The prefix is defined by the
-<a href="#CompletionItem.range"><code>range</code></a>-property and can therefore be different
+<a href={##CompletionItem.range}<code>range</code></a>-property and can therefore be different
 for each completion.</p>
 </div>
 </div>
@@ -5281,11 +5293,11 @@ for each completion.</p>
 <div class="comment"><ul>
 <li><em>deprecated</em> - Use <code>CompletionItem.insertText</code> and <code>CompletionItem.range</code> instead.</li>
 </ul>
-<p>An <a href="#TextEdit">edit</a> which is applied to a document when selecting
+<p>An <a href={##TextEdit}edit</a> which is applied to a document when selecting
 this completion. When an edit is provided the value of
-<a href="#CompletionItem.insertText">insertText</a> is ignored.</p>
-<p>The <a href="#Range">range</a> of the edit must be single-line and on the same
-line completions were <a href="#CompletionItemProvider.provideCompletionItems">requested</a> at.</p>
+<a href={##CompletionItem.insertText}insertText</a> is ignored.</p>
+<p>The <a href={##Range}range</a> of the edit must be single-line and on the same
+line completions were <a href={##CompletionItemProvider.provideCompletionItems}requested</a> at.</p>
 </div>
 </div>
 
@@ -5461,10 +5473,10 @@ line completions were <a href="#CompletionItemProvider.provideCompletionItems">r
 ### <a name="CompletionItemProvider"></a><span class="code-item" id=1138>CompletionItemProvider&lt;T&gt;</span>
 
 <div class="comment"><p>The completion item provider interface defines the contract between extensions and
-<a href="https://code.visualstudio.com/docs/editor/intellisense">IntelliSense</a>.</p>
-<p>Providers can delay the computation of the <a href="#CompletionItem.detail"><code>detail</code></a>
-and <a href="#CompletionItem.documentation"><code>documentation</code></a> properties by implementing the
-<a href="#CompletionItemProvider.resolveCompletionItem"><code>resolveCompletionItem</code></a>-function. However, properties that
+<a href={#https://code.visualstudio.com/docs/editor/intellisense}IntelliSense</a>.</p>
+<p>Providers can delay the computation of the <a href={##CompletionItem.detail}<code>detail</code></a>
+and <a href={##CompletionItem.documentation}<code>documentation</code></a> properties by implementing the
+<a href={##CompletionItemProvider.resolveCompletionItem}<code>resolveCompletionItem</code></a>-function. However, properties that
 are needed for the initial sorting and filtering, like <code>sortText</code>, <code>filterText</code>, <code>insertText</code>, and <code>range</code>, must
 not be changed during resolve.</p>
 <p>Providers are asked for completions either explicitly by a user gesture or -depending on the configuration-
@@ -5490,7 +5502,7 @@ implicitly when typing words or trigger characters.</p>
 <tr><td><a name="context"></a><span class="ts"id={1145}data-target="#details-1145" data-toggle="collapse"><span class="ident">context</span><span>: </span><a class="type-ref" href="#CompletionContext">CompletionContext</a></span></td><td><div class="comment"><p>How the completion was triggered.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-intrinsic">T</a>[] &#124; <a class="type-ref" href="#CompletionList">CompletionList</a>&lt;<a class="type-intrinsic">T</a>&gt;&gt;</span></td><td><div class="comment"><p>An array of completions, a <a href="#CompletionList">completion list</a>, or a thenable that resolves to either.
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-intrinsic">T</a>[] &#124; <a class="type-ref" href="#CompletionList">CompletionList</a>&lt;<a class="type-intrinsic">T</a>&gt;&gt;</span></td><td><div class="comment"><p>An array of completions, a <a href={##CompletionList}completion list</a>, or a thenable that resolves to either.
 The lack of a result can be signaled by returning <code>undefined</code>, <code>null</code>, or an empty array.</p>
 </div></td></tr>
 </table>
@@ -5500,13 +5512,13 @@ The lack of a result can be signaled by returning <code>undefined</code>, <code>
 <a name="CompletionItemProvider.resolveCompletionItem"></a><span class="ts"id={1147}data-target="#details-1147" data-toggle="collapse"><span class="ident">resolveCompletionItem</span><span>(</span><span class="ident">item</span><span>: </span><a class="type-intrinsic">T</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-intrinsic">T</a>&gt;</span>
 
 <div class="details collapse" id="details-1147">
-<div class="comment"><p>Given a completion item fill in more data, like <a href="#CompletionItem.documentation">doc-comment</a>
-or <a href="#CompletionItem.detail">details</a>.</p>
+<div class="comment"><p>Given a completion item fill in more data, like <a href={##CompletionItem.documentation}doc-comment</a>
+or <a href={##CompletionItem.detail}details</a>.</p>
 <p>The editor will only resolve a completion item once.</p>
 <p><em>Note</em> that this function is called when completion items are already showing in the UI or when an item has been
 selected for insertion. Because of that, no property that changes the presentation (label, sorting, filtering etc)
-or the (primary) insert behaviour (<a href="#CompletionItem.insertText">insertText</a>) can be changed.</p>
-<p>This function may fill in <a href="#CompletionItem.additionalTextEdits">additionalTextEdits</a>. However, that means an item might be
+or the (primary) insert behaviour (<a href={##CompletionItem.insertText}insertText</a>) can be changed.</p>
+<p>This function may fill in <a href={##CompletionItem.additionalTextEdits}additionalTextEdits</a>. However, that means an item might be
 inserted <em>before</em> resolving is done and in that case the editor will do a best effort to still apply those additional
 text edits.</p>
 </div>
@@ -5541,7 +5553,7 @@ item.</p>
 
 ### <a name="CompletionList"></a><span class="code-item" id=1123>CompletionList&lt;T&gt;</span>
 
-<div class="comment"><p>Represents a collection of <a href="#CompletionItem">completion items</a> to be presented
+<div class="comment"><p>Represents a collection of <a href={##CompletionItem}completion items</a> to be presented
 in the editor.</p>
 </div>
 
@@ -5584,7 +5596,7 @@ this list.</p>
 
 ### <a name="CompletionTriggerKind"></a><span class="code-item" id=1131>CompletionTriggerKind</span>
 
-<div class="comment"><p>How a <a href="#CompletionItemProvider">completion provider</a> was triggered</p>
+<div class="comment"><p>How a <a href={##CompletionItemProvider}completion provider</a> was triggered</p>
 </div>
 
 #### Enumeration members
@@ -5638,8 +5650,8 @@ If scope is provided, checks if the section has changed for resources under the 
 
 <div class="comment"><p>The configuration scope which can be a
 a &#39;resource&#39; or a languageId or both or
-a &#39;<a href="#TextDocument">TextDocument</a>&#39; or
-a &#39;<a href="#WorkspaceFolder">WorkspaceFolder</a>&#39;</p>
+a &#39;<a href={##TextDocument}TextDocument</a>&#39; or
+a &#39;<a href={##WorkspaceFolder}WorkspaceFolder</a>&#39;</p>
 </div>
 
 <a name="ConfigurationScope"></a><span class="ts"id={2997}data-target="#details-2997" data-toggle="collapse"><span class="ident">ConfigurationScope</span><span>: </span><a class="type-ref" href="#Uri">Uri</a> &#124; <a class="type-ref" href="#TextDocument">TextDocument</a> &#124; <a class="type-ref" href="#WorkspaceFolder">WorkspaceFolder</a> &#124; {languageId: <a class="type-intrinsic">string</a>, uri: <a class="type-ref" href="#Uri">Uri</a>}</span>
@@ -5671,7 +5683,7 @@ a &#39;<a href="#WorkspaceFolder">WorkspaceFolder</a>&#39;</p>
 
 ### <a name="CustomDocument"></a><span class="code-item" id=1943>CustomDocument</span>
 
-<div class="comment"><p>Represents a custom document used by a <a href="#CustomEditorProvider"><code>CustomEditorProvider</code></a>.</p>
+<div class="comment"><p>Represents a custom document used by a <a href={##CustomEditorProvider}<code>CustomEditorProvider</code></a>.</p>
 <p>Custom documents are only used within a given <code>CustomEditorProvider</code>. The lifecycle of a <code>CustomDocument</code> is
 managed by VS Code. When no more references remain to a <code>CustomDocument</code>, it is disposed of.</p>
 </div>
@@ -5704,7 +5716,7 @@ all editors associated with the document have been closed.)</p>
 
 ### <a name="CustomDocumentBackup"></a><span class="code-item" id=1958>CustomDocumentBackup</span>
 
-<div class="comment"><p>A backup for an <a href="#CustomDocument"><code>CustomDocument</code></a>.</p>
+<div class="comment"><p>A backup for an <a href={##CustomDocument}<code>CustomDocument</code></a>.</p>
 </div>
 
 #### Properties
@@ -5736,7 +5748,7 @@ is made or when the file is saved.</p>
 
 ### <a name="CustomDocumentBackupContext"></a><span class="code-item" id=1962>CustomDocumentBackupContext</span>
 
-<div class="comment"><p>Additional information used to implement <a href="#CustomEditableDocument.backup"><code>CustomEditableDocument.backup</code></a>.</p>
+<div class="comment"><p>Additional information used to implement <a href={##CustomEditableDocument.backup}<code>CustomEditableDocument.backup</code></a>.</p>
 </div>
 
 #### Properties
@@ -5754,10 +5766,10 @@ before writing the backup to this location.</p>
 
 ### <a name="CustomDocumentContentChangeEvent"></a><span class="code-item" id=1955>CustomDocumentContentChangeEvent&lt;T&gt;</span>
 
-<div class="comment"><p>Event triggered by extensions to signal to VS Code that the content of a <a href="#CustomDocument"><code>CustomDocument</code></a>
+<div class="comment"><p>Event triggered by extensions to signal to VS Code that the content of a <a href={##CustomDocument}<code>CustomDocument</code></a>
 has changed.</p>
 <ul>
-<li><em>see</em> - <a href="#CustomDocumentProvider.onDidChangeCustomDocument"><code>CustomDocumentProvider.onDidChangeCustomDocument</code></a>.</li>
+<li><em>see</em> - <a href={##CustomDocumentProvider.onDidChangeCustomDocument}<code>CustomDocumentProvider.onDidChangeCustomDocument</code></a>.</li>
 </ul>
 </div>
 
@@ -5772,9 +5784,9 @@ has changed.</p>
 
 ### <a name="CustomDocumentEditEvent"></a><span class="code-item" id=1947>CustomDocumentEditEvent&lt;T&gt;</span>
 
-<div class="comment"><p>Event triggered by extensions to signal to VS Code that an edit has occurred on an <a href="#CustomDocument"><code>CustomDocument</code></a>.</p>
+<div class="comment"><p>Event triggered by extensions to signal to VS Code that an edit has occurred on an <a href={##CustomDocument}<code>CustomDocument</code></a>.</p>
 <ul>
-<li><em>see</em> - <a href="#CustomDocumentProvider.onDidChangeCustomDocument"><code>CustomDocumentProvider.onDidChangeCustomDocument</code></a>.</li>
+<li><em>see</em> - <a href={##CustomDocumentProvider.onDidChangeCustomDocument}<code>CustomDocumentProvider.onDidChangeCustomDocument</code></a>.</li>
 </ul>
 </div>
 
@@ -5848,10 +5860,10 @@ from the user&#39;s workspace.</p>
 ### <a name="CustomEditorProvider"></a><span class="code-item" id=1978>CustomEditorProvider&lt;T&gt;</span>
 
 <div class="comment"><p>Provider for editable custom editors that use a custom document model.</p>
-<p>Custom editors use <a href="#CustomDocument"><code>CustomDocument</code></a> as their document model instead of a <a href="#TextDocument"><code>TextDocument</code></a>.
+<p>Custom editors use <a href={##CustomDocument"><code>CustomDocument</code></a> as their document model instead of a <a href="#TextDocument}<code>TextDocument</code></a>.
 This gives extensions full control over actions such as edit, save, and backup.</p>
 <p>You should use this type of custom editor when dealing with binary files or more complex scenarios. For simple
-text based documents, use <a href="#CustomTextEditorProvider"><code>CustomTextEditorProvider</code></a> instead.</p>
+text based documents, use <a href={##CustomTextEditorProvider}<code>CustomTextEditorProvider</code></a> instead.</p>
 </div>
 
 #### Events
@@ -5948,7 +5960,7 @@ trigger another call to <code>openCustomDocument</code>.</p>
 <tr><td><a name="webviewPanel"></a><span class="ts"id={2007}data-target="#details-2007" data-toggle="collapse"><span class="ident">webviewPanel</span><span>: </span><a class="type-ref" href="#WebviewPanel">WebviewPanel</a></span></td><td><div class="comment"><p>The webview panel used to display the editor UI for this resource.</p>
 <p>During resolve, the provider must fill in the initial html for the content webview panel and hook up all
 the event listeners on it that it is interested in. The provider can also hold onto the <code>WebviewPanel</code> to
-use later for example in a command. See <a href="#WebviewPanel"><code>WebviewPanel</code></a> for additional details.</p>
+use later for example in a command. See <a href={##WebviewPanel}<code>WebviewPanel</code></a> for additional details.</p>
 </div></td></tr>
 <tr><td><a name="token"></a><span class="ts"id={2008}data-target="#details-2008" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token that indicates the result is no longer needed.</p>
 </div></td></tr>
@@ -6043,9 +6055,9 @@ persist the custom editor to <code>destination</code>.</p>
 <div class="details collapse" id="details-1674">
 <div class="comment"><p>Constructs a CustomExecution task object. The callback will be executed the task is run, at which point the
 extension should return the Pseudoterminal it will &quot;run in&quot;. The task should wait to do further execution until
-<a href="#Pseudoterminal.open">Pseudoterminal.open</a> is called. Task cancellation should be handled using
-<a href="#Pseudoterminal.close">Pseudoterminal.close</a>. When the task is complete fire
-<a href="#Pseudoterminal.onDidClose">Pseudoterminal.onDidClose</a>.</p>
+<a href={##Pseudoterminal.open}Pseudoterminal.open</a> is called. Task cancellation should be handled using
+<a href={##Pseudoterminal.close}Pseudoterminal.close</a>. When the task is complete fire
+<a href={##Pseudoterminal.onDidClose}Pseudoterminal.onDidClose</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -6062,9 +6074,9 @@ were in the task definition will be resolved and passed into the callback.</p>
 ### <a name="CustomReadonlyEditorProvider"></a><span class="code-item" id=1966>CustomReadonlyEditorProvider&lt;T&gt;</span>
 
 <div class="comment"><p>Provider for readonly custom editors that use a custom document model.</p>
-<p>Custom editors use <a href="#CustomDocument"><code>CustomDocument</code></a> as their document model instead of a <a href="#TextDocument"><code>TextDocument</code></a>.</p>
+<p>Custom editors use <a href={##CustomDocument"><code>CustomDocument</code></a> as their document model instead of a <a href="#TextDocument}<code>TextDocument</code></a>.</p>
 <p>You should use this type of custom editor when dealing with binary files or more complex scenarios. For simple
-text based documents, use <a href="#CustomTextEditorProvider"><code>CustomTextEditorProvider</code></a> instead.</p>
+text based documents, use <a href={##CustomTextEditorProvider}<code>CustomTextEditorProvider</code></a> instead.</p>
 </div>
 
 #### Methods
@@ -6109,7 +6121,7 @@ trigger another call to <code>openCustomDocument</code>.</p>
 <tr><td><a name="webviewPanel"></a><span class="ts"id={1976}data-target="#details-1976" data-toggle="collapse"><span class="ident">webviewPanel</span><span>: </span><a class="type-ref" href="#WebviewPanel">WebviewPanel</a></span></td><td><div class="comment"><p>The webview panel used to display the editor UI for this resource.</p>
 <p>During resolve, the provider must fill in the initial html for the content webview panel and hook up all
 the event listeners on it that it is interested in. The provider can also hold onto the <code>WebviewPanel</code> to
-use later for example in a command. See <a href="#WebviewPanel"><code>WebviewPanel</code></a> for additional details.</p>
+use later for example in a command. See <a href={##WebviewPanel}<code>WebviewPanel</code></a> for additional details.</p>
 </div></td></tr>
 <tr><td><a name="token"></a><span class="ts"id={1977}data-target="#details-1977" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token that indicates the result is no longer needed.</p>
 </div></td></tr>
@@ -6123,7 +6135,7 @@ use later for example in a command. See <a href="#WebviewPanel"><code>WebviewPan
 ### <a name="CustomTextEditorProvider"></a><span class="code-item" id=1937>CustomTextEditorProvider</span>
 
 <div class="comment"><p>Provider for text based custom editors.</p>
-<p>Text based custom editors use a <a href="#TextDocument"><code>TextDocument</code></a> as their data model. This considerably simplifies
+<p>Text based custom editors use a <a href={##TextDocument}<code>TextDocument</code></a> as their data model. This considerably simplifies
 implementing a custom editor as it allows VS Code to handle many common operations such as
 undo and backup. The provider is responsible for synchronizing text changes between the webview and the <code>TextDocument</code>.</p>
 </div>
@@ -6145,7 +6157,7 @@ existing editor using this <code>CustomTextEditorProvider</code>.</p>
 <tr><td><a name="webviewPanel"></a><span class="ts"id={1941}data-target="#details-1941" data-toggle="collapse"><span class="ident">webviewPanel</span><span>: </span><a class="type-ref" href="#WebviewPanel">WebviewPanel</a></span></td><td><div class="comment"><p>The webview panel used to display the editor UI for this resource.</p>
 <p>During resolve, the provider must fill in the initial html for the content webview panel and hook up all
 the event listeners on it that it is interested in. The provider can also hold onto the <code>WebviewPanel</code> to
-use later for example in a command. See <a href="#WebviewPanel"><code>WebviewPanel</code></a> for additional details.</p>
+use later for example in a command. See <a href={##WebviewPanel}<code>WebviewPanel</code></a> for additional details.</p>
 </div></td></tr>
 <tr><td><a name="token"></a><span class="ts"id={1942}data-target="#details-1942" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token that indicates the result is no longer needed.</p>
 </div></td></tr>
@@ -6261,16 +6273,16 @@ Results or errors are returned via onSendMessage events.</p>
 
 <div class="details collapse" id="details-2465">
 <div class="comment"><p>&#39;createDebugAdapterDescriptor&#39; is called at the start of a debug session to provide details about the debug adapter to use.
-These details must be returned as objects of type <a href="#DebugAdapterDescriptor">DebugAdapterDescriptor</a>.
+These details must be returned as objects of type <a href={##DebugAdapterDescriptor}DebugAdapterDescriptor</a>.
 Currently two types of debug adapters are supported:</p>
 <ul>
-<li>a debug adapter executable is specified as a command path and arguments (see <a href="#DebugAdapterExecutable">DebugAdapterExecutable</a>),</li>
-<li>a debug adapter server reachable via a communication port (see <a href="#DebugAdapterServer">DebugAdapterServer</a>).
+<li>a debug adapter executable is specified as a command path and arguments (see <a href={##DebugAdapterExecutable}DebugAdapterExecutable</a>),</li>
+<li>a debug adapter server reachable via a communication port (see <a href={##DebugAdapterServer}DebugAdapterServer</a>).
 If the method is not implemented the default behavior is this:
 createDebugAdapter(session: DebugSession, executable: DebugAdapterExecutable) {
    if (typeof session.configuration.debugServer === &#39;number&#39;) {
 <pre><code>  return new DebugAdapterServer(session.configuration.debugServer);
-</code></pre>   }
+```   }
    return executable;
 }</li>
 </ul>
@@ -6278,12 +6290,12 @@ createDebugAdapter(session: DebugSession, executable: DebugAdapterExecutable) {
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="session"></a><span class="ts"id={2466}data-target="#details-2466" data-toggle="collapse"><span class="ident">session</span><span>: </span><a class="type-ref" href="#DebugSession">DebugSession</a></span></td><td><div class="comment"><p>The <a href="#DebugSession">debug session</a> for which the debug adapter will be used.</p>
+<tr><td><a name="session"></a><span class="ts"id={2466}data-target="#details-2466" data-toggle="collapse"><span class="ident">session</span><span>: </span><a class="type-ref" href="#DebugSession">DebugSession</a></span></td><td><div class="comment"><p>The <a href={##DebugSession}debug session</a> for which the debug adapter will be used.</p>
 </div></td></tr>
 <tr><td><a name="executable"></a><span class="ts"id={2467}data-target="#details-2467" data-toggle="collapse"><span class="ident">executable</span><span>: </span><a class="type-ref" href="#DebugAdapterExecutable">DebugAdapterExecutable</a> &#124; <a class="type-intrinsic">undefined</a></span></td><td><div class="comment"><p>The debug adapter&#39;s executable information as specified in the package.json (or undefined if no such information exists).</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#DebugAdapterDescriptor">DebugAdapterDescriptor</a>&gt;</span></td><td><div class="comment"><p>a <a href="#DebugAdapterDescriptor">debug adapter descriptor</a> or undefined.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#DebugAdapterDescriptor">DebugAdapterDescriptor</a>&gt;</span></td><td><div class="comment"><p>a <a href={##DebugAdapterDescriptor}debug adapter descriptor</a> or undefined.</p>
 </div></td></tr>
 </table>
 </div>
@@ -6568,10 +6580,10 @@ to return a &quot;tracker&quot; object that provides read-access to the communic
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="session"></a><span class="ts"id={2489}data-target="#details-2489" data-toggle="collapse"><span class="ident">session</span><span>: </span><a class="type-ref" href="#DebugSession">DebugSession</a></span></td><td><div class="comment"><p>The <a href="#DebugSession">debug session</a> for which the debug adapter tracker will be used.</p>
+<tr><td><a name="session"></a><span class="ts"id={2489}data-target="#details-2489" data-toggle="collapse"><span class="ident">session</span><span>: </span><a class="type-ref" href="#DebugSession">DebugSession</a></span></td><td><div class="comment"><p>The <a href={##DebugSession}debug session</a> for which the debug adapter tracker will be used.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#DebugAdapterTracker">DebugAdapterTracker</a>&gt;</span></td><td><div class="comment"><p>A <a href="#DebugAdapterTracker">debug adapter tracker</a> or undefined.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#DebugAdapterTracker">DebugAdapterTracker</a>&gt;</span></td><td><div class="comment"><p>A <a href={##DebugAdapterTracker}debug adapter tracker</a> or undefined.</p>
 </div></td></tr>
 </table>
 </div>
@@ -6617,7 +6629,7 @@ A debug configuration provider is registered via #debug.registerDebugConfigurati
 <a name="DebugConfigurationProvider.provideDebugConfigurations"></a><span class="ts"id={2402}data-target="#details-2402" data-toggle="collapse"><span class="ident">provideDebugConfigurations</span><span>(</span><span class="ident">folder</span><span>: </span><a class="type-ref" href="#WorkspaceFolder">WorkspaceFolder</a> &#124; <a class="type-intrinsic">undefined</a>, <span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#DebugConfiguration">DebugConfiguration</a>[]&gt;</span>
 
 <div class="details collapse" id="details-2402">
-<div class="comment"><p>Provides <a href="#DebugConfiguration">debug configuration</a> to the debug service. If more than one debug configuration provider is
+<div class="comment"><p>Provides <a href={##DebugConfiguration}debug configuration</a> to the debug service. If more than one debug configuration provider is
 registered for the same type, debug configurations are concatenated in arbitrary order.</p>
 </div>
 <div class="signature">
@@ -6628,7 +6640,7 @@ registered for the same type, debug configurations are concatenated in arbitrary
 <tr><td><a name="token"></a><span class="ts"id={2404}data-target="#details-2404" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#DebugConfiguration">DebugConfiguration</a>[]&gt;</span></td><td><div class="comment"><p>An array of <a href="#DebugConfiguration">debug configurations</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#DebugConfiguration">DebugConfiguration</a>[]&gt;</span></td><td><div class="comment"><p>An array of <a href={##DebugConfiguration}debug configurations</a>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -6637,7 +6649,7 @@ registered for the same type, debug configurations are concatenated in arbitrary
 <a name="DebugConfigurationProvider.resolveDebugConfiguration"></a><span class="ts"id={2406}data-target="#details-2406" data-toggle="collapse"><span class="ident">resolveDebugConfiguration</span><span>(</span><span class="ident">folder</span><span>: </span><a class="type-ref" href="#WorkspaceFolder">WorkspaceFolder</a> &#124; <a class="type-intrinsic">undefined</a>, <span class="ident">debugConfiguration</span><span>: </span><a class="type-ref" href="#DebugConfiguration">DebugConfiguration</a>, <span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#DebugConfiguration">DebugConfiguration</a>&gt;</span>
 
 <div class="details collapse" id="details-2406">
-<div class="comment"><p>Resolves a <a href="#DebugConfiguration">debug configuration</a> by filling in missing values or by adding/changing/removing attributes.
+<div class="comment"><p>Resolves a <a href={##DebugConfiguration}debug configuration</a> by filling in missing values or by adding/changing/removing attributes.
 If more than one debug configuration provider is registered for the same type, the resolveDebugConfiguration calls are chained
 in arbitrary order and the initial debug configuration is piped through the chain.
 Returning the value &#39;undefined&#39; prevents the debug session from starting.
@@ -6648,7 +6660,7 @@ Returning the value &#39;null&#39; prevents the debug session from starting and 
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="folder"></a><span class="ts"id={2407}data-target="#details-2407" data-toggle="collapse"><span class="ident">folder</span><span>: </span><a class="type-ref" href="#WorkspaceFolder">WorkspaceFolder</a> &#124; <a class="type-intrinsic">undefined</a></span></td><td><div class="comment"><p>The workspace folder from which the configuration originates from or <code>undefined</code> for a folderless setup.</p>
 </div></td></tr>
-<tr><td><a name="debugConfiguration"></a><span class="ts"id={2408}data-target="#details-2408" data-toggle="collapse"><span class="ident">debugConfiguration</span><span>: </span><a class="type-ref" href="#DebugConfiguration">DebugConfiguration</a></span></td><td><div class="comment"><p>The <a href="#DebugConfiguration">debug configuration</a> to resolve.</p>
+<tr><td><a name="debugConfiguration"></a><span class="ts"id={2408}data-target="#details-2408" data-toggle="collapse"><span class="ident">debugConfiguration</span><span>: </span><a class="type-ref" href="#DebugConfiguration">DebugConfiguration</a></span></td><td><div class="comment"><p>The <a href={##DebugConfiguration}debug configuration</a> to resolve.</p>
 </div></td></tr>
 <tr><td><a name="token"></a><span class="ts"id={2409}data-target="#details-2409" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
@@ -6663,7 +6675,7 @@ Returning the value &#39;null&#39; prevents the debug session from starting and 
 
 <div class="details collapse" id="details-2411">
 <div class="comment"><p>This hook is directly called after &#39;resolveDebugConfiguration&#39; but with all variables substituted.
-It can be used to resolve or verify a <a href="#DebugConfiguration">debug configuration</a> by filling in missing values or by adding/changing/removing attributes.
+It can be used to resolve or verify a <a href={##DebugConfiguration}debug configuration</a> by filling in missing values or by adding/changing/removing attributes.
 If more than one debug configuration provider is registered for the same type, the &#39;resolveDebugConfigurationWithSubstitutedVariables&#39; calls are chained
 in arbitrary order and the initial debug configuration is piped through the chain.
 Returning the value &#39;undefined&#39; prevents the debug session from starting.
@@ -6674,7 +6686,7 @@ Returning the value &#39;null&#39; prevents the debug session from starting and 
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="folder"></a><span class="ts"id={2412}data-target="#details-2412" data-toggle="collapse"><span class="ident">folder</span><span>: </span><a class="type-ref" href="#WorkspaceFolder">WorkspaceFolder</a> &#124; <a class="type-intrinsic">undefined</a></span></td><td><div class="comment"><p>The workspace folder from which the configuration originates from or <code>undefined</code> for a folderless setup.</p>
 </div></td></tr>
-<tr><td><a name="debugConfiguration"></a><span class="ts"id={2413}data-target="#details-2413" data-toggle="collapse"><span class="ident">debugConfiguration</span><span>: </span><a class="type-ref" href="#DebugConfiguration">DebugConfiguration</a></span></td><td><div class="comment"><p>The <a href="#DebugConfiguration">debug configuration</a> to resolve.</p>
+<tr><td><a name="debugConfiguration"></a><span class="ts"id={2413}data-target="#details-2413" data-toggle="collapse"><span class="ident">debugConfiguration</span><span>: </span><a class="type-ref" href="#DebugConfiguration">DebugConfiguration</a></span></td><td><div class="comment"><p>The <a href={##DebugConfiguration}debug configuration</a> to resolve.</p>
 </div></td></tr>
 <tr><td><a name="token"></a><span class="ts"id={2414}data-target="#details-2414" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
@@ -6749,7 +6761,7 @@ to the debug console.</p>
 
 ### <a name="DebugConsoleMode"></a><span class="code-item" id=2541>DebugConsoleMode</span>
 
-<div class="comment"><p>Debug console mode used by debug session, see <a href="#DebugSessionOptions">options</a>.</p>
+<div class="comment"><p>Debug console mode used by debug session, see <a href={##DebugSessionOptions}options</a>.</p>
 </div>
 
 #### Enumeration members
@@ -6768,17 +6780,17 @@ to the debug console.</p>
 
 ### <a name="DebugProtocolBreakpoint"></a><span class="code-item" id=2376>DebugProtocolBreakpoint</span>
 
-<div class="comment"><p>A DebugProtocolBreakpoint is an opaque stand-in type for the <a href="https://microsoft.github.io/debug-adapter-protocol/specification#Types_Breakpoint">Breakpoint</a> type defined in the Debug Adapter Protocol.</p>
+<div class="comment"><p>A DebugProtocolBreakpoint is an opaque stand-in type for the <a href={#https://microsoft.github.io/debug-adapter-protocol/specification#Types_Breakpoint}Breakpoint</a> type defined in the Debug Adapter Protocol.</p>
 </div>
 
 ### <a name="DebugProtocolMessage"></a><span class="code-item" id=2374>DebugProtocolMessage</span>
 
-<div class="comment"><p>A DebugProtocolMessage is an opaque stand-in type for the <a href="https://microsoft.github.io/debug-adapter-protocol/specification#Base_Protocol_ProtocolMessage">ProtocolMessage</a> type defined in the Debug Adapter Protocol.</p>
+<div class="comment"><p>A DebugProtocolMessage is an opaque stand-in type for the <a href={#https://microsoft.github.io/debug-adapter-protocol/specification#Base_Protocol_ProtocolMessage}ProtocolMessage</a> type defined in the Debug Adapter Protocol.</p>
 </div>
 
 ### <a name="DebugProtocolSource"></a><span class="code-item" id=2375>DebugProtocolSource</span>
 
-<div class="comment"><p>A DebugProtocolSource is an opaque stand-in type for the <a href="https://microsoft.github.io/debug-adapter-protocol/specification#Types_Source">Source</a> type defined in the Debug Adapter Protocol.</p>
+<div class="comment"><p>A DebugProtocolSource is an opaque stand-in type for the <a href={#https://microsoft.github.io/debug-adapter-protocol/specification#Types_Source}Source</a> type defined in the Debug Adapter Protocol.</p>
 </div>
 
 ### <a name="DebugSession"></a><span class="code-item" id=2383>DebugSession</span>
@@ -6791,7 +6803,7 @@ to the debug console.</p>
 <a name="DebugSession.configuration"></a><span class="ts"id={2388}data-target="#details-2388" data-toggle="collapse"><span class="ident">configuration</span><span>: </span><a class="type-ref" href="#DebugConfiguration">DebugConfiguration</a></span>
 
 <div class="details collapse" id="details-2388">
-<div class="comment"><p>The &quot;resolved&quot; <a href="#DebugConfiguration">debug configuration</a> of this session.
+<div class="comment"><p>The &quot;resolved&quot; <a href={##DebugConfiguration}debug configuration</a> of this session.
 &quot;Resolved&quot; means that</p>
 <ul>
 <li>all variables have been substituted and</li>
@@ -6810,7 +6822,7 @@ to the debug console.</p>
 <a name="DebugSession.name"></a><span class="ts"id={2386}data-target="#details-2386" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-intrinsic">string</a></span>
 
 <div class="details collapse" id="details-2386">
-<div class="comment"><p>The debug session&#39;s name is initially taken from the <a href="#DebugConfiguration">debug configuration</a>.
+<div class="comment"><p>The debug session&#39;s name is initially taken from the <a href={##DebugConfiguration}debug configuration</a>.
 Any changes will be properly reflected in the UI.</p>
 </div>
 </div>
@@ -6818,7 +6830,7 @@ Any changes will be properly reflected in the UI.</p>
 <a name="DebugSession.type"></a><span class="ts"id={2385}data-target="#details-2385" data-toggle="collapse"><span class="ident">type</span><span>: </span><a class="type-intrinsic">string</a></span>
 
 <div class="details collapse" id="details-2385">
-<div class="comment"><p>The debug session&#39;s type from the <a href="#DebugConfiguration">debug configuration</a>.</p>
+<div class="comment"><p>The debug session&#39;s type from the <a href={##DebugConfiguration}debug configuration</a>.</p>
 </div>
 </div>
 
@@ -6856,7 +6868,7 @@ If no DAP breakpoint exists (either because the VS Code breakpoint was not yet r
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="breakpoint"></a><span class="ts"id={2395}data-target="#details-2395" data-toggle="collapse"><span class="ident">breakpoint</span><span>: </span><a class="type-ref" href="#Breakpoint">Breakpoint</a></span></td><td><div class="comment"><p>A VS Code <a href="#Breakpoint">breakpoint</a>.</p>
+<tr><td><a name="breakpoint"></a><span class="ts"id={2395}data-target="#details-2395" data-toggle="collapse"><span class="ident">breakpoint</span><span>: </span><a class="type-ref" href="#Breakpoint">Breakpoint</a></span></td><td><div class="comment"><p>A VS Code <a href={##Breakpoint}breakpoint</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#DebugProtocolBreakpoint">DebugProtocolBreakpoint</a> &#124; <a class="type-intrinsic">undefined</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to the Debug Adapter Protocol breakpoint or <code>undefined</code>.</p>
@@ -6867,7 +6879,7 @@ If no DAP breakpoint exists (either because the VS Code breakpoint was not yet r
 
 ### <a name="DebugSessionCustomEvent"></a><span class="code-item" id=2396>DebugSessionCustomEvent</span>
 
-<div class="comment"><p>A custom Debug Adapter Protocol event received from a <a href="#DebugSession">debug session</a>.</p>
+<div class="comment"><p>A custom Debug Adapter Protocol event received from a <a href={##DebugSession}debug session</a>.</p>
 </div>
 
 #### Properties
@@ -6889,13 +6901,13 @@ If no DAP breakpoint exists (either because the VS Code breakpoint was not yet r
 <a name="DebugSessionCustomEvent.session"></a><span class="ts"id={2397}data-target="#details-2397" data-toggle="collapse"><span class="ident">session</span><span>: </span><a class="type-ref" href="#DebugSession">DebugSession</a></span>
 
 <div class="details collapse" id="details-2397">
-<div class="comment"><p>The <a href="#DebugSession">debug session</a> for which the custom event was received.</p>
+<div class="comment"><p>The <a href={##DebugSession}debug session</a> for which the custom event was received.</p>
 </div>
 </div>
 
 ### <a name="DebugSessionOptions"></a><span class="code-item" id=2544>DebugSessionOptions</span>
 
-<div class="comment"><p>Options for <a href="#debug.startDebugging">starting a debug session</a>.</p>
+<div class="comment"><p>Options for <a href={##debug.startDebugging}starting a debug session</a>.</p>
 </div>
 
 #### Properties
@@ -6936,8 +6948,8 @@ When this property is not specified, the value from the parent session (if there
 
 ### <a name="Declaration"></a><span class="code-item" id=2634>Declaration</span>
 
-<div class="comment"><p>The declaration of a symbol representation as one or many <a href="#Location">locations</a>
-or <a href="#LocationLink">location links</a>.</p>
+<div class="comment"><p>The declaration of a symbol representation as one or many <a href={##Location}locations</a>
+or <a href={##LocationLink}location links</a>.</p>
 </div>
 
 <a name="Declaration"></a><span class="ts"id={2634}data-target="#details-2634" data-toggle="collapse"><span class="ident">Declaration</span><span>: </span><a class="type-ref" href="#Location">Location</a> &#124; <a class="type-ref" href="#Location">Location</a>[] &#124; <a class="type-ref" href="#LocationLink">LocationLink</a>[]</span>
@@ -7008,7 +7020,7 @@ signaled by returning <code>undefined</code> or <code>null</code>.</p>
 
 ### <a name="DecorationOptions"></a><span class="code-item" id=326>DecorationOptions</span>
 
-<div class="comment"><p>Represents options for a specific decoration in a <a href="#TextEditorDecorationType">decoration set</a>.</p>
+<div class="comment"><p>Represents options for a specific decoration in a <a href={##TextEditorDecorationType}decoration set</a>.</p>
 </div>
 
 #### Properties
@@ -7068,7 +7080,7 @@ number of decoration specific options small, and use decoration types wherever p
 
 ### <a name="DecorationRenderOptions"></a><span class="code-item" id=297>DecorationRenderOptions</span>
 
-<div class="comment"><p>Represents rendering styles for a <a href="#TextEditorDecorationType">text editor decoration</a>.</p>
+<div class="comment"><p>Represents rendering styles for a <a href={##TextEditorDecorationType}text editor decoration</a>.</p>
 </div>
 
 #### Properties
@@ -7084,7 +7096,7 @@ number of decoration specific options small, and use decoration types wherever p
 
 <div class="details collapse" id="details-303">
 <div class="comment"><p>Background color of the decoration. Use rgba() and define transparent background colors to play well with other decorations.
-Alternatively a color from the color registry can be <a href="#ThemeColor">referenced</a>.</p>
+Alternatively a color from the color registry can be <a href={##ThemeColor}referenced</a>.</p>
 </div>
 </div>
 
@@ -7189,7 +7201,7 @@ Better use &#39;border&#39; for setting one or more of the individual border pro
 <div class="details collapse" id="details-322">
 <div class="comment"><p>Specifies the size of the gutter icon.
 Available values are &#39;auto&#39;, &#39;contain&#39;, &#39;cover&#39; and any percentage value.
-For further information: <a href="https://msdn.microsoft.com/en-us/library/jj127316(v=vs.85).aspx">https://msdn.microsoft.com/en-us/library/jj127316(v=vs.85).aspx</a></p>
+For further information: <a href={#https://msdn.microsoft.com/en-us/library/jj127316(v=vs.85).aspx}https://msdn.microsoft.com/en-us/library/jj127316(v=vs.85).aspx</a></p>
 </div>
 </div>
 
@@ -7284,7 +7296,7 @@ Defaults to <code>DecorationRangeBehavior.OpenOpen</code>.</p>
 
 ### <a name="Definition"></a><span class="code-item" id=2633>Definition</span>
 
-<div class="comment"><p>The definition of a symbol represented as one or many <a href="#Location">locations</a>.
+<div class="comment"><p>The definition of a symbol represented as one or many <a href={##Location}locations</a>.
 For most programming languages there is only one location at which a symbol is
 defined.</p>
 </div>
@@ -7294,7 +7306,7 @@ defined.</p>
 ### <a name="DefinitionLink"></a><span class="code-item" id=2632>DefinitionLink</span>
 
 <div class="comment"><p>Information about where a symbol is defined.</p>
-<p>Provides additional metadata over normal <a href="#Location">location</a> definitions, including the range of
+<p>Provides additional metadata over normal <a href={##Location}location</a> definitions, including the range of
 the defining symbol</p>
 </div>
 
@@ -7303,7 +7315,7 @@ the defining symbol</p>
 ### <a name="DefinitionProvider"></a><span class="code-item" id=637>DefinitionProvider</span>
 
 <div class="comment"><p>The definition provider interface defines the contract between extensions and
-the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_go-to-definition">go to definition</a>
+the <a href={#https://code.visualstudio.com/docs/editor/editingevolved#_go-to-definition}go to definition</a>
 and peek definition features.</p>
 </div>
 
@@ -7351,7 +7363,7 @@ are only valid in the scope of a file.</p>
 </div></td></tr>
 <tr><td><a name="message"></a><span class="ts"id={1408}data-target="#details-1408" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The human-readable message.</p>
 </div></td></tr>
-<tr><td><a name="severity"></a><span class="ts"id={1409}data-target="#details-1409" data-toggle="collapse"><span class="ident">severity</span><span>?</span><span>: </span><a class="type-ref" href="#DiagnosticSeverity">DiagnosticSeverity</a></span></td><td><div class="comment"><p>The severity, default is <a href="#DiagnosticSeverity.Error">error</a>.</p>
+<tr><td><a name="severity"></a><span class="ts"id={1409}data-target="#details-1409" data-toggle="collapse"><span class="ident">severity</span><span>?</span><span>: </span><a class="type-ref" href="#DiagnosticSeverity">DiagnosticSeverity</a></span></td><td><div class="comment"><p>The severity, default is <a href={##DiagnosticSeverity.Error}error</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Diagnostic">Diagnostic</a></span></td><td><div class="comment"></div></td></tr>
@@ -7365,7 +7377,7 @@ are only valid in the scope of a file.</p>
 
 <div class="details collapse" id="details-1399">
 <div class="comment"><p>A code or identifier for this diagnostic.
-Should be used for later processing, e.g. when providing <a href="#CodeActionContext">code actions</a>.</p>
+Should be used for later processing, e.g. when providing <a href={##CodeActionContext}code actions</a>.</p>
 </div>
 </div>
 
@@ -7394,7 +7406,7 @@ a scope collide all definitions can be marked via this property.</p>
 <a name="Diagnostic.severity"></a><span class="ts"id={1397}data-target="#details-1397" data-toggle="collapse"><span class="ident">severity</span><span>: </span><a class="type-ref" href="#DiagnosticSeverity">DiagnosticSeverity</a></span>
 
 <div class="details collapse" id="details-1397">
-<div class="comment"><p>The severity, default is <a href="#DiagnosticSeverity.Error">error</a>.</p>
+<div class="comment"><p>The severity, default is <a href={##DiagnosticSeverity.Error}error</a>.</p>
 </div>
 </div>
 
@@ -7430,10 +7442,10 @@ diagnostic, e.g. &#39;typescript&#39; or &#39;super lint&#39;.</p>
 ### <a name="DiagnosticCollection"></a><span class="code-item" id=1410>DiagnosticCollection</span>
 
 <div class="comment"><p>A diagnostics collection is a container that manages a set of
-<a href="#Diagnostic">diagnostics</a>. Diagnostics are always scopes to a
+<a href={##Diagnostic}diagnostics</a>. Diagnostics are always scopes to a
 diagnostics collection and a resource.</p>
 <p>To get an instance of a <code>DiagnosticCollection</code> use
-<a href="#languages.createDiagnosticCollection">createDiagnosticCollection</a>.</p>
+<a href={##languages.createDiagnosticCollection}createDiagnosticCollection</a>.</p>
 </div>
 
 #### Properties
@@ -7443,7 +7455,7 @@ diagnostics collection and a resource.</p>
 <div class="details collapse" id="details-1411">
 <div class="comment"><p>The name of this diagnostic collection, for instance <code>typescript</code>. Every diagnostic
 from this collection will be associated with this name. Also, the task framework uses this
-name when defining <a href="https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher">problem matchers</a>.</p>
+name when defining <a href={#https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher}problem matchers</a>.</p>
 </div>
 </div>
 
@@ -7484,7 +7496,7 @@ to the provided <code>uri</code>. The same as <code>#set(uri, undefined)</code>.
 
 <div class="details collapse" id="details-1439">
 <div class="comment"><p>Dispose and free associated resources. Calls
-<a href="#DiagnosticCollection.clear">clear</a>.</p>
+<a href={##DiagnosticCollection.clear}clear</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -7524,7 +7536,7 @@ modify the diagnostics-array returned from this call.</p>
 <tr><td><a name="uri"></a><span class="ts"id={1434}data-target="#details-1434" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A resource identifier.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ReadonlyArray">ReadonlyArray</a>&lt;<a class="type-ref" href="#Diagnostic">Diagnostic</a>&gt; &#124; <a class="type-intrinsic">undefined</a></span></td><td><div class="comment"><p>An immutable array of <a href="#Diagnostic">diagnostics</a> or <code>undefined</code>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#ReadonlyArray">ReadonlyArray</a>&lt;<a class="type-ref" href="#Diagnostic">Diagnostic</a>&gt; &#124; <a class="type-intrinsic">undefined</a></span></td><td><div class="comment"><p>An immutable array of <a href={##Diagnostic}diagnostics</a> or <code>undefined</code>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -7753,7 +7765,7 @@ picking and modifying colors in the editor.</p>
 <a name="DocumentColorProvider.provideColorPresentations"></a><span class="ts"id={1199}data-target="#details-1199" data-toggle="collapse"><span class="ident">provideColorPresentations</span><span>(</span><span class="ident">color</span><span>: </span><a class="type-ref" href="#Color">Color</a>, <span class="ident">context</span><span>: </span>{document: <a class="type-ref" href="#TextDocument">TextDocument</a>, range: <a class="type-ref" href="#Range">Range</a>}, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#ColorPresentation">ColorPresentation</a>[]&gt;</span>
 
 <div class="details collapse" id="details-1199">
-<div class="comment"><p>Provide <a href="#ColorPresentation">representations</a> for a color.</p>
+<div class="comment"><p>Provide <a href={##ColorPresentation}representations</a> for a color.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -7785,7 +7797,7 @@ can be signaled by returning <code>undefined</code>, <code>null</code>, or an em
 <tr><td><a name="token"></a><span class="ts"id={1197}data-target="#details-1197" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#ColorInformation">ColorInformation</a>[]&gt;</span></td><td><div class="comment"><p>An array of <a href="#ColorInformation">color information</a> or a thenable that resolves to such. The lack of a result
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#ColorInformation">ColorInformation</a>[]&gt;</span></td><td><div class="comment"><p>An array of <a href={##ColorInformation}color information</a> or a thenable that resolves to such. The lack of a result
 can be signaled by returning <code>undefined</code>, <code>null</code>, or an empty array.</p>
 </div></td></tr>
 </table>
@@ -7795,8 +7807,8 @@ can be signaled by returning <code>undefined</code>, <code>null</code>, or an em
 ### <a name="DocumentFilter"></a><span class="code-item" id=556>DocumentFilter</span>
 
 <div class="comment"><p>A document filter denotes a document by different properties like
-the <a href="#TextDocument.languageId">language</a>, the <a href="#Uri.scheme">scheme</a> of
-its resource, or a glob-pattern that is applied to the <a href="#TextDocument.fileName">path</a>.</p>
+the <a href={##TextDocument.languageId">language</a>, the <a href="#Uri.scheme}scheme</a> of
+its resource, or a glob-pattern that is applied to the <a href={##TextDocument.fileName}path</a>.</p>
 <ul>
 <li><em>example</em> - <caption>A language filter that applies to typescript files on disk</caption>
 { language: &#39;typescript&#39;, scheme: &#39;file&#39; }</li>
@@ -7819,15 +7831,15 @@ its resource, or a glob-pattern that is applied to the <a href="#TextDocument.fi
 <a name="DocumentFilter.pattern"></a><span class="ts"id={559}data-target="#details-559" data-toggle="collapse"><span class="ident">pattern</span><span>?</span><span>: </span><a class="type-ref" href="#GlobPattern">GlobPattern</a></span>
 
 <div class="details collapse" id="details-559">
-<div class="comment"><p>A <a href="#GlobPattern">glob pattern</a> that is matched on the absolute path of the document. Use a <a href="#RelativePattern">relative pattern</a>
-to filter documents to a <a href="#WorkspaceFolder">workspace folder</a>.</p>
+<div class="comment"><p>A <a href={##GlobPattern">glob pattern</a> that is matched on the absolute path of the document. Use a <a href="#RelativePattern}relative pattern</a>
+to filter documents to a <a href={##WorkspaceFolder}workspace folder</a>.</p>
 </div>
 </div>
 
 <a name="DocumentFilter.scheme"></a><span class="ts"id={558}data-target="#details-558" data-toggle="collapse"><span class="ident">scheme</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
 
 <div class="details collapse" id="details-558">
-<div class="comment"><p>A Uri <a href="#Uri.scheme">scheme</a>, like <code>file</code> or <code>untitled</code>.</p>
+<div class="comment"><p>A Uri <a href={##Uri.scheme}scheme</a>, like <code>file</code> or <code>untitled</code>.</p>
 </div>
 </div>
 
@@ -7880,7 +7892,7 @@ the background color of its range.</p>
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="range"></a><span class="ts"id={714}data-target="#details-714" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>The range the highlight applies to.</p>
 </div></td></tr>
-<tr><td><a name="kind"></a><span class="ts"id={715}data-target="#details-715" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-ref" href="#DocumentHighlightKind">DocumentHighlightKind</a></span></td><td><div class="comment"><p>The highlight kind, default is <a href="#DocumentHighlightKind.Text">text</a>.</p>
+<tr><td><a name="kind"></a><span class="ts"id={715}data-target="#details-715" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-ref" href="#DocumentHighlightKind">DocumentHighlightKind</a></span></td><td><div class="comment"><p>The highlight kind, default is <a href={##DocumentHighlightKind.Text}text</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#DocumentHighlight">DocumentHighlight</a></span></td><td><div class="comment"></div></td></tr>
@@ -7893,7 +7905,7 @@ the background color of its range.</p>
 <a name="DocumentHighlight.kind"></a><span class="ts"id={711}data-target="#details-711" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-ref" href="#DocumentHighlightKind">DocumentHighlightKind</a></span>
 
 <div class="details collapse" id="details-711">
-<div class="comment"><p>The highlight kind, default is <a href="#DocumentHighlightKind.Text">text</a>.</p>
+<div class="comment"><p>The highlight kind, default is <a href={##DocumentHighlightKind.Text}text</a>.</p>
 </div>
 </div>
 
@@ -8034,7 +8046,7 @@ links in the editor.</p>
 <tr><td><a name="token"></a><span class="ts"id={1163}data-target="#details-1163" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-intrinsic">T</a>[]&gt;</span></td><td><div class="comment"><p>An array of <a href="#DocumentLink">document links</a> or a thenable that resolves to such. The lack of a result
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-intrinsic">T</a>[]&gt;</span></td><td><div class="comment"><p>An array of <a href={##DocumentLink}document links</a> or a thenable that resolves to such. The lack of a result
 can be signaled by returning <code>undefined</code>, <code>null</code>, or an empty array.</p>
 </div></td></tr>
 </table>
@@ -8044,9 +8056,9 @@ can be signaled by returning <code>undefined</code>, <code>null</code>, or an em
 <a name="DocumentLinkProvider.resolveDocumentLink"></a><span class="ts"id={1165}data-target="#details-1165" data-toggle="collapse"><span class="ident">resolveDocumentLink</span><span>(</span><span class="ident">link</span><span>: </span><a class="type-intrinsic">T</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-intrinsic">T</a>&gt;</span>
 
 <div class="details collapse" id="details-1165">
-<div class="comment"><p>Given a link fill in its <a href="#DocumentLink.target">target</a>. This method is called when an incomplete
+<div class="comment"><p>Given a link fill in its <a href={##DocumentLink.target}target</a>. This method is called when an incomplete
 link is selected in the UI. Providers can implement this method and return incomplete links
-(without target) from the <a href="#DocumentLinkProvider.provideDocumentLinks"><code>provideDocumentLinks</code></a> method which
+(without target) from the <a href={##DocumentLinkProvider.provideDocumentLinks}<code>provideDocumentLinks</code></a> method which
 often helps to improve performance.</p>
 </div>
 <div class="signature">
@@ -8109,7 +8121,7 @@ semantic tokens.</p>
 
 <div class="details collapse" id="details-1001">
 <div class="comment"><ul>
-<li><em>see</em> - <a href="#DocumentSemanticTokensProvider.provideDocumentSemanticTokens">provideDocumentSemanticTokens</a>.</li>
+<li><em>see</em> - <a href={##DocumentSemanticTokensProvider.provideDocumentSemanticTokens}provideDocumentSemanticTokens</a>.</li>
 </ul>
 </div>
 <div class="signature">
@@ -8127,7 +8139,7 @@ semantic tokens.</p>
 ### <a name="DocumentSelector"></a><span class="code-item" id=2629>DocumentSelector</span>
 
 <div class="comment"><p>A language selector is the combination of one or many language identifiers
-and <a href="#DocumentFilter">language filters</a>.</p>
+and <a href={##DocumentFilter}language filters</a>.</p>
 <p><em>Note</em> that a document selector that is just a language identifier selects <em>all</em>
 documents, even those that are not saved on disk. Only use such selectors when
 a feature works without further context, e.g. without the need to resolve related
@@ -8177,13 +8189,13 @@ the token before it, because most tokens remain stable relative to each other wh
 <pre><code>   { line: 2, startChar:  5, length: 3, tokenType: &quot;property&quot;,  tokenModifiers: [&quot;private&quot;, &quot;static&quot;] },
    { line: 2, startChar: 10, length: 4, tokenType: &quot;type&quot;,      tokenModifiers: [] },
    { line: 5, startChar:  2, length: 7, tokenType: &quot;class&quot;,     tokenModifiers: [] }
-</code></pre><ol>
+```<ol>
 <li><p>First of all, a legend must be devised. This legend must be provided up-front and capture all possible token types.
 For this example, we will choose the following legend which must be passed in when registering the provider:</p>
 
 <pre><code>tokenTypes: [&#39;property&#39;, &#39;type&#39;, &#39;class&#39;],
 tokenModifiers: [&#39;private&#39;, &#39;static&#39;]
-</code></pre></li>
+```</li>
 <li><p>The first transformation step is to encode <code>tokenType</code> and <code>tokenModifiers</code> as integers using the legend. Token types are looked
 up by index, so a <code>tokenType</code> value of <code>1</code> means <code>tokenTypes[1]</code>. Multiple token modifiers can be set by using bit flags,
 so a <code>tokenModifier</code> value of <code>3</code> is first viewed as binary <code>0b00000011</code>, which means <code>[tokenModifiers[0], tokenModifiers[1]]</code> because
@@ -8192,7 +8204,7 @@ bits 0 and 1 are set. Using this legend, the tokens now are:</p>
 <pre><code>{ line: 2, startChar:  5, length: 3, tokenType: 0, tokenModifiers: 3 },
 { line: 2, startChar: 10, length: 4, tokenType: 1, tokenModifiers: 0 },
 { line: 5, startChar:  2, length: 7, tokenType: 2, tokenModifiers: 0 }
-</code></pre></li>
+```</li>
 <li><p>The next step is to represent each token relative to the previous token in the file. In this case, the second token
 is on the same line as the first token, so the <code>startChar</code> of the second token is made relative to the <code>startChar</code>
 of the first token, so it will be <code>10 - 5</code>. The third token is on a different line than the second token, so the
@@ -8201,15 +8213,15 @@ of the first token, so it will be <code>10 - 5</code>. The third token is on a d
 <pre><code>{ deltaLine: 2, deltaStartChar: 5, length: 3, tokenType: 0, tokenModifiers: 3 },
 { deltaLine: 0, deltaStartChar: 5, length: 4, tokenType: 1, tokenModifiers: 0 },
 { deltaLine: 3, deltaStartChar: 2, length: 7, tokenType: 2, tokenModifiers: 0 }
-</code></pre></li>
+```</li>
 <li><p>Finally, the last step is to inline each of the 5 fields for a token in a single array, which is a memory friendly representation:</p>
 
 <pre><code>// 1st token,  2nd token,  3rd token
 [  2,5,3,0,3,  0,5,4,1,0,  3,2,7,2,0 ]
-</code></pre></li>
+```</li>
 </ol>
 <ul>
-<li><em>see</em> - <a href="#SemanticTokensBuilder">SemanticTokensBuilder</a> for a helper to encode tokens as integers.
+<li><em>see</em> - <a href={##SemanticTokensBuilder}SemanticTokensBuilder</a> for a helper to encode tokens as integers.
 <em>NOTE</em>: When doing edits, it is possible that multiple edits occur until VS Code decides to invoke the semantic tokens provider.
 <em>NOTE</em>: If the provider cannot temporarily compute semantic tokens, it can indicate this by throwing an error with the message &#39;Busy&#39;.</li>
 </ul>
@@ -8236,17 +8248,17 @@ this method (<code>provideDocumentSemanticTokensEdits</code>) and then return in
 
 <pre><code>   // 1st token,  2nd token,  3rd token
    [  2,5,3,0,3,  0,5,4,1,0,  3,2,7,2,0 ]
-</code></pre><p>Also suppose that after some edits, the new semantic tokens in a file are:</p>
+```<p>Also suppose that after some edits, the new semantic tokens in a file are:</p>
 
 <pre><code>   // 1st token,  2nd token,  3rd token
    [  3,5,3,0,3,  0,5,4,1,0,  3,2,7,2,0 ]
-</code></pre><p>It is possible to express these new tokens in terms of an edit applied to the previous tokens:</p>
+```<p>It is possible to express these new tokens in terms of an edit applied to the previous tokens:</p>
 
 <pre><code>   [  2,5,3,0,3,  0,5,4,1,0,  3,2,7,2,0 ] // old tokens
    [  3,5,3,0,3,  0,5,4,1,0,  3,2,7,2,0 ] // new tokens
 
    edit: { start:  0, deleteCount: 1, data: [3] } // replace integer at offset 0 with 3
-</code></pre><p><em>NOTE</em>: If the provider cannot compute <code>SemanticTokensEdits</code>, it can &quot;give up&quot; and return all the tokens in the document again.
+```<p><em>NOTE</em>: If the provider cannot compute <code>SemanticTokensEdits</code>, it can &quot;give up&quot; and return all the tokens in the document again.
 
 <em>NOTE</em>: All edits in <code>SemanticTokensEdits</code> contain indices in the old integers array, so they all refer to the previous result state.</p>
 
@@ -8337,7 +8349,7 @@ its most interesting range, e.g. the range of an identifier.</p>
 
 <div class="details collapse" id="details-775">
 <div class="comment"><p>The range that should be selected and reveal when this symbol is being picked, e.g. the name of a function.
-Must be contained by the <a href="#DocumentSymbol.range"><code>range</code></a>.</p>
+Must be contained by the <a href={##DocumentSymbol.range}<code>range</code></a>.</p>
 </div>
 </div>
 
@@ -8351,7 +8363,7 @@ Must be contained by the <a href="#DocumentSymbol.range"><code>range</code></a>.
 ### <a name="DocumentSymbolProvider"></a><span class="code-item" id=784>DocumentSymbolProvider</span>
 
 <div class="comment"><p>The document symbol provider interface defines the contract between extensions and
-the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_go-to-symbol">go to symbol</a>-feature.</p>
+the <a href={#https://code.visualstudio.com/docs/editor/editingevolved#_go-to-symbol}go to symbol</a>-feature.</p>
 </div>
 
 #### Methods
@@ -8392,7 +8404,7 @@ signaled by returning <code>undefined</code>, <code>null</code>, or an empty arr
 
 ### <a name="EndOfLine"></a><span class="code-item" id=376>EndOfLine</span>
 
-<div class="comment"><p>Represents an end of line character sequence in a <a href="#TextDocument">document</a>.</p>
+<div class="comment"><p>Represents an end of line character sequence in a <a href={##TextDocument}document</a>.</p>
 </div>
 
 #### Enumeration members
@@ -8727,7 +8739,7 @@ a listener function as argument.</p>
 </div></td></tr>
 <tr><td><a name="thisArgs"></a><span class="ts"id={462}data-target="#details-462" data-toggle="collapse"><span class="ident">thisArgs</span><span>?</span><span>: </span><a class="type-intrinsic">any</a></span></td><td><div class="comment"><p>The <code>this</code>-argument which will be used when calling the event listener.</p>
 </div></td></tr>
-<tr><td><a name="disposables"></a><span class="ts"id={463}data-target="#details-463" data-toggle="collapse"><span class="ident">disposables</span><span>?</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a>[]</span></td><td><div class="comment"><p>An array to which a <a href="#Disposable">disposable</a> will be added.</p>
+<tr><td><a name="disposables"></a><span class="ts"id={463}data-target="#details-463" data-toggle="collapse"><span class="ident">disposables</span><span>?</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a>[]</span></td><td><div class="comment"><p>An array to which a <a href={##Disposable}disposable</a> will be added.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A disposable which unsubscribes the event listener.</p>
@@ -8738,10 +8750,10 @@ a listener function as argument.</p>
 
 ### <a name="EventEmitter"></a><span class="code-item" id=464>EventEmitter&lt;T&gt;</span>
 
-<div class="comment"><p>An event emitter can be used to create and manage an <a href="#Event">event</a> for others
+<div class="comment"><p>An event emitter can be used to create and manage an <a href={##Event}event</a> for others
 to subscribe to. One emitter always owns one event.</p>
 <p>Use this class if you want to provide event from within your extension, for instance
-inside a <a href="#TextDocumentContentProvider">TextDocumentContentProvider</a> or when providing
+inside a <a href={##TextDocumentContentProvider}TextDocumentContentProvider</a> or when providing
 API to other extensions.</p>
 </div>
 
@@ -8772,7 +8784,7 @@ API to other extensions.</p>
 <a name="EventEmitter.fire"></a><span class="ts"id={468}data-target="#details-468" data-toggle="collapse"><span class="ident">fire</span><span>(</span><span class="ident">data</span><span>: </span><a class="type-intrinsic">T</a><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
 
 <div class="details collapse" id="details-468">
-<div class="comment"><p>Notify all subscribers of the <a href="#EventEmitter.event">event</a>. Failure
+<div class="comment"><p>Notify all subscribers of the <a href={##EventEmitter.event}event</a>. Failure
 of one or more listener will not fail this function call.</p>
 </div>
 <div class="signature">
@@ -8789,7 +8801,7 @@ of one or more listener will not fail this function call.</p>
 ### <a name="Extension"></a><span class="code-item" id=1532>Extension&lt;T&gt;</span>
 
 <div class="comment"><p>Represents an extension.</p>
-<p>To get an instance of an <code>Extension</code> use <a href="#extensions.getExtension">getExtension</a>.</p>
+<p>To get an instance of an <code>Extension</code> use <a href={##extensions.getExtension}getExtension</a>.</p>
 </div>
 
 #### Properties
@@ -8809,7 +8821,7 @@ to access this field before this extension has been activated.</p>
 or if an extension runs where the remote extension host runs. The extension kind
 is defined in the <code>package.json</code>-file of extensions but can also be refined
 via the <code>remote.extensionKind</code>-setting. When no remote extension host exists,
-the value is <a href="#ExtensionKind.UI"><code>ExtensionKind.UI</code></a>.</p>
+the value is <a href={##ExtensionKind.UI}<code>ExtensionKind.UI</code></a>.</p>
 </div>
 </div>
 
@@ -8817,7 +8829,7 @@ the value is <a href="#ExtensionKind.UI"><code>ExtensionKind.UI</code></a>.</p>
 
 <div class="details collapse" id="details-1536">
 <div class="comment"><p>The absolute file path of the directory containing this extension. Shorthand
-notation for <a href="#Extension.extensionUri">Extension.extensionUri.fsPath</a> (independent of the uri scheme).</p>
+notation for <a href={##Extension.extensionUri}Extension.extensionUri.fsPath</a> (independent of the uri scheme).</p>
 </div>
 </div>
 
@@ -8896,7 +8908,7 @@ other extensions in the host run in <code>ExtensionMode.Release</code>.</p>
 
 <div class="details collapse" id="details-1559">
 <div class="comment"><p>The absolute file path of the directory containing the extension. Shorthand
-notation for <a href="#TextDocument.uri">ExtensionContext.extensionUri.fsPath</a> (independent of the uri scheme).</p>
+notation for <a href={##TextDocument.uri}ExtensionContext.extensionUri.fsPath</a> (independent of the uri scheme).</p>
 </div>
 </div>
 
@@ -8911,7 +8923,7 @@ notation for <a href="#TextDocument.uri">ExtensionContext.extensionUri.fsPath</a
 
 <div class="details collapse" id="details-1553">
 <div class="comment"><p>A memento object that stores state independent
-of the current opened <a href="#workspace.workspaceFolders">workspace</a>.</p>
+of the current opened <a href={##workspace.workspaceFolders}workspace</a>.</p>
 </div>
 </div>
 
@@ -8921,9 +8933,9 @@ of the current opened <a href="#workspace.workspaceFolders">workspace</a>.</p>
 <div class="comment"><p>An absolute file path in which the extension can store global state.
 The directory might not exist on disk and creation is
 up to the extension. However, the parent directory is guaranteed to be existent.</p>
-<p>Use <a href="#ExtensionContext.globalState"><code>globalState</code></a> to store key value data.</p>
+<p>Use <a href={##ExtensionContext.globalState}<code>globalState</code></a> to store key value data.</p>
 <ul>
-<li><em>deprecated</em> - Use <a href="#ExtensionContext.globalStorageUri">globalStorageUri</a> instead.</li>
+<li><em>deprecated</em> - Use <a href={##ExtensionContext.globalStorageUri}globalStorageUri</a> instead.</li>
 </ul>
 </div>
 </div>
@@ -8934,9 +8946,9 @@ up to the extension. However, the parent directory is guaranteed to be existent.
 <div class="comment"><p>The uri of a directory in which the extension can store global state.
 The directory might not exist on disk and creation is
 up to the extension. However, the parent directory is guaranteed to be existent.</p>
-<p>Use <a href="#ExtensionContext.globalState"><code>globalState</code></a> to store key value data.</p>
+<p>Use <a href={##ExtensionContext.globalState}<code>globalState</code></a> to store key value data.</p>
 <ul>
-<li><em>see</em> - <a href="#FileSystem"><code>workspace.fs</code></a> for how to read and write files and folders from
+<li><em>see</em> - <a href={##FileSystem}<code>workspace.fs</code></a> for how to read and write files and folders from
 an uri.</li>
 </ul>
 </div>
@@ -8949,7 +8961,7 @@ an uri.</li>
 The directory might not exist on disk and creation is up to the extension. However,
 the parent directory is guaranteed to be existent.</p>
 <ul>
-<li><em>deprecated</em> - Use <a href="#ExtensionContext.logUri">logUri</a> instead.</li>
+<li><em>deprecated</em> - Use <a href={##ExtensionContext.logUri}logUri</a> instead.</li>
 </ul>
 </div>
 </div>
@@ -8961,7 +8973,7 @@ the parent directory is guaranteed to be existent.</p>
 The directory might not exist on disk and creation is up to the extension. However,
 the parent directory is guaranteed to be existent.</p>
 <ul>
-<li><em>see</em> - <a href="#FileSystem"><code>workspace.fs</code></a> for how to read and write files and folders from
+<li><em>see</em> - <a href={##FileSystem}<code>workspace.fs</code></a> for how to read and write files and folders from
 an uri.</li>
 </ul>
 </div>
@@ -8973,10 +8985,10 @@ an uri.</li>
 <div class="comment"><p>An absolute file path of a workspace specific directory in which the extension
 can store private state. The directory might not exist on disk and creation is
 up to the extension. However, the parent directory is guaranteed to be existent.</p>
-<p>Use <a href="#ExtensionContext.workspaceState"><code>workspaceState</code></a> or
-<a href="#ExtensionContext.globalState"><code>globalState</code></a> to store key value data.</p>
+<p>Use <a href={##ExtensionContext.workspaceState}<code>workspaceState</code></a> or
+<a href={##ExtensionContext.globalState}<code>globalState</code></a> to store key value data.</p>
 <ul>
-<li><em>deprecated</em> - Use <a href="#ExtensionContext.storageUri">storageUri</a> instead.</li>
+<li><em>deprecated</em> - Use <a href={##ExtensionContext.storageUri}storageUri</a> instead.</li>
 </ul>
 </div>
 </div>
@@ -8988,10 +9000,10 @@ up to the extension. However, the parent directory is guaranteed to be existent.
 can store private state. The directory might not exist and creation is
 up to the extension. However, the parent directory is guaranteed to be existent.
 The value is <code>undefined</code> when no workspace nor folder has been opened.</p>
-<p>Use <a href="#ExtensionContext.workspaceState"><code>workspaceState</code></a> or
-<a href="#ExtensionContext.globalState"><code>globalState</code></a> to store key value data.</p>
+<p>Use <a href={##ExtensionContext.workspaceState}<code>workspaceState</code></a> or
+<a href={##ExtensionContext.globalState}<code>globalState</code></a> to store key value data.</p>
 <ul>
-<li><em>see</em> - <a href="#FileSystem"><code>workspace.fs</code></a> for how to read and write files and folders from
+<li><em>see</em> - <a href={##FileSystem}<code>workspace.fs</code></a> for how to read and write files and folders from
 an uri.</li>
 </ul>
 </div>
@@ -9009,7 +9021,7 @@ extension is deactivated the disposables will be disposed.</p>
 
 <div class="details collapse" id="details-1552">
 <div class="comment"><p>A memento object that stores state in the context
-of the currently opened <a href="#workspace.workspaceFolders">workspace</a>.</p>
+of the currently opened <a href={##workspace.workspaceFolders}workspace</a>.</p>
 </div>
 </div>
 
@@ -9019,8 +9031,8 @@ of the currently opened <a href="#workspace.workspaceFolders">workspace</a>.</p>
 
 <div class="details collapse" id="details-1562">
 <div class="comment"><p>Get the absolute path of a resource contained in the extension.</p>
-<p><em>Note</em> that an absolute uri can be constructed via <a href="#Uri.joinPath"><code>Uri.joinPath</code></a> and
-<a href="#ExtensionContext.extensionUri"><code>extensionUri</code></a>, e.g. <code>vscode.Uri.joinPath(context.extensionUri, relativePath);</code></p>
+<p><em>Note</em> that an absolute uri can be constructed via <a href={##Uri.joinPath}<code>Uri.joinPath</code></a> and
+<a href={##ExtensionContext.extensionUri}<code>extensionUri</code></a>, e.g. <code>vscode.Uri.joinPath(context.extensionUri, relativePath);</code></p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -9097,7 +9109,7 @@ mode the specific extension is running in.</p>
 <a name="ExtensionTerminalOptions.pty"></a><span class="ts"id={2118}data-target="#details-2118" data-toggle="collapse"><span class="ident">pty</span><span>: </span><a class="type-ref" href="#Pseudoterminal">Pseudoterminal</a></span>
 
 <div class="details collapse" id="details-2118">
-<div class="comment"><p>An implementation of <a href="#Pseudoterminal">Pseudoterminal</a> that allows an extension to
+<div class="comment"><p>An implementation of <a href={##Pseudoterminal}Pseudoterminal</a> that allows an extension to
 control a terminal.</p>
 </div>
 </div>
@@ -9236,10 +9248,10 @@ to a file.</p>
 ### <a name="FileSystem"></a><span class="code-item" id=1829>FileSystem</span>
 
 <div class="comment"><p>The file system interface exposes the editor&#39;s built-in and contributed
-<a href="#FileSystemProvider">file system providers</a>. It allows extensions to work
+<a href={##FileSystemProvider}file system providers</a>. It allows extensions to work
 with files from the local disk as well as files from remote places, like the
 remote extension host or ftp-servers.</p>
-<p><em>Note</em> that an instance of this interface is available as <a href="#workspace.fs"><code>workspace.fs</code></a>.</p>
+<p><em>Note</em> that an instance of this interface is available as <a href={##workspace.fs}<code>workspace.fs</code></a>.</p>
 </div>
 
 #### Methods
@@ -9302,7 +9314,7 @@ remote extension host or ftp-servers.</p>
 <a name="FileSystem.readDirectory"></a><span class="ts"id={1834}data-target="#details-1834" data-toggle="collapse"><span class="ident">readDirectory</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;[<a class="type-intrinsic">string</a>, <a class="type-ref" href="#FileType">FileType</a>][]&gt;</span>
 
 <div class="details collapse" id="details-1834">
-<div class="comment"><p>Retrieve all entries of a <a href="#FileType.Directory">directory</a>.</p>
+<div class="comment"><p>Retrieve all entries of a <a href={##FileType.Directory}directory</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -9523,7 +9535,7 @@ complete a request.</p>
 
 <div class="details collapse" id="details-1768">
 <div class="comment"><p>A code that identifies this error.</p>
-<p>Possible values are names of errors, like <a href="#FileSystemError.FileNotFound"><code>FileNotFound</code></a>,
+<p>Possible values are names of errors, like <a href={##FileSystemError.FileNotFound}<code>FileNotFound</code></a>,
 or <code>Unknown</code> for unspecified errors.</p>
 </div>
 </div>
@@ -9552,11 +9564,11 @@ or <code>Unknown</code> for unspecified errors.</p>
 and to manage files and folders. It allows extensions to serve files from remote places,
 like ftp-servers, and to seamlessly integrate those into the editor.</p>
 <ul>
-<li><em>Note 1:</em> The filesystem provider API works with <a href="#Uri">uris</a> and assumes hierarchical
+<li><em>Note 1:</em> The filesystem provider API works with <a href={##Uri}uris</a> and assumes hierarchical
 paths, e.g. <code>foo:/my/path</code> is a child of <code>foo:/my/</code> and a parent of <code>foo:/my/path/deeper</code>.</li>
 <li><em>Note 2:</em> There is an activation event <code>onFileSystem:&lt;scheme&gt;</code> that fires when a file
 or folder is being accessed.</li>
-<li><em>Note 3:</em> The word &#39;file&#39; is often used to denote all <a href="#FileType">kinds</a> of files, e.g.
+<li><em>Note 3:</em> The word &#39;file&#39; is often used to denote all <a href={##FileType}kinds</a> of files, e.g.
 folders, symbolic links, and regular files.</li>
 </ul>
 </div>
@@ -9567,10 +9579,10 @@ folders, symbolic links, and regular files.</li>
 
 <div class="details collapse" id="details-1781">
 <div class="comment"><p>An event to signal that a resource has been created, changed, or deleted. This
-event should fire for resources that are being <a href="#FileSystemProvider.watch">watched</a>
+event should fire for resources that are being <a href={##FileSystemProvider.watch}watched</a>
 by clients of this provider.</p>
 <p><em>Note:</em> It is important that the metadata of the file that changed provides an
-updated <code>mtime</code> that advanced from the previous value in the <a href="#FileStat">stat</a> and a
+updated <code>mtime</code> that advanced from the previous value in the <a href={##FileStat}stat</a> and a
 correct <code>size</code> value. Otherwise there may be optimizations in place that will not show
 the change in an editor for example.</p>
 </div>
@@ -9584,16 +9596,16 @@ the change in an editor for example.</p>
 <div class="comment"><p>Copy files or folders. Implementing this function is optional but it will speedup
 the copy operation.</p>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.FileNotFound"><code>FileNotFound</code></a> when <code>source</code> doesn&#39;t exist.</li>
+<li><em>throws</em> - <a href={##FileSystemError.FileNotFound}<code>FileNotFound</code></a> when <code>source</code> doesn&#39;t exist.</li>
 </ul>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.FileNotFound"><code>FileNotFound</code></a> when parent of <code>destination</code> doesn&#39;t exist, e.g. no mkdirp-logic required.</li>
+<li><em>throws</em> - <a href={##FileSystemError.FileNotFound}<code>FileNotFound</code></a> when parent of <code>destination</code> doesn&#39;t exist, e.g. no mkdirp-logic required.</li>
 </ul>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.FileExists"><code>FileExists</code></a> when <code>destination</code> exists and when the <code>overwrite</code> option is not <code>true</code>.</li>
+<li><em>throws</em> - <a href={##FileSystemError.FileExists}<code>FileExists</code></a> when <code>destination</code> exists and when the <code>overwrite</code> option is not <code>true</code>.</li>
 </ul>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.NoPermissions"><code>NoPermissions</code></a> when permissions aren&#39;t sufficient.</li>
+<li><em>throws</em> - <a href={##FileSystemError.NoPermissions}<code>NoPermissions</code></a> when permissions aren&#39;t sufficient.</li>
 </ul>
 </div>
 <div class="signature">
@@ -9616,13 +9628,13 @@ the copy operation.</p>
 <div class="details collapse" id="details-1796">
 <div class="comment"><p>Create a new directory (Note, that new files are created via <code>write</code>-calls).</p>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.FileNotFound"><code>FileNotFound</code></a> when the parent of <code>uri</code> doesn&#39;t exist, e.g. no mkdirp-logic required.</li>
+<li><em>throws</em> - <a href={##FileSystemError.FileNotFound}<code>FileNotFound</code></a> when the parent of <code>uri</code> doesn&#39;t exist, e.g. no mkdirp-logic required.</li>
 </ul>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.FileExists"><code>FileExists</code></a> when <code>uri</code> already exists.</li>
+<li><em>throws</em> - <a href={##FileSystemError.FileExists}<code>FileExists</code></a> when <code>uri</code> already exists.</li>
 </ul>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.NoPermissions"><code>NoPermissions</code></a> when permissions aren&#39;t sufficient.</li>
+<li><em>throws</em> - <a href={##FileSystemError.NoPermissions}<code>NoPermissions</code></a> when permissions aren&#39;t sufficient.</li>
 </ul>
 </div>
 <div class="signature">
@@ -9641,10 +9653,10 @@ the copy operation.</p>
 <div class="details collapse" id="details-1810">
 <div class="comment"><p>Delete a file.</p>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.FileNotFound"><code>FileNotFound</code></a> when <code>uri</code> doesn&#39;t exist.</li>
+<li><em>throws</em> - <a href={##FileSystemError.FileNotFound}<code>FileNotFound</code></a> when <code>uri</code> doesn&#39;t exist.</li>
 </ul>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.NoPermissions"><code>NoPermissions</code></a> when permissions aren&#39;t sufficient.</li>
+<li><em>throws</em> - <a href={##FileSystemError.NoPermissions}<code>NoPermissions</code></a> when permissions aren&#39;t sufficient.</li>
 </ul>
 </div>
 <div class="signature">
@@ -9663,9 +9675,9 @@ the copy operation.</p>
 <a name="FileSystemProvider.readDirectory"></a><span class="ts"id={1793}data-target="#details-1793" data-toggle="collapse"><span class="ident">readDirectory</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span>[<a class="type-intrinsic">string</a>, <a class="type-ref" href="#FileType">FileType</a>][] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;[<a class="type-intrinsic">string</a>, <a class="type-ref" href="#FileType">FileType</a>][]&gt;</span>
 
 <div class="details collapse" id="details-1793">
-<div class="comment"><p>Retrieve all entries of a <a href="#FileType.Directory">directory</a>.</p>
+<div class="comment"><p>Retrieve all entries of a <a href={##FileType.Directory}directory</a>.</p>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.FileNotFound"><code>FileNotFound</code></a> when <code>uri</code> doesn&#39;t exist.</li>
+<li><em>throws</em> - <a href={##FileSystemError.FileNotFound}<code>FileNotFound</code></a> when <code>uri</code> doesn&#39;t exist.</li>
 </ul>
 </div>
 <div class="signature">
@@ -9685,7 +9697,7 @@ the copy operation.</p>
 <div class="details collapse" id="details-1799">
 <div class="comment"><p>Read the entire contents of a file.</p>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.FileNotFound"><code>FileNotFound</code></a> when <code>uri</code> doesn&#39;t exist.</li>
+<li><em>throws</em> - <a href={##FileSystemError.FileNotFound}<code>FileNotFound</code></a> when <code>uri</code> doesn&#39;t exist.</li>
 </ul>
 </div>
 <div class="signature">
@@ -9705,16 +9717,16 @@ the copy operation.</p>
 <div class="details collapse" id="details-1816">
 <div class="comment"><p>Rename a file or folder.</p>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.FileNotFound"><code>FileNotFound</code></a> when <code>oldUri</code> doesn&#39;t exist.</li>
+<li><em>throws</em> - <a href={##FileSystemError.FileNotFound}<code>FileNotFound</code></a> when <code>oldUri</code> doesn&#39;t exist.</li>
 </ul>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.FileNotFound"><code>FileNotFound</code></a> when parent of <code>newUri</code> doesn&#39;t exist, e.g. no mkdirp-logic required.</li>
+<li><em>throws</em> - <a href={##FileSystemError.FileNotFound}<code>FileNotFound</code></a> when parent of <code>newUri</code> doesn&#39;t exist, e.g. no mkdirp-logic required.</li>
 </ul>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.FileExists"><code>FileExists</code></a> when <code>newUri</code> exists and when the <code>overwrite</code> option is not <code>true</code>.</li>
+<li><em>throws</em> - <a href={##FileSystemError.FileExists}<code>FileExists</code></a> when <code>newUri</code> exists and when the <code>overwrite</code> option is not <code>true</code>.</li>
 </ul>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.NoPermissions"><code>NoPermissions</code></a> when permissions aren&#39;t sufficient.</li>
+<li><em>throws</em> - <a href={##FileSystemError.NoPermissions}<code>NoPermissions</code></a> when permissions aren&#39;t sufficient.</li>
 </ul>
 </div>
 <div class="signature">
@@ -9737,10 +9749,10 @@ the copy operation.</p>
 <div class="details collapse" id="details-1790">
 <div class="comment"><p>Retrieve metadata about a file.</p>
 <p>Note that the metadata for symbolic links should be the metadata of the file they refer to.
-Still, the <a href="#FileType.SymbolicLink">SymbolicLink</a>-type must be used in addition to the actual type, e.g.
+Still, the <a href={##FileType.SymbolicLink}SymbolicLink</a>-type must be used in addition to the actual type, e.g.
 <code>FileType.SymbolicLink | FileType.Directory</code>.</p>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.FileNotFound"><code>FileNotFound</code></a> when <code>uri</code> doesn&#39;t exist.</li>
+<li><em>throws</em> - <a href={##FileSystemError.FileNotFound}<code>FileNotFound</code></a> when <code>uri</code> doesn&#39;t exist.</li>
 </ul>
 </div>
 <div class="signature">
@@ -9782,16 +9794,16 @@ and if subfolders, sub-subfolder, etc. should be watched (<code>recursive</code>
 <div class="details collapse" id="details-1802">
 <div class="comment"><p>Write data to a file, replacing its entire contents.</p>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.FileNotFound"><code>FileNotFound</code></a> when <code>uri</code> doesn&#39;t exist and <code>create</code> is not set.</li>
+<li><em>throws</em> - <a href={##FileSystemError.FileNotFound}<code>FileNotFound</code></a> when <code>uri</code> doesn&#39;t exist and <code>create</code> is not set.</li>
 </ul>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.FileNotFound"><code>FileNotFound</code></a> when the parent of <code>uri</code> doesn&#39;t exist and <code>create</code> is set, e.g. no mkdirp-logic required.</li>
+<li><em>throws</em> - <a href={##FileSystemError.FileNotFound}<code>FileNotFound</code></a> when the parent of <code>uri</code> doesn&#39;t exist and <code>create</code> is set, e.g. no mkdirp-logic required.</li>
 </ul>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.FileExists"><code>FileExists</code></a> when <code>uri</code> already exists, <code>create</code> is set but <code>overwrite</code> is not set.</li>
+<li><em>throws</em> - <a href={##FileSystemError.FileExists}<code>FileExists</code></a> when <code>uri</code> already exists, <code>create</code> is set but <code>overwrite</code> is not set.</li>
 </ul>
 <ul>
-<li><em>throws</em> - <a href="#FileSystemError.NoPermissions"><code>NoPermissions</code></a> when permissions aren&#39;t sufficient.</li>
+<li><em>throws</em> - <a href={##FileSystemError.NoPermissions}<code>NoPermissions</code></a> when permissions aren&#39;t sufficient.</li>
 </ul>
 </div>
 <div class="signature">
@@ -9812,9 +9824,9 @@ and if subfolders, sub-subfolder, etc. should be watched (<code>recursive</code>
 ### <a name="FileSystemWatcher"></a><span class="code-item" id=472>FileSystemWatcher</span>
 
 <div class="comment"><p>A file system watcher notifies about changes to files and folders
-on disk or from other <a href="#FileSystemProvider">FileSystemProviders</a>.</p>
+on disk or from other <a href={##FileSystemProvider}FileSystemProviders</a>.</p>
 <p>To get an instance of a <code>FileSystemWatcher</code> use
-<a href="#workspace.createFileSystemWatcher">createFileSystemWatcher</a>.</p>
+<a href={##workspace.createFileSystemWatcher}createFileSystemWatcher</a>.</p>
 </div>
 
 #### Events
@@ -9959,8 +9971,8 @@ a symbolic links, in that case use <code>FileType.File | FileType.SymbolicLink</
 
 <div class="comment"><p>An event that is fired when files are going to be created.</p>
 <p>To make modifications to the workspace before the files are created,
-call the <a href="#FileWillCreateEvent.waitUntil">`waitUntil</a>-function with a
-thenable that resolves to a <a href="#WorkspaceEdit">workspace edit</a>.</p>
+call the <a href={##FileWillCreateEvent.waitUntil}`waitUntil</a>-function with a
+thenable that resolves to a <a href={##WorkspaceEdit}workspace edit</a>.</p>
 </div>
 
 #### Properties
@@ -9977,18 +9989,19 @@ thenable that resolves to a <a href="#WorkspaceEdit">workspace edit</a>.</p>
 <a name="FileWillCreateEvent.waitUntil"></a><span class="ts"id={2286}data-target="#details-2286" data-toggle="collapse"><span class="ident">waitUntil</span><span>(</span><span class="ident">thenable</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a>&gt;<span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
 
 <div class="details collapse" id="details-2286">
-<div class="comment"><p>Allows to pause the event and to apply a <a href="#WorkspaceEdit">workspace edit</a>.</p>
+<div class="comment"><p>Allows to pause the event and to apply a <a href={##WorkspaceEdit}workspace edit</a>.</p>
 <p><em>Note:</em> This function can only be called during event dispatch and not
 in an asynchronous manner:</p>
 
-<pre><code class="lang-ts">workspace.onWillCreateFiles(event =&gt; {
+```ts
+workspace.onWillCreateFiles(event =&gt; {
     // async, will *throw* an error
     setTimeout(() =&gt; event.waitUntil(promise));
 
     // sync, OK
     event.waitUntil(promise);
 })
-</code></pre>
+```
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -10022,8 +10035,8 @@ in an asynchronous manner:</p>
 
 <div class="comment"><p>An event that is fired when files are going to be deleted.</p>
 <p>To make modifications to the workspace before the files are deleted,
-call the <a href="#FileWillCreateEvent.waitUntil">`waitUntil</a>-function with a
-thenable that resolves to a <a href="#WorkspaceEdit">workspace edit</a>.</p>
+call the <a href={##FileWillCreateEvent.waitUntil}`waitUntil</a>-function with a
+thenable that resolves to a <a href={##WorkspaceEdit}workspace edit</a>.</p>
 </div>
 
 #### Properties
@@ -10040,18 +10053,19 @@ thenable that resolves to a <a href="#WorkspaceEdit">workspace edit</a>.</p>
 <a name="FileWillDeleteEvent.waitUntil"></a><span class="ts"id={2295}data-target="#details-2295" data-toggle="collapse"><span class="ident">waitUntil</span><span>(</span><span class="ident">thenable</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a>&gt;<span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
 
 <div class="details collapse" id="details-2295">
-<div class="comment"><p>Allows to pause the event and to apply a <a href="#WorkspaceEdit">workspace edit</a>.</p>
+<div class="comment"><p>Allows to pause the event and to apply a <a href={##WorkspaceEdit}workspace edit</a>.</p>
 <p><em>Note:</em> This function can only be called during event dispatch and not
 in an asynchronous manner:</p>
 
-<pre><code class="lang-ts">workspace.onWillCreateFiles(event =&gt; {
+```ts
+workspace.onWillCreateFiles(event =&gt; {
     // async, will *throw* an error
     setTimeout(() =&gt; event.waitUntil(promise));
 
     // sync, OK
     event.waitUntil(promise);
 })
-</code></pre>
+```
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -10085,8 +10099,8 @@ in an asynchronous manner:</p>
 
 <div class="comment"><p>An event that is fired when files are going to be renamed.</p>
 <p>To make modifications to the workspace before the files are renamed,
-call the <a href="#FileWillCreateEvent.waitUntil">`waitUntil</a>-function with a
-thenable that resolves to a <a href="#WorkspaceEdit">workspace edit</a>.</p>
+call the <a href={##FileWillCreateEvent.waitUntil}`waitUntil</a>-function with a
+thenable that resolves to a <a href={##WorkspaceEdit}workspace edit</a>.</p>
 </div>
 
 #### Properties
@@ -10103,18 +10117,19 @@ thenable that resolves to a <a href="#WorkspaceEdit">workspace edit</a>.</p>
 <a name="FileWillRenameEvent.waitUntil"></a><span class="ts"id={2307}data-target="#details-2307" data-toggle="collapse"><span class="ident">waitUntil</span><span>(</span><span class="ident">thenable</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a>&gt;<span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
 
 <div class="details collapse" id="details-2307">
-<div class="comment"><p>Allows to pause the event and to apply a <a href="#WorkspaceEdit">workspace edit</a>.</p>
+<div class="comment"><p>Allows to pause the event and to apply a <a href={##WorkspaceEdit}workspace edit</a>.</p>
 <p><em>Note:</em> This function can only be called during event dispatch and not
 in an asynchronous manner:</p>
 
-<pre><code class="lang-ts">workspace.onWillCreateFiles(event =&gt; {
+```ts
+workspace.onWillCreateFiles(event =&gt; {
     // async, will *throw* an error
     setTimeout(() =&gt; event.waitUntil(promise));
 
     // sync, OK
     event.waitUntil(promise);
 })
-</code></pre>
+```
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -10190,10 +10205,10 @@ To be valid, the end must be zero or larger and smaller than the number of lines
 <a name="FoldingRange.kind"></a><span class="ts"id={1209}data-target="#details-1209" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-ref" href="#FoldingRangeKind">FoldingRangeKind</a></span>
 
 <div class="details collapse" id="details-1209">
-<div class="comment"><p>Describes the <a href="#FoldingRangeKind">Kind</a> of the folding range such as <a href="#FoldingRangeKind.Comment">Comment</a> or
-<a href="#FoldingRangeKind.Region">Region</a>. The kind is used to categorize folding ranges and used by commands
+<div class="comment"><p>Describes the <a href={##FoldingRangeKind">Kind</a> of the folding range such as <a href="#FoldingRangeKind.Comment}Comment</a> or
+<a href={##FoldingRangeKind.Region}Region</a>. The kind is used to categorize folding ranges and used by commands
 like &#39;Fold all comments&#39;. See
-<a href="#FoldingRangeKind">FoldingRangeKind</a> for an enumeration of all kinds.
+<a href={##FoldingRangeKind}FoldingRangeKind</a> for an enumeration of all kinds.
 If not set, the range is originated from a syntax element.</p>
 </div>
 </div>
@@ -10208,7 +10223,7 @@ To be valid, the end must be zero or larger and smaller than the number of lines
 
 ### <a name="FoldingRangeKind"></a><span class="code-item" id=1215>FoldingRangeKind</span>
 
-<div class="comment"><p>An enumeration of specific folding range kinds. The kind is an optional field of a <a href="#FoldingRange">FoldingRange</a>
+<div class="comment"><p>An enumeration of specific folding range kinds. The kind is an optional field of a <a href={##FoldingRange}FoldingRange</a>
 and is used to distinguish specific folding ranges such as ranges originated from comments. The kind is used by commands like
 <code>Fold all comments</code> or <code>Fold all regions</code>.
 If the kind is not set on the range, the range originated from a syntax element other than comments, imports or region markers.</p>
@@ -10237,7 +10252,7 @@ If the kind is not set on the range, the range originated from a syntax element 
 ### <a name="FoldingRangeProvider"></a><span class="code-item" id=1220>FoldingRangeProvider</span>
 
 <div class="comment"><p>The folding range provider interface defines the contract between extensions and
-<a href="https://code.visualstudio.com/docs/editor/codebasics#_folding">Folding</a> in the editor.</p>
+<a href={#https://code.visualstudio.com/docs/editor/codebasics#_folding}Folding</a> in the editor.</p>
 </div>
 
 #### Methods
@@ -10357,7 +10372,7 @@ does not want to participate or was cancelled.</p>
 ### <a name="GlobPattern"></a><span class="code-item" id=2628>GlobPattern</span>
 
 <div class="comment"><p>A file glob pattern to match file paths against. This can either be a glob pattern string
-(like <code>**/*.{ts,js}</code> or <code>*.{ts,js}</code>) or a <a href="#RelativePattern">relative pattern</a>.</p>
+(like <code>**/*.{ts,js}</code> or <code>*.{ts,js}</code>) or a <a href={##RelativePattern}relative pattern</a>.</p>
 <p>Glob patterns can have the following syntax:</p>
 <ul>
 <li><code>*</code> to match zero or more characters in a path segment</li>
@@ -10368,7 +10383,7 @@ does not want to participate or was cancelled.</p>
 <li><code>[!...]</code> to negate a range of characters to match in a path segment (e.g., <code>example.[!0-9]</code> to match on <code>example.a</code>, <code>example.b</code>, but not <code>example.0</code>)</li>
 </ul>
 <p>Note: a backslash (<code>\</code>) is not valid within a glob pattern. If you have an existing file
-path to match against, consider to use the <a href="#RelativePattern">relative pattern</a> support
+path to match against, consider to use the <a href={##RelativePattern}relative pattern</a> support
 that takes care of converting any backslash into slash. Otherwise, make sure to convert
 any backslash to slash when creating the glob pattern.</p>
 </div>
@@ -10422,7 +10437,7 @@ current position itself.</p>
 ### <a name="HoverProvider"></a><span class="code-item" id=686>HoverProvider</span>
 
 <div class="comment"><p>The hover provider interface defines the contract between extensions and
-the <a href="https://code.visualstudio.com/docs/editor/intellisense">hover</a>-feature.</p>
+the <a href={#https://code.visualstudio.com/docs/editor/intellisense}hover</a>-feature.</p>
 </div>
 
 #### Methods
@@ -10549,10 +10564,10 @@ signaled by returning <code>undefined</code> or <code>null</code>.</p>
 
 ### <a name="InputBox"></a><span class="code-item" id=2230>InputBox</span>
 
-<div class="comment"><p>A concrete <a href="#QuickInput">QuickInput</a> to let the user input a text value.</p>
-<p>Note that in many cases the more convenient <a href="#window.showInputBox">window.showInputBox</a>
-is easier to use. <a href="#window.createInputBox">window.createInputBox</a> should be used
-when <a href="#window.showInputBox">window.showInputBox</a> does not offer the required flexibility.</p>
+<div class="comment"><p>A concrete <a href={##QuickInput}QuickInput</a> to let the user input a text value.</p>
+<p>Note that in many cases the more convenient <a href={##window.showInputBox}window.showInputBox</a>
+is easier to use. <a href={##window.createInputBox}window.createInputBox</a> should be used
+when <a href={##window.showInputBox}window.showInputBox</a> does not offer the required flexibility.</p>
 </div>
 
 #### Events
@@ -10576,8 +10591,8 @@ when <a href="#window.showInputBox">window.showInputBox</a> does not offer the r
 <div class="details collapse" id="details-2250">
 <div class="comment"><p>An event signaling when this input UI is hidden.</p>
 <p>There are several reasons why this UI might have to be hidden and
-the extension will be notified through <a href="#QuickInput.onDidHide">QuickInput.onDidHide</a>.
-(Examples include: an explicit call to <a href="#QuickInput.hide">QuickInput.hide</a>,
+the extension will be notified through <a href={##QuickInput.onDidHide}QuickInput.onDidHide</a>.
+(Examples include: an explicit call to <a href={##QuickInput.hide}QuickInput.hide</a>,
 the user pressing Esc, some other input UI opening, etc.)</p>
 </div>
 </div>
@@ -10700,7 +10715,7 @@ accessed. Instead a new input UI should be created.</p>
 <a name="InputBox.hide"></a><span class="ts"id={2249}data-target="#details-2249" data-toggle="collapse"><span class="ident">hide</span><span>(</span><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
 
 <div class="details collapse" id="details-2249">
-<div class="comment"><p>Hides this input UI. This will also fire an <a href="#QuickInput.onDidHide">QuickInput.onDidHide</a>
+<div class="comment"><p>Hides this input UI. This will also fire an <a href={##QuickInput.onDidHide}QuickInput.onDidHide</a>
 event.</p>
 </div>
 <div class="signature">
@@ -10715,7 +10730,7 @@ event.</p>
 
 <div class="details collapse" id="details-2247">
 <div class="comment"><p>Makes the input UI visible in its current configuration. Any other input
-UI will first fire an <a href="#QuickInput.onDidHide">QuickInput.onDidHide</a> event.</p>
+UI will first fire an <a href={##QuickInput.onDidHide}QuickInput.onDidHide</a> event.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -10770,7 +10785,7 @@ UI will first fire an <a href="#QuickInput.onDidHide">QuickInput.onDidHide</a> e
 <a name="InputBoxOptions.valueSelection"></a><span class="ts"id={541}data-target="#details-541" data-toggle="collapse"><span class="ident">valueSelection</span><span>?</span><span>: </span>[<a class="type-intrinsic">number</a>, <a class="type-intrinsic">number</a>]</span>
 
 <div class="details collapse" id="details-541">
-<div class="comment"><p>Selection of the prefilled <a href="#InputBoxOptions.value"><code>value</code></a>. Defined as tuple of two number where the
+<div class="comment"><p>Selection of the prefilled <a href={##InputBoxOptions.value}<code>value</code></a>. Defined as tuple of two number where the
 first is the inclusive start index and the second the exclusive end index. When <code>undefined</code> the whole
 word will be selected, when empty (start equals end) only the cursor will be set,
 otherwise the defined range will be selected.</p>
@@ -10910,7 +10925,7 @@ inside a text file.</p>
 
 ### <a name="LocationLink"></a><span class="code-item" id=1372>LocationLink</span>
 
-<div class="comment"><p>Represents the connection of two locations. Provides additional metadata over normal <a href="#Location">locations</a>,
+<div class="comment"><p>Represents the connection of two locations. Provides additional metadata over normal <a href={##Location}locations</a>,
 including an origin range.</p>
 </div>
 
@@ -10950,7 +10965,7 @@ the definition position.</p>
 
 <div class="comment"><p>The MarkdownString represents human-readable text that supports formatting via the
 markdown syntax. Standard markdown is supported, also tables, but no embedded html.</p>
-<p>When created with <code>supportThemeIcons</code> then rendering of <a href="#ThemeIcon">theme icons</a> via
+<p>When created with <code>supportThemeIcons</code> then rendering of <a href={##ThemeIcon}theme icons</a> via
 the <code>$(&lt;name&gt;)</code>-syntax is supported.</p>
 </div>
 
@@ -10966,7 +10981,7 @@ the <code>$(&lt;name&gt;)</code>-syntax is supported.</p>
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="value"></a><span class="ts"id={667}data-target="#details-667" data-toggle="collapse"><span class="ident">value</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>Optional, initial value.</p>
 </div></td></tr>
-<tr><td><a name="supportThemeIcons"></a><span class="ts"id={668}data-target="#details-668" data-toggle="collapse"><span class="ident">supportThemeIcons</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p>Optional, Specifies whether <a href="#ThemeIcon">ThemeIcons</a> are supported within the <a href="#MarkdownString"><code>MarkdownString</code></a>.</p>
+<tr><td><a name="supportThemeIcons"></a><span class="ts"id={668}data-target="#details-668" data-toggle="collapse"><span class="ident">supportThemeIcons</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p>Optional, Specifies whether <a href={##ThemeIcon">ThemeIcons</a> are supported within the <a href="#MarkdownString}<code>MarkdownString</code></a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#MarkdownString">MarkdownString</a></span></td><td><div class="comment"></div></td></tr>
@@ -10987,7 +11002,7 @@ markdown supports links that execute commands, e.g. <code>[Run it](command:myCom
 <a name="MarkdownString.supportThemeIcons"></a><span class="ts"id={664}data-target="#details-664" data-toggle="collapse"><span class="ident">supportThemeIcons</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 
 <div class="details collapse" id="details-664">
-<div class="comment"><p>Indicates that this markdown string can contain <a href="#ThemeIcon">ThemeIcons</a>, e.g. <code>$(zap)</code>.</p>
+<div class="comment"><p>Indicates that this markdown string can contain <a href={##ThemeIcon}ThemeIcons</a>, e.g. <code>$(zap)</code>.</p>
 </div>
 </div>
 
@@ -11010,7 +11025,7 @@ markdown supports links that execute commands, e.g. <code>[Run it](command:myCom
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="value"></a><span class="ts"id={677}data-target="#details-677" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>A code snippet.</p>
 </div></td></tr>
-<tr><td><a name="language"></a><span class="ts"id={678}data-target="#details-678" data-toggle="collapse"><span class="ident">language</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>An optional <a href="#languages.getLanguages">language identifier</a>.</p>
+<tr><td><a name="language"></a><span class="ts"id={678}data-target="#details-678" data-toggle="collapse"><span class="ident">language</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>An optional <a href={##languages.getLanguages}language identifier</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#MarkdownString">MarkdownString</a></span></td><td><div class="comment"></div></td></tr>
@@ -11021,7 +11036,7 @@ markdown supports links that execute commands, e.g. <code>[Run it](command:myCom
 <a name="MarkdownString.appendMarkdown"></a><span class="ts"id={673}data-target="#details-673" data-toggle="collapse"><span class="ident">appendMarkdown</span><span>(</span><span class="ident">value</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-ref" href="#MarkdownString">MarkdownString</a></span>
 
 <div class="details collapse" id="details-673">
-<div class="comment"><p>Appends the given string &#39;as is&#39; to this markdown string. When <a href="#MarkdownString.supportThemeIcons"><code>supportThemeIcons</code></a> is <code>true</code>, <a href="#ThemeIcon">ThemeIcons</a> in the <code>value</code> will be iconified.</p>
+<div class="comment"><p>Appends the given string &#39;as is&#39; to this markdown string. When <a href={##MarkdownString.supportThemeIcons"><code>supportThemeIcons</code></a> is <code>true</code>, <a href="#ThemeIcon}ThemeIcons</a> in the <code>value</code> will be iconified.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -11056,7 +11071,7 @@ markdown supports links that execute commands, e.g. <code>[Run it](command:myCom
 or a code-block that provides a language and a code snippet. Note that
 markdown strings will be sanitized - that means html will be escaped.</p>
 <ul>
-<li><em>deprecated</em> - This type is deprecated, please use <a href="#MarkdownString"><code>MarkdownString</code></a> instead.</li>
+<li><em>deprecated</em> - This type is deprecated, please use <a href={##MarkdownString}<code>MarkdownString</code></a> instead.</li>
 </ul>
 </div>
 
@@ -11130,13 +11145,13 @@ value (<code>undefined</code>) with the given key.</p>
 <div class="comment"><p>Represents an action that is shown with an information, warning, or
 error message.</p>
 <ul>
-<li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
+<li><em>see</em> - <a href={##window.showInformationMessage}showInformationMessage</a></li>
 </ul>
 <ul>
-<li><em>see</em> - <a href="#window.showWarningMessage">showWarningMessage</a></li>
+<li><em>see</em> - <a href={##window.showWarningMessage}showWarningMessage</a></li>
 </ul>
 <ul>
-<li><em>see</em> - <a href="#window.showErrorMessage">showErrorMessage</a></li>
+<li><em>see</em> - <a href={##window.showErrorMessage}showErrorMessage</a></li>
 </ul>
 </div>
 
@@ -11163,13 +11178,13 @@ key).</p>
 
 <div class="comment"><p>Options to configure the behavior of the message.</p>
 <ul>
-<li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
+<li><em>see</em> - <a href={##window.showInformationMessage}showInformationMessage</a></li>
 </ul>
 <ul>
-<li><em>see</em> - <a href="#window.showWarningMessage">showWarningMessage</a></li>
+<li><em>see</em> - <a href={##window.showWarningMessage}showWarningMessage</a></li>
 </ul>
 <ul>
-<li><em>see</em> - <a href="#window.showErrorMessage">showErrorMessage</a></li>
+<li><em>see</em> - <a href={##window.showErrorMessage}showErrorMessage</a></li>
 </ul>
 </div>
 
@@ -11294,11 +11309,12 @@ and the editor then silently adjusts the options to select files.</li>
 <div class="comment"><p>A set of file filters that are used by the dialog. Each entry is a human-readable label,
 like &quot;TypeScript&quot;, and an array of extensions, e.g.</p>
 
-<pre><code class="lang-ts">{
+```ts
+{
     &#39;Images&#39;: [&#39;png&#39;, &#39;jpg&#39;]
     &#39;TypeScript&#39;: [&#39;ts&#39;, &#39;tsx&#39;]
 }
-</code></pre>
+```
 </div>
 </div>
 
@@ -11322,7 +11338,7 @@ like &quot;TypeScript&quot;, and an array of extensions, e.g.</p>
 
 <div class="comment"><p>An output channel is a container for readonly textual information.</p>
 <p>To get an instance of an <code>OutputChannel</code> use
-<a href="#window.createOutputChannel">createOutputChannel</a>.</p>
+<a href={##window.createOutputChannel}createOutputChannel</a>.</p>
 </div>
 
 #### Properties
@@ -11447,7 +11463,7 @@ to the channel.</p>
 
 ### <a name="OverviewRulerLane"></a><span class="code-item" id=232>OverviewRulerLane</span>
 
-<div class="comment"><p>Represents different positions for rendering a decoration in an <a href="#DecorationRenderOptions.overviewRulerLane">overview ruler</a>.
+<div class="comment"><p>Represents different positions for rendering a decoration in an <a href={##DecorationRenderOptions.overviewRulerLane}overview ruler</a>.
 The overview ruler supports three lanes.</p>
 </div>
 
@@ -11518,8 +11534,8 @@ in the UI but can be omitted.</p>
 <div class="details collapse" id="details-1032">
 <div class="comment"><p>The label of this signature.</p>
 <p>Either a string or inclusive start and exclusive end offsets within its containing
-<a href="#SignatureInformation.label">signature label</a>. <em>Note</em>: A label of type string must be
-a substring of its containing signature information&#39;s <a href="#SignatureInformation.label">label</a>.</p>
+<a href={##SignatureInformation.label}signature label</a>. <em>Note</em>: A label of type string must be
+a substring of its containing signature information&#39;s <a href={##SignatureInformation.label}label</a>.</p>
 </div>
 </div>
 
@@ -11527,8 +11543,8 @@ a substring of its containing signature information&#39;s <a href="#SignatureInf
 
 <div class="comment"><p>Represents a line and character position, such as
 the position of the cursor.</p>
-<p>Position objects are <strong>immutable</strong>. Use the <a href="#Position.with">with</a> or
-<a href="#Position.translate">translate</a> methods to derive new positions
+<p>Position objects are <strong>immutable</strong>. Use the <a href={##Position.with}with</a> or
+<a href={##Position.translate}translate</a> methods to derive new positions
 from an existing position.</p>
 </div>
 
@@ -11724,9 +11740,9 @@ is not changing anything.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="line"></a><span class="ts"id={110}data-target="#details-110" data-toggle="collapse"><span class="ident">line</span><span>?</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>Value that should be used as line value, default is the <a href="#Position.line">existing value</a></p>
+<tr><td><a name="line"></a><span class="ts"id={110}data-target="#details-110" data-toggle="collapse"><span class="ident">line</span><span>?</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>Value that should be used as line value, default is the <a href={##Position.line}existing value</a></p>
 </div></td></tr>
-<tr><td><a name="character"></a><span class="ts"id={111}data-target="#details-111" data-toggle="collapse"><span class="ident">character</span><span>?</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>Value that should be used as character value, default is the <a href="#Position.character">existing value</a></p>
+<tr><td><a name="character"></a><span class="ts"id={111}data-target="#details-111" data-toggle="collapse"><span class="ident">character</span><span>?</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>Value that should be used as character value, default is the <a href={##Position.character}existing value</a></p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>A position where line and character are replaced by the given values.</p>
@@ -11931,13 +11947,14 @@ operation.</p>
 
 ### <a name="ProviderResult"></a><span class="code-item" id=2630>ProviderResult&lt;T&gt;</span>
 
-<div class="comment"><p>A provider result represents the values a provider, like the <a href="#HoverProvider"><code>HoverProvider</code></a>,
+<div class="comment"><p>A provider result represents the values a provider, like the <a href={##HoverProvider}<code>HoverProvider</code></a>,
 may return. For once this is the actual result type <code>T</code>, like <code>Hover</code>, or a thenable that resolves
 to that type <code>T</code>. In addition, <code>null</code> and <code>undefined</code> can be returned - either directly or from a
 thenable.</p>
-<p>The snippets below are all valid implementations of the <a href="#HoverProvider"><code>HoverProvider</code></a>:</p>
+<p>The snippets below are all valid implementations of the <a href={##HoverProvider}<code>HoverProvider</code></a>:</p>
 
-<pre><code class="lang-ts">let a: HoverProvider = {
+```ts
+let a: HoverProvider = {
     provideHover(doc, pos, token): ProviderResult&lt;Hover&gt; {
         return new Hover(&#39;Hello World&#39;);
     }
@@ -11956,7 +11973,7 @@ let c: HoverProvider = {
         return; // undefined
     }
 }
-</code></pre>
+```
 </div>
 
 <a name="ProviderResult"></a><span class="ts"id={2630}data-target="#details-2630" data-toggle="collapse"><span class="ident">ProviderResult</span><span>: </span><a class="type-intrinsic">T</a> &#124; <a class="type-intrinsic">undefined</a> &#124; <a class="type-intrinsic">null</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-intrinsic">T</a> &#124; <a class="type-intrinsic">undefined</a> &#124; <a class="type-intrinsic">null</a>&gt;</span>
@@ -11978,7 +11995,8 @@ regular terminal and allows dependent tasks to proceed when used with the
 <code>CustomExecution</code> API.</p>
 <p><strong>Example:</strong> Exit the terminal when &quot;y&quot; is pressed, otherwise show a notification.</p>
 
-<pre><code class="lang-typescript">const writeEmitter = new vscode.EventEmitter&lt;string&gt;();
+```typescript
+const writeEmitter = new vscode.EventEmitter&lt;string&gt;();
 const closeEmitter = new vscode.EventEmitter&lt;vscode.TerminalDimensions&gt;();
 const pty: vscode.Pseudoterminal = {
   onDidWrite: writeEmitter.event,
@@ -11993,21 +12011,22 @@ const pty: vscode.Pseudoterminal = {
   }
 };
 vscode.window.createTerminal({ name: &#39;Exit example&#39;, pty });
-</code></pre>
+```
 </div>
 </div>
 
 <a name="Pseudoterminal.onDidOverrideDimensions"></a><span class="ts"id={2121}data-target="#details-2121" data-toggle="collapse"><span class="ident">onDidOverrideDimensions</span><span>?</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TerminalDimensions">TerminalDimensions</a> &#124; <a class="type-intrinsic">undefined</a>&gt;</span>
 
 <div class="details collapse" id="details-2121">
-<div class="comment"><p>An event that when fired allows overriding the <a href="#Pseudoterminal.setDimensions">dimensions</a> of the
+<div class="comment"><p>An event that when fired allows overriding the <a href={##Pseudoterminal.setDimensions}dimensions</a> of the
 terminal. Note that when set, the overridden dimensions will only take effect when they
 are lower than the actual dimensions of the terminal (ie. there will never be a scroll
 bar). Set to <code>undefined</code> for the terminal to go back to the regular dimensions (fit to
 the size of the panel).</p>
 <p><strong>Example:</strong> Override the dimensions of a terminal to 20 columns and 10 rows</p>
 
-<pre><code class="lang-typescript">const dimensionsEmitter = new vscode.EventEmitter&lt;vscode.TerminalDimensions&gt;();
+```typescript
+const dimensionsEmitter = new vscode.EventEmitter&lt;vscode.TerminalDimensions&gt;();
 const pty: vscode.Pseudoterminal = {
   onDidWrite: writeEmitter.event,
   onDidOverrideDimensions: dimensionsEmitter.event,
@@ -12020,7 +12039,7 @@ const pty: vscode.Pseudoterminal = {
   close: () =&gt; {}
 };
 vscode.window.createTerminal({ name: &#39;My terminal&#39;, pty });
-</code></pre>
+```
 </div>
 </div>
 
@@ -12028,25 +12047,27 @@ vscode.window.createTerminal({ name: &#39;My terminal&#39;, pty });
 
 <div class="details collapse" id="details-2120">
 <div class="comment"><p>An event that when fired will write data to the terminal. Unlike
-<a href="#Terminal.sendText">Terminal.sendText</a> which sends text to the underlying child
+<a href={##Terminal.sendText}Terminal.sendText</a> which sends text to the underlying child
 pseudo-device (the child), this will write the text to parent pseudo-device (the
 <em>terminal</em> itself).</p>
 <p>Note writing <code>\n</code> will just move the cursor down 1 row, you need to write <code>\r</code> as well
 to move the cursor to the left-most cell.</p>
 <p><strong>Example:</strong> Write red text to the terminal</p>
 
-<pre><code class="lang-typescript">const writeEmitter = new vscode.EventEmitter&lt;string&gt;();
+```typescript
+const writeEmitter = new vscode.EventEmitter&lt;string&gt;();
 const pty: vscode.Pseudoterminal = {
   onDidWrite: writeEmitter.event,
   open: () =&gt; writeEmitter.fire(&#39;\x1b[31mHello world\x1b[0m&#39;),
   close: () =&gt; {}
 };
 vscode.window.createTerminal({ name: &#39;My terminal&#39;, pty });
-</code></pre>
+```
 <p><strong>Example:</strong> Move the cursor to the 10th row and 20th column and write an asterisk</p>
 
-<pre><code class="lang-typescript">writeEmitter.fire(&#39;\x1b[10;20H*&#39;);
-</code></pre>
+```typescript
+writeEmitter.fire(&#39;\x1b[10;20H*&#39;);
+```
 </div>
 </div>
 
@@ -12069,7 +12090,7 @@ vscode.window.createTerminal({ name: &#39;My terminal&#39;, pty });
 
 <div class="details collapse" id="details-2129">
 <div class="comment"><p>Implement to handle incoming keystrokes in the terminal or when an extension calls
-<a href="#Terminal.sendText">Terminal.sendText</a>. <code>data</code> contains the keystrokes/text serialized into
+<a href={##Terminal.sendText}Terminal.sendText</a>. <code>data</code> contains the keystrokes/text serialized into
 their corresponding VT sequence representation.</p>
 </div>
 <div class="signature">
@@ -12079,7 +12100,8 @@ their corresponding VT sequence representation.</p>
 <p><strong>Example:</strong> Echo input in the terminal. The sequence for enter (<code>\r</code>) is translated to
 CRLF to go to a new line and move the cursor to the start of the line.</p>
 
-<pre><code class="lang-typescript">const writeEmitter = new vscode.EventEmitter&lt;string&gt;();
+```typescript
+const writeEmitter = new vscode.EventEmitter&lt;string&gt;();
 const pty: vscode.Pseudoterminal = {
   onDidWrite: writeEmitter.event,
   open: () =&gt; {},
@@ -12087,7 +12109,7 @@ const pty: vscode.Pseudoterminal = {
   handleInput: data =&gt; writeEmitter.fire(data === &#39;\r&#39; ? &#39;\r\n&#39; : data)
 };
 vscode.window.createTerminal({ name: &#39;Local echo&#39;, pty });
-</code></pre>
+```
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-intrinsic">void</a></span></td><td><div class="comment"></div></td></tr>
@@ -12120,7 +12142,7 @@ changes, for example when font size changes or when the panel is resized. The in
 state of a terminal&#39;s dimensions should be treated as <code>undefined</code> until this is triggered
 as the size of a terminal isn&#39;t know until it shows up in the user interface.</p>
 <p>When dimensions are overridden by
-<a href="#Pseudoterminal.onDidOverrideDimensions">onDidOverrideDimensions</a>, <code>setDimensions</code> will
+<a href={##Pseudoterminal.onDidOverrideDimensions}onDidOverrideDimensions</a>, <code>setDimensions</code> will
 continue to be called with the regular panel dimensions, allowing the extension continue
 to react dimension changes.</p>
 </div>
@@ -12144,7 +12166,7 @@ to react dimension changes.</p>
 <a name="QuickDiffProvider.provideOriginalResource"></a><span class="ts"id={2334}data-target="#details-2334" data-toggle="collapse"><span class="ident">provideOriginalResource</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#Uri">Uri</a>&gt;</span>
 
 <div class="details collapse" id="details-2334">
-<div class="comment"><p>Provide a <a href="#Uri">uri</a> to the original resource of any given resource uri.</p>
+<div class="comment"><p>Provide a <a href={##Uri}uri</a> to the original resource of any given resource uri.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -12164,19 +12186,19 @@ to react dimension changes.</p>
 
 <div class="comment"><p>A light-weight user input UI that is initially not visible. After
 configuring it through its properties the extension can make it
-visible by calling <a href="#QuickInput.show">QuickInput.show</a>.</p>
+visible by calling <a href={##QuickInput.show}QuickInput.show</a>.</p>
 <p>There are several reasons why this UI might have to be hidden and
-the extension will be notified through <a href="#QuickInput.onDidHide">QuickInput.onDidHide</a>.
-(Examples include: an explicit call to <a href="#QuickInput.hide">QuickInput.hide</a>,
+the extension will be notified through <a href={##QuickInput.onDidHide}QuickInput.onDidHide</a>.
+(Examples include: an explicit call to <a href={##QuickInput.hide}QuickInput.hide</a>,
 the user pressing Esc, some other input UI opening, etc.)</p>
 <p>A user pressing Enter or some other gesture implying acceptance
 of the current state does not automatically hide this UI component.
 It is up to the extension to decide whether to accept the user&#39;s input
-and if the UI should indeed be hidden through a call to <a href="#QuickInput.hide">QuickInput.hide</a>.</p>
+and if the UI should indeed be hidden through a call to <a href={##QuickInput.hide}QuickInput.hide</a>.</p>
 <p>When the extension no longer needs this input UI, it should
-<a href="#QuickInput.dispose">QuickInput.dispose</a> it to allow for freeing up
+<a href={##QuickInput.dispose}QuickInput.dispose</a> it to allow for freeing up
 any resources associated with it.</p>
-<p>See <a href="#QuickPick">QuickPick</a> and <a href="#InputBox">InputBox</a> for concrete UIs.</p>
+<p>See <a href={##QuickPick">QuickPick</a> and <a href="#InputBox}InputBox</a> for concrete UIs.</p>
 </div>
 
 #### Events
@@ -12186,8 +12208,8 @@ any resources associated with it.</p>
 <div class="details collapse" id="details-2198">
 <div class="comment"><p>An event signaling when this input UI is hidden.</p>
 <p>There are several reasons why this UI might have to be hidden and
-the extension will be notified through <a href="#QuickInput.onDidHide">QuickInput.onDidHide</a>.
-(Examples include: an explicit call to <a href="#QuickInput.hide">QuickInput.hide</a>,
+the extension will be notified through <a href={##QuickInput.onDidHide}QuickInput.onDidHide</a>.
+(Examples include: an explicit call to <a href={##QuickInput.hide}QuickInput.hide</a>,
 the user pressing Esc, some other input UI opening, etc.)</p>
 </div>
 </div>
@@ -12261,7 +12283,7 @@ accessed. Instead a new input UI should be created.</p>
 <a name="QuickInput.hide"></a><span class="ts"id={2197}data-target="#details-2197" data-toggle="collapse"><span class="ident">hide</span><span>(</span><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
 
 <div class="details collapse" id="details-2197">
-<div class="comment"><p>Hides this input UI. This will also fire an <a href="#QuickInput.onDidHide">QuickInput.onDidHide</a>
+<div class="comment"><p>Hides this input UI. This will also fire an <a href={##QuickInput.onDidHide}QuickInput.onDidHide</a>
 event.</p>
 </div>
 <div class="signature">
@@ -12276,7 +12298,7 @@ event.</p>
 
 <div class="details collapse" id="details-2195">
 <div class="comment"><p>Makes the input UI visible in its current configuration. Any other input
-UI will first fire an <a href="#QuickInput.onDidHide">QuickInput.onDidHide</a> event.</p>
+UI will first fire an <a href={##QuickInput.onDidHide}QuickInput.onDidHide</a> event.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -12288,7 +12310,7 @@ UI will first fire an <a href="#QuickInput.onDidHide">QuickInput.onDidHide</a> e
 
 ### <a name="QuickInputButton"></a><span class="code-item" id=2253>QuickInputButton</span>
 
-<div class="comment"><p>Button for an action in a <a href="#QuickPick">QuickPick</a> or <a href="#InputBox">InputBox</a>.</p>
+<div class="comment"><p>Button for an action in a <a href={##QuickPick">QuickPick</a> or <a href="#InputBox}InputBox</a>.</p>
 </div>
 
 #### Properties
@@ -12309,7 +12331,7 @@ UI will first fire an <a href="#QuickInput.onDidHide">QuickInput.onDidHide</a> e
 
 ### <a name="QuickInputButtons"></a><span class="code-item" id=2259>QuickInputButtons</span>
 
-<div class="comment"><p>Predefined buttons for <a href="#QuickPick">QuickPick</a> and <a href="#InputBox">InputBox</a>.</p>
+<div class="comment"><p>Predefined buttons for <a href={##QuickPick">QuickPick</a> and <a href="#InputBox}InputBox</a>.</p>
 </div>
 
 #### Static
@@ -12317,7 +12339,7 @@ UI will first fire an <a href="#QuickInput.onDidHide">QuickInput.onDidHide</a> e
 <a name="QuickInputButtons.Back"></a><span class="ts"id={2260}data-target="#details-2260" data-toggle="collapse"><span class="ident">Back</span><span>: </span><a class="type-ref" href="#QuickInputButton">QuickInputButton</a></span>
 
 <div class="details collapse" id="details-2260">
-<div class="comment"><p>A back button for <a href="#QuickPick">QuickPick</a> and <a href="#InputBox">InputBox</a>.</p>
+<div class="comment"><p>A back button for <a href={##QuickPick">QuickPick</a> and <a href="#InputBox}InputBox</a>.</p>
 <p>When a navigation &#39;back&#39; button is needed this one should be used for consistency.
 It comes with a predefined icon, tooltip and location.</p>
 </div>
@@ -12325,13 +12347,13 @@ It comes with a predefined icon, tooltip and location.</p>
 
 ### <a name="QuickPick"></a><span class="code-item" id=2201>QuickPick&lt;T&gt;</span>
 
-<div class="comment"><p>A concrete <a href="#QuickInput">QuickInput</a> to let the user pick an item from a
+<div class="comment"><p>A concrete <a href={##QuickInput}QuickInput</a> to let the user pick an item from a
 list of items of type T. The items can be filtered through a filter text field and
-there is an option <a href="#QuickPick.canSelectMany">canSelectMany</a> to allow for
+there is an option <a href={##QuickPick.canSelectMany}canSelectMany</a> to allow for
 selecting multiple items.</p>
-<p>Note that in many cases the more convenient <a href="#window.showQuickPick">window.showQuickPick</a>
-is easier to use. <a href="#window.createQuickPick">window.createQuickPick</a> should be used
-when <a href="#window.showQuickPick">window.showQuickPick</a> does not offer the required flexibility.</p>
+<p>Note that in many cases the more convenient <a href={##window.showQuickPick}window.showQuickPick</a>
+is easier to use. <a href={##window.createQuickPick}window.createQuickPick</a> should be used
+when <a href={##window.showQuickPick}window.showQuickPick</a> does not offer the required flexibility.</p>
 </div>
 
 #### Events
@@ -12369,8 +12391,8 @@ when <a href="#window.showQuickPick">window.showQuickPick</a> does not offer the
 <div class="details collapse" id="details-2227">
 <div class="comment"><p>An event signaling when this input UI is hidden.</p>
 <p>There are several reasons why this UI might have to be hidden and
-the extension will be notified through <a href="#QuickInput.onDidHide">QuickInput.onDidHide</a>.
-(Examples include: an explicit call to <a href="#QuickInput.hide">QuickInput.hide</a>,
+the extension will be notified through <a href={##QuickInput.onDidHide}QuickInput.onDidHide</a>.
+(Examples include: an explicit call to <a href={##QuickInput.hide}QuickInput.hide</a>,
 the user pressing Esc, some other input UI opening, etc.)</p>
 </div>
 </div>
@@ -12514,7 +12536,7 @@ accessed. Instead a new input UI should be created.</p>
 <a name="QuickPick.hide"></a><span class="ts"id={2226}data-target="#details-2226" data-toggle="collapse"><span class="ident">hide</span><span>(</span><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
 
 <div class="details collapse" id="details-2226">
-<div class="comment"><p>Hides this input UI. This will also fire an <a href="#QuickInput.onDidHide">QuickInput.onDidHide</a>
+<div class="comment"><p>Hides this input UI. This will also fire an <a href={##QuickInput.onDidHide}QuickInput.onDidHide</a>
 event.</p>
 </div>
 <div class="signature">
@@ -12529,7 +12551,7 @@ event.</p>
 
 <div class="details collapse" id="details-2224">
 <div class="comment"><p>Makes the input UI visible in its current configuration. Any other input
-UI will first fire an <a href="#QuickInput.onDidHide">QuickInput.onDidHide</a> event.</p>
+UI will first fire an <a href={##QuickInput.onDidHide}QuickInput.onDidHide</a> event.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -12558,7 +12580,7 @@ a list of items.</p>
 
 <div class="details collapse" id="details-499">
 <div class="comment"><p>A human-readable string which is rendered less prominent in the same line. Supports rendering of
-<a href="#ThemeIcon">theme icons</a> via the <code>$(&lt;name&gt;)</code>-syntax.</p>
+<a href={##ThemeIcon}theme icons</a> via the <code>$(&lt;name&gt;)</code>-syntax.</p>
 </div>
 </div>
 
@@ -12566,14 +12588,14 @@ a list of items.</p>
 
 <div class="details collapse" id="details-500">
 <div class="comment"><p>A human-readable string which is rendered less prominent in a separate line. Supports rendering of
-<a href="#ThemeIcon">theme icons</a> via the <code>$(&lt;name&gt;)</code>-syntax.</p>
+<a href={##ThemeIcon}theme icons</a> via the <code>$(&lt;name&gt;)</code>-syntax.</p>
 </div>
 </div>
 
 <a name="QuickPickItem.label"></a><span class="ts"id={498}data-target="#details-498" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-intrinsic">string</a></span>
 
 <div class="details collapse" id="details-498">
-<div class="comment"><p>A human-readable string which is rendered prominent. Supports rendering of <a href="#ThemeIcon">theme icons</a> via
+<div class="comment"><p>A human-readable string which is rendered prominent. Supports rendering of <a href={##ThemeIcon}theme icons</a> via
 the <code>$(&lt;name&gt;)</code>-syntax.</p>
 </div>
 </div>
@@ -12584,7 +12606,7 @@ the <code>$(&lt;name&gt;)</code>-syntax.</p>
 <div class="comment"><p>Optional flag indicating if this item is picked initially.
 (Only honored when the picker allows multiple selections.)</p>
 <ul>
-<li><em>see</em> - <a href="#QuickPickOptions.canPickMany">QuickPickOptions.canPickMany</a></li>
+<li><em>see</em> - <a href={##QuickPickOptions.canPickMany}QuickPickOptions.canPickMany</a></li>
 </ul>
 </div>
 </div>
@@ -12651,9 +12673,9 @@ the <code>$(&lt;name&gt;)</code>-syntax.</p>
 ### <a name="Range"></a><span class="code-item" id=117>Range</span>
 
 <div class="comment"><p>A range represents an ordered pair of two positions.
-It is guaranteed that <a href="#Range.start">start</a>.isBeforeOrEqual(<a href="#Range.end">end</a>)</p>
-<p>Range objects are <strong>immutable</strong>. Use the <a href="#Range.with">with</a>,
-<a href="#Range.intersection">intersection</a>, or <a href="#Range.union">union</a> methods
+It is guaranteed that <a href={##Range.start">start</a>.isBeforeOrEqual(<a href="#Range.end}end</a>)</p>
+<p>Range objects are <strong>immutable</strong>. Use the <a href={##Range.with}with</a>,
+<a href={##Range.intersection">intersection</a>, or <a href="#Range.union}union</a> methods
 to derive new ranges from an existing range.</p>
 </div>
 
@@ -12706,7 +12728,7 @@ using <code>new Range(new Position(startLine, startCharacter), new Position(endL
 <a name="Range.end"></a><span class="ts"id={119}data-target="#details-119" data-toggle="collapse"><span class="ident">end</span><span>: </span><a class="type-ref" href="#Position">Position</a></span>
 
 <div class="details collapse" id="details-119">
-<div class="comment"><p>The end position. It is after or equal to <a href="#Range.start">start</a>.</p>
+<div class="comment"><p>The end position. It is after or equal to <a href={##Range.start}start</a>.</p>
 </div>
 </div>
 
@@ -12727,7 +12749,7 @@ using <code>new Range(new Position(startLine, startCharacter), new Position(endL
 <a name="Range.start"></a><span class="ts"id={118}data-target="#details-118" data-toggle="collapse"><span class="ident">start</span><span>: </span><a class="type-ref" href="#Position">Position</a></span>
 
 <div class="details collapse" id="details-118">
-<div class="comment"><p>The start position. It is before or equal to <a href="#Range.end">end</a>.</p>
+<div class="comment"><p>The start position. It is before or equal to <a href={##Range.end}end</a>.</p>
 </div>
 </div>
 
@@ -12781,7 +12803,7 @@ return undefined when there is no overlap.</p>
 <tr><td><a name="other"></a><span class="ts"id={136}data-target="#details-136" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>A range.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p><code>true</code> when start and end are <a href="#Position.isEqual">equal</a> to
+<tr><td><span class="ts"><a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p><code>true</code> when start and end are <a href={##Position.isEqual}equal</a> to
 start and end of this range.</p>
 </div></td></tr>
 </table>
@@ -12813,9 +12835,9 @@ start and end of this range.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="start"></a><span class="ts"id={145}data-target="#details-145" data-toggle="collapse"><span class="ident">start</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>A position that should be used as start. The default value is the <a href="#Range.start">current start</a>.</p>
+<tr><td><a name="start"></a><span class="ts"id={145}data-target="#details-145" data-toggle="collapse"><span class="ident">start</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>A position that should be used as start. The default value is the <a href={##Range.start}current start</a>.</p>
 </div></td></tr>
-<tr><td><a name="end"></a><span class="ts"id={146}data-target="#details-146" data-toggle="collapse"><span class="ident">end</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>A position that should be used as end. The default value is the <a href="#Range.end">current end</a>.</p>
+<tr><td><a name="end"></a><span class="ts"id={146}data-target="#details-146" data-toggle="collapse"><span class="ident">end</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>A position that should be used as end. The default value is the <a href={##Range.end}current end</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>A range derived from this range with the given start and end position.
@@ -12861,7 +12883,7 @@ requesting references.</p>
 ### <a name="ReferenceProvider"></a><span class="code-item" id=803>ReferenceProvider</span>
 
 <div class="comment"><p>The reference provider interface defines the contract between extensions and
-the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_peek">find references</a>-feature.</p>
+the <a href={#https://code.visualstudio.com/docs/editor/editingevolved#_peek}find references</a>-feature.</p>
 </div>
 
 #### Methods
@@ -12893,7 +12915,7 @@ signaled by returning <code>undefined</code>, <code>null</code>, or an empty arr
 
 <div class="comment"><p>A relative pattern is a helper to construct glob patterns that are matched
 relatively to a base path. The base path can either be an absolute file path
-or a <a href="#WorkspaceFolder">workspace folder</a>.</p>
+or a <a href={##WorkspaceFolder}workspace folder</a>.</p>
 </div>
 
 #### Constructors
@@ -12940,7 +12962,7 @@ the file glob pattern will match on <code>index.js</code>.</p>
 ### <a name="RenameProvider"></a><span class="code-item" id=925>RenameProvider</span>
 
 <div class="comment"><p>The rename provider interface defines the contract between extensions and
-the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_rename-symbol">rename</a>-feature.</p>
+the <a href={#https://code.visualstudio.com/docs/editor/editingevolved#_rename-symbol}rename</a>-feature.</p>
 </div>
 
 #### Methods
@@ -13029,11 +13051,12 @@ signaled by returning <code>undefined</code> or <code>null</code>.</p>
 <div class="comment"><p>A set of file filters that are used by the dialog. Each entry is a human-readable label,
 like &quot;TypeScript&quot;, and an array of extensions, e.g.</p>
 
-<pre><code class="lang-ts">{
+```ts
+{
     &#39;Images&#39;: [&#39;png&#39;, &#39;jpg&#39;]
     &#39;TypeScript&#39;: [&#39;ts&#39;, &#39;tsx&#39;]
 }
-</code></pre>
+```
 </div>
 </div>
 
@@ -13106,7 +13129,7 @@ like &quot;TypeScript&quot;, and an array of extensions, e.g.</p>
 
 <div class="details collapse" id="details-154">
 <div class="comment"><p>The position of the cursor.
-This position might be before or after <a href="#Selection.anchor">anchor</a>.</p>
+This position might be before or after <a href={##Selection.anchor}anchor</a>.</p>
 </div>
 </div>
 
@@ -13114,14 +13137,14 @@ This position might be before or after <a href="#Selection.anchor">anchor</a>.</
 
 <div class="details collapse" id="details-153">
 <div class="comment"><p>The position at which the selection starts.
-This position might be before or after <a href="#Selection.active">active</a>.</p>
+This position might be before or after <a href={##Selection.active}active</a>.</p>
 </div>
 </div>
 
 <a name="Selection.end"></a><span class="ts"id={166}data-target="#details-166" data-toggle="collapse"><span class="ident">end</span><span>: </span><a class="type-ref" href="#Position">Position</a></span>
 
 <div class="details collapse" id="details-166">
-<div class="comment"><p>The end position. It is after or equal to <a href="#Range.start">start</a>.</p>
+<div class="comment"><p>The end position. It is after or equal to <a href={##Range.start}start</a>.</p>
 </div>
 </div>
 
@@ -13135,7 +13158,7 @@ This position might be before or after <a href="#Selection.active">active</a>.</
 <a name="Selection.isReversed"></a><span class="ts"id={164}data-target="#details-164" data-toggle="collapse"><span class="ident">isReversed</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 
 <div class="details collapse" id="details-164">
-<div class="comment"><p>A selection is reversed if <a href="#Selection.active">active</a>.isBefore(<a href="#Selection.anchor">anchor</a>).</p>
+<div class="comment"><p>A selection is reversed if <a href={##Selection.active">active</a>.isBefore(<a href="#Selection.anchor}anchor</a>).</p>
 </div>
 </div>
 
@@ -13149,7 +13172,7 @@ This position might be before or after <a href="#Selection.active">active</a>.</
 <a name="Selection.start"></a><span class="ts"id={165}data-target="#details-165" data-toggle="collapse"><span class="ident">start</span><span>: </span><a class="type-ref" href="#Position">Position</a></span>
 
 <div class="details collapse" id="details-165">
-<div class="comment"><p>The start position. It is before or equal to <a href="#Range.end">end</a>.</p>
+<div class="comment"><p>The start position. It is before or equal to <a href={##Range.end}end</a>.</p>
 </div>
 </div>
 
@@ -13203,7 +13226,7 @@ return undefined when there is no overlap.</p>
 <tr><td><a name="other"></a><span class="ts"id={174}data-target="#details-174" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>A range.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p><code>true</code> when start and end are <a href="#Position.isEqual">equal</a> to
+<tr><td><span class="ts"><a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p><code>true</code> when start and end are <a href={##Position.isEqual}equal</a> to
 start and end of this range.</p>
 </div></td></tr>
 </table>
@@ -13235,9 +13258,9 @@ start and end of this range.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="start"></a><span class="ts"id={183}data-target="#details-183" data-toggle="collapse"><span class="ident">start</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>A position that should be used as start. The default value is the <a href="#Range.start">current start</a>.</p>
+<tr><td><a name="start"></a><span class="ts"id={183}data-target="#details-183" data-toggle="collapse"><span class="ident">start</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>A position that should be used as start. The default value is the <a href={##Range.start}current start</a>.</p>
 </div></td></tr>
-<tr><td><a name="end"></a><span class="ts"id={184}data-target="#details-184" data-toggle="collapse"><span class="ident">end</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>A position that should be used as end. The default value is the <a href="#Range.end">current end</a>.</p>
+<tr><td><a name="end"></a><span class="ts"id={184}data-target="#details-184" data-toggle="collapse"><span class="ident">end</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>A position that should be used as end. The default value is the <a href={##Range.end}current end</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>A range derived from this range with the given start and end position.
@@ -13303,7 +13326,7 @@ may have a parent selection range that contains it.</p>
 <a name="SelectionRange.range"></a><span class="ts"id={1227}data-target="#details-1227" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
 
 <div class="details collapse" id="details-1227">
-<div class="comment"><p>The <a href="#Range">range</a> of this selection range.</p>
+<div class="comment"><p>The <a href={##Range}range</a> of this selection range.</p>
 </div>
 </div>
 
@@ -13319,7 +13342,7 @@ may have a parent selection range that contains it.</p>
 <div class="comment"><p>Provide selection ranges for the given positions.</p>
 <p>Selection ranges should be computed individually and independent for each position. The editor will merge
 and deduplicate ranges but providers must return hierarchies of selection ranges so that a range
-is <a href="#Range.contains">contained</a> by its parent.</p>
+is <a href={##Range.contains}contained</a> by its parent.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -13342,10 +13365,10 @@ signaled by returning <code>undefined</code> or <code>null</code>.</p>
 
 <div class="comment"><p>Represents semantic tokens, either in a range or in an entire document.</p>
 <ul>
-<li><em>see</em> - <a href="#DocumentSemanticTokensProvider.provideDocumentSemanticTokens">provideDocumentSemanticTokens</a> for an explanation of the format.</li>
+<li><em>see</em> - <a href={##DocumentSemanticTokensProvider.provideDocumentSemanticTokens}provideDocumentSemanticTokens</a> for an explanation of the format.</li>
 </ul>
 <ul>
-<li><em>see</em> - <a href="#SemanticTokensBuilder">SemanticTokensBuilder</a> for a helper to create an instance.</li>
+<li><em>see</em> - <a href={##SemanticTokensBuilder}SemanticTokensBuilder</a> for a helper to create an instance.</li>
 </ul>
 </div>
 
@@ -13373,7 +13396,7 @@ signaled by returning <code>undefined</code> or <code>null</code>.</p>
 <div class="details collapse" id="details-967">
 <div class="comment"><p>The actual tokens data.</p>
 <ul>
-<li><em>see</em> - <a href="#DocumentSemanticTokensProvider.provideDocumentSemanticTokens">provideDocumentSemanticTokens</a> for an explanation of the format.</li>
+<li><em>see</em> - <a href={##DocumentSemanticTokensProvider.provideDocumentSemanticTokens}provideDocumentSemanticTokens</a> for an explanation of the format.</li>
 </ul>
 </div>
 </div>
@@ -13473,7 +13496,7 @@ which contains delta encoded semantic tokens.</p>
 
 <div class="comment"><p>Represents an edit to semantic tokens.</p>
 <ul>
-<li><em>see</em> - <a href="#DocumentSemanticTokensProvider.provideDocumentSemanticTokensEdits">provideDocumentSemanticTokensEdits</a> for an explanation of the format.</li>
+<li><em>see</em> - <a href={##DocumentSemanticTokensProvider.provideDocumentSemanticTokensEdits}provideDocumentSemanticTokensEdits</a> for an explanation of the format.</li>
 </ul>
 </div>
 
@@ -13522,7 +13545,7 @@ which contains delta encoded semantic tokens.</p>
 
 <div class="comment"><p>Represents edits to semantic tokens.</p>
 <ul>
-<li><em>see</em> - <a href="#DocumentSemanticTokensProvider.provideDocumentSemanticTokensEdits">provideDocumentSemanticTokensEdits</a> for an explanation of the format.</li>
+<li><em>see</em> - <a href={##DocumentSemanticTokensProvider.provideDocumentSemanticTokensEdits}provideDocumentSemanticTokensEdits</a> for an explanation of the format.</li>
 </ul>
 </div>
 
@@ -13836,7 +13859,7 @@ active and only one active parameter.</p>
 ### <a name="SignatureHelpContext"></a><span class="code-item" id=1055>SignatureHelpContext</span>
 
 <div class="comment"><p>Additional information about the context in which a
-<a href="#SignatureHelpProvider.provideSignatureHelp"><code>SignatureHelpProvider</code></a> was triggered.</p>
+<a href={##SignatureHelpProvider.provideSignatureHelp}<code>SignatureHelpProvider</code></a> was triggered.</p>
 </div>
 
 #### Properties
@@ -13844,7 +13867,7 @@ active and only one active parameter.</p>
 <a name="SignatureHelpContext.activeSignatureHelp"></a><span class="ts"id={1059}data-target="#details-1059" data-toggle="collapse"><span class="ident">activeSignatureHelp</span><span>?</span><span>: </span><a class="type-ref" href="#SignatureHelp">SignatureHelp</a></span>
 
 <div class="details collapse" id="details-1059">
-<div class="comment"><p>The currently active <a href="#SignatureHelp"><code>SignatureHelp</code></a>.</p>
+<div class="comment"><p>The currently active <a href={##SignatureHelp}<code>SignatureHelp</code></a>.</p>
 <p>The <code>activeSignatureHelp</code> has its [<code>SignatureHelp.activeSignature</code>] field updated based on
 the user arrowing through available signatures.</p>
 </div>
@@ -13878,7 +13901,7 @@ signature help or when moving the cursor.</p>
 ### <a name="SignatureHelpProvider"></a><span class="code-item" id=1060>SignatureHelpProvider</span>
 
 <div class="comment"><p>The signature help provider interface defines the contract between extensions and
-the <a href="https://code.visualstudio.com/docs/editor/intellisense">parameter hints</a>-feature.</p>
+the <a href={#https://code.visualstudio.com/docs/editor/intellisense}parameter hints</a>-feature.</p>
 </div>
 
 #### Methods
@@ -13909,7 +13932,7 @@ signaled by returning <code>undefined</code> or <code>null</code>.</p>
 
 ### <a name="SignatureHelpProviderMetadata"></a><span class="code-item" id=1067>SignatureHelpProviderMetadata</span>
 
-<div class="comment"><p>Metadata about a registered <a href="#SignatureHelpProvider"><code>SignatureHelpProvider</code></a>.</p>
+<div class="comment"><p>Metadata about a registered <a href={##SignatureHelpProvider}<code>SignatureHelpProvider</code></a>.</p>
 </div>
 
 #### Properties
@@ -13932,7 +13955,7 @@ are also counted as re-trigger characters.</p>
 
 ### <a name="SignatureHelpTriggerKind"></a><span class="code-item" id=1051>SignatureHelpTriggerKind</span>
 
-<div class="comment"><p>How a <a href="#SignatureHelpProvider"><code>SignatureHelpProvider</code></a> was triggered.</p>
+<div class="comment"><p>How a <a href={##SignatureHelpProvider}<code>SignatureHelpProvider</code></a> was triggered.</p>
 </div>
 
 #### Enumeration members
@@ -13988,7 +14011,7 @@ a set of parameters.</p>
 
 <div class="details collapse" id="details-1042">
 <div class="comment"><p>The index of the active parameter.</p>
-<p>If provided, this is used in place of <a href="#SignatureHelp.activeSignature"><code>SignatureHelp.activeSignature</code></a>.</p>
+<p>If provided, this is used in place of <a href={##SignatureHelp.activeSignature}<code>SignatureHelp.activeSignature</code></a>.</p>
 </div>
 </div>
 
@@ -14023,7 +14046,7 @@ and to control the editor cursor when insertion happens.</p>
 and <code>${3:foo}</code>. <code>$0</code> defines the final tab stop, it defaults to
 the end of the snippet. Variables are defined with <code>$name</code> and
 <code>${name:default value}</code>. The full snippet syntax is documented
-<a href="https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets">here</a>.</p>
+<a href={#https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets}here</a>.</p>
 </div>
 
 #### Constructors
@@ -14057,7 +14080,7 @@ the end of the snippet. Variables are defined with <code>$name</code> and
 
 <div class="details collapse" id="details-915">
 <div class="comment"><p>Builder-function that appends a choice (<code>${1|a,b,c}</code>) to
-the <a href="#SnippetString.value"><code>value</code></a> of this snippet string.</p>
+the <a href={##SnippetString.value}<code>value</code></a> of this snippet string.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -14078,7 +14101,7 @@ value starting at 1.</p>
 
 <div class="details collapse" id="details-908">
 <div class="comment"><p>Builder-function that appends a placeholder (<code>${1:value}</code>) to
-the <a href="#SnippetString.value"><code>value</code></a> of this snippet string.</p>
+the <a href={##SnippetString.value}<code>value</code></a> of this snippet string.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -14100,7 +14123,7 @@ value starting at 1.</p>
 
 <div class="details collapse" id="details-905">
 <div class="comment"><p>Builder-function that appends a tabstop (<code>$1</code>, <code>$2</code> etc) to
-the <a href="#SnippetString.value"><code>value</code></a> of this snippet string.</p>
+the <a href={##SnippetString.value}<code>value</code></a> of this snippet string.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -14119,7 +14142,7 @@ value starting at 1.</p>
 
 <div class="details collapse" id="details-902">
 <div class="comment"><p>Builder-function that appends the given string to
-the <a href="#SnippetString.value"><code>value</code></a> of this snippet string.</p>
+the <a href={##SnippetString.value}<code>value</code></a> of this snippet string.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -14137,7 +14160,7 @@ the <a href="#SnippetString.value"><code>value</code></a> of this snippet string
 
 <div class="details collapse" id="details-919">
 <div class="comment"><p>Builder-function that appends a variable (<code>${VAR}</code>) to
-the <a href="#SnippetString.value"><code>value</code></a> of this snippet string.</p>
+the <a href={##SnippetString.value}<code>value</code></a> of this snippet string.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -14226,7 +14249,7 @@ be resolved - either a string or a function with which a nested snippet can be c
 
 ### <a name="SourceControl"></a><span class="code-item" id=2358>SourceControl</span>
 
-<div class="comment"><p>An source control is able to provide <a href="#SourceControlResourceState">resource states</a>
+<div class="comment"><p>An source control is able to provide <a href={##SourceControlResourceState}resource states</a>
 to the editor and interact with the editor in several source control related ways.</p>
 </div>
 
@@ -14253,9 +14276,9 @@ input with this value when appropriate.</p>
 <a name="SourceControl.count"></a><span class="ts"id={2363}data-target="#details-2363" data-toggle="collapse"><span class="ident">count</span><span>?</span><span>: </span><a class="type-intrinsic">number</a></span>
 
 <div class="details collapse" id="details-2363">
-<div class="comment"><p>The UI-visible count of <a href="#SourceControlResourceState">resource states</a> of
+<div class="comment"><p>The UI-visible count of <a href={##SourceControlResourceState}resource states</a> of
 this source control.</p>
-<p>Equals to the total number of <a href="#SourceControlResourceState">resource state</a>
+<p>Equals to the total number of <a href={##SourceControlResourceState}resource state</a>
 of this source control, if undefined.</p>
 </div>
 </div>
@@ -14270,7 +14293,7 @@ of this source control, if undefined.</p>
 <a name="SourceControl.inputBox"></a><span class="ts"id={2362}data-target="#details-2362" data-toggle="collapse"><span class="ident">inputBox</span><span>: </span><a class="type-ref" href="#SourceControlInputBox">SourceControlInputBox</a></span>
 
 <div class="details collapse" id="details-2362">
-<div class="comment"><p>The <a href="#SourceControlInputBox">input box</a> for this source control.</p>
+<div class="comment"><p>The <a href={##SourceControlInputBox}input box</a> for this source control.</p>
 </div>
 </div>
 
@@ -14284,7 +14307,7 @@ of this source control, if undefined.</p>
 <a name="SourceControl.quickDiffProvider"></a><span class="ts"id={2364}data-target="#details-2364" data-toggle="collapse"><span class="ident">quickDiffProvider</span><span>?</span><span>: </span><a class="type-ref" href="#QuickDiffProvider">QuickDiffProvider</a></span>
 
 <div class="details collapse" id="details-2364">
-<div class="comment"><p>An optional <a href="#QuickDiffProvider">quick diff provider</a>.</p>
+<div class="comment"><p>An optional <a href={##QuickDiffProvider}quick diff provider</a>.</p>
 </div>
 </div>
 
@@ -14308,7 +14331,7 @@ of this source control, if undefined.</p>
 <a name="SourceControl.createResourceGroup"></a><span class="ts"id={2369}data-target="#details-2369" data-toggle="collapse"><span class="ident">createResourceGroup</span><span>(</span><span class="ident">id</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">label</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-ref" href="#SourceControlResourceGroup">SourceControlResourceGroup</a></span>
 
 <div class="details collapse" id="details-2369">
-<div class="comment"><p>Create a new <a href="#SourceControlResourceGroup">resource group</a>.</p>
+<div class="comment"><p>Create a new <a href={##SourceControlResourceGroup}resource group</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -14364,7 +14387,7 @@ of this source control, if undefined.</p>
 
 ### <a name="SourceControlResourceDecorations"></a><span class="code-item" id=2339>SourceControlResourceDecorations</span>
 
-<div class="comment"><p>The decorations for a <a href="#SourceControlResourceState">source control resource state</a>.
+<div class="comment"><p>The decorations for a <a href={##SourceControlResourceState}source control resource state</a>.
 Can be independently specified for light and dark themes.</p>
 </div>
 
@@ -14380,7 +14403,7 @@ Can be independently specified for light and dark themes.</p>
 <a name="SourceControlResourceDecorations.faded"></a><span class="ts"id={2341}data-target="#details-2341" data-toggle="collapse"><span class="ident">faded</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 
 <div class="details collapse" id="details-2341">
-<div class="comment"><p>Whether the <a href="#SourceControlResourceState">source control resource state</a> should
+<div class="comment"><p>Whether the <a href={##SourceControlResourceState}source control resource state</a> should
 be faded in the UI.</p>
 </div>
 </div>
@@ -14389,7 +14412,7 @@ be faded in the UI.</p>
 
 <div class="details collapse" id="details-2345">
 <div class="comment"><p>The icon path for a specific
-<a href="#SourceControlResourceState">source control resource state</a>.</p>
+<a href={##SourceControlResourceState}source control resource state</a>.</p>
 </div>
 </div>
 
@@ -14403,7 +14426,7 @@ be faded in the UI.</p>
 <a name="SourceControlResourceDecorations.strikeThrough"></a><span class="ts"id={2340}data-target="#details-2340" data-toggle="collapse"><span class="ident">strikeThrough</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 
 <div class="details collapse" id="details-2340">
-<div class="comment"><p>Whether the <a href="#SourceControlResourceState">source control resource state</a> should
+<div class="comment"><p>Whether the <a href={##SourceControlResourceState}source control resource state</a> should
 be striked-through in the UI.</p>
 </div>
 </div>
@@ -14412,14 +14435,14 @@ be striked-through in the UI.</p>
 
 <div class="details collapse" id="details-2342">
 <div class="comment"><p>The title for a specific
-<a href="#SourceControlResourceState">source control resource state</a>.</p>
+<a href={##SourceControlResourceState}source control resource state</a>.</p>
 </div>
 </div>
 
 ### <a name="SourceControlResourceGroup"></a><span class="code-item" id=2351>SourceControlResourceGroup</span>
 
 <div class="comment"><p>A source control resource group is a collection of
-<a href="#SourceControlResourceState">source control resource states</a>.</p>
+<a href={##SourceControlResourceState}source control resource states</a>.</p>
 </div>
 
 #### Properties
@@ -14428,7 +14451,7 @@ be striked-through in the UI.</p>
 
 <div class="details collapse" id="details-2354">
 <div class="comment"><p>Whether this source control resource group is hidden when it contains
-no <a href="#SourceControlResourceState">source control resource states</a>.</p>
+no <a href={##SourceControlResourceState}source control resource states</a>.</p>
 </div>
 </div>
 
@@ -14450,7 +14473,7 @@ no <a href="#SourceControlResourceState">source control resource states</a>.</p>
 
 <div class="details collapse" id="details-2355">
 <div class="comment"><p>This group&#39;s collection of
-<a href="#SourceControlResourceState">source control resource states</a>.</p>
+<a href={##SourceControlResourceState}source control resource states</a>.</p>
 </div>
 </div>
 
@@ -14472,7 +14495,7 @@ no <a href="#SourceControlResourceState">source control resource states</a>.</p>
 ### <a name="SourceControlResourceState"></a><span class="code-item" id=2346>SourceControlResourceState</span>
 
 <div class="comment"><p>An source control resource state represents the state of an underlying workspace
-resource within a certain <a href="#SourceControlResourceGroup">source control group</a>.</p>
+resource within a certain <a href={##SourceControlResourceGroup}source control group</a>.</p>
 </div>
 
 #### Properties
@@ -14480,7 +14503,7 @@ resource within a certain <a href="#SourceControlResourceGroup">source control g
 <a name="SourceControlResourceState.command"></a><span class="ts"id={2348}data-target="#details-2348" data-toggle="collapse"><span class="ident">command</span><span>?</span><span>: </span><a class="type-ref" href="#Command">Command</a></span>
 
 <div class="details collapse" id="details-2348">
-<div class="comment"><p>The <a href="#Command">command</a> which should be run when the resource
+<div class="comment"><p>The <a href={##Command}command</a> which should be run when the resource
 state is open in the Source Control viewlet.</p>
 </div>
 </div>
@@ -14502,14 +14525,14 @@ using <code>menus</code> extension point, you can specify context value for key 
             ]
         }
     }
-</code></pre><p>This will show action <code>extension.diff</code> only for resources with <code>contextValue</code> is <code>diffable</code>.</p>
+```<p>This will show action <code>extension.diff</code> only for resources with <code>contextValue</code> is <code>diffable</code>.</p>
 </div>
 </div>
 
 <a name="SourceControlResourceState.decorations"></a><span class="ts"id={2349}data-target="#details-2349" data-toggle="collapse"><span class="ident">decorations</span><span>?</span><span>: </span><a class="type-ref" href="#SourceControlResourceDecorations">SourceControlResourceDecorations</a></span>
 
 <div class="details collapse" id="details-2349">
-<div class="comment"><p>The <a href="#SourceControlResourceDecorations">decorations</a> for this source control
+<div class="comment"><p>The <a href={##SourceControlResourceDecorations}decorations</a> for this source control
 resource state.</p>
 </div>
 </div>
@@ -14517,14 +14540,14 @@ resource state.</p>
 <a name="SourceControlResourceState.resourceUri"></a><span class="ts"id={2347}data-target="#details-2347" data-toggle="collapse"><span class="ident">resourceUri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span>
 
 <div class="details collapse" id="details-2347">
-<div class="comment"><p>The <a href="#Uri">uri</a> of the underlying resource inside the workspace.</p>
+<div class="comment"><p>The <a href={##Uri}uri</a> of the underlying resource inside the workspace.</p>
 </div>
 </div>
 
 ### <a name="SourceControlResourceThemableDecorations"></a><span class="code-item" id=2337>SourceControlResourceThemableDecorations</span>
 
 <div class="comment"><p>The theme-aware decorations for a
-<a href="#SourceControlResourceState">source control resource state</a>.</p>
+<a href={##SourceControlResourceState}source control resource state</a>.</p>
 </div>
 
 #### Properties
@@ -14533,7 +14556,7 @@ resource state.</p>
 
 <div class="details collapse" id="details-2338">
 <div class="comment"><p>The icon path for a specific
-<a href="#SourceControlResourceState">source control resource state</a>.</p>
+<a href={##SourceControlResourceState}source control resource state</a>.</p>
 </div>
 </div>
 
@@ -14588,9 +14611,9 @@ show text and icons and run a command on click.</p>
 <a name="StatusBarItem.command"></a><span class="ts"id={1484}data-target="#details-1484" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#Command">Command</a> &#124; <a class="type-intrinsic">undefined</a></span>
 
 <div class="details collapse" id="details-1484">
-<div class="comment"><p><a href="#Command"><code>Command</code></a> or identifier of a command to run on click.</p>
-<p>The command must be <a href="#commands.getCommands">known</a>.</p>
-<p>Note that if this is a <a href="#Command"><code>Command</code></a> object, only the <a href="#Command.command"><code>command</code></a> and <a href="#Command.arguments"><code>arguments</code></a>
+<div class="comment"><p><a href={##Command}<code>Command</code></a> or identifier of a command to run on click.</p>
+<p>The command must be <a href={##commands.getCommands}known</a>.</p>
+<p>Note that if this is a <a href={##Command"><code>Command</code></a> object, only the <a href="#Command.command"><code>command</code></a> and <a href="#Command.arguments}<code>arguments</code></a>
 are used by VS Code.</p>
 </div>
 </div>
@@ -14608,7 +14631,7 @@ be shown more to the left.</p>
 <div class="details collapse" id="details-1481">
 <div class="comment"><p>The text to show for the entry. You can embed icons in the text by leveraging the syntax:</p>
 <p><code>My text $(icon-name) contains icons like $(icon-name) this one.</code></p>
-<p>Where the icon-name is taken from the <a href="https://microsoft.github.io/vscode-codicons/dist/codicon.html">codicon</a> icon set, e.g.
+<p>Where the icon-name is taken from the <a href={#https://microsoft.github.io/vscode-codicons/dist/codicon.html}codicon</a> icon set, e.g.
 <code>light-bulb</code>, <code>thumbsup</code>, <code>zap</code> etc.</p>
 </div>
 </div>
@@ -14626,7 +14649,7 @@ be shown more to the left.</p>
 
 <div class="details collapse" id="details-1491">
 <div class="comment"><p>Dispose and free associated resources. Call
-<a href="#StatusBarItem.hide">hide</a>.</p>
+<a href={##StatusBarItem.hide}hide</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -14697,7 +14720,7 @@ interfaces etc.</p>
 <div class="details collapse" id="details-763">
 <div class="comment"><p>Creates a new symbol information object.</p>
 <ul>
-<li><em>deprecated</em> - Please use the constructor taking a <a href="#Location">location</a> object.</li>
+<li><em>deprecated</em> - Please use the constructor taking a <a href={##Location}location</a> object.</li>
 </ul>
 </div>
 <div class="signature">
@@ -15007,7 +15030,7 @@ interfaces etc.</p>
 
 <div class="details collapse" id="details-1702">
 <div class="comment"><p>A human-readable string which is rendered less prominently on a separate line in places
-where the task&#39;s name is displayed. Supports rendering of <a href="#ThemeIcon">theme icons</a>
+where the task&#39;s name is displayed. Supports rendering of <a href={##ThemeIcon}theme icons</a>
 via the <code>$(&lt;name&gt;)</code>-syntax.</p>
 </div>
 </div>
@@ -15076,7 +15099,7 @@ array.</p>
 
 <div class="details collapse" id="details-1705">
 <div class="comment"><p>A human-readable string describing the source of this shell task, e.g. &#39;gulp&#39;
-or &#39;npm&#39;. Supports rendering of <a href="#ThemeIcon">theme icons</a> via the <code>$(&lt;name&gt;)</code>-syntax.</p>
+or &#39;npm&#39;. Supports rendering of <a href={##ThemeIcon}theme icons</a> via the <code>$(&lt;name&gt;)</code>-syntax.</p>
 </div>
 </div>
 
@@ -15097,10 +15120,11 @@ a task. They need to be defined in the package.json of the
 extension under the &#39;taskDefinitions&#39; extension point. The npm
 task definition for example looks like this</p>
 
-<pre><code class="lang-typescript">interface NpmTaskDefinition extends TaskDefinition {
+```typescript
+interface NpmTaskDefinition extends TaskDefinition {
     script: string;
 }
-</code></pre>
+```
 <p>Note that type identifier starting with a &#39;$&#39; are reserved for internal
 usages and shouldn&#39;t be used by extensions.</p>
 </div>
@@ -15376,7 +15400,7 @@ A task provider is registered via #tasks.registerTaskProvider.</p>
 <a name="TaskProvider.resolveTask"></a><span class="ts"id={1716}data-target="#details-1716" data-toggle="collapse"><span class="ident">resolveTask</span><span>(</span><span class="ident">task</span><span>: </span><a class="type-intrinsic">T</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-intrinsic">T</a>&gt;</span>
 
 <div class="details collapse" id="details-1716">
-<div class="comment"><p>Resolves a task that has no <a href="#Task.execution"><code>execution</code></a> set. Tasks are
+<div class="comment"><p>Resolves a task that has no <a href={##Task.execution}<code>execution</code></a> set. Tasks are
 often created from information found in the <code>tasks.json</code>-file. Such tasks miss
 the information on how to execute them and a task provider must fill in
 the missing information in the <code>resolveTask</code>-method. This method will not be
@@ -15480,12 +15504,13 @@ folder the shell was launched in.</p>
 <p><strong>Example:</strong> Show a notification with the exit code when the terminal exits with a
 non-zero exit code.</p>
 
-<pre><code class="lang-typescript">window.onDidCloseTerminal(t =&gt; {
+```typescript
+window.onDidCloseTerminal(t =&gt; {
   if (t.exitStatus &amp;&amp; t.exitStatus.code) {
       vscode.window.showInformationMessage(`Exit code: ${t.exitStatus.code}`);
   }
 });
-</code></pre>
+```
 </div>
 </div>
 
@@ -15748,7 +15773,7 @@ as normal.</p>
 
 <div class="details collapse" id="details-2108">
 <div class="comment"><p>Args for the custom shell executable. A string can be used on Windows only which allows
-specifying shell args in <a href="https://msdn.microsoft.com/en-au/08dfcab2-eb6e-49a4-80eb-87d4076c98c6">command-line format</a>.</p>
+specifying shell args in <a href={#https://msdn.microsoft.com/en-au/08dfcab2-eb6e-49a4-80eb-87d4076c98c6}command-line format</a>.</p>
 </div>
 </div>
 
@@ -15773,7 +15798,7 @@ must be provided as nothing will be inherited from the process or any configurat
 ### <a name="TextDocument"></a><span class="code-item" id=38>TextDocument</span>
 
 <div class="comment"><p>Represents a text document, such as a source file. Text documents have
-<a href="#TextLine">lines</a> and knowledge about an underlying resource like a file.</p>
+<a href={##TextLine}lines</a> and knowledge about an underlying resource like a file.</p>
 </div>
 
 #### Properties
@@ -15781,7 +15806,7 @@ must be provided as nothing will be inherited from the process or any configurat
 <a name="TextDocument.eol"></a><span class="ts"id={48}data-target="#details-48" data-toggle="collapse"><span class="ident">eol</span><span>: </span><a class="type-ref" href="#EndOfLine">EndOfLine</a></span>
 
 <div class="details collapse" id="details-48">
-<div class="comment"><p>The <a href="#EndOfLine">end of line</a> sequence that is predominately
+<div class="comment"><p>The <a href={##EndOfLine}end of line</a> sequence that is predominately
 used in this document.</p>
 </div>
 </div>
@@ -15790,7 +15815,7 @@ used in this document.</p>
 
 <div class="details collapse" id="details-40">
 <div class="comment"><p>The file system path of the associated resource. Shorthand
-notation for <a href="#TextDocument.uri">TextDocument.uri.fsPath</a>. Independent of the uri scheme.</p>
+notation for <a href={##TextDocument.uri}TextDocument.uri.fsPath</a>. Independent of the uri scheme.</p>
 </div>
 </div>
 
@@ -15813,8 +15838,8 @@ and won&#39;t be re-used when the same resource is opened again.</p>
 
 <div class="details collapse" id="details-41">
 <div class="comment"><p>Is this document representing an untitled file which has never been saved yet. <em>Note</em> that
-this does not mean the document will be saved to disk, use <a href="#Uri.scheme"><code>uri.scheme</code></a>
-to figure out where a document will be <a href="#FileSystemProvider">saved</a>, e.g. <code>file</code>, <code>ftp</code> etc.</p>
+this does not mean the document will be saved to disk, use <a href={##Uri.scheme}<code>uri.scheme</code></a>
+to figure out where a document will be <a href={##FileSystemProvider}saved</a>, e.g. <code>file</code>, <code>ftp</code> etc.</p>
 </div>
 </div>
 
@@ -15839,10 +15864,10 @@ to figure out where a document will be <a href="#FileSystemProvider">saved</a>, 
 <p><em>Note</em> that most documents use the <code>file</code>-scheme, which means they are files on disk. However, <strong>not</strong> all documents are
 saved on disk and therefore the <code>scheme</code> must be checked before trying to access the underlying file or siblings on disk.</p>
 <ul>
-<li><em>see</em> - <a href="#FileSystemProvider">FileSystemProvider</a></li>
+<li><em>see</em> - <a href={##FileSystemProvider}FileSystemProvider</a></li>
 </ul>
 <ul>
-<li><em>see</em> - <a href="#TextDocumentContentProvider">TextDocumentContentProvider</a></li>
+<li><em>see</em> - <a href={##TextDocumentContentProvider}TextDocumentContentProvider</a></li>
 </ul>
 </div>
 </div>
@@ -15861,7 +15886,7 @@ change, including undo/redo).</p>
 
 <div class="details collapse" id="details-62">
 <div class="comment"><p>Get the text of this document. A substring can be retrieved by providing
-a range. The range will be <a href="#TextDocument.validateRange">adjusted</a>.</p>
+a range. The range will be <a href={##TextDocument.validateRange}adjusted</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -15880,16 +15905,16 @@ a range. The range will be <a href="#TextDocument.validateRange">adjusted</a>.</
 <div class="details collapse" id="details-65">
 <div class="comment"><p>Get a word-range at the given position. By default words are defined by
 common separators, like space, -, _, etc. In addition, per language custom
-<a href="#LanguageConfiguration.wordPattern">word definitions</a> can be defined. It
+<a href={##LanguageConfiguration.wordPattern}word definitions</a> can be defined. It
 is also possible to provide a custom regular expression.</p>
 <ul>
 <li><em>Note 1:</em> A custom regular expression must not match the empty string and
 if it does, it will be ignored.</li>
 <li><em>Note 2:</em> A custom regular expression will fail to match multiline strings
 and in the name of speed regular expressions should not match words with
-spaces. Use <a href="#TextLine.text"><code>TextLine.text</code></a> for more complex, non-wordy, scenarios.</li>
+spaces. Use <a href={##TextLine.text}<code>TextLine.text</code></a> for more complex, non-wordy, scenarios.</li>
 </ul>
-<p>The position will be <a href="#TextDocument.validatePosition">adjusted</a>.</p>
+<p>The position will be <a href={##TextDocument.validatePosition}adjusted</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -15918,7 +15943,7 @@ document are not reflected.</p>
 <tr><td><a name="line"></a><span class="ts"id={52}data-target="#details-52" data-toggle="collapse"><span class="ident">line</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>A line number in [0, lineCount).</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#TextLine">TextLine</a></span></td><td><div class="comment"><p>A <a href="#TextLine">line</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#TextLine">TextLine</a></span></td><td><div class="comment"><p>A <a href={##TextLine}line</a>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -15930,9 +15955,9 @@ document are not reflected.</p>
 <div class="comment"><p>Returns a text line denoted by the position. Note
 that the returned object is <em>not</em> live and changes to the
 document are not reflected.</p>
-<p>The position will be <a href="#TextDocument.validatePosition">adjusted</a>.</p>
+<p>The position will be <a href={##TextDocument.validatePosition}adjusted</a>.</p>
 <ul>
-<li><em>see</em> - <a href="#TextDocument.lineAt">TextDocument.lineAt</a></li>
+<li><em>see</em> - <a href={##TextDocument.lineAt}TextDocument.lineAt</a></li>
 </ul>
 </div>
 <div class="signature">
@@ -15941,7 +15966,7 @@ document are not reflected.</p>
 <tr><td><a name="position"></a><span class="ts"id={54}data-target="#details-54" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>A position.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#TextLine">TextLine</a></span></td><td><div class="comment"><p>A <a href="#TextLine">line</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#TextLine">TextLine</a></span></td><td><div class="comment"><p>A <a href={##TextLine}line</a>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -15951,7 +15976,7 @@ document are not reflected.</p>
 
 <div class="details collapse" id="details-56">
 <div class="comment"><p>Converts the position to a zero-based offset.</p>
-<p>The position will be <a href="#TextDocument.validatePosition">adjusted</a>.</p>
+<p>The position will be <a href={##TextDocument.validatePosition}adjusted</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -15976,7 +16001,7 @@ document are not reflected.</p>
 <tr><td><a name="offset"></a><span class="ts"id={60}data-target="#details-60" data-toggle="collapse"><span class="ident">offset</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>A zero-based offset.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>A valid <a href="#Position">position</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>A valid <a href={##Position}position</a>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -16034,7 +16059,7 @@ will return false.</p>
 
 ### <a name="TextDocumentChangeEvent"></a><span class="code-item" id=2268>TextDocumentChangeEvent</span>
 
-<div class="comment"><p>An event describing a transactional <a href="#TextDocument">document</a> change.</p>
+<div class="comment"><p>An event describing a transactional <a href={##TextDocument}document</a> change.</p>
 </div>
 
 #### Properties
@@ -16055,7 +16080,7 @@ will return false.</p>
 
 ### <a name="TextDocumentContentChangeEvent"></a><span class="code-item" id=2263>TextDocumentContentChangeEvent</span>
 
-<div class="comment"><p>An event describing an individual change in the text of a <a href="#TextDocument">document</a>.</p>
+<div class="comment"><p>An event describing an individual change in the text of a <a href={##TextDocument}document</a>.</p>
 </div>
 
 #### Properties
@@ -16092,9 +16117,9 @@ will return false.</p>
 
 <div class="comment"><p>A text document content provider allows to add readonly documents
 to the editor, such as source from a dll or generated html from md.</p>
-<p>Content providers are <a href="#workspace.registerTextDocumentContentProvider">registered</a>
-for a <a href="#Uri.scheme">uri-scheme</a>. When a uri with that scheme is to
-be <a href="#workspace.openTextDocument">loaded</a> the content provider is
+<p>Content providers are <a href={##workspace.registerTextDocumentContentProvider}registered</a>
+for a <a href={##Uri.scheme}uri-scheme</a>. When a uri with that scheme is to
+be <a href={##workspace.openTextDocument}loaded</a> the content provider is
 asked.</p>
 </div>
 
@@ -16114,15 +16139,15 @@ asked.</p>
 <div class="details collapse" id="details-494">
 <div class="comment"><p>Provide textual content for a given uri.</p>
 <p>The editor will use the returned string-content to create a readonly
-<a href="#TextDocument">document</a>. Resources allocated should be released when
-the corresponding document has been <a href="#workspace.onDidCloseTextDocument">closed</a>.</p>
-<p><strong>Note</strong>: The contents of the created <a href="#TextDocument">document</a> might not be
+<a href={##TextDocument}document</a>. Resources allocated should be released when
+the corresponding document has been <a href={##workspace.onDidCloseTextDocument}closed</a>.</p>
+<p><strong>Note</strong>: The contents of the created <a href={##TextDocument}document</a> might not be
 identical to the provided text due to end-of-line-sequence normalization.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts"id={495}data-target="#details-495" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>An uri which scheme matches the scheme this provider was <a href="#workspace.registerTextDocumentContentProvider">registered</a> for.</p>
+<tr><td><a name="uri"></a><span class="ts"id={495}data-target="#details-495" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>An uri which scheme matches the scheme this provider was <a href={##workspace.registerTextDocumentContentProvider}registered</a> for.</p>
 </div></td></tr>
 <tr><td><a name="token"></a><span class="ts"id={496}data-target="#details-496" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
@@ -16160,7 +16185,7 @@ identical to the provided text due to end-of-line-sequence normalization.</p>
 
 ### <a name="TextDocumentShowOptions"></a><span class="code-item" id=242>TextDocumentShowOptions</span>
 
-<div class="comment"><p>Represents options to configure the behavior of showing a <a href="#TextDocument">document</a> in an <a href="#TextEditor">editor</a>.</p>
+<div class="comment"><p>Represents options to configure the behavior of showing a <a href={##TextDocument">document</a> in an <a href="#TextEditor}editor</a>.</p>
 </div>
 
 #### Properties
@@ -16168,14 +16193,14 @@ identical to the provided text due to end-of-line-sequence normalization.</p>
 <a name="TextDocumentShowOptions.preserveFocus"></a><span class="ts"id={244}data-target="#details-244" data-toggle="collapse"><span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 
 <div class="details collapse" id="details-244">
-<div class="comment"><p>An optional flag that when <code>true</code> will stop the <a href="#TextEditor">editor</a> from taking focus.</p>
+<div class="comment"><p>An optional flag that when <code>true</code> will stop the <a href={##TextEditor}editor</a> from taking focus.</p>
 </div>
 </div>
 
 <a name="TextDocumentShowOptions.preview"></a><span class="ts"id={245}data-target="#details-245" data-toggle="collapse"><span class="ident">preview</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 
 <div class="details collapse" id="details-245">
-<div class="comment"><p>An optional flag that controls if an <a href="#TextEditor">editor</a>-tab will be replaced
+<div class="comment"><p>An optional flag that controls if an <a href={##TextEditor}editor</a>-tab will be replaced
 with the next editor or if it will be kept.</p>
 </div>
 </div>
@@ -16183,27 +16208,27 @@ with the next editor or if it will be kept.</p>
 <a name="TextDocumentShowOptions.selection"></a><span class="ts"id={246}data-target="#details-246" data-toggle="collapse"><span class="ident">selection</span><span>?</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
 
 <div class="details collapse" id="details-246">
-<div class="comment"><p>An optional selection to apply for the document in the <a href="#TextEditor">editor</a>.</p>
+<div class="comment"><p>An optional selection to apply for the document in the <a href={##TextEditor}editor</a>.</p>
 </div>
 </div>
 
 <a name="TextDocumentShowOptions.viewColumn"></a><span class="ts"id={243}data-target="#details-243" data-toggle="collapse"><span class="ident">viewColumn</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span>
 
 <div class="details collapse" id="details-243">
-<div class="comment"><p>An optional view column in which the <a href="#TextEditor">editor</a> should be shown.
-The default is the <a href="#ViewColumn.Active">active</a>, other values are adjusted to
-be <code>Min(column, columnCount + 1)</code>, the <a href="#ViewColumn.Active">active</a>-column is
-not adjusted. Use <a href="#ViewColumn.Beside"><code>ViewColumn.Beside</code></a> to open the
+<div class="comment"><p>An optional view column in which the <a href={##TextEditor}editor</a> should be shown.
+The default is the <a href={##ViewColumn.Active}active</a>, other values are adjusted to
+be <code>Min(column, columnCount + 1)</code>, the <a href={##ViewColumn.Active}active</a>-column is
+not adjusted. Use <a href={##ViewColumn.Beside}<code>ViewColumn.Beside</code></a> to open the
 editor to the side of the currently active one.</p>
 </div>
 </div>
 
 ### <a name="TextDocumentWillSaveEvent"></a><span class="code-item" id=2275>TextDocumentWillSaveEvent</span>
 
-<div class="comment"><p>An event that is fired when a <a href="#TextDocument">document</a> will be saved.</p>
+<div class="comment"><p>An event that is fired when a <a href={##TextDocument}document</a> will be saved.</p>
 <p>To make modifications to the document before it is being saved, call the
-<a href="#TextDocumentWillSaveEvent.waitUntil"><code>waitUntil</code></a>-function with a thenable
-that resolves to an array of <a href="#TextEdit">text edits</a>.</p>
+<a href={##TextDocumentWillSaveEvent.waitUntil}<code>waitUntil</code></a>-function with a thenable
+that resolves to an array of <a href={##TextEdit}text edits</a>.</p>
 </div>
 
 #### Properties
@@ -16227,25 +16252,26 @@ that resolves to an array of <a href="#TextEdit">text edits</a>.</p>
 <a name="TextDocumentWillSaveEvent.waitUntil"></a><span class="ts"id={2279}data-target="#details-2279" data-toggle="collapse"><span class="ident">waitUntil</span><span>(</span><span class="ident">thenable</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEdit">TextEdit</a>[]&gt;<span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
 
 <div class="details collapse" id="details-2279">
-<div class="comment"><p>Allows to pause the event loop and to apply <a href="#TextEdit">pre-save-edits</a>.
+<div class="comment"><p>Allows to pause the event loop and to apply <a href={##TextEdit}pre-save-edits</a>.
 Edits of subsequent calls to this function will be applied in order. The
 edits will be <em>ignored</em> if concurrent modifications of the document happened.</p>
 <p><em>Note:</em> This function can only be called during event dispatch and not
 in an asynchronous manner:</p>
 
-<pre><code class="lang-ts">workspace.onWillSaveTextDocument(event =&gt; {
+```ts
+workspace.onWillSaveTextDocument(event =&gt; {
     // async, will *throw* an error
     setTimeout(() =&gt; event.waitUntil(promise));
 
     // sync, OK
     event.waitUntil(promise);
 })
-</code></pre>
+```
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="thenable"></a><span class="ts"id={2280}data-target="#details-2280" data-toggle="collapse"><span class="ident">thenable</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEdit">TextEdit</a>[]&gt;</span></td><td><div class="comment"><p>A thenable that resolves to <a href="#TextEdit">pre-save-edits</a>.</p>
+<tr><td><a name="thenable"></a><span class="ts"id={2280}data-target="#details-2280" data-toggle="collapse"><span class="ident">thenable</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEdit">TextEdit</a>[]&gt;</span></td><td><div class="comment"><p>A thenable that resolves to <a href={##TextEdit}pre-save-edits</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-intrinsic">void</a></span></td><td><div class="comment"></div></td></tr>
@@ -16397,7 +16423,7 @@ whole document.</p>
 
 ### <a name="TextEditor"></a><span class="code-item" id=338>TextEditor</span>
 
-<div class="comment"><p>Represents an editor that is attached to a <a href="#TextDocument">document</a>.</p>
+<div class="comment"><p>Represents an editor that is attached to a <a href={##TextDocument}document</a>.</p>
 </div>
 
 #### Properties
@@ -16453,14 +16479,14 @@ This accounts only for vertical scrolling, and not for horizontal scrolling.</p>
 
 <div class="details collapse" id="details-346">
 <div class="comment"><p>Perform an edit on the document associated with this text editor.</p>
-<p>The given callback-function is invoked with an <a href="#TextEditorEdit">edit-builder</a> which must
+<p>The given callback-function is invoked with an <a href={##TextEditorEdit}edit-builder</a> which must
 be used to make edits. Note that the edit-builder is only valid while the
 callback executes.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="callback"></a><span class="ts"id={347}data-target="#details-347" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(editBuilder: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>) =&gt; <a class="type-intrinsic">void</a></span></td><td><div class="comment"><p>A function which can create edits using an <a href="#TextEditorEdit">edit-builder</a>.</p>
+<tr><td><a name="callback"></a><span class="ts"id={347}data-target="#details-347" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(editBuilder: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>) =&gt; <a class="type-intrinsic">void</a></span></td><td><div class="comment"><p>A function which can create edits using an <a href={##TextEditorEdit}edit-builder</a>.</p>
 </div></td></tr>
 <tr><td><a name="options"></a><span class="ts"id={351}data-target="#details-351" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span>{undoStopAfter: <a class="type-intrinsic">boolean</a>, undoStopBefore: <a class="type-intrinsic">boolean</a>}</span></td><td><div class="comment"><p>The undo/redo behavior around this edit. By default, undo stops will be created before and after this edit.</p>
 </div></td></tr>
@@ -16491,7 +16517,7 @@ This method shows unexpected behavior and will be removed in the next major upda
 <a name="TextEditor.insertSnippet"></a><span class="ts"id={356}data-target="#details-356" data-toggle="collapse"><span class="ident">insertSnippet</span><span>(</span><span class="ident">snippet</span><span>: </span><a class="type-ref" href="#SnippetString">SnippetString</a>, <span class="ident">location</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a> &#124; <a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#ReadonlyArray">ReadonlyArray</a>&lt;<a class="type-ref" href="#Position">Position</a>&gt; &#124; <a class="type-ref" href="#ReadonlyArray">ReadonlyArray</a>&lt;<a class="type-ref" href="#Range">Range</a>&gt;, <span class="ident">options</span><span>?</span><span>: </span>{undoStopAfter: <a class="type-intrinsic">boolean</a>, undoStopBefore: <a class="type-intrinsic">boolean</a>}<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-intrinsic">boolean</a>&gt;</span>
 
 <div class="details collapse" id="details-356">
-<div class="comment"><p>Insert a <a href="#SnippetString">snippet</a> and put the editor into snippet mode. &quot;Snippet mode&quot;
+<div class="comment"><p>Insert a <a href={##SnippetString}snippet</a> and put the editor into snippet mode. &quot;Snippet mode&quot;
 means the editor adds placeholders and additional cursors so that the user can complete
 or accept the snippet.</p>
 </div>
@@ -16534,9 +16560,9 @@ that the snippet is completely filled-in or accepted.</p>
 
 <div class="details collapse" id="details-364">
 <div class="comment"><p>Adds a set of decorations to the text editor. If a set of decorations already exists with
-the given <a href="#TextEditorDecorationType">decoration type</a>, they will be replaced.</p>
+the given <a href={##TextEditorDecorationType}decoration type</a>, they will be replaced.</p>
 <ul>
-<li><em>see</em> - <a href="#window.createTextEditorDecorationType">createTextEditorDecorationType</a>.</li>
+<li><em>see</em> - <a href={##window.createTextEditorDecorationType}createTextEditorDecorationType</a>.</li>
 </ul>
 </div>
 <div class="signature">
@@ -16544,7 +16570,7 @@ the given <a href="#TextEditorDecorationType">decoration type</a>, they will be 
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="decorationType"></a><span class="ts"id={365}data-target="#details-365" data-toggle="collapse"><span class="ident">decorationType</span><span>: </span><a class="type-ref" href="#TextEditorDecorationType">TextEditorDecorationType</a></span></td><td><div class="comment"><p>A decoration type.</p>
 </div></td></tr>
-<tr><td><a name="rangesOrOptions"></a><span class="ts"id={366}data-target="#details-366" data-toggle="collapse"><span class="ident">rangesOrOptions</span><span>: </span><a class="type-ref" href="#Range">Range</a>[] &#124; <a class="type-ref" href="#DecorationOptions">DecorationOptions</a>[]</span></td><td><div class="comment"><p>Either <a href="#Range">ranges</a> or more detailed <a href="#DecorationOptions">options</a>.</p>
+<tr><td><a name="rangesOrOptions"></a><span class="ts"id={366}data-target="#details-366" data-toggle="collapse"><span class="ident">rangesOrOptions</span><span>: </span><a class="type-ref" href="#Range">Range</a>[] &#124; <a class="type-ref" href="#DecorationOptions">DecorationOptions</a>[]</span></td><td><div class="comment"><p>Either <a href={##Range">ranges</a> or more detailed <a href="#DecorationOptions}options</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-intrinsic">void</a></span></td><td><div class="comment"></div></td></tr>
@@ -16557,13 +16583,13 @@ the given <a href="#TextEditorDecorationType">decoration type</a>, they will be 
 <div class="details collapse" id="details-372">
 <div class="comment"><p>Show the text editor.</p>
 <ul>
-<li><em>deprecated</em> - Use <a href="#window.showTextDocument">window.showTextDocument</a> instead.</li>
+<li><em>deprecated</em> - Use <a href={##window.showTextDocument}window.showTextDocument</a> instead.</li>
 </ul>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="column"></a><span class="ts"id={373}data-target="#details-373" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span></td><td><div class="comment"><p>The <a href="#ViewColumn">column</a> in which to show this editor.
+<tr><td><a name="column"></a><span class="ts"id={373}data-target="#details-373" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span></td><td><div class="comment"><p>The <a href={##ViewColumn}column</a> in which to show this editor.
 This method shows unexpected behavior and will be removed in the next major update.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
@@ -16618,9 +16644,9 @@ This method shows unexpected behavior and will be removed in the next major upda
 ### <a name="TextEditorDecorationType"></a><span class="code-item" id=223>TextEditorDecorationType</span>
 
 <div class="comment"><p>Represents a handle to a set of decorations
-sharing the same <a href="#DecorationRenderOptions">styling options</a> in a <a href="#TextEditor">text editor</a>.</p>
+sharing the same <a href={##DecorationRenderOptions">styling options</a> in a <a href="#TextEditor}text editor</a>.</p>
 <p>To get an instance of a <code>TextEditorDecorationType</code> use
-<a href="#window.createTextEditorDecorationType">createTextEditorDecorationType</a>.</p>
+<a href={##window.createTextEditorDecorationType}createTextEditorDecorationType</a>.</p>
 </div>
 
 #### Properties
@@ -16651,7 +16677,7 @@ sharing the same <a href="#DecorationRenderOptions">styling options</a> in a <a 
 
 <div class="comment"><p>A complex edit that will be applied in one transaction on a TextEditor.
 This holds a description of the edits and if the edits are valid (i.e. no overlapping regions, document was not changed in the meantime, etc.)
-they can be applied on a <a href="#TextDocument">document</a> associated with a <a href="#TextEditor">text editor</a>.</p>
+they can be applied on a <a href={##TextDocument">document</a> associated with a <a href="#TextEditor}text editor</a>.</p>
 </div>
 
 #### Methods
@@ -16676,8 +16702,8 @@ they can be applied on a <a href="#TextDocument">document</a> associated with a 
 
 <div class="details collapse" id="details-385">
 <div class="comment"><p>Insert text at a location.
-You can use \r\n or \n in <code>value</code> and they will be normalized to the current <a href="#TextDocument">document</a>.
-Although the equivalent text edit can be made with <a href="#TextEditorEdit.replace">replace</a>, <code>insert</code> will produce a different resulting selection (it will get moved).</p>
+You can use \r\n or \n in <code>value</code> and they will be normalized to the current <a href={##TextDocument}document</a>.
+Although the equivalent text edit can be made with <a href={##TextEditorEdit.replace}replace</a>, <code>insert</code> will produce a different resulting selection (it will get moved).</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -16696,7 +16722,7 @@ Although the equivalent text edit can be made with <a href="#TextEditorEdit.repl
 
 <div class="details collapse" id="details-381">
 <div class="comment"><p>Replace a certain text region with a new value.
-You can use \r\n or \n in <code>value</code> and they will be normalized to the current <a href="#TextDocument">document</a>.</p>
+You can use \r\n or \n in <code>value</code> and they will be normalized to the current <a href={##TextDocument}document</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -16719,7 +16745,7 @@ You can use \r\n or \n in <code>value</code> and they will be normalized to the 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="endOfLine"></a><span class="ts"id={393}data-target="#details-393" data-toggle="collapse"><span class="ident">endOfLine</span><span>: </span><a class="type-ref" href="#EndOfLine">EndOfLine</a></span></td><td><div class="comment"><p>The new end of line for the <a href="#TextDocument">document</a>.</p>
+<tr><td><a name="endOfLine"></a><span class="ts"id={393}data-target="#details-393" data-toggle="collapse"><span class="ident">endOfLine</span><span>: </span><a class="type-ref" href="#EndOfLine">EndOfLine</a></span></td><td><div class="comment"><p>The new end of line for the <a href={##TextDocument}document</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-intrinsic">void</a></span></td><td><div class="comment"></div></td></tr>
@@ -16754,7 +16780,7 @@ You can use \r\n or \n in <code>value</code> and they will be normalized to the 
 
 ### <a name="TextEditorOptions"></a><span class="code-item" id=218>TextEditorOptions</span>
 
-<div class="comment"><p>Represents a <a href="#TextEditor">text editor</a>&#39;s <a href="#TextEditor.options">options</a>.</p>
+<div class="comment"><p>Represents a <a href={##TextEditor">text editor</a>&#39;s <a href="#TextEditor.options}options</a>.</p>
 </div>
 
 #### Properties
@@ -16771,7 +16797,7 @@ When setting a text editor&#39;s options, this property is optional.</p>
 <a name="TextEditorOptions.insertSpaces"></a><span class="ts"id={220}data-target="#details-220" data-toggle="collapse"><span class="ident">insertSpaces</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a> &#124; <a class="type-intrinsic">string</a></span>
 
 <div class="details collapse" id="details-220">
-<div class="comment"><p>When pressing Tab insert <a href="#TextEditorOptions.tabSize">n</a> spaces.
+<div class="comment"><p>When pressing Tab insert <a href={##TextEditorOptions.tabSize}n</a> spaces.
 When getting a text editor&#39;s options, this property will always be a boolean (resolved).
 When setting a text editor&#39;s options, this property is optional and it can be a boolean or <code>&quot;auto&quot;</code>.</p>
 </div>
@@ -16792,7 +16818,7 @@ When setting a text editor&#39;s options, this property is optional.</p>
 <div class="comment"><p>The size in spaces a tab takes. This is used for two purposes:</p>
 <ul>
 <li>the rendering width of a tab character;</li>
-<li>the number of spaces to insert when <a href="#TextEditorOptions.insertSpaces">insertSpaces</a> is true.</li>
+<li>the number of spaces to insert when <a href={##TextEditorOptions.insertSpaces}insertSpaces</a> is true.</li>
 </ul>
 <p>When getting a text editor&#39;s options, this property will always be a number (resolved).
 When setting a text editor&#39;s options, this property is optional and it can be a number or <code>&quot;auto&quot;</code>.</p>
@@ -16801,7 +16827,7 @@ When setting a text editor&#39;s options, this property is optional and it can b
 
 ### <a name="TextEditorOptionsChangeEvent"></a><span class="code-item" id=201>TextEditorOptionsChangeEvent</span>
 
-<div class="comment"><p>Represents an event describing the change in a <a href="#TextEditor.options">text editor&#39;s options</a>.</p>
+<div class="comment"><p>Represents an event describing the change in a <a href={##TextEditor.options}text editor&#39;s options</a>.</p>
 </div>
 
 #### Properties
@@ -16809,20 +16835,20 @@ When setting a text editor&#39;s options, this property is optional and it can b
 <a name="TextEditorOptionsChangeEvent.options"></a><span class="ts"id={203}data-target="#details-203" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#TextEditorOptions">TextEditorOptions</a></span>
 
 <div class="details collapse" id="details-203">
-<div class="comment"><p>The new value for the <a href="#TextEditor.options">text editor&#39;s options</a>.</p>
+<div class="comment"><p>The new value for the <a href={##TextEditor.options}text editor&#39;s options</a>.</p>
 </div>
 </div>
 
 <a name="TextEditorOptionsChangeEvent.textEditor"></a><span class="ts"id={202}data-target="#details-202" data-toggle="collapse"><span class="ident">textEditor</span><span>: </span><a class="type-ref" href="#TextEditor">TextEditor</a></span>
 
 <div class="details collapse" id="details-202">
-<div class="comment"><p>The <a href="#TextEditor">text editor</a> for which the options have changed.</p>
+<div class="comment"><p>The <a href={##TextEditor}text editor</a> for which the options have changed.</p>
 </div>
 </div>
 
 ### <a name="TextEditorRevealType"></a><span class="code-item" id=227>TextEditorRevealType</span>
 
-<div class="comment"><p>Represents different <a href="#TextEditor.revealRange">reveal</a> strategies in a text editor.</p>
+<div class="comment"><p>Represents different <a href={##TextEditor.revealRange}reveal</a> strategies in a text editor.</p>
 </div>
 
 #### Enumeration members
@@ -16853,7 +16879,7 @@ When setting a text editor&#39;s options, this property is optional and it can b
 
 ### <a name="TextEditorSelectionChangeEvent"></a><span class="code-item" id=194>TextEditorSelectionChangeEvent</span>
 
-<div class="comment"><p>Represents an event describing the change in a <a href="#TextEditor.selections">text editor&#39;s selections</a>.</p>
+<div class="comment"><p>Represents an event describing the change in a <a href={##TextEditor.selections}text editor&#39;s selections</a>.</p>
 </div>
 
 #### Properties
@@ -16861,7 +16887,7 @@ When setting a text editor&#39;s options, this property is optional and it can b
 <a name="TextEditorSelectionChangeEvent.kind"></a><span class="ts"id={197}data-target="#details-197" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-ref" href="#TextEditorSelectionChangeKind">TextEditorSelectionChangeKind</a></span>
 
 <div class="details collapse" id="details-197">
-<div class="comment"><p>The <a href="#TextEditorSelectionChangeKind">change kind</a> which has triggered this
+<div class="comment"><p>The <a href={##TextEditorSelectionChangeKind}change kind</a> which has triggered this
 event. Can be <code>undefined</code>.</p>
 </div>
 </div>
@@ -16869,20 +16895,20 @@ event. Can be <code>undefined</code>.</p>
 <a name="TextEditorSelectionChangeEvent.selections"></a><span class="ts"id={196}data-target="#details-196" data-toggle="collapse"><span class="ident">selections</span><span>: </span><a class="type-ref" href="#ReadonlyArray">ReadonlyArray</a>&lt;<a class="type-ref" href="#Selection">Selection</a>&gt;</span>
 
 <div class="details collapse" id="details-196">
-<div class="comment"><p>The new value for the <a href="#TextEditor.selections">text editor&#39;s selections</a>.</p>
+<div class="comment"><p>The new value for the <a href={##TextEditor.selections}text editor&#39;s selections</a>.</p>
 </div>
 </div>
 
 <a name="TextEditorSelectionChangeEvent.textEditor"></a><span class="ts"id={195}data-target="#details-195" data-toggle="collapse"><span class="ident">textEditor</span><span>: </span><a class="type-ref" href="#TextEditor">TextEditor</a></span>
 
 <div class="details collapse" id="details-195">
-<div class="comment"><p>The <a href="#TextEditor">text editor</a> for which the selections have changed.</p>
+<div class="comment"><p>The <a href={##TextEditor}text editor</a> for which the selections have changed.</p>
 </div>
 </div>
 
 ### <a name="TextEditorSelectionChangeKind"></a><span class="code-item" id=190>TextEditorSelectionChangeKind</span>
 
-<div class="comment"><p>Represents sources that can cause <a href="#window.onDidChangeTextEditorSelection">selection change events</a>.</p>
+<div class="comment"><p>Represents sources that can cause <a href={##window.onDidChangeTextEditorSelection}selection change events</a>.</p>
 </div>
 
 #### Enumeration members
@@ -16907,7 +16933,7 @@ event. Can be <code>undefined</code>.</p>
 
 ### <a name="TextEditorViewColumnChangeEvent"></a><span class="code-item" id=204>TextEditorViewColumnChangeEvent</span>
 
-<div class="comment"><p>Represents an event describing the change of a <a href="#TextEditor.viewColumn">text editor&#39;s view column</a>.</p>
+<div class="comment"><p>Represents an event describing the change of a <a href={##TextEditor.viewColumn}text editor&#39;s view column</a>.</p>
 </div>
 
 #### Properties
@@ -16915,20 +16941,20 @@ event. Can be <code>undefined</code>.</p>
 <a name="TextEditorViewColumnChangeEvent.textEditor"></a><span class="ts"id={205}data-target="#details-205" data-toggle="collapse"><span class="ident">textEditor</span><span>: </span><a class="type-ref" href="#TextEditor">TextEditor</a></span>
 
 <div class="details collapse" id="details-205">
-<div class="comment"><p>The <a href="#TextEditor">text editor</a> for which the view column has changed.</p>
+<div class="comment"><p>The <a href={##TextEditor}text editor</a> for which the view column has changed.</p>
 </div>
 </div>
 
 <a name="TextEditorViewColumnChangeEvent.viewColumn"></a><span class="ts"id={206}data-target="#details-206" data-toggle="collapse"><span class="ident">viewColumn</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span>
 
 <div class="details collapse" id="details-206">
-<div class="comment"><p>The new value for the <a href="#TextEditor.viewColumn">text editor&#39;s view column</a>.</p>
+<div class="comment"><p>The new value for the <a href={##TextEditor.viewColumn}text editor&#39;s view column</a>.</p>
 </div>
 </div>
 
 ### <a name="TextEditorVisibleRangesChangeEvent"></a><span class="code-item" id=198>TextEditorVisibleRangesChangeEvent</span>
 
-<div class="comment"><p>Represents an event describing the change in a <a href="#TextEditor.visibleRanges">text editor&#39;s visible ranges</a>.</p>
+<div class="comment"><p>Represents an event describing the change in a <a href={##TextEditor.visibleRanges}text editor&#39;s visible ranges</a>.</p>
 </div>
 
 #### Properties
@@ -16936,21 +16962,21 @@ event. Can be <code>undefined</code>.</p>
 <a name="TextEditorVisibleRangesChangeEvent.textEditor"></a><span class="ts"id={199}data-target="#details-199" data-toggle="collapse"><span class="ident">textEditor</span><span>: </span><a class="type-ref" href="#TextEditor">TextEditor</a></span>
 
 <div class="details collapse" id="details-199">
-<div class="comment"><p>The <a href="#TextEditor">text editor</a> for which the visible ranges have changed.</p>
+<div class="comment"><p>The <a href={##TextEditor}text editor</a> for which the visible ranges have changed.</p>
 </div>
 </div>
 
 <a name="TextEditorVisibleRangesChangeEvent.visibleRanges"></a><span class="ts"id={200}data-target="#details-200" data-toggle="collapse"><span class="ident">visibleRanges</span><span>: </span><a class="type-ref" href="#ReadonlyArray">ReadonlyArray</a>&lt;<a class="type-ref" href="#Range">Range</a>&gt;</span>
 
 <div class="details collapse" id="details-200">
-<div class="comment"><p>The new value for the <a href="#TextEditor.visibleRanges">text editor&#39;s visible ranges</a>.</p>
+<div class="comment"><p>The new value for the <a href={##TextEditor.visibleRanges}text editor&#39;s visible ranges</a>.</p>
 </div>
 </div>
 
 ### <a name="TextLine"></a><span class="code-item" id=31>TextLine</span>
 
 <div class="comment"><p>Represents a line of text, such as a line of source code.</p>
-<p>TextLine objects are <strong>immutable</strong>. When a <a href="#TextDocument">document</a> changes,
+<p>TextLine objects are <strong>immutable</strong>. When a <a href={##TextDocument}document</a> changes,
 previously retrieved lines will not represent the latest state.</p>
 </div>
 
@@ -16968,7 +16994,7 @@ by <code>/\s/</code>. <strong>Note</strong> that if a line is all whitespace the
 
 <div class="details collapse" id="details-37">
 <div class="comment"><p>Whether this line is whitespace only, shorthand
-for <a href="#TextLine.firstNonWhitespaceCharacterIndex">TextLine.firstNonWhitespaceCharacterIndex</a> === <a href="#TextLine.text">TextLine.text.length</a>.</p>
+for <a href={##TextLine.firstNonWhitespaceCharacterIndex">TextLine.firstNonWhitespaceCharacterIndex</a> === <a href="#TextLine.text}TextLine.text.length</a>.</p>
 </div>
 </div>
 
@@ -17113,7 +17139,7 @@ or a text can be shown, but not both.</p>
 
 ### <a name="ThemableDecorationRenderOptions"></a><span class="code-item" id=260>ThemableDecorationRenderOptions</span>
 
-<div class="comment"><p>Represents theme specific rendering styles for a <a href="#TextEditorDecorationType">text editor decoration</a>.</p>
+<div class="comment"><p>Represents theme specific rendering styles for a <a href={##TextEditorDecorationType}text editor decoration</a>.</p>
 </div>
 
 #### Properties
@@ -17129,7 +17155,7 @@ or a text can be shown, but not both.</p>
 
 <div class="details collapse" id="details-261">
 <div class="comment"><p>Background color of the decoration. Use rgba() and define transparent background colors to play well with other decorations.
-Alternatively a color from the color registry can be <a href="#ThemeColor">referenced</a>.</p>
+Alternatively a color from the color registry can be <a href={##ThemeColor}referenced</a>.</p>
 </div>
 </div>
 
@@ -17227,7 +17253,7 @@ Better use &#39;border&#39; for setting one or more of the individual border pro
 <div class="details collapse" id="details-280">
 <div class="comment"><p>Specifies the size of the gutter icon.
 Available values are &#39;auto&#39;, &#39;contain&#39;, &#39;cover&#39; and any percentage value.
-For further information: <a href="https://msdn.microsoft.com/en-us/library/jj127316(v=vs.85).aspx">https://msdn.microsoft.com/en-us/library/jj127316(v=vs.85).aspx</a></p>
+For further information: <a href={#https://msdn.microsoft.com/en-us/library/jj127316(v=vs.85).aspx}https://msdn.microsoft.com/en-us/library/jj127316(v=vs.85).aspx</a></p>
 </div>
 </div>
 
@@ -17292,7 +17318,7 @@ Better use &#39;outline&#39; for setting one or more of the individual outline p
 
 ### <a name="ThemeColor"></a><span class="code-item" id=247>ThemeColor</span>
 
-<div class="comment"><p>A reference to one of the workbench colors as defined in <a href="https://code.visualstudio.com/docs/getstarted/theme-color-reference">https://code.visualstudio.com/docs/getstarted/theme-color-reference</a>.
+<div class="comment"><p>A reference to one of the workbench colors as defined in <a href={#https://code.visualstudio.com/docs/getstarted/theme-color-reference}https://code.visualstudio.com/docs/getstarted/theme-color-reference</a>.
 Using a theme color is preferred over a custom color as it gives theme authors and users the possibility to change the color.</p>
 </div>
 
@@ -17306,7 +17332,7 @@ Using a theme color is preferred over a custom color as it gives theme authors a
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="id"></a><span class="ts"id={250}data-target="#details-250" data-toggle="collapse"><span class="ident">id</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>of the color. The available colors are listed in <a href="https://code.visualstudio.com/docs/getstarted/theme-color-reference">https://code.visualstudio.com/docs/getstarted/theme-color-reference</a>.</p>
+<tr><td><a name="id"></a><span class="ts"id={250}data-target="#details-250" data-toggle="collapse"><span class="ident">id</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>of the color. The available colors are listed in <a href={#https://code.visualstudio.com/docs/getstarted/theme-color-reference}https://code.visualstudio.com/docs/getstarted/theme-color-reference</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#ThemeColor">ThemeColor</a></span></td><td><div class="comment"></div></td></tr>
@@ -17316,8 +17342,8 @@ Using a theme color is preferred over a custom color as it gives theme authors a
 
 ### <a name="ThemeIcon"></a><span class="code-item" id=251>ThemeIcon</span>
 
-<div class="comment"><p>A reference to a named icon. Currently, <a href="#ThemeIcon.File">File</a>, <a href="#ThemeIcon.Folder">Folder</a>,
-and <a href="https://microsoft.github.io/vscode-codicons/dist/codicon.html">codicons</a> are supported.
+<div class="comment"><p>A reference to a named icon. Currently, <a href={##ThemeIcon.File">File</a>, <a href="#ThemeIcon.Folder}Folder</a>,
+and <a href={#https://microsoft.github.io/vscode-codicons/dist/codicon.html}codicons</a> are supported.
 Using a theme icon is preferred over a custom icon as it gives theme authors the possibility to change the icons.</p>
 <p><em>Note</em> that theme icons can also be rendered inside labels and descriptions. Places that support theme icons spell this out
 and they use the <code>$(&lt;name&gt;)</code>-syntax, for instance <code>quickPick.label = &quot;Hello World $(globe)&quot;</code>.</p>
@@ -17349,9 +17375,9 @@ and they use the <code>$(&lt;name&gt;)</code>-syntax, for instance <code>quickPi
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="id"></a><span class="ts"id={258}data-target="#details-258" data-toggle="collapse"><span class="ident">id</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>id of the icon. The available icons are listed in <a href="https://microsoft.github.io/vscode-codicons/dist/codicon.html">https://microsoft.github.io/vscode-codicons/dist/codicon.html</a>.</p>
+<tr><td><a name="id"></a><span class="ts"id={258}data-target="#details-258" data-toggle="collapse"><span class="ident">id</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>id of the icon. The available icons are listed in <a href={#https://microsoft.github.io/vscode-codicons/dist/codicon.html}https://microsoft.github.io/vscode-codicons/dist/codicon.html</a>.</p>
 </div></td></tr>
-<tr><td><a name="color"></a><span class="ts"id={259}data-target="#details-259" data-toggle="collapse"><span class="ident">color</span><span>?</span><span>: </span><a class="type-ref" href="#ThemeColor">ThemeColor</a></span></td><td><div class="comment"><p>optional <code>ThemeColor</code> for the icon. The color is currently only used in <a href="#TreeItem">TreeItem</a>.</p>
+<tr><td><a name="color"></a><span class="ts"id={259}data-target="#details-259" data-toggle="collapse"><span class="ident">color</span><span>?</span><span>: </span><a class="type-ref" href="#ThemeColor">ThemeColor</a></span></td><td><div class="comment"><p>optional <code>ThemeColor</code> for the icon. The color is currently only used in <a href={##TreeItem}TreeItem</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#ThemeIcon">ThemeIcon</a></span></td><td><div class="comment"></div></td></tr>
@@ -17364,14 +17390,14 @@ and they use the <code>$(&lt;name&gt;)</code>-syntax, for instance <code>quickPi
 <a name="ThemeIcon.color"></a><span class="ts"id={255}data-target="#details-255" data-toggle="collapse"><span class="ident">color</span><span>?</span><span>: </span><a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
 
 <div class="details collapse" id="details-255">
-<div class="comment"><p>The optional ThemeColor of the icon. The color is currently only used in <a href="#TreeItem">TreeItem</a>.</p>
+<div class="comment"><p>The optional ThemeColor of the icon. The color is currently only used in <a href={##TreeItem}TreeItem</a>.</p>
 </div>
 </div>
 
 <a name="ThemeIcon.id"></a><span class="ts"id={254}data-target="#details-254" data-toggle="collapse"><span class="ident">id</span><span>: </span><a class="type-intrinsic">string</a></span>
 
 <div class="details collapse" id="details-254">
-<div class="comment"><p>The id of the icon. The available icons are listed in <a href="https://microsoft.github.io/vscode-codicons/dist/codicon.html">https://microsoft.github.io/vscode-codicons/dist/codicon.html</a>.</p>
+<div class="comment"><p>The id of the icon. The available icons are listed in <a href={#https://microsoft.github.io/vscode-codicons/dist/codicon.html}https://microsoft.github.io/vscode-codicons/dist/codicon.html</a>.</p>
 </div>
 </div>
 
@@ -17415,7 +17441,7 @@ To signal that root has changed, do not pass any argument or pass <code>undefine
 <div class="details collapse" id="details-2078">
 <div class="comment"><p>Optional method to return the parent of <code>element</code>.
 Return <code>null</code> or <code>undefined</code> if <code>element</code> is a child of root.</p>
-<p><strong>NOTE:</strong> This method should be implemented in order to access <a href="#TreeView.reveal">reveal</a> API.</p>
+<p><strong>NOTE:</strong> This method should be implemented in order to access <a href={##TreeView.reveal}reveal</a> API.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -17432,12 +17458,12 @@ Return <code>null</code> or <code>undefined</code> if <code>element</code> is a 
 <a name="TreeDataProvider.getTreeItem"></a><span class="ts"id={2072}data-target="#details-2072" data-toggle="collapse"><span class="ident">getTreeItem</span><span>(</span><span class="ident">element</span><span>: </span><a class="type-intrinsic">T</a><span>)</span><span>: </span><a class="type-ref" href="#TreeItem">TreeItem</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TreeItem">TreeItem</a>&gt;</span>
 
 <div class="details collapse" id="details-2072">
-<div class="comment"><p>Get <a href="#TreeItem">TreeItem</a> representation of the <code>element</code></p>
+<div class="comment"><p>Get <a href={##TreeItem}TreeItem</a> representation of the <code>element</code></p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="element"></a><span class="ts"id={2073}data-target="#details-2073" data-toggle="collapse"><span class="ident">element</span><span>: </span><a class="type-intrinsic">T</a></span></td><td><div class="comment"><p>The element for which <a href="#TreeItem">TreeItem</a> representation is asked for.</p>
+<tr><td><a name="element"></a><span class="ts"id={2073}data-target="#details-2073" data-toggle="collapse"><span class="ident">element</span><span>: </span><a class="type-intrinsic">T</a></span></td><td><div class="comment"><p>The element for which <a href={##TreeItem}TreeItem</a> representation is asked for.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#TreeItem">TreeItem</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TreeItem">TreeItem</a>&gt;</span></td><td><div class="comment"><p>(#TreeItem) representation of the element</p>
@@ -17461,7 +17487,7 @@ Return <code>null</code> or <code>undefined</code> if <code>element</code> is a 
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="label"></a><span class="ts"id={2096}data-target="#details-2096" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>A human-readable string describing this item</p>
 </div></td></tr>
-<tr><td><a name="collapsibleState"></a><span class="ts"id={2097}data-target="#details-2097" data-toggle="collapse"><span class="ident">collapsibleState</span><span>?</span><span>: </span><a class="type-ref" href="#TreeItemCollapsibleState">TreeItemCollapsibleState</a></span></td><td><div class="comment"><p>(#TreeItemCollapsibleState) of the tree item. Default is <a href="#TreeItemCollapsibleState.None">TreeItemCollapsibleState.None</a></p>
+<tr><td><a name="collapsibleState"></a><span class="ts"id={2097}data-target="#details-2097" data-toggle="collapse"><span class="ident">collapsibleState</span><span>?</span><span>: </span><a class="type-ref" href="#TreeItemCollapsibleState">TreeItemCollapsibleState</a></span></td><td><div class="comment"><p>(#TreeItemCollapsibleState) of the tree item. Default is <a href={##TreeItemCollapsibleState.None}TreeItemCollapsibleState.None</a></p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#TreeItem">TreeItem</a></span></td><td><div class="comment"></div></td></tr>
@@ -17476,9 +17502,9 @@ Return <code>null</code> or <code>undefined</code> if <code>element</code> is a 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="resourceUri"></a><span class="ts"id={2099}data-target="#details-2099" data-toggle="collapse"><span class="ident">resourceUri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>The <a href="#Uri">uri</a> of the resource representing this item.</p>
+<tr><td><a name="resourceUri"></a><span class="ts"id={2099}data-target="#details-2099" data-toggle="collapse"><span class="ident">resourceUri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>The <a href={##Uri}uri</a> of the resource representing this item.</p>
 </div></td></tr>
-<tr><td><a name="collapsibleState"></a><span class="ts"id={2100}data-target="#details-2100" data-toggle="collapse"><span class="ident">collapsibleState</span><span>?</span><span>: </span><a class="type-ref" href="#TreeItemCollapsibleState">TreeItemCollapsibleState</a></span></td><td><div class="comment"><p>(#TreeItemCollapsibleState) of the tree item. Default is <a href="#TreeItemCollapsibleState.None">TreeItemCollapsibleState.None</a></p>
+<tr><td><a name="collapsibleState"></a><span class="ts"id={2100}data-target="#details-2100" data-toggle="collapse"><span class="ident">collapsibleState</span><span>?</span><span>: </span><a class="type-ref" href="#TreeItemCollapsibleState">TreeItemCollapsibleState</a></span></td><td><div class="comment"><p>(#TreeItemCollapsibleState) of the tree item. Default is <a href={##TreeItemCollapsibleState.None}TreeItemCollapsibleState.None</a></p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#TreeItem">TreeItem</a></span></td><td><div class="comment"></div></td></tr>
@@ -17500,14 +17526,14 @@ however, there are cases where a TreeItem is not displayed in a tree-like way wh
 <a name="TreeItem.collapsibleState"></a><span class="ts"id={2091}data-target="#details-2091" data-toggle="collapse"><span class="ident">collapsibleState</span><span>?</span><span>: </span><a class="type-ref" href="#TreeItemCollapsibleState">TreeItemCollapsibleState</a></span>
 
 <div class="details collapse" id="details-2091">
-<div class="comment"><p><a href="#TreeItemCollapsibleState">TreeItemCollapsibleState</a> of the tree item.</p>
+<div class="comment"><p><a href={##TreeItemCollapsibleState}TreeItemCollapsibleState</a> of the tree item.</p>
 </div>
 </div>
 
 <a name="TreeItem.command"></a><span class="ts"id={2090}data-target="#details-2090" data-toggle="collapse"><span class="ident">command</span><span>?</span><span>: </span><a class="type-ref" href="#Command">Command</a></span>
 
 <div class="details collapse" id="details-2090">
-<div class="comment"><p>The <a href="#Command">command</a> that should be executed when the tree item is selected.</p>
+<div class="comment"><p>The <a href={##Command}command</a> that should be executed when the tree item is selected.</p>
 </div>
 </div>
 
@@ -17528,7 +17554,7 @@ using <code>menus</code> extension point, you can specify context value for key 
             ]
         }
     }
-</code></pre><p>This will show action <code>extension.deleteFolder</code> only for items with <code>contextValue</code> is <code>folder</code>.</p>
+```<p>This will show action <code>extension.deleteFolder</code> only for items with <code>contextValue</code> is <code>folder</code>.</p>
 </div>
 </div>
 
@@ -17536,16 +17562,16 @@ using <code>menus</code> extension point, you can specify context value for key 
 
 <div class="details collapse" id="details-2087">
 <div class="comment"><p>A human-readable string which is rendered less prominent.
-When <code>true</code>, it is derived from <a href="#TreeItem.resourceUri">resourceUri</a> and when <code>falsy</code>, it is not shown.</p>
+When <code>true</code>, it is derived from <a href={##TreeItem.resourceUri}resourceUri</a> and when <code>falsy</code>, it is not shown.</p>
 </div>
 </div>
 
 <a name="TreeItem.iconPath"></a><span class="ts"id={2083}data-target="#details-2083" data-toggle="collapse"><span class="ident">iconPath</span><span>?</span><span>: </span><a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a> &#124; {dark: <a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a>, light: <a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a>} &#124; <a class="type-ref" href="#ThemeIcon">ThemeIcon</a></span>
 
 <div class="details collapse" id="details-2083">
-<div class="comment"><p>The icon path or <a href="#ThemeIcon">ThemeIcon</a> for the tree item.
-When <code>falsy</code>, <a href="#ThemeIcon.Folder">Folder Theme Icon</a> is assigned, if item is collapsible otherwise <a href="#ThemeIcon.File">File Theme Icon</a>.
-When a file or folder <a href="#ThemeIcon">ThemeIcon</a> is specified, icon is derived from the current file icon theme for the specified theme icon using <a href="#TreeItem.resourceUri">resourceUri</a> (if provided).</p>
+<div class="comment"><p>The icon path or <a href={##ThemeIcon}ThemeIcon</a> for the tree item.
+When <code>falsy</code>, <a href={##ThemeIcon.Folder">Folder Theme Icon</a> is assigned, if item is collapsible otherwise <a href="#ThemeIcon.File}File Theme Icon</a>.
+When a file or folder <a href={##ThemeIcon">ThemeIcon</a> is specified, icon is derived from the current file icon theme for the specified theme icon using <a href="#TreeItem.resourceUri}resourceUri</a> (if provided).</p>
 </div>
 </div>
 
@@ -17560,16 +17586,16 @@ When a file or folder <a href="#ThemeIcon">ThemeIcon</a> is specified, icon is d
 <a name="TreeItem.label"></a><span class="ts"id={2081}data-target="#details-2081" data-toggle="collapse"><span class="ident">label</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
 
 <div class="details collapse" id="details-2081">
-<div class="comment"><p>A human-readable string describing this item. When <code>falsy</code>, it is derived from <a href="#TreeItem.resourceUri">resourceUri</a>.</p>
+<div class="comment"><p>A human-readable string describing this item. When <code>falsy</code>, it is derived from <a href={##TreeItem.resourceUri}resourceUri</a>.</p>
 </div>
 </div>
 
 <a name="TreeItem.resourceUri"></a><span class="ts"id={2088}data-target="#details-2088" data-toggle="collapse"><span class="ident">resourceUri</span><span>?</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span>
 
 <div class="details collapse" id="details-2088">
-<div class="comment"><p>The <a href="#Uri">uri</a> of the resource representing this item.</p>
-<p>Will be used to derive the <a href="#TreeItem.label">label</a>, when it is not provided.
-Will be used to derive the icon from current file icon theme, when <a href="#TreeItem.iconPath">iconPath</a> has <a href="#ThemeIcon">ThemeIcon</a> value.</p>
+<div class="comment"><p>The <a href={##Uri}uri</a> of the resource representing this item.</p>
+<p>Will be used to derive the <a href={##TreeItem.label}label</a>, when it is not provided.
+Will be used to derive the icon from current file icon theme, when <a href={##TreeItem.iconPath">iconPath</a> has <a href="#ThemeIcon}ThemeIcon</a> value.</p>
 </div>
 </div>
 
@@ -17615,14 +17641,14 @@ Will be used to derive the icon from current file icon theme, when <a href="#Tre
 <a name="TreeView.onDidChangeSelection"></a><span class="ts"id={2042}data-target="#details-2042" data-toggle="collapse"><span class="ident">onDidChangeSelection</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TreeViewSelectionChangeEvent">TreeViewSelectionChangeEvent</a>&lt;<a class="type-intrinsic">T</a>&gt;&gt;</span>
 
 <div class="details collapse" id="details-2042">
-<div class="comment"><p>Event that is fired when the <a href="#TreeView.selection">selection</a> has changed</p>
+<div class="comment"><p>Event that is fired when the <a href={##TreeView.selection}selection</a> has changed</p>
 </div>
 </div>
 
 <a name="TreeView.onDidChangeVisibility"></a><span class="ts"id={2044}data-target="#details-2044" data-toggle="collapse"><span class="ident">onDidChangeVisibility</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TreeViewVisibilityChangeEvent">TreeViewVisibilityChangeEvent</a>&gt;</span>
 
 <div class="details collapse" id="details-2044">
-<div class="comment"><p>Event that is fired when <a href="#TreeView.visible">visibility</a> has changed</p>
+<div class="comment"><p>Event that is fired when <a href={##TreeView.visible}visibility</a> has changed</p>
 </div>
 </div>
 
@@ -17717,7 +17743,7 @@ Changes to the title property will be properly reflected in the UI in the title 
 <a name="TreeView.visible"></a><span class="ts"id={2043}data-target="#details-2043" data-toggle="collapse"><span class="ident">visible</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 
 <div class="details collapse" id="details-2043">
-<div class="comment"><p><code>true</code> if the <a href="#TreeView">tree view</a> is visible otherwise <code>false</code>.</p>
+<div class="comment"><p><code>true</code> if the <a href={##TreeView}tree view</a> is visible otherwise <code>false</code>.</p>
 </div>
 </div>
 
@@ -17746,7 +17772,7 @@ In order to not to select, set the option <code>select</code> to <code>false</co
 In order to focus, set the option <code>focus</code> to <code>true</code>.
 In order to expand the revealed element, set the option <code>expand</code> to <code>true</code>. To expand recursively set <code>expand</code> to the number of levels to expand.
 <strong>NOTE:</strong> You can expand only to 3 levels maximum.</p>
-<p><strong>NOTE:</strong> The <a href="#TreeDataProvider">TreeDataProvider</a> that the <code>TreeView</code> <a href="#window.createTreeView">is registered with</a> with must implement <a href="#TreeDataProvider.getParent">getParent</a> method to access this API.</p>
+<p><strong>NOTE:</strong> The <a href={##TreeDataProvider">TreeDataProvider</a> that the <code>TreeView</code> <a href="#window.createTreeView">is registered with</a> with must implement <a href="#TreeDataProvider.getParent}getParent</a> method to access this API.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -17761,7 +17787,7 @@ In order to expand the revealed element, set the option <code>expand</code> to <
 
 ### <a name="TreeViewExpansionEvent"></a><span class="code-item" id=2029>TreeViewExpansionEvent&lt;T&gt;</span>
 
-<div class="comment"><p>The event that is fired when an element in the <a href="#TreeView">TreeView</a> is expanded or collapsed</p>
+<div class="comment"><p>The event that is fired when an element in the <a href={##TreeView}TreeView</a> is expanded or collapsed</p>
 </div>
 
 #### Properties
@@ -17775,7 +17801,7 @@ In order to expand the revealed element, set the option <code>expand</code> to <
 
 ### <a name="TreeViewOptions"></a><span class="code-item" id=2024>TreeViewOptions&lt;T&gt;</span>
 
-<div class="comment"><p>Options for creating a <a href="#TreeView">TreeView</a></p>
+<div class="comment"><p>Options for creating a <a href={##TreeView}TreeView</a></p>
 </div>
 
 #### Properties
@@ -17805,7 +17831,7 @@ array containing all selected tree items.</p>
 
 ### <a name="TreeViewSelectionChangeEvent"></a><span class="code-item" id=2032>TreeViewSelectionChangeEvent&lt;T&gt;</span>
 
-<div class="comment"><p>The event that is fired when there is a change in <a href="#TreeView.selection">tree view&#39;s selection</a></p>
+<div class="comment"><p>The event that is fired when there is a change in <a href={##TreeView.selection}tree view&#39;s selection</a></p>
 </div>
 
 #### Properties
@@ -17819,7 +17845,7 @@ array containing all selected tree items.</p>
 
 ### <a name="TreeViewVisibilityChangeEvent"></a><span class="code-item" id=2035>TreeViewVisibilityChangeEvent</span>
 
-<div class="comment"><p>The event that is fired when there is a change in <a href="#TreeView.visible">tree view&#39;s visibility</a></p>
+<div class="comment"><p>The event that is fired when there is a change in <a href={##TreeView.visible}tree view&#39;s visibility</a></p>
 </div>
 
 #### Properties
@@ -17827,7 +17853,7 @@ array containing all selected tree items.</p>
 <a name="TreeViewVisibilityChangeEvent.visible"></a><span class="ts"id={2036}data-target="#details-2036" data-toggle="collapse"><span class="ident">visible</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 
 <div class="details collapse" id="details-2036">
-<div class="comment"><p><code>true</code> if the <a href="#TreeView">tree view</a> is visible otherwise <code>false</code>.</p>
+<div class="comment"><p><code>true</code> if the <a href={##TreeView}tree view</a> is visible otherwise <code>false</code>.</p>
 </div>
 </div>
 
@@ -17891,14 +17917,15 @@ or another resource, like untitled resources.</p>
 <a name="Uri.file"></a><span class="ts"id={400}data-target="#details-400" data-toggle="collapse"><span class="ident">file</span><span>(</span><span class="ident">path</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span>
 
 <div class="details collapse" id="details-400">
-<div class="comment"><p>Create an URI from a file system path. The <a href="#Uri.scheme">scheme</a>
+<div class="comment"><p>Create an URI from a file system path. The <a href={##Uri.scheme}scheme</a>
 will be <code>file</code>.</p>
 <p>The <em>difference</em> between <code>Uri#parse</code> and <code>Uri#file</code> is that the latter treats the argument
 as path, not as stringified-uri. E.g. <code>Uri.file(path)</code> is <em>not</em> the same as
 <code>Uri.parse(&#39;file://&#39; + path)</code> because the path might contain characters that are
 interpreted (# and ?). See the following sample:</p>
 
-<pre><code class="lang-ts">const good = URI.file(&#39;/coding/c#/project1&#39;);
+```ts
+const good = URI.file(&#39;/coding/c#/project1&#39;);
 good.scheme === &#39;file&#39;;
 good.path === &#39;/coding/c#/project1&#39;;
 good.fragment === &#39;&#39;;
@@ -17907,7 +17934,7 @@ const bad = URI.parse(&#39;file://&#39; + &#39;/coding/c#/project1&#39;);
 bad.scheme === &#39;file&#39;;
 bad.path === &#39;/coding/c&#39;; // path is now broken
 bad.fragment === &#39;/project1&#39;;
-</code></pre>
+```
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -17964,7 +17991,7 @@ so that is true: <code>joinPath(Uri.file(&#39;file:///c:/root&#39;), &#39;../../
 as all uris should have a scheme. To avoid breakage of existing code the optional
 <code>strict</code>-argument has been added. We <em>strongly</em> advise to use it, e.g. <code>Uri.parse(&#39;my:uri&#39;, true)</code></p>
 <ul>
-<li><em>see</em> - <a href="#Uri.toString">Uri.toString</a></li>
+<li><em>see</em> - <a href={##Uri.toString}Uri.toString</a></li>
 </ul>
 </div>
 <div class="signature">
@@ -18031,14 +18058,15 @@ uses the platform specific path separator.</p>
 <li>The resulting string shall <em>not</em> be used for display purposes but
 for disk operations, like <code>readFile</code> et al.</li>
 </ul>
-<p>The <em>difference</em> to the <a href="#Uri.path"><code>path</code></a>-property is the use of the platform specific
+<p>The <em>difference</em> to the <a href={##Uri.path}<code>path</code></a>-property is the use of the platform specific
 path separator and the handling of UNC paths. The sample below outlines the difference:</p>
 
-<pre><code class="lang-ts">const u = URI.parse(&#39;file://server/c$/folder/file.txt&#39;)
+```ts
+const u = URI.parse(&#39;file://server/c$/folder/file.txt&#39;)
 u.authority === &#39;server&#39;
 u.path === &#39;/shares/c$/file.txt&#39;
 u.fsPath === &#39;\\server\c$\folder\file.txt&#39;
-</code></pre>
+```
 </div>
 </div>
 
@@ -18086,7 +18114,7 @@ The part before the first colon.</p>
 <div class="comment"><p>Returns a string representation of this Uri. The representation and normalization
 of a URI depends on the scheme.</p>
 <ul>
-<li>The resulting string can be safely used with <a href="#Uri.parse">Uri.parse</a>.</li>
+<li>The resulting string can be safely used with <a href={##Uri.parse}Uri.parse</a>.</li>
 <li>The resulting string shall <em>not</em> be used for display purposes.</li>
 </ul>
 <p><em>Note</em> that the implementation will encode <em>aggressive</em> which often leads to unexpected,
@@ -18113,10 +18141,11 @@ the <code>skipEncoding</code>-argument: <code>uri.toString(true)</code>.</p>
 <div class="details collapse" id="details-420">
 <div class="comment"><p>Derive a new Uri from this Uri.</p>
 
-<pre><code class="lang-ts">let file = Uri.parse(&#39;before:some/file/path&#39;);
+```ts
+let file = Uri.parse(&#39;before:some/file/path&#39;);
 let other = file.with({ scheme: &#39;after&#39; });
 assert.ok(other.toString() === &#39;after:some/file/path&#39;);
-</code></pre>
+```
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -18134,9 +18163,9 @@ assert.ok(other.toString() === &#39;after:some/file/path&#39;);
 
 ### <a name="UriHandler"></a><span class="code-item" id=2020>UriHandler</span>
 
-<div class="comment"><p>A uri handler is responsible for handling system-wide <a href="#Uri">uris</a>.</p>
+<div class="comment"><p>A uri handler is responsible for handling system-wide <a href={##Uri}uris</a>.</p>
 <ul>
-<li><em>see</em> - <a href="#window.registerUriHandler">window.registerUriHandler</a>.</li>
+<li><em>see</em> - <a href={##window.registerUriHandler}window.registerUriHandler</a>.</li>
 </ul>
 </div>
 
@@ -18145,9 +18174,9 @@ assert.ok(other.toString() === &#39;after:some/file/path&#39;);
 <a name="UriHandler.handleUri"></a><span class="ts"id={2022}data-target="#details-2022" data-toggle="collapse"><span class="ident">handleUri</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-intrinsic">void</a>&gt;</span>
 
 <div class="details collapse" id="details-2022">
-<div class="comment"><p>Handle the provided system-wide <a href="#Uri">uri</a>.</p>
+<div class="comment"><p>Handle the provided system-wide <a href={##Uri}uri</a>.</p>
 <ul>
-<li><em>see</em> - <a href="#window.registerUriHandler">window.registerUriHandler</a>.</li>
+<li><em>see</em> - <a href={##window.registerUriHandler}window.registerUriHandler</a>.</li>
 </ul>
 </div>
 <div class="signature">
@@ -18261,7 +18290,7 @@ message does not run in a browser environment.</p>
 <p>This is the origin that should be used in a content security policy rule:</p>
 
 <pre><code>img-src https: ${webview.cspSource} ...;
-</code></pre></div>
+```</div>
 </div>
 
 <a name="Webview.html"></a><span class="ts"id={1877}data-target="#details-1877" data-toggle="collapse"><span class="ident">html</span><span>: </span><a class="type-intrinsic">string</a></span>
@@ -18270,21 +18299,22 @@ message does not run in a browser environment.</p>
 <div class="comment"><p>HTML contents of the webview.</p>
 <p>This should be a complete, valid html document. Changing this property causes the webview to be reloaded.</p>
 <p>Webviews are sandboxed from normal extension process, so all communication with the webview must use
-message passing. To send a message from the extension to the webview, use <a href="#Webview.postMessage"><code>postMessage</code></a>.
+message passing. To send a message from the extension to the webview, use <a href={##Webview.postMessage}<code>postMessage</code></a>.
 To send message from the webview back to an extension, use the <code>acquireVsCodeApi</code> function inside the webview
 to get a handle to VS Code&#39;s api and then call <code>.postMessage()</code>:</p>
 
-<pre><code class="lang-html">&lt;script&gt;
+```html
+&lt;script&gt;
     const vscode = acquireVsCodeApi(); // acquireVsCodeApi can only be invoked once
     vscode.postMessage({ message: &#39;hello!&#39; });
 &lt;/script&gt;
-</code></pre>
+```
 <p>To load a resources from the workspace inside a webview, use the <code>[asWebviewUri](#Webview.asWebviewUri)</code> method
-and ensure the resource&#39;s directory is listed in <a href="#WebviewOptions.localResourceRoots"><code>WebviewOptions.localResourceRoots</code></a>.</p>
+and ensure the resource&#39;s directory is listed in <a href={##WebviewOptions.localResourceRoots}<code>WebviewOptions.localResourceRoots</code></a>.</p>
 <p>Keep in mind that even though webviews are sandboxed, they still allow running scripts and loading arbitrary content,
 so extensions must follow all standard web security best practices when working with webviews. This includes
 properly sanitizing all untrusted input (including content from the workspace) and
-setting a <a href="https://aka.ms/vscode-api-webview-csp">content security policy</a>.</p>
+setting a <a href={#https://aka.ms/vscode-api-webview-csp}content security policy</a>.</p>
 </div>
 </div>
 
@@ -18305,8 +18335,9 @@ setting a <a href="https://aka.ms/vscode-api-webview-csp">content security polic
 <code>asWebviewUri</code> function takes a local <code>file:</code> uri and converts it into a uri that can be used inside of
 a webview to load the same resource:</p>
 
-<pre><code class="lang-ts">webview.html = `&lt;img src=&quot;${webview.asWebviewUri(vscode.Uri.file(&#39;/Users/codey/workspace/cat.gif&#39;))}&quot;&gt;`
-</code></pre>
+```ts
+webview.html = `&lt;img src=&quot;${webview.asWebviewUri(vscode.Uri.file(&#39;/Users/codey/workspace/cat.gif&#39;))}&quot;&gt;`
+```
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -18461,7 +18492,7 @@ one of the editor view columns.</p>
 <a name="WebviewPanel.webview"></a><span class="ts"id={1896}data-target="#details-1896" data-toggle="collapse"><span class="ident">webview</span><span>: </span><a class="type-ref" href="#Webview">Webview</a></span>
 
 <div class="details collapse" id="details-1896">
-<div class="comment"><p><a href="#Webview"><code>Webview</code></a> belonging to the panel.</p>
+<div class="comment"><p><a href={##Webview}<code>Webview</code></a> belonging to the panel.</p>
 </div>
 </div>
 
@@ -18563,7 +18594,8 @@ and restore its content from this state when it becomes visible again. It is pow
 by the webview content itself. To save off a persisted state, call <code>acquireVsCodeApi().setState()</code> with
 any json serializable object. To restore the state again, call <code>getState()</code></p>
 
-<pre><code class="lang-js">// Within the webview
+```js
+// Within the webview
 const vscode = acquireVsCodeApi();
 
 // Get existing state
@@ -18571,7 +18603,7 @@ const oldState = vscode.getState() || { value: 0 };
 
 // Update state
 setState({ value: oldState.value + 1 })
-</code></pre>
+```
 <p>A <code>WebviewPanelSerializer</code> extends this persistence across restarts of VS Code. When the editor is shutdown,
 VS Code will save off the state from <code>setState</code> of all webviews that have a serializer. When the
 webview first becomes visible after the restart, this state is passed to <code>deserializeWebviewPanel</code>.
@@ -18762,7 +18794,8 @@ save off a webview&#39;s state so that it can be quickly recreated as needed.</p
 <p>To save off a persisted state, inside the webview call <code>acquireVsCodeApi().setState()</code> with
 any json serializable object. To restore the state again, call <code>getState()</code>. For example:</p>
 
-<pre><code class="lang-js">// Within the webview
+```js
+// Within the webview
 const vscode = acquireVsCodeApi();
 
 // Get existing state
@@ -18770,7 +18803,7 @@ const oldState = vscode.getState() || { value: 0 };
 
 // Update state
 setState({ value: oldState.value + 1 })
-</code></pre>
+```
 <p>VS Code ensures that the persisted state is saved correctly when a webview is hidden and across
 editor restarts.</p>
 </div>
@@ -18797,10 +18830,10 @@ editor restarts.</p>
 <li><em>Default Settings</em></li>
 <li><em>Global (User) Settings</em></li>
 <li><em>Workspace settings</em></li>
-<li><em>Workspace Folder settings</em> - From one of the <a href="#workspace.workspaceFolders">Workspace Folders</a> under which requested resource belongs to.</li>
+<li><em>Workspace Folder settings</em> - From one of the <a href={##workspace.workspaceFolders}Workspace Folders</a> under which requested resource belongs to.</li>
 <li><em>Language settings</em> - Settings defined under requested language.</li>
 </ul>
-<p>The <em>effective</em> value (returned by <a href="#WorkspaceConfiguration.get"><code>get</code></a>) is computed by overriding or merging the values in the following order.</p>
+<p>The <em>effective</em> value (returned by <a href={##WorkspaceConfiguration.get}<code>get</code></a>) is computed by overriding or merging the values in the following order.</p>
 
 <pre><code>`defaultValue` (if defined in `package.json` otherwise derived from the value&#39;s type)
 `globalValue` (if defined)
@@ -18810,39 +18843,43 @@ editor restarts.</p>
 `globalLanguageValue` (if defined)
 `workspaceLanguageValue` (if defined)
 `workspaceFolderLanguageValue` (if defined)
-</code></pre><p><strong>Note:</strong> Only <code>object</code> value types are merged and all other value types are overridden.</p>
+```<p><strong>Note:</strong> Only <code>object</code> value types are merged and all other value types are overridden.</p>
 <p>Example 1: Overriding</p>
 
-<pre><code class="lang-ts">defaultValue = &#39;on&#39;;
+```ts
+defaultValue = &#39;on&#39;;
 globalValue = &#39;relative&#39;
 workspaceFolderValue = &#39;off&#39;
 value = &#39;off&#39;
-</code></pre>
+```
 <p>Example 2: Language Values</p>
 
-<pre><code class="lang-ts">defaultValue = &#39;on&#39;;
+```ts
+defaultValue = &#39;on&#39;;
 globalValue = &#39;relative&#39;
 workspaceFolderValue = &#39;off&#39;
 globalLanguageValue = &#39;on&#39;
 value = &#39;on&#39;
-</code></pre>
+```
 <p>Example 3: Object Values</p>
 
-<pre><code class="lang-ts">defaultValue = { &quot;a&quot;: 1, &quot;b&quot;: 2 };
+```ts
+defaultValue = { &quot;a&quot;: 1, &quot;b&quot;: 2 };
 globalValue = { &quot;b&quot;: 3, &quot;c&quot;: 4 };
 value = { &quot;a&quot;: 1, &quot;b&quot;: 3, &quot;c&quot;: 4 };
-</code></pre>
+```
 <p><em>Note:</em> Workspace and Workspace Folder configurations contains <code>launch</code> and <code>tasks</code> settings. Their basename will be
 part of the section identifier. The following snippets shows how to retrieve all configurations
 from <code>launch.json</code>:</p>
 
-<pre><code class="lang-ts">// launch.json configuration
+```ts
+// launch.json configuration
 const config = workspace.getConfiguration(&#39;launch&#39;, vscode.workspace.workspaceFolders[0].uri);
 
 // retrieve values
 const values = config.get(&#39;configurations&#39;);
-</code></pre>
-<p>Refer to <a href="https://code.visualstudio.com/docs/getstarted/settings">Settings</a> for more information.</p>
+```
+<p>Refer to <a href={#https://code.visualstudio.com/docs/getstarted/settings}Settings</a> for more information.</p>
 </div>
 
 #### Methods
@@ -18906,7 +18943,7 @@ const values = config.get(&#39;configurations&#39;);
 <div class="comment"><p>Retrieve all information about a configuration setting. A configuration value
 often consists of a <em>default</em> value, a global or installation-wide value,
 a workspace-specific value, folder-specific value
-and language-specific values (if <a href="#WorkspaceConfiguration">WorkspaceConfiguration</a> is scoped to a language).</p>
+and language-specific values (if <a href={##WorkspaceConfiguration}WorkspaceConfiguration</a> is scoped to a language).</p>
 <p>Also provides all language IDs under which the given configuration setting is defined.</p>
 <p><em>Note:</em> The configuration name must denote a leaf in the configuration tree
 (<code>editor.fontSize</code> vs <code>editor</code>) otherwise no result is returned.</p>
@@ -18929,9 +18966,9 @@ and language-specific values (if <a href="#WorkspaceConfiguration">WorkspaceConf
 <div class="comment"><p>Update a configuration value. The updated configuration values are persisted.</p>
 <p>A value can be changed in</p>
 <ul>
-<li><a href="#ConfigurationTarget.Global">Global settings</a>: Changes the value for all instances of the editor.</li>
-<li><a href="#ConfigurationTarget.Workspace">Workspace settings</a>: Changes the value for current workspace, if available.</li>
-<li><a href="#ConfigurationTarget.WorkspaceFolder">Workspace folder settings</a>: Changes the value for settings from one of the <a href="#workspace.workspaceFolders">Workspace Folders</a> under which the requested resource belongs to.</li>
+<li><a href={##ConfigurationTarget.Global}Global settings</a>: Changes the value for all instances of the editor.</li>
+<li><a href={##ConfigurationTarget.Workspace}Workspace settings</a>: Changes the value for current workspace, if available.</li>
+<li><a href={##ConfigurationTarget.WorkspaceFolder">Workspace folder settings</a>: Changes the value for settings from one of the <a href="#workspace.workspaceFolders}Workspace Folders</a> under which the requested resource belongs to.</li>
 <li>Language settings: Changes the value for the requested languageId.</li>
 </ul>
 <p><em>Note:</em> To remove a configuration value use <code>undefined</code>, like so: <code>config.update(&#39;somekey&#39;, undefined)</code></p>
@@ -18941,7 +18978,7 @@ and language-specific values (if <a href="#WorkspaceConfiguration">WorkspaceConf
 <li>window configuration to workspace folder</li>
 <li>configuration to workspace or workspace folder when no workspace is opened.</li>
 <li>configuration to workspace folder when there is no workspace folder settings.</li>
-<li>configuration to workspace folder when <a href="#WorkspaceConfiguration">WorkspaceConfiguration</a> is not scoped to a resource.</li>
+<li>configuration to workspace folder when <a href={##WorkspaceConfiguration}WorkspaceConfiguration</a> is not scoped to a resource.</li>
 </ul>
 </li>
 </ul>
@@ -18953,18 +18990,18 @@ and language-specific values (if <a href="#WorkspaceConfiguration">WorkspaceConf
 </div></td></tr>
 <tr><td><a name="value"></a><span class="ts"id={1360}data-target="#details-1360" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-intrinsic">any</a></span></td><td><div class="comment"><p>The new value.</p>
 </div></td></tr>
-<tr><td><a name="configurationTarget"></a><span class="ts"id={1361}data-target="#details-1361" data-toggle="collapse"><span class="ident">configurationTarget</span><span>?</span><span>: </span><a class="type-ref" href="#ConfigurationTarget">ConfigurationTarget</a> &#124; <a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p>The <a href="#ConfigurationTarget">configuration target</a> or a boolean value.</p>
+<tr><td><a name="configurationTarget"></a><span class="ts"id={1361}data-target="#details-1361" data-toggle="collapse"><span class="ident">configurationTarget</span><span>?</span><span>: </span><a class="type-ref" href="#ConfigurationTarget">ConfigurationTarget</a> &#124; <a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p>The <a href={##ConfigurationTarget}configuration target</a> or a boolean value.</p>
 
 <pre><code>- If `true` updates [Global settings](#ConfigurationTarget.Global).
 - If `false` updates [Workspace settings](#ConfigurationTarget.Workspace).
 - If `undefined` or `null` updates to [Workspace folder settings](#ConfigurationTarget.WorkspaceFolder) if configuration is resource specific,
 otherwise to [Workspace settings](#ConfigurationTarget.Workspace).
-</code></pre></div></td></tr>
+```</div></td></tr>
 <tr><td><a name="overrideInLanguage"></a><span class="ts"id={1362}data-target="#details-1362" data-toggle="collapse"><span class="ident">overrideInLanguage</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p>Whether to update the value in the scope of requested languageId or not.</p>
 
 <pre><code>- If `true` updates the value under the requested languageId.
 - If `undefined` updates the value under the requested languageId only if the configuration is defined for the language.
-</code></pre></div></td></tr>
+```</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-intrinsic">void</a>&gt;</span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -18975,7 +19012,7 @@ otherwise to [Workspace settings](#ConfigurationTarget.Workspace).
 
 <div class="comment"><p>A workspace edit is a collection of textual and files changes for
 multiple resources and documents.</p>
-<p>Use the <a href="#workspace.applyEdit">applyEdit</a>-function to apply a workspace edit.</p>
+<p>Use the <a href={##workspace.applyEdit}applyEdit</a>-function to apply a workspace edit.</p>
 </div>
 
 #### Properties
@@ -19203,7 +19240,7 @@ for instance all edits labelled with &quot;Changes in Strings&quot; would be a t
 <a name="WorkspaceEditEntryMetadata.iconPath"></a><span class="ts"id={836}data-target="#details-836" data-toggle="collapse"><span class="ident">iconPath</span><span>?</span><span>: </span><a class="type-ref" href="#Uri">Uri</a> &#124; {dark: <a class="type-ref" href="#Uri">Uri</a>, light: <a class="type-ref" href="#Uri">Uri</a>} &#124; <a class="type-ref" href="#ThemeIcon">ThemeIcon</a></span>
 
 <div class="details collapse" id="details-836">
-<div class="comment"><p>The icon path or <a href="#ThemeIcon">ThemeIcon</a> for the edit.</p>
+<div class="comment"><p>The icon path or <a href={##ThemeIcon}ThemeIcon</a> for the edit.</p>
 </div>
 </div>
 
@@ -19240,7 +19277,7 @@ are equal which means there is no notion of an active or primary workspace folde
 
 <div class="details collapse" id="details-2321">
 <div class="comment"><p>The name of this workspace folder. Defaults to
-the basename of its <a href="#Uri.path">uri-path</a></p>
+the basename of its <a href={##Uri.path}uri-path</a></p>
 </div>
 </div>
 
@@ -19248,14 +19285,14 @@ the basename of its <a href="#Uri.path">uri-path</a></p>
 
 <div class="details collapse" id="details-2320">
 <div class="comment"><p>The associated uri for this workspace folder.</p>
-<p><em>Note:</em> The <a href="#Uri">Uri</a>-type was intentionally chosen such that future releases of the editor can support
+<p><em>Note:</em> The <a href={##Uri}Uri</a>-type was intentionally chosen such that future releases of the editor can support
 workspace folders that are not stored on the local disk, e.g. <code>ftp://server/workspaces/foo</code>.</p>
 </div>
 </div>
 
 ### <a name="WorkspaceFolderPickOptions"></a><span class="code-item" id=512>WorkspaceFolderPickOptions</span>
 
-<div class="comment"><p>Options to configure the behaviour of the <a href="#WorkspaceFolder">workspace folder</a> pick UI.</p>
+<div class="comment"><p>Options to configure the behaviour of the <a href={##WorkspaceFolder}workspace folder</a> pick UI.</p>
 </div>
 
 #### Properties
@@ -19276,7 +19313,7 @@ workspace folders that are not stored on the local disk, e.g. <code>ftp://server
 
 ### <a name="WorkspaceFoldersChangeEvent"></a><span class="code-item" id=2316>WorkspaceFoldersChangeEvent</span>
 
-<div class="comment"><p>An event describing a change to the set of <a href="#workspace.workspaceFolders">workspace folders</a>.</p>
+<div class="comment"><p>An event describing a change to the set of <a href={##workspace.workspaceFolders}workspace folders</a>.</p>
 </div>
 
 #### Properties
@@ -19298,7 +19335,7 @@ workspace folders that are not stored on the local disk, e.g. <code>ftp://server
 ### <a name="WorkspaceSymbolProvider"></a><span class="code-item" id=791>WorkspaceSymbolProvider&lt;T&gt;</span>
 
 <div class="comment"><p>The workspace symbol provider interface defines the contract between extensions and
-the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_open-symbol-by-name">symbol search</a>-feature.</p>
+the <a href={#https://code.visualstudio.com/docs/editor/editingevolved#_open-symbol-by-name}symbol search</a>-feature.</p>
 </div>
 
 #### Methods
@@ -19312,7 +19349,7 @@ and scoring on the results. A good rule of thumb is to match case-insensitive an
 characters of <em>query</em> appear in their order in a candidate symbol. Don&#39;t use prefix, substring, or similar
 strict matching.</p>
 <p>To improve performance implementors can implement <code>resolveWorkspaceSymbol</code> and then provide symbols with partial
-<a href="#SymbolInformation.location">location</a>-objects, without a <code>range</code> defined. The editor will then call
+<a href={##SymbolInformation.location}location</a>-objects, without a <code>range</code> defined. The editor will then call
 <code>resolveWorkspaceSymbol</code> for selected symbols only, e.g. when opening a workspace symbol.</p>
 </div>
 <div class="signature">
@@ -19333,9 +19370,9 @@ signaled by returning <code>undefined</code>, <code>null</code>, or an empty arr
 <a name="WorkspaceSymbolProvider.resolveWorkspaceSymbol"></a><span class="ts"id={798}data-target="#details-798" data-toggle="collapse"><span class="ident">resolveWorkspaceSymbol</span><span>(</span><span class="ident">symbol</span><span>: </span><a class="type-intrinsic">T</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-intrinsic">T</a>&gt;</span>
 
 <div class="details collapse" id="details-798">
-<div class="comment"><p>Given a symbol fill in its <a href="#SymbolInformation.location">location</a>. This method is called whenever a symbol
+<div class="comment"><p>Given a symbol fill in its <a href={##SymbolInformation.location}location</a>. This method is called whenever a symbol
 is selected in the UI. Providers can implement this method and return incomplete symbols from
-<a href="#WorkspaceSymbolProvider.provideWorkspaceSymbols"><code>provideWorkspaceSymbols</code></a> which often helps to improve
+<a href={##WorkspaceSymbolProvider.provideWorkspaceSymbols}<code>provideWorkspaceSymbols</code></a> which often helps to improve
 performance.</p>
 </div>
 <div class="signature">
@@ -19405,4 +19442,4 @@ An example from the VS Code API is `window.onDidChangeActiveTextEditor` which is
 
 ### Strict null
 
-The VS Code API uses the `undefined` and `null` TypeScript types where appropriate to support [strict null checking](https://github.com/microsoft/TypeScript/pull/7140).
+The VS Code API uses the `undefined` and `null` TypeScript types where appropriate to support [strict null checking](https://github.com/microsoft/TypeScript/pull/7140). -->

@@ -26,7 +26,7 @@ Alternatively, you can use `kb(workbench.action.navigateBack)` and `kb(workbench
 
 ## Breadcrumbs
 
-The editor has a navigation bar above its contents called [Breadcrumbs](<https://en.wikipedia.org/wiki/Breadcrumb_(navigation)>). It shows the current location and allows you to quickly navigate between folders, files, and symbols.
+The editor has a navigation bar above its contents called [Breadcrumbs](https://en.wikipedia.org/wiki/Breadcrumb_(navigation)). It shows the current location and allows you to quickly navigate between folders, files, and symbols.
 
 ![Breadcrumbs](images/editingevolved/breadcrumbs.png)
 

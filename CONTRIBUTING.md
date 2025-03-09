@@ -1,6 +1,6 @@
 # Visual Studio Code Documentation
 
-You've found the GitHub repository that contains the source for the Visual Studio Code documentation at <https://code.visualstudio.com/docs>.
+You've found the GitHub repository that contains the source for the Visual Studio Code documentation at https://code.visualstudio.com/docs.
 
 ## Contribute to VS Code documentation
 
@@ -45,14 +45,14 @@ The documentation should target developers learning to use VS Code or searching 
 
 This repository contains the following top-level folders:
 
-- \api - content for the API documentation at <https://code.visualstudio.com/api>
-- \blogs - content for the blog at <https://code.visualstudio.com/blogs>
+- \api - content for the API documentation at https://code.visualstudio.com/api
+- \blogs - content for the blog at https://code.visualstudio.com/blogs
 - \build - content for the documentation build process, such as the keybinding mappings and sitemap
-- \docs - content for the documentation at <https://code.visualstudio.com/docs> - the content in this folder follows the organization of the documentation table of contents
+- \docs - content for the documentation at https://code.visualstudio.com/docs - the content in this folder follows the organization of the documentation table of contents
 - \images - images used in the documentation
-- \learn - (deprecated) content for the education content at <https://code.visualstudio.com/learn>
-- \release-notes - content for the release notes at <https://code.visualstudio.com/updates>
-- \remote - content for the remote development tools documentation at <https://code.visualstudio.com/docs/remote>
+- \learn - (deprecated) content for the education content at https://code.visualstudio.com/learn
+- \release-notes - content for the release notes at https://code.visualstudio.com/updates
+- \remote - content for the remote development tools documentation at https://code.visualstudio.com/docs/remote
 - \remote-release-notes - content for the remote development tools release notes
 - \wiki - content for the repository wiki
 

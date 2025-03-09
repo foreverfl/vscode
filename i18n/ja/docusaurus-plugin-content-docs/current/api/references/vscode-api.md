@@ -106,13 +106,15 @@ when invoking an editor command not all argument types are supported.</p>
 <p>This is a sample that registers a command handler and adds an entry for that command to the palette. First
 register a command handler with the identifier <code>extension.sayHello</code>.</p>
 
-<pre><code class="lang-javascript">commands.registerCommand(&#39;extension.sayHello&#39;, () =&gt; {
+````javascript
+commands.registerCommand(&#39;extension.sayHello&#39;, () =&gt; {
     window.showInformationMessage(&#39;Hello World!&#39;);
 });
-</code></pre>
+```
 <p>Second, bind the command identifier to a title under which it will show in the palette (<code>package.json</code>).</p>
 
-<pre><code class="lang-json">{
+```json
+{
     &quot;contributes&quot;: {
         &quot;commands&quot;: [{
             &quot;command&quot;: &quot;extension.sayHello&quot;,
@@ -120,7 +122,7 @@ register a command handler with the identifier <code>extension.sayHello</code>.<
         }]
     }
 }
-</code></pre>
+```
 </div>
 
 #### Functions
@@ -593,7 +595,8 @@ argument to the server to authenticate to.</p>
 will appear in the uri that is passed to the <a href="#UriHandler">UriHandler</a>.</p>
 <p><strong>Example</strong> of an authentication flow:</p>
 
-<pre><code class="lang-typescript">vscode.window.registerUriHandler({
+```typescript
+vscode.window.registerUriHandler({
   handleUri(uri: vscode.Uri): vscode.ProviderResult&lt;void&gt; {
     if (uri.path === &#39;/did-authenticate&#39;) {
       console.log(uri.toString());
@@ -603,7 +606,7 @@ will appear in the uri that is passed to the <a href="#UriHandler">UriHandler</a
 
 const callableUri = await vscode.env.asExternalUri(vscode.Uri.parse(`${vscode.env.uriScheme}://my.extension/did-authenticate`));
 await vscode.env.openExternal(callableUri);
-</code></pre>
+```
 <p><em>Note</em> that extensions should not cache the result of <code>asExternalUri</code> as the resolved uri may become invalid due to
 a system or user action — for example, in remote cases, a user may close a port forwarding tunnel that was opened by
 <code>asExternalUri</code>.</p>
@@ -651,7 +654,8 @@ by an <a href="#Extension">extension</a>-interface which enables reflection on t
 <p>Extension writers can provide APIs to other extensions by returning their API public
 surface from the <code>activate</code>-call.</p>
 
-<pre><code class="lang-javascript">export function activate(context: vscode.ExtensionContext) {
+```javascript
+export function activate(context: vscode.ExtensionContext) {
     let api = {
         sum(a, b) {
             return a + b;
@@ -663,16 +667,17 @@ surface from the <code>activate</code>-call.</p>
     // &#39;export&#39; public api-surface
     return api;
 }
-</code></pre>
+```
 <p>When depending on the API of another extension add an <code>extensionDependencies</code>-entry
 to <code>package.json</code>, and use the <a href="#extensions.getExtension">getExtension</a>-function
 and the <a href="#Extension.exports">exports</a>-property, like below:</p>
 
-<pre><code class="lang-javascript">let mathExt = extensions.getExtension(&#39;genius.math&#39;);
+```javascript
+let mathExt = extensions.getExtension(&#39;genius.math&#39;);
 let importedApi = mathExt.exports;
 
 console.log(importedApi.mul(42, 1));
-</code></pre>
+```
 </div>
 
 #### Variables
@@ -742,12 +747,13 @@ by allowing you to participate by providing data only. For instance, to contribu
 that can be called with a <a href="#TextDocument">TextDocument</a> and a <a href="#Position">Position</a> returning hover info. The rest, like tracking the
 mouse, positioning the hover, keeping the hover stable etc. is taken care of by the editor.</p>
 
-<pre><code class="lang-javascript">languages.registerHoverProvider(&#39;javascript&#39;, {
+```javascript
+languages.registerHoverProvider(&#39;javascript&#39;, {
     provideHover(document, position, token) {
         return new Hover(&#39;I am a hover!&#39;);
     }
 });
-</code></pre>
+```
 <p>Registration is done using a <a href="#DocumentSelector">document selector</a> which is either a language ID, like <code>javascript</code> or
 a more complex <a href="#DocumentFilter">filter</a> like <code>{ language: &#39;typescript&#39;, scheme: &#39;file&#39; }</code>. Matching a document against such
 a selector will result in a <a href="#languages.match">score</a> that is used to determine if and how a provider shall be used. When
@@ -849,7 +855,8 @@ greater than zero mean the selector matches the document.</p>
 </ol>
 <p>Samples:</p>
 
-<pre><code class="lang-js">// default document from disk (file-scheme)
+```js
+// default document from disk (file-scheme)
 doc.uri; //&#39;file:///my/file.js&#39;
 doc.languageId; // &#39;javascript&#39;
 match(&#39;javascript&#39;, doc); // 10;
@@ -865,7 +872,7 @@ doc.languageId; // &#39;javascript&#39;
 match(&#39;javascript&#39;, doc); // 10;
 match({language: &#39;javascript&#39;, scheme: &#39;git&#39;}, doc); // 10;
 match(&#39;*&#39;, doc); // 5
-</code></pre>
+```
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -2809,8 +2816,9 @@ is untitled, the returned URI will use the <code>untitled:</code> scheme</li>
 open the workspace again after it has been closed.</p>
 <p><strong>Example:</strong></p>
 
-<pre><code class="lang-typescript">vscode.commands.executeCommand(&#39;vscode.openFolder&#39;, uriOfWorkspace);
-</code></pre>
+```typescript
+vscode.commands.executeCommand(&#39;vscode.openFolder&#39;, uriOfWorkspace);
+```
 <p><strong>Note:</strong> it is not advised to use <code>workspace.workspaceFile</code> to write
 configuration data into the file. You can use <code>workspace.getConfiguration().update()</code>
 for that purpose which will work both when a single folder is opened as
@@ -3287,16 +3295,19 @@ updated to point to the first workspace folder.</p>
 workspace folders have been updated.</p>
 <p><strong>Example:</strong> adding a new workspace folder at the end of workspace folders</p>
 
-<pre><code class="lang-typescript">workspace.updateWorkspaceFolders(workspace.workspaceFolders ? workspace.workspaceFolders.length : 0, null, { uri: ...});
-</code></pre>
+```typescript
+workspace.updateWorkspaceFolders(workspace.workspaceFolders ? workspace.workspaceFolders.length : 0, null, { uri: ...});
+```
 <p><strong>Example:</strong> removing the first workspace folder</p>
 
-<pre><code class="lang-typescript">workspace.updateWorkspaceFolders(0, 1);
-</code></pre>
+```typescript
+workspace.updateWorkspaceFolders(0, 1);
+```
 <p><strong>Example:</strong> replacing an existing workspace folder with a new one</p>
 
-<pre><code class="lang-typescript">workspace.updateWorkspaceFolders(0, 1, { uri: ...});
-</code></pre>
+```typescript
+workspace.updateWorkspaceFolders(0, 1, { uri: ...});
+```
 <p>It is valid to remove an existing workspace folder and add it again with a different name
 to rename that folder.</p>
 <p><strong>Note:</strong> it is not valid to call <a href="#updateWorkspaceFolders">updateWorkspaceFolders()</a> multiple times
@@ -4688,7 +4699,8 @@ invoked with.</p>
 For example, a comment is given a context value as <code>editable</code>. When contributing actions to <code>comments/comment/title</code>
 using <code>menus</code> extension point, you can specify context value for key <code>comment</code> in <code>when</code> expression like <code>comment == editable</code>.</p>
 
-<pre><code class="lang-json">    &quot;contributes&quot;: {
+```json
+    &quot;contributes&quot;: {
         &quot;menus&quot;: {
             &quot;comments/comment/title&quot;: [
                 {
@@ -4698,7 +4710,7 @@ using <code>menus</code> extension point, you can specify context value for key 
             ]
         }
     }
-</code></pre>
+```
 <p>This will show action <code>extension.deleteComment</code> only for comments with <code>contextValue</code> is <code>editable</code>.</p>
 </div>
 </div>
@@ -5015,7 +5027,7 @@ using <code>menus</code> extension point, you can specify context value for key 
             ]
         }
     }
-</code></pre><p>This will show action <code>extension.deleteCommentThread</code> only for comment threads with <code>contextValue</code> is <code>editable</code>.</p>
+```<p>This will show action <code>extension.deleteCommentThread</code> only for comment threads with <code>contextValue</code> is <code>editable</code>.</p>
 </div>
 </div>
 
@@ -6270,7 +6282,7 @@ If the method is not implemented the default behavior is this:
 createDebugAdapter(session: DebugSession, executable: DebugAdapterExecutable) {
    if (typeof session.configuration.debugServer === &#39;number&#39;) {
 <pre><code>  return new DebugAdapterServer(session.configuration.debugServer);
-</code></pre>   }
+```   }
    return executable;
 }</li>
 </ul>
@@ -8177,13 +8189,13 @@ the token before it, because most tokens remain stable relative to each other wh
 <pre><code>   { line: 2, startChar:  5, length: 3, tokenType: &quot;property&quot;,  tokenModifiers: [&quot;private&quot;, &quot;static&quot;] },
    { line: 2, startChar: 10, length: 4, tokenType: &quot;type&quot;,      tokenModifiers: [] },
    { line: 5, startChar:  2, length: 7, tokenType: &quot;class&quot;,     tokenModifiers: [] }
-</code></pre><ol>
+```<ol>
 <li><p>First of all, a legend must be devised. This legend must be provided up-front and capture all possible token types.
 For this example, we will choose the following legend which must be passed in when registering the provider:</p>
 
 <pre><code>tokenTypes: [&#39;property&#39;, &#39;type&#39;, &#39;class&#39;],
 tokenModifiers: [&#39;private&#39;, &#39;static&#39;]
-</code></pre></li>
+```</li>
 <li><p>The first transformation step is to encode <code>tokenType</code> and <code>tokenModifiers</code> as integers using the legend. Token types are looked
 up by index, so a <code>tokenType</code> value of <code>1</code> means <code>tokenTypes[1]</code>. Multiple token modifiers can be set by using bit flags,
 so a <code>tokenModifier</code> value of <code>3</code> is first viewed as binary <code>0b00000011</code>, which means <code>[tokenModifiers[0], tokenModifiers[1]]</code> because
@@ -8192,7 +8204,7 @@ bits 0 and 1 are set. Using this legend, the tokens now are:</p>
 <pre><code>{ line: 2, startChar:  5, length: 3, tokenType: 0, tokenModifiers: 3 },
 { line: 2, startChar: 10, length: 4, tokenType: 1, tokenModifiers: 0 },
 { line: 5, startChar:  2, length: 7, tokenType: 2, tokenModifiers: 0 }
-</code></pre></li>
+```</li>
 <li><p>The next step is to represent each token relative to the previous token in the file. In this case, the second token
 is on the same line as the first token, so the <code>startChar</code> of the second token is made relative to the <code>startChar</code>
 of the first token, so it will be <code>10 - 5</code>. The third token is on a different line than the second token, so the
@@ -8201,12 +8213,12 @@ of the first token, so it will be <code>10 - 5</code>. The third token is on a d
 <pre><code>{ deltaLine: 2, deltaStartChar: 5, length: 3, tokenType: 0, tokenModifiers: 3 },
 { deltaLine: 0, deltaStartChar: 5, length: 4, tokenType: 1, tokenModifiers: 0 },
 { deltaLine: 3, deltaStartChar: 2, length: 7, tokenType: 2, tokenModifiers: 0 }
-</code></pre></li>
+```</li>
 <li><p>Finally, the last step is to inline each of the 5 fields for a token in a single array, which is a memory friendly representation:</p>
 
 <pre><code>// 1st token,  2nd token,  3rd token
 [  2,5,3,0,3,  0,5,4,1,0,  3,2,7,2,0 ]
-</code></pre></li>
+```</li>
 </ol>
 <ul>
 <li><em>see</em> - <a href="#SemanticTokensBuilder">SemanticTokensBuilder</a> for a helper to encode tokens as integers.
@@ -8236,17 +8248,17 @@ this method (<code>provideDocumentSemanticTokensEdits</code>) and then return in
 
 <pre><code>   // 1st token,  2nd token,  3rd token
    [  2,5,3,0,3,  0,5,4,1,0,  3,2,7,2,0 ]
-</code></pre><p>Also suppose that after some edits, the new semantic tokens in a file are:</p>
+```<p>Also suppose that after some edits, the new semantic tokens in a file are:</p>
 
 <pre><code>   // 1st token,  2nd token,  3rd token
    [  3,5,3,0,3,  0,5,4,1,0,  3,2,7,2,0 ]
-</code></pre><p>It is possible to express these new tokens in terms of an edit applied to the previous tokens:</p>
+```<p>It is possible to express these new tokens in terms of an edit applied to the previous tokens:</p>
 
 <pre><code>   [  2,5,3,0,3,  0,5,4,1,0,  3,2,7,2,0 ] // old tokens
    [  3,5,3,0,3,  0,5,4,1,0,  3,2,7,2,0 ] // new tokens
 
    edit: { start:  0, deleteCount: 1, data: [3] } // replace integer at offset 0 with 3
-</code></pre><p><em>NOTE</em>: If the provider cannot compute <code>SemanticTokensEdits</code>, it can &quot;give up&quot; and return all the tokens in the document again.
+```<p><em>NOTE</em>: If the provider cannot compute <code>SemanticTokensEdits</code>, it can &quot;give up&quot; and return all the tokens in the document again.
 
 <em>NOTE</em>: All edits in <code>SemanticTokensEdits</code> contain indices in the old integers array, so they all refer to the previous result state.</p>
 
@@ -9981,14 +9993,15 @@ thenable that resolves to a <a href="#WorkspaceEdit">workspace edit</a>.</p>
 <p><em>Note:</em> This function can only be called during event dispatch and not
 in an asynchronous manner:</p>
 
-<pre><code class="lang-ts">workspace.onWillCreateFiles(event =&gt; {
+```ts
+workspace.onWillCreateFiles(event =&gt; {
     // async, will *throw* an error
     setTimeout(() =&gt; event.waitUntil(promise));
 
     // sync, OK
     event.waitUntil(promise);
 })
-</code></pre>
+```
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -10044,14 +10057,15 @@ thenable that resolves to a <a href="#WorkspaceEdit">workspace edit</a>.</p>
 <p><em>Note:</em> This function can only be called during event dispatch and not
 in an asynchronous manner:</p>
 
-<pre><code class="lang-ts">workspace.onWillCreateFiles(event =&gt; {
+```ts
+workspace.onWillCreateFiles(event =&gt; {
     // async, will *throw* an error
     setTimeout(() =&gt; event.waitUntil(promise));
 
     // sync, OK
     event.waitUntil(promise);
 })
-</code></pre>
+```
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -10107,14 +10121,15 @@ thenable that resolves to a <a href="#WorkspaceEdit">workspace edit</a>.</p>
 <p><em>Note:</em> This function can only be called during event dispatch and not
 in an asynchronous manner:</p>
 
-<pre><code class="lang-ts">workspace.onWillCreateFiles(event =&gt; {
+```ts
+workspace.onWillCreateFiles(event =&gt; {
     // async, will *throw* an error
     setTimeout(() =&gt; event.waitUntil(promise));
 
     // sync, OK
     event.waitUntil(promise);
 })
-</code></pre>
+```
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -11294,11 +11309,12 @@ and the editor then silently adjusts the options to select files.</li>
 <div class="comment"><p>A set of file filters that are used by the dialog. Each entry is a human-readable label,
 like &quot;TypeScript&quot;, and an array of extensions, e.g.</p>
 
-<pre><code class="lang-ts">{
+```ts
+{
     &#39;Images&#39;: [&#39;png&#39;, &#39;jpg&#39;]
     &#39;TypeScript&#39;: [&#39;ts&#39;, &#39;tsx&#39;]
 }
-</code></pre>
+```
 </div>
 </div>
 
@@ -11937,7 +11953,8 @@ to that type <code>T</code>. In addition, <code>null</code> and <code>undefined<
 thenable.</p>
 <p>The snippets below are all valid implementations of the <a href="#HoverProvider"><code>HoverProvider</code></a>:</p>
 
-<pre><code class="lang-ts">let a: HoverProvider = {
+```ts
+let a: HoverProvider = {
     provideHover(doc, pos, token): ProviderResult&lt;Hover&gt; {
         return new Hover(&#39;Hello World&#39;);
     }
@@ -11956,7 +11973,7 @@ let c: HoverProvider = {
         return; // undefined
     }
 }
-</code></pre>
+```
 </div>
 
 <a name="ProviderResult"></a><span class="ts"id={2630}data-target="#details-2630" data-toggle="collapse"><span class="ident">ProviderResult</span><span>: </span><a class="type-intrinsic">T</a> &#124; <a class="type-intrinsic">undefined</a> &#124; <a class="type-intrinsic">null</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-intrinsic">T</a> &#124; <a class="type-intrinsic">undefined</a> &#124; <a class="type-intrinsic">null</a>&gt;</span>
@@ -11978,7 +11995,8 @@ regular terminal and allows dependent tasks to proceed when used with the
 <code>CustomExecution</code> API.</p>
 <p><strong>Example:</strong> Exit the terminal when &quot;y&quot; is pressed, otherwise show a notification.</p>
 
-<pre><code class="lang-typescript">const writeEmitter = new vscode.EventEmitter&lt;string&gt;();
+```typescript
+const writeEmitter = new vscode.EventEmitter&lt;string&gt;();
 const closeEmitter = new vscode.EventEmitter&lt;vscode.TerminalDimensions&gt;();
 const pty: vscode.Pseudoterminal = {
   onDidWrite: writeEmitter.event,
@@ -11993,7 +12011,7 @@ const pty: vscode.Pseudoterminal = {
   }
 };
 vscode.window.createTerminal({ name: &#39;Exit example&#39;, pty });
-</code></pre>
+```
 </div>
 </div>
 
@@ -12007,7 +12025,8 @@ bar). Set to <code>undefined</code> for the terminal to go back to the regular d
 the size of the panel).</p>
 <p><strong>Example:</strong> Override the dimensions of a terminal to 20 columns and 10 rows</p>
 
-<pre><code class="lang-typescript">const dimensionsEmitter = new vscode.EventEmitter&lt;vscode.TerminalDimensions&gt;();
+```typescript
+const dimensionsEmitter = new vscode.EventEmitter&lt;vscode.TerminalDimensions&gt;();
 const pty: vscode.Pseudoterminal = {
   onDidWrite: writeEmitter.event,
   onDidOverrideDimensions: dimensionsEmitter.event,
@@ -12020,7 +12039,7 @@ const pty: vscode.Pseudoterminal = {
   close: () =&gt; {}
 };
 vscode.window.createTerminal({ name: &#39;My terminal&#39;, pty });
-</code></pre>
+```
 </div>
 </div>
 
@@ -12035,18 +12054,20 @@ pseudo-device (the child), this will write the text to parent pseudo-device (the
 to move the cursor to the left-most cell.</p>
 <p><strong>Example:</strong> Write red text to the terminal</p>
 
-<pre><code class="lang-typescript">const writeEmitter = new vscode.EventEmitter&lt;string&gt;();
+```typescript
+const writeEmitter = new vscode.EventEmitter&lt;string&gt;();
 const pty: vscode.Pseudoterminal = {
   onDidWrite: writeEmitter.event,
   open: () =&gt; writeEmitter.fire(&#39;\x1b[31mHello world\x1b[0m&#39;),
   close: () =&gt; {}
 };
 vscode.window.createTerminal({ name: &#39;My terminal&#39;, pty });
-</code></pre>
+```
 <p><strong>Example:</strong> Move the cursor to the 10th row and 20th column and write an asterisk</p>
 
-<pre><code class="lang-typescript">writeEmitter.fire(&#39;\x1b[10;20H*&#39;);
-</code></pre>
+```typescript
+writeEmitter.fire(&#39;\x1b[10;20H*&#39;);
+```
 </div>
 </div>
 
@@ -12079,7 +12100,8 @@ their corresponding VT sequence representation.</p>
 <p><strong>Example:</strong> Echo input in the terminal. The sequence for enter (<code>\r</code>) is translated to
 CRLF to go to a new line and move the cursor to the start of the line.</p>
 
-<pre><code class="lang-typescript">const writeEmitter = new vscode.EventEmitter&lt;string&gt;();
+```typescript
+const writeEmitter = new vscode.EventEmitter&lt;string&gt;();
 const pty: vscode.Pseudoterminal = {
   onDidWrite: writeEmitter.event,
   open: () =&gt; {},
@@ -12087,7 +12109,7 @@ const pty: vscode.Pseudoterminal = {
   handleInput: data =&gt; writeEmitter.fire(data === &#39;\r&#39; ? &#39;\r\n&#39; : data)
 };
 vscode.window.createTerminal({ name: &#39;Local echo&#39;, pty });
-</code></pre>
+```
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-intrinsic">void</a></span></td><td><div class="comment"></div></td></tr>
@@ -13029,11 +13051,12 @@ signaled by returning <code>undefined</code> or <code>null</code>.</p>
 <div class="comment"><p>A set of file filters that are used by the dialog. Each entry is a human-readable label,
 like &quot;TypeScript&quot;, and an array of extensions, e.g.</p>
 
-<pre><code class="lang-ts">{
+```ts
+{
     &#39;Images&#39;: [&#39;png&#39;, &#39;jpg&#39;]
     &#39;TypeScript&#39;: [&#39;ts&#39;, &#39;tsx&#39;]
 }
-</code></pre>
+```
 </div>
 </div>
 
@@ -14502,7 +14525,7 @@ using <code>menus</code> extension point, you can specify context value for key 
             ]
         }
     }
-</code></pre><p>This will show action <code>extension.diff</code> only for resources with <code>contextValue</code> is <code>diffable</code>.</p>
+```<p>This will show action <code>extension.diff</code> only for resources with <code>contextValue</code> is <code>diffable</code>.</p>
 </div>
 </div>
 
@@ -15097,10 +15120,11 @@ a task. They need to be defined in the package.json of the
 extension under the &#39;taskDefinitions&#39; extension point. The npm
 task definition for example looks like this</p>
 
-<pre><code class="lang-typescript">interface NpmTaskDefinition extends TaskDefinition {
+```typescript
+interface NpmTaskDefinition extends TaskDefinition {
     script: string;
 }
-</code></pre>
+```
 <p>Note that type identifier starting with a &#39;$&#39; are reserved for internal
 usages and shouldn&#39;t be used by extensions.</p>
 </div>
@@ -15480,12 +15504,13 @@ folder the shell was launched in.</p>
 <p><strong>Example:</strong> Show a notification with the exit code when the terminal exits with a
 non-zero exit code.</p>
 
-<pre><code class="lang-typescript">window.onDidCloseTerminal(t =&gt; {
+```typescript
+window.onDidCloseTerminal(t =&gt; {
   if (t.exitStatus &amp;&amp; t.exitStatus.code) {
       vscode.window.showInformationMessage(`Exit code: ${t.exitStatus.code}`);
   }
 });
-</code></pre>
+```
 </div>
 </div>
 
@@ -16233,14 +16258,15 @@ edits will be <em>ignored</em> if concurrent modifications of the document happe
 <p><em>Note:</em> This function can only be called during event dispatch and not
 in an asynchronous manner:</p>
 
-<pre><code class="lang-ts">workspace.onWillSaveTextDocument(event =&gt; {
+```ts
+workspace.onWillSaveTextDocument(event =&gt; {
     // async, will *throw* an error
     setTimeout(() =&gt; event.waitUntil(promise));
 
     // sync, OK
     event.waitUntil(promise);
 })
-</code></pre>
+```
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -17528,7 +17554,7 @@ using <code>menus</code> extension point, you can specify context value for key 
             ]
         }
     }
-</code></pre><p>This will show action <code>extension.deleteFolder</code> only for items with <code>contextValue</code> is <code>folder</code>.</p>
+```<p>This will show action <code>extension.deleteFolder</code> only for items with <code>contextValue</code> is <code>folder</code>.</p>
 </div>
 </div>
 
@@ -17898,7 +17924,8 @@ as path, not as stringified-uri. E.g. <code>Uri.file(path)</code> is <em>not</em
 <code>Uri.parse(&#39;file://&#39; + path)</code> because the path might contain characters that are
 interpreted (# and ?). See the following sample:</p>
 
-<pre><code class="lang-ts">const good = URI.file(&#39;/coding/c#/project1&#39;);
+```ts
+const good = URI.file(&#39;/coding/c#/project1&#39;);
 good.scheme === &#39;file&#39;;
 good.path === &#39;/coding/c#/project1&#39;;
 good.fragment === &#39;&#39;;
@@ -17907,7 +17934,7 @@ const bad = URI.parse(&#39;file://&#39; + &#39;/coding/c#/project1&#39;);
 bad.scheme === &#39;file&#39;;
 bad.path === &#39;/coding/c&#39;; // path is now broken
 bad.fragment === &#39;/project1&#39;;
-</code></pre>
+```
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -18034,11 +18061,12 @@ for disk operations, like <code>readFile</code> et al.</li>
 <p>The <em>difference</em> to the <a href="#Uri.path"><code>path</code></a>-property is the use of the platform specific
 path separator and the handling of UNC paths. The sample below outlines the difference:</p>
 
-<pre><code class="lang-ts">const u = URI.parse(&#39;file://server/c$/folder/file.txt&#39;)
+```ts
+const u = URI.parse(&#39;file://server/c$/folder/file.txt&#39;)
 u.authority === &#39;server&#39;
 u.path === &#39;/shares/c$/file.txt&#39;
 u.fsPath === &#39;\\server\c$\folder\file.txt&#39;
-</code></pre>
+```
 </div>
 </div>
 
@@ -18113,10 +18141,11 @@ the <code>skipEncoding</code>-argument: <code>uri.toString(true)</code>.</p>
 <div class="details collapse" id="details-420">
 <div class="comment"><p>Derive a new Uri from this Uri.</p>
 
-<pre><code class="lang-ts">let file = Uri.parse(&#39;before:some/file/path&#39;);
+```ts
+let file = Uri.parse(&#39;before:some/file/path&#39;);
 let other = file.with({ scheme: &#39;after&#39; });
 assert.ok(other.toString() === &#39;after:some/file/path&#39;);
-</code></pre>
+```
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -18261,7 +18290,7 @@ message does not run in a browser environment.</p>
 <p>This is the origin that should be used in a content security policy rule:</p>
 
 <pre><code>img-src https: ${webview.cspSource} ...;
-</code></pre></div>
+```</div>
 </div>
 
 <a name="Webview.html"></a><span class="ts"id={1877}data-target="#details-1877" data-toggle="collapse"><span class="ident">html</span><span>: </span><a class="type-intrinsic">string</a></span>
@@ -18274,11 +18303,12 @@ message passing. To send a message from the extension to the webview, use <a hre
 To send message from the webview back to an extension, use the <code>acquireVsCodeApi</code> function inside the webview
 to get a handle to VS Code&#39;s api and then call <code>.postMessage()</code>:</p>
 
-<pre><code class="lang-html">&lt;script&gt;
+```html
+&lt;script&gt;
     const vscode = acquireVsCodeApi(); // acquireVsCodeApi can only be invoked once
     vscode.postMessage({ message: &#39;hello!&#39; });
 &lt;/script&gt;
-</code></pre>
+```
 <p>To load a resources from the workspace inside a webview, use the <code>[asWebviewUri](#Webview.asWebviewUri)</code> method
 and ensure the resource&#39;s directory is listed in <a href="#WebviewOptions.localResourceRoots"><code>WebviewOptions.localResourceRoots</code></a>.</p>
 <p>Keep in mind that even though webviews are sandboxed, they still allow running scripts and loading arbitrary content,
@@ -18305,8 +18335,9 @@ setting a <a href="https://aka.ms/vscode-api-webview-csp">content security polic
 <code>asWebviewUri</code> function takes a local <code>file:</code> uri and converts it into a uri that can be used inside of
 a webview to load the same resource:</p>
 
-<pre><code class="lang-ts">webview.html = `&lt;img src=&quot;${webview.asWebviewUri(vscode.Uri.file(&#39;/Users/codey/workspace/cat.gif&#39;))}&quot;&gt;`
-</code></pre>
+```ts
+webview.html = `&lt;img src=&quot;${webview.asWebviewUri(vscode.Uri.file(&#39;/Users/codey/workspace/cat.gif&#39;))}&quot;&gt;`
+```
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -18563,7 +18594,8 @@ and restore its content from this state when it becomes visible again. It is pow
 by the webview content itself. To save off a persisted state, call <code>acquireVsCodeApi().setState()</code> with
 any json serializable object. To restore the state again, call <code>getState()</code></p>
 
-<pre><code class="lang-js">// Within the webview
+```js
+// Within the webview
 const vscode = acquireVsCodeApi();
 
 // Get existing state
@@ -18571,7 +18603,7 @@ const oldState = vscode.getState() || { value: 0 };
 
 // Update state
 setState({ value: oldState.value + 1 })
-</code></pre>
+```
 <p>A <code>WebviewPanelSerializer</code> extends this persistence across restarts of VS Code. When the editor is shutdown,
 VS Code will save off the state from <code>setState</code> of all webviews that have a serializer. When the
 webview first becomes visible after the restart, this state is passed to <code>deserializeWebviewPanel</code>.
@@ -18762,7 +18794,8 @@ save off a webview&#39;s state so that it can be quickly recreated as needed.</p
 <p>To save off a persisted state, inside the webview call <code>acquireVsCodeApi().setState()</code> with
 any json serializable object. To restore the state again, call <code>getState()</code>. For example:</p>
 
-<pre><code class="lang-js">// Within the webview
+```js
+// Within the webview
 const vscode = acquireVsCodeApi();
 
 // Get existing state
@@ -18770,7 +18803,7 @@ const oldState = vscode.getState() || { value: 0 };
 
 // Update state
 setState({ value: oldState.value + 1 })
-</code></pre>
+```
 <p>VS Code ensures that the persisted state is saved correctly when a webview is hidden and across
 editor restarts.</p>
 </div>
@@ -18810,38 +18843,42 @@ editor restarts.</p>
 `globalLanguageValue` (if defined)
 `workspaceLanguageValue` (if defined)
 `workspaceFolderLanguageValue` (if defined)
-</code></pre><p><strong>Note:</strong> Only <code>object</code> value types are merged and all other value types are overridden.</p>
+```<p><strong>Note:</strong> Only <code>object</code> value types are merged and all other value types are overridden.</p>
 <p>Example 1: Overriding</p>
 
-<pre><code class="lang-ts">defaultValue = &#39;on&#39;;
+```ts
+defaultValue = &#39;on&#39;;
 globalValue = &#39;relative&#39;
 workspaceFolderValue = &#39;off&#39;
 value = &#39;off&#39;
-</code></pre>
+```
 <p>Example 2: Language Values</p>
 
-<pre><code class="lang-ts">defaultValue = &#39;on&#39;;
+```ts
+defaultValue = &#39;on&#39;;
 globalValue = &#39;relative&#39;
 workspaceFolderValue = &#39;off&#39;
 globalLanguageValue = &#39;on&#39;
 value = &#39;on&#39;
-</code></pre>
+```
 <p>Example 3: Object Values</p>
 
-<pre><code class="lang-ts">defaultValue = { &quot;a&quot;: 1, &quot;b&quot;: 2 };
+```ts
+defaultValue = { &quot;a&quot;: 1, &quot;b&quot;: 2 };
 globalValue = { &quot;b&quot;: 3, &quot;c&quot;: 4 };
 value = { &quot;a&quot;: 1, &quot;b&quot;: 3, &quot;c&quot;: 4 };
-</code></pre>
+```
 <p><em>Note:</em> Workspace and Workspace Folder configurations contains <code>launch</code> and <code>tasks</code> settings. Their basename will be
 part of the section identifier. The following snippets shows how to retrieve all configurations
 from <code>launch.json</code>:</p>
 
-<pre><code class="lang-ts">// launch.json configuration
+```ts
+// launch.json configuration
 const config = workspace.getConfiguration(&#39;launch&#39;, vscode.workspace.workspaceFolders[0].uri);
 
 // retrieve values
 const values = config.get(&#39;configurations&#39;);
-</code></pre>
+```
 <p>Refer to <a href="https://code.visualstudio.com/docs/getstarted/settings">Settings</a> for more information.</p>
 </div>
 
@@ -18959,12 +18996,12 @@ and language-specific values (if <a href="#WorkspaceConfiguration">WorkspaceConf
 - If `false` updates [Workspace settings](#ConfigurationTarget.Workspace).
 - If `undefined` or `null` updates to [Workspace folder settings](#ConfigurationTarget.WorkspaceFolder) if configuration is resource specific,
 otherwise to [Workspace settings](#ConfigurationTarget.Workspace).
-</code></pre></div></td></tr>
+```</div></td></tr>
 <tr><td><a name="overrideInLanguage"></a><span class="ts"id={1362}data-target="#details-1362" data-toggle="collapse"><span class="ident">overrideInLanguage</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p>Whether to update the value in the scope of requested languageId or not.</p>
 
 <pre><code>- If `true` updates the value under the requested languageId.
 - If `undefined` updates the value under the requested languageId only if the configuration is defined for the language.
-</code></pre></div></td></tr>
+```</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-intrinsic">void</a>&gt;</span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -19368,7 +19405,7 @@ In most cases the use of promises is optional and when VS Code calls into an ext
 
 ```typescript
 provideNumber(): number | Thenable<number>
-```
+````
 
 ### Cancellation Tokens
 

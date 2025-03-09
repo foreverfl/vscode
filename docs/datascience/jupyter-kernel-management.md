@@ -17,7 +17,7 @@ Once you open the Kernel Picker, VS Code shows the most recently used (MRU) kern
 
 ![MRU Kernel](images/jupyter-kernel-management/mru-kernel.png)
 
-> **Note**: In the previous versions of VS Code (version <1.76), VS Code used to show all available kernels by default.
+> **Note**: In the previous versions of VS Code (version \<1.76), VS Code used to show all available kernels by default.
 
 To see other kernels, you can click **Select Another Kernel...**. All existing kernels are categorized into kernel source options, with these sources supported by the Jupyter extension out of the box:
 
