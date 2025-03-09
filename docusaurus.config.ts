@@ -13,7 +13,7 @@ const config: Config = {
   favicon: "img/vscode.png",
 
   // Set the production url of your site here
-  url: "https://your-docusaurus-site.example.com",
+  url: "https://vscode.mogumogu.dev",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -123,17 +123,13 @@ const config: Config = {
           title: "Community",
           items: [
             {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
+              label: "Docs",
+              href: "httsp://docs.mogumogu.dev"
             },
             {
               label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
-            },
-            {
-              label: "X",
-              href: "https://x.com/docusaurus",
-            },
+              href: "https://discord.gg/KCSKP69f",
+            }
           ],
         },
         {
@@ -155,12 +151,7 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
       additionalLanguages: ["java", "javascript", "typescript", "bash"],
-    },
-    algolia: {
-      appId: process.env.ALGOLIA_APP_ID || "",
-      apiKey: process.env.ALGOLIA_API_KEY || "",
-      indexName: process.env.ALGOLIA_INDEX_NAME || "",
-    },
+    }
   } satisfies Preset.ThemeConfig,
 };
 
