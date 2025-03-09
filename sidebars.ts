@@ -129,6 +129,7 @@ const sidebars: SidebarsConfig = {
       collapsible: true,
       collapsed: true,
       items: [
+        "languages/overview",
         "languages/javascript",
         "languages/json",
         "languages/html",

@@ -3,82 +3,82 @@ Order: 16
 Area: languages
 TOCTitle: Rust
 ContentId: 643d022e-9370-4ca5-bccd-c3a583c5df75
-PageTitle: Rust with Visual Studio Code
+PageTitle: Visual Studio Code에서 Rust 사용하기
 DateApproved: 03/05/2025
-MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Rust.
+MetaDescription: Rust를 위한 Visual Studio Code 편집기 기능(코드 완성, 디버깅, 스니펫, 린팅)에 대해 알아보세요.
 ---
-# Rust in Visual Studio Code
+# Visual Studio Code에서 Rust 사용하기 {#rust-in-visual-studio-code}
 
-[Rust](https://www.rust-lang.org) is a powerful programming language, often used for systems programming where performance and correctness are high priorities. If you are new to Rust and want to learn more, [The Rust Programming Language](https://doc.rust-lang.org/book) online book is a great place to start. This topic goes into detail about setting up and using Rust within Visual Studio Code, with the [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) extension.
+[Rust](https://www.rust-lang.org)는 성능과 정확성이 중요한 시스템 프로그래밍에 자주 사용되는 강력한 프로그래밍 언어입니다. Rust에 처음 접하고 더 배우고 싶다면, [The Rust Programming Language](https://doc.rust-lang.org/book) 온라인 책이 좋은 출발점입니다. 이 주제에서는 Visual Studio Code 내에서 Rust를 설정하고 사용하는 방법에 대해 자세히 설명하며, [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) 확장 프로그램을 다룹니다.
 
-![Rust extension banner](images/rust/rust-analyzer-extension.png)
+![Rust 확장 배너](images/rust/rust-analyzer-extension.png)
 
->**Note**: There is also another popular Rust extension in the VS Code Marketplace (extension ID: rust-lang.rust) but this extension is deprecated and rust-analyzer is the recommended VS Code Rust extension by rust-lang.org.
+>**참고**: VS Code Marketplace에는 또 다른 인기 있는 Rust 확장 프로그램(확장 ID: rust-lang.rust)이 있지만, 이 확장 프로그램은 더 이상 지원되지 않으며 rust-analyzer가 rust-lang.org에서 추천하는 VS Code Rust 확장 프로그램입니다.
 
-## Installation
+## 설치 {#installation}
 
-### 1. Install Rust
+### 1. Rust 설치하기 {#1-install-rust}
 
-First you will need to have the Rust toolset installed on your machine. Rust is installed via the [rustup](https://rustup.rs) installer, which supports installation on Windows, macOS, and Linux. Follow the rustup installation guidance for your platform, taking care to install any extra tools required to build and run Rust programs.
+먼저, 머신에 Rust 도구 세트를 설치해야 합니다. Rust는 [rustup](https://rustup.rs) 설치 프로그램을 통해 설치되며, Windows, macOS 및 Linux에서 설치를 지원합니다. 플랫폼에 맞는 rustup 설치 지침을 따라 Rust 프로그램을 빌드하고 실행하는 데 필요한 추가 도구를 설치해야 합니다.
 
->**Note**: As with installing any new toolset on your machine, you'll want to make sure to restart your terminal/Command Prompt and VS Code instances to use the updated toolset location in your platform's PATH variable.
+>**참고**: 머신에 새로운 도구 세트를 설치할 때와 마찬가지로, 업데이트된 도구 세트 위치를 사용하기 위해 터미널/명령 프롬프트 및 VS Code 인스턴스를 다시 시작해야 합니다.
 
-### 2. Install the rust-analyzer extension
+### 2. rust-analyzer 확장 설치하기 {#2-install-the-rust-analyzer-extension}
 
-You can find and install the rust-analyzer extension from within VS Code via the Extensions view (`kb(workbench.view.extensions)`) and searching for 'rust-analyzer'. You should install the **Release Version**.
+VS Code 내에서 확장 보기(`kb(workbench.view.extensions)`)를 통해 rust-analyzer 확장을 찾아 설치할 수 있으며, 'rust-analyzer'를 검색하면 됩니다. **릴리스 버전**을 설치해야 합니다.
 
-![rust-analyzer extension in the Extensions view](images/rust/rust-analyzer-extensions-view.png)
+![확장 보기에서 rust-analyzer 확장](images/rust/rust-analyzer-extensions-view.png)
 
-We'll discuss many of rust-analyzer features in this topic but you can also refer to the extension's documentation at [https://rust-analyzer.github.io](https://rust-analyzer.github.io).
+이 주제에서는 rust-analyzer의 많은 기능을 논의할 것이지만, 확장 프로그램의 문서는 [https://rust-analyzer.github.io](https://rust-analyzer.github.io)에서 참조할 수 있습니다.
 
-### Check your installation
+### 설치 확인하기 {#check-your-installation}
 
-After installing Rust, you can check that everything is installed correctly by opening a new terminal/Command Prompt, and typing:
+Rust를 설치한 후, 새로운 터미널/명령 프롬프트를 열고 다음을 입력하여 모든 것이 올바르게 설치되었는지 확인할 수 있습니다:
 
 ```bash
 rustc --version
 ```
 
-which will output the version of the Rust compiler. If you want more details, you can add the `--verbose` argument. If you run into problems, you can consult the Rust [installation guide](https://doc.rust-lang.org/book/ch01-01-installation.html).
+이 명령은 Rust 컴파일러의 버전을 출력합니다. 더 많은 세부정보가 필요하면 `--verbose` 인수를 추가할 수 있습니다. 문제가 발생하면 Rust [설치 가이드](https://doc.rust-lang.org/book/ch01-01-installation.html)를 참조하세요.
 
-You can keep your Rust installation up to date with the latest version by running:
+최신 버전으로 Rust 설치를 유지하려면 다음을 실행하세요:
 
 ```bash
 rustup update
 ```
 
-There are new stable versions of Rust published every 6 weeks so this is a good habit.
+Rust의 새로운 안정 버전은 매 6주마다 발표되므로, 이는 좋은 습관입니다.
 
-### Local Rust documentation
+### 로컬 Rust 문서 {#local-rust-documentation}
 
-When you install Rust, you also get the full Rust documentation set locally installed on your machine, which you can review by typing `rustup doc`.  The Rust documentation, including [The Rust Programming Language](https://doc.rust-lang.org/book/title-page.html) and [The Cargo Book](https://doc.rust-lang.org/stable/cargo/), will open in your local browser so you can continue your Rust journey while offline.
+Rust를 설치하면 머신에 로컬로 설치된 전체 Rust 문서 세트를 얻을 수 있으며, `rustup doc`을 입력하여 검토할 수 있습니다. Rust 문서에는 [The Rust Programming Language](https://doc.rust-lang.org/book/title-page.html) 및 [The Cargo Book](https://doc.rust-lang.org/stable/cargo/)가 포함되어 있으며, 로컬 브라우저에서 열려 오프라인 상태에서도 Rust 여정을 계속할 수 있습니다.
 
-## Hello World
+## Hello World {#hello-world}
 
-### Cargo
+### Cargo {#cargo}
 
-When you install Rust with rustup, the toolset includes the rustc compiler, the rustfmt source code formatter, and the clippy Rust linter. You also get [Cargo](https://doc.rust-lang.org/cargo), the Rust package manager, to help download Rust dependencies and build and run Rust programs. You'll find that you end up using `cargo` for just about everything when working with Rust.
+rustup으로 Rust를 설치하면 도구 세트에는 rustc 컴파일러, rustfmt 소스 코드 포매터 및 clippy Rust 린터가 포함됩니다. 또한 Rust 패키지 관리자 [Cargo](https://doc.rust-lang.org/cargo)를 사용하여 Rust 종속성을 다운로드하고 Rust 프로그램을 빌드 및 실행할 수 있습니다. Rust 작업 시 거의 모든 작업에 `cargo`를 사용하게 될 것입니다.
 
-### Cargo new
+### Cargo new {#cargo-new}
 
-A good way to create your first Rust program is to use Cargo to scaffold a new project by typing `cargo new`. This will create a simple Hello World program along with a default `Cargo.toml` dependency file. You pass `cargo new` the folder where you'd like to create the project.
+첫 번째 Rust 프로그램을 만드는 좋은 방법은 Cargo를 사용하여 새 프로젝트를 스캐폴딩하는 것입니다. `cargo new`를 입력하면 간단한 Hello World 프로그램과 기본 `Cargo.toml` 종속성 파일이 생성됩니다. `cargo new`에 프로젝트를 생성할 폴더를 전달합니다.
 
-Let's create Hello World. Navigate to a folder where you'd like to create your project and type:
+Hello World를 만들어 보겠습니다. 프로젝트를 생성할 폴더로 이동하여 다음을 입력하세요:
 
 ```bash
 cargo new hello_world
 ```
 
-To open your new project in VS Code, navigate into the new folder and launch VS Code via `code .`:
+새 프로젝트를 VS Code에서 열려면 새 폴더로 이동한 후 `code .`를 실행하세요:
 
 ```bash
 cd hello_world
 code .
 ```
 
->**Note**: Enable [Workspace Trust](/docs/editor/workspaces/workspace-trust.md) for the new folder as you are the author. You can enable Workspace Trust for your entire project folder parent to avoid being prompted when you create new projects by checking the option to **Trust the authors of all the files in parent folder 'my_projects`**.
+>**참고**: 새 폴더에 대해 [Workspace Trust](/docs/editor/workspaces/workspace-trust.md)를 활성화하세요. 새 프로젝트를 생성할 때 프롬프트를 피하기 위해 전체 프로젝트 폴더 부모에 대해 Workspace Trust를 활성화할 수 있으며, **부모 폴더 'my_projects'의 모든 파일 작성자를 신뢰합니다** 옵션을 선택하면 됩니다.
 
-`cargo new` creates a simple Hello World project with a `main.rs` source code file and `Cargo.toml` [Cargo manifest](https://doc.rust-lang.org/cargo/reference/manifest.html) file.
+`cargo new`는 `main.rs` 소스 코드 파일과 `Cargo.toml` [Cargo 매니페스트](https://doc.rust-lang.org/cargo/reference/manifest.html) 파일이 포함된 간단한 Hello World 프로젝트를 생성합니다.
 
 ```
 src\
@@ -87,7 +87,7 @@ src\
 Cargo.toml
 ```
 
-`main.rs` has the program's entry function `main()` and prints "Hello, world!" to the console using `println!`.
+`main.rs`에는 프로그램의 진입 함수 `main()`이 있으며, `println!`을 사용하여 "Hello, world!"를 콘솔에 출력합니다.
 
 ```rust
 fn main() {
@@ -95,217 +95,218 @@ fn main() {
 }
 ```
 
-This simple Hello World program doesn't have any dependencies but you would add Rust package (crate) references under `[dependencies]`.
+이 간단한 Hello World 프로그램은 종속성이 없지만, Rust 패키지(크레이트) 참조는 `[dependencies]` 아래에 추가할 수 있습니다.
 
-### Cargo build
+### Cargo build {#cargo-build}
 
-Cargo can be used to build your Rust project. Open a new VS Code [integrated terminal](/docs/terminal/basics.md) (`kb(workbench.action.terminal.new)`) and type `cargo build`.
+Cargo는 Rust 프로젝트를 빌드하는 데 사용할 수 있습니다. 새로운 VS Code [통합 터미널](/docs/terminal/basics.md) (`kb(workbench.action.terminal.new)`)을 열고 `cargo build`를 입력하세요.
 
 ```bash
 cargo build
 ```
 
-![Cargo build output in the integrated terminal](images/rust/cargo-build.png)
+![통합 터미널에서 Cargo 빌드 출력](images/rust/cargo-build.png)
 
-You will now have `target\debug` folder with build output include an executable called `hello_world.exe`.
+이제 `target\debug` 폴더에 빌드 출력이 포함된 `hello_world.exe`라는 실행 파일이 생성됩니다.
 
-### Running Hello World
+### Hello World 실행하기 {#running-hello-world}
 
-Cargo can also be used to run your Rust project via `cargo run`.
+Cargo는 `cargo run`을 통해 Rust 프로젝트를 실행하는 데에도 사용할 수 있습니다.
 
 ```bash
 cargo run
 ```
 
-You can also run `hello_world.exe` manually in the terminal by typing `.\target\debug\hello_world`.
+또한 터미널에서 `hello_world.exe`를 수동으로 실행하려면 `.\target\debug\hello_world`를 입력할 수 있습니다.
 
-![Manually running hello_world.exe output in the integrated terminal](images/rust/cargo-run.png)
+![통합 터미널에서 hello_world.exe 수동 실행 출력](images/rust/cargo-run.png)
 
-## IntelliSense
+## IntelliSense {#intellisense}
 
-IntelliSense features are provided by the Rust language server, [rust-analyzer](https://github.com/rust-lang/rust-analyzer/releases), which provides detailed code information and smart suggestions.
+IntelliSense 기능은 Rust 언어 서버인 [rust-analyzer](https://github.com/rust-lang/rust-analyzer/releases)에 의해 제공되며, 이는 상세한 코드 정보와 스마트 제안을 제공합니다.
 
-When you first open a Rust project, you can watch rust-analyzer's progress in the lower left of the Status bar. You want to wait until rust-analyzer has completely reviewed your project to get the full power of the language server.
+Rust 프로젝트를 처음 열면 상태 표시줄의 왼쪽 하단에서 rust-analyzer의 진행 상황을 확인할 수 있습니다. 언어 서버의 모든 기능을 활용하려면 rust-analyzer가 프로젝트를 완전히 검토할 때까지 기다려야 합니다.
 
-![rust-analyzer in progress status in the VS Code Status bar](images/rust/rust-analyzer-status-bar.png)
+![VS Code 상태 표시줄에서 진행 중인 rust-analyzer 상태](images/rust/rust-analyzer-status-bar.png)
 
-### Inlay hints
+### 인레이 힌트 {#inlay-hints}
 
-One of the first things you may notice is rust-analyzer providing [inlay hints](/docs/editor/editingevolved.md#inlay-hints) to show inferred types, return values, named parameters in light text in the editor.
+가장 먼저 눈에 띄는 것 중 하나는 rust-analyzer가 추론된 타입, 반환 값, 명명된 매개변수를 편집기에서 연한 텍스트로 표시하는 [인레이 힌트](/docs/editor/editingevolved.md#inlay-hints)를 제공한다는 것입니다.
 
-![Rust program with inlay hints displayed](images/rust/inlay-hints.png)
+![인레이 힌트가 표시된 Rust 프로그램](images/rust/inlay-hints.png)
 
-While inlay hints can be helpful for understanding your code, you can also configure the feature via the **Editor > Inlay Hints: Enabled** setting (`setting(editor.inlayHints.enabled)`).
+인레이 힌트는 코드 이해에 도움이 될 수 있지만, **Editor > Inlay Hints: Enabled** 설정(`setting(editor.inlayHints.enabled)`)을 통해 이 기능을 구성할 수도 있습니다.
 
-### Hover information
+### 호버 정보 {#hover-information}
 
-Hovering on any variable, function, type, or keyword will give you information on that item such as documentation, signature, etc. You can also jump to the type definition in your own code or the standard Rust libraries.
+변수, 함수, 타입 또는 키워드 위에 마우스를 올리면 해당 항목에 대한 정보(문서, 서명 등)를 얻을 수 있습니다. 또한 자신의 코드나 표준 Rust 라이브러리에서 타입 정의로 점프할 수 있습니다.
 
-![Hover information for the Rust String type](images/rust/hover.png)
+![Rust String 타입에 대한 호버 정보](images/rust/hover.png)
 
-### Auto completions
+### 자동 완성 {#auto-completions}
 
-As you type in a Rust file, IntelliSense provides you with suggested completions and parameter hints.
+Rust 파일에 입력할 때 IntelliSense는 제안된 완성과 매개변수 힌트를 제공합니다.
 
-![Smart completion for Rust String member](images/rust/code-completions.png)
+![Rust String 멤버에 대한 스마트 완성](images/rust/code-completions.png)
 
->**Tip**: Use `kb(editor.action.triggerSuggest)` to trigger the suggestions manually.
+>**팁**: `kb(editor.action.triggerSuggest)`를 사용하여 수동으로 제안을 트리거할 수 있습니다.
 
-## Semantic syntax highlighting
+## 의미론적 구문 강조 {#semantic-syntax-highlighting}
 
-rust-analyzer is able to use [semantic syntax highlighting](https://github.com/microsoft/vscode/wiki/Semantic-Highlighting-Overview) and styling due to its rich understanding of a project source code. For example, you may have noticed that mutable variables are underlined in the editor.
+rust-analyzer는 프로젝트 소스 코드에 대한 풍부한 이해 덕분에 [의미론적 구문 강조](https://github.com/microsoft/vscode/wiki/Semantic-Highlighting-Overview) 및 스타일링을 사용할 수 있습니다. 예를 들어, 편집기에서 가변 변수가 밑줄로 표시되는 것을 보았을 것입니다.
 
-![Mutable variable underline in the editor](images/rust/mutable-underline.png)
+![편집기에서 가변 변수 밑줄](images/rust/mutable-underline.png)
 
-Being able to quickly tell which Rust variables are mutable or not can help your understanding of source code, but you can also change the styling with VS Code `setting(editor.semanticTokenColorCustomizations)` setting in your user [settings](/docs/editor/settings.md).
+어떤 Rust 변수가 가변인지 아닌지를 빠르게 파악할 수 있는 것은 소스 코드 이해에 도움이 될 수 있지만, VS Code의 `setting(editor.semanticTokenColorCustomizations)` 설정을 통해 스타일을 변경할 수도 있습니다.
 
-In `settings.json`, you would add:
+`settings.json`에 다음을 추가합니다:
 
 ```jsonc
 {
   "editor.semanticTokenColorCustomizations": {
     "rules": {
       "*.mutable": {
-        "fontStyle": "", // set to empty string to disable underline, which is the default
+        "fontStyle": "", // 기본값인 밑줄을 비활성화하려면 빈 문자열로 설정합니다.
       },
     }
   },
 }
 ```
 
-You can learn more about rust-analyzer's semantic syntax customizations in the [Editor features](https://rust-analyzer.github.io/manual.html#editor-features) section of the rust-analyzer documentation.
+rust-analyzer의 의미론적 구문 사용자 정의에 대해 더 알아보려면 rust-analyzer 문서의 [Editor features](https://rust-analyzer.github.io/manual.html#editor-features) 섹션을 참조하세요.
 
-## Code navigation
+## 코드 탐색 {#code-navigation}
 
-Code navigation features are available in the context menu in the editor.
+코드 탐색 기능은 편집기에서 컨텍스트 메뉴에 있습니다.
 
-* **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of the type definition.
-* **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window with the type definition.
-* **Go to References** `kb(editor.action.goToReferences)` - Show all references for the type.
-* **Show Call Hierarchy** `kb(editor.showCallHierarchy)` - Show all calls from or to a function.
+* **정의로 이동** `kb(editor.action.revealDefinition)` - 타입 정의의 소스 코드로 이동합니다.
+* **정의 미리 보기** `kb(editor.action.peekDefinition)` - 타입 정의가 있는 미리 보기 창을 엽니다.
+* **참조로 이동** `kb(editor.action.goToReferences)` - 타입에 대한 모든 참조를 표시합니다.
+* **호출 계층 표시** `kb(editor.showCallHierarchy)` - 함수로부터 또는 함수로의 모든 호출을 표시합니다.
 
-You can navigate via symbol search using the **Go to Symbol** commands from the **Command Palette** (`kb(workbench.action.showCommands)`).
+**명령 팔레트**(`kb(workbench.action.showCommands)`)에서 **기호로 이동** 명령을 사용하여 기호 검색을 통해 탐색할 수 있습니다.
 
-* Go to Symbol in File - `kb(workbench.action.gotoSymbol)`
-* Go to Symbol in Workspace - `kb(workbench.action.showAllSymbols)`
+* 파일 내 기호로 이동 - `kb(workbench.action.gotoSymbol)`
+* 작업 공간 내 기호로 이동 - `kb(workbench.action.showAllSymbols)`
 
-## Linting
+## 린팅 {#linting}
 
-The Rust toolset includes linting, provided by rustc and clippy, to detect issues with your source code.
+Rust 도구 세트에는 소스 코드의 문제를 감지하기 위해 rustc와 clippy가 제공하는 린팅 기능이 포함되어 있습니다.
 
-![linter warning about an unused variable](images/rust/linter-warning.png)
+![사용되지 않는 변수에 대한 린터 경고](images/rust/linter-warning.png)
 
-The rustc linter, enabled by default, detects basic Rust errors, but you can use [clippy](https://github.com/rust-lang/rust-clippy) to get more lints. To enable clippy integration in rust-analyzer, change the **Rust-analyzer > Check: Command** (`rust-analyzer.check.command`) setting to `clippy` instead of the default `check`. The rust-analyzer extension will now run `cargo clippy` when you save a file and display clippy warnings and errors directly in the editor and Problems view.
+기본적으로 활성화된 rustc 린터는 기본 Rust 오류를 감지하지만, [clippy](https://github.com/rust-lang/rust-clippy)를 사용하여 더 많은 린트를 받을 수 있습니다. rust-analyzer에서 clippy 통합을 활성화하려면 **Rust-analyzer > Check: Command** (`rust-analyzer.check.command`) 설정을 기본값인 `check` 대신 `clippy`로 변경합니다. 이제 rust-analyzer 확장은 파일을 저장할 때 `cargo clippy`를 실행하고 편집기 및 문제 보기에서 clippy 경고와 오류를 직접 표시합니다.
 
-## Quick Fixes
+## 빠른 수정 {#quick-fixes}
 
-When the linter finds errors and warnings in your source code, rust-analyzer can often provide suggested Quick Fixes (also called Code Actions), which are available via a light bulb hover in the editor. You can quickly open available Quick Fixes via the `kb(editor.action.quickFix)`.
+린터가 소스 코드에서 오류와 경고를 발견하면 rust-analyzer는 종종 제안된 빠른 수정(코드 작업이라고도 함)을 제공할 수 있으며, 이는 편집기에서 전구 위에 마우스를 올리면 사용할 수 있습니다. 사용 가능한 빠른 수정을 빠르게 열려면 `kb(editor.action.quickFix)`를 사용할 수 있습니다.
 
-Additionally, **Code Action Widget: Include Nearby Quick Fixes** (`setting(editor.codeActionWidget.includeNearbyQuickFixes)`) is a setting that is enabled on default, which will activate the nearest Quick Fix in a line from `kb(editor.action.quickFix)` (command ID `editor.action.quickFix`), no matter where your cursor is in that line.
+또한 **코드 작업 위젯: 인근 빠른 수정 포함**(`setting(editor.codeActionWidget.includeNearbyQuickFixes)`) 설정은 기본적으로 활성화되어 있으며, 이는 `kb(editor.action.quickFix)`(명령 ID `editor.action.quickFix`)에서 인근 줄의 가장 가까운 빠른 수정을 활성화합니다. 커서가 해당 줄의 어디에 있든 상관없이 가능합니다.
 
-The command highlights the source code that will be refactored or fixed with Quick Fixes. Normal Code Actions and non-fix refactorings can still be activated at the cursor location.
+이 명령은 빠른 수정으로 리팩토링되거나 수정될 소스 코드를 강조 표시합니다. 일반 코드 작업 및 비수정 리팩토링은 여전히 커서 위치에서 활성화할 수 있습니다.
 
-![Quick Fixes for greeting unused boolean variable](images/rust/quick-fixes.png)
+![사용되지 않는 불리언 변수에 대한 빠른 수정](images/rust/quick-fixes.png)
 
-## Refactoring
+## 리팩토링 {#refactoring}
 
-Due to rust-analyzer's semantic understanding of your source code, it can also provide smart renames, across your Rust files. With your cursor on a variable, select **Rename Symbol** from the context menu, Command Palette, or via `kb(editor.action.rename)`.
+rust-analyzer가 소스 코드에 대한 의미론적 이해를 가지고 있기 때문에, Rust 파일 전반에 걸쳐 스마트 이름 바꾸기를 제공할 수 있습니다. 변수 위에 커서를 두고 컨텍스트 메뉴, 명령 팔레트 또는 `kb(editor.action.rename)`를 통해 **기호 이름 바꾸기**를 선택하세요.
 
-The rust-analyzer extension also supports other code refactorings and code generation, which the extension calls [Assists](https://rust-analyzer.github.io/manual.html#assists-code-actions).
+rust-analyzer 확장은 다른 코드 리팩토링 및 코드 생성을 지원하며, 이를 [Assists](https://rust-analyzer.github.io/manual.html#assists-code-actions)라고 부릅니다.
 
-Here are just a few of the refactorings available:
+다음은 사용 가능한 리팩토링의 몇 가지 예입니다:
 
-* Convert if statement to guarded return
-* Inline variable
-* Extract function
-* Add return type
-* Add import
+* if 문을 보호된 반환으로 변환
+* 변수를 인라인으로 만들기
+* 함수 추출
+* 반환 타입 추가
+* 가져오기 추가
 
-## Formatting
+## 포매팅 {#formatting}
 
-The Rust toolset includes a formatter, [rustfmt](https://github.com/rust-lang/rustfmt), which can format your source code to conform to Rust conventions. You can format your Rust file using `kb(editor.action.formatDocument)` or by running the **Format Document** command from the **Command Palette** or the context menu in the editor.
+Rust 도구 세트에는 소스 코드를 Rust 규칙에 맞게 포매팅할 수 있는 포매터인 [rustfmt](https://github.com/rust-lang/rustfmt)가 포함되어 있습니다. `kb(editor.action.formatDocument)`를 사용하거나 편집기에서 **명령 팔레트** 또는 컨텍스트 메뉴에서 **문서 포매팅** 명령을 실행하여 Rust 파일을 포매팅할 수 있습니다.
 
-You also have the option to run the formatter on each save (**Editor: Format On Save**) or paste (**Format On Paste**) to keep your Rust code properly formatted automatically while you are working.
+작업 중에 Rust 코드가 자동으로 올바르게 포매팅되도록 **Editor: Format On Save** 또는 **Format On Paste**를 사용하여 각 저장 시 포매터를 실행할 수도 있습니다.
 
-## Debugging
+## 디버깅 {#debugging}
 
-The rust-analyzer extension supports debugging Rust from within VS Code.
+rust-analyzer 확장은 VS Code 내에서 Rust 디버깅을 지원합니다.
 
-### Install debugging support
+### 디버깅 지원 설치하기 {#install-debugging-support}
 
-To start debugging, you will first need to install one of two language extension with debugging support:
+디버깅을 시작하려면 먼저 디버깅 지원이 있는 두 가지 언어 확장 중 하나를 설치해야 합니다:
 
-* [Microsoft C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) (ms-vscode.cpptools) – *on Windows*
-* [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb) (vadimcn.vscode-lldb) – *on macOS/Linux*
+* [Microsoft C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) (ms-vscode.cpptools) – *Windows에서*
+* [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb) (vadimcn.vscode-lldb) – *macOS/Linux에서*
 
-If you forget to install one of these extensions, rust-analyzer will provide a notification with links to the VS Code Marketplace when you try to start a debug session.
+이러한 확장 중 하나를 설치하는 것을 잊으면, 디버그 세션을 시작하려고 할 때 rust-analyzer가 VS Code Marketplace에 대한 링크와 함께 알림을 제공합니다.
 
-![rust-analyzer notification to install a debugging extension](images/rust/install-debugging-extensions.png)
+![디버깅 확장 설치를 위한 rust-analyzer 알림](images/rust/install-debugging-extensions.png)
 
-### Using Rust Analyzer: Debug
+### Rust Analyzer 사용하기: 디버그 {#using-rust-analyzer-debug}
 
-The rust-analyzer extension has basic debugging support via the **Rust Analyzer: Debug** command available in the Command Palette (`kb(workbench.action.showCommands)`) and the **Run|Debug** CodeLens in the editor.
+rust-analyzer 확장은 명령 팔레트(`kb(workbench.action.showCommands)`)에서 사용할 수 있는 **Rust Analyzer: Debug** 명령과 편집기에서 **Run|Debug** CodeLens를 통해 기본적인 디버깅 지원을 제공합니다.
 
-Let's debug the Hello World program, we created earlier. First we will set a breakpoint in `main.rs`.
+이전에 만든 Hello World 프로그램을 디버깅해 보겠습니다. 먼저 `main.rs`에서 중단점을 설정합니다.
 
-1. You'll need to enable the setting **Debug: Allow Breakpoints Everywhere**, which you can find in the Settings editor (`kb(workbench.action.openSettings)`) by searching on 'everywhere`.
+1. **Debug: Allow Breakpoints Everywhere** 설정을 활성화해야 하며, 이는 설정 편집기(`kb(workbench.action.openSettings)`)에서 'everywhere'를 검색하여 찾을 수 있습니다.
 
-   ![Debug: Allow Breakpoints Everywhere in the Settings editor](images/rust/allow-breakpoints-everywhere.png)
+   ![설정 편집기에서 Debug: Allow Breakpoints Everywhere](images/rust/allow-breakpoints-everywhere.png)
 
-2. Open `main.rs` and click the left gutter in the editor to set a break point on the `println!` line. It should display as a red dot.
+2. `main.rs`를 열고 편집기에서 왼쪽 여백을 클릭하여 `println!` 줄에 중단점을 설정합니다. 빨간 점으로 표시되어야 합니다.
 
-   ![Red breakpoint dot in the left gutter of the editor](images/rust/set-breakpoint.png)
+   ![편집기 왼쪽 여백에 빨간 중단점 점](images/rust/set-breakpoint.png)
 
-3. To start debugging, use either the **Rust Analyzer: Debug** command or select the **Debug** CodeLens about `main()`.
+3. 디버깅을 시작하려면 **Rust Analyzer: Debug** 명령을 사용하거나 `main()`에 대한 **Debug** CodeLens를 선택하세요.
 
-   ![Debug session stopped at breakpoint](images/rust/debug-hello-world.png)
+   ![중단점에서 멈춘 디버그 세션](images/rust/debug-hello-world.png)
 
 <!--
-### Using launch.json
+### launch.json 사용하기 {#using-launchjson}
 
-For more complicated debugging scenarios, you can create a `launch.json` [debugging configuration](/docs/editor/debugging.md/#launch-configurations) file. A `launch.json` file lets you pass arguments to your program, run pre-launch tasks, set environment variables, and much more.
+더 복잡한 디버깅 시나리오를 위해 `launch.json` [디버깅 구성](/docs/editor/debugging.md/#launch-configurations) 파일을 생성할 수 있습니다. `launch.json` 파일을 사용하면 프로그램에 인수를 전달하고, 사전 실행 작업을 실행하고, 환경 변수를 설정하는 등 다양한 작업을 수행할 수 있습니다.
 
-To create a `launch.json` for a Rust program:
+Rust 프로그램을 위한 `launch.json`을 생성하려면:
 
-1. In the Debug view (`kb(workbench.view.debug)`), select the **create a launch.json file** link.
-2. This will display a dropdown, which several default launch configuration types. You can pick the first option as we will add another configuration for Rust.
-3. You will now have a `launch.json` file in the editor, which is located in a new `.vscode` folder in your project.
-4. Select the **Add Configuration** button in the lower right and select the **C/C++: (Windows) Launch** configuration.
-  ![Add Configuration with C/C++ Windows Launch selected](images/rust/add-configuration.png)
+1. 디버그 보기(`kb(workbench.view.debug)`)에서 **launch.json 파일 생성** 링크를 선택합니다.
+2. 여러 기본 런치 구성 유형이 표시되는 드롭다운이 나타납니다. Rust에 대한 다른 구성을 추가할 것이므로 첫 번째 옵션을 선택할 수 있습니다.
+3. 이제 편집기에서 `launch.json` 파일이 생성되며, 이는 프로젝트의 새 `.vscode` 폴더에 위치합니다.
+4. 오른쪽 하단의 **구성 추가** 버튼을 선택하고 **C/C++: (Windows) Launch** 구성을 선택합니다.
+  ![C/C++ Windows Launch가 선택된 구성 추가](images/rust/add-configuration.png)
 -->
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-This has been a brief overview showing the rust-analyzer extension features within VS Code. For more information, see the details provided in the Rust Analyzer extension [User Manual](https://rust-analyzer.github.io/manual.html), including how to tune specific [VS Code editor](https://rust-analyzer.github.io/manual.html#vs-code-2) configurations.
+이 문서는 VS Code 내에서 rust-analyzer 확장 기능의 기능을 간략하게 소개했습니다. 더 많은 정보는 Rust Analyzer 확장 [사용자 매뉴얼](https://rust-analyzer.github.io/manual.html)에서 제공되는 세부정보를 참조하세요. 여기에는 특정 [VS Code 편집기](https://rust-analyzer.github.io/manual.html#vs-code-2) 구성 조정 방법이 포함되어 있습니다.
 
-To stay up to date on the latest features/bug fixes for the rust-analyzer extension, see the [CHANGELOG](https://rust-analyzer.github.io/thisweek). You can also try out new features and fixes by installing the rust-analyzer **Pre-Release Version** available in the Extensions view **Install** dropdown.
+rust-analyzer 확장의 최신 기능/버그 수정에 대한 정보를 얻으려면 [CHANGELOG](https://rust-analyzer.github.io/thisweek)를 확인하세요. 또한 확장 보기 **설치** 드롭다운에서 사용할 수 있는 rust-analyzer **사전 릴리스 버전**을 설치하여 새로운 기능과 수정 사항을 시도해 볼 수 있습니다.
 
-If you have any issues or feature requests, feel free to log them in the rust-analyzer extension [GitHub repo](https://github.com/rust-lang/rust-analyzer/issues).
+문제나 기능 요청이 있는 경우 rust-analyzer 확장의 [GitHub 저장소](https://github.com/rust-lang/rust-analyzer/issues)에 자유롭게 기록해 주세요.
 
-If you'd like to learn more about VS Code, try these topics:
+VS Code에 대해 더 배우고 싶다면 다음 주제를 시도해 보세요:
 
-* [Basic Editing](/docs/editor/codebasics.md) - A quick introduction to the basics of the VS Code editor.
-* [Install an Extension](/docs/editor/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+* [기본 편집](/docs/editor/codebasics.md) - VS Code 편집기의 기본 사항에 대한 간단한 소개입니다.
+* [확장 설치하기](/docs/editor/extension-marketplace.md) - [Marketplace](https://marketplace.visualstudio.com/vscode)에서 사용할 수 있는 다른 확장에 대해 알아보세요.
+* [코드 탐색](/docs/editor/editingevolved.md) - 소스 코드를 빠르게 이동하는 방법입니다.
 
-## Common questions
+## 자주 묻는 질문 {#common-questions}
 
-### Linker errors
+### 링커 오류 {#linker-errors}
 
-If you see linker errors such as **"error: linker `link.exe` not found"** when you try to build your Rust program, you may be missing the necessary C/C++ toolset. Depending on your platform, you will need to install a toolset with a C/C++ linker to combine the Rust compiler output.
+Rust 프로그램을 빌드하려고 할 때 **"error: linker `link.exe` not found"**와 같은 링커 오류가 발생하면 필요한 C/C++ 도구 세트가 누락되었을 수 있습니다. 플랫폼에 따라 Rust 컴파일러 출력을 결합하기 위해 C/C++ 링커가 포함된 도구 세트를 설치해야 합니다.
 
 **Windows**
 
-On Windows, you will need to also install [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) in order to get the C/C++ linker `link.exe`. Be sure to select the **Desktop Development with C++** when running the Visual Studio installer.
+Windows에서는 C/C++ 링커 `link.exe`를 얻기 위해 [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)를 설치해야 합니다. Visual Studio 설치 프로그램을 실행할 때 **C++로 데스크톱 개발**을 선택해야 합니다.
 
->**Note**: You can use the C++ toolset from Visual Studio Build Tools along with Visual Studio Code to compile, build, and verify any codebase as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise).
+>**참고**: Visual Studio Build Tools의 C++ 도구 세트를 Visual Studio Code와 함께 사용하여 유효한 Visual Studio 라이센스(Community, Pro 또는 Enterprise)가 있는 한 모든 코드베이스를 컴파일, 빌드 및 검증할 수 있습니다.
 
 **macOS**
 
-You may need to install the XCode toolset by running `xcode-select --install` in a terminal.
+터미널에서 `xcode-select --install`을 실행하여 XCode 도구 세트를 설치해야 할 수 있습니다.
 
 **Linux**
 
-You may need to install the GCC toolset via the `build-essential` package by running `sudo apt-get install build-essential` in a terminal.
+터미널에서 `sudo apt-get install build-essential`을 실행하여 `build-essential` 패키지를 통해 GCC 도구 세트를 설치해야 할 수 있습니다.
 
-For further troubleshooting advice, refer to the [Rust installation](https://doc.rust-lang.org/book/ch01-01-installation.html) guide.
+추가 문제 해결 조언은 [Rust 설치](https://doc.rust-lang.org/book/ch01-01-installation.html) 가이드를 참조하세요.
+---

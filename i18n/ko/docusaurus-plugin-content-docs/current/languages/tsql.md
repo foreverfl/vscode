@@ -1,80 +1,71 @@
----
-Order: 18
-Area: languages
-TOCTitle: T-SQL
-ContentId: 5325cf50-e4c7-11e6-bf01-fe55135034f3
-PageTitle: Transact-SQL with Visual Studio Code
-DateApproved: 03/05/2025
-MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Transact-SQL.
----
-# Transact-SQL in Visual Studio Code
+# Transact-SQL in Visual Studio Code {#transact-sql-in-visual-studio-code}
 
-Turn Visual Studio Code into a powerful editor for [Transact-SQL]  (T-SQL) development, with the [mssql] extension available in the VS Code Marketplace. The [mssql] extension is optimized to work with SQL Server running on-premises, in any cloud, Azure SQL Database, and Azure SQL Data Warehouse.
+Visual Studio Code를 [Transact-SQL] (T-SQL) 개발을 위한 강력한 편집기로 변환하세요. VS Code Marketplace에서 사용할 수 있는 [mssql] 확장 프로그램을 통해 가능합니다. [mssql] 확장 프로그램은 온프레미스, 클라우드, Azure SQL Database 및 Azure SQL Data Warehouse에서 실행되는 SQL Server와 함께 작동하도록 최적화되어 있습니다.
 
-Connect to SQL databases, type T-SQL code, execute T-SQL code, view results, and save results as JSON or CSV files. While typing T-SQL code, you get rich T-SQL language features like T-SQL IntelliSense (code completion), syntax highlighting, linting, code navigation and code snippets.
+SQL 데이터베이스에 연결하고, T-SQL 코드를 입력하고, T-SQL 코드를 실행하고, 결과를 보고, 결과를 JSON 또는 CSV 파일로 저장하세요. T-SQL 코드를 입력하는 동안 T-SQL IntelliSense(코드 완성), 구문 강조, 린팅, 코드 탐색 및 코드 스니펫과 같은 풍부한 T-SQL 언어 기능을 제공합니다.
 
-> [Download VS Code] - If you haven't downloaded VS Code yet, quickly install for your platform (Linux, macOS or Windows).
+> [VS Code 다운로드] - 아직 VS Code를 다운로드하지 않았다면, 귀하의 플랫폼(리눅스, macOS 또는 윈도우)에 맞게 빠르게 설치하세요.
 
-## Install T-SQL support
+## Install T-SQL support {#install-t-sql-support}
 
-Add T-SQL language support to VS Code by installing the [mssql] extension from the VS Code marketplace as follows:
+VS Code에 T-SQL 언어 지원을 추가하려면 다음과 같이 VS Code 마켓플레이스에서 [mssql] 확장 프로그램을 설치하세요:
 
-1. Open the **Extensions** view from VS Code Side Bar (`kb(workbench.view.extensions)`).
-2. Type "mssql" in the search bar, click **Install**, and reload VS Code when prompted.
+1. VS Code 사이드 바에서 **Extensions** 뷰를 엽니다 (`kb(workbench.view.extensions)`).
+2. 검색창에 "mssql"을 입력하고 **Install**을 클릭한 후, 프롬프트가 나타나면 VS Code를 다시 로드합니다.
 
 ![install mssql extension](images/tsql/install-mssql.png)
 
-## Connect and Execute T-SQL
+## Connect and Execute T-SQL {#connect-and-execute-t-sql}
 
-Easily connect to SQL Server running on-premises, in any cloud, Azure SQL Database, and Azure SQL Data Warehouse. Then, execute your T-SQL statements and batches to view results and messages - all within VS Code. Your recent connections are saved across sessions, so you can quickly connect to your databases again.
+온프레미스, 클라우드, Azure SQL Database 및 Azure SQL Data Warehouse에서 실행되는 SQL Server에 쉽게 연결하세요. 그런 다음 T-SQL 문과 배치를 실행하여 결과와 메시지를 확인하세요 - 모두 VS Code 내에서 가능합니다. 최근 연결은 세션 간에 저장되므로 데이터베이스에 빠르게 다시 연결할 수 있습니다.
 
 ![Execute T-SQL](images/tsql/execute.gif)
 
-## View and Save Results
+## View and Save Results {#view-and-save-results}
 
-View results and messages when you execute your T-SQL code. Save results as a JSON or CSV file to use the data in your applications with just a few clicks.
+T-SQL 코드를 실행할 때 결과와 메시지를 확인하세요. 결과를 JSON 또는 CSV 파일로 저장하여 애플리케이션에서 데이터를 몇 번의 클릭으로 사용할 수 있습니다.
 
 ![Save T-SQL](images/tsql/save.gif)
 
-## T-SQL IntelliSense
+## T-SQL IntelliSense {#t-sql-intellisense}
 
-As you type T-SQL code in the editor, VS Code provides intelligent code completion for T-SQL keywords, suggestions for schema object names (tables, columns, views), and parameter help for functions and procedures when connected to a database.
+편집기에서 T-SQL 코드를 입력할 때, VS Code는 데이터베이스에 연결되어 있을 때 T-SQL 키워드에 대한 지능형 코드 완성, 스키마 객체 이름(테이블, 열, 뷰)에 대한 제안 및 함수와 프로시저에 대한 매개변수 도움말을 제공합니다.
 
 ![tsql intellisense](images/tsql/intellisense.gif)
 
-## Linting
+## Linting {#linting}
 
-Linting is the analysis of your T-SQL code for potential syntax errors. Use Visual Studio Code to quickly navigate to the errors and warnings in your T-SQL code as you type.
+린팅은 잠재적인 구문 오류에 대한 T-SQL 코드 분석입니다. Visual Studio Code를 사용하여 T-SQL 코드를 입력하는 동안 오류 및 경고로 빠르게 탐색할 수 있습니다.
 
 ![tsql linting](images/tsql/linting.gif)
 
-## Peek Definition/Go to Definition
+## Peek Definition/Go to Definition {#peek-definitiongo-to-definition}
 
-Use **Peek Definition** or **Go to Definition** to quickly browse the definition of schema objects in your database such as tables, functions, and procedures while typing T-SQL code.
+**Peek Definition** 또는 **Go to Definition**을 사용하여 T-SQL 코드를 입력하는 동안 데이터베이스의 스키마 객체(테이블, 함수, 프로시저 등)의 정의를 빠르게 탐색하세요.
 
 ![tsql peek definition](images/tsql/peekdefinition.gif)
 
-## Snippets
+## Snippets {#snippets}
 
-T-SQL snippets provide code templates for commonly used T-SQL statements. Type "sql" to get the list of T-SQL snippets.
+T-SQL 스니펫은 일반적으로 사용되는 T-SQL 문에 대한 코드 템플릿을 제공합니다. "sql"을 입력하여 T-SQL 스니펫 목록을 확인하세요.
 
 ![tsql snippets](images/tsql/snippets.gif)
 
-## Next steps
+## Next steps {#next-steps}
 
-* Download the free [SQL Server 2017 Developer Edition].
-* Install the [mssql] extension from the Visual Studio Code Marketplace.
-* [Build an app] using SQL Server - Get started with SQL Server on macOS, Linux, and Windows using your favorite programming language.
-* Contribute to the mssql extension on [GitHub]. Submit a bug report or a feature suggestion on our [GitHub Issue Tracker].
+* 무료 [SQL Server 2017 Developer Edition]을 다운로드하세요.
+* Visual Studio Code Marketplace에서 [mssql] 확장 프로그램을 설치하세요.
+* [앱 만들기] - macOS, 리눅스 및 윈도우에서 좋아하는 프로그래밍 언어를 사용하여 SQL Server를 시작하세요.
+* [GitHub]에서 mssql 확장 프로그램에 기여하세요. [GitHub Issue Tracker]에 버그 보고서나 기능 제안을 제출하세요.
 
-## Further Reading
+## Further Reading {#further-reading}
 
 * [SQL Server documentation]
 * [SQL Server on Linux documentation]
 * [SQL Server Blog]
 
-[Build an app]: https://aka.ms/sqldev
-[Download VS Code]: https://code.visualstudio.com/download
+[앱 만들기]: https://aka.ms/sqldev
+[VS Code 다운로드]: https://code.visualstudio.com/download
 [GitHub]: https://github.com/microsoft/vscode-mssql
 [GitHub Issue Tracker]: https://github.com/microsoft/vscode-mssql/issues
 [mssql]: https://aka.ms/mssql-marketplace

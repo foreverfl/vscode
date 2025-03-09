@@ -1,232 +1,223 @@
----
-Order: 16
-Area: editor
-TOCTitle: Settings Sync
-ContentId: 6cb84e60-6d90-4137-83f6-bdab3438b8f5
-PageTitle: Settings Sync in Visual Studio Code
-DateApproved: 03/05/2025
-MetaDescription: Synchronize your user settings across all your Visual Studio Code instances.
----
-# Settings Sync
+# 설정 동기화 {#settings-sync}
 
-Settings Sync lets you share your Visual Studio Code configurations such as settings, keyboard shortcuts, and installed extensions across your machines so you are always working with your favorite setup.
+설정 동기화를 통해 Visual Studio Code의 설정, 키보드 단축키, 설치된 확장 프로그램과 같은 구성을 여러 기기에서 공유할 수 있어 항상 좋아하는 설정으로 작업할 수 있습니다.
 
-> **Note**: VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
+> **참고**: VS Code는 SSH, 개발 컨테이너(devcontainer) 또는 WSL에 연결할 때와 같은 [원격](/docs/remote/remote-overview.md) 창으로 확장을 동기화하지 않습니다.
 
-## Turning on Settings Sync
+## 설정 동기화 켜기 {#turning-on-settings-sync}
 
-You can turn on Settings Sync by using the **Backup and Sync Settings...** entry in the **Manage** gear menu or the **Accounts** menu at the bottom of the Activity Bar.
+**관리** 기어 메뉴 또는 활동 표시줄 하단의 **계정** 메뉴에서 **백업 및 동기화 설정...** 항목을 사용하여 설정 동기화를 켤 수 있습니다.
 
-![Screenshot of the Manage menu, highlighting the Backup and Sync Settings command.](images/settings-sync/turn-on-sync.png)
+![백업 및 동기화 설정 명령을 강조 표시한 관리 메뉴의 스크린샷.](images/settings-sync/turn-on-sync.png)
 
-To use Sync settings, you need to sign in and select which settings you want to sync. Currently, the Settings Sync supports the following settings:
+동기화 설정을 사용하려면 로그인하고 동기화할 설정을 선택해야 합니다. 현재 설정 동기화는 다음 설정을 지원합니다:
 
-* Settings
-* Keyboard shortcuts
-* User snippets
-* User tasks
-* UI State
-* Extensions
-* Profiles
+* 설정
+* 키보드 단축키
+* 사용자 스니펫
+* 사용자 작업
+* UI 상태
+* 확장 프로그램
+* 프로필
 
-![Screenshot of the Settings Sync configure Quick Pick to select the settings to synchronize.](images/settings-sync/sync-configure.png)
+![동기화할 설정을 선택하기 위한 설정 동기화 구성 퀵 픽의 스크린샷.](images/settings-sync/sync-configure.png)
 
-When you select the **Sign in** button, you can choose between signing in with your Microsoft or GitHub account.
+**로그인** 버튼을 선택하면 Microsoft 또는 GitHub 계정으로 로그인할 수 있습니다.
 
-![Screenshot of the Settings Sync Quick Pick to choose an account type.](images/settings-sync/sync-accounts.png)
+![계정 유형을 선택하기 위한 설정 동기화 퀵 픽의 스크린샷.](images/settings-sync/sync-accounts.png)
 
-After making this selection, the browser opens so that you can sign in to your Microsoft or GitHub account. If you choose a Microsoft account, you can use either personal accounts, such as Outlook accounts, or Azure accounts, and you can also link a GitHub account to a new or existing Microsoft account.
+이 선택을 한 후 브라우저가 열리며 Microsoft 또는 GitHub 계정으로 로그인할 수 있습니다. Microsoft 계정을 선택하면 Outlook 계정과 같은 개인 계정이나 Azure 계정을 사용할 수 있으며, GitHub 계정을 새 Microsoft 계정이나 기존 Microsoft 계정에 연결할 수도 있습니다.
 
-After signing in, Settings Sync is turned on and continues to synchronize your preferences automatically in the background.
+로그인 후 설정 동기화가 켜지고 기본적으로 선호도를 자동으로 동기화합니다.
 
-## Merge or Replace
+## 병합 또는 교체 {#merge-or-replace}
 
-If you already synced from a machine and turning on sync from another machine, you will be shown with following **Merge or Replace** dialog.
+기기에서 이미 동기화한 경우 다른 기기에서 동기화를 켜면 다음 **병합 또는 교체** 대화 상자가 표시됩니다.
 
-![Settings Sync Merge or Replace dialog](images/settings-sync/sync-merge-replace.png)
+![설정 동기화 병합 또는 교체 대화 상자](images/settings-sync/sync-merge-replace.png)
 
-* **Merge**: Selecting this option will merge **local** settings with **remote** settings from the cloud.
-* **Replace Local**: Selecting this option will overwrite **local** settings with remote settings from the cloud.
-* **Merge Manually...**: Selecting this option will open **Merges** view where you can merge preferences one by one.
+* **병합**: 이 옵션을 선택하면 **로컬** 설정과 클라우드의 **원격** 설정이 병합됩니다.
+* **로컬 교체**: 이 옵션을 선택하면 **로컬** 설정이 클라우드의 원격 설정으로 덮어씌워집니다.
+* **수동으로 병합...**: 이 옵션을 선택하면 기본 설정을 하나씩 병합할 수 있는 **병합** 보기가 열립니다.
 
-![Settings Sync Merges](images/settings-sync/sync-merges-view.png)
+![설정 동기화 병합](images/settings-sync/sync-merges-view.png)
 
-## Configuring synced data
+## 동기화된 데이터 구성 {#configuring-synced-data}
 
-Machine settings (with `machine` or `machine-overridable` [scopes](/updates/v1_34.md#machinespecific-settings)) are not synchronized by default, since their values are specific to a given machine. You can also add or remove settings you want to this list from the Settings editor or using the setting `setting(settingsSync.ignoredSettings)`.
+기계 설정(`machine` 또는 `machine-overridable` [범위](/updates/v1_34.md#machinespecific-settings))은 기본적으로 동기화되지 않습니다. 그 값이 특정 기계에 국한되기 때문입니다. 설정 편집기에서 이 목록에 추가하거나 제거할 설정을 `setting(settingsSync.ignoredSettings)` 설정을 사용하여 조정할 수 있습니다.
 
-![Settings Sync ignored settings](images/settings-sync/sync-ignored-settings.png)
+![설정 동기화 무시된 설정](images/settings-sync/sync-ignored-settings.png)
 
-Keyboard Shortcuts are synchronized per platform by default. If your keyboard shortcuts are platform-agnostic, you can synchronize them across platforms by disabling the setting `setting(settingsSync.keybindingsPerPlatform)`.
+키보드 단축키는 기본적으로 플랫폼별로 동기화됩니다. 키보드 단축키가 플랫폼에 구애받지 않는 경우 `setting(settingsSync.keybindingsPerPlatform)` 설정을 비활성화하여 플랫폼 간에 동기화할 수 있습니다.
 
-All built-in and installed extensions are synchronized along with their global enablement state. You can skip synchronizing an extension, either from the Extensions view (`kb(workbench.view.extensions)`) or using the setting `setting(settingsSync.ignoredExtensions)`.
+모든 내장 및 설치된 확장은 전역 활성화 상태와 함께 동기화됩니다. 확장을 동기화하지 않으려면 확장 보기(`kb(workbench.view.extensions)`)에서 또는 `setting(settingsSync.ignoredExtensions)` 설정을 사용하여 건너뛸 수 있습니다.
 
-![Settings Sync ignored settings](images/settings-sync/sync-ignored-extensions.png)
+![설정 동기화 무시된 확장](images/settings-sync/sync-ignored-extensions.png)
 
-Following UI State is synchronized currently:
+현재 동기화되는 UI 상태는 다음과 같습니다:
 
-* Display Language
-* Activity Bar entries
-* Panel entries
-* Views layout and visibility
-* Recently used commands
-* Do not show again notifications
+* 표시 언어
+* 활동 표시줄 항목
+* 패널 항목
+* 보기 레이아웃 및 가시성
+* 최근 사용한 명령
+* 다시 표시하지 않기 알림
 
-You can always change what is synced via the **Settings Sync: Configure** command or by opening the **Manage** gear menu, selecting **Settings Sync is On**, and then **Settings Sync: Configure**.
+**설정 동기화: 구성** 명령을 사용하거나 **관리** 기어 메뉴를 열고 **설정 동기화가 켜져 있음**을 선택한 후 **설정 동기화: 구성**을 선택하여 동기화되는 내용을 언제든지 변경할 수 있습니다.
 
-## Conflicts
+## 충돌 {#conflicts}
 
-When synchronizing settings between multiple machines, there may occasionally be conflicts. Conflicts can happen when first setting up sync between machines or when settings change while a machine is offline. When conflicts occur, you will be presented with the following options:
+여러 기기 간에 설정을 동기화할 때 가끔 충돌이 발생할 수 있습니다. 충돌은 기계 간 동기화를 처음 설정할 때나 기계가 오프라인 상태일 때 설정이 변경될 때 발생할 수 있습니다. 충돌이 발생하면 다음 옵션이 표시됩니다:
 
-* **Accept Local**: Selecting this option will overwrite **remote** settings in the cloud with your local settings.
-* **Accept Remote**: Selecting this option will overwrite **local** settings with remote settings from the cloud.
-* **Show Conflicts**: Selecting this will display a diff editor similar to the Source Control diff editor, where you can preview the local and remote settings and choose to either accept local or remote or manually resolve the changes in your local settings file and then accept the local file.
+* **로컬 수용**: 이 옵션을 선택하면 클라우드의 **원격** 설정이 로컬 설정으로 덮어씌워집니다.
+* **원격 수용**: 이 옵션을 선택하면 **로컬** 설정이 클라우드의 원격 설정으로 덮어씌워집니다.
+* **충돌 표시**: 이 옵션을 선택하면 소스 제어 차이 편집기와 유사한 차이 편집기가 표시되어 로컬 및 원격 설정을 미리 보고 로컬 또는 원격을 수용하거나 로컬 설정 파일에서 수동으로 변경을 해결한 후 로컬 파일을 수용할 수 있습니다.
 
-## Switching Accounts
+## 계정 전환 {#switching-accounts}
 
-If at any time you want to sync your data to a different account, you can turn off and turn on Settings Sync again with different account.
+언제든지 데이터를 다른 계정으로 동기화하려면 설정 동기화를 끄고 다른 계정으로 다시 켤 수 있습니다.
 
-## Syncing Stable versus Insiders
+## 안정 버전과 인사이더 동기화 {#syncing-stable-versus-insiders}
 
-By default, the VS Code Stable and [Insiders](/insiders) builds use different Settings Sync services, and therefore do not share settings. You can sync your Insiders with Stable by selecting the Stable sync service while turning on Settings Sync. This option is only available in VS Code Insiders.
+기본적으로 VS Code 안정 버전과 [인사이더](/insiders) 빌드는 서로 다른 설정 동기화 서비스를 사용하므로 설정을 공유하지 않습니다. 설정 동기화를 켤 때 안정 동기화 서비스를 선택하여 인사이더와 동기화할 수 있습니다. 이 옵션은 VS Code 인사이더에서만 사용할 수 있습니다.
 
-![Settings Sync Switch Service](images/settings-sync/settings-sync-switch.png)
+![설정 동기화 서비스 전환](images/settings-sync/settings-sync-switch.png)
 
-**Note:** Since Insiders builds are newer than Stable builds, syncing them can sometimes lead to data incompatibility. In such cases, Settings sync will be disabled automatically on stable to prevent data inconsistencies. Once newer version of Stable build is released, you can upgrade your stable client and turn on sync to continue syncing.
+**참고**: 인사이더 빌드는 안정 빌드보다 최신이므로 동기화할 경우 데이터 호환성 문제가 발생할 수 있습니다. 이러한 경우 데이터 불일치를 방지하기 위해 안정 버전에서 설정 동기화가 자동으로 비활성화됩니다. 안정 버전의 최신 버전이 출시되면 안정 클라이언트를 업그레이드하고 동기화를 켜서 계속 동기화할 수 있습니다.
 
-## Restoring data
+## 데이터 복원 {#restoring-data}
 
-VS Code always stores local and remote backups of your preferences while syncing and provides views for accessing these. In case something goes wrong, you can restore your data from these views.
+VS Code는 항상 동기화 중에 기본 설정의 로컬 및 원격 백업을 저장하고 이를 접근할 수 있는 보기를 제공합니다. 문제가 발생할 경우 이러한 보기에서 데이터를 복원할 수 있습니다.
 
-![Settings Sync backup views](images/settings-sync/sync-backup-views.png)
+![설정 동기화 백업 보기](images/settings-sync/sync-backup-views.png)
 
-You can open these views using **Settings Sync: Show Synced Data** command from the Command Palette. The Local Sync activity view is hidden by default and you can enable it using **Views** submenu under **Settings Sync** view overflow actions.
+**설정 동기화: 동기화된 데이터 표시** 명령을 사용하여 이러한 보기를 열 수 있습니다. 로컬 동기화 활동 보기는 기본적으로 숨겨져 있으며 **설정 동기화** 보기의 오버플로우 작업 아래 **보기** 하위 메뉴를 사용하여 활성화할 수 있습니다.
 
-![Settings Sync enable local backup views](images/settings-sync/sync-enable-local-activity-view.png)
+![설정 동기화 로컬 백업 보기 활성화](images/settings-sync/sync-enable-local-activity-view.png)
 
-Local backups folder in the disk can be accessed via the **Settings Sync: Open Local Backups Folder** command. The folder is organized by the type of preference and contains versions of your JSON files, named with a timestamp of when the backup occurred.
+디스크의 로컬 백업 폴더는 **설정 동기화: 로컬 백업 폴더 열기** 명령을 통해 접근할 수 있습니다. 이 폴더는 기본 설정 유형에 따라 구성되어 있으며 백업이 발생한 시점의 타임스탬프가 붙은 JSON 파일 버전을 포함합니다.
 
->**Note**: Local backups are automatically deleted after 30 days. For remote backups the latest 20 versions of each individual resource (settings, extensions, etc.) is retained.
+> **참고**: 로컬 백업은 30일 후에 자동으로 삭제됩니다. 원격 백업의 경우 각 개별 리소스(설정, 확장 프로그램 등)의 최신 20버전이 유지됩니다.
 
-## Synced Machines
+## 동기화된 기계 {#synced-machines}
 
-VS Code keeps track of the machines synchronizing your preferences and provides a view to access them. Every machine is given a default name based on the type of VS Code (Insiders or Stable) and the platform it is on. You can always update the machine name using the edit action available on the machine entry in the view. You can also disable sync on another machine using **Turn off Settings Sync** context menu action on the machine entry in the view.
+VS Code는 기본 설정을 동기화하는 기계를 추적하고 이를 접근할 수 있는 보기를 제공합니다. 각 기계는 VS Code의 유형(인사이더 또는 안정)과 플랫폼에 따라 기본 이름이 지정됩니다. 이 보기에서 기계 항목의 편집 작업을 사용하여 기계 이름을 언제든지 업데이트할 수 있습니다. 또한 이 보기에서 기계 항목의 **설정 동기화 끄기** 컨텍스트 메뉴 작업을 사용하여 다른 기계에서 동기화를 비활성화할 수 있습니다.
 
-![Settings Sync machines views](images/settings-sync/sync-machines-view.png)
+![설정 동기화 기계 보기](images/settings-sync/sync-machines-view.png)
 
-You can open this view using **Settings Sync: Show Synced Data** command from the Command Palette.
+**설정 동기화: 동기화된 데이터 표시** 명령을 사용하여 이 보기를 열 수 있습니다.
 
-## Extension authors
+## 확장 프로그램 작성자 {#extension-authors}
 
-If you are an extension author, you should make sure your extension behaves appropriately when users enable Setting Sync. For example, you probably don't want your extension to display the same dismissed notifications or welcome pages on multiple machines.
+확장 프로그램 작성자인 경우 사용자가 설정 동기화를 활성화할 때 확장 프로그램이 적절하게 작동하는지 확인해야 합니다. 예를 들어, 여러 기기에서 동일한 알림이나 환영 페이지가 표시되지 않도록 하는 것이 좋습니다.
 
-### Sync user global state between machines
+### 기계 간 사용자 전역 상태 동기화 {#sync-user-global-state-between-machines}
 
-If your extension needs to preserve some user state across different machines then provide the state to Settings Sync using `vscode.ExtensionContext.globalState.setKeysForSync`. Sharing state such as UI dismissed or viewed flags across machines can provide a better user experience.
+확장 프로그램이 서로 다른 기계 간에 일부 사용자 상태를 유지해야 하는 경우 `vscode.ExtensionContext.globalState.setKeysForSync`를 사용하여 상태를 설정 동기화에 제공해야 합니다. UI에서 해제되거나 본 플래그와 같은 상태를 기계 간에 공유하면 더 나은 사용자 경험을 제공할 수 있습니다.
 
-There is an example of using `setKeysforSync` in the [Extension Capabilities](/api/extension-capabilities/common-capabilities.md#data-storage) topic.
+`setKeysforSync`를 사용하는 예시는 [확장 기능 기능](/api/extension-capabilities/common-capabilities.md#data-storage) 주제에서 확인할 수 있습니다.
 
-## Reporting issues
+## 문제 보고 {#reporting-issues}
 
-Settings Sync activity can be monitored in the **Log (Settings Sync)** output view. If you experience a problem with Settings Sync, include this log when creating the issue. If your problem is related to authentication, also include the log from the **Account** output view.
+설정 동기화 활동은 **로그(설정 동기화)** 출력 보기에서 모니터링할 수 있습니다. 설정 동기화에 문제가 발생하면 이 로그를 포함하여 문제를 생성하십시오. 문제가 인증과 관련된 경우 **계정** 출력 보기의 로그도 포함하십시오.
 
-## How do I delete my data?
+## 내 데이터를 삭제하려면 어떻게 하나요? {#how-do-i-delete-my-data}
 
-If you want to remove all your data from our servers, just turn off sync via **Settings Sync is On** menu available under **Manage** gear menu and select the checkbox to clear all cloud data. If you choose to re-enable sync, it will be as if you're signing in for the first time.
+서버에서 모든 데이터를 제거하려면 **관리** 기어 메뉴 아래 **설정 동기화가 켜져 있음** 메뉴를 통해 동기화를 끄고 모든 클라우드 데이터를 지우기 위한 체크박스를 선택하면 됩니다. 동기화를 다시 활성화하면 처음 로그인하는 것처럼 됩니다.
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-* [User and Workspace settings](/docs/editor/settings.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
+* [사용자 및 작업 공간 설정](/docs/editor/settings.md) - 사용자 및 작업 공간 설정을 통해 VS Code를 선호하는 대로 구성하는 방법을 알아보세요.
 
-## Common questions
+## 자주 묻는 질문 {#common-questions}
 
-### Is VS Code Settings Sync the same as the Settings Sync extension?
+### VS Code 설정 동기화는 설정 동기화 확장과 동일한가요? {#is-vs-code-settings-sync-the-same-as-the-settings-sync-extension}
 
-No, the [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) extension by [Shan Khan](https://marketplace.visualstudio.com/publishers/Shan) uses a private Gist on GitHub to share your VS Code settings across different machines and is unrelated to the VS Code Settings Sync.
+아니요, [설정 동기화](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) 확장은 [Shan Khan](https://marketplace.visualstudio.com/publishers/Shan)이 만든 것으로, GitHub의 개인 Gist를 사용하여 서로 다른 기기 간에 VS Code 설정을 공유하며 VS Code 설정 동기화와는 관련이 없습니다.
 
-### What types of accounts can I use for Settings Sync sign in?
+### 설정 동기화 로그인에 사용할 수 있는 계정 유형은 무엇인가요? {#what-types-of-accounts-can-i-use-for-settings-sync-sign-in}
 
-VS Code Settings Sync supports signing in with either a Microsoft account (for example Outlook or Azure accounts) or a GitHub account. Sign in with GitHub Enterprise accounts is not supported. Other authentication providers may be supported in the future and you can review the proposed Authentication Provider API in [issue #88309](https://github.com/microsoft/vscode/issues/88309).
+VS Code 설정 동기화는 Microsoft 계정(예: Outlook 또는 Azure 계정) 또는 GitHub 계정으로 로그인하는 것을 지원합니다. GitHub Enterprise 계정으로의 로그인은 지원되지 않습니다. 향후 다른 인증 제공자가 지원될 수 있으며, 제안된 인증 제공자 API는 [이슈 #88309](https://github.com/microsoft/vscode/issues/88309)에서 검토할 수 있습니다.
 
->**Note**: VS Code Settings Sync does not support using your [Microsoft Sovereign Cloud](https://www.microsoft.com/en-us/industry/sovereignty/cloud) account at this time. If this is something you would like, please let us know what kind of Microsoft Sovereign Cloud you would like to use [in this GitHub issue](https://github.com/microsoft/vscode/issues/196509).
+> **참고**: 현재 VS Code 설정 동기화는 [Microsoft Sovereign Cloud](https://www.microsoft.com/en-us/industry/sovereignty/cloud) 계정을 지원하지 않습니다. 이를 원하신다면 어떤 종류의 Microsoft Sovereign Cloud를 사용하고 싶은지 [이 GitHub 이슈](https://github.com/microsoft/vscode/issues/196509)에서 알려주세요.
 
-### Can I use a different backend or service for Settings Sync?
+### 설정 동기화에 다른 백엔드나 서비스를 사용할 수 있나요? {#can-i-use-a-different-backend-or-service-for-settings-sync}
 
-Settings Sync uses a dedicated service to store settings and coordinate updates. A service provider API may be exposed in the future to allow for custom Settings Sync backends.
+설정 동기화는 설정을 저장하고 업데이트를 조정하기 위해 전용 서비스를 사용합니다. 향후 사용자 지정 설정 동기화 백엔드를 허용하기 위해 서비스 제공자 API가 노출될 수 있습니다.
 
-## Troubleshooting keychain issues
+## 키체인 문제 해결 {#troubleshooting-keychain-issues}
 
->**Note**: This section applies to VS Code version **1.80 and higher**. In 1.80, we moved away from [keytar](https://github.com/atom/node-keytar), due to its archival, in favor of Electron's [safeStorage API](https://www.electronjs.org/docs/latest/api/safe-storage).
+> **참고**: 이 섹션은 VS Code 버전 **1.80 이상**에 적용됩니다. 1.80에서는 [keytar](https://github.com/atom/node-keytar)에서 Electron의 [safeStorage API](https://www.electronjs.org/docs/latest/api/safe-storage)로 전환했습니다.
 >
->**Note**: keychain, keyring, wallet, credential store are synonymous in this document.
+> **참고**: 이 문서에서 키체인, 키링, 지갑, 자격 증명 저장소는 동의어입니다.
 
-Settings Sync persists authentication information on desktop using the OS keychain for encryption. Using the keychain can fail in some cases if the keychain is misconfigured or the environment isn't recognized.
+설정 동기화는 OS 키체인을 사용하여 인증 정보를 암호화하여 데스크톱에 지속합니다. 키체인을 사용하는 경우 키체인이 잘못 구성되었거나 환경이 인식되지 않는 경우 실패할 수 있습니다.
 
-To help diagnose the problem, you can restart VS Code with the following flags to generate a verbose log:
+문제를 진단하기 위해 다음 플래그를 사용하여 VS Code를 재시작하여 자세한 로그를 생성할 수 있습니다:
 
 ```
 code --verbose --vmodule="*/components/os_crypt/*=1"
 ```
 
-### Windows & macOS
+### Windows 및 macOS {#windows-macos}
 
-At this time, there are no known configuration issues on Windows or macOS but, if you suspect something is wrong, you can open an [issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs from above. This is important for us to support additional desktop configurations.
+현재 Windows 또는 macOS에서 알려진 구성 문제는 없지만, 문제가 있다고 의심되는 경우 위의 자세한 로그와 함께 [VS Code에 이슈를 열 수 있습니다](https://github.com/microsoft/vscode/issues/new/choose). 이는 추가 데스크톱 구성을 지원하는 데 중요합니다.
 
-### Linux
+### Linux {#linux}
 
-Towards the top of the logs from the previous command, you will see something to the effect of:
+이전 명령의 로그 상단에서 다음과 유사한 내용을 볼 수 있습니다:
 
 ```
-[9699:0626/093542.027629:VERBOSE1:key_storage_util_linux.cc(54)] Password storage detected desktop environment: GNOME
-[9699:0626/093542.027660:VERBOSE1:key_storage_linux.cc(122)] Selected backend for OSCrypt: GNOME_LIBSECRET
+[9699:0626/093542.027629:VERBOSE1:key_storage_util_linux.cc(54)] 비밀번호 저장소가 감지한 데스크톱 환경: GNOME
+[9699:0626/093542.027660:VERBOSE1:key_storage_linux.cc(122)] OSCrypt에 대한 백엔드 선택: GNOME_LIBSECRET
 ```
 
-We rely on Chromium's oscrypt module to discover and store encryption key information in the keyring. Chromium supports [a number of different desktop environments](https://source.chromium.org/chromium/chromium/src/+/main:base/nix/xdg_util.cc;l=146-169). Outlined below are some popular desktop environments and troubleshooting steps that may help if the keyring is misconfigured.
+우리는 Chromium의 oscrypt 모듈에 의존하여 키링에 암호화 키 정보를 발견하고 저장합니다. Chromium은 [여러 가지 데스크톱 환경](https://source.chromium.org/chromium/chromium/src/+/main:base/nix/xdg_util.cc;l=146-169)을 지원합니다. 아래는 일부 인기 있는 데스크톱 환경과 키링이 잘못 구성된 경우 도움이 될 수 있는 문제 해결 단계입니다.
 
-#### GNOME or UNITY (or similar)
+#### GNOME 또는 UNITY (또는 유사한) {#gnome-or-unity-or-similar}
 
-If the error you're seeing is "Cannot create an item in a locked collection", chances are your keyring's `Login` keyring is locked. You should launch your OS's keyring ([Seahorse](https://wiki.gnome.org/Apps/Seahorse) is the commonly used GUI for seeing keyrings) and ensure the default keyring (usually referred to as `Login` keyring) is unlocked. This keyring needs to be unlocked when you log into your system.
+"잠긴 컬렉션에 항목을 생성할 수 없습니다"라는 오류가 표시되는 경우, 키링의 `Login` 키링이 잠겨 있을 가능성이 높습니다. OS의 키링을 실행하고([Seahorse](https://wiki.gnome.org/Apps/Seahorse)는 키링을 확인하는 데 일반적으로 사용되는 GUI입니다) 기본 키링(일반적으로 `Login` 키링이라고 함)이 잠금 해제되어 있는지 확인해야 합니다. 이 키링은 시스템에 로그인할 때 잠금 해제되어야 합니다.
 
-#### KDE
+#### KDE {#kde}
 
-> KDE 6 is not yet fully supported by Visual Studio Code. As a workaround: The latest kwallet6 is also accessible as kwallet5, so you can force it to use kwallet5 by setting the password store to `kwallet5` as explained below in [Configure the keyring to use with VS Code](#other-linux-desktop-environments).
+> KDE 6은 Visual Studio Code에서 아직 완전히 지원되지 않습니다. 우회 방법: 최신 kwallet6는 kwallet5로도 접근할 수 있으므로 아래 [VS Code와 함께 사용할 키링 구성](#other-linux-desktop-environments)에서 설명한 대로 비밀번호 저장소를 `kwallet5`로 설정하여 사용할 수 있습니다.
 
-It's possible that your wallet (aka keyring) is closed. If you open [KWalletManager](https://apps.kde.org/kwalletmanager5), you can see if the default `kdewallet` is closed and if it is, make sure you open it.
+지갑(즉, 키링)이 닫혀 있을 수 있습니다. [KWalletManager](https://apps.kde.org/kwalletmanager5)를 열면 기본 `kdewallet`가 닫혀 있는지 확인할 수 있으며, 닫혀 있다면 열어야 합니다.
 
-If you are using KDE5 or higher and are having trouble connecting to `kwallet5` (like users of the unofficial VS Code Flatpak in [issue #189672](https://github.com/microsoft/vscode/issues/189672)), you can try [configuring the keyring](#other-linux-desktop-environments) to `gnome-libsecret` as this will use the [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html) to communicate with any valid keyring. `kwallet5` implements the Secret Service API and can be accessed using this method.
+KDE5 이상을 사용하고 `kwallet5`에 연결하는 데 문제가 있는 경우(비공식 VS Code Flatpak 사용자와 같은 [이슈 #189672](https://github.com/microsoft/vscode/issues/189672)), 키링을 `gnome-libsecret`로 [구성](#other-linux-desktop-environments)하여 이 방법으로 [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html)와 통신할 수 있습니다. `kwallet5`는 Secret Service API를 구현하며 이 방법으로 접근할 수 있습니다.
 
-If you're still experiencing trouble connecting to `kwallet5`, some users have reported that granting the specific D-Bus service permissions proved a viable fix:
+`kwallet5`에 연결하는 데 여전히 문제가 발생하는 경우, 특정 D-Bus 서비스 권한을 부여하는 것이 유효한 수정 사항으로 보고되었습니다:
 ```sh
 flatpak override --user --talk-name=org.kde.kwalletd5 --talk-name=org.freedesktop.secrets com.visualstudio.code
 ```
 
-#### Other Linux desktop environments
+#### 기타 Linux 데스크톱 환경 {#other-linux-desktop-environments}
 
-First off, if your desktop environment wasn't detected, you can [open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs from above. This is important for us to support additional desktop configurations.
+우선, 데스크톱 환경이 감지되지 않은 경우 위의 자세한 로그와 함께 [VS Code에 이슈를 열 수 있습니다](https://github.com/microsoft/vscode/issues/new/choose). 이는 추가 데스크톱 구성을 지원하는 데 중요합니다.
 
-#### (recommended) Configure the keyring to use with VS Code
+#### (권장) VS Code와 함께 사용할 키링 구성 {#recommended-configure-the-keyring-to-use-with-vs-code}
 
-You can manually tell VS Code which keyring to use by passing the `password-store` flag. Our recommended configuration is to first install [gnome-keyring](https://wiki.gnome.org/Projects/GnomeKeyring) if you don't have it already and then launch VS Code with `code --password-store="gnome-libsecret"`.
+`password-store` 플래그를 전달하여 VS Code에 사용할 키링을 수동으로 지정할 수 있습니다. 권장 구성은 먼저 [gnome-keyring](https://wiki.gnome.org/Projects/GnomeKeyring)을 설치한 후 `code --password-store="gnome-libsecret"`로 VS Code를 실행하는 것입니다.
 
-If this solution works for you, you can persist the value of `password-store` by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Preferences: Configure Runtime Arguments** command. This will open the `argv.json` file where you can add the setting `"password-store":"gnome-libsecret"`.
+이 솔루션이 작동하면 명령 팔레트를 열고(`kb(workbench.action.showCommands)`) **환경 설정: 런타임 인수 구성** 명령을 실행하여 `password-store` 값을 지속할 수 있습니다. 이렇게 하면 설정 `"password-store":"gnome-libsecret"`을 추가할 수 있는 `argv.json` 파일이 열립니다.
 
-Here are all the possible values of `password-store` if you would like to try using a different keyring than `gnome-keyring`:
+다음은 `gnome-keyring` 외에 다른 키링을 사용해보고 싶을 경우 가능한 모든 `password-store` 값입니다:
 
-* `kwallet5`: For use with [kwalletmanager5](https://apps.kde.org/kwalletmanager5/).
-* `gnome-libsecret`: For use with any package that implements the [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html) (for example `gnome-keyring`, `kwallet5`, `KeepassXC`).
-* _(not recommended)_ `kwallet`: For use with older versions of `kwallet`.
-* _(not recommended)_ `basic`: See the [section below on basic text](#not-recommended-configure-basic-text-encryption) for more details.
+* `kwallet5`: [kwalletmanager5](https://apps.kde.org/kwalletmanager5/)와 함께 사용합니다.
+* `gnome-libsecret`: [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html)를 구현하는 모든 패키지와 함께 사용합니다(예: `gnome-keyring`, `kwallet5`, `KeepassXC`).
+* _(권장하지 않음)_ `kwallet`: 이전 버전의 `kwallet`와 함께 사용합니다.
+* _(권장하지 않음)_ `basic`: 기본 텍스트에 대한 [아래 섹션](#not-recommended-configure-basic-text-encryption)을 참조하여 자세한 내용을 확인하십시오.
 
-Don't hesitate to [open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs if you run into any issues.
+문제가 발생하면 주저하지 말고 [VS Code에 이슈를 열 수 있습니다](https://github.com/microsoft/vscode/issues/new/choose)와 함께 자세한 로그를 포함하십시오.
 
-#### (not recommended) Configure basic text encryption
+#### (권장하지 않음) 기본 텍스트 암호화 구성 {#not-recommended-configure-basic-text-encryption}
 
-We rely on Chromium's oscrypt module to discover and store encryption key information in the keyring. Chromium offers an opt-in fallback encryption strategy that uses an in-memory key based on a string that is hardcoded in the Chromium source. Because of this, this fallback strategy is, at best, obfuscation, and should only be used if you are accepting of the risk that any process on the system could, in theory, decrypt your stored secrets.
+우리는 Chromium의 oscrypt 모듈에 의존하여 키링에 암호화 키 정보를 발견하고 저장합니다. Chromium은 하드코딩된 문자열을 기반으로 메모리 내 키를 사용하는 선택적 암호화 전략을 제공합니다. 이로 인해 이 대체 전략은 최악의 경우 난독화에 불과하며, 시스템의 어떤 프로세스도 이론적으로 저장된 비밀을 복호화할 수 있다는 위험을 감수해야 합니다.
 
-If you accept this risk, you can set `password-store` to `basic` by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Preferences: Configure Runtime Arguments** command. This will open the `argv.json` file where you can add the setting `"password-store":"basic"`.
+이 위험을 감수할 수 있다면 명령 팔레트를 열고(`kb(workbench.action.showCommands)`) **환경 설정: 런타임 인수 구성** 명령을 실행하여 `password-store`를 `basic`으로 설정할 수 있습니다. 이렇게 하면 설정 `"password-store":"basic"`을 추가할 수 있는 `argv.json` 파일이 열립니다.
 
-## Can I share settings between VS Code Stable and Insiders?
+## VS Code 안정 버전과 인사이더 간에 설정을 공유할 수 있나요? {#can-i-share-settings-between-vs-code-stable-and-insiders}
 
-Yes. Please refer to the [Syncing Stable versus Insiders](#syncing-stable-versus-insiders) section for more information.
+네. 자세한 내용은 [안정 버전과 인사이더 동기화](#syncing-stable-versus-insiders) 섹션을 참조하십시오.
 
-Please note that this can sometimes lead to data incompatibility because Insiders builds are newer than Stable builds. In such cases, Settings Sync will be disabled automatically on Stable to prevent data inconsistencies. Once a newer version of the Stable build is released, you can upgrade your client and turn on Settings Sync to continue syncing.
+이로 인해 데이터 호환성 문제가 발생할 수 있으며, 인사이더 빌드는 안정 빌드보다 최신이기 때문입니다. 이러한 경우 안정 버전에서 데이터 불일치를 방지하기 위해 설정 동기화가 자동으로 비활성화됩니다. 안정 버전의 최신 버전이 출시되면 클라이언트를 업그레이드하고 설정 동기화를 켜서 계속 동기화할 수 있습니다.

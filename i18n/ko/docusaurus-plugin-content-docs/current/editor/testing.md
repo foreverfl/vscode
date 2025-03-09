@@ -1,187 +1,187 @@
 ---
 Order: 8
 Area: editor
-TOCTitle: Testing
+TOCTitle: 테스트
 ContentId: d44f1a5c-5454-4037-92d5-c2bf5d4cffed
-PageTitle: Testing in Visual Studio Code
+PageTitle: Visual Studio Code에서의 테스트
 DateApproved: 03/05/2025
-MetaDescription: One of the great things in Visual Studio Code is testing support. Automatically discover tests in your project, run and debug your tests, and get test coverage results.
+MetaDescription: Visual Studio Code의 훌륭한 기능 중 하나는 테스트 지원입니다. 프로젝트에서 테스트를 자동으로 발견하고, 테스트를 실행 및 디버그하며, 테스트 커버리지 결과를 확인할 수 있습니다.
 ---
-# Testing
+# 테스트 {#testing}
 
-Visual Studio Code provides a rich set of features for testing your code. You can automatically discover tests in your project, run and debug your tests, and get test coverage results. GitHub Copilot in VS Code can assist with setting up the testing framework for your project, and help you generate test code and fix failing tests.
+Visual Studio Code는 코드 테스트를 위한 풍부한 기능 세트를 제공합니다. 프로젝트에서 테스트를 자동으로 발견하고, 테스트를 실행 및 디버그하며, 테스트 커버리지 결과를 확인할 수 있습니다. VS Code의 GitHub Copilot은 프로젝트의 테스트 프레임워크 설정을 도와주고, 테스트 코드를 생성하며, 실패한 테스트를 수정하는 데 도움을 줄 수 있습니다.
 
-In this article, you'll learn how to start with testing in VS Code, find popular testing extensions, and explore the testing features. You'll also learn how Copilot in VS Code can help you write tests faster and can assist you in fixing failing tests.
+이 기사에서는 VS Code에서 테스트를 시작하는 방법, 인기 있는 테스트 확장을 찾는 방법, 테스트 기능을 탐색하는 방법을 배울 것입니다. 또한 VS Code의 Copilot이 테스트를 더 빠르게 작성하는 데 어떻게 도움을 줄 수 있는지, 실패한 테스트를 수정하는 데 어떻게 도움을 줄 수 있는지도 배울 것입니다.
 
 > [!TIP]
-> If you don't have a Copilot subscription yet, use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup). You'll get a monthly limit of completions and chat interactions.
+> 아직 Copilot 구독이 없다면, [Copilot 무료 플랜](https://github.com/github-copilot/signup)에 가입하여 무료로 Copilot을 사용해 보세요. 매달 완료 및 채팅 상호작용의 한도가 제공됩니다.
 
-<!-- ![Testing in Visual Studio Code](images/testing/testing-hero.png) -->
+<!-- ![Visual Studio Code에서의 테스트](images/testing/testing-hero.png) -->
 
-## About testing in VS Code
+## VS Code에서의 테스트에 대하여 {#about-testing-in-vs-code}
 
-Testing support in VS Code is language-specific and depends on the [testing extensions](#extensions-for-testing) you have installed. Language extensions or standalone extensions can implement the testing features for a particular language or testing framework.
+VS Code의 테스트 지원은 언어별이며, 설치된 [테스트 확장](#extensions-for-testing)에 따라 다릅니다. 언어 확장 또는 독립 실행형 확장은 특정 언어 또는 테스트 프레임워크에 대한 테스트 기능을 구현할 수 있습니다.
 
-VS Code has the following features for testing your code:
+VS Code는 코드 테스트를 위한 다음과 같은 기능을 제공합니다:
 
-* **Support multiple testing frameworks**: language [extensions](#extensions-for-testing) and standalone testing extensions provide support for various languages and test runners, such as Jest, Mocha, Pytest, JUnit, and more.
+* **다양한 테스트 프레임워크 지원**: 언어 [확장](#extensions-for-testing) 및 독립 실행형 테스트 확장은 Jest, Mocha, Pytest, JUnit 등 다양한 언어와 테스트 러너를 지원합니다.
 
-* **Centralized test management**: the [Test Explorer](#automatic-test-discovery-in-testing-view) provides a centralized place to manage and run the tests in your project. The Test Explorer might automatically discover the tests in your project, depending on the testing extension.
+* **중앙 집중식 테스트 관리**: [테스트 탐색기](#automatic-test-discovery-in-testing-view)는 프로젝트 내의 테스트를 관리하고 실행할 수 있는 중앙 집중식 장소를 제공합니다. 테스트 확장에 따라 테스트 탐색기가 프로젝트 내의 테스트를 자동으로 발견할 수 있습니다.
 
-* **Integrated test results**: view the test status inline in the editor alongside the test code, or view all tests in the Test Explorer. Detailed test results are available in the Test Results panel.
+* **통합된 테스트 결과**: 테스트 코드 옆에 인라인으로 테스트 상태를 보거나, 테스트 탐색기에서 모든 테스트를 볼 수 있습니다. 자세한 테스트 결과는 테스트 결과 패널에서 확인할 수 있습니다.
 
-* **Debugging**: [debug](#run-and-debug-tests) your tests to diagnose test failures. Take advantage of the rich [debugging support](/docs/editor/debugging.md) in VS Code, such as breakpoints, watch variables, and more.
+* **디버깅**: [테스트 디버깅](#run-and-debug-tests)을 통해 테스트 실패를 진단합니다. VS Code의 풍부한 [디버깅 지원](/docs/editor/debugging.md)을 활용하여 중단점, 변수 감시 등을 사용할 수 있습니다.
 
-* **Test coverage**: [run tests with coverage](#test-coverage) to see how much of your code is covered by your tests.
+* **테스트 커버리지**: [커버리지와 함께 테스트 실행](#test-coverage)하여 코드의 얼마나 많은 부분이 테스트로 커버되는지 확인합니다.
 
-* **AI-assisted testing**: use GitHub Copilot in VS Code to assist you with setting up your testing framework, generating test code, and fixing failing tests.
+* **AI 지원 테스트**: VS Code에서 GitHub Copilot을 사용하여 테스트 프레임워크 설정, 테스트 코드 생성 및 실패한 테스트 수정에 도움을 받을 수 있습니다.
 
-* **Task integration**: make your testing work easier by [creating tasks to run your tests](#task-integration). You can also run your tests in the background when you change your code.
+* **작업 통합**: [테스트 실행을 위한 작업 생성](#task-integration)으로 테스트 작업을 더 쉽게 만듭니다. 코드 변경 시 백그라운드에서 테스트를 실행할 수도 있습니다.
 
-## Get started with testing in VS Code
+## VS Code에서 테스트 시작하기 {#get-started-with-testing-in-vs-code}
 
-To get started with testing in VS Code, follow these steps:
+VS Code에서 테스트를 시작하려면 다음 단계를 따르세요:
 
-1. Open the Extensions view and install a testing extension for your project. Filter the extensions by the **Testing** category (_@category:"testing"_).
+1. 확장 보기에서 프로젝트에 대한 테스트 확장을 설치합니다. **테스트** 카테고리로 확장을 필터링합니다 (_@category:"testing"_).
 
-1. Select the beaker icon (<i class="codicon codicon-beaker"></i>) in the Activity Bar to open the Test Explorer and discover the tests in your project.
+1. 활동 표시줄에서 비커 아이콘(<i class="codicon codicon-beaker"></i>)을 선택하여 테스트 탐색기를 열고 프로젝트 내의 테스트를 발견합니다.
 
-1. Run and debug your tests from the Test Explorer or directly from the editor.
+1. 테스트 탐색기 또는 편집기에서 직접 테스트를 실행하고 디버그합니다.
 
-## Extensions for testing
+## 테스트를 위한 확장 {#extensions-for-testing}
 
-You can find extensions that support testing by looking in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Testing&sortBy=Installs). You can also go to the Extensions view (`kb(workbench.view.extensions)`), and filter by the **Testing** category.
+테스트를 지원하는 확장은 [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Testing&sortBy=Installs)에서 찾을 수 있습니다. 또한 확장 보기(`kb(workbench.view.extensions)`)로 이동하여 **테스트** 카테고리로 필터링할 수 있습니다.
 
 <div class="marketplace-extensions-testing-tools-curated"></div>
 
 > [!TIP]
-> Copilot can assist with setting up a testing framework and suggesting relevant testing extensions. Open the Chat view (`kb(workbench.action.chat.open)`), enter the `/setupTests` command, and Copilot will guide you through the process of configuring your project.
+> Copilot은 테스트 프레임워크 설정 및 관련 테스트 확장 제안에 도움을 줄 수 있습니다. 채팅 보기(`kb(workbench.action.chat.open)`)를 열고 `/setupTests` 명령을 입력하면 Copilot이 프로젝트 구성 과정을 안내합니다.
 
-## Automatic test discovery in Testing view
+## 테스트 보기에서의 자동 테스트 발견 {#automatic-test-discovery-in-testing-view}
 
-The Testing view provides a centralized place to manage and run your tests. You can get to the Testing view by selecting the beaker icon (<i class="codicon codicon-beaker"></i>) in the Activity Bar. You can also use the **Testing: Focus on Test Explorer View** command in the Command Palette (`kb(workbench.action.showCommands)`).
+테스트 보기는 테스트를 관리하고 실행할 수 있는 중앙 집중식 장소를 제공합니다. 활동 표시줄에서 비커 아이콘(<i class="codicon codicon-beaker"></i>)을 선택하여 테스트 보기로 이동할 수 있습니다. 또한 명령 팔레트(`kb(workbench.action.showCommands)`)에서 **테스트: 테스트 탐색기 보기 집중** 명령을 사용할 수 있습니다.
 
-If you have a project with tests, the Test Explorer view discovers and lists the tests in your workspace. By default, the discovered tests are displayed in a tree view in the Test Explorer. The tree view matches the hierarchical structure of your tests, making it easy to navigate and run your tests.
+테스트가 있는 프로젝트가 있는 경우, 테스트 탐색기 보기는 작업 공간 내의 테스트를 발견하고 나열합니다. 기본적으로 발견된 테스트는 테스트 탐색기에서 트리 보기로 표시됩니다. 트리 보기는 테스트의 계층 구조와 일치하여 테스트를 쉽게 탐색하고 실행할 수 있습니다.
 
-![Screenshot that shows VS Code with the Test Explorer showing the tests, matching the test code that is shown in the editor.](images/testing/test-explorer-view.png)
+![테스트 코드와 일치하는 테스트를 보여주는 테스트 탐색기가 있는 VS Code의 스크린샷.](images/testing/test-explorer-view.png)
 
-You can run tests from the Test Explorer by selecting the play button. Learn more about running and debugging tests in the [Run and debug tests](#run-and-debug-tests) section.
+테스트 탐색기에서 재생 버튼을 선택하여 테스트를 실행할 수 있습니다. [테스트 실행 및 디버깅](#run-and-debug-tests) 섹션에서 테스트 실행 및 디버깅에 대해 더 알아보세요.
 
 > [!TIP]
-> Navigate to the test code by double-clicking on the test in the Test Explorer view. If you select a test that failed, the editor opens the test file, highlights the failed test, and shows the error message.
+> 테스트 탐색기 보기에서 테스트를 더블 클릭하여 테스트 코드로 이동합니다. 실패한 테스트를 선택하면 편집기가 테스트 파일을 열고, 실패한 테스트를 강조 표시하며, 오류 메시지를 보여줍니다.
 
-If you have many tests, you can use the filtering options to quickly find the tests you're interested in. You can use the **Filter** button to filter tests by status or only show tests for the current file. You can also use the search box to search for specific tests by name or use the `@` symbol to search by status.
+테스트가 많을 경우 필터링 옵션을 사용하여 관심 있는 테스트를 빠르게 찾을 수 있습니다. **필터** 버튼을 사용하여 상태별로 테스트를 필터링하거나 현재 파일의 테스트만 표시할 수 있습니다. 특정 테스트 이름으로 검색하거나 `@` 기호를 사용하여 상태별로 검색할 수도 있습니다.
 
-![Test Explorer view with filtering options](images/testing/test-explorer-view-filtering.png)
+![필터링 옵션이 있는 테스트 탐색기 보기](images/testing/test-explorer-view-filtering.png)
 
-In the **More Actions** menu, you can access more functionality, such as sort and display options.
+**더 많은 작업** 메뉴에서 정렬 및 표시 옵션과 같은 추가 기능에 접근할 수 있습니다.
 
-If you add new tests or change your tests, use the **Refresh Tests** button to refresh the list of tests in the Test Explorer. You can also use the **Test Explorer: Reload tests** command in the Command Palette (`kb(workbench.action.showCommands)`).
+새로운 테스트를 추가하거나 테스트를 변경한 경우, **테스트 새로 고침** 버튼을 사용하여 테스트 탐색기에서 테스트 목록을 새로 고칩니다. 또한 명령 팔레트(`kb(workbench.action.showCommands)`)에서 **테스트 탐색기: 테스트 새로 고침** 명령을 사용할 수 있습니다.
 
 > [!NOTE]
-> Depending on the testing extension, you might first have to configure the test framework or test runner to discover the tests in your project. For more information, consult the documentation of the testing extension. You can use the `setupTests` command in Copilot Chat view to get help with setting up a testing framework for your project.
+> 테스트 확장에 따라, 프로젝트 내의 테스트를 발견하기 위해 먼저 테스트 프레임워크 또는 테스트 러너를 구성해야 할 수 있습니다. 자세한 내용은 테스트 확장의 문서를 참조하세요. Copilot 채팅 보기에서 `setupTests` 명령을 사용하여 프로젝트의 테스트 프레임워크 설정에 대한 도움을 받을 수 있습니다.
 
-## Write tests with AI
+## AI로 테스트 작성하기 {#write-tests-with-ai}
 
-Writing tests can be time-consuming and they're often neglected. Copilot can speed up the process of writing tests by creating test code for your application. You can use it to write unit tests, integration tests, end-to-end tests, and more.
+테스트 작성은 시간이 많이 소요될 수 있으며 종종 간과됩니다. Copilot은 애플리케이션의 테스트 코드를 생성하여 테스트 작성 과정을 가속화할 수 있습니다. 이를 통해 단위 테스트, 통합 테스트, 엔드 투 엔드 테스트 등을 작성할 수 있습니다.
 
-To write tests with Copilot in VS Code, you can use either of these methods:
+VS Code에서 Copilot을 사용하여 테스트를 작성하려면 다음 방법 중 하나를 사용할 수 있습니다:
 
-* Editor smart actions
+* 편집기 스마트 작업
 
-	1. Optionally, select a block of application code
+	1. 선택적으로 애플리케이션 코드 블록을 선택합니다.
 
-	1. Right-click in the editor, and then select **Copilot** > **Generate Tests**
+	1. 편집기에서 마우스 오른쪽 버튼을 클릭한 후 **Copilot** > **테스트 생성**을 선택합니다.
 
-* Chat prompts
+* 채팅 프롬프트
 
-	1. Open the application code file for which you want to generate tests
+	1. 테스트를 생성할 애플리케이션 코드 파일을 엽니다.
 
-	1. Open the Copilot Edits (`kb(workbench.action.chat.openEditSession)`), the Chat view (`kb(workbench.action.chat.open)`), or the editor Inline Chat (`kb(inlineChat.start)`)
+	1. Copilot Edits(`kb(workbench.action.chat.openEditSession)`), 채팅 보기(`kb(workbench.action.chat.open)`), 또는 편집기 인라인 채팅(`kb(inlineChat.start)`)을 엽니다.
 
-	1. Enter a prompt to generate tests, such as _Generate tests for this code. Also include tests for edge cases._
+	1. _이 코드에 대한 테스트를 생성합니다. 엣지 케이스에 대한 테스트도 포함합니다._와 같은 테스트 생성을 위한 프롬프트를 입력합니다.
 
-		Add extra context to your prompt by typing `#file` in the prompt. For example, _Generate tests for this code #file:calculator.js_
+		프롬프트에 `#file`을 입력하여 추가 컨텍스트를 제공할 수 있습니다. 예를 들어, _이 코드에 대한 테스트 생성 #file:calculator.js_와 같이 입력합니다.
 
 		> [!TIP]
-		> Get more example prompts for [generating unit tests](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat/testing-code/generate-unit-tests), [mock objects](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat/testing-code/create-mock-objects-to-abstract-layers), or [end-to-end tests](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat/testing-code/create-end-to-end-tests-for-a-webpage) in the GitHub Copilot documentation.
+		> [단위 테스트 생성](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat/testing-code/generate-unit-tests), [모의 객체](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat/testing-code/create-mock-objects-to-abstract-layers), 또는 [엔드 투 엔드 테스트](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat/testing-code/create-end-to-end-tests-for-a-webpage)에 대한 더 많은 예제 프롬프트를 GitHub Copilot 문서에서 확인하세요.
 
-Copilot will generate test cases code for your application code. If you already have a tests file, Copilot will add the tests there, or create a new file, if needed. You can further customize the generated tests by providing more prompts to Copilot. For example, you can ask Copilot to use another testing framework.
-
-> [!TIP]
-> You can give Copilot your own [special instructions for generating code](/docs/copilot/copilot-customization.md). For example, you can tell Copilot to use a certain testing framework, naming convention, or code structure.
-
-Learn more about [using Copilot in VS Code](/docs/copilot/overview.md).
-
-## Run and debug tests
-
-After the discovery of the tests in your project, you can run and debug your tests, and view test results directly from within VS Code.
-
-In the Test Explorer, use the controls in the section heading to run or debug all tests. You can also run or debug specific tests in the tree view by selecting the run/debug icon on a specific node.
-
-![Run and debug tests in Test Explorer](images/testing/run-debug-tests-test-explorer.png)
-
-As you're viewing the test code in the editor, use the play control in the editor gutter to run the test at that position.
-
-![Run and debug tests in editor gutter](images/testing/run-debug-tests-editor-gutter.png)
-
-Right-click on the gutter control to view other actions, such as debugging the test.
+Copilot은 애플리케이션 코드에 대한 테스트 케이스 코드를 생성합니다. 이미 테스트 파일이 있는 경우, Copilot은 그곳에 테스트를 추가하거나 필요에 따라 새 파일을 생성합니다. 생성된 테스트는 Copilot에 추가 프롬프트를 제공하여 더 사용자 정의할 수 있습니다. 예를 들어, 다른 테스트 프레임워크를 사용하도록 Copilot에 요청할 수 있습니다.
 
 > [!TIP]
-> Configure the default testing action for the gutter control by using the `setting(testing.defaultGutterClickAction)` setting.
+> Copilot에 대한 [특별 지침을 제공하여 코드 생성을 할 수 있습니다](/docs/copilot/copilot-customization.md). 예를 들어, 특정 테스트 프레임워크, 명명 규칙 또는 코드 구조를 사용하도록 Copilot에 지시할 수 있습니다.
 
-After you run one or more tests, the editor gutter and tree view in the Test Explorer display the corresponding test status (passed/failed). When a test fails, notice that the test error message is shown as an overlay in the editor.
+[VS Code에서 Copilot 사용하기](/docs/copilot/overview.md)에 대해 더 알아보세요.
 
-![Screenshot that shows a test error message overlay in the editor.](images/testing/editor-failed-test-message.png)
+## 테스트 실행 및 디버깅 {#run-and-debug-tests}
 
-Use the **Show Output** button in the Test Explorer to view the test output in the **Test Results** panel.
+프로젝트 내의 테스트가 발견된 후, VS Code 내에서 테스트를 실행하고 디버그하며 테스트 결과를 직접 확인할 수 있습니다.
 
-![Test Results panel](images/testing/test-results-panel.png)
+테스트 탐색기에서 섹션 제목의 컨트롤을 사용하여 모든 테스트를 실행하거나 디버그합니다. 특정 노드에서 실행/디버그 아이콘을 선택하여 트리 보기에서 특정 테스트를 실행하거나 디버그할 수도 있습니다.
+
+![테스트 탐색기에서 테스트 실행 및 디버깅](images/testing/run-debug-tests-test-explorer.png)
+
+편집기에서 테스트 코드를 보고 있을 때, 편집기 여백의 재생 컨트롤을 사용하여 해당 위치에서 테스트를 실행합니다.
+
+![편집기 여백에서 테스트 실행 및 디버깅](images/testing/run-debug-tests-editor-gutter.png)
+
+여백 컨트롤을 마우스 오른쪽 버튼으로 클릭하여 테스트 디버깅과 같은 다른 작업을 볼 수 있습니다.
 
 > [!TIP]
-> Copilot can help you fix failing tests. In the Test Explorer, hover over the tree view, and select the **Fix Test Failure** button (_sparkle_) and Copilot will suggest a fix for the failing test. Alternatively, enter the `/fixTestFailure` command in Copilot Chat.
+> 여백 컨트롤의 기본 테스트 작업을 구성하려면 `setting(testing.defaultGutterClickAction)` 설정을 사용하세요.
 
-![Screenshot showing the Test Explorer, highlighting the "Fix Test Failure" button, and the editor that shows a suggestion from Copilot on how to fix the failing test.](images/testing/copilot-fix-test-failure.png)
+하나 이상의 테스트를 실행한 후, 편집기 여백과 테스트 탐색기의 트리 보기는 해당 테스트 상태(통과/실패)를 표시합니다. 테스트가 실패하면, 테스트 오류 메시지가 편집기에서 오버레이로 표시됩니다.
 
-## Test coverage
+![편집기에서 테스트 오류 메시지 오버레이를 보여주는 스크린샷.](images/testing/editor-failed-test-message.png)
 
-Test coverage is a measure of how much of your code is covered by your tests. It helps you identify areas of your code that are not being tested. VS Code supports running tests with coverage and viewing the coverage results if the corresponding testing extension support test coverage.
+테스트 탐색기에서 **출력 표시** 버튼을 사용하여 **테스트 결과** 패널에서 테스트 출력을 확인합니다.
 
-You can run tests with coverage, just like you can run and debug tests. Use corresponding the actions in the Test Explorer view, editor gutter, or commands in the Command Palette (`kb(workbench.action.showCommands)`).
+![테스트 결과 패널](images/testing/test-results-panel.png)
 
-![Run tests with coverage](images/testing/run-tests-with-coverage.png)
+> [!TIP]
+> Copilot은 실패한 테스트를 수정하는 데 도움을 줄 수 있습니다. 테스트 탐색기에서 트리 보기를 마우스 오버하고 **테스트 실패 수정** 버튼(_sparkle_)을 선택하면 Copilot이 실패한 테스트에 대한 수정 제안을 합니다. 또는 Copilot 채팅에서 `/fixTestFailure` 명령을 입력할 수 있습니다.
 
-After you run tests with coverage, you can view the coverage results in different locations:
+![테스트 탐색기를 보여주는 스크린샷, "테스트 실패 수정" 버튼을 강조 표시하고, 실패한 테스트를 수정하는 방법에 대한 Copilot의 제안을 보여주는 편집기.](images/testing/copilot-fix-test-failure.png)
 
-* In the Test Coverage view
+## 테스트 커버리지 {#test-coverage}
 
-    A tree view shows the tests with their coverage percentage. A color indicator also gives a visual cue about the coverage percentage. Hover over each line to see more details about the coverage results.
+테스트 커버리지는 코드의 얼마나 많은 부분이 테스트로 커버되는지를 측정하는 것입니다. 이는 테스트되지 않은 코드 영역을 식별하는 데 도움이 됩니다. VS Code는 커버리지와 함께 테스트를 실행하고, 해당 테스트 확장이 테스트 커버리지를 지원하는 경우 커버리지 결과를 볼 수 있습니다.
 
-    ![Test Coverage view](images/testing/test-coverage-view.png)
+테스트를 커버리지와 함께 실행할 수 있으며, 테스트를 실행하고 디버깅하는 것과 동일한 방식으로 수행할 수 있습니다. 테스트 탐색기 보기, 편집기 여백 또는 명령 팔레트(`kb(workbench.action.showCommands)`)의 해당 작업을 사용하세요.
 
-* As an overlay in the editor
+![커버리지와 함께 테스트 실행](images/testing/run-tests-with-coverage.png)
 
-    For code files that have test coverage, the editor shows a color overlay in the gutter to indicate which lines are covered by tests or not. When you hover over the gutter, notice that for covered lines, there is also an indicator for the number of times the line was executed. You can also select the **Show Inline Coverage** button in the editor title bar or use the **Test: Show Inline Coverage** command (`kb(testing.toggleInlineCoverage)`) to toggle the coverage overlay.
+커버리지와 함께 테스트를 실행한 후, 다양한 위치에서 커버리지 결과를 확인할 수 있습니다:
 
-    ![View coverage in editor](images/testing/view-coverage-in-editor.png)
+* 테스트 커버리지 보기
 
-* In the Explorer view, which shows the coverage percentage of your code files
+    트리 보기가 테스트와 그 커버리지 비율을 보여줍니다. 색상 지표는 커버리지 비율에 대한 시각적 신호를 제공합니다. 각 줄 위에 마우스를 올리면 커버리지 결과에 대한 자세한 정보를 확인할 수 있습니다.
 
-    The Explorer view shows the coverage percentage of your code files. Hover over a file or node in the Explorer to see more details about the coverage results.
+    ![테스트 커버리지 보기](images/testing/test-coverage-view.png)
 
-    ![View coverage in Explorer view](images/testing/view-coverage-in-explorer.png)
+* 편집기에서 오버레이로
 
-* In the diff editor
+    테스트 커버리가 있는 코드 파일의 경우, 편집기는 여백에 색상 오버레이를 표시하여 어떤 줄이 테스트로 커버되었는지 또는 그렇지 않은지를 나타냅니다. 여백 위에 마우스를 올리면 커버된 줄에 대해 해당 줄이 실행된 횟수에 대한 지표도 표시됩니다. 편집기 제목 표시줄에서 **인라인 커버리지 표시** 버튼을 선택하거나 **테스트: 인라인 커버리지 표시** 명령(`kb(testing.toggleInlineCoverage)`)을 사용하여 커버리지 오버레이를 전환할 수 있습니다.
 
-    If you have a diff editor open, the coverage results are also shown in the diff editor, similar to how they're shown in the editor.
+    ![편집기에서 커버리지 보기](images/testing/view-coverage-in-editor.png)
 
-## Task integration
+* 탐색기 보기에서, 코드 파일의 커버리지 비율을 표시합니다.
 
-Tasks in VS Code can be configured to run scripts and start processes within VS Code, without having to enter a command line or write new code. In VS Code, you can define a default test task that runs your tests, and optionally create keyboard shortcuts to run the tests.
+    탐색기 보기는 코드 파일의 커버리지 비율을 보여줍니다. 탐색기에서 파일이나 노드 위에 마우스를 올리면 커버리지 결과에 대한 자세한 정보를 확인할 수 있습니다.
 
-Use the command **Tasks: Configure Default Test Task** to configure the default test task. VS Code tries to automatically detect the test task, for example based on your `package.json` file. After you select the default test task, the `tasks.json` file is opened for you to customize the task.
+    ![탐색기 보기에서 커버리지 보기](images/testing/view-coverage-in-explorer.png)
 
-The following code snippet shows a `tasks.json` file that specifies the `node --test` command as the default test task.
+* 차이점 편집기에서
+
+    차이점 편집기가 열려 있는 경우, 커버리지 결과는 편집기에서 표시되는 방식과 유사하게 차이점 편집기에서도 표시됩니다.
+
+## 작업 통합 {#task-integration}
+
+VS Code의 작업은 스크립트를 실행하고 VS Code 내에서 프로세스를 시작하도록 구성할 수 있으며, 명령줄에 입력하거나 새 코드를 작성할 필요가 없습니다. VS Code에서는 테스트를 실행하는 기본 테스트 작업을 정의하고, 선택적으로 테스트를 실행하기 위한 키보드 단축키를 만들 수 있습니다.
+
+**작업: 기본 테스트 작업 구성** 명령을 사용하여 기본 테스트 작업을 구성합니다. VS Code는 `package.json` 파일을 기반으로 테스트 작업을 자동으로 감지하려고 시도합니다. 기본 테스트 작업을 선택한 후, `tasks.json` 파일이 열려 작업을 사용자 정의할 수 있습니다.
+
+다음 코드 조각은 `node --test` 명령을 기본 테스트 작업으로 지정하는 `tasks.json` 파일을 보여줍니다.
 
 ```json
 {
@@ -202,32 +202,33 @@ The following code snippet shows a `tasks.json` file that specifies the `node --
 }
 ```
 
-To run the test task, use the command **Tasks: Run Test Task** or [create a keyboard shortcut](/docs/editor/keybindings.md) for the command.
+테스트 작업을 실행하려면 **작업: 테스트 작업 실행** 명령을 사용하거나 [명령에 대한 키보드 단축키 만들기](/docs/editor/keybindings.md)를 사용할 수 있습니다.
 
-Learn more about [using and configuring Tasks](/docs/editor/tasks.md).
+[작업 사용 및 구성하기](/docs/editor/tasks.md)에 대해 더 알아보세요.
 
 > [!NOTE]
-> Currently, tasks don't have special integration into VS Code's testing functionality, so running tests in a task won't update the user interface. Individual testing extensions can provide specific test automation functionality that integrates in the UI.
+> 현재 작업은 VS Code의 테스트 기능과 특별한 통합이 없으므로, 작업 내에서 테스트를 실행하면 사용자 인터페이스가 업데이트되지 않습니다. 개별 테스트 확장은 UI에 통합된 특정 테스트 자동화 기능을 제공할 수 있습니다.
 
-## Test configuration settings
+## 테스트 구성 설정 {#test-configuration-settings}
 
-There are multiple settings that you can configure to customize the testing experience in VS Code. Each language extension might provide additional settings specific to testing in that language. Here are some common settings that you can configure:
+VS Code에서 테스트 경험을 사용자 정의하기 위해 구성할 수 있는 여러 설정이 있습니다. 각 언어 확장은 해당 언어의 테스트에 특정한 추가 설정을 제공할 수 있습니다. 다음은 구성할 수 있는 일반적인 설정입니다:
 
-| Setting ID | Details |
+| 설정 ID | 세부 사항 |
 |-|-|
-| `setting(testing.countBadge)` | Controls the count badge on the Testing icon on the Activity Bar |
-| `setting(testing.gutterEnabled)` | Configure whether to show the test control in the editor gutter |
-| `setting(testing.defaultGutterClickAction)` | Configure the default action when selecting the gutter test control |
-| `setting(testing.coverageBarThresholds)` | Configure the colors for the coverage bar thresholds for the Test Coverage view |
-| `setting(testing.displayedCoveragePercent)` | Configure what percentage value is displayed in the Test Coverage view (total, statement, or minimum) |
-| `setting(testing.showCoverageInExplorer)` | Configure whether to show the coverage percentage in the Explorer view |
+| `setting(testing.countBadge)` | 활동 표시줄의 테스트 아이콘에 대한 카운트 배지를 제어합니다. |
+| `setting(testing.gutterEnabled)` | 편집기 여백에 테스트 컨트롤을 표시할지 여부를 구성합니다. |
+| `setting(testing.defaultGutterClickAction)` | 여백 테스트 컨트롤을 선택할 때의 기본 동작을 구성합니다. |
+| `setting(testing.coverageBarThresholds)` | 테스트 커버리지 보기의 커버리지 바 임계값에 대한 색상을 구성합니다. |
+| `setting(testing.displayedCoveragePercent)` | 테스트 커버리지 보기에서 표시되는 비율 값을 구성합니다 (총, 문장, 또는 최소). |
+| `setting(testing.showCoverageInExplorer)` | 탐색기 보기에서 커버리지 비율을 표시할지 여부를 구성합니다. |
 
-You can find all testing-related settings in the Settings editor (`kb(workbench.action.openSettings)`).
+모든 테스트 관련 설정은 설정 편집기(`kb(workbench.action.openSettings)`)에서 찾을 수 있습니다.
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-* Get started with testing in [Python](/docs/python/testing.md), [Java](/docs/java/java-testing.md), or [C#](/docs/csharp/testing.md)
+* [Python](/docs/python/testing.md), [Java](/docs/java/java-testing.md), 또는 [C#](/docs/csharp/testing.md)에서 테스트 시작하기
 
-* Learn more about [Copilot and AI-assisted testing in VS Code](/docs/copilot/overview.md)
+* [VS Code에서 Copilot 및 AI 지원 테스트에 대해 더 알아보기](/docs/copilot/overview.md)
 
-* Learn more about [using and configuring Tasks](/docs/editor/tasks.md)
+* [작업 사용 및 구성하기](/docs/editor/tasks.md)에 대해 더 알아보기
+---
