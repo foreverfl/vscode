@@ -193,7 +193,8 @@ node로 Node.js 프로그램을 직접 시작하는 대신, Launch 설정에서 
   "name": "npm으로 시작",
   "type": "node",
   "request": "launch",
-  "cwd": "${workspaceFolder}",
+  "cwd": "$\{workspaceFolder\}
+",
   "runtimeExecutable": "npm",
   "runtimeArgs": ["run-script", "debug"]
 }
@@ -209,7 +210,8 @@ node로 Node.js 프로그램을 직접 시작하는 대신, Launch 설정에서 
   "request": "launch",
   "name": "테스트 시작",
   "runtimeVersion": "14",
-  "program": "${workspaceFolder}/test.js"
+  "program": "$\{workspaceFolder\}
+/test.js"
 }
 ```
 
@@ -221,7 +223,8 @@ node로 Node.js 프로그램을 직접 시작하는 대신, Launch 설정에서 
   "request": "launch",
   "name": "테스트 시작",
   "runtimeVersion": "chackracore/8.9.4/x64",
-  "program": "${workspaceFolder}/test.js"
+  "program": "$\{workspaceFolder\}
+/test.js"
 }
 ```
 
@@ -235,7 +238,8 @@ VS Code Node 디버거는 파일에서 환경 변수를 로드하여 Node.js 런
 
 ```json
    //...
-   "envFile": "${workspaceFolder}/.env",
+   "envFile": "$\{workspaceFolder\}
+/.env",
    "env": { "USER": "john doe" }
    //...
 ```
@@ -325,7 +329,8 @@ Launch 설정에 새 프로세스 ID를 반복해서 입력하는 것을 피하�
   "name": "프로세스에 연결",
   "type": "node",
   "request": "attach",
-  "processId": "${command:PickProcess}"
+  "processId": "$\{command:PickProcess\}
+"
 }
 ```
 
@@ -390,7 +395,8 @@ Webpack은 [많은](https://webpack.js.org/configuration/devtool/) 소스 맵 �
       "type": "node",
       "request": "launch",
       "program": "app.ts",
-      "outFiles": ["${workspaceFolder}/bin/**/*.js"]
+      "outFiles": ["$\{workspaceFolder\}
+/bin/**/*.js"]
     }
   ]
 }
@@ -444,14 +450,17 @@ TypeScript에서 소스 맵을 활성화하고 `app.ts` 파일을 빌드하면, 
 
 ```js
 {
-  'webpack:///./~/*': "${workspaceFolder}/node_modules/*",
+  'webpack:///./~/*': "$\{workspaceFolder\}
+/node_modules/*",
   'webpack:////*': '/*',
-  'webpack://@?:*/?:*/*': "${workspaceFolder}/*",
+  'webpack://@?:*/?:*/*': "$\{workspaceFolder\}
+/*",
   // 그리고 더 많은 패턴들...
 }
 ```
 
-이는 소스 맵의 경로나 URL을 왼쪽에서 오른쪽으로 매핑합니다. 패턴 `?:*`는 탐욕적이지 않은, 캡처하지 않는 매치이고, `*`는 탐욕적 캡처 매치입니다. 그러면 디버거는 소스 맵 경로에서 캡처한 조각을 오른쪽 패턴의 해당 `*`로 대체합니다. 예를 들어, 위의 예제의 마지막 패턴은 `webpack://@my/package/foo/bar`를 `${workspaceFolder}/foo/bar`로 매핑합니다.
+이는 소스 맵의 경로나 URL을 왼쪽에서 오른쪽으로 매핑합니다. 패턴 `?:*`는 탐욕적이지 않은, 캡처하지 않는 매치이고, `*`는 탐욕적 캡처 매치입니다. 그러면 디버거는 소스 맵 경로에서 캡처한 조각을 오른쪽 패턴의 해당 `*`로 대체합니다. 예를 들어, 위의 예제의 마지막 패턴은 `webpack://@my/package/foo/bar`를 `$\{workspaceFolder\}
+/foo/bar`로 매핑합니다.
 
 브라우저 디버깅의 경우, 기본 `sourceMapPathOverrides`에서 `workspaceFolder` 대신 `webRoot`가 사용됩니다.
 
@@ -484,7 +493,8 @@ Node.js 디버거는 다른 기계나 컨테이너에서 실행 중인 프로세
   "name": "원격에 연결",
   "address": "디버깅할 프로세스의 TCP/IP 주소",
   "port": 9229,
-  "localRoot": "${workspaceFolder}",
+  "localRoot": "$\{workspaceFolder\}
+",
   "remoteRoot": "C:\\Users\\username\\project\\server"
 }
 ```
@@ -529,7 +539,8 @@ nodemon --inspect server.js
   "type": "node",
   "request": "launch",
   "runtimeExecutable": "nodemon",
-  "program": "${workspaceFolder}/server.js",
+  "program": "$\{workspaceFolder\}
+/server.js",
   "console": "integratedTerminal",
   "internalConsoleOptions": "neverOpen"
 }
@@ -589,6 +600,7 @@ Node.js 디버거가 지원하는 히트 카운트 구문은 정수이거나 `<`
 트리거된 중단점은 글리프 여백을 마우스 오른쪽 버튼으로 클릭하고 **Add Triggered Breakpoint**를 선택한 다음, 이 중단점을 활성화할 다른 중단점을 선택하여 설정할 수 있습니다.
 
 <video autoplay loop muted playsinline controls style={{ maxWidth: '100%' }}>
+
 <source src="https://code.visualstudio.com/assets/docs/editor/debugging/debug-triggered-breakpoint.mp4" type="video/mp4" />
 </video>
 
@@ -616,8 +628,10 @@ VS Code Node.js 디버깅에는 단계별로 실행하고 싶지 않은 소스 �
 
 ```typescript
   "skipFiles": [
-    "${workspaceFolder}/node_modules/**/*.js",
-    "${workspaceFolder}/lib/**/*.js"
+    "$\{workspaceFolder\}
+/node_modules/**/*.js",
+    "$\{workspaceFolder\}
+/lib/**/*.js"
   ]
 ```
 
@@ -654,8 +668,10 @@ Node.js의 내장 **코어 모듈**은 [glob 패턴](/docs/editor/glob-patterns.
 
 ```typescript
 "skipFiles": [
-    "${workspaceFolder}/node_modules/**/*.js",
-    "!${workspaceFolder}/node_modules/math/**/*.js"
+    "$\{workspaceFolder\}
+/node_modules/**/*.js",
+    "!$\{workspaceFolder\}
+/node_modules/math/**/*.js"
 ]
 ```
 

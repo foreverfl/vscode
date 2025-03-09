@@ -182,7 +182,8 @@ Debugger for Java는 라인 중단점, 조건부 중단점, 데이터 중단점,
 ### Launch {#launch}
 
 - `mainClass` (필수) - 프로그램 진입점의 완전한 클래스 이름(예: [java module name/]com.xyz.MainApp) 또는 java 파일 경로.
-- `args` - 프로그램에 전달되는 명령줄 인수. `"${command:SpecifyProgramArgs}"`를 사용하여 프로그램 인수를 묻는 메시지를 표시합니다. 문자열 또는 문자열 배열을 허용합니다.
+- `args` - 프로그램에 전달되는 명령줄 인수. `"$\{command:SpecifyProgramArgs\}
+"`를 사용하여 프로그램 인수를 묻는 메시지를 표시합니다. 문자열 또는 문자열 배열을 허용합니다.
 - `sourcePaths` - 프로그램의 추가 소스 디렉토리. 디버거는 기본적으로 프로젝트 설정에서 소스 코드를 찾습니다. 이 옵션을 사용하면 디버거가 추가 디렉토리에서 소스 코드를 찾을 수 있습니다.
 - `modulePaths` - JVM을 실행하기 위한 모듈 경로. 지정하지 않으면 디버거가 현재 프로젝트에서 자동으로 해결합니다.
   - `$Auto` - 현재 프로젝트의 모듈 경로를 자동으로 해결합니다.
@@ -199,7 +200,8 @@ Debugger for Java는 라인 중단점, 조건부 중단점, 데이터 중단점,
 - `encoding` - JVM의 `file.encoding` 설정. 지정하지 않으면 'UTF-8'이 사용됩니다. 가능한 값은 [지원되는 인코딩](https://docs.oracle.com/javase/8/docs/technotes/guides/intl/encoding.doc.html)에서 찾을 수 있습니다.
 - `vmArgs` - JVM의 추가 옵션 및 시스템 속성(예: -Xms\<size\> -Xmx\<size\> -D\<name\>=\<value\>), 문자열 또는 문자열 배열을 허용합니다.
 - `projectName` - 디버거가 클래스를 검색하는 선호 프로젝트. 다른 프로젝트에 중복된 클래스 이름이 있을 수 있습니다. 이 설정은 디버거가 프로그램을 실행할 때 지정된 메인 클래스를 찾을 때도 작동합니다. 작업 공간에 여러 Java 프로젝트가 있는 경우 필수이며, 그렇지 않으면 표현식 평가 및 조건부 중단점이 작동하지 않을 수 있습니다.
-- `cwd` - 프로그램의 작업 디렉토리. 기본값은 `${workspaceFolder}`입니다.
+- `cwd` - 프로그램의 작업 디렉토리. 기본값은 `$\{workspaceFolder\}
+`입니다.
 - `env` - 프로그램의 추가 환경 변수.
 - `envFile` - 환경 변수 정의가 포함된 파일의 절대 경로.
 - `stopOnEntry` - 실행 후 프로그램을 자동으로 일시 중지합니다.
@@ -224,7 +226,8 @@ Debugger for Java는 라인 중단점, 조건부 중단점, 데이터 중단점,
 - `hostName` (필수) - 원격 디버그 대상의 호스트 이름 또는 IP 주소.
 - `port` (필수) - 원격 디버그 대상의 디버그 포트.
 - `processId` - 첨부할 프로세스를 선택하거나 정수로 프로세스 ID를 사용합니다.
-  - `${command:PickJavaProcess}` - 첨부할 프로세스를 선택합니다.
+  - `$\{command:PickJavaProcess\}
+` - 첨부할 프로세스를 선택합니다.
   - 정수 PID - 지정된 로컬 프로세스에 첨부합니다.
 - `timeout` - 다시 연결하기 전의 시간 초과 값(밀리초, 기본값 30000ms).
 - `sourcePaths` - 프로그램의 추가 소스 디렉토리. 디버거는 기본적으로 프로젝트 설정에서 소스 코드를 찾습니다. 이 옵션을 사용하면 디버거가 추가 디렉토리에서 소스 코드를 찾을 수 있습니다.

@@ -7,6 +7,7 @@ PageTitle: C/C++ extension FAQ
 DateApproved: 1/17/2023
 MetaDescription: Frequently asked questions about the C/C++ extension in Visual Studio Code.
 ---
+
 # Frequently asked questions
 
 - [How do I get IntelliSense to work correctly?](#how-do-i-get-intellisense-to-work-correctly)
@@ -45,7 +46,8 @@ This array of path strings is used by the "Default" IntelliSense engine, which p
 
 This array of path strings is used by the "Tag Parser" ("browse engine"), which populates a database with global symbol information. This engine will **recursively** enumerate all files under the paths specified and track them as potential includes while tag parsing your project folder. To disable recursive enumeration of a path, you can append a `/*` to the path string.
 
-When you open a workspace for the first time, the extension adds `${workspaceFolder}/**` to the `includePath` and the `browse.path` is left undefined (so it defaults to the `includePath`). If this is undesirable, you can open your **c_cpp_properties.json** file and change it.
+When you open a workspace for the first time, the extension adds `$\{workspaceFolder\}
+/**` to the `includePath` and the `browse.path` is left undefined (so it defaults to the `includePath`). If this is undesirable, you can open your **c_cpp_properties.json** file and change it.
 
 ## Why do I see red squiggles under Standard Library types?
 
@@ -93,7 +95,7 @@ The debugger needs to be configured to know which executable and debugger to use
 
 From the main menu, select **Run** > **Add Configuration...**.
 
-The file `launch.json` will now be open for editing with a new configuration. The default settings will *probably* work except that you need to specify the `program` setting.
+The file `launch.json` will now be open for editing with a new configuration. The default settings will _probably_ work except that you need to specify the `program` setting.
 
 See [Configure C/C++ debugging](/docs/cpp/launch-json-reference.md) for more in-depth documentation on how to configure the debugger.
 
@@ -106,8 +108,10 @@ When in doubt, please check your compiler's documentation for the options necess
 ### Clang (C++)
 
 - If you invoke the compiler manually, add the `--debug` option.
-- If you're using a script, make sure the `CXXFLAGS` environment variable is set. For example, `export CXXFLAGS="${CXXFLAGS} --debug"`.
-- If you're using CMake, make sure the `CMAKE_CXX_FLAGS` is set. For example, `export CMAKE_CXX_FLAGS=${CXXFLAGS}`.
+- If you're using a script, make sure the `CXXFLAGS` environment variable is set. For example, `export CXXFLAGS="$\{CXXFLAGS\}
+--debug"`.
+- If you're using CMake, make sure the `CMAKE_CXX_FLAGS` is set. For example, `export CMAKE_CXX_FLAGS=$\{CXXFLAGS\}
+`.
 
 ### Clang (C)
 

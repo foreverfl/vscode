@@ -7,6 +7,7 @@ PageTitle: c_cpp_properties.json reference
 DateApproved: 10/31/2023
 MetaDescription: Schema reference for C++ project settings in Visual Studio Code.
 ---
+
 # c_cpp_properties.json reference
 
 This article explains the scheme for the `c_cpp_properties.json` settings file.
@@ -21,8 +22,10 @@ Note, this is an example of all fields. You do not need to specify all fields in
 {
     "env": {
         "myIncludePath": [
-            "${workspaceFolder}/include",
-            "${workspaceFolder}/src"
+            "$\{workspaceFolder\}
+/include",
+            "$\{workspaceFolder\}
+/src"
         ],
         "myDefines": [
             "DEBUG",
@@ -38,32 +41,40 @@ Note, this is an example of all fields. You do not need to specify all fields in
             ],
             "intelliSenseMode": "linux-gcc-x86",
             "includePath": [
-                "${myIncludePath}",
+                "$\{myIncludePath\}
+",
                 "/usr/include"
             ],
             "defines": [
-                "${myDefines}"
+                "$\{myDefines\}
+"
             ],
             "cStandard": "gnu11",
             "cppStandard": "gnu++14",
             "configurationProvider": "ms-vscode.cmake-tools",
             "forcedInclude": [
-                "${workspaceFolder}/common.h"
+                "$\{workspaceFolder\}
+/common.h"
             ],
-            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
-            "dotConfig": "${workspaceFolder}/.config",
+            "compileCommands": "$\{workspaceFolder\}
+/build/compile_commands.json",
+            "dotConfig": "$\{workspaceFolder\}
+/.config",
             "mergeConfigurations": true,
             "customConfigurationVariables": {
                 "myVar": "myvalue"
             },
             "browse": {
                 "path": [
-                    "${myIncludePath}",
+                    "$\{myIncludePath\}
+",
                     "/usr/include",
-                    "${workspaceFolder}"
+                    "$\{workspaceFolder\}
+"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
-                "databaseFilename": "${workspaceFolder}/.vscode/browse.vc.db"
+                "databaseFilename": "$\{workspaceFolder\}
+/.vscode/browse.vc.db"
             }
         },
         {
@@ -71,10 +82,12 @@ Note, this is an example of all fields. You do not need to specify all fields in
             "compilerPath": "/usr/bin/clang",
             "intelliSenseMode": "macos-clang-x64",
             "includePath": [
-                "${myIncludePath}"
+                "$\{myIncludePath\}
+"
             ],
             "defines": [
-                "${myDefines}"
+                "$\{myDefines\}
+"
             ],
             "cStandard": "c11",
             "cppStandard": "c++17",
@@ -84,8 +97,10 @@ Note, this is an example of all fields. You do not need to specify all fields in
             ],
             "browse": {
                 "path": [
-                    "${myIncludePath}",
-                    "${workspaceFolder}"
+                    "$\{myIncludePath\}
+",
+                    "$\{workspaceFolder\}
+"
                 ]
             }
         },
@@ -94,10 +109,12 @@ Note, this is an example of all fields. You do not need to specify all fields in
             "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.28.29333/bin/Hostx64/x64/cl.exe",
             "intelliSenseMode": "windows-msvc-x64",
             "includePath": [
-                "${myIncludePath}"
+                "$\{myIncludePath\}
+"
             ],
             "defines": [
-                "${myDefines}",
+                "$\{myDefines\}
+",
                 "_WINDOWS"
             ],
             "cStandard": "c17",
@@ -105,8 +122,10 @@ Note, this is an example of all fields. You do not need to specify all fields in
             "windowsSdkVersion": "10.0.19041.0",
             "browse": {
                 "path": [
-                    "${myIncludePath}",
-                    "${workspaceFolder}"
+                    "$\{myIncludePath\}
+",
+                    "$\{workspaceFolder\}
+"
                 ]
             }
         }
@@ -119,7 +138,9 @@ Note, this is an example of all fields. You do not need to specify all fields in
 ## Top-level properties
 
 - `env`
-  An array of user-defined variables that will be available for substitution in the configurations via the standard environment variable syntax: `${<var>}` or `${env:<var>}`. Strings and arrays of strings are accepted.
+  An array of user-defined variables that will be available for substitution in the configurations via the standard environment variable syntax: `$\{<var>\}
+` or `$\{env:<var>\}
+`. Strings and arrays of strings are accepted.
 
 - `configurations`
   An array of configuration objects that provide the IntelliSense engine with information about your project and your preferences. By default, the extension creates a configuration for you based on your operating system. You may also add additional configurations.
@@ -144,9 +165,11 @@ Note, this is an example of all fields. You do not need to specify all fields in
   Compiler arguments to modify the includes or defines used, for example `-nostdinc++`, `-m32`, etc. Arguments that take additional space-delimited arguments should be entered as separate arguments in the array, for example, for `--sysroot <arg>` use `\"--sysroot\", \"<arg>\"`.
 
 - `intelliSenseMode`
-  The IntelliSense mode to use that maps to an architecture-specific variant of MSVC, gcc, or Clang. If not set or if set to `${default}`, the extension will choose the default for that platform.
+  The IntelliSense mode to use that maps to an architecture-specific variant of MSVC, gcc, or Clang. If not set or if set to `$\{default\}
+`, the extension will choose the default for that platform.
 
   Platform defaults:
+
   - Windows: `windows-msvc-x64`
   - Linux: `linux-gcc-x64`
   - macOS: `macos-clang-x64`
@@ -154,16 +177,20 @@ Note, this is an example of all fields. You do not need to specify all fields in
   IntelliSense modes that only specify `<compiler>-<architecture>` variants (for example, `gcc-x64`) are legacy modes and are automatically converted to the `<platform>-<compiler>-<architecture>` variants based on the host platform.
 
 - `includePath`
-  An include path is a folder that contains header files (such as `#include "myHeaderFile.h"`) that are included in a source file. Specify a list of paths for the IntelliSense engine to use while searching for included header files. Searching on these paths is not recursive. Specify `**` to indicate recursive search. For example, `${workspaceFolder}/**` will search through all subdirectories while `${workspaceFolder}` will not. If on Windows with Visual Studio installed, or if a compiler is specified in the `compilerPath` setting, it is not necessary to list the system include paths in this list.
+  An include path is a folder that contains header files (such as `#include "myHeaderFile.h"`) that are included in a source file. Specify a list of paths for the IntelliSense engine to use while searching for included header files. Searching on these paths is not recursive. Specify `**` to indicate recursive search. For example, `$\{workspaceFolder\}
+/**` will search through all subdirectories while `$\{workspaceFolder\}
+` will not. If on Windows with Visual Studio installed, or if a compiler is specified in the `compilerPath` setting, it is not necessary to list the system include paths in this list.
 
 - `defines`
   A list of preprocessor definitions for the IntelliSense engine to use while parsing files. Optionally, use `=` to set a value, for example `VERSION=1`.
 
 - `cStandard`
-  The version of the C language standard to use for IntelliSense. For example, `c17`, `gnu23`, or `${default}`. Note that GNU standards are only used to query the set compiler to get GNU defines, and IntelliSense will emulate the equivalent C standard version.
+  The version of the C language standard to use for IntelliSense. For example, `c17`, `gnu23`, or `$\{default\}
+`. Note that GNU standards are only used to query the set compiler to get GNU defines, and IntelliSense will emulate the equivalent C standard version.
 
 - `cppStandard`
-  The version of the C++ language standard to use for IntelliSense. For example, `c++20`, `gnu++23`, or `${default}`. Note: GNU standards are only used to query the set compiler to get GNU defines, and IntelliSense will emulate the equivalent C++ standard version.
+  The version of the C++ language standard to use for IntelliSense. For example, `c++20`, `gnu++23`, or `$\{default\}
+`. Note: GNU standards are only used to query the set compiler to get GNU defines, and IntelliSense will emulate the equivalent C++ standard version.
 
 - `configurationProvider`
   The ID of a VS Code extension that can provide IntelliSense configuration information for source files. For example, use the VS Code extension ID `ms-vscode.cmake-tools` to provide configuration information from the CMake Tools extension. If you have specified a configurationProvider, the configurations that provides will take precedence over your other settings in `c_cpp_properties.json`.
@@ -180,7 +207,7 @@ Note, this is an example of all fields. You do not need to specify all fields in
   A list of files that should be included before any other characters in the source file are processed. Files are included in the order listed.
 
 - `compileCommands` (optional)
-  The full path to the `compile_commands.json` file for the workspace. If there is a matching entry in `compile_commands.json` for a file open in the editor, that command line will be  used to configure IntelliSense for that file, instead of the other fields of `c_cpp_properties.json`.
+  The full path to the `compile_commands.json` file for the workspace. If there is a matching entry in `compile_commands.json` for a file open in the editor, that command line will be used to configure IntelliSense for that file, instead of the other fields of `c_cpp_properties.json`.
   For more information about the file format, see the [Clang documentation](https://clang.llvm.org/docs/JSONCompilationDatabase.html). Some build systems, such as CMake, [simplify generating this file](https://cmake.org/cmake/help/v3.5/variable/CMAKE_EXPORT_COMPILE_COMMANDS.html).
 
 - `dotConfig`
@@ -190,7 +217,8 @@ Note, this is an example of all fields. You do not need to specify all fields in
   Set to `true` to merge include paths, defines, and forced includes with those from a configuration provider.
 
 - `customConfigurationVariables`
-  Custom variables that can be queried through the command `${cpptools:activeConfigCustomVariable}` to use for the input variables in `launch.json` or `tasks.json`.
+  Custom variables that can be queried through the command `$\{cpptools:activeConfigCustomVariable\}
+` to use for the input variables in `launch.json` or `tasks.json`.
 
 - `browse`
   The set of properties used when `"C_Cpp.intelliSenseEngine"` is set to `"Tag Parser"` (also referred to as "fuzzy" IntelliSense, or the "browse" engine). These properties are also used by the **Go to Definition/Declaration** features, or when the "default" IntelliSense engine is unable to resolve the `#includes` in your source files.
@@ -198,14 +226,20 @@ Note, this is an example of all fields. You do not need to specify all fields in
 ### Browse properties
 
 - `path`
-  A list of paths for the Tag Parser to search for headers included by your source files. If omitted, `includePath` will be used as the `path`. Searching on these paths is recursive by default. Specify `*` to indicate nonrecursive search. For example: `${workspaceFolder}` will search through all subdirectories while `${workspaceFolder}/*` will not.
+  A list of paths for the Tag Parser to search for headers included by your source files. If omitted, `includePath` will be used as the `path`. Searching on these paths is recursive by default. Specify `*` to indicate nonrecursive search. For example: `$\{workspaceFolder\}
+` will search through all subdirectories while `$\{workspaceFolder\}
+/*` will not.
 
 - `limitSymbolsToIncludedHeaders`
-  When true, the Tag Parser will only parse code files that have been directly or indirectly included by a source file in `${workspaceFolder}`. When false, the Tag Parser will parse all code files found in the paths specified in the `browse.path` list.
+  When true, the Tag Parser will only parse code files that have been directly or indirectly included by a source file in `$\{workspaceFolder\}
+`. When false, the Tag Parser will parse all code files found in the paths specified in the `browse.path` list.
 
 - `databaseFilename`
-  The path to the generated symbol database. This property instructs the extension to save the Tag Parser's symbol database somewhere other than the workspace's default storage location. If a relative path is specified, it will be made relative to the workspace's default storage location, not the workspace folder itself. The `${workspaceFolder}` variable can be used to specify a path relative to the workspace folder (for example `${workspaceFolder}/.vscode/browse.vc.db`)
+  The path to the generated symbol database. This property instructs the extension to save the Tag Parser's symbol database somewhere other than the workspace's default storage location. If a relative path is specified, it will be made relative to the workspace's default storage location, not the workspace folder itself. The `$\{workspaceFolder\}
+` variable can be used to specify a path relative to the workspace folder (for example `$\{workspaceFolder\}
+/.vscode/browse.vc.db`)
 
 ## Supported variables
 
-You can allow `tasks.json` or `launch.json` to query the current active configuration from `c_cpp_properties.json`. To do this, use the variable `${command:cpptools.activeConfigName}` as an argument in a `tasks.json` or `launch.json` script.
+You can allow `tasks.json` or `launch.json` to query the current active configuration from `c_cpp_properties.json`. To do this, use the variable `$\{command:cpptools.activeConfigName\}
+` as an argument in a `tasks.json` or `launch.json` script.

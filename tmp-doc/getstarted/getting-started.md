@@ -206,7 +206,8 @@ VS Code는 많은 프로그래밍 언어를 지원하며, 다음 단계에서는
 
 3. 전구 아이콘을 선택한 다음 **Convert to template string**을 선택합니다.
 
-   코드 액션은 코드에 빠른 수정 사항을 적용하는 제안입니다. 이 경우 코드 액션은 `"Hello, " + name`을 [템플릿 문자열](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) `` `Hello, ${name}` ``로 변환합니다. 이는 문자열에 표현식을 포함할 수 있는 특별한 JavaScript 구문입니다.
+   코드 액션은 코드에 빠른 수정 사항을 적용하는 제안입니다. 이 경우 코드 액션은 `"Hello, " + name`을 [템플릿 문자열](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) `` `Hello, $\{name\}
+` ``로 변환합니다. 이는 문자열에 표현식을 포함할 수 있는 특별한 JavaScript 구문입니다.
 
 VS Code의 [편집 기능](/docs/editor/codebasics.md), [IntelliSense](/docs/editor/intellisense.md), [코드 탐색](/docs/editor/editingevolved.md) 및 [리팩토링](/docs/editor/refactoring.md)에 대해 자세히 알아보세요.
 

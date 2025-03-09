@@ -155,16 +155,22 @@ Below is an example for the contents of this `snippets.json` file.
 {
   "html": {
     "snippets": {
-      "ull": "ul>li[id=${1} class=${2}]*2{ Will work with html, pug, haml and slim }",
-      "oll": "<ol><li id=${1} class=${2}> Will only work in html </ol>",
+      "ull": "ul>li[id=$\{1\}
+ class=$\{2\}
+]*2{ Will work with html, pug, haml and slim }",
+      "oll": "<ol><li id=$\{1\}
+ class=$\{2\}
+> Will only work in html </ol>",
       "ran": "{ Wrap plain text in curly braces }"
     }
   },
   "css": {
     "snippets": {
       "cb": "color: black",
-      "bsd": "border: 1px solid ${1:red}",
-      "ls": "list-style: ${1}"
+      "bsd": "border: 1px solid $\{1:red\}
+",
+      "ls": "list-style: $\{1\}
+"
     }
   }
 }
@@ -172,12 +178,14 @@ Below is an example for the contents of this `snippets.json` file.
 
 Authoring of Custom Snippets in Emmet 2.0 via the `snippets.json` file differs from the old way of doing the same in a few ways:
 
-| Topic                     | Old Emmet                                                                    | Emmet 2.0                                                                                                                                                                                                                            |
-| ------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Snippets vs Abbreviations | Supports both in 2 separate properties called `snippets` and `abbreviations` | The 2 have been combined into a single property called snippets. See default [HTML snippets](https://github.com/emmetio/snippets/blob/master/html.json) and [CSS snippets](https://github.com/emmetio/snippets/blob/master/css.json) |
-| CSS snippet names         | Can contain `:`                                                              | Do not use `:` when defining snippet names. It is used to separate property name and value when Emmet tries to fuzzy match the given abbreviation to one of the snippets.                                                            |
-| CSS snippet values        | Can end with `;`                                                             | Do not add `;` at end of snippet value. Emmet will add the trailing `;` based on the file type (css/less/scss vs sass/stylus) or the emmet preference set for `css.propertyEnd`, `sass.propertyEnd`, `stylus.propertyEnd`            |
-| Cursor location           | `${cursor}` or `\|` can be used                                              | Use only textmate syntax like `${1}` for tab stops and cursor locations                                                                                                                                                              |
+| Topic                                | Old Emmet                                                                    | Emmet 2.0                                                                                                                                                                                                                            |
+| ------------------------------------ | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Snippets vs Abbreviations            | Supports both in 2 separate properties called `snippets` and `abbreviations` | The 2 have been combined into a single property called snippets. See default [HTML snippets](https://github.com/emmetio/snippets/blob/master/html.json) and [CSS snippets](https://github.com/emmetio/snippets/blob/master/css.json) |
+| CSS snippet names                    | Can contain `:`                                                              | Do not use `:` when defining snippet names. It is used to separate property name and value when Emmet tries to fuzzy match the given abbreviation to one of the snippets.                                                            |
+| CSS snippet values                   | Can end with `;`                                                             | Do not add `;` at end of snippet value. Emmet will add the trailing `;` based on the file type (css/less/scss vs sass/stylus) or the emmet preference set for `css.propertyEnd`, `sass.propertyEnd`, `stylus.propertyEnd`            |
+| Cursor location                      | `$\{cursor\}                                                                 |
+| `or`\|` can be used                  | Use only textmate syntax like `$\{1\}                                        |
+| ` for tab stops and cursor locations |
 
 ### HTML Emmet snippets
 
@@ -199,8 +207,13 @@ Do not use `:` in the snippet name. `:` is used to separate property name and va
 
 The syntax for tab stops in custom Emmet snippets follows the [Textmate snippets syntax](https://manual.macromates.com/en/snippets).
 
-- Use `${1}`, `${2}` for tab stops and `${1:placeholder}` for tab stops with placeholders.
-- Previously, `|` or `${cursor}` was used to denote the cursor location in the custom Emmet snippet. This is no longer supported. Use `${1}` instead.
+- Use `$\{1\}
+`, `$\{2\}
+` for tab stops and `$\{1:placeholder\}
+` for tab stops with placeholders.
+- Previously, `|` or `$\{cursor\}
+` was used to denote the cursor location in the custom Emmet snippet. This is no longer supported. Use `$\{1\}
+` instead.
 
 ## Emmet configuration
 
@@ -354,7 +367,9 @@ HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatshee
 
 ### Abbreviations are failing to expand
 
-First, check if you're using custom snippets (if there is a `snippets.json` file being picked up by the `emmet.extensionsPath` setting). The format of custom snippets changed in VS Code release 1.53. Instead of using `|` to indicate where the cursor position is, use tokens such as `${1}`, `${2}`, etc. instead. The [default CSS snippets file](https://github.com/emmetio/emmet/blob/master/snippets/css.json) from the `emmetio/emmet` repository shows examples of the new cursor position format.
+First, check if you're using custom snippets (if there is a `snippets.json` file being picked up by the `emmet.extensionsPath` setting). The format of custom snippets changed in VS Code release 1.53. Instead of using `|` to indicate where the cursor position is, use tokens such as `$\{1\}
+`, `$\{2\}
+`, etc. instead. The [default CSS snippets file](https://github.com/emmetio/emmet/blob/master/snippets/css.json) from the `emmetio/emmet` repository shows examples of the new cursor position format.
 
 If abbreviations are still failing to expand:
 

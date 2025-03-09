@@ -7,6 +7,7 @@ PageTitle: Collaborate on GitHub
 DateApproved: 03/05/2025
 MetaDescription: Working with GitHub Pull Requests and Issues in Visual Studio Code
 ---
+
 # Working with GitHub in VS Code
 
 [GitHub](https://github.com) is a cloud-based service for storing and sharing source code. Using GitHub with Visual Studio Code lets you share your source code and collaborate with others right within your editor. There are many ways to interact with GitHub, for example, via their website at [https://github.com](https://github.com) or the [Git](https://git-scm.com) command-line interface (CLI), but in VS Code, the rich GitHub integration is provided by the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension.
@@ -49,7 +50,7 @@ Follow the steps to sign into GitHub and return to VS Code. Signing in with a pe
 
 Note that there are several ways to authenticate to GitHub, including using your username and password with two-factor authentication (2FA), a personal access token, or an SSH key. See [About authentication to GitHub](https://docs.github.com/github/authenticating-to-github/about-authentication-to-github) for more information and details about each option.
 
->**Note**: If you'd like to work on a repository without cloning the contents to your local machine, you can install the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension to browse and edit directly on GitHub. You can learn more below in the [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension) section.
+> **Note**: If you'd like to work on a repository without cloning the contents to your local machine, you can install the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension to browse and edit directly on GitHub. You can learn more below in the [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension) section.
 
 ## Editor integration
 
@@ -92,7 +93,8 @@ The queries used to display pull requests can be configured with the **GitHub Pu
 "githubPullRequests.queries": [
     {
         "label": "Assigned To Me",
-        "query": "is:open assignee:${user}"
+        "query": "is:open assignee:$\{user\}
+"
     },
 ```
 
@@ -237,9 +239,9 @@ Extension authors can learn more about running in a virtual file system and work
 
 Sometimes you'll want to switch to working on a repository in a development environment with support for a local file system and full language and development tooling. The GitHub Repositories extension makes it easy for you to:
 
-* Create a GitHub codespace (if you have the [GitHub Codespaces extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)).
-* Clone the repository locally.
-* Clone the repository into a Docker container (if you have [Docker](https://docker.com/) and the Microsoft [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed).
+- Create a GitHub codespace (if you have the [GitHub Codespaces extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)).
+- Clone the repository locally.
+- Clone the repository into a Docker container (if you have [Docker](https://docker.com/) and the Microsoft [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed).
 
 To switch development environments, use the **Continue Working On...** command, available from the Command Palette (`kb(workbench.action.showCommands)`) or by clicking on the Remote indicator in the Status bar.
 
@@ -257,4 +259,4 @@ In the event that your pending changes are not automatically applied to your tar
 
 ## Next steps
 
-* Learn more about [Copilot VS Code](/docs/copilot/overview.md) - Learn about Copilot in VS Code.
+- Learn more about [Copilot VS Code](/docs/copilot/overview.md) - Learn about Copilot in VS Code.

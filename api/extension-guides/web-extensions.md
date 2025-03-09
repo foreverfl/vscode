@@ -222,10 +222,12 @@ Use the `pwa-extensionhost` launch configuration provided by the **New Web Exten
       "debugWebWorkerHost": true,
       "request": "launch",
       "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--extensionDevelopmentPath=$\{workspaceFolder\}
+",
         "--extensionDevelopmentKind=web"
       ],
-      "outFiles": ["${workspaceFolder}/dist/web/**/*.js"],
+      "outFiles": ["$\{workspaceFolder\}
+/dist/web/**/*.js"],
       "preLaunchTask": "npm: watch-web"
     }
   ]
@@ -378,7 +380,10 @@ export function run(): Promise<void> {
       // Run the mocha test
       mocha.run((failures) => {
         if (failures > 0) {
-          e(new Error(`${failures} tests failed.`));
+          e(
+            new Error(`$\{failures\}
+ tests failed.`)
+          );
         } else {
           c();
         }
@@ -416,11 +421,14 @@ To run (and debug) extension tests in VS Code (Insiders) desktop, use the `Exten
       "debugWebWorkerHost": true,
       "request": "launch",
       "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--extensionDevelopmentPath=$\{workspaceFolder\}
+",
         "--extensionDevelopmentKind=web",
-        "--extensionTestsPath=${workspaceFolder}/dist/web/test/suite/index"
+        "--extensionTestsPath=$\{workspaceFolder\}
+/dist/web/test/suite/index"
       ],
-      "outFiles": ["${workspaceFolder}/dist/web/**/*.js"],
+      "outFiles": ["$\{workspaceFolder\}
+/dist/web/**/*.js"],
       "preLaunchTask": "npm: watch-web"
     }
   ]
@@ -568,7 +576,12 @@ const testBundlePlugin = {
       return {
         contents:
           `export { run } from './mochaTestRunner.ts';` +
-          files.map((f) => `import('./${f}');`).join(''),
+          files
+            .map(
+              (f) => `import('./$\{f\}
+');`
+            )
+            .join(''),
         watchDirs: files.map((f) => path.dirname(path.resolve(testsRoot, f))),
         watchFiles: files.map((f) => path.resolve(testsRoot, f)),
       };
@@ -590,9 +603,13 @@ const esbuildProblemMatcherPlugin = {
     });
     build.onEnd((result) => {
       result.errors.forEach(({ text, location }) => {
-        console.error(`✘ [ERROR] ${text}`);
+        console.error(`✘ [ERROR] $\{text\}
+`);
         if (location == null) return;
-        console.error(`    ${location.file}:${location.line}:${location.column}:`);
+        console.error(`    $\{location.file\}
+:$\{location.line\}
+:$\{location.column\}
+:`);
       });
       console.log('[watch] build finished');
     });
@@ -713,7 +730,10 @@ export function run(): Promise<void> {
       // Run the mocha test
       mocha.run((failures) => {
         if (failures > 0) {
-          e(new Error(`${failures} tests failed.`));
+          e(
+            new Error(`$\{failures\}
+ tests failed.`)
+          );
         } else {
           c();
         }

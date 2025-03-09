@@ -211,7 +211,9 @@ You can also see the three **Add Config** commands for the folders, `tslint`, `t
 
 ![debugging template dropdown](images/multi-root-workspaces/add-launch-config.png)
 
-[Variables](/docs/editor/variables-reference.md) used in a configuration (for example `${workspaceFolder}` or the now deprecated `${workspaceRoot}`) are resolved relative to the folder they belong to. It is possible to scope a variable per workspace folder by appending the root folder's name to a variable (separated by a colon).
+[Variables](/docs/editor/variables-reference.md) used in a configuration (for example `$\{workspaceFolder\}
+` or the now deprecated `$\{workspaceRoot\}
+`) are resolved relative to the folder they belong to. It is possible to scope a variable per workspace folder by appending the root folder's name to a variable (separated by a colon).
 
 ### Workspace launch configurations
 
@@ -264,9 +266,11 @@ Here is an example for a launch configuration where the program lives in a folde
       "type": "node",
       "request": "launch",
       "name": "Launch test",
-      "program": "${workspaceFolder:Program}/test.js",
+      "program": "$\{workspaceFolder:Program\}
+/test.js",
       "skipFiles": [
-        "${workspaceFolder:Library}/out/**/*.js"
+        "$\{workspaceFolder:Library\}
+/out/**/*.js"
       ]
   }]
 }

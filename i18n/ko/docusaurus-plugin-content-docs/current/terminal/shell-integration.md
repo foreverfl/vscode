@@ -25,7 +25,7 @@ By default, the shell integration script should automatically activate on suppor
 
 This standard, easy way will not work for some advanced use cases like in sub-shells, through a regular `ssh` session (when not using the [Remote - SSH extension](/docs/remote/ssh.md)) or for some complex shell setups. The recommended way to enable shell integration for those is [manual installation](#manual-installation).
 
->**Note**: Automatic injection may not work on old versions of the shell, for example older versions of fish do not support the `$XDG_DATA_DIRS` environment variable which is how injection works. You may still be able to manually install to get it working.
+> **Note**: Automatic injection may not work on old versions of the shell, for example older versions of fish do not support the `$XDG_DATA_DIRS` environment variable which is how injection works. You may still be able to manually install to get it working.
 
 ### Manual installation
 
@@ -271,9 +271,9 @@ The following sequences that iTerm2 pioneered are supported:
 - `OSC 1337 ; CurrentDir=<Cwd> S` - Sets the current working directory of the terminal, similar to `OSC 633 ; P ; Cwd=<Cwd> ST`.
 - `OSC 1337 ; SetMark ST` - Adds a mark to the left of the line it was triggered on and also adds an annotation to the scroll bar:
 
-    ![When the sequence is written to the terminal a small grey circle will appear to the left of the command, with a matching annotation in the scroll bar](images/shell-integration/setmark.png)
+  ![When the sequence is written to the terminal a small grey circle will appear to the left of the command, with a matching annotation in the scroll bar](images/shell-integration/setmark.png)
 
-    These marks integrate with command navigation to make them easy to navigate to via `kb(workbench.action.terminal.scrollToPreviousCommand)` and `kb(workbench.action.terminal.scrollToNextCommand)`.
+  These marks integrate with command navigation to make them easy to navigate to via `kb(workbench.action.terminal.scrollToPreviousCommand)` and `kb(workbench.action.terminal.scrollToNextCommand)`.
 
 ## Common questions
 
@@ -285,7 +285,10 @@ There are several cases where automatic injection doesn't work, here are some co
 
   ```sh
   prompt() {
-    printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"
+    printf "\033]0;%s@%s:%s\007" "$\{USER\}
+  " "$\{HOSTNAME%%.*\}
+  " "$\{PWD/#$HOME/\~\}
+  "
   }
   PROMPT_COMMAND=prompt
   ```

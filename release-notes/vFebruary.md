@@ -4,6 +4,7 @@ TOCTitle: February 2016
 PageTitle: Visual Studio Code February 0.10.11
 MetaDescription: See what is new in the Visual Studio Code February Release (0.10.11)
 ---
+
 # February 2016 (0.10.11)
 
 February is our last full iteration before we start the end game for the [Build 2016 conference](https://build.microsoft.com/) milestone at the end of March. It comes with many improvements:
@@ -31,7 +32,7 @@ You now get IntelliSense proposals for properties in 'ECMAScript 3 style classes
 
 ![ES3 style classes](images/January/es3-classes.png)
 
-IntelliSense offers both *inferred* proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (with the document icon), as you can see in the image above.
+IntelliSense offers both _inferred_ proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (with the document icon), as you can see in the image above.
 
 The **CommonJS** module support has been improved as well:
 
@@ -41,21 +42,21 @@ There is now support for JSX/React:
 
 ![React/JSX Support](images/January/jsx-salsa.png)
 
->**Tip:** To get IntelliSense for React/JSX, install the typings for `react-global` by running `tsd install react-global` or `typings install dt~react --global` from the terminal.
+> **Tip:** To get IntelliSense for React/JSX, install the typings for `react-global` by running `tsd install react-global` or `typings install dt~react --global` from the terminal.
 
->**Tip:** When you use eslint for linting (see below) and you used `eslint --init` to create an eslint configuration and you answered  `yes` to "Do you use React?", then the setting `experimentalObjectRestSpread` is enabled. Support for ObjectRestSpread is not yet provided by Salsa but it is on the roadmap (see [#2103](https://github.com/microsoft/TypeScript/issues/2103)).
+> **Tip:** When you use eslint for linting (see below) and you used `eslint --init` to create an eslint configuration and you answered `yes` to "Do you use React?", then the setting `experimentalObjectRestSpread` is enabled. Support for ObjectRestSpread is not yet provided by Salsa but it is on the roadmap (see [#2103](https://github.com/microsoft/TypeScript/issues/2103)).
 
 There is now support for React Native:
 
 ![React Native Support](images/February/react-native.png)
 
->**Tip:** To get IntelliSense for React Native, install the typings for `react-native` by running `tsd install react-native` or `typings install dt~react-native --global` from the terminal. Or even better... if you also want debugging support then install the preview of the [React Native extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native).
+> **Tip:** To get IntelliSense for React Native, install the typings for `react-native` by running `tsd install react-native` or `typings install dt~react-native --global` from the terminal. Or even better... if you also want debugging support then install the preview of the [React Native extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native).
 
->**Tip:** There is a known issue in that [Salsa Doesn't Provide IntelliSense When Using Import Statements](https://github.com/microsoft/vscode-react-native/issues/61).
+> **Tip:** There is a known issue in that [Salsa Doesn't Provide IntelliSense When Using Import Statements](https://github.com/microsoft/vscode-react-native/issues/61).
 
 It is now possible to have mixed TypeScript and JavaScript projects. To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the `tsconfig.json`.
 
->**Tip:** The `tsc` compiler does not detect the presence of a `jsconfig.json` file automatically. Use the `–p` argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json`.
+> **Tip:** The `tsc` compiler does not detect the presence of a `jsconfig.json` file automatically. Use the `–p` argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json`.
 
 Finally, the TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level.
 
@@ -67,7 +68,7 @@ The following sections describe a few of VS Code's features that have changed wi
 
 Previously the JavaScript language support provided some linting options enabled by the `javascript.validate.lint.*` settings. With `jshint` and `eslint`, there are powerful linters for JavaScript available. Also, there are now extensions for VS Code available that integrate these linters. Therefore, we have decided to deprecate the built-in linter and Salsa now reports **syntax errors only**. We **strongly recommend that you install and configure a JavaScript linter if your project hasn't done so already**.
 
-In particular, the previous JavaScript infrastructure provided an implicit *lint rule* which warned about undeclared variables unless they are mentioned in a /\*global\*/ comment block. This rule is no longer active and needs to be configured in your linter of choice.
+In particular, the previous JavaScript infrastructure provided an implicit _lint rule_ which warned about undeclared variables unless they are mentioned in a /\*global\*/ comment block. This rule is no longer active and needs to be configured in your linter of choice.
 
 Here are the steps to set up `eslint`:
 
@@ -122,15 +123,15 @@ VS Code now ships with the latest [TypeScript 1.8.2](https://devblogs.microsoft.
 
 ### Migration Notes
 
->**Note:** With the move to TypeScript 1.8.2, you will need to have a `jsconfig.json` in your workspace for TypeScript definition files (for example [`node.d.ts`](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/node/node.d.ts)) to be picked up.
+> **Note:** With the move to TypeScript 1.8.2, you will need to have a `jsconfig.json` in your workspace for TypeScript definition files (for example [`node.d.ts`](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/node/node.d.ts)) to be picked up.
 
 If you don't already have a `jsconfig.json` file in your workspace, add a `jsconfig.json` file to the root with the `compilerOptions:module` attribute set:
 
 ```json
 {
-    "compilerOptions": {
-        "module": "CommonJS"
-    }
+  "compilerOptions": {
+    "module": "CommonJS"
+  }
 }
 ```
 
@@ -165,7 +166,7 @@ The IntelliSense widget underwent a full rewrite to address some performance pro
 
 ### Indentation
 
-Initiated by user request [#1228](https://github.com/microsoft/vscode/issues/1228), we have added indentation status in the editor to help with 'tabs to spaces' conversion and vice versa.  The Status Bar shows whether the Tab key will insert spaces or tabs and the current indentation size in characters.
+Initiated by user request [#1228](https://github.com/microsoft/vscode/issues/1228), we have added indentation status in the editor to help with 'tabs to spaces' conversion and vice versa. The Status Bar shows whether the Tab key will insert spaces or tabs and the current indentation size in characters.
 
 ![indentation status](images/February/indentation-2.png)
 
@@ -230,18 +231,19 @@ If you haven't already fixed your launch configuration paths for the January rel
 
 ![install-mono-debug-help](images/February/relative-path-error.png)
 
-Just prefixing the relative path with a `${workspaceRoot}/` should fix the problem.
+Just prefixing the relative path with a `$\{workspaceRoot\}
+/` should fix the problem.
 
 ### Pre Launch Task Improvements
 
 We have improved the `preLaunchTask` based on user feedback and feature requests:
 
-* If `preLaunchTask` produces an error, debugging does not start and a message with an option to continue debugging despite the error is shown.
+- If `preLaunchTask` produces an error, debugging does not start and a message with an option to continue debugging despite the error is shown.
 
   ![pre-launch-task-error](images/February/pre-launch-task-error.png)
 
-* If a `preLaunchTask` is a watching task, debugging does not start before the watching task becomes inactive.
-* If a `tasks.json` is missing and a `preLaunchTask` is set, we offer to create a `tasks.json` for the user.
+- If a `preLaunchTask` is a watching task, debugging does not start before the watching task becomes inactive.
+- If a `tasks.json` is missing and a `preLaunchTask` is set, we offer to create a `tasks.json` for the user.
 
 ### Support for Node.js 'nodemon' Development Setup
 
@@ -259,17 +261,17 @@ In VS Code, create an 'attach' launch configuration:
 
 ```json
 {
-    "name": "Attach",
-    "type": "node",
-    "request": "attach",
-    "port": 5858,
-    "restart": true
+  "name": "Attach",
+  "type": "node",
+  "request": "attach",
+  "port": 5858,
+  "restart": true
 }
 ```
 
->**Tip:** Pressing the **Stop** button stops the debug session and disconnects from Node.js, but nodemon (and Node.js) will continue to run. So to stop nodemon you will have to kill it from the command line.
+> **Tip:** Pressing the **Stop** button stops the debug session and disconnects from Node.js, but nodemon (and Node.js) will continue to run. So to stop nodemon you will have to kill it from the command line.
 
->**Tip:** In case of syntax errors, nodemon will not be able to start Node.js successfully until the error has been fixed. In this case VS Code will continue trying to attach to Node.js but eventually give up (after 10 seconds). To avoid this you can increase the timeout by adding a `timeout` attribute with a larger value (in milliseconds).
+> **Tip:** In case of syntax errors, nodemon will not be able to start Node.js successfully until the error has been fixed. In this case VS Code will continue trying to attach to Node.js but eventually give up (after 10 seconds). To avoid this you can increase the timeout by adding a `timeout` attribute with a larger value (in milliseconds).
 
 ### Function Breakpoints
 
@@ -341,10 +343,10 @@ The **Go to Next/Previous Error or Warning** actions (`kb(editor.action.marker.n
 
 Based on [user feedback](https://github.com/microsoft/vscode/issues/2108#issuecomment-183373356), we have improved debugger accessibility:
 
-* Changes in debug state are read out (e.g. 'started', 'breakpoint hit', 'terminated', ...)
-* All debug actions are keyboard accessible
-* Focus intuitively moves inside the Debug View and Debug Console
-* Debug hover is keyboard accessible (`kb(editor.action.showHover)`)
+- Changes in debug state are read out (e.g. 'started', 'breakpoint hit', 'terminated', ...)
+- All debug actions are keyboard accessible
+- Focus intuitively moves inside the Debug View and Debug Console
+- Debug hover is keyboard accessible (`kb(editor.action.showHover)`)
 
 ## Localization
 
@@ -376,7 +378,7 @@ We now support more OS types for the `debuggers` contribution point (see [#1696]
 
 We have changed the debug protocol in the following (backward compatible) ways:
 
-- *Feature negotiation*:
+- _Feature negotiation_:
 
   - A boolean `supportsConditionalBreakpoints` in `Capabilities` indicates whether the debug adapter supports conditional breakpoints. If a debug adapter does not support conditional breakpoints, a breakpoint which has a condition set is shown with an exclamation mark:
 
@@ -408,15 +410,15 @@ Here are the [closed bugs](https://github.com/microsoft/vscode/issues?q=is%3Aiss
 
 ## Thank You
 
-Last but certainly not least, a big *__Thank You!__* to the following folks that helped to make VS Code even better:
+Last but certainly not least, a big _**Thank You!**_ to the following folks that helped to make VS Code even better:
 
-* [sparecycles](https://github.com/sparecycles): fix replacing end of line with newline [2587](https://github.com/microsoft/vscode/pull/2587).
-* [SamVerschueren](https://github.com/SamVerschueren): fix TextEditorOptions declaration [2935](https://github.com/microsoft/vscode/pull/2935).
-* [Alexis Aubry](https://github.com/alexaubry): Updated Swift Autocompletion Syntax [3198](https://github.com/microsoft/vscode/pull/3198).
-* [Xaver Hellauer](https://github.com/xaverh): Fixes to C++ and C syntax [2649](https://github.com/microsoft/vscode/pull/2649).
-* [mkosieradzki](https://github.com/mkosieradzki): Add support for jsonSchema integer type in IntelliSense [2844](https://github.com/microsoft/vscode/pull/2844).
-* [SrTobi](https://github.com/SrTobi): Misc fixes in [vsce](https://github.com/microsoft/vscode-vsce): [65](https://github.com/microsoft/vscode-vsce/pull/65) [71](https://github.com/microsoft/vscode-vsce/pull/71) [73](https://github.com/microsoft/vscode-vsce/pull/73)
+- [sparecycles](https://github.com/sparecycles): fix replacing end of line with newline [2587](https://github.com/microsoft/vscode/pull/2587).
+- [SamVerschueren](https://github.com/SamVerschueren): fix TextEditorOptions declaration [2935](https://github.com/microsoft/vscode/pull/2935).
+- [Alexis Aubry](https://github.com/alexaubry): Updated Swift Autocompletion Syntax [3198](https://github.com/microsoft/vscode/pull/3198).
+- [Xaver Hellauer](https://github.com/xaverh): Fixes to C++ and C syntax [2649](https://github.com/microsoft/vscode/pull/2649).
+- [mkosieradzki](https://github.com/mkosieradzki): Add support for jsonSchema integer type in IntelliSense [2844](https://github.com/microsoft/vscode/pull/2844).
+- [SrTobi](https://github.com/SrTobi): Misc fixes in [vsce](https://github.com/microsoft/vscode-vsce): [65](https://github.com/microsoft/vscode-vsce/pull/65) [71](https://github.com/microsoft/vscode-vsce/pull/71) [73](https://github.com/microsoft/vscode-vsce/pull/73)
 
 ## VS Code Blog
 
-You might not have noticed but we've moved the [VS Code blog](/blogs) to our website.  We hope you find this more convenient and easier to search across all of our documentation. Check out the recent post about the [Chrome Debugger extension](/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code.md)!
+You might not have noticed but we've moved the [VS Code blog](/blogs) to our website. We hope you find this more convenient and easier to search across all of our documentation. Check out the recent post about the [Chrome Debugger extension](/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code.md)!

@@ -1782,7 +1782,15 @@ You can also view the default values in the Settings editor or see a read-only v
   "window.restoreWindows": "all",
 
   // Controls the window title based on the current context such as the opened workspace or active editor.
-  "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}${appName}",
+  "window.title": "$\{dirty\}
+$\{activeEditorShort\}
+$\{separator\}
+$\{rootName\}
+$\{separator\}
+$\{profileName\}
+$\{separator\}
+$\{appName\}
+",
 
   // Adjust the appearance of the window title bar to be native by the OS or custom. On Linux and Windows, this setting also affects the application and context menu appearances. Changes require a full restart to apply.
   "window.titleBarStyle": "custom",
@@ -1823,7 +1831,8 @@ You can also view the default values in the Settings editor or see a read-only v
   // List of character set encodings that the editor should attempt to guess in the order they are listed. In case it cannot be determined, `files.encoding` is respected.
   "files.candidateGuessEncodings": [],
 
-  // The default language identifier that is assigned to new files. If configured to `${activeEditorLanguage}`, will use the language identifier of the currently active text editor if any.
+  // The default language identifier that is assigned to new files. If configured to `$\{activeEditorLanguage\}
+`, will use the language identifier of the currently active text editor if any.
   "files.defaultLanguage": "",
 
   // Default path for file dialogs, overriding user's home path. Only used in the absence of a context-specific path, such as most recently opened file or folder.
@@ -2025,16 +2034,26 @@ You can also view the default values in the Settings editor or see a read-only v
   "explorer.fileNesting.expand": true,
 
   // Controls nesting of files in the Explorer. `explorer.fileNesting.enabled` must be set for this to take effect. Each __Item__ represents a parent pattern and may contain a single `*` character that matches any string. Each __Value__ represents a comma separated list of the child patterns that should be shown nested under a given parent. Child patterns may contain several special tokens:
-  // - `${capture}`: Matches the resolved value of the `*` from the parent pattern
-  // - `${basename}`: Matches the parent file's basename, the `file` in `file.ts`
-  // - `${extname}`: Matches the parent file's extension, the `ts` in `file.ts`
-  // - `${dirname}`: Matches the parent file's directory name, the `src` in `src/file.ts`
+  // - `$\{capture\}
+`: Matches the resolved value of the `*` from the parent pattern
+  // - `$\{basename\}
+`: Matches the parent file's basename, the `file` in `file.ts`
+  // - `$\{extname\}
+`: Matches the parent file's extension, the `ts` in `file.ts`
+  // - `$\{dirname\}
+`: Matches the parent file's directory name, the `src` in `src/file.ts`
   // - `*`:  Matches any string, may only be used once per child pattern
   "explorer.fileNesting.patterns": {
-    "*.ts": "${capture}.js",
-    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
-    "*.jsx": "${capture}.js",
-    "*.tsx": "${capture}.ts",
+    "*.ts": "$\{capture\}
+.js",
+    "*.js": "$\{capture\}
+.js.map, $\{capture\}
+.min.js, $\{capture\}
+.d.ts",
+    "*.jsx": "$\{capture\}
+.js",
+    "*.tsx": "$\{capture\}
+.ts",
     "tsconfig.json": "tsconfig.*.json",
     "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb, bun.lock"
   },
@@ -2540,9 +2559,13 @@ You can also view the default values in the Settings editor or see a read-only v
   "markdown.editor.drop.enabled": "smart",
 
   // Snippet used when adding audio to Markdown. This snippet can use the following variables:
-  // - `${src}` — The resolved path of the audio  file.
-  // - `${title}` — The title used for the audio. A snippet placeholder will automatically be created for this variable.
-  "markdown.editor.filePaste.audioSnippet": "<audio controls src=\"${src}\" title=\"${title}\"></audio>",
+  // - `$\{src\}
+` — The resolved path of the audio  file.
+  // - `$\{title\}
+` — The title used for the audio. A snippet placeholder will automatically be created for this variable.
+  "markdown.editor.filePaste.audioSnippet": "<audio controls src=\"$\{src\}
+\" title=\"$\{title\}
+\"></audio>",
 
   // Controls if files outside of the workspace that are pasted into a Markdown editor should be copied into the workspace.
   //  - mediaFiles: Try to copy external image and video files into the workspace.
@@ -2556,9 +2579,13 @@ You can also view the default values in the Settings editor or see a read-only v
   "markdown.editor.filePaste.enabled": "smart",
 
   // Snippet used when adding videos to Markdown. This snippet can use the following variables:
-  // - `${src}` — The resolved path of the video file.
-  // - `${title}` — The title used for the video. A snippet placeholder will automatically be created for this variable.
-  "markdown.editor.filePaste.videoSnippet": "<video controls src=\"${src}\" title=\"${title}\"></video>",
+  // - `$\{src\}
+` — The resolved path of the video file.
+  // - `$\{title\}
+` — The title used for the video. A snippet placeholder will automatically be created for this variable.
+  "markdown.editor.filePaste.videoSnippet": "<video controls src=\"$\{src\}
+\" title=\"$\{title\}
+\"></video>",
 
   // Controls if Markdown links are created when URLs are pasted into a Markdown editor. Requires enabling `editor.pasteAs.enabled`.
   //  - always: Always insert Markdown links.
@@ -3589,7 +3616,9 @@ You can also view the default values in the Settings editor or see a read-only v
 
   // Settings Sync
 
-  // List of extensions to be ignored while synchronizing. The identifier of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
+  // List of extensions to be ignored while synchronizing. The identifier of an extension is always `$\{publisher\}
+.$\{name\}
+`. For example: `vscode.csharp`.
   "settingsSync.ignoredExtensions": [],
 
   // Configure settings to be ignored while synchronizing.
@@ -4255,20 +4284,38 @@ You can also view the default values in the Settings editor or see a read-only v
   "terminal.integrated.tabs.defaultIcon": "terminal",
 
   // Controls the terminal description, which appears to the right of the title. Variables are substituted based on the context:
-  // - `${cwd}`: the terminal's current working directory
-  // - `${cwdFolder}`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.
-  // - `${workspaceFolder}`: the workspace in which the terminal was launched
-  // - `${workspaceFolderName}`: the `name` of the workspace in which the terminal was launched
-  // - `${local}`: indicates a local terminal in a remote workspace
-  // - `${process}`: the name of the terminal process
-  // - `${progress}`: the progress state as reported by the `OSC 9;4` sequence
-  // - `${separator}`: a conditional separator (` - `) that only shows when surrounded by variables with values or static text.
-  // - `${sequence}`: the name provided to the terminal by the process
-  // - `${task}`: indicates this terminal is associated with a task
-  // - `${shellType}`: the detected shell type
-  // - `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line which may not work in some prompt frameworks.
-  // - `${shellPromptInput}`: the shell's full prompt input according to shell integration
-  "terminal.integrated.tabs.description": "${task}${separator}${local}${separator}${cwdFolder}",
+  // - `$\{cwd\}
+`: the terminal's current working directory
+  // - `$\{cwdFolder\}
+`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.
+  // - `$\{workspaceFolder\}
+`: the workspace in which the terminal was launched
+  // - `$\{workspaceFolderName\}
+`: the `name` of the workspace in which the terminal was launched
+  // - `$\{local\}
+`: indicates a local terminal in a remote workspace
+  // - `$\{process\}
+`: the name of the terminal process
+  // - `$\{progress\}
+`: the progress state as reported by the `OSC 9;4` sequence
+  // - `$\{separator\}
+`: a conditional separator (` - `) that only shows when surrounded by variables with values or static text.
+  // - `$\{sequence\}
+`: the name provided to the terminal by the process
+  // - `$\{task\}
+`: indicates this terminal is associated with a task
+  // - `$\{shellType\}
+`: the detected shell type
+  // - `$\{shellCommand\}
+`: the command being executed according to shell integration. This also requires high confidence in the detected command line which may not work in some prompt frameworks.
+  // - `$\{shellPromptInput\}
+`: the shell's full prompt input according to shell integration
+  "terminal.integrated.tabs.description": "$\{task\}
+$\{separator\}
+$\{local\}
+$\{separator\}
+$\{cwdFolder\}
+",
 
   // Controls whether terminal tab statuses support animation (eg. in progress tasks).
   "terminal.integrated.tabs.enableAnimation": true,
@@ -4310,20 +4357,34 @@ You can also view the default values in the Settings editor or see a read-only v
   "terminal.integrated.tabs.showActiveTerminal": "singleTerminalOrNarrow",
 
   // Controls the terminal title. Variables are substituted based on the context:
-  // - `${cwd}`: the terminal's current working directory
-  // - `${cwdFolder}`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.
-  // - `${workspaceFolder}`: the workspace in which the terminal was launched
-  // - `${workspaceFolderName}`: the `name` of the workspace in which the terminal was launched
-  // - `${local}`: indicates a local terminal in a remote workspace
-  // - `${process}`: the name of the terminal process
-  // - `${progress}`: the progress state as reported by the `OSC 9;4` sequence
-  // - `${separator}`: a conditional separator (` - `) that only shows when surrounded by variables with values or static text.
-  // - `${sequence}`: the name provided to the terminal by the process
-  // - `${task}`: indicates this terminal is associated with a task
-  // - `${shellType}`: the detected shell type
-  // - `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line which may not work in some prompt frameworks.
-  // - `${shellPromptInput}`: the shell's full prompt input according to shell integration
-  "terminal.integrated.tabs.title": "${process}",
+  // - `$\{cwd\}
+`: the terminal's current working directory
+  // - `$\{cwdFolder\}
+`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.
+  // - `$\{workspaceFolder\}
+`: the workspace in which the terminal was launched
+  // - `$\{workspaceFolderName\}
+`: the `name` of the workspace in which the terminal was launched
+  // - `$\{local\}
+`: indicates a local terminal in a remote workspace
+  // - `$\{process\}
+`: the name of the terminal process
+  // - `$\{progress\}
+`: the progress state as reported by the `OSC 9;4` sequence
+  // - `$\{separator\}
+`: a conditional separator (` - `) that only shows when surrounded by variables with values or static text.
+  // - `$\{sequence\}
+`: the name provided to the terminal by the process
+  // - `$\{task\}
+`: indicates this terminal is associated with a task
+  // - `$\{shellType\}
+`: the detected shell type
+  // - `$\{shellCommand\}
+`: the command being executed according to shell integration. This also requires high confidence in the detected command line which may not work in some prompt frameworks.
+  // - `$\{shellPromptInput\}
+`: the shell's full prompt input according to shell integration
+  "terminal.integrated.tabs.title": "$\{process\}
+",
 
   // The number of cells in a tab stop.
   "terminal.integrated.tabStopWidth": 8,
@@ -5227,13 +5288,18 @@ You can also view the default values in the Settings editor or see a read-only v
   "git.blame.editorDecoration.enabled": false,
 
   // Template for the blame information editor decoration.
-  "git.blame.editorDecoration.template": "${subject}, ${authorName} (${authorDateAgo})",
+  "git.blame.editorDecoration.template": "$\{subject\}
+, $\{authorName\}
+ ($\{authorDateAgo\}
+)",
 
   // Controls whether to show blame information in the status bar.
   "git.blame.statusBarItem.enabled": true,
 
   // Template for the blame information status bar item.
-  "git.blame.statusBarItem.template": "${authorName} (${authorDateAgo})",
+  "git.blame.statusBarItem.template": "$\{authorName\}
+ ($\{authorDateAgo\}
+)",
 
   // Prefix used when creating a new branch.
   "git.branchPrefix": "",
@@ -5619,7 +5685,8 @@ You can also view the default values in the Settings editor or see a read-only v
 
   // Configures glob patterns for determining when to attach in "smart" `debug.javascript.autoAttachFilter` mode. `$KNOWN_TOOLS$` is replaced with a list of names of common test and code runners.
   "debug.javascript.autoAttachSmartPattern": [
-    "${workspaceFolder}/**",
+    "$\{workspaceFolder\}
+/**",
     "!**/node_modules/**",
     "**/$KNOWN_TOOLS$/**"
   ],

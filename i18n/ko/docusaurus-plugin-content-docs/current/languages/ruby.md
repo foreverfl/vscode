@@ -7,6 +7,7 @@ PageTitle: Ruby with Visual Studio Code
 DateApproved: 19/09/2024
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Ruby.
 ---
+
 # Ruby in Visual Studio Code
 
 [Ruby](https://www.ruby-lang.org) is a dynamic, open-source programming language known for its simplicity and productivity. With an expressive and elegant syntax, part of the Ruby philosophy is to make developers happy. It is often used for web development with a range of different frameworks, and for scripting, allowing for fast iterations when building prototypes.
@@ -22,7 +23,7 @@ This topic goes into detail about setting up and using Ruby within Visual Studio
 
 While Ruby is installed by default on some operating systems (such as macOS and some distributions of Linux), we recommend using a version manager such as [rbenv](https://github.com/rbenv/rbenv) to be able to access newer versions of Ruby on Windows, macOS, and Linux. Follow the [installation guidance](https://github.com/rbenv/rbenv#installation) for your platform.
 
->**Note**: As with installing any new toolset on your machine, you'll want to make sure to restart your terminal/Command Prompt and VS Code instances to use the updated toolset location in your platform's PATH variable.
+> **Note**: As with installing any new toolset on your machine, you'll want to make sure to restart your terminal/Command Prompt and VS Code instances to use the updated toolset location in your platform's PATH variable.
 
 ### Install the Ruby LSP extension in VS Code
 
@@ -64,7 +65,7 @@ symbol, document symbol, completion and signature help.
 
 <video src="images/ruby/navigation.mp4" placeholder="images/ruby/navigation-placeholder.png" autoplay loop controls
     muted title="Demo of navigation and intellisense features">
-    Sorry, your browser doesn't support HTML 5 video.
+Sorry, your browser doesn't support HTML 5 video.
 </video>
 
 To learn more about moving quickly through your source code with VS Code, check out [Code Navigation](/docs/editor/editingevolved.md).
@@ -89,12 +90,12 @@ Ruby LSP is able to use [semantic syntax highlighting](https://github.com/micros
 
 For example, it can highlight:
 
-* Method invocations consistently, without confusing it with local variables.
-* Local arguments (such as method, block or lambda arguments) consistently inside the scope in which they exist.
+- Method invocations consistently, without confusing it with local variables.
+- Local arguments (such as method, block or lambda arguments) consistently inside the scope in which they exist.
 
 ![Ruby LSP semantic highlighting](images/ruby/ruby_lsp_semantic_highlighting.png)
 
->**Note**: This screenshot is using the Spinel theme included in the [Ruby extension pack](https://marketplace.visualstudio.com/items?itemName=Shopify.ruby-extensions-pack). Themes must use the information surfaced by the Ruby LSP in order to provide rich highlighting for Ruby files.
+> **Note**: This screenshot is using the Spinel theme included in the [Ruby extension pack](https://marketplace.visualstudio.com/items?itemName=Shopify.ruby-extensions-pack). Themes must use the information surfaced by the Ruby LSP in order to provide rich highlighting for Ruby files.
 
 To use this feature, the editor must have semantic highlighting enabled.
 
@@ -176,14 +177,16 @@ Example:
             "type": "ruby_lsp",
             "name": "Debug",
             "request": "launch",
-            "program": "ruby ${file}",
+            "program": "ruby $\{file\}
+",
         },
         // Launch the debugger for the current test file
         {
             "type": "ruby_lsp",
             "request": "launch",
             "name": "Debug test file",
-            "program": "ruby -Itest ${relativeFile}"
+            "program": "ruby -Itest $\{relativeFile\}
+"
         },
         // Attach the debugger client to an existing Ruby process that has already been launched with the debugger
         // server
@@ -216,6 +219,6 @@ If you have any issues or feature requests, feel free to log them in the Ruby LS
 
 If you'd like to learn more about VS Code, try these topics:
 
-* [Basic Editing](/docs/editor/codebasics.md) - A quick introduction to the basics of the VS Code editor.
-* [Install an Extension](/docs/editor/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+- [Basic Editing](/docs/editor/codebasics.md) - A quick introduction to the basics of the VS Code editor.
+- [Install an Extension](/docs/editor/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+- [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.

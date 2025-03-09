@@ -133,7 +133,8 @@ The command will:
 In addition, you can also bring any 3rd-party modules for Checkstyle by configuring its path. For example, after using the configuration below, you can add `<module name="SingleBreakOrContinueCheck"/>` or `<module name="com.github.sevntu.checkstyle.checks.naming.SingleBreakOrContinueCheck"/>` to `checkstyle.xml` to use those checks.
 
 ```json
-"java.checkstyle.modules": [ "${workspaceFolder}/src/main/resources/sevntu-checks-1.35.0.jar" ]
+"java.checkstyle.modules": [ "$\{workspaceFolder\}
+/src/main/resources/sevntu-checks-1.35.0.jar" ]
 ```
 
 ### Check the style and fix the violations

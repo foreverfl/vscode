@@ -398,26 +398,40 @@ VS Code는 편집기 위의 제목 영역에 탭(탭 헤더)으로 열린 항목
 `workbench.editor.customLabels.patterns` 설정을 사용하여 탭 표시 레이블에 대한 하나 이상의 이름 패턴을 지정할 수 있습니다. 이름 패턴은 두 가지 구성 요소로 구성됩니다:
 
 - **Item** - 파일 경로에 대해 사용자 정의 레이블을 적용할 파일 경로를 일치시키는 [글로브 패턴](/docs/editor/glob-patterns.md). 예: `**/static/**/*.html`.
-- **Value** - 사용자 정의 레이블에 대한 템플릿. 템플릿은 `${filename}`, `${extname}`, `${extname(N)}`, `${dirname}`, `${dirname(N)}`과 같은 변수를 사용할 수 있으며, 파일 경로의 값으로 동적으로 대체됩니다.
+- **Value** - 사용자 정의 레이블에 대한 템플릿. 템플릿은 `$\{filename\}
+`, `$\{extname\}
+`, `$\{extname(N)\}
+`, `$\{dirname\}
+`, `$\{dirname(N)\}
+`과 같은 변수를 사용할 수 있으며, 파일 경로의 값으로 동적으로 대체됩니다.
 
 다음 샘플은 `/src/orders/index.html` 파일을 `orders/index` 탭 레이블로 표시합니다.
 
 ```json
     "workbench.editor.customLabels.patterns": {
-        "**/src/**/index.html": "${dirname}/${filename}"
+        "**/src/**/index.html": "$\{dirname\}
+/$\{filename\}
+"
     }
 ```
 
 ![탭에 대한 사용자 정의 레이블을 활성화하고 지정하는 설정 편집기의 스크린샷](images/userinterface/tabs-custom-labels.png)
 
-다음 예제는 `tests/editor.test.ts` 파일에 대해 `${extname}` 변수를 사용합니다:
+다음 예제는 `tests/editor.test.ts` 파일에 대해 `$\{extname\}
+` 변수를 사용합니다:
 
-- `${filename}` => editor
-- `${extname}` => test.ts
-- `${extname(0)}` => ts
-- `${extname(1)}` => test
-- `${extname(-1)}` => test
-- `${extname(-2)}` => ts
+- `$\{filename\}
+` => editor
+- `$\{extname\}
+` => test.ts
+- `$\{extname(0)\}
+` => ts
+- `$\{extname(1)\}
+` => test
+- `$\{extname(-1)\}
+` => test
+- `$\{extname(-2)\}
+` => ts
 
 :::note
 사용자 정의 탭 레이블은 열린 편집기 화면와 [빠른 열기](/docs/getstarted/tips-and-tricks.md#quick-open) (`Ctrl+P`)에도 적용됩니다.

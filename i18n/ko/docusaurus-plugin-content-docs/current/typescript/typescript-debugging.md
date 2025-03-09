@@ -8,6 +8,7 @@ DateApproved: 03/05/2025
 MetaDescription: TypeScript debugging with Visual Studio Code.
 MetaSocialImage: ../languages/images/typescript/typescript-social.png
 ---
+
 # Debugging TypeScript
 
 Visual Studio Code supports TypeScript debugging through its built-in [Node.js debugger](/docs/nodejs/nodejs-debugging.md) and [Edge and Chrome debugger](/docs/nodejs/browser-debugging.md).
@@ -22,12 +23,12 @@ For a simple example of source maps in action, see the [TypeScript tutorial](/do
 
 ```json
 {
-    "compilerOptions": {
-        "target": "ES5",
-        "module": "CommonJS",
-        "outDir": "out",
-        "sourceMap": true
-    }
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "CommonJS",
+    "outDir": "out",
+    "sourceMap": true
+  }
 }
 ```
 
@@ -46,10 +47,12 @@ This will create a `launch.json` file in a `.vscode` folder with default values 
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/helloworld.ts",
+            "program": "$\{workspaceFolder\}
+/helloworld.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
-                "${workspaceFolder}/out/**/*.js"
+                "$\{workspaceFolder\}
+/out/**/*.js"
             ]
         }
     ]
@@ -79,7 +82,7 @@ Create a new folder `HelloWeb` and add three files: `helloweb.ts`, `helloweb.htm
 helloweb.ts
 
 ```typescript
-let message : string = "Hello Web";
+let message: string = "Hello Web";
 document.body.innerHTML = message;
 ```
 
@@ -88,10 +91,12 @@ helloweb.html
 ```html
 <!DOCTYPE html>
 <html>
-    <head><title>TypeScript Hello Web</title></head>
-    <body>
-        <script src="out/helloweb.js"></script>
-    </body>
+  <head>
+    <title>TypeScript Hello Web</title>
+  </head>
+  <body>
+    <script src="out/helloweb.js"></script>
+  </body>
 </html>
 ```
 
@@ -99,12 +104,12 @@ tsconfig.json
 
 ```json
 {
-    "compilerOptions": {
-        "target": "ES5",
-        "module": "CommonJS",
-        "outDir": "out",
-        "sourceMap": true
-    }
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "CommonJS",
+    "outDir": "out",
+    "sourceMap": true
+  }
 }
 ```
 
@@ -123,7 +128,8 @@ Update the `launch.json` to specify the local file URL to `helloweb.html`:
             "request": "launch",
             "name": "Launch Edge against localhost",
             "url": "file:///C:/Users/username/HelloWeb/helloweb.html",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "$\{workspaceFolder\}
+"
         }
     ]
 }

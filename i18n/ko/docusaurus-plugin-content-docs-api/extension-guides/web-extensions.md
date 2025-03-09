@@ -124,27 +124,27 @@ Later we explain how to use esbuild as bundler, but for now we start with webpac
 [webpack.config.js](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/webpack.config.js)
 
 ```js
-const path = require('path');
-const webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
 
 /** @typedef {import('webpack').Configuration} WebpackConfig **/
 /** @type WebpackConfig */
 const webExtensionConfig = {
-  mode: 'none', // this leaves the source code as close as possible to the original (when packaging we set this to 'production')
-  target: 'webworker', // extensions run in a webworker context
+  mode: "none", // this leaves the source code as close as possible to the original (when packaging we set this to 'production')
+  target: "webworker", // extensions run in a webworker context
   entry: {
-    extension: './src/web/extension.ts', // source of the web extension main file
-    'test/suite/index': './src/web/test/suite/index.ts', // source of the web extension test runner
+    extension: "./src/web/extension.ts", // source of the web extension main file
+    "test/suite/index": "./src/web/test/suite/index.ts", // source of the web extension test runner
   },
   output: {
-    filename: '[name].js',
-    path: path.join(__dirname, './dist/web'),
-    libraryTarget: 'commonjs',
-    devtoolModuleFilenameTemplate: '../../[resource-path]',
+    filename: "[name].js",
+    path: path.join(__dirname, "./dist/web"),
+    libraryTarget: "commonjs",
+    devtoolModuleFilenameTemplate: "../../[resource-path]",
   },
   resolve: {
-    mainFields: ['browser', 'module', 'main'], // look for `browser` entry point in imported node modules
-    extensions: ['.ts', '.js'], // support ts-files and js-files
+    mainFields: ["browser", "module", "main"], // look for `browser` entry point in imported node modules
+    extensions: [".ts", ".js"], // support ts-files and js-files
     alias: {
       // provides alternate implementation for node module and source files
     },
@@ -152,7 +152,7 @@ const webExtensionConfig = {
       // Webpack 5 no longer polyfills Node.js core modules automatically.
       // see https://webpack.js.org/configuration/resolve/#resolvefallback
       // for the list of Node.js core module polyfills.
-      assert: require.resolve('assert'),
+      assert: require.resolve("assert"),
     },
   },
   module: {
@@ -162,7 +162,7 @@ const webExtensionConfig = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'ts-loader',
+            loader: "ts-loader",
           },
         ],
       },
@@ -170,16 +170,16 @@ const webExtensionConfig = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      process: 'process/browser', // provide a shim for the global `process` variable
+      process: "process/browser", // provide a shim for the global `process` variable
     }),
   ],
   externals: {
-    vscode: 'commonjs vscode', // ignored because it doesn't exist
+    vscode: "commonjs vscode", // ignored because it doesn't exist
   },
   performance: {
     hints: false,
   },
-  devtool: 'nosources-source-map', // create a source map that points to the original source file
+  devtool: "nosources-source-map", // create a source map that points to the original source file
 };
 module.exports = [webExtensionConfig];
 ```
@@ -222,10 +222,12 @@ Use the `pwa-extensionhost` launch configuration provided by the **New Web Exten
       "debugWebWorkerHost": true,
       "request": "launch",
       "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--extensionDevelopmentPath=$\{workspaceFolder\}
+",
         "--extensionDevelopmentKind=web"
       ],
-      "outFiles": ["${workspaceFolder}/dist/web/**/*.js"],
+      "outFiles": ["$\{workspaceFolder\}
+/dist/web/**/*.js"],
       "preLaunchTask": "npm: watch-web"
     }
   ]
@@ -361,24 +363,28 @@ The test runner script is running on the web extension host with the same restri
 The [webpack config](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/webpack.config.js) that is created by the `yo code` web extension generator has a section for tests. It expects the test runner script at `./src/web/test/suite/index.ts`. The provided [test runner script](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/src/web/test/suite/index.ts) uses the web version of Mocha and contains webpack-specific syntax to import all test files.
 
 ```ts
-require('mocha/mocha'); // import the mocha web build
+require("mocha/mocha"); // import the mocha web build
 
 export function run(): Promise<void> {
   return new Promise((c, e) => {
     mocha.setup({
-      ui: 'tdd',
+      ui: "tdd",
       reporter: undefined,
     });
 
     // bundles all files in the current directory matching `*.test`
-    const importAll = (r: __WebpackModuleApi.RequireContext) => r.keys().forEach(r);
-    importAll(require.context('.', true, /\.test$/));
+    const importAll = (r: __WebpackModuleApi.RequireContext) =>
+      r.keys().forEach(r);
+    importAll(require.context(".", true, /\.test$/));
 
     try {
       // Run the mocha test
       mocha.run((failures) => {
         if (failures > 0) {
-          e(new Error(`${failures} tests failed.`));
+          e(
+            new Error(`$\{failures\}
+ tests failed.`)
+          );
         } else {
           c();
         }
@@ -416,11 +422,14 @@ To run (and debug) extension tests in VS Code (Insiders) desktop, use the `Exten
       "debugWebWorkerHost": true,
       "request": "launch",
       "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--extensionDevelopmentPath=$\{workspaceFolder\}
+",
         "--extensionDevelopmentKind=web",
-        "--extensionTestsPath=${workspaceFolder}/dist/web/test/suite/index"
+        "--extensionTestsPath=$\{workspaceFolder\}
+/dist/web/test/suite/index"
       ],
-      "outFiles": ["${workspaceFolder}/dist/web/**/*.js"],
+      "outFiles": ["$\{workspaceFolder\}
+/dist/web/**/*.js"],
       "preLaunchTask": "npm: watch-web"
     }
   ]
@@ -506,29 +515,32 @@ If you want to use esbuild instead of webpack, do the following:
 Add a `esbuild.js` build script:
 
 ```js
-const esbuild = require('esbuild');
-const glob = require('glob');
-const path = require('path');
-const polyfill = require('@esbuild-plugins/node-globals-polyfill');
+const esbuild = require("esbuild");
+const glob = require("glob");
+const path = require("path");
+const polyfill = require("@esbuild-plugins/node-globals-polyfill");
 
-const production = process.argv.includes('--production');
-const watch = process.argv.includes('--watch');
+const production = process.argv.includes("--production");
+const watch = process.argv.includes("--watch");
 
 async function main() {
   const ctx = await esbuild.context({
-    entryPoints: ['src/web/extension.ts', 'src/web/test/suite/extensionTests.ts'],
+    entryPoints: [
+      "src/web/extension.ts",
+      "src/web/test/suite/extensionTests.ts",
+    ],
     bundle: true,
-    format: 'cjs',
+    format: "cjs",
     minify: production,
     sourcemap: !production,
     sourcesContent: false,
-    platform: 'browser',
-    outdir: 'dist/web',
-    external: ['vscode'],
-    logLevel: 'warning',
+    platform: "browser",
+    outdir: "dist/web",
+    external: ["vscode"],
+    logLevel: "warning",
     // Node.js global to browser globalThis
     define: {
-      global: 'globalThis',
+      global: "globalThis",
     },
 
     plugins: [
@@ -555,20 +567,28 @@ async function main() {
  * @type {import('esbuild').Plugin}
  */
 const testBundlePlugin = {
-  name: 'testBundlePlugin',
+  name: "testBundlePlugin",
   setup(build) {
     build.onResolve({ filter: /[\/\\]extensionTests\.ts$/ }, (args) => {
-      if (args.kind === 'entry-point') {
+      if (args.kind === "entry-point") {
         return { path: path.resolve(args.path) };
       }
     });
     build.onLoad({ filter: /[\/\\]extensionTests\.ts$/ }, async (args) => {
-      const testsRoot = path.join(__dirname, 'src/web/test/suite');
-      const files = await glob.glob('*.test.{ts,tsx}', { cwd: testsRoot, posix: true });
+      const testsRoot = path.join(__dirname, "src/web/test/suite");
+      const files = await glob.glob("*.test.{ts,tsx}", {
+        cwd: testsRoot,
+        posix: true,
+      });
       return {
         contents:
           `export { run } from './mochaTestRunner.ts';` +
-          files.map((f) => `import('./${f}');`).join(''),
+          files
+            .map(
+              (f) => `import('./$\{f\}
+');`
+            )
+            .join(""),
         watchDirs: files.map((f) => path.dirname(path.resolve(testsRoot, f))),
         watchFiles: files.map((f) => path.resolve(testsRoot, f)),
       };
@@ -582,19 +602,23 @@ const testBundlePlugin = {
  * @type {import('esbuild').Plugin}
  */
 const esbuildProblemMatcherPlugin = {
-  name: 'esbuild-problem-matcher',
+  name: "esbuild-problem-matcher",
 
   setup(build) {
     build.onStart(() => {
-      console.log('[watch] build started');
+      console.log("[watch] build started");
     });
     build.onEnd((result) => {
       result.errors.forEach(({ text, location }) => {
-        console.error(`✘ [ERROR] ${text}`);
+        console.error(`✘ [ERROR] $\{text\}
+`);
         if (location == null) return;
-        console.error(`    ${location.file}:${location.line}:${location.column}:`);
+        console.error(`    $\{location.file\}
+:$\{location.line\}
+:$\{location.column\}
+:`);
       });
-      console.log('[watch] build finished');
+      console.log("[watch] build finished");
     });
   },
 };
@@ -700,10 +724,10 @@ This is the `mochaTestRunner.js` referenced in the esbuild build script:
 
 ```ts
 // Imports mocha for the browser, defining the `mocha` global.
-import 'mocha/mocha';
+import "mocha/mocha";
 
 mocha.setup({
-  ui: 'tdd',
+  ui: "tdd",
   reporter: undefined,
 });
 
@@ -713,7 +737,10 @@ export function run(): Promise<void> {
       // Run the mocha test
       mocha.run((failures) => {
         if (failures > 0) {
-          e(new Error(`${failures} tests failed.`));
+          e(
+            new Error(`$\{failures\}
+ tests failed.`)
+          );
         } else {
           c();
         }

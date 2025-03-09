@@ -69,14 +69,15 @@ import * as vscode from 'vscode';
 export function activate(context: vscode.ExtensionContext) {
   vscode.languages.registerHoverProvider(
     'javascript',
-    new class implements vscode.HoverProvider {
+    new (class implements vscode.HoverProvider {
       provideHover(
         _document: vscode.TextDocument,
         _position: vscode.Position,
         _token: vscode.CancellationToken
       ): vscode.ProviderResult<vscode.Hover> {
         const commentCommandUri = vscode.Uri.parse(`command:editor.action.addCommentLine`);
-        const contents = new vscode.MarkdownString(`[Add comment](${commentCommandUri})`);
+        const contents = new vscode.MarkdownString(`[Add comment]($\{commentCommandUri\}
+)`);
 
         // To enable command URIs in Markdown content, you must set the `isTrusted` flag.
         // When creating trusted Markdown string, make sure to properly sanitize all the
@@ -85,7 +86,7 @@ export function activate(context: vscode.ExtensionContext) {
 
         return new vscode.Hover(contents);
       }
-    }()
+    })()
   );
 }
 ```
@@ -98,7 +99,7 @@ import * as vscode from 'vscode';
 export function activate(context: vscode.ExtensionContext) {
   vscode.languages.registerHoverProvider(
     'javascript',
-    new class implements vscode.HoverProvider {
+    new (class implements vscode.HoverProvider {
       provideHover(
         document: vscode.TextDocument,
         _position: vscode.Position,
@@ -106,13 +107,15 @@ export function activate(context: vscode.ExtensionContext) {
       ): vscode.ProviderResult<vscode.Hover> {
         const args = [{ resourceUri: document.uri }];
         const stageCommandUri = vscode.Uri.parse(
-          `command:git.stage?${encodeURIComponent(JSON.stringify(args))}`
+          `command:git.stage?$\{encodeURIComponent(JSON.stringify(args))\}
+`
         );
-        const contents = new vscode.MarkdownString(`[Stage file](${stageCommandUri})`);
+        const contents = new vscode.MarkdownString(`[Stage file]($\{stageCommandUri\}
+)`);
         contents.isTrusted = true;
         return new vscode.Hover(contents);
       }
-    }()
+    })()
   );
 }
 ```
@@ -132,7 +135,8 @@ export function activate(context: vscode.ExtensionContext) {
   const command = 'myExtension.sayHello';
 
   const commandHandler = (name: string = 'world') => {
-    console.log(`Hello ${name}!!!`);
+    console.log(`Hello $\{name\}
+!!!`);
   };
 
   context.subscriptions.push(vscode.commands.registerCommand(command, commandHandler));
@@ -165,12 +169,12 @@ The `commands` contribution tells VS Code that your extension provides a given c
 Now when a user first invokes the `myExtension.sayHello` command from the Command Palette or through a keybinding, the extension will be activated and `registerCommand` will bind `myExtension.sayHello` to the proper handler.
 
 > **Note**: Extensions targeting VS Code versions prior to 1.74.0 must explicitly register an `onCommand` `activationEvent` for all user facing commands so that the extension activates and `registerCommand` executes:
+>
 > ```json
 > {
 >   "activationEvents": ["onCommand:myExtension.sayHello"]
 > }
 > ```
-
 
 You do not need an `onCommand` activation event for internal commands but you must define them for any commands that:
 

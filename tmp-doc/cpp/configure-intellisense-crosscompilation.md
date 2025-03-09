@@ -58,7 +58,8 @@ Given the settings above, your `c_cpp_configuration.json` file will look somethi
   "configurations": [
     {
       "name": "myConfigurationName",
-      "includePath": ["${workspaceFolder}/**"],
+      "includePath": ["$\{workspaceFolder\}
+/**"],
       "defines": [],
       "compilerPath": "/usr/bin/arm-none-eabi-g++",
       "cStandard": "c11",

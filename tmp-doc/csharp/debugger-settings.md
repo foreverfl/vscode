@@ -32,7 +32,8 @@ The program field is set to the path of the application dll or .NET Core host ex
 
 This property normally takes the form: "$\{workspaceFolder\}/bin/Debug/\<target-framework\>/\<project-name.dll\>".
 
-Example: `"${workspaceFolder}/bin/Debug/netcoreapp1.1/MyProject.dll"`
+Example: `"$\{workspaceFolder\}
+/bin/Debug/netcoreapp1.1/MyProject.dll"`
 
 Where:
 
@@ -226,7 +227,8 @@ If `launchSettingsProfile` is set to null/an empty string, then Properties/launc
 By default, the debugger will search for `launchSettings.json` in \{cwd\}/Properties/launchSettings.json. To customize this path, set `launchSettingsFilePath`:
 
 ```json
-   "launchSettingsFilePath": "${workspaceFolder}/<Relative-Path-To-Project-Directory/Properties/launchSettings.json"
+   "launchSettingsFilePath": "$\{workspaceFolder\}
+/<Relative-Path-To-Project-Directory/Properties/launchSettings.json"
 ```
 
 Restrictions:
@@ -330,7 +332,8 @@ If you need to have the debugger to connect to a remote computer using another e
         "pipeProgram": "ssh",
         "pipeArgs": [ "-T", "ExampleAccount@ExampleTargetComputer" ],
         "debuggerPath": "~/vsdbg/vsdbg",
-        "pipeCwd": "${workspaceFolder}",
+        "pipeCwd": "$\{workspaceFolder\}
+",
         "quoteArgs": true
     }
 ```

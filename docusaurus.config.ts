@@ -32,17 +32,13 @@ const config: Config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "ko",
-    locales: ["ko", "ja"],
+    locales: ["ko"],
     path: "i18n",
     localeConfigs: {
       ko: {
         label: "한국어",
         path: "ko",
-      },
-      ja: {
-        label: "日本語",
-        path: "ja",
-      },
+      }
     },
   },
 

@@ -72,7 +72,8 @@ To enable SSL (using the HTTPS protocol), you will need to make a few changes to
       }
     }
     netCore: {
-        "appProject": "${workspacefolder}/MyProject.csproj",
+        "appProject": "$\{workspacefolder\}
+   /MyProject.csproj",
         "enableDebugging": true,
         "configureSsl": true
     }

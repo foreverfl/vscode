@@ -124,7 +124,8 @@ For debugging Python with Docker Compose, follow these steps:
            "host": "localhost",
            "pathMappings": [
                {
-                   "localRoot": "${workspaceFolder}",
+                   "localRoot": "$\{workspaceFolder\}
+   ",
                    "remoteRoot": "/app"
                }
            ]
@@ -232,13 +233,15 @@ Workspaces can have multiple docker-compose files to handle different environmen
 
 ### Base file and an override file
 
-Let's assume your workspace has a base compose file (`docker-compose.yml`) and an override file for each environment (`docker-compose.dev.yml`, `docker-compose.test.yml` and `docker-compose.prod.yml`) and you always run `docker compose up` with the base file and an override file. In this case, the `compose up` command can be customized as in the following example. When the `compose up` command is invoked, the `${configurationFile}` is replaced by the selected file.
+Let's assume your workspace has a base compose file (`docker-compose.yml`) and an override file for each environment (`docker-compose.dev.yml`, `docker-compose.test.yml` and `docker-compose.prod.yml`) and you always run `docker compose up` with the base file and an override file. In this case, the `compose up` command can be customized as in the following example. When the `compose up` command is invoked, the `$\{configurationFile\}
+` is replaced by the selected file.
 
 ```json
 "docker.commands.composeUp": [
     {
         "label": "override",
-        "template": "docker-compose -f docker-compose.yml ${configurationFile}  up -d --build",
+        "template": "docker-compose -f docker-compose.yml $\{configurationFile\}
+  up -d --build",
     }
 ]
 ```
@@ -275,15 +278,18 @@ If you omit the `match` property from command templates, you're asked which temp
 "docker.commands.composeUp": [
     {
         "label": "dev",
-        "template": "docker-compose -f docker-compose.yml -f docker-compose.common.dev.yml ${configurationFile} up -d --build"
+        "template": "docker-compose -f docker-compose.yml -f docker-compose.common.dev.yml $\{configurationFile\}
+ up -d --build"
     },
     {
         "label": "test",
-        "template": "docker-compose -f docker-compose.yml -f docker-compose.common.test.yml ${configurationFile} up -d --build"
+        "template": "docker-compose -f docker-compose.yml -f docker-compose.common.test.yml $\{configurationFile\}
+ up -d --build"
     },
     {
         "label": "prod",
-        "template": "docker-compose -f docker-compose.yml -f docker-compose.common.prod.yml ${configurationFile} up -d --build"
+        "template": "docker-compose -f docker-compose.yml -f docker-compose.common.prod.yml $\{configurationFile\}
+ up -d --build"
     },
 ],
 ```

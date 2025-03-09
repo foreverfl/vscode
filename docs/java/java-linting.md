@@ -7,6 +7,7 @@ PageTitle: Formatting, linting, and code analysis for Java in Visual Studio Code
 DateApproved: 12/12/2021
 MetaDescription: Formatting, linting, and code analysis for Java in Visual Studio Code
 ---
+
 # Java formatting and linting
 
 [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) also provides [formatting settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings). You can export an Eclipse formatter file and then use it for your project in VS Code.
@@ -113,8 +114,8 @@ To set the configuration file, right-click the `.xml` file and select **Set the 
 
 You can also trigger the command **Checkstyle: Set Checkstyle Configuration File** to choose the configuration file in the File Explorer. The extension looks for a `checkstyle.xml` file in your workspace to make Checkstyle configuration easier. You will also see the two built-in configurations:
 
-* **Google's Check**
-* **Sun's Check**
+- **Google's Check**
+- **Sun's Check**
 
 The command **Checkstyle: Set the Checkstyle Configuration** detects potential **Checkstyle** configuration files and lists them. You can also provide a configuration file by directly writing a URL in the input box.
 
@@ -125,15 +126,16 @@ You can also set the Checkstyle version by using the command **Checkstyle: Set t
 
 The command will:
 
-* List the latest Checkstyle version from the main repo.
-* List all the downloaded versions.
-* List all the supported versions.
-* Mark the currently used version with a check symbol.
+- List the latest Checkstyle version from the main repo.
+- List all the downloaded versions.
+- List all the supported versions.
+- Mark the currently used version with a check symbol.
 
 In addition, you can also bring any 3rd-party modules for Checkstyle by configuring its path. For example, after using the configuration below, you can add `<module name="SingleBreakOrContinueCheck"/>` or `<module name="com.github.sevntu.checkstyle.checks.naming.SingleBreakOrContinueCheck"/>` to `checkstyle.xml` to use those checks.
 
 ```json
-"java.checkstyle.modules": [ "${workspaceFolder}/src/main/resources/sevntu-checks-1.35.0.jar" ]
+"java.checkstyle.modules": [ "$\{workspaceFolder\}
+/src/main/resources/sevntu-checks-1.35.0.jar" ]
 ```
 
 ### Check the style and fix the violations

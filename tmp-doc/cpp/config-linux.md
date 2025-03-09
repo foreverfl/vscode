@@ -145,9 +145,12 @@ Your new `tasks.json` file should look similar to the JSON below:
       "command": "/usr/bin/g++",
       "args": [
         "-g",
-        "${file}",
+        "$\{file\}
+",
         "-o",
-        "${fileDirname}/${fileBasenameNoExtension}"
+        "$\{fileDirname\}
+/$\{fileBasenameNoExtension\}
+"
       ],
       "options": {
         "cwd": "/usr/bin"
@@ -168,7 +171,10 @@ Your new `tasks.json` file should look similar to the JSON below:
 The `command` setting specifies the program to run; in this case that is g++.
 The `args` array specifies the command-line arguments that will be passed to g++. These arguments must be specified in the order expected by the compiler.
 
-This task tells g++ to take the active file (`${file}`), compile it, and create an executable file in the current directory (`${fileDirname}`) with the same name as the active file but without an extension (`${fileBasenameNoExtension}`), resulting in `helloworld` for our example.
+This task tells g++ to take the active file (`$\{file\}
+`), compile it, and create an executable file in the current directory (`$\{fileDirname\}
+`) with the same name as the active file but without an extension (`$\{fileBasenameNoExtension\}
+`), resulting in `helloworld` for our example.
 
 The `label` value is what you will see in the tasks list; you can name this whatever you like.
 
@@ -191,7 +197,11 @@ with this:
 
 ### Modifying tasks.json
 
-You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}/*.cpp"` instead of `"${file}"`.This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"${fileDirname}/${fileBasenameNoExtension}"` with a hard-coded filename (for example 'helloworld.out').
+You can modify your `tasks.json` to build multiple C++ files by using an argument like `"$\{workspaceFolder\}
+/*.cpp"` instead of `"$\{file\}
+"`.This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"$\{fileDirname\}
+/$\{fileBasenameNoExtension\}
+"` with a hard-coded filename (for example 'helloworld.out').
 
 ## Debug helloworld.cpp
 
@@ -292,10 +302,13 @@ VS Code creates a `launch.json` file, which looks something like this:
       "name": "C/C++: g++ build and debug active file",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "program": "$\{fileDirname\}
+/$\{fileBasenameNoExtension\}
+",
       "args": [],
       "stopAtEntry": false,
-      "cwd": "${workspaceFolder}",
+      "cwd": "$\{workspaceFolder\}
+",
       "environment": [],
       "externalConsole": false,
       "MIMode": "gdb",
@@ -313,7 +326,9 @@ VS Code creates a `launch.json` file, which looks something like this:
 }
 ```
 
-In the JSON above, `program` specifies the program you want to debug. Here it is set to the active file folder `${fileDirname}` and active filename without an extension `${fileBasenameNoExtension}`, which if `helloworld.cpp` is the active file will be `helloworld`. The `args` property is an array of arguments to pass to the program at runtime.
+In the JSON above, `program` specifies the program you want to debug. Here it is set to the active file folder `$\{fileDirname\}
+` and active filename without an extension `$\{fileBasenameNoExtension\}
+`, which if `helloworld.cpp` is the active file will be `helloworld`. The `args` property is an array of arguments to pass to the program at runtime.
 
 By default, the C++ extension won't add any breakpoints to your source code and the `stopAtEntry` value is set to `false`.
 
@@ -342,7 +357,8 @@ Visual Studio Code places these settings in `.vscode/c_cpp_properties.json`. If 
   "configurations": [
     {
       "name": "Linux",
-      "includePath": ["${workspaceFolder}/**"],
+      "includePath": ["$\{workspaceFolder\}
+/**"],
       "defines": [],
       "compilerPath": "/usr/bin/gcc",
       "cStandard": "c11",

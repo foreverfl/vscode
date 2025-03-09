@@ -100,7 +100,8 @@ For example, if you want every Markdown file under `/docs` in your workspace to 
 
 ```jsonc
 "markdown.copyFiles.destination": {
-  "/docs/**/*": "images/${documentBaseName}/"
+  "/docs/**/*": "images/$\{documentBaseName\}
+/"
 }
 ```
 
@@ -110,7 +111,8 @@ You can even use simple regular expressions to transform variables in a [similar
 
 ```jsonc
 "markdown.copyFiles.destination": {
-  "/docs/**/*": "images/${documentBaseName/(.).*/$1/}/"
+  "/docs/**/*": "images/$\{documentBaseName/(.).*/$1/\}
+/"
 }
 ```
 

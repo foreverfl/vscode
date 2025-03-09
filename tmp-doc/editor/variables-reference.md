@@ -69,26 +69,32 @@ Visual Studio Code는 [디버깅](/docs/editor/debugging.md)과 [태스크](/doc
 
 루트 폴더의 이름을 변수에 추가(콜론으로 구분)하면 작업 공간의 형제 루트 폴더에 접근할 수 있습니다. 루트 폴더 이름이 없으면 변수는 사용되는 동일한 폴더로 범위가 지정됩니다.
 
-예를 들어, `Server`와 `Client` 폴더가 있는 다중 루트 작업 공간에서 `${workspaceFolder:Client}`는 `Client` 루트의 경로를 참조합니다.
+예를 들어, `Server`와 `Client` 폴더가 있는 다중 루트 작업 공간에서 `$\{workspaceFolder:Client\}
+`는 `Client` 루트의 경로를 참조합니다.
 
 ## 환경 변수 {#environment-variables}
 
-**$\{env:Name\}** 구문을 통해 환경 변수를 참조할 수도 있습니다(예: `${env:USERNAME}`).
+**$\{env:Name\}** 구문을 통해 환경 변수를 참조할 수도 있습니다(예: `$\{env:USERNAME\}
+`).
 
 ```json
 {
   "type": "node",
   "request": "launch",
   "name": "Launch Program",
-  "program": "${workspaceFolder}/app.js",
-  "cwd": "${workspaceFolder}",
-  "args": ["${env:USERNAME}"]
+  "program": "$\{workspaceFolder\}
+/app.js",
+  "cwd": "$\{workspaceFolder\}
+",
+  "args": ["$\{env:USERNAME\}
+"]
 }
 ```
 
 ## 구성 변수 {#configuration-variables}
 
-**$\{config:Name\}** 구문을 통해 VS Code 설정("구성")을 참조할 수 있습니다(예: `${config:editor.fontSize}`).
+**$\{config:Name\}** 구문을 통해 VS Code 설정("구성")을 참조할 수 있습니다(예: `$\{config:editor.fontSize\}
+`).
 
 ## 명령 변수 {#command-variables}
 
@@ -105,7 +111,8 @@ Visual Studio Code는 [디버깅](/docs/editor/debugging.md)과 [태스크](/doc
       "type": "node",
       "request": "attach",
       "name": "Attach by Process ID",
-      "processId": "${command:extension.pickNodeProcess}"
+      "processId": "$\{command:extension.pickNodeProcess\}
+"
     }
   ]
 }
@@ -117,7 +124,8 @@ Visual Studio Code는 [디버깅](/docs/editor/debugging.md)과 [태스크](/doc
 
 명령 변수는 이미 강력하지만 특정 사용 사례에 대해 실행되는 명령을 구성하는 메커니즘이 부족합니다. 예를 들어, 일반적인 "사용자 입력 프롬프트"에 **프롬프트 메시지**나 **기본값**을 전달할 수 없습니다.
 
-이 제한은 `${input:variableID}` 구문을 가진 **입력 변수**로 해결됩니다. `variableID`는 추가 구성 속성이 지정되는 `launch.json`과 `tasks.json`의 `inputs` 섹션의 항목을 참조합니다. 입력 변수의 중첩은 지원되지 않습니다.
+이 제한은 `$\{input:variableID\}
+` 구문을 가진 **입력 변수**로 해결됩니다. `variableID`는 추가 구성 속성이 지정되는 `launch.json`과 `tasks.json`의 `inputs` 섹션의 항목을 참조합니다. 입력 변수의 중첩은 지원되지 않습니다.
 
 다음 예시는 입력 변수를 사용하는 `tasks.json`의 전체 구조를 보여줍니다:
 
@@ -127,7 +135,8 @@ Visual Studio Code는 [디버깅](/docs/editor/debugging.md)과 [태스크](/doc
   "tasks": [
     {
       "label": "task name",
-      "command": "${input:variableID}"
+      "command": "$\{input:variableID\}
+"
       // ...
     }
   ],
@@ -178,7 +187,9 @@ Visual Studio Code는 [디버깅](/docs/editor/debugging.md)과 [태스크](/doc
       "label": "ng g",
       "type": "shell",
       "command": "ng",
-      "args": ["g", "${input:componentType}", "${input:componentName}"]
+      "args": ["g", "$\{input:componentType\}
+", "$\{input:componentName\}
+"]
     }
   ],
   "inputs": [
@@ -217,7 +228,9 @@ Visual Studio Code는 [디버깅](/docs/editor/debugging.md)과 [태스크](/doc
       "type": "node",
       "request": "launch",
       "name": "Run specific test",
-      "program": "${workspaceFolder}/${input:pickTest}"
+      "program": "$\{workspaceFolder\}
+/$\{input:pickTest\}
+"
     }
   ],
   "inputs": [
@@ -241,7 +254,8 @@ Visual Studio Code는 [디버깅](/docs/editor/debugging.md)과 [태스크](/doc
   "tasks": [
     {
       "label": "Terminate All Tasks",
-      "command": "echo ${input:terminate}",
+      "command": "echo $\{input:terminate\}
+",
       "type": "shell",
       "problemMatcher": []
     }
@@ -273,14 +287,22 @@ Visual Studio Code는 [디버깅](/docs/editor/debugging.md)과 [태스크](/doc
 미리 정의된 변수는 터미널 `cwd`, `env`, `shell`, `shellArgs` 값과 같은 `settings.json` 파일의 일부 설정 키에서 지원됩니다. `window.title`과 같은 일부 [설정](/docs/getstarted/settings.md)은 자체 변수를 가지고 있습니다:
 
 ```json
-  "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}"
+  "window.title": "$\{dirty\}
+$\{activeEditorShort\}
+$\{separator\}
+$\{rootName\}
+$\{separator\}
+$\{appName\}
+"
 ```
 
 설정별 변수에 대해 알아보려면 설정 편집기(`kb(workbench.action.openSettings)`)의 주석을 참조하세요.
 
 ### $\{workspaceRoot\}가 문서화되지 않은 이유는 무엇인가요? {#why-isnt-workspaceroot-documented}
 
-변수 `${workspaceRoot}`는 [다중 루트 작업 공간](/docs/editor/multi-root-workspaces.md) 지원과 더 잘 맞추기 위해 `${workspaceFolder}`로 대체되었습니다.
+변수 `$\{workspaceRoot\}
+`는 [다중 루트 작업 공간](/docs/editor/multi-root-workspaces.md) 지원과 더 잘 맞추기 위해 `$\{workspaceFolder\}
+`로 대체되었습니다.
 
 ### tasks.json에서 변수가 해결되지 않는 이유는 무엇인가요? {#why-arent-variables-being-resolved}
 
@@ -288,7 +310,8 @@ Visual Studio Code는 [디버깅](/docs/editor/debugging.md)과 [태스크](/doc
 
 ### 변수의 실제 값을 어떻게 알 수 있나요? {#how-can-i-know-variables-actual-value}
 
-변수의 런타임 값을 확인하는 쉬운 방법 중 하나는 변수 값을 콘솔에 출력하는 VS Code [태스크](/docs/editor/tasks.md)를 만드는 것입니다. 예를 들어, `${workspaceFolder}`의 해결된 값을 보려면 다음과 같은 간단한 'echo' 태스크를 `tasks.json`에 만들고 실행(**Terminal** > **Run Task**)할 수 있습니다:
+변수의 런타임 값을 확인하는 쉬운 방법 중 하나는 변수 값을 콘솔에 출력하는 VS Code [태스크](/docs/editor/tasks.md)를 만드는 것입니다. 예를 들어, `$\{workspaceFolder\}
+`의 해결된 값을 보려면 다음과 같은 간단한 'echo' 태스크를 `tasks.json`에 만들고 실행(**Terminal** > **Run Task**)할 수 있습니다:
 
 ```json
 {
@@ -297,7 +320,8 @@ Visual Studio Code는 [디버깅](/docs/editor/debugging.md)과 [태스크](/doc
     {
       "label": "echo",
       "type": "shell",
-      "command": "echo ${workspaceFolder}"
+      "command": "echo $\{workspaceFolder\}
+"
     }
   ]
 }

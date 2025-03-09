@@ -47,9 +47,11 @@ This will create a `launch.json` file in a `.vscode` folder with default values 
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/helloworld.ts",
+      "program": "$\{workspaceFolder\}
+/helloworld.ts",
       "preLaunchTask": "tsc: build - tsconfig.json",
-      "outFiles": ["${workspaceFolder}/out/**/*.js"]
+      "outFiles": ["$\{workspaceFolder\}
+/out/**/*.js"]
     }
   ]
 }
@@ -124,7 +126,8 @@ Update the `launch.json` to specify the local file URL to `helloweb.html`:
       "request": "launch",
       "name": "Launch Edge against localhost",
       "url": "file:///C:/Users/username/HelloWeb/helloweb.html",
-      "webRoot": "${workspaceFolder}"
+      "webRoot": "$\{workspaceFolder\}
+"
     }
   ]
 }

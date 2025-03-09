@@ -95,7 +95,7 @@ Contributes new themable colors. These colors can be used by the extension in ed
           "dark": "errorForeground",
           "light": "errorForeground",
           "highContrast": "#010203",
-          "highContrastLight": "#feedc3",
+          "highContrastLight": "#feedc3"
         }
       }
     ]
@@ -120,7 +120,8 @@ instance, prefixes commands with their `category`, allowing for easy grouping. H
 **Command Palette** doesn't show icons nor disabled commands. The editor context menu, on the other
 hand, shows disabled items but doesn't show the category label.
 
-> **Note:** When a command is invoked (from a key binding, from the **Command Palette**, any other menu, or programmatically), VS Code will emit an activationEvent `onCommand:${command}`.
+> **Note:** When a command is invoked (from a key binding, from the **Command Palette**, any other menu, or programmatically), VS Code will emit an activationEvent `onCommand:$\{command\}
+`.
 
 > **Note:** When using icons from [product icons](/api/references/icons-in-labels#icon-listing), setting `light` and `dark` will disable the icon.
 > The correct syntax is `"icon": "$(book)"`
@@ -262,7 +263,8 @@ If you use `markdownDescription` instead of `description`, your setting descript
 ```json
 {
   "gitMagic.blame.dateFormat": {
-    "markdownDescription": "Specifies how to format absolute dates (e.g. using the `${date}` token) in gutter blame annotations. See the [Moment.js docs](https://momentjs.com/docs/#/displaying/format/) for valid formats"
+    "markdownDescription": "Specifies how to format absolute dates (e.g. using the `$\{date\}
+` token) in gutter blame annotations. See the [Moment.js docs](https://momentjs.com/docs/#/displaying/format/) for valid formats"
   }
 }
 ```
@@ -325,7 +327,11 @@ Example:
   "settingsEditorTestExtension.enumSetting": {
     "type": "string",
     "enum": ["first", "second", "third"],
-    "markdownEnumDescriptions": ["The *first* enum", "The *second* enum", "The *third* enum"],
+    "markdownEnumDescriptions": [
+      "The *first* enum",
+      "The *second* enum",
+      "The *third* enum"
+    ],
     "enumItemLabels": ["1st", "2nd", "3rd"],
     "default": "first",
     "description": "Example setting with an enum"
@@ -408,21 +414,12 @@ Below are example configuration scopes from the built-in Git extension:
           "description": "%config.ignoredRepositories%"
         },
         "git.autofetch": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "enum": [
-            true,
-            false,
-            "all"
-          ],
+          "type": ["boolean", "string"],
+          "enum": [true, false, "all"],
           "scope": "resource",
           "markdownDescription": "%config.autofetch%",
           "default": false,
-          "tags": [
-            "usesOnlineServices"
-          ]
+          "tags": ["usesOnlineServices"]
         }
       }
     }
@@ -434,7 +431,7 @@ You can see that `git.alwaysSignOff` has `resource` scope and can be set per use
 
 #### Linking to settings
 
-You can insert a link to another setting, which will be rendered as a clickable link in the settings UI, by using this special syntax in the markdown-type properties: ``` `#target.setting.id#` ```. This will work in `markdownDescription`, `markdownEnumDescriptions`, and `markdownDeprecationMessage`. Example:
+You can insert a link to another setting, which will be rendered as a clickable link in the settings UI, by using this special syntax in the markdown-type properties: `` `#target.setting.id#` ``. This will work in `markdownDescription`, `markdownEnumDescriptions`, and `markdownDeprecationMessage`. Example:
 
 ```json
   "files.autoSaveDelay": {
@@ -468,9 +465,9 @@ You can also contribute default editor configurations for the provided language.
       "[markdown]": {
         "editor.wordWrap": "on",
         "editor.quickSuggestions": {
-                "comments": "off",
-                "strings": "off",
-                "other": "off"
+          "comments": "off",
+          "strings": "off",
+          "other": "off"
         }
       }
     }
@@ -505,21 +502,21 @@ Here's a basic `customEditor` contribution for the [custom editor extension samp
 
 - `viewType` - Unique identifier for your custom editor.
 
-    This is how VS Code ties a custom editor contribution in the `package.json` to your custom editor implementation in code. This must be unique across all extensions, so instead of a generic `viewType` such as `"preview"` make sure to use one that is unique to your extension, for example `"viewType": "myAmazingExtension.svgPreview"`.
+  This is how VS Code ties a custom editor contribution in the `package.json` to your custom editor implementation in code. This must be unique across all extensions, so instead of a generic `viewType` such as `"preview"` make sure to use one that is unique to your extension, for example `"viewType": "myAmazingExtension.svgPreview"`.
 
 - `displayName` - Name that identifies the custom editor in VS Code's UI.
 
-    The display name is shown to the user in VS Code UI such as the **View: Reopen with** dropdown.
+  The display name is shown to the user in VS Code UI such as the **View: Reopen with** dropdown.
 
 - `selector` - Specifies which files a custom editor is active for.
 
-    The `selector` is an array of one or more [glob patterns](/docs/editor/glob-patterns). These glob patterns are matched against file names to determine if the custom editor can be used for them. A `filenamePattern` such as `*.png` will enable the custom editor for all PNG files.
+  The `selector` is an array of one or more [glob patterns](/docs/editor/glob-patterns). These glob patterns are matched against file names to determine if the custom editor can be used for them. A `filenamePattern` such as `*.png` will enable the custom editor for all PNG files.
 
-    You can also create more specific patterns that match on file or directory names, for example `**/translations/*.json`.
+  You can also create more specific patterns that match on file or directory names, for example `**/translations/*.json`.
 
 - `priority` - (optional) Specifies when the custom editor is used.
 
-    `priority` controls when a custom editor is used when a resource is open. Possible values are:
+  `priority` controls when a custom editor is used when a resource is open. Possible values are:
 
   - `"default"` - Try to use the custom editor for every file that matches the custom editor's `selector`. If there are multiple custom editors for a given file, the user will have to select which custom editor they want to use.
   - `"option"` - Do not use the custom editor by default but allow users to switch to it or configure it as their default.
@@ -572,7 +569,8 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/app.js"
+            "program": "$\{workspaceFolder\}
+/app.js"
           }
         ],
 
@@ -583,7 +581,8 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
             "body": {
               "type": "node",
               "request": "attach",
-              "name": "${2:Attach to Port}",
+              "name": "$\{2:Attach to Port\}
+",
               "port": 9229
             }
           }
@@ -707,7 +706,8 @@ Contributing a key binding will cause the Default Keyboard Shortcuts to display 
 
 > **Note:** Because VS Code runs on Windows, macOS and Linux, where modifiers differ, you can use "key" to set the default key combination and overwrite it with a specific platform.
 
-> **Note:** When a command is invoked (from a key binding or from the Command Palette), VS Code will emit an activationEvent `onCommand:${command}`.
+> **Note:** When a command is invoked (from a key binding or from the Command Palette), VS Code will emit an activationEvent `onCommand:$\{command\}
+`.
 
 ### keybinding example
 
@@ -795,7 +795,7 @@ Currently extension writers can contribute to:
 - `editor/title/run` - Run submenu on the editor title menu bar
 - `explorer/context` - Explorer view context menu
 - `extension/context` - Extensions view context menu
-- `file/newFile`  - New File item in the File menu and Welcome page
+- `file/newFile` - New File item in the File menu and Welcome page
 - `interactive/toolbar` - Interactive Window toolbar
 - `interactive/cell/title` - Interactive Window cell title menu bar
 - `notebook/toolbar` - notebook toolbar
@@ -1005,7 +1005,8 @@ Contribute problem matcher patterns. These contributions work in both the output
       {
         "name": "gcc",
         "owner": "cpp",
-        "fileLocation": ["relative", "${workspaceFolder}"],
+        "fileLocation": ["relative", "$\{workspaceFolder\}
+"],
         "pattern": {
           "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
           "file": 1,
@@ -1079,7 +1080,8 @@ Contributes resource label formatters that specify how to display URIs everywher
       {
         "scheme": "remotehub",
         "formatting": {
-          "label": "${path}",
+          "label": "$\{path\}
+",
           "separator": "/",
           "workspaceSuffix": "GitHub"
         }
@@ -1236,9 +1238,7 @@ Contribute a terminal profile to VS Code, allowing extensions to handle the crea
 
 ```json
 {
-  "activationEvents": [
-    "onTerminalProfile:my-ext.terminal-profile"
-  ],
+  "activationEvents": ["onTerminalProfile:my-ext.terminal-profile"],
   "contributes": {
     "terminal": {
       "profiles": [
@@ -1247,7 +1247,7 @@ Contribute a terminal profile to VS Code, allowing extensions to handle the crea
           "id": "my-ext.terminal-profile"
         }
       ]
-    },
+    }
   }
 }
 ```
@@ -1255,10 +1255,14 @@ Contribute a terminal profile to VS Code, allowing extensions to handle the crea
 When defined, the profile will show up in the terminal profile selector. When activated, handle the creation of the profile by returning terminal options:
 
 ```ts
-vscode.window.registerTerminalProfileProvider('my-ext.terminal-profile', {
-  provideTerminalProfile(token: vscode.CancellationToken): vscode.ProviderResult<vscode.TerminalOptions | vscode.ExtensionTerminalOptions> {
-    return { name: 'Profile from extension', shellPath: 'bash' };
-  }
+vscode.window.registerTerminalProfileProvider("my-ext.terminal-profile", {
+  provideTerminalProfile(
+    token: vscode.CancellationToken
+  ): vscode.ProviderResult<
+    vscode.TerminalOptions | vscode.ExtensionTerminalOptions
+  > {
+    return { name: "Profile from extension", shellPath: "bash" };
+  },
 });
 ```
 
@@ -1338,7 +1342,9 @@ Extensions can send configuration data to contributed TypeScript plugins through
 
 export async function activate(context: vscode.ExtensionContext) {
   // Get the TS extension
-  const tsExtension = vscode.extensions.getExtension('vscode.typescript-language-features');
+  const tsExtension = vscode.extensions.getExtension(
+    "vscode.typescript-language-features"
+  );
   if (!tsExtension) {
     return;
   }
@@ -1356,8 +1362,8 @@ export async function activate(context: vscode.ExtensionContext) {
   }
 
   // Configure the 'my-typescript-plugin-id' plugin
-  api.configurePlugin('my-typescript-plugin-id', {
-    someValue: process.env['SOME_VALUE']
+  api.configurePlugin("my-typescript-plugin-id", {
+    someValue: process.env["SOME_VALUE"],
   });
 }
 ```
@@ -1367,7 +1373,7 @@ The TypeScript server plugin receives the configuration data through an `onConfi
 ```ts
 // In your TypeScript plugin
 
-import * as ts_module from 'typescript/lib/tsserverlibrary';
+import * as ts_module from "typescript/lib/tsserverlibrary";
 
 export = function init({ typescript }: { typescript: typeof ts_module }) {
   return {
@@ -1376,7 +1382,7 @@ export = function init({ typescript }: { typescript: typeof ts_module }) {
     },
     onConfigurationChanged(config: any) {
       // Receive configuration changes sent from VS Code
-    }
+    },
   };
 };
 ```
@@ -1393,7 +1399,8 @@ Contribute a view to VS Code. You must specify an identifier and name for the vi
 - `test`: Test view container in the Activity Bar
 - [Custom view containers](#contributes.viewsContainers) contributed by Extensions.
 
-When the user opens the view, VS Code will then emit an activationEvent `onView:${viewId}` (`onView:nodeDependencies` for the example below). You can also control the visibility of the view by providing the `when` context value. The `icon` specified will be used when the title cannot be shown (e.g. when the view is dragged to the Activity Bar). The `contextualTitle` is used when the view is moved out of its default view container and needs additional context.
+When the user opens the view, VS Code will then emit an activationEvent `onView:$\{viewId\}
+` (`onView:nodeDependencies` for the example below). You can also control the visibility of the view by providing the `when` context value. The `icon` specified will be used when the title cannot be shown (e.g. when the view is dragged to the Activity Bar). The `contextualTitle` is used when the view is moved out of its default view container and needs additional context.
 
 ```json
 {
@@ -1497,7 +1504,7 @@ Contribute walkthroughs to appear on the Getting Started page. Walkthroughs are 
 
 Walkthroughs consist of a title, description, id, and a series of steps. Additionally, a `when` condition can be set to hide or show the walkthrough based on context keys. For example, a walkthrough to explain setup on a Linux platform could be given `when: "isLinux"` to only appear on Linux machines.
 
-Each step in a walkthrough has a title, description, id, and media element (either an image or Markdown content), along with an optional set of events that will cause the step to be checked (shown in the example below). Step descriptions are Markdown content, and support `**bold**`, `__underlined__`, and ``` ``code`` ``` rendering, as well as links. Similar to walkthroughs, steps can be given when conditions to hide or show them based on context keys.
+Each step in a walkthrough has a title, description, id, and media element (either an image or Markdown content), along with an optional set of events that will cause the step to be checked (shown in the example below). Step descriptions are Markdown content, and support `**bold**`, `__underlined__`, and ` ``code`` ` rendering, as well as links. Similar to walkthroughs, steps can be given when conditions to hide or show them based on context keys.
 
 SVGs are recommended for images given their ability to scale and their support for VS Code's theme colors. Use the [Visual Studio Code Color Mapper](https://www.figma.com/community/plugin/1218260433851630449) Figma plugin to easily reference theme colors in the SVGs.
 
@@ -1522,7 +1529,9 @@ SVGs are recommended for images given their ability to scale and their support f
             "title": "Change Setting",
             "description": "This step will change a setting and check off when the setting has changed\n[Change Setting](command:getting-started-sample.changeSetting)",
             "media": { "markdown": "media/markdown.md" },
-            "completionEvents": ["onSettingChanged:getting-started-sample.sampleSetting"]
+            "completionEvents": [
+              "onSettingChanged:getting-started-sample.sampleSetting"
+            ]
           }
         ]
       }

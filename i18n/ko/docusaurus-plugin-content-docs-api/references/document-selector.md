@@ -22,10 +22,10 @@ The Visual Studio Code extension API combines language-specific features, like I
 The snippet below registers a [HoverProvider](/api/references/vscode-api#HoverProvider) for TypeScript files and the document selector is the `typescript` language identifier string.
 
 ```ts
-vscode.languages.registerHoverProvider('typescript', {
+vscode.languages.registerHoverProvider("typescript", {
   provideHover(doc: vscode.TextDocument) {
-    return new vscode.Hover('For *all* TypeScript documents.');
-  }
+    return new vscode.Hover("For *all* TypeScript documents.");
+  },
 });
 ```
 
@@ -33,11 +33,11 @@ A document selector can be more than just a language identifier and more complex
 
 ```ts
 vscode.languages.registerHoverProvider(
-  { pattern: '**/test/**' },
+  { pattern: "**/test/**" },
   {
     provideHover(doc: vscode.TextDocument) {
-      return new vscode.Hover('For documents inside `test`-folders only');
-    }
+      return new vscode.Hover("For documents inside `test`-folders only");
+    },
   }
 );
 ```
@@ -46,11 +46,11 @@ The next snippet uses the `scheme` filter and combines it with a language identi
 
 ```ts
 vscode.languages.registerHoverProvider(
-  { scheme: 'untitled', language: 'typescript' },
+  { scheme: "untitled", language: "typescript" },
   {
     provideHover(doc: vscode.TextDocument) {
-      return new vscode.Hover('For new, unsaved TypeScript documents only');
-    }
+      return new vscode.Hover("For new, unsaved TypeScript documents only");
+    },
   }
 );
 ```
@@ -63,11 +63,12 @@ The importance of this comes into play when features rely on reading/writing fil
 
 ```ts
 // 👎 too lax
-vscode.languages.registerHoverProvider('typescript', {
+vscode.languages.registerHoverProvider("typescript", {
   provideHover(doc: vscode.TextDocument) {
     const { size } = fs.statSync(doc.uri.fsPath); // ⚠️ what about 'untitled:/Untitled1.ts' or others?
-    return new vscode.Hover(`Size in bytes is ${size}`);
-  }
+    return new vscode.Hover(`Size in bytes is $\{size\}
+`);
+  },
 });
 ```
 
@@ -76,12 +77,13 @@ The hover provider above wants to display the size of a document on disk but it 
 ```ts
 // 👍 only works with files on disk
 vscode.languages.registerHoverProvider(
-  { scheme: 'file', language: 'typescript' },
+  { scheme: "file", language: "typescript" },
   {
     provideHover(doc: vscode.TextDocument) {
       const { size } = fs.statSync(doc.uri.fsPath);
-      return new vscode.Hover(`Size in bytes is ${size}`);
-    }
+      return new vscode.Hover(`Size in bytes is $\{size\}
+`);
+    },
   }
 );
 ```

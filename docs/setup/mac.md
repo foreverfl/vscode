@@ -115,7 +115,7 @@ Out of the box, VS Code adds the following Touch Bar actions:
 
 ## Mojave privacy protections
 
-On macOS Mojave, you might see dialogs saying "Visual Studio Code would like to access your {calendar/contacts/photos}." This is due to the new privacy protections in Mojave and is not specific to VS Code. The same dialogs might be displayed when running other applications as well. The dialog is shown once for each type of personal data and it is fine to choose **Don't Allow**, since VS Code does not need access to those folders.
+On macOS Mojave, you might see dialogs saying "Visual Studio Code would like to access your \{calendar/contacts/photos\}." This is due to the new privacy protections in Mojave and is not specific to VS Code. The same dialogs might be displayed when running other applications as well. The dialog is shown once for each type of personal data and it is fine to choose **Don't Allow**, since VS Code does not need access to those folders.
 
 ## Next steps
 
@@ -129,7 +129,7 @@ Once you have installed VS Code, these topics will help you learn more about it:
 
 ### Why do I see "Visual Studio Code would like access to your calendar."
 
-If you are running macOS Mojave version, you may see dialogs saying "Visual Studio Code would like to access your {calendar/contacts/photos}." This is due to the new privacy protections in Mojave [discussed above](#mojave-privacy-protections). It is fine to choose **Don't Allow** since VS Code does not need access to those folders.
+If you are running macOS Mojave version, you may see dialogs saying "Visual Studio Code would like to access your \{calendar/contacts/photos\}." This is due to the new privacy protections in Mojave [discussed above](#mojave-privacy-protections). It is fine to choose **Don't Allow** since VS Code does not need access to those folders.
 
 ### VS Code fails to update
 

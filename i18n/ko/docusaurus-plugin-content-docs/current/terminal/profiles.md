@@ -23,7 +23,8 @@ Example profile:
       "args": [
          "-noexit",
          "-file",
-         "${env:APPDATA}\\PowerShell\\custom-init.ps1"
+         "$\{env:APPDATA\}
+\\PowerShell\\custom-init.ps1"
       ]
     }
   },

@@ -266,10 +266,12 @@ The list here isn't exhaustive and you can find other when clause contexts by se
 
 You can have a when clause that checks if a specific [View](/api/ux-guidelines/views) is visible or focused.
 
-| Context name             | True when                                                                                          |
-| ------------------------ | -------------------------------------------------------------------------------------------------- |
-| `view.${viewId}.visible` | True when specific view is visible.<br />Example: `"view.workbench.explorer.fileView.visible"`     |
-| `focusedView`            | True when specific view is focused.<br />Example: `"focusedView == 'workbench.explorer.fileView'"` |
+| Context name | True when |
+| ------------ | --------- |
+
+| `view.$\{viewId\}
+.visible` | True when specific view is visible.<br />Example: `"view.workbench.explorer.fileView.visible"` |
+| `focusedView` | True when specific view is focused.<br />Example: `"focusedView == 'workbench.explorer.fileView'"` |
 
 View identifiers:
 

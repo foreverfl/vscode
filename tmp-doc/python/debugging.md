@@ -250,7 +250,8 @@ The following steps outline the general process to set up an SSH tunnel. An SSH 
      "host": "localhost",
      "pathMappings": [
        {
-         "localRoot": "${workspaceFolder}", // Maps C:\Users\user1\project1
+         "localRoot": "$\{workspaceFolder\}
+   ", // Maps C:\Users\user1\project1
          "remoteRoot": "." // To current working directory ~/project1
        }
      ]
@@ -326,14 +327,16 @@ When you first create `launch.json`, there are two standard configurations that 
       "name": "Python Debugger: Current File (Integrated Terminal)",
       "type": "debugpy",
       "request": "launch",
-      "program": "${file}",
+      "program": "$\{file\}
+",
       "console": "integratedTerminal"
     },
     {
       "name": "Python Debugger: Current File (External Terminal)",
       "type": "debugpy",
       "request": "launch",
-      "program": "${file}",
+      "program": "$\{file\}
+",
       "console": "externalTerminal"
     }
   ]
@@ -349,7 +352,8 @@ The specific settings are described in the following sections. You can also add 
      "name": "Python Debugger: startup.py",
      "type": "debugpy",
      "request": "launch",
-     "program": "${workspaceFolder}/startup.py",
+     "program": "$\{workspaceFolder\}
+/startup.py",
      "args" : ["--port", "1593"]
  },
 ```
@@ -371,7 +375,8 @@ Specifies the mode in which to start debugging:
 
 ### `program`
 
-Provides the fully qualified path to the python program's entry module (startup file). The value `${file}`, often used in default configurations, uses the currently active file in the editor. By specifying a specific startup file, you can always be sure of launching your program with the same entry point regardless of which files are open. For example:
+Provides the fully qualified path to the python program's entry module (startup file). The value `$\{file\}
+`, often used in default configurations, uses the currently active file in the editor. By specifying a specific startup file, you can always be sure of launching your program with the same entry point regardless of which files are open. For example:
 
 ```json
 "program": "/Users/Me/Projects/MyProject/src/event_handlers/__init__.py",
@@ -380,7 +385,8 @@ Provides the fully qualified path to the python program's entry module (startup 
 You can also rely on a relative path from the workspace root. For example, if the root is `/Users/Me/Projects/MyProject` then you can use the following example:
 
 ```json
-"program": "${workspaceFolder}/src/event_handlers/__init__.py",
+"program": "$\{workspaceFolder\}
+/src/event_handlers/__init__.py",
 ```
 
 ### `module`
@@ -391,7 +397,8 @@ Provides the ability to specify the name of a module to be debugged, similarly t
 
 The full path that points to the Python interpreter to be used for debugging.
 
-If not specified, this setting defaults to the interpreter selected for your workspace, which is equivalent to using the value `${command:python.interpreterPath}`. To use a different interpreter, specify its path instead in the `python` property of a debug configuration.
+If not specified, this setting defaults to the interpreter selected for your workspace, which is equivalent to using the value `$\{command:python.interpreterPath\}
+`. To use a different interpreter, specify its path instead in the `python` property of a debug configuration.
 
 Alternately, you can use a custom environment variable that's defined on each platform to contain the full path to the Python interpreter to use, so that no other folder paths are needed.
 
@@ -409,9 +416,12 @@ Specifies arguments to pass to the Python program. Each element of the argument 
 "args": ["--quiet", "--norepeat", "--port", "1593"],
 ```
 
-If you want to provide different arguments per debug run, you can set `args` to `"${command:pickArgs}"`. This will prompt you to enter arguments each time you start a debug session.
+If you want to provide different arguments per debug run, you can set `args` to `"$\{command:pickArgs\}
+"`. This will prompt you to enter arguments each time you start a debug session.
 
-> **Note**: There is a difference in how `"${command:pickArgs}"` and `["${command:pickArgs}"]` are parsed, with specific notice to the usage of `[]`. As an array, all arguments are passed as a single string, without brackets each argument is passed as its own string.
+> **Note**: There is a difference in how `"$\{command:pickArgs\}
+"` and `["$\{command:pickArgs\}
+"]` are parsed, with specific notice to the usage of `[]`. As an array, all arguments are passed as a single string, without brackets each argument is passed as its own string.
 
 ### `stopOnEntry`
 
@@ -442,7 +452,8 @@ Allows for the automatic reload of the debugger when changes are made to code af
   "name": "Python Debugger: Current File",
   "type": "debugpy",
   "request": "launch",
-  "program": "${file}",
+  "program": "$\{file\}
+",
   "console": "integratedTerminal",
   "autoReload": {
     "enable": true
@@ -458,15 +469,21 @@ Specifies whether to enable subprocess debugging. Defaults to `false`, set to `t
 
 ### `cwd`
 
-Specifies the current working directory for the debugger, which is the base folder for any relative paths used in code. If omitted, defaults to `${workspaceFolder}` (the folder open in VS Code).
+Specifies the current working directory for the debugger, which is the base folder for any relative paths used in code. If omitted, defaults to `$\{workspaceFolder\}
+` (the folder open in VS Code).
 
-As an example, say `${workspaceFolder}` contains a `py_code` folder containing `app.py`, and a `data` folder containing `salaries.csv`. If you start the debugger on `py_code/app.py`, then the relative paths to the data file vary depending on the value of `cwd`:
+As an example, say `$\{workspaceFolder\}
+` contains a `py_code` folder containing `app.py`, and a `data` folder containing `salaries.csv`. If you start the debugger on `py_code/app.py`, then the relative paths to the data file vary depending on the value of `cwd`:
 
-| cwd                             | Relative path to data file |
-| ------------------------------- | -------------------------- |
-| Omitted or `${workspaceFolder}` | `data/salaries.csv`        |
-| `${workspaceFolder}/py_code`    | `../data/salaries.csv`     |
-| `${workspaceFolder}/data`       | `salaries.csv`             |
+| cwd | Relative path to data file |
+| --- | -------------------------- |
+
+| Omitted or `$\{workspaceFolder\}
+` | `data/salaries.csv` |
+| `$\{workspaceFolder\}
+/py_code` | `../data/salaries.csv` |
+| `$\{workspaceFolder\}
+/data` | `salaries.csv` |
 
 ### `redirectOutput`
 
@@ -526,13 +543,15 @@ The Python Debugger extension automatically detects breakpoints that are set on 
 
 The configuration dropdown provides various different options for general app types:
 
-| Configuration | Description                                                                                                                                                                                                                                                                                                                            |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Attach        | See [Remote debugging](#debugging-by-attaching-over-a-network-connection) in the previous section.                                                                                                                                                                                                                                     |
-| Django        | Specifies `"program": "${workspaceFolder}/manage.py"`, `"args": ["runserver"]`. Also adds `"django": true` to enable debugging of Django HTML templates.                                                                                                                                                                               |
-| Flask         | See [Flask debugging](#flask-debugging) below.                                                                                                                                                                                                                                                                                         |
-| Gevent        | Adds `"gevent": true` to the standard integrated terminal configuration.                                                                                                                                                                                                                                                               |
-| Pyramid       | Removes `program`, adds `"args": ["${workspaceFolder}/development.ini"]`, adds `"jinja": true` for enabling template debugging, and adds `"pyramid": true` to ensure that the program is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
+| Configuration                                                                                                                                                                                                                                                                 | Description                                                                                        |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Attach                                                                                                                                                                                                                                                                        | See [Remote debugging](#debugging-by-attaching-over-a-network-connection) in the previous section. |
+| Django                                                                                                                                                                                                                                                                        | Specifies `"program": "$\{workspaceFolder\}                                                        |
+| /manage.py"`, `"args": ["runserver"]`. Also adds `"django": true` to enable debugging of Django HTML templates.                                                                                                                                                               |
+| Flask                                                                                                                                                                                                                                                                         | See [Flask debugging](#flask-debugging) below.                                                     |
+| Gevent                                                                                                                                                                                                                                                                        | Adds `"gevent": true` to the standard integrated terminal configuration.                           |
+| Pyramid                                                                                                                                                                                                                                                                       | Removes `program`, adds `"args": ["$\{workspaceFolder\}                                            |
+| /development.ini"]`, adds `"jinja": true`for enabling template debugging, and adds`"pyramid": true`to ensure that the program is launched with [the necessary`pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
 
 Specific steps are also needed for remote debugging and Google App Engine. For details on debugging tests, see [Testing](/docs/python/testing.md).
 
@@ -557,7 +576,8 @@ To debug an app that requires administrator privileges, use `"console": "externa
 },
 ```
 
-As you can see, this configuration specifies `"env": {"FLASK_APP": "app.py"}` and `"args": ["run", "--no-debugger"]`. The `"module": "flask"` property is used instead of `program`. (You may see `"FLASK_APP": "${workspaceFolder}/app.py"` in the `env` property, in which case modify the configuration to refer to only the filename. Otherwise, you may see "Cannot import module C" errors where C is a drive letter.)
+As you can see, this configuration specifies `"env": {"FLASK_APP": "app.py"}` and `"args": ["run", "--no-debugger"]`. The `"module": "flask"` property is used instead of `program`. (You may see `"FLASK_APP": "$\{workspaceFolder\}
+/app.py"` in the `env` property, in which case modify the configuration to refer to only the filename. Otherwise, you may see "Cannot import module C" errors where C is a drive letter.)
 
 The `"jinja": true` setting also enables debugging for Flask's default Jinja templating engine.
 

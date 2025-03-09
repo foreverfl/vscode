@@ -29,8 +29,8 @@ A `NotebookSerializer` is responsible for taking the serialized bytes of a noteb
 
 Samples:
 
-* [JSON Notebook Serializer](https://github.com/microsoft/notebook-extension-samples/tree/main/notebook-serializer): Simple example notebook that takes JSON input and outputs prettified JSON in a custom `NotebookRenderer`.
-* [Markdown Serializer](https://github.com/microsoft/vscode-markdown-notebook): Open and edit Markdown files as a notebook.
+- [JSON Notebook Serializer](https://github.com/microsoft/notebook-extension-samples/tree/main/notebook-serializer): Simple example notebook that takes JSON input and outputs prettified JSON in a custom `NotebookRenderer`.
+- [Markdown Serializer](https://github.com/microsoft/vscode-markdown-notebook): Open and edit Markdown files as a notebook.
 
 ### Example
 
@@ -61,58 +61,67 @@ A notebook serializer is declared in `package.json` under the `contributes.noteb
 The notebook serializer is then registered in the extension's activation event:
 
 ```ts
-import { TextDecoder, TextEncoder } from "util";
+import { TextDecoder, TextEncoder } from 'util';
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(
-        vscode.workspace.registerNotebookSerializer(
-            "my-notebook", new SampleSerializer()
-        )
-    );
+  context.subscriptions.push(
+    vscode.workspace.registerNotebookSerializer('my-notebook', new SampleSerializer())
+  );
 }
 
 interface RawNotebook {
-	cells: RawNotebookCell[];
+  cells: RawNotebookCell[];
 }
 
 interface RawNotebookCell {
-    source: string[];
-    cell_type: 'code' | 'markdown';
+  source: string[];
+  cell_type: 'code' | 'markdown';
 }
 
 class SampleSerializer implements vscode.NotebookSerializer {
-    async deserializeNotebook(content: Uint8Array, _token: vscode.CancellationToken): Promise<vscode.NotebookData> {
-        var contents = new TextDecoder().decode(content);
+  async deserializeNotebook(
+    content: Uint8Array,
+    _token: vscode.CancellationToken
+  ): Promise<vscode.NotebookData> {
+    var contents = new TextDecoder().decode(content);
 
-        let raw: RawNotebookCell[];
-        try {
-            raw = (<RawNotebook>JSON.parse(contents)).cells;
-        } catch {
-            raw = [];
-        }
-
-        const cells = raw.map(item => new vscode.NotebookCellData(
-			item.cell_type === 'code' ? vscode.NotebookCellKind.Code : vscode.NotebookCellKind.Markup,
-            item.source.join('\n'),
-			item.cell_type === 'code' ? 'python' : 'markdown'
-        ));
-
-        return new vscode.NotebookData(cells);
+    let raw: RawNotebookCell[];
+    try {
+      raw = (<RawNotebook>JSON.parse(contents)).cells;
+    } catch {
+      raw = [];
     }
 
-    async serializeNotebook(data: vscode.NotebookData, _token: vscode.CancellationToken): Promise<Uint8Array> {
-        let contents: RawNotebookCell[] = [];
+    const cells = raw.map(
+      (item) =>
+        new vscode.NotebookCellData(
+          item.cell_type === 'code'
+            ? vscode.NotebookCellKind.Code
+            : vscode.NotebookCellKind.Markup,
+          item.source.join('\n'),
+          item.cell_type === 'code' ? 'python' : 'markdown'
+        )
+    );
 
-        for (const cell of data.cells) {
-            contents.push({
-                cell_type: cell.kind === vscode.NotebookCellKind.Code ? 'code' : 'markdown',
-                source: cell.value.split(/\r?\n/g)
-            });
-        }
+    return new vscode.NotebookData(cells);
+  }
 
-        return new TextEncoder().encode(JSON.stringify(contents));
+  async serializeNotebook(
+    data: vscode.NotebookData,
+    _token: vscode.CancellationToken
+  ): Promise<Uint8Array> {
+    let contents: RawNotebookCell[] = [];
+
+    for (const cell of data.cells) {
+      contents.push({
+        cell_type: cell.kind === vscode.NotebookCellKind.Code ? 'code' : 'markdown',
+        source: cell.value.split(/\r?\n/g),
+      });
     }
+
+    return new TextEncoder().encode(JSON.stringify(contents));
+  }
 }
 ```
 
@@ -134,42 +143,54 @@ A controller is directly associated with a notebook serializer and a type of not
 
 ```ts
 export function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(new Controller());
+  context.subscriptions.push(new Controller());
 }
 
 class Controller {
-    readonly controllerId = 'my-notebook-controller-id'
-    readonly notebookType = 'my-notebook';
-    readonly label = 'My Notebook';
-    readonly supportedLanguages = ['python'];
+  readonly controllerId = 'my-notebook-controller-id';
+  readonly notebookType = 'my-notebook';
+  readonly label = 'My Notebook';
+  readonly supportedLanguages = ['python'];
 
-    private readonly _controller: vscode.NotebookController;
-    private _executionOrder = 0;
+  private readonly _controller: vscode.NotebookController;
+  private _executionOrder = 0;
 
-    constructor() {
-        this._controller = vscode.notebooks.createNotebookController(this.controllerId, this.notebookType, this.label);
+  constructor() {
+    this._controller = vscode.notebooks.createNotebookController(
+      this.controllerId,
+      this.notebookType,
+      this.label
+    );
 
-        this._controller.supportedLanguages = this.supportedLanguages;
-        this._controller.supportsExecutionOrder = true;
-        this._controller.executeHandler = this._execute.bind(this);
+    this._controller.supportedLanguages = this.supportedLanguages;
+    this._controller.supportsExecutionOrder = true;
+    this._controller.executeHandler = this._execute.bind(this);
+  }
+
+  private _execute(
+    cells: vscode.NotebookCell[],
+    _notebook: vscode.NotebookDocument,
+    _controller: vscode.NotebookController
+  ): void {
+    for (let cell of cells) {
+      this._doExecution(cell);
     }
+  }
 
-    private _execute(cells: vscode.NotebookCell[], _notebook: vscode.NotebookDocument, _controller: vscode.NotebookController): void {
-        for (let cell of cells) {
-            this._doExecution(cell);
-        }
-    }
+  private async _doExecution(cell: vscode.NotebookCell): Promise<void> {
+    const execution = this._controller.createNotebookCellExecution(cell);
+    execution.executionOrder = ++this._executionOrder;
+    execution.start(Date.now()); // Keep track of elapsed time to execute cell.
 
-    private async _doExecution(cell: vscode.NotebookCell): Promise<void> {
-        const execution = this._controller.createNotebookCellExecution(cell);
-        execution.executionOrder = ++this._executionOrder;
-        execution.start(Date.now()); // Keep track of elapsed time to execute cell.
+    /* Do some execution here; not implemented */
 
-        /* Do some execution here; not implemented */
-
-        execution.replaceOutput([new vscode.NotebookCellOutput([vscode.NotebookCellOutputItem.text('Dummy output text!')])])
-        execution.end(true, Date.now());
-    }
+    execution.replaceOutput([
+      new vscode.NotebookCellOutput([
+        vscode.NotebookCellOutputItem.text('Dummy output text!'),
+      ]),
+    ]);
+    execution.end(true, Date.now());
+  }
 }
 ```
 
@@ -178,9 +199,9 @@ This improves the discoverability of the extension when opening notebooks of the
 
 Samples:
 
-* [GitHub Issues Notebook](https://github.com/microsoft/vscode-github-issue-notebooks/blob/93359d842cd01dfaef0a78b620c5a3b4cf5c2e38/src/extension/notebookProvider.ts#L29): Controller to execute queries for GitHub Issues
-* [REST Book](https://github.com/tanhakabir/rest-book/blob/main/src/extension/notebookKernel.ts): Controller to run REST queries.
-* [Regexper notebooks](https://github.com/jrieken/vscode-regex-notebook/blob/master/src/extension/extension.ts#L56): Controller to visualize regular expressions.
+- [GitHub Issues Notebook](https://github.com/microsoft/vscode-github-issue-notebooks/blob/93359d842cd01dfaef0a78b620c5a3b4cf5c2e38/src/extension/notebookProvider.ts#L29): Controller to execute queries for GitHub Issues
+- [REST Book](https://github.com/tanhakabir/rest-book/blob/main/src/extension/notebookKernel.ts): Controller to run REST queries.
+- [Regexper notebooks](https://github.com/jrieken/vscode-regex-notebook/blob/master/src/extension/extension.ts#L56): Controller to visualize regular expressions.
 
 ## Output types
 
@@ -195,7 +216,7 @@ Simple formats like Text Output, Error Output, or "simple" variants of Rich Outp
 Text outputs are the most simple output format, and work much like many REPLs you may be familiar with. They consist only of a `text` field, which is rendered as plain text in the cell's output element:
 
 ```ts
-vscode.NotebookCellOutputItem.text('This is the output...')
+vscode.NotebookCellOutputItem.text('This is the output...');
 ```
 
 ![Cell with simple text output](images/notebook/text-output.png)
@@ -206,9 +227,9 @@ Error outputs are helpful for displaying runtime errors in a consistent and unde
 
 ```ts
 try {
-    /* Some code */
+  /* Some code */
 } catch (error) {
-    vscode.NotebookCellOutputItem.error(error)
+  vscode.NotebookCellOutputItem.error(error);
 }
 ```
 
@@ -218,9 +239,9 @@ try {
 
 Rich outputs are the most advanced form of displaying cell outputs. They allow for providing many different representations of the output data, keyed by mimetype. For example, if a cell output was to represent a GitHub Issue, the kernel might produce a rich output with several properties on its `data` field:
 
-* A `text/html` field containing a formatted view of the issue.
-* A `text/x-json` field containing a machine readable view.
-* An `application/github-issue` field that a `NotebookRenderer` could use to create a fully interactive view of the issue.
+- A `text/html` field containing a formatted view of the issue.
+- A `text/x-json` field containing a machine readable view.
+- An `application/github-issue` field that a `NotebookRenderer` could use to create a fully interactive view of the issue.
 
 In this case, the `text/html` and `text/x-json` views will be rendered by VS Code natively, but the `application/github-issue` view will display an error if no `NotebookRenderer` was registered to that mimetype.
 
@@ -236,21 +257,21 @@ execution.replaceOutput([new vscode.NotebookCellOutput([
 
 By default, VS Code can render the following mimetypes:
 
-* application/javascript
-* text/html
-* image/svg+xml
-* text/markdown
-* image/png
-* image/jpeg
-* text/plain
+- application/javascript
+- text/html
+- image/svg+xml
+- text/markdown
+- image/png
+- image/jpeg
+- text/plain
 
 VS Code will render these mimetypes as code in a built-in editor:
 
-* text/x-json
-* text/x-javascript
-* text/x-html
-* text/x-rust
-* ... text/x-LANGUAGE_ID for any other built-in or installed languages.
+- text/x-json
+- text/x-javascript
+- text/x-html
+- text/x-rust
+- ... text/x-LANGUAGE_ID for any other built-in or installed languages.
 
 This notebook is using the built-in editor to display some Rust code:
 ![Notebook displaying Rust code in a built in Monaco editor](images/notebook/rust-output.png)
@@ -302,10 +323,10 @@ When it's loaded, your entrypoint script should export `ActivationFunction` from
 import type { ActivationFunction } from 'vscode-notebook-renderer';
 
 export const activate: ActivationFunction = (context) => ({
-    renderOutputItem(data, element) {
-        element.innerText = JSON.stringify(data.json())
-    }
-})
+  renderOutputItem(data, element) {
+    element.innerText = JSON.stringify(data.json());
+  },
+});
 ```
 
 You can [refer to the complete API definition here](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/vscode-notebook-renderer/index.d.ts). If you're using TypeScript, you can install `@types/vscode-notebook-renderer` and then add `vscode-notebook-renderer` to the `types` array in your `tsconfig.json` to make these types available in your code.
@@ -319,22 +340,34 @@ import { h, render } from 'preact';
 const Issue: FunctionComponent<{ issue: GithubIssue }> = ({ issue }) => (
   <div key={issue.number}>
     <h2>
-      {issue.title}
-      (<a href={`https://github.com/${issue.repo}/issues/${issue.number}`}>#{issue.number}</a>)
+      {issue.title}(<a
+        href={`https://github.com/$\{issue.repo\}
+/issues/$\{issue.number\}
+`}
+      >
+        #{issue.number}
+      </a>)
     </h2>
-    <img src={issue.user.avatar_url} style={{ float: 'left', width: 32, borderRadius: '50%', marginRight: 20 }} />
+    <img
+      src={issue.user.avatar_url}
+      style={{ float: 'left', width: 32, borderRadius: '50%', marginRight: 20 }}
+    />
     <i>@{issue.user.login}</i> Opened: <div style="margin-top: 10px">{issue.body}</div>
   </div>
 );
 
-const GithubIssues: FunctionComponent<{ issues: GithubIssue[]; }> = ({ issues }) => (
-  <div>{issues.map(issue => <Issue key={issue.number} issue={issue} />)}</div>
+const GithubIssues: FunctionComponent<{ issues: GithubIssue[] }> = ({ issues }) => (
+  <div>
+    {issues.map((issue) => (
+      <Issue key={issue.number} issue={issue} />
+    ))}
+  </div>
 );
 
 export const activate: ActivationFunction = (context) => ({
-    renderOutputItem(data, element) {
-        render(<GithubIssues issues={data.json()} />, element);
-    }
+  renderOutputItem(data, element) {
+    render(<GithubIssues issues={data.json()} />, element);
+  },
 });
 ```
 
@@ -353,7 +386,8 @@ export const activate: ActivationFunction = (context) => ({
 
         intervals.set(data.mime, setInterval(() => {
             if(element.querySelector('h2')) {
-                element.querySelector('h2')!.style.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                element.querySelector('h2')!.style.color = `hsl($\{Math.random() * 360\}
+, 100%, 50%)`;
             }
         }, 1000));
     },
@@ -377,13 +411,21 @@ const Issue: FunctionComponent<{ issue: GithubIssueWithComments }> = ({ issue })
   return (
     <div key={issue.number}>
       <h2>
-        {issue.title}
-        (<a href={`https://github.com/${issue.repo}/issues/${issue.number}`}>#{issue.number}</a>)
+        {issue.title}(<a
+          href={`https://github.com/$\{issue.repo\}
+/issues/$\{issue.number\}
+`}
+        >
+          #{issue.number}
+        </a>)
       </h2>
-      <img src={issue.user.avatar_url} style={{ float: 'left', width: 32, borderRadius: '50%', marginRight: 20 }} />
+      <img
+        src={issue.user.avatar_url}
+        style={{ float: 'left', width: 32, borderRadius: '50%', marginRight: 20 }}
+      />
       <i>@{issue.user.login}</i> Opened: <div style="margin-top: 10px">{issue.body}</div>
       <button onClick={() => setShowComments(true)}>Show Comments</button>
-      {showComments && issue.comments.map(comment => <div>{comment.text}</div>)}
+      {showComments && issue.comments.map((comment) => <div>{comment.text}</div>)}
     </div>
   );
 };
@@ -401,15 +443,20 @@ In your controller:
 
 ```ts
 class Controller {
+  // ...
+
+  readonly rendererScriptId = 'my-renderer-script';
+
+  constructor() {
     // ...
 
-    readonly rendererScriptId = 'my-renderer-script';
-
-    constructor() {
-        // ...
-
-        this._controller.rendererScripts.push(new vscode.NotebookRendererScript(vscode.Uri.file(/* path to script */), rendererScriptId));
-    }
+    this._controller.rendererScripts.push(
+      new vscode.NotebookRendererScript(
+        vscode.Uri.file(/* path to script */),
+        rendererScriptId
+      )
+    );
+  }
 }
 ```
 
@@ -438,18 +485,18 @@ In your `package.json` specify your script as a dependency of your renderer:
 In your script file you can declare communication functions to communicate with the controller:
 
 ```js
-import "vscode-notebook-renderer/preload";
+import 'vscode-notebook-renderer/preload';
 
 globalThis.githubIssueCommentProvider = {
   loadComments(issueId: string, callback: (comments: GithubComment[]) => void) {
     postKernelMessage({ command: 'comments', issueId });
 
-    onDidReceiveKernelMessage(event => {
-        if (event.data.type === 'comments' && event.data.issueId === issueId) {
-            callback(event.data.comments);
-        }
-    })
-  }
+    onDidReceiveKernelMessage((event) => {
+      if (event.data.type === 'comments' && event.data.issueId === issueId) {
+        callback(event.data.comments);
+      }
+    });
+  },
 };
 ```
 
@@ -465,13 +512,23 @@ const Issue: FunctionComponent<{ issue: GithubIssue }> = ({ issue }) => {
   return (
     <div key={issue.number}>
       <h2>
-        {issue.title}
-        (<a href={`https://github.com/${issue.repo}/issues/${issue.number}`}>#{issue.number}</a>)
+        {issue.title}(<a
+          href={`https://github.com/$\{issue.repo\}
+/issues/$\{issue.number\}
+`}
+        >
+          #{issue.number}
+        </a>)
       </h2>
-      <img src={issue.user.avatar_url} style={{ float: 'left', width: 32, borderRadius: '50%', marginRight: 20 }} />
+      <img
+        src={issue.user.avatar_url}
+        style={{ float: 'left', width: 32, borderRadius: '50%', marginRight: 20 }}
+      />
       <i>@{issue.user.login}</i> Opened: <div style="margin-top: 10px">{issue.body}</div>
       {canLoadComments && <button onClick={loadComments}>Load Comments</button>}
-      {comments.map(comment => <div>{comment.text}</div>)}
+      {comments.map((comment) => (
+        <div>{comment.text}</div>
+      ))}
     </div>
   );
 };
@@ -481,21 +538,25 @@ Finally, we want to set up communication to the controller. `NotebookController.
 
 ```ts
 class Controller {
+  // ...
+
+  constructor() {
     // ...
 
-    constructor() {
-        // ...
-
-        this._controller.onDidReceiveMessage(event => {
-            if (event.message.command === 'comments') {
-                _getCommentsForIssue(event.message.issueId).then(comments => this._controller.postMessage({
-                    type: 'comments',
-                    issueId: event.message.issueId,
-                    comments,
-                }), event.editor);
-            }
-        })
-    }
+    this._controller.onDidReceiveMessage((event) => {
+      if (event.message.command === 'comments') {
+        _getCommentsForIssue(event.message.issueId).then(
+          (comments) =>
+            this._controller.postMessage({
+              type: 'comments',
+              issueId: event.message.issueId,
+              comments,
+            }),
+          event.editor
+        );
+      }
+    });
+  }
 }
 ```
 
@@ -506,7 +567,6 @@ Imagine we want to add the ability to open the output item within a separate edi
 This would be useful in scenarios where the renderer and controller are two separate extensions.
 
 In the `package.json` of the renderer extension specify the value for `requiresMessaging` as `optional` which allows your renderer to work in both situations when it has and doesn't have access to the extension host.
-
 
 ```json
 {
@@ -528,9 +588,9 @@ In the `package.json` of the renderer extension specify the value for `requiresM
 
 The possible values for `requiresMessaging` include:
 
-* `always`  : Messaging is required. The renderer will only be used when it's part of an extension that can be run in an extension host.
-* `optional`: The renderer is better with messaging when the extension host is available, but it's not required to install and run the renderer.
-* `never`   : The renderer does not require messaging.
+- `always` : Messaging is required. The renderer will only be used when it's part of an extension that can be run in an extension host.
+- `optional`: The renderer is better with messaging when the extension host is available, but it's not required to install and run the renderer.
+- `never` : The renderer does not require messaging.
 
 The last two options are preferred, as this ensures the portability of renderer extensions to other contexts where the extension host might not necessarily be available.
 
@@ -565,7 +625,7 @@ And then you can consume that message in the extension host as follows:
 ```ts
 const messageChannel = notebooks.createRendererMessaging('output-editor-renderer');
 messageChannel.onDidReceiveMessage((e) => {
-  if (e.message.request === 'showEditor'){
+  if (e.message.request === 'showEditor') {
     // Launch the editor for the output identified by `e.message.data`
   }
 });
@@ -573,9 +633,8 @@ messageChannel.onDidReceiveMessage((e) => {
 
 Note:
 
-* To ensure your extension is running in the extension host before messages are delivered, add `onRenderer:<your renderer id>` to your `activationEvents` and set up communication in your extension's `activate` function.
-* Not all messages sent by the renderer extension to the extension host are guaranteed to be delivered. A user could close the notebook before messages from the renderer are delivered.
-
+- To ensure your extension is running in the extension host before messages are delivered, add `onRenderer:<your renderer id>` to your `activationEvents` and set up communication in your extension's `activate` function.
+- Not all messages sent by the renderer extension to the extension host are guaranteed to be delivered. A user could close the notebook before messages from the renderer are delivered.
 
 ## Supporting debugging
 
@@ -583,5 +642,5 @@ For some controllers, such as those that implement a programming language, it ca
 
 Samples:
 
-* [vscode-nodebook](https://github.com/microsoft/vscode-nodebook): Node.js notebook with debugging support provided by VS Code's built-in JavaScript debugger and some simple protocol transformations
-* [vscode-simple-jupyter-notebook](https://github.com/microsoft/vscode-simple-jupyter-notebook): Jupyter notebook with debugging support provided by the existing Xeus debugger
+- [vscode-nodebook](https://github.com/microsoft/vscode-nodebook): Node.js notebook with debugging support provided by VS Code's built-in JavaScript debugger and some simple protocol transformations
+- [vscode-simple-jupyter-notebook](https://github.com/microsoft/vscode-simple-jupyter-notebook): Jupyter notebook with debugging support provided by the existing Xeus debugger

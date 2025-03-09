@@ -9,7 +9,7 @@ MetaDescription: A guide to creating an AI extension in Visual Studio Code
 
 # Chat extensions
 
-Visual Studio Code's Copilot Chat architecture enables extension authors to integrate with the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) experience. A chat extension is a VS Code extension that uses the Chat extension API by contributing a *Chat participant*.
+Visual Studio Code's Copilot Chat architecture enables extension authors to integrate with the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) experience. A chat extension is a VS Code extension that uses the Chat extension API by contributing a _Chat participant_.
 
 Chat participants are domain experts that can answer user queries within a specific domain. Participants can use different approaches to process a user query:
 
@@ -21,9 +21,9 @@ Participants can use the language model in a wide range of ways. Some participan
 
 When a user explicitly mentions a `@participant` in their chat prompt, that prompt is forwarded to the extension that contributed that specific chat participant. The participant then uses a `ResponseStream` to respond to the request. To provide a smooth user experience, the Chat API is streaming-based. A chat response can contain rich content, such as Markdown, file trees, command buttons, and more. Get more info about the [supported response output types](#supported-chat-response-output-types).
 
-To help the user take the conversation further, participants can provide *follow-ups* for each response. Follow-up questions are suggestions that are presented in the chat user interface and might give the user inspiration about the chat extension's capabilities.
+To help the user take the conversation further, participants can provide _follow-ups_ for each response. Follow-up questions are suggestions that are presented in the chat user interface and might give the user inspiration about the chat extension's capabilities.
 
-Participants can also contribute *commands*, which are a shorthand notation for common user intents, and are indicated by the `/` symbol. The extension can then use the command to prompt the language model accordingly. For example, `/explain` is a command for the `@workspace` participant that corresponds with the intent that the language model should explain some code.
+Participants can also contribute _commands_, which are a shorthand notation for common user intents, and are indicated by the `/` symbol. The extension can then use the command to prompt the language model accordingly. For example, `/explain` is a command for the `@workspace` participant that corresponds with the intent that the language model should explain some code.
 
 ## Extending GitHub Copilot via GitHub Apps
 
@@ -103,14 +103,13 @@ The following code snippet shows how to create the `@cat` chat participant (afte
 
 ```typescript
 export function activate(context: vscode.ExtensionContext) {
+  // Register the chat participant and its request handler
+  const cat = vscode.chat.createChatParticipant('chat-sample.cat', handler);
 
-    // Register the chat participant and its request handler
-    const cat = vscode.chat.createChatParticipant('chat-sample.cat', handler);
+  // Optionally, set some properties for @cat
+  cat.iconPath = vscode.Uri.joinPath(context.extensionUri, 'cat.jpeg');
 
-    // Optionally, set some properties for @cat
-    cat.iconPath = vscode.Uri.joinPath(context.extensionUri, 'cat.jpeg');
-
-    // Add the chat request handler here
+  // Add the chat request handler here
 }
 ```
 
@@ -132,10 +131,13 @@ You define the request handler (`vscode.ChatRequestHandler`) inside the extensio
 The following code snippet shows how to define a request handler:
 
 ```typescript
-const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, context: vscode.ChatContext, stream: vscode.ChatResponseStream, token: vscode.CancellationToken): Promise<ICatChatResult> => {
-
-    // Chat request handler implementation goes here
-
+const handler: vscode.ChatRequestHandler = async (
+  request: vscode.ChatRequest,
+  context: vscode.ChatContext,
+  stream: vscode.ChatResponseStream,
+  token: vscode.CancellationToken
+): Promise<ICatChatResult> => {
+  // Chat request handler implementation goes here
 };
 ```
 
@@ -146,21 +148,22 @@ To determine the intent of the user's request, you can reference the `vscode.Cha
 The following code snippet shows the basic structure of first using the command, and then the user prompt to determine the user intent:
 
 ```typescript
-const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, context: vscode.ChatContext, stream: vscode.ChatResponseStream, token: vscode.CancellationToken): Promise<ICatChatResult> => {
+const handler: vscode.ChatRequestHandler = async (
+  request: vscode.ChatRequest,
+  context: vscode.ChatContext,
+  stream: vscode.ChatResponseStream,
+  token: vscode.CancellationToken
+): Promise<ICatChatResult> => {
+  // Test for the `teach` command
+  if (request.command == 'teach') {
+    // Add logic here to handle the teaching scenario
+    doTeaching(request.prompt, request.variables);
+  } else {
+    // Determine the user's intent
+    const intent = determineUserIntent(request.prompt, request.variables, request.model);
 
-    // Test for the `teach` command
-    if (request.command == 'teach') {
-
-        // Add logic here to handle the teaching scenario
-        doTeaching(request.prompt, request.variables);
-
-    } else {
-
-        // Determine the user's intent
-        const intent = determineUserIntent(request.prompt, request.variables, request.model);
-
-        // Add logic here to handle other scenarios
-    }
+    // Add logic here to handle other scenarios
+  }
 };
 ```
 
@@ -191,9 +194,9 @@ console.log(myStack.pop()); // eating the top fish, will output: 2
 So remember, Code Kitten, in a stack, the last fish in is the first fish out - which we tech cats call LIFO (Last In, First Out).`);
 
 stream.button({
-    command: 'cat.meow',
-    title: vscode.l10n.t('Meow!'),
-    arguments: []
+  command: 'cat.meow',
+  title: vscode.l10n.t('Meow!'),
+  arguments: [],
 });
 ```
 
@@ -206,7 +209,7 @@ In practice, extensions typically send a request to the language model. Once the
 Participants have access to the message history of the current chat session. A participant can only access messages where it was mentioned. A `history` item is either a `ChatRequestTurn` or a `ChatResponseTurn`. For example, use the following code snippet to retrieve all the previous requests that the user sent to your participant in the current chat session:
 
 ```typescript
-const previousMessages = context.history.filter(h => h instanceof vscode.ChatRequestTurn);
+const previousMessages = context.history.filter((h) => h instanceof vscode.ChatRequestTurn);
 ```
 
 History will not be automatically included in the prompt, it is up to the participant to decide if it wants to add history as additional context when passing messages to the language model.
@@ -255,14 +258,20 @@ The following code snippet shows how to register follow-up requests in a chat ex
 
 ```typescript
 cat.followupProvider = {
-    provideFollowups(result: ICatChatResult, context: vscode.ChatContext, token: vscode.CancellationToken) {
-        if (result.metadata.command === 'teach') {
-            return [{
-                prompt: 'let us play',
-                title: vscode.l10n.t('Play with the cat')
-            } satisfies vscode.ChatFollowup];
-        }
+  provideFollowups(
+    result: ICatChatResult,
+    context: vscode.ChatContext,
+    token: vscode.CancellationToken
+  ) {
+    if (result.metadata.command === 'teach') {
+      return [
+        {
+          prompt: 'let us play',
+          title: vscode.l10n.t('Play with the cat'),
+        } satisfies vscode.ChatFollowup,
+      ];
     }
+  },
 };
 ```
 
@@ -275,11 +284,11 @@ To make it easier to use chat participants with natural language, you can implem
 
 VS Code uses the chat participant description and examples to determine which participant to route a chat prompt to. You can specify this information in the `disambiguation` property in the extension `package.json` file. The `disambiguation` property contains a list of detection categories, each with a description and examples.
 
-| Property | Description | Examples |
-|----------|-------------|----------|
-| `category` | The detection category. If the participant serves different purposes, you can have a category for each.  | <ul><li>`cat`</li><li>`workspace_questions`</li><li>`web_questions`</li></ul> |
-| `description` | A detailed description of the kinds of questions that are suitable for this participant. | <ul><li>`The user wants to learn a specific computer science topic in an informal way.`</li><li>`The user just wants to relax and see the cat play.`</li></ul> |
-| `examples` | A list of representative example questions. | <ul><li>`Teach me C++ pointers using metaphors`</li><li>`Explain to me what is a linked list in a simple way`</li><li>`Can you show me a cat playing with a laser pointer?`</li></ul> |
+| Property      | Description                                                                                             | Examples                                                                                                                                                                              |
+| ------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `category`    | The detection category. If the participant serves different purposes, you can have a category for each. | <ul><li>`cat`</li><li>`workspace_questions`</li><li>`web_questions`</li></ul>                                                                                                         |
+| `description` | A detailed description of the kinds of questions that are suitable for this participant.                | <ul><li>`The user wants to learn a specific computer science topic in an informal way.`</li><li>`The user just wants to relax and see the cat play.`</li></ul>                        |
+| `examples`    | A list of representative example questions.                                                             | <ul><li>`Teach me C++ pointers using metaphors`</li><li>`Explain to me what is a linked list in a simple way`</li><li>`Can you show me a cat playing with a laser pointer?`</li></ul> |
 
 You can define participant detection for the overall chat participant, for specific commands, or a combination of both.
 
@@ -330,138 +339,142 @@ The following list provides the output types for a chat response in the Chat vie
 
 - **Markdown**
 
-    Render a fragment of Markdown text simple text or images. You can use any Markdown syntax that is part of the [CommonMark](https://commonmark.org/) specification. Use the [`ChatResponseStream.markdown`](/api/references/vscode-api#ChatResponseStream.markdown) method and provide the Markdown text.
+  Render a fragment of Markdown text simple text or images. You can use any Markdown syntax that is part of the [CommonMark](https://commonmark.org/) specification. Use the [`ChatResponseStream.markdown`](/api/references/vscode-api#ChatResponseStream.markdown) method and provide the Markdown text.
 
-    Example code snippet:
+  Example code snippet:
 
-    ```typescript
-    // Render Markdown text
-    stream.markdown('# This is a title \n');
-    stream.markdown('This is stylized text that uses _italics_ and **bold**. ');
-    stream.markdown('This is a [link](https://code.visualstudio.com).\n\n');
-    stream.markdown('![VS Code](https://code.visualstudio.com/assets/favicon.ico)');
-    ```
+  ```typescript
+  // Render Markdown text
+  stream.markdown('# This is a title \n');
+  stream.markdown('This is stylized text that uses _italics_ and **bold**. ');
+  stream.markdown('This is a [link](https://code.visualstudio.com).\n\n');
+  stream.markdown('![VS Code](https://code.visualstudio.com/assets/favicon.ico)');
+  ```
 
 - **Code block**
 
-    Render a code block that supports IntelliSense, code formatting, and interactive controls to apply the code to the active editor. To show a code block, use the [`ChatResponseStream.markdown`](/api/references/vscode-api#ChatResponseStream.markdown) method and apply the Markdown syntax for code blocks (using backticks).
+  Render a code block that supports IntelliSense, code formatting, and interactive controls to apply the code to the active editor. To show a code block, use the [`ChatResponseStream.markdown`](/api/references/vscode-api#ChatResponseStream.markdown) method and apply the Markdown syntax for code blocks (using backticks).
 
-    Example code snippet:
+  Example code snippet:
 
-    ```typescript
-    // Render a code block that enables users to interact with
-    stream.markdown('```bash\n');
-    stream.markdown('```ls -l\n');
-    stream.markdown('```');
-    ```
+  ````typescript
+  // Render a code block that enables users to interact with
+  stream.markdown('```bash\n');
+  stream.markdown('```ls -l\n');
+  stream.markdown('```');
+  ````
 
 - **Command link**
 
-    Render a link inline in the chat response that users can select to invoke a VS Code command. To show a command link, use the [`ChatResponseStream.markdown`](/api/references/vscode-api#ChatResponseStream.markdown) method and use the Markdown syntax for links `[link text](command:commandId)`, where you provide the command ID in the URL. For example, the following link opens the Command Palette: `[Command Palette](command:workbench.action.showCommands)`.
+      Render a link inline in the chat response that users can select to invoke a VS Code command. To show a command link, use the [`ChatResponseStream.markdown`](/api/references/vscode-api#ChatResponseStream.markdown) method and use the Markdown syntax for links `[link text](command:commandId)`, where you provide the command ID in the URL. For example, the following link opens the Command Palette: `[Command Palette](command:workbench.action.showCommands)`.
 
-    To protect against command injection when you load the Markdown text from a service, you have to use a [`vscode.MarkdownString`](/api/references/vscode-api#MarkdownString) object with the `isTrusted` property set to the list of trusted VS Code command IDs. This property is required to enable the command link to work. If the `isTrusted` property is not set or a command is not listed, the command link will not work.
+      To protect against command injection when you load the Markdown text from a service, you have to use a [`vscode.MarkdownString`](/api/references/vscode-api#MarkdownString) object with the `isTrusted` property set to the list of trusted VS Code command IDs. This property is required to enable the command link to work. If the `isTrusted` property is not set or a command is not listed, the command link will not work.
 
-    Example code snippet:
+      Example code snippet:
 
-    ```typescript
-    // Use command URIs to link to commands from Markdown
-    let markdownCommandString: vscode.MarkdownString = new vscode.MarkdownString(`[Use cat names](command:${CAT_NAMES_COMMAND_ID})`);
-    markdownCommandString.isTrusted = { enabledCommands: [ CAT_NAMES_COMMAND_ID ] };
+      ```typescript
+      // Use command URIs to link to commands from Markdown
+      let markdownCommandString: vscode.MarkdownString = new vscode.MarkdownString(`[Use cat names](command:$\{CAT_NAMES_COMMAND_ID\}
 
-    stream.markdown(markdownCommandString);
-    ```
+  )`);
+  markdownCommandString.isTrusted = { enabledCommands: [ CAT_NAMES_COMMAND_ID ] };
 
-    If the command takes arguments, you need to first JSON encode the arguments and then encode the JSON string as a URI component. You then append the encoded arguments as a query string to the command link.
+      stream.markdown(markdownCommandString);
+      ```
 
-    ```typescript
-    // Encode the command arguments
-    const encodedArgs = encodeURIComponent(JSON.stringify(args));
+      If the command takes arguments, you need to first JSON encode the arguments and then encode the JSON string as a URI component. You then append the encoded arguments as a query string to the command link.
 
-    // Use command URIs with arguments to link to commands from Markdown
-    let markdownCommandString: vscode.MarkdownString = new vscode.MarkdownString(`[Use cat names](command:${CAT_NAMES_COMMAND_ID}?${encodedArgs})`);
-    markdownCommandString.isTrusted = { enabledCommands: [ CAT_NAMES_COMMAND_ID ] };
+      ```typescript
+      // Encode the command arguments
+      const encodedArgs = encodeURIComponent(JSON.stringify(args));
 
-    stream.markdown(markdownCommandString);
-    ```
+      // Use command URIs with arguments to link to commands from Markdown
+      let markdownCommandString: vscode.MarkdownString = new vscode.MarkdownString(`[Use cat names](command:$\{CAT_NAMES_COMMAND_ID\}
+
+  ?$\{encodedArgs\}
+  )`);
+  markdownCommandString.isTrusted = { enabledCommands: [ CAT_NAMES_COMMAND_ID ] };
+
+      stream.markdown(markdownCommandString);
+      ```
 
 - **Command button**
 
-    Render a button that invokes a VS Code command. The command can be a built-in command or one that you define in your extension. Use the [`ChatResponseStream.button`](/api/references/vscode-api#ChatResponseStream.button) method and provide the button text and command ID.
+  Render a button that invokes a VS Code command. The command can be a built-in command or one that you define in your extension. Use the [`ChatResponseStream.button`](/api/references/vscode-api#ChatResponseStream.button) method and provide the button text and command ID.
 
-    Example code snippet:
+  Example code snippet:
 
-    ```typescript
-    // Render a button to trigger a VS Code command
-    stream.button({
-        command: 'my.command',
-        title: vscode.l10n.t('Run my command')
-    });
-    ```
+  ```typescript
+  // Render a button to trigger a VS Code command
+  stream.button({
+    command: 'my.command',
+    title: vscode.l10n.t('Run my command'),
+  });
+  ```
 
 - **File tree**
 
-    Render a file tree control that lets users preview individual files. For example, to show a workspace preview when proposing to create a new workspace. Use the [`ChatResponseStream.filetree`](/api/references/vscode-api#ChatResponseStream.filetree) method and provide an array of file tree elements and the base location (folder) of the files.
+  Render a file tree control that lets users preview individual files. For example, to show a workspace preview when proposing to create a new workspace. Use the [`ChatResponseStream.filetree`](/api/references/vscode-api#ChatResponseStream.filetree) method and provide an array of file tree elements and the base location (folder) of the files.
 
-    Example code snippet:
+  Example code snippet:
 
-    ```typescript
-    // Create a file tree instance
-    var tree: vscode.ChatResponseFileTree[] = [
-        { name: 'myworkspace', children: [
-            { name: 'README.md' },
-            { name: 'app.js' },
-            { name: 'package.json' }
-        ]}
-    ];
+  ```typescript
+  // Create a file tree instance
+  var tree: vscode.ChatResponseFileTree[] = [
+    {
+      name: 'myworkspace',
+      children: [{ name: 'README.md' }, { name: 'app.js' }, { name: 'package.json' }],
+    },
+  ];
 
-    // Render the file tree control at a base location
-    stream.filetree(tree, baseLocation);
-    ```
+  // Render the file tree control at a base location
+  stream.filetree(tree, baseLocation);
+  ```
 
 - **Progress message**
 
-    Render a progress message during a long-running operation to provide the user with intermediate feedback. For example, to report the completion of each step in a multi-step operation. Use the [`ChatResponseStream.progress`](/api/references/vscode-api#ChatResponseStream.progress) method and provide the message.
+  Render a progress message during a long-running operation to provide the user with intermediate feedback. For example, to report the completion of each step in a multi-step operation. Use the [`ChatResponseStream.progress`](/api/references/vscode-api#ChatResponseStream.progress) method and provide the message.
 
-    Example code snippet:
+  Example code snippet:
 
-    ```typescript
-    // Render a progress message
-    stream.progress('Connecting to the database.');
-    ```
+  ```typescript
+  // Render a progress message
+  stream.progress('Connecting to the database.');
+  ```
 
 - **Reference**
 
-    Add a reference for an external URL or editor location in the list references to indicate which information you use as context. Use the [`ChatResponseStream.reference`](/api/references/vscode-api#ChatResponseStream.reference) method and provide the reference location.
+  Add a reference for an external URL or editor location in the list references to indicate which information you use as context. Use the [`ChatResponseStream.reference`](/api/references/vscode-api#ChatResponseStream.reference) method and provide the reference location.
 
-    Example code snippet:
+  Example code snippet:
 
-    ```typescript
-    const fileUri: vscode.Uri = vscode.Uri.file('/path/to/workspace/app.js');  // On Windows, the path should be in the format of 'c:\\path\\to\\workspace\\app.js'
-    const fileRange: vscode.Range = new vscode.Range(0, 0, 3, 0);
-    const externalUri: vscode.Uri = vscode.Uri.parse('https://code.visualstudio.com');
+  ```typescript
+  const fileUri: vscode.Uri = vscode.Uri.file('/path/to/workspace/app.js'); // On Windows, the path should be in the format of 'c:\\path\\to\\workspace\\app.js'
+  const fileRange: vscode.Range = new vscode.Range(0, 0, 3, 0);
+  const externalUri: vscode.Uri = vscode.Uri.parse('https://code.visualstudio.com');
 
-    // Add a reference to an entire file
-    stream.reference(fileUri);
+  // Add a reference to an entire file
+  stream.reference(fileUri);
 
-    // Add a reference to a specific selection within a file
-    stream.reference(new vscode.Location(fileUri, fileRange));
+  // Add a reference to a specific selection within a file
+  stream.reference(new vscode.Location(fileUri, fileRange));
 
-    // Add a reference to an external URL
-    stream.reference(externalUri);
-    ```
+  // Add a reference to an external URL
+  stream.reference(externalUri);
+  ```
 
 - **Inline reference**
 
-    Add an inline reference to a URI or editor location. Use the [`ChatResponseStream.anchor`](/api/references/vscode-api#ChatResponseStream.anchor) method and provide the anchor location and optional title. To reference a symbol (for example, a class or variable), you would use a location in an editor.
+  Add an inline reference to a URI or editor location. Use the [`ChatResponseStream.anchor`](/api/references/vscode-api#ChatResponseStream.anchor) method and provide the anchor location and optional title. To reference a symbol (for example, a class or variable), you would use a location in an editor.
 
-    Example code snippet:
+  Example code snippet:
 
-    ```typescript
-    const symbolLocation: vscode.Uri = vscode.Uri.parse('location-to-a-symbol');
+  ```typescript
+  const symbolLocation: vscode.Uri = vscode.Uri.parse('location-to-a-symbol');
 
-    // Render an inline anchor to a symbol in the workspace
-    stream.anchor(symbolLocation, 'MySymbol');
-    ```
+  // Render an inline anchor to a symbol in the workspace
+  stream.anchor(symbolLocation, 'MySymbol');
+  ```
 
 > **Important**: Images and links are only available when they originate from a domain that is in the trusted domain list. Get more info about [link protection in VS Code](/docs/editor/editingevolved#outgoing-link-protection).
 
@@ -471,14 +484,14 @@ We recommend that you measure the success of your participant by adding telemetr
 
 ```typescript
 const logger = vscode.env.createTelemetryLogger({
-     // telemetry logging implementation goes here
+  // telemetry logging implementation goes here
 });
 
 cat.onDidReceiveFeedback((feedback: vscode.ChatResultFeedback) => {
-    // Log chat result feedback to be able to compute the success metric of the participant
-    logger.logUsage('chatResultFeedback', {
-        kind: feedback.kind
-    });
+  // Log chat result feedback to be able to compute the success metric of the participant
+  logger.logUsage('chatResultFeedback', {
+    kind: feedback.kind,
+  });
 });
 ```
 
@@ -488,21 +501,21 @@ Any other user interaction with your chat response should be measured as a posit
 
 ### Chat participant naming conventions
 
-| Property | Description | Naming guidelines |
-|----------|-------------|-------------------|
-| `id`  | Globally unique identifier for the chat participant | <ul><li>String value</li><li>Use the extension name as a prefix, followed by a unique ID for your extension</li><li>Example: `chat-sample.cat`, `code-visualizer.code-visualizer-participant`</li></ul>  |
-| `name`  | Name of the chat participant, referenced by users through the `@` symbol | <ul><li>String value consisting of alphanumeric characters, underscores, and hyphens</li><li>It's recommended to only use lowercase to ensure consistency with existing chat participants</li><li>Ensure the purpose of the participant is obvious from its name by referencing your company name or its functionality</li><li>Some participant names are reserved. If you use a reserved name, the fully qualified name is shown, including the extension ID</li><li>Examples: `vscode`, `terminal`, `code-visualizer`</li></ul>   |
-| `fullName` | (Optional) The full name of the participant, which is shown as the label for responses coming from the participant | <ul><li>String value</li><li>It's recommended to use [title case](https://en.wikipedia.org/wiki/Title_case)</li><li>Use your company name, brand name, or user-friendly name for your participant</li><li>Examples: `GitHub Copilot`, `VS Code`, `Math Tutor`</li></ul>   |
-| `description` | (Optional) Short description of what the chat participant does, shown as placeholder text in the chat input field or in the list of participants | <ul><li>String value</li><li>It's recommended to use sentence case, without punctuation at the end</li><li>Keep the description short to avoid horizontal scrolling</li><li>Examples: `Ask questions about VS Code`, `Generate UML diagrams for your code`</li></ul>   |
+| Property      | Description                                                                                                                                      | Naming guidelines                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`          | Globally unique identifier for the chat participant                                                                                              | <ul><li>String value</li><li>Use the extension name as a prefix, followed by a unique ID for your extension</li><li>Example: `chat-sample.cat`, `code-visualizer.code-visualizer-participant`</li></ul>                                                                                                                                                                                                                                                                                                                           |
+| `name`        | Name of the chat participant, referenced by users through the `@` symbol                                                                         | <ul><li>String value consisting of alphanumeric characters, underscores, and hyphens</li><li>It's recommended to only use lowercase to ensure consistency with existing chat participants</li><li>Ensure the purpose of the participant is obvious from its name by referencing your company name or its functionality</li><li>Some participant names are reserved. If you use a reserved name, the fully qualified name is shown, including the extension ID</li><li>Examples: `vscode`, `terminal`, `code-visualizer`</li></ul> |
+| `fullName`    | (Optional) The full name of the participant, which is shown as the label for responses coming from the participant                               | <ul><li>String value</li><li>It's recommended to use [title case](https://en.wikipedia.org/wiki/Title_case)</li><li>Use your company name, brand name, or user-friendly name for your participant</li><li>Examples: `GitHub Copilot`, `VS Code`, `Math Tutor`</li></ul>                                                                                                                                                                                                                                                           |
+| `description` | (Optional) Short description of what the chat participant does, shown as placeholder text in the chat input field or in the list of participants | <ul><li>String value</li><li>It's recommended to use sentence case, without punctuation at the end</li><li>Keep the description short to avoid horizontal scrolling</li><li>Examples: `Ask questions about VS Code`, `Generate UML diagrams for your code`</li></ul>                                                                                                                                                                                                                                                              |
 
-When referring to your chat participant in any of the user-facing elements, such as properties, chat responses, or chat user interface, it's recommended to not use the term *participant*, as it's the name of the API. For example, the `@cat` extension could be called "Cat extension for GitHub Copilot".
+When referring to your chat participant in any of the user-facing elements, such as properties, chat responses, or chat user interface, it's recommended to not use the term _participant_, as it's the name of the API. For example, the `@cat` extension could be called "Cat extension for GitHub Copilot".
 
 ### Slash command naming conventions
 
-| Property | Description | Naming guidelines |
-|----------|-------------|-------------------|
-| `name`  | Name of the slash command, referenced by users through the `/` symbol | <ul><li>String value</li><li>It's recommended to use [lower camel case](https://en.wikipedia.org/wiki/Camel_case) to align with existing slash commands</li><li>Ensure the purpose of the command is obvious from its name</li><li>Examples: `fix`, `explain`, `runCommand`</li></ul>   |
-| `description` | (Optional) Short description of what the slash command does, shown as placeholder text in the chat input field or in the list of participants and commands | <ul><li>String value</li><li>It's recommended to use sentence case, without punctuation at the end</li><li>Keep the description short to avoid horizontal scrolling</li><li>Examples: `Search for and execute a command in VS Code`, `Generate unit tests for the selected code`</li></ul>   |
+| Property      | Description                                                                                                                                                | Naming guidelines                                                                                                                                                                                                                                                                          |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `name`        | Name of the slash command, referenced by users through the `/` symbol                                                                                      | <ul><li>String value</li><li>It's recommended to use [lower camel case](https://en.wikipedia.org/wiki/Camel_case) to align with existing slash commands</li><li>Ensure the purpose of the command is obvious from its name</li><li>Examples: `fix`, `explain`, `runCommand`</li></ul>      |
+| `description` | (Optional) Short description of what the slash command does, shown as placeholder text in the chat input field or in the list of participants and commands | <ul><li>String value</li><li>It's recommended to use sentence case, without punctuation at the end</li><li>Keep the description short to avoid horizontal scrolling</li><li>Examples: `Search for and execute a command in VS Code`, `Generate unit tests for the selected code`</li></ul> |
 
 ## Guidelines
 

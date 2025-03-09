@@ -7,11 +7,12 @@ PageTitle: Markdown editing with Visual Studio Code
 DateApproved: 03/05/2025
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
+
 # Markdown and Visual Studio Code
 
 Working with Markdown files in Visual Studio Code is simple, straightforward, and fun. Besides VS Code's basic editing, there are a several Markdown-specific features that help you be more productive.
 
->**Note**: To help get you started with editing Markdown files, you can use the [Doc Writer profile template](/docs/editor/profiles.md#doc-writer-profile-template) to install useful extensions (spell checker, Markdown linter) and configure appropriate setting values.
+> **Note**: To help get you started with editing Markdown files, you can use the [Doc Writer profile template](/docs/editor/profiles.md#doc-writer-profile-template) to install useful extensions (spell checker, Markdown linter) and configure appropriate setting values.
 
 ## Editing Markdown
 
@@ -27,7 +28,7 @@ The Outline view is a great way to review your document's header structure and o
 
 VS Code includes some useful snippets that can speed up writing Markdown. This includes snippets for code blocks, images, and more. Press `kb(editor.action.triggerSuggest)` (Trigger Suggest) while editing to see a list of suggested Markdown snippets. You can also use the dedicated snippet picker by selecting **Insert Snippet** in the Command Palette.
 
->**Tip:** You can add in your own User Defined Snippets for Markdown. Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
+> **Tip:** You can add in your own User Defined Snippets for Markdown. Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
 
 ### Go to header in file
 
@@ -71,9 +72,9 @@ Accept one of these completions to insert the full link to that header, even if 
 
 You can configure if/when workspace header completions show with the `setting(markdown.suggest.paths.includeWorkspaceHeaderCompletions)` setting. Valid setting values are:
 
-* `onDoubleHash` (the default)—Show workspace header completions only after you type `##`.
-* `onSingleOrDoubleHash`—Show workspace header completions after you type `#` or `##`.
-* `never`—Never show workspace header completions.
+- `onDoubleHash` (the default)—Show workspace header completions only after you type `##`.
+- `onSingleOrDoubleHash`—Show workspace header completions after you type `#` or `##`.
+- `never`—Never show workspace header completions.
 
 Keep in mind that finding all headers in the current workspace can be expensive, so there might be a slight delay the first time they are requested, especially for workspaces with lots of Markdown files.
 
@@ -89,7 +90,7 @@ If you prefer using the keyboard, you can also **Copy and paste** a file or imag
 
 ![Inserting a Markdown link by pasting a link in the editor](images/Markdown/markdown-paste-link.png)
 
-Or you can use the  **Markdown: Insert Image from Workspace** command to insert images and  **Markdown: Insert Link to File in Workspace** to insert file links.
+Or you can use the **Markdown: Insert Image from Workspace** command to insert images and **Markdown: Insert Link to File in Workspace** to insert file links.
 
 Inserted images use Markdown image syntax `![](path/to/image.png)`. Links insert a normal Markdown link `[](path/to/file.md)`.
 
@@ -99,7 +100,8 @@ For example, if you want every Markdown file under `/docs` in your workspace to 
 
 ```jsonc
 "markdown.copyFiles.destination": {
-  "/docs/**/*": "images/${documentBaseName}/"
+  "/docs/**/*": "images/$\{documentBaseName\}
+/"
 }
 ```
 
@@ -109,7 +111,8 @@ You can even use simple regular expressions to transform variables in a [similar
 
 ```jsonc
 "markdown.copyFiles.destination": {
-  "/docs/**/*": "images/${documentBaseName/(.).*/$1/}/"
+  "/docs/**/*": "images/$\{documentBaseName/(.).*/$1/\}
+/"
 }
 ```
 
@@ -121,17 +124,17 @@ Smart selection lets you quickly expand and shrink selection in Markdown documen
 
 Smart selection uses the following commands:
 
-* Expand: `kb(editor.action.smartSelect.expand)`
-* Shrink: `kb(editor.action.smartSelect.shrink)`
+- Expand: `kb(editor.action.smartSelect.expand)`
+- Shrink: `kb(editor.action.smartSelect.shrink)`
 
 Selection applies to the following, and follows a traditional hierarchical pattern:
 
-* Headers
-* Lists
-* Block quotes
-* Fenced code blocks
-* Html code blocks
-* Paragraphs
+- Headers
+- Lists
+- Block quotes
+- Fenced code blocks
+- Html code blocks
+- Paragraphs
 
 ![Smart select within a Markdown document expands from a block element, to the block element containing it, to the rest of the content under a header, to the header itself](images/Markdown/smart-select.gif)
 
@@ -145,11 +148,11 @@ Link validation is off by default. To enable it, set `"markdown.validate.enabled
 
 There are a few settings you can use to customize link validation:
 
-* `setting(markdown.validate.fileLinks.enabled)` - Enable/disable validation of links to local files: `[link](/path/to/file.md)`
-* `setting(markdown.validate.fragmentLinks.enabled)` - Enable/disable validation of links to headers in the current file: `[link](#some-header)`
-* `setting(markdown.validate.fileLinks.markdownFragmentLinks)` - Enabled/disable validation of links to headers in the other markdown file: `[link](other-file.md#some-header)`
-* `setting(markdown.validate.referenceLinks.enabled)` - Enable/disable validation of reference links: `[link][ref]`.
-* `setting(markdown.validate.ignoredLinks)` - A list of link globs that skip validation. This is useful if you link to files that don't exist on disk but do exist once the Markdown is published.
+- `setting(markdown.validate.fileLinks.enabled)` - Enable/disable validation of links to local files: `[link](/path/to/file.md)`
+- `setting(markdown.validate.fragmentLinks.enabled)` - Enable/disable validation of links to headers in the current file: `[link](#some-header)`
+- `setting(markdown.validate.fileLinks.markdownFragmentLinks)` - Enabled/disable validation of links to headers in the other markdown file: `[link](other-file.md#some-header)`
+- `setting(markdown.validate.referenceLinks.enabled)` - Enable/disable validation of reference links: `[link][ref]`.
+- `setting(markdown.validate.ignoredLinks)` - A list of link globs that skip validation. This is useful if you link to files that don't exist on disk but do exist once the Markdown is published.
 
 ### Find All References to headers and links
 
@@ -159,10 +162,10 @@ Use the **Find All References** (`kb(references-view.findReferences)`) command t
 
 **Find All References** is supported for:
 
-* Headers: `# My Header`. Shows all links to `#my-header`.
-* External links: `[text](http://example.com)`. Shows all links to `http://example.com`.
-* Internal links: `[text](./path/to/file.md)`. Shows all links to `./path/to/file.md`
-* Fragments in links: `[text](./path/to/file.md#my-header)`. Shows all links to `#my-header` in `./path/to/file.md`
+- Headers: `# My Header`. Shows all links to `#my-header`.
+- External links: `[text](http://example.com)`. Shows all links to `http://example.com`.
+- Internal links: `[text](./path/to/file.md)`. Shows all links to `./path/to/file.md`
+- Fragments in links: `[text](./path/to/file.md#my-header)`. Shows all links to `#my-header` in `./path/to/file.md`
 
 ### Rename headers and links
 
@@ -172,18 +175,18 @@ Tired of accidentally breaking links when you change a Markdown header? Try usin
 
 You can also use `kb(editor.action.rename)` on:
 
-* Headers: `# My Header`. This updates all links to `#my-header`.
-* External links: `[text](http://example.com/page)`. This updates all places that linked to `http://example.com/page`
-* Internal links: `[text](./path/to/file.md)`. This renames the file `./path/to/file.md` and also updates all links to it.
-* Fragments in links: `[text](./path/to/file.md#my-header)`. This renames the header in `./path/to/file.md` and also updates all links to it.
+- Headers: `# My Header`. This updates all links to `#my-header`.
+- External links: `[text](http://example.com/page)`. This updates all places that linked to `http://example.com/page`
+- Internal links: `[text](./path/to/file.md)`. This renames the file `./path/to/file.md` and also updates all links to it.
+- Fragments in links: `[text](./path/to/file.md#my-header)`. This renames the header in `./path/to/file.md` and also updates all links to it.
 
 ### Automatic link updates on file move or rename
 
 With automatic Markdown link updating, VS Code will automatically update Markdown links whenever a linked to file is moved or renamed. You can enable this feature with the `setting(markdown.updateLinksOnFileMove.enabled)` setting. Valid setting values are:
 
-* `never` (the default) — Don't try to update links automatically.
-* `prompt` — Confirm before updating links.
-* `always` — Update links automatically without confirmation.
+- `never` (the default) — Don't try to update links automatically.
+- `prompt` — Confirm before updating links.
+- `always` — Update links automatically without confirmation.
 
 Automatic link updating detects renames of Markdown files, images, and directories. You can enable it for additional file types with `setting(markdown.updateLinksOnFileMove.include)`.
 
@@ -195,7 +198,7 @@ Here is an example with a simple file.
 
 ![Markdown Preview](images/Markdown/preview.png)
 
->**Tip:** You can also right-click on the editor Tab and select **Open Preview** (`kb(markdown.showPreview)`) or use the **Command Palette** (`kb(workbench.action.showCommands)`) to run the **Markdown: Open Preview to the Side** command (`kb(markdown.showPreviewToSide)`).
+> **Tip:** You can also right-click on the editor Tab and select **Open Preview** (`kb(markdown.showPreview)`) or use the **Command Palette** (`kb(workbench.action.showCommands)`) to run the **Markdown: Open Preview to the Side** command (`kb(markdown.showPreviewToSide)`).
 
 ### Dynamic previews and preview locking
 
@@ -207,7 +210,7 @@ You can lock a Markdown preview using the **Markdown: Toggle Preview Locking** c
 
 ![A locked Markdown preview](images/Markdown/locked-preview-title.png)
 
->**Note:** The **Markdown: Toggle Preview Locking** command is available only if Markdown preview is the active Tab.
+> **Note:** The **Markdown: Toggle Preview Locking** command is available only if Markdown preview is the active Tab.
 
 ### Editor and preview synchronization
 
@@ -268,9 +271,7 @@ For example, to load a stylesheet called `Style.css` at the root of your current
 ```json
 // Place your settings in this file to overwrite default and user settings.
 {
-    "markdown.styles": [
-        "Style.css"
-    ]
+  "markdown.styles": ["Style.css"]
 }
 ```
 
@@ -338,7 +339,7 @@ In addition to the functionality VS Code provides out of the box, you can instal
 
 Read on to find out about:
 
-* [CSS, SCSS, and Less](/docs/languages/css.md) - Want to edit your CSS? VS Code has great support for CSS, SCSS, and Less editing.
+- [CSS, SCSS, and Less](/docs/languages/css.md) - Want to edit your CSS? VS Code has great support for CSS, SCSS, and Less editing.
 
 ## Common questions
 

@@ -1,39 +1,55 @@
+---
+Order: 1
+Area: sourcecontrol
+TOCTitle: 개요
+ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
+PageTitle: Visual Studio Code에서 Git을 활용한 소스 컨트롤
+DateApproved: 2025년 3월 5일
+MetaDescription: Visual Studio Code에서 통합 Git 지원을 활용한 소스 컨트롤 관리.
+sidebar_label: 개요
+---
+
 # VS Code에서 Git 소스 제어 사용하기 {#using-git-source-control-in-vs-code}
 
-Visual Studio Code는 통합된 소스 제어 관리(SCM)를 제공하며, 기본적으로 [Git](https://git-scm.com/) 지원을 포함하고 있습니다. [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=SCM%20Providers&sortBy=Installs)에서는 다른 많은 소스 제어 제공자를 확장 프로그램을 통해 사용할 수 있습니다.
+Visual Studio Code는 통합적인 소스 제어 관리(SCM)를 제공하며, 기본적으로 [Git](https://git-scm.com/) 지원을 포함하고 있습니다. [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=SCM%20Providers&sortBy=Installs)에서는 확장 프로그램을 설치하면 다양한 소스 컨트롤 시스템을 추가로 사용할 수 있습니다.
 
-VS Code의 GitHub Copilot을 사용하면 커밋 메시지, 풀 요청에 대한 제안을 받고, 커밋하기 전에 코드 변경 사항을 검토할 수 있습니다. VS Code에서의 [GitHub Copilot에 대해 더 알아보세요](/docs/copilot/overview.md).
+VS Code의 GitHub Copilot을 사용하면 Commit 메시지, Pull Request를 받고, Commit하기 전에 코드 변경 사항을 검토할 수 있습니다. VS Code에서의 [GitHub Copilot에 대해 더 알아보세요](/docs/copilot/overview.md).
 
-> [!TIP]
-> 아직 Copilot 구독이 없다면, [Copilot 무료 요금제](https://github.com/github-copilot/signup)에 가입하여 무료로 Copilot을 사용할 수 있습니다. 매달 완료 및 채팅 상호작용에 대한 한도가 제공됩니다.
+:::tip
+아직 Copilot를 구독하지 않았다면, [Copilot 무료 요금제](https://github.com/github-copilot/signup)에 가입하여 무료로 Copilot을 사용할 수 있습니다. 매달 완료 및 채팅 상호작용에 대한 한도가 제공됩니다.
+:::
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/i_23KUAEtUM" title="Visual Studio Code에서 Git 사용하기 (공식 초급 튜토리얼)" frameborder="0" allowfullscreen></iframe>
 
-> [!TIP]
-> Git을 처음 시작하는 경우, [git-scm](https://git-scm.com/doc) 웹사이트가 좋은 출발점입니다. 인기 있는 온라인 [책](https://git-scm.com/book), 시작하기 위한 [비디오](https://git-scm.com/video/what-is-git) 및 [치트 시트](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf)를 제공합니다. VS Code 문서는 Git에 이미 익숙하다고 가정합니다.
+:::tip
+Git을 처음 시작하는 경우, [git-scm](https://git-scm.com/doc)을 읽어보세요. 인기 있는 온라인 [자료](https://git-scm.com/book), 시작하기 위한 [비디오](https://git-scm.com/video/what-is-git) 및 [치트 시트](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf)를 제공합니다. VS Code 문서는 Git에 이미 익숙하다고 가정합니다.
+:::
 
 ## Git 저장소에서 작업하기 {#working-in-a-git-repository}
 
 VS Code는 Git 저장소인 폴더를 열면 이를 인식합니다. 소스 제어 뷰를 사용하면 명령줄을 사용하지 않고도 대부분의 Git 작업을 수행할 수 있습니다.
 
-> [!IMPORTANT]
-> **Git이 귀하의 컴퓨터에 설치되어 있는지 확인하세요.** VS Code는 귀하의 컴퓨터에 설치된 Git(최소 버전 `2.0.0`)을 사용하므로, 이러한 기능을 사용하기 전에 [Git을 설치](https://git-scm.com/download)해야 합니다.
+:::important
+**Git이 귀하의 컴퓨터에 설치되어 있는지 확인하세요.** VS Code는 귀하의 컴퓨터에 설치된 Git(최소 버전 `2.0.0`)을 사용하므로, 이러한 기능을 사용하기 전에 [Git을 설치](https://git-scm.com/download)해야 합니다.
+:::
 
-소스 제어 뷰는 활동 표시줄에서 **소스 제어** 아이콘을 선택하거나 `kb(workbench.view.scm)` 키보드 단축키를 사용하여 접근할 수 있습니다. 변경 사항이 있는 경우, 소스 제어 아이콘은 현재 저장소에 **얼마나 많은 변경 사항**이 있는지를 나타냅니다.
+소스 제어 뷰는 활동 표시줄에서 **Source Control** 아이콘을 선택하거나 `kb(workbench.view.scm)` 키보드 단축키를 사용하여 접근할 수 있습니다. 변경 사항이 있는 경우, 소스 제어 아이콘은 현재 저장소에 **얼마나 많은 변경 사항**이 있는지를 나타냅니다.
 
-소스 제어 뷰는 현재 저장소 변경 사항의 세부 정보를 보여줍니다: **변경 사항**, **스테이지된 변경 사항** 및 **병합 변경 사항**. 또한 [**소스 제어 그래프**](#source-control-graph)를 통해 변경 사항이 저장소의 역사와 어떻게 관련되는지 볼 수 있습니다.
+소스 제어 뷰는 현재 저장소 변경 사항의 세부 정보를 보여줍니다: **CHANGES**, **STAGED CHANGES** 및 **MERGE CHANGES**. 또한 [**소스 제어 그래프**](#source-control-graph)를 통해 변경 사항이 저장소의 히스토리와 어떻게 관련되는지 볼 수 있습니다.
 
 ![Git 개요](images/overview/overview.png)
 
 소스 제어 뷰에서 파일을 선택하면 해당 파일에 대해 수행한 변경 사항을 차이 편집기에서 볼 수 있습니다.
 
-> [!TIP]
-> 스테이지되지 않은 변경 사항의 경우, 오른쪽 편집기에서 파일을 편집할 수 있습니다: 자유롭게 사용하세요!
+:::tip
+스테이징되지 않은 변경 사항의 경우, 오른쪽 편집기에서 파일을 편집할 수 있습니다: 자유롭게 사용하세요!
+:::
 
-또한 VS Code 상태 표시줄의 왼쪽 하단에서 **저장소 상태**의 지표를 찾을 수 있습니다: **현재 브랜치**, **더러운 지표**, 그리고 현재 브랜치의 **들어오는 및 나가는 커밋** 수. 저장소의 어떤 브랜치로 **체크아웃**하려면 상태 지표를 선택하고 목록에서 Git 참조를 선택하세요.
+또한 VS Code 상태 표시줄의 왼쪽 하단에서 **저장소 상태**의 지표를 찾을 수 있습니다: **현재 브랜치**, **수정된 파일 표시**, 그리고 현재 브랜치의 **들어오는 및 나가는 커밋** 수. 저장소의 어떤 브랜치로 **체크아웃**하려면 상태 지표를 선택하고 목록에서 Git 참조를 선택하세요.
 
-> [!TIP]
-> Git 저장소의 하위 디렉토리에서 VS Code를 열 수 있습니다. VS Code의 Git 서비스는 여전히 정상적으로 작동하여 저장소 내의 모든 변경 사항을 표시하지만, 스코프가 지정된 디렉토리 외부의 파일 변경 사항은 현재 작업 공간 외부에 위치해 있다는 도구 설명과 함께 음영 처리됩니다.
+:::tip
+Git 저장소의 하위 디렉토리에서 VS Code를 열 수 있습니다. VS Code의 Git 서비스는 여전히 정상적으로 작동하여 저장소 내의 모든 변경 사항을 표시하지만, 스코프가 지정된 디렉토리 외부의 파일 변경 사항은 현재 작업 공간 외부에 위치해 있다는 도구 설명과 함께 음영 처리됩니다.
+:::
 
 ## 저장소 복제하기 {#cloning-a-repository}
 
@@ -43,7 +59,7 @@ VS Code는 Git 저장소인 폴더를 열면 이를 인식합니다. 소스 제�
 
 **저장소 복제**를 선택하면 원격 저장소의 URL(예: [GitHub](https://github.com/))와 로컬 저장소를 둘 부모 디렉토리를 입력하라는 메시지가 표시됩니다.
 
-GitHub 저장소의 경우, GitHub **코드** 대화 상자에서 URL을 찾을 수 있습니다.
+GitHub 저장소의 경우, GitHub **Code** 대화 상자에서 URL을 찾을 수 있습니다.
 
 ![저장소 복제 대화 상자](images/overview/GitHub-clone-dialog.png)
 
@@ -53,12 +69,13 @@ GitHub 저장소의 경우, GitHub **코드** 대화 상자에서 URL을 찾을 
 
 또한 **GitHub에서 복제** 옵션이 표시됩니다. VS Code에서 GitHub 계정으로 인증하면 이름으로 저장소를 검색하고 복제할 저장소를 선택할 수 있습니다. **명령 팔레트**(`kb(workbench.action.showCommands)`)에서 **Git: Clone** 명령을 사용하여 Git 저장소를 복제하는 흐름을 시작할 수도 있습니다. 단계별 안내를 보려면 [VS Code에서 저장소 복제하기](https://www.youtube.com/watch?v=bz1KauFlbQI) 비디오를 확인하세요.
 
-> [!NOTE]
-> 로컬 컴퓨터에 내용을 복제하지 않고 저장소에서 작업하려면 [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) 확장 프로그램을 설치하여 GitHub에서 직접 탐색하고 편집할 수 있습니다. [GitHub Repositories 확장 프로그램](/docs/sourcecontrol/github.md#github-repositories-extension) 섹션에서 자세히 알아보세요.
+:::note
+로컬 컴퓨터에 내용을 복제하지 않고 저장소에서 작업하려면 [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) 확장 프로그램을 설치하여 GitHub에서 직접 탐색하고 편집할 수 있습니다. [GitHub Repositories 확장 프로그램](/docs/sourcecontrol/github.md#github-repositories-extension) 섹션에서 자세히 알아보세요.
+:::
 
 ## 저장소 초기화하기 {#initialize-a-repository}
 
-작업 공간이 로컬 컴퓨터에 있는 경우, **저장소 초기화** 명령을 사용하여 Git 소스 제어를 활성화할 수 있습니다. VS Code가 기존 Git 저장소를 감지하지 못하면 소스 제어 뷰에서 **저장소 초기화** 또는 **GitHub에 게시** 옵션을 제공합니다.
+작업 공간이 로컬 컴퓨터에 있는 경우, **Initialize Repository** 명령을 사용하여 Git 소스 제어를 활성화할 수 있습니다. VS Code가 기존 Git 저장소를 감지하지 못하면 소스 제어 뷰에서 **Initialize Repository** 또는 **Publish to GitHub** 옵션을 제공합니다.
 
 ![Git 저장소 초기화](images/overview/initialize-repository.png)
 
@@ -71,27 +88,29 @@ GitHub 저장소의 경우, GitHub **코드** 대화 상자에서 URL을 찾을 
 
 **스테이징**(`git add`) 및 **언스테이징**(`git reset`)은 파일의 컨텍스트 작업이나 드래그 앤 드롭을 통해 수행할 수 있습니다.
 
-> [!NOTE]
-> **Git 사용자 이름과 이메일을 설정하세요.** 커밋할 때 사용자 이름 및/또는 이메일이 Git 구성에 설정되어 있지 않으면 Git은 로컬 컴퓨터의 정보를 사용합니다. 자세한 내용은 [Git 커밋 정보](https://git-scm.com/docs/git-commit#_commit_information)를 참조하세요.
+:::note
+**Git 사용자 이름과 이메일을 설정하세요.** 커밋할 때 사용자 이름 및/또는 이메일이 Git 구성에 설정되어 있지 않으면 Git은 로컬 컴퓨터의 정보를 사용합니다. 자세한 내용은 [Git 커밋 정보](https://git-scm.com/docs/git-commit#_commit_information)를 참조하세요.
+:::
 
 ![모든 변경 사항 스테이지 버튼](images/overview/stage-changes.png)
 
 변경 사항 위에 커밋 메시지를 입력하고 `kbstyle(Ctrl+Enter)` (macOS: `kbstyle(⌘+Enter)`)를 눌러 커밋할 수 있습니다. 스테이지된 변경 사항이 있는 경우, 해당 변경 사항만 커밋됩니다. 그렇지 않으면 어떤 변경 사항을 커밋할지 선택하라는 프롬프트가 표시되며 커밋 설정을 변경할 수 있는 옵션이 제공됩니다.
 
-이것은 훌륭한 작업 흐름으로 입증되었습니다. 예를 들어, 이전 스크린샷에서 `overview.png`에 대한 스테이지된 변경 사항만 커밋에 포함됩니다. 이후 스테이징 및 커밋 작업은 `versioncontrol.md`와 두 개의 다른 `.png` 이미지에 대한 변경 사항을 별도의 커밋으로 포함할 수 있습니다.
+이러한 방식은 효과적인 작업 흐름으로 자리 잡았습니다. 예를 들어, 이전 스크린샷에서 `overview.png`에 대한 스테이지된 변경 사항만 커밋에 포함됩니다. 이후 스테이징 및 커밋 작업은 `versioncontrol.md`와 두 개의 다른 `.png` 이미지 변경 사항을 별도의 커밋으로 나눠서 반영할 수 있습니다.
 
-보다 구체적인 **커밋** 작업은 소스 제어 뷰 상단의 **보기 및 추가 작업** `...` 메뉴에서 찾을 수 있습니다.
+보다 구체적인 **Commit** 작업은 소스 제어 뷰 상단의 **Views and More Actions** `...` 메뉴에서 찾을 수 있습니다.
 
 ![보기 및 추가 작업 버튼](images/overview/scm-more-actions.png)
 
-> [!TIP]
-> 잘못된 브랜치에 변경 사항을 커밋한 경우, **명령 팔레트**(`kb(workbench.action.showCommands)`)에서 **Git: Undo Last Commit** 명령을 사용하여 커밋을 취소하세요.
+:::tip
+잘못된 브랜치에 변경 사항을 커밋한 경우, **명령 팔레트**(`kb(workbench.action.showCommands)`)에서 **Git: Undo Last Commit** 명령을 사용하여 커밋을 취소하세요.
+:::
 
 <iframe src="https://www.youtube-nocookie.com/embed/E6ADS2k8oNQ" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Git: Visual Studio Code에서의 커밋"></iframe>
 
 ### AI로 커밋 메시지 생성하기 {#generate-a-commit-message-with-ai}
 
-VS Code의 GitHub Copilot은 귀하가 만든 코드 변경 사항을 기반으로 커밋 메시지를 생성할 수 있습니다. 소스 제어 뷰에서 커밋 메시지 입력 상자에 있는 **Copilot으로 커밋 메시지 생성** 버튼 (<i class="codicon codicon-sparkle"></i>)을 선택하세요.
+VS Code의 GitHub Copilot은 귀하가 만든 코드 변경 사항을 기반으로 커밋 메시지를 생성할 수 있습니다. 소스 제어 뷰에서 커밋 메시지 입력 상자에 있는 **Generate Commit Message with Copilot** 버튼 (<i class="codicon codicon-sparkle"></i>)을 선택하세요.
 
 ![커밋 메시지 입력 상자에서 Copilot으로 커밋 메시지를 생성하는 버튼을 보여주는 스크린샷.](images/overview/copilot-generate-commit-message.png)
 
@@ -99,9 +118,9 @@ VS Code의 GitHub Copilot은 귀하가 만든 코드 변경 사항을 기반으�
 
 ### 편집기를 사용하여 커밋 메시지 작성하기 {#author-commit-messages-using-an-editor}
 
-변경 사항을 커밋할 때 커밋 메시지를 입력하지 않으면 VS Code는 `COMMIT_EDITMSG` 파일을 위한 편집기를 열어 커밋 메시지를 작성할 수 있습니다. 커밋 메시지를 제공한 후에는 편집기 탭을 닫거나 편집기 도구 모음에서 **커밋 메시지 수락** 버튼을 선택하여 변경 사항을 커밋할 수 있습니다.
+변경 사항을 커밋할 때 커밋 메시지를 입력하지 않으면 VS Code는 `COMMIT_EDITMSG` 파일을 위한 편집기를 열어 커밋 메시지를 작성할 수 있습니다. 커밋 메시지를 제공한 후에는 편집기 탭을 닫거나 편집기 도구 모음에서 **Accept Commit Message** 버튼을 선택하여 변경 사항을 커밋할 수 있습니다.
 
-커밋 작업을 취소하려면 텍스트 편집기의 내용을 지우고 편집기 탭을 닫거나 편집기 도구 모음에서 **커밋 메시지 무시** 버튼을 선택할 수 있습니다.
+커밋 작업을 취소하려면 텍스트 편집기의 내용을 지우고 편집기 탭을 닫거나 편집기 도구 모음에서 **Discard Commit Message** 버튼을 선택할 수 있습니다.
 
 ![전체 텍스트 편집기에서 커밋 메시지 작성하기](images/overview/scm-git-editor.gif)
 
@@ -126,7 +145,10 @@ git 블레임 정보를 활성화하거나 비활성화하려면 **Git: Toggle G
 
 ```json
 {
-  "git.blame.editorDecoration.template": "${subject}, ${authorName} (${authorDateAgo})"
+  "git.blame.editorDecoration.template": "$\{subject\}
+, $\{authorName\}
+ ($\{authorDateAgo\}
+)"
 }
 ```
 
@@ -138,13 +160,13 @@ VS Code의 GitHub Copilot은 커밋되지 않은 코드 변경 사항을 검토�
 
 1. 소스 제어 뷰에서 **Copilot 코드 검토** 버튼을 선택하여 커밋되지 않은 변경 사항의 코드 검토를 시작합니다.
 
-    ![소스 제어 뷰에서 Copilot 코드 검토 버튼을 보여주는 스크린샷.](images/overview/copilot-code-review.png)
+   ![소스 제어 뷰에서 Copilot 코드 검토 버튼을 보여주는 스크린샷.](images/overview/copilot-code-review.png)
 
 2. Copilot은 편집기에서 오버레이로 코드 검토 댓글 및 제안을 생성합니다.
 
-    ![Copilot에 의해 생성된 코드 검토 댓글을 보여주는 스크린샷.](images/overview/copilot-code-review-results.png)
+   ![Copilot에 의해 생성된 코드 검토 댓글을 보여주는 스크린샷.](images/overview/copilot-code-review-results.png)
 
-    **댓글** 패널에서 모든 코드 검토 댓글 목록을 볼 수도 있습니다.
+   **댓글** 패널에서 모든 코드 검토 댓글 목록을 볼 수도 있습니다.
 
 3. 댓글 패널에서 해당 버튼이나 컨텍스트 메뉴 작업을 사용하여 제안을 적용하거나 무시할 수 있습니다.
 
@@ -184,8 +206,8 @@ VS Code는 주기적으로 원격에서 변경 사항을 가져올 수 있습니
 
 그래프는 다음 기능을 제공합니다:
 
-* 항목을 선택하여 해당 커밋의 변경 사항을 확인합니다.
-* **들어오는/나가는** 제목 위에 마우스를 올려 **가져오기**, **풀**, 및 **푸시** 작업을 수행합니다.
+- 항목을 선택하여 해당 커밋의 변경 사항을 확인합니다.
+- **들어오는/나가는** 제목 위에 마우스를 올려 **가져오기**, **풀**, 및 **푸시** 작업을 수행합니다.
 
 ## Git 상태 표시줄 작업 {#git-status-bar-actions}
 
@@ -201,9 +223,9 @@ VS Code는 주기적으로 원격에서 변경 사항을 가져올 수 있습니
 
 Git 저장소인 폴더를 열고 변경 사항을 만들기 시작하면 VS Code는 거터와 개요 눈금자에 유용한 주석을 추가합니다.
 
-* 빨간 삼각형은 삭제된 줄을 나타냅니다.
-* 녹색 막대는 새로 추가된 줄을 나타냅니다.
-* 파란 막대는 수정된 줄을 나타냅니다.
+- 빨간 삼각형은 삭제된 줄을 나타냅니다.
+- 녹색 막대는 새로 추가된 줄을 나타냅니다.
+- 파란 막대는 수정된 줄을 나타냅니다.
 
 ![거터 지표](images/overview/gutter.png)
 
@@ -295,10 +317,10 @@ Git 출력 창을 열려면 **보기** > **출력**을 실행하고 드롭다운
 다음은 그 방법입니다:
 
 1. 명령줄에서 `code --help`를 실행할 수 있고 도움이 표시되는지 확인하세요.
-    * 도움이 표시되지 않으면 다음 단계를 따르세요:
-        * macOS: **명령 팔레트**에서 **Shell Command: Install 'Code' command in path**를 선택하세요.
-        * Windows: 설치 중 **Add to PATH**를 선택했는지 확인하세요.
-        * Linux: 새로운 `.deb` 또는 `.rpm` 패키지를 통해 Code를 설치했는지 확인하세요.
+   - 도움이 표시되지 않으면 다음 단계를 따르세요:
+     - macOS: **명령 팔레트**에서 **Shell Command: Install 'Code' command in path**를 선택하세요.
+     - Windows: 설치 중 **Add to PATH**를 선택했는지 확인하세요.
+     - Linux: 새로운 `.deb` 또는 `.rpm` 패키지를 통해 Code를 설치했는지 확인하세요.
 2. 명령줄에서 `git config --global core.editor "code --wait"`를 실행하세요.
 
 이제 `git config --global -e`를 실행하여 Git 구성을 위한 편집기로 VS Code를 사용할 수 있습니다.
@@ -322,10 +344,10 @@ Git 출력 창을 열려면 **보기** > **출력**을 실행하고 드롭다운
 
 요약하자면, VS Code를 편집기로 사용할 수 있는 몇 가지 예는 다음과 같습니다:
 
-* `git rebase HEAD~3 -i` VS Code를 사용하여 대화형 리베이스 수행
-* `git commit` VS Code를 사용하여 커밋 메시지 작성
-* `git add -p` 다음에 `kbstyle(e)`를 사용하여 대화형 추가
-* `git difftool <commit>^ <commit>` VS Code를 차이 편집기로 사용하여 변경 사항 비교
+- `git rebase HEAD~3 -i` VS Code를 사용하여 대화형 리베이스 수행
+- `git commit` VS Code를 사용하여 커밋 메시지 작성
+- `git add -p` 다음에 `kbstyle(e)`를 사용하여 대화형 추가
+- `git difftool <commit>^ <commit>` VS Code를 차이 편집기로 사용하여 변경 사항 비교
 
 ## GitHub 풀 요청 및 문제 작업하기 {#working-with-github-pull-requests-and-issues}
 
@@ -350,10 +372,10 @@ VS Code는 여러 소스 제어 제공자를 동시에 처리할 수 있는 지�
 
 ## 다음 단계 {#next-steps}
 
-* [소개 비디오 - Git 버전 관리](/docs/introvideos/versioncontrol.md) - VS Code Git 지원에 대한 개요를 제공하는 소개 비디오입니다.
+- [소개 비디오 - Git 버전 관리](/docs/introvideos/versioncontrol.md) - VS Code Git 지원에 대한 개요를 제공하는 소개 비디오입니다.
 
-* [GitHub에서 협업하는 방법 소개](/docs/sourcecontrol/github.md) - VS Code와 함께 GitHub를 사용하는 방법을 배워보세요.
+- [GitHub에서 협업하는 방법 소개](/docs/sourcecontrol/github.md) - VS Code와 함께 GitHub를 사용하는 방법을 배워보세요.
 
-* [Copilot VS Code에 대해 더 알아보세요](/docs/copilot/overview.md) - VS Code에서 Copilot에 대해 알아보세요.
+- [Copilot VS Code에 대해 더 알아보세요](/docs/copilot/overview.md) - VS Code에서 Copilot에 대해 알아보세요.
 
-* [소스 제어 API](/api/extension-guides/scm-provider.md) - 다른 소스 제어 제공자를 VS Code에 통합하려면 소스 제어 API를 참조하세요.
+- [소스 제어 API](/api/extension-guides/scm-provider.md) - 다른 소스 제어 제공자를 VS Code에 통합하려면 소스 제어 API를 참조하세요.

@@ -105,19 +105,19 @@ The `in` operator for when clauses allows for a dynamic lookup of a context key'
 First, determine which folders should support the command, and add the folder names to an array. Then, use the [`setContext` command](#add-a-custom-when-clause-context) to turn the array into a context key:
 
 ```ts
-vscode.commands.executeCommand('setContext', 'ext.supportedFolders', [
-  'test',
-  'foo',
-  'bar',
+vscode.commands.executeCommand("setContext", "ext.supportedFolders", [
+  "test",
+  "foo",
+  "bar",
 ]);
 
 // or
 
 // Note in this case (using an object), the value doesn't matter, it is based on the existence of the key in the object
 // The value must be of a simple type
-vscode.commands.executeCommand('setContext', 'ext.supportedFolders', {
+vscode.commands.executeCommand("setContext", "ext.supportedFolders", {
   test: true,
-  foo: 'anything',
+  foo: "anything",
   bar: false,
 });
 ```
@@ -266,10 +266,12 @@ The list here isn't exhaustive and you can find other when clause contexts by se
 
 You can have a when clause that checks if a specific [View](/api/ux-guidelines/views) is visible or focused.
 
-| Context name             | True when                                                                                          |
-| ------------------------ | -------------------------------------------------------------------------------------------------- |
-| `view.${viewId}.visible` | True when specific view is visible.<br />Example: `"view.workbench.explorer.fileView.visible"`     |
-| `focusedView`            | True when specific view is focused.<br />Example: `"focusedView == 'workbench.explorer.fileView'"` |
+| Context name | True when |
+| ------------ | --------- |
+
+| `view.$\{viewId\}
+.visible` | True when specific view is visible.<br />Example: `"view.workbench.explorer.fileView.visible"` |
+| `focusedView` | True when specific view is focused.<br />Example: `"focusedView == 'workbench.explorer.fileView'"` |
 
 View identifiers:
 
@@ -335,9 +337,13 @@ If you are authoring your own VS Code extension and need to enable/disable comma
 The first example below sets the key `myExtension.showMyCommand` to true, which you can use in enablement of commands or with the `when` property. The second example stores a value that you could use with a when clause to check if the number of cool open things is greater than 2.
 
 ```js
-vscode.commands.executeCommand('setContext', 'myExtension.showMyCommand', true);
+vscode.commands.executeCommand("setContext", "myExtension.showMyCommand", true);
 
-vscode.commands.executeCommand('setContext', 'myExtension.numberOfCoolOpenThings', 4);
+vscode.commands.executeCommand(
+  "setContext",
+  "myExtension.numberOfCoolOpenThings",
+  4
+);
 ```
 
 ## Inspect Context Keys utility

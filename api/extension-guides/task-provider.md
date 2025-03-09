@@ -64,15 +64,23 @@ const taskProvider = vscode.tasks.registerTaskProvider('rake', {
     return rakePromise;
   },
   resolveTask(_task: vscode.Task): vscode.Task | undefined {
-		const task = _task.definition.task;
-		// A Rake task consists of a task and an optional file as specified in RakeTaskDefinition
-		// Make sure that this looks like a Rake task by checking that there is a task.
-		if (task) {
-			// resolveTask requires that the same definition object be used.
-			const definition: RakeTaskDefinition = <any>_task.definition;
-			return new vscode.Task(definition, _task.scope ?? vscode.TaskScope.Workspace, definition.task, 'rake', new vscode.ShellExecution(`rake ${definition.task}`));
-		}
-		return undefined;  }
+    const task = _task.definition.task;
+    // A Rake task consists of a task and an optional file as specified in RakeTaskDefinition
+    // Make sure that this looks like a Rake task by checking that there is a task.
+    if (task) {
+      // resolveTask requires that the same definition object be used.
+      const definition: RakeTaskDefinition = <any>_task.definition;
+      return new vscode.Task(
+        definition,
+        _task.scope ?? vscode.TaskScope.Workspace,
+        definition.task,
+        'rake',
+        new vscode.ShellExecution(`rake $\{definition.task\}
+`)
+      );
+    }
+    return undefined;
+  },
 });
 ```
 
@@ -121,11 +129,24 @@ The `ShellExecution` executes the `rake compile` command in the shell that is sp
 In general, it is best to use a `ShellExecution` or `ProcessExecution` because they are simple. However, if your task requires a lot of saved state between runs, doesn't work well as a separate script or process, or requires extensive handling of output a `CustomExecution` might be a good fit. Existing uses of `CustomExecution` are usually for complex build systems. A `CustomExecution` has only a callback which is executed at the time that the task is run. This allows for greater flexibility in what the task can do, but it also means that the task provider is responsible for any process management and output parsing that needs to happen. The task provider is also responsible for implementing `Pseudoterminal` and returning it from the `CustomExecution` callback.
 
 ```typescript
-return new vscode.Task(definition, vscode.TaskScope.Workspace, `${flavor} ${flags.join(' ')}`,
-  CustomBuildTaskProvider.CustomBuildScriptType, new vscode.CustomExecution(async (): Promise<vscode.Pseudoterminal> => {
+return new vscode.Task(
+  definition,
+  vscode.TaskScope.Workspace,
+  `$\{flavor\}
+ $\{flags.join(' ')\}
+`,
+  CustomBuildTaskProvider.CustomBuildScriptType,
+  new vscode.CustomExecution(async (): Promise<vscode.Pseudoterminal> => {
     // When the task is executed, this callback will run. Here, we setup for running the task.
-    return new CustomBuildTaskTerminal(this.workspaceRoot, flavor, flags, () => this.sharedState, (state: string) => this.sharedState = state);
-  }));
+    return new CustomBuildTaskTerminal(
+      this.workspaceRoot,
+      flavor,
+      flags,
+      () => this.sharedState,
+      (state: string) => (this.sharedState = state)
+    );
+  })
+);
 ```
 
 The full example, including the implementation of `Pseudoterminal` is at [https://github.com/microsoft/vscode-extension-samples/tree/main/task-provider-sample/src/customTaskProvider.ts](https://github.com/microsoft/vscode-extension-samples/tree/main/task-provider-sample/src/customTaskProvider.ts).

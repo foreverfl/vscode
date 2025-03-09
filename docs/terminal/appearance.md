@@ -7,6 +7,7 @@ PageTitle: Terminal Appearance in Visual Studio Code
 DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code's integrated terminal allows customizing its appearance in various ways.
 ---
+
 # Terminal Appearance
 
 The look of Visual Studio Code's terminal can be customized extensively.
@@ -79,24 +80,38 @@ By default, the title displays what the shell's detected process name.
 Other terminals often display the escape sequence sent by the shell as the title, which can be configured with:
 
 ```json
-"terminal.integrated.tabs.title": "${sequence}"
+"terminal.integrated.tabs.title": "$\{sequence\}
+"
 ```
 
 Here are all variables available for use:
 
-- `${cwd}`: the terminal's current working directory.
-- `${cwdFolder}`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.
-- `${workspaceFolder}`: the workspace in which the terminal was launched.
-- `${workspaceFolderName}`: the name of the workspace in which the terminal was launched.
-- `${local}`: indicates a local terminal in a remote workspace.
-- `${process}`: the name of the terminal process.
-- `${progress}`: the progress state as reported by the OSC `9;4` sequence.
-- `${separator}`: a conditional separator (-) that only shows when it's surrounded by variables with values or static text.
-- `${sequence}`: the name provided to the terminal by the process.
-- `${task}`: indicates this terminal is associated with a task.
-- `${shellType}`: the detected shell type.
-- `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line, which may not work in some prompt frameworks.
-- `${shellPromptInput}`: the shell's full prompt input according to shell integration.
+- `$\{cwd\}
+`: the terminal's current working directory.
+- `$\{cwdFolder\}
+`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.
+- `$\{workspaceFolder\}
+`: the workspace in which the terminal was launched.
+- `$\{workspaceFolderName\}
+`: the name of the workspace in which the terminal was launched.
+- `$\{local\}
+`: indicates a local terminal in a remote workspace.
+- `$\{process\}
+`: the name of the terminal process.
+- `$\{progress\}
+`: the progress state as reported by the OSC `9;4` sequence.
+- `$\{separator\}
+`: a conditional separator (-) that only shows when it's surrounded by variables with values or static text.
+- `$\{sequence\}
+`: the name provided to the terminal by the process.
+- `$\{task\}
+`: indicates this terminal is associated with a task.
+- `$\{shellType\}
+`: the detected shell type.
+- `$\{shellCommand\}
+`: the command being executed according to shell integration. This also requires high confidence in the detected command line, which may not work in some prompt frameworks.
+- `$\{shellPromptInput\}
+`: the shell's full prompt input according to shell integration.
 
 ### Icons
 
@@ -134,7 +149,7 @@ One downside of this is that colored text may sometimes lose some of its saturat
 
 ## Ligatures
 
-Terminal [ligatures](https://en.wikipedia.org/wiki/Ligature_(writing)) allow rendering multiple characters as one. You can enable ligatures in the terminal by configuring the `setting(terminal.integrated.fontLigatures.enabled)`  setting, provided that the terminal font family (`setting(terminal.integrated.fontFamily)`) supports them.
+Terminal [ligatures](<https://en.wikipedia.org/wiki/Ligature_(writing)>) allow rendering multiple characters as one. You can enable ligatures in the terminal by configuring the `setting(terminal.integrated.fontLigatures.enabled)` setting, provided that the terminal font family (`setting(terminal.integrated.fontFamily)`) supports them.
 
 ![Enabling ligatures will combine certain sets of characters into one, for example >= into the greater than or equals sign](images/appearance/ligatures.png)
 

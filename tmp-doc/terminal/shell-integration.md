@@ -291,7 +291,10 @@ iTerm2가 선도한 다음 시퀀스가 지원됩니다:
 
   ```sh
   prompt() {
-    printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"
+    printf "\033]0;%s@%s:%s\007" "$\{USER\}
+  " "$\{HOSTNAME%%.*\}
+  " "$\{PWD/#$HOME/\~\}
+  "
   }
   PROMPT_COMMAND=prompt
   ```

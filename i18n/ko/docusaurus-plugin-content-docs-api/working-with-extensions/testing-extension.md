@@ -55,25 +55,25 @@ The configuration might be as simple as:
 
 ```js
 // .vscode-test.js
-const { defineConfig } = require('@vscode/test-cli');
+const { defineConfig } = require("@vscode/test-cli");
 
-module.exports = defineConfig({ files: 'out/test/**/*.test.js' });
+module.exports = defineConfig({ files: "out/test/**/*.test.js" });
 ```
 
 ...or more advanced:
 
 ```js
 // .vscode-test.js
-const { defineConfig } = require('@vscode/test-cli');
+const { defineConfig } = require("@vscode/test-cli");
 
 module.exports = defineConfig([
   {
-    label: 'unitTests',
-    files: 'out/test/**/*.test.js',
-    version: 'insiders',
-    workspaceFolder: './sampleWorkspace',
+    label: "unitTests",
+    files: "out/test/**/*.test.js",
+    version: "insiders",
+    workspaceFolder: "./sampleWorkspace",
     mocha: {
-      ui: 'tdd',
+      ui: "tdd",
       timeout: 20000,
     },
   },
@@ -88,19 +88,19 @@ If you define multiple configurations by passing an array, they'll be run sequen
 Once the CLI is set up, you can write and run your tests. Test scripts have access to the VS Code API, and are run under Mocha. Here's a sample ([src/test/suite/extension.test.ts](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/suite/extension.test.ts)):
 
 ```ts
-import * as assert from 'assert';
+import * as assert from "assert";
 
 // You can import and use all API from the 'vscode' module
 // as well as import your extension to test it
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 // import * as myExtension from '../extension';
 
-suite('Extension Test Suite', () => {
+suite("Extension Test Suite", () => {
   suiteTeardown(() => {
-    vscode.window.showInformationMessage('All tests done!');
+    vscode.window.showInformationMessage("All tests done!");
   });
 
-  test('Sample test', () => {
+  test("Sample test", () => {
     assert.strictEqual(-1, [1, 2, 3].indexOf(5));
     assert.strictEqual(-1, [1, 2, 3].indexOf(0));
   });
@@ -132,25 +132,25 @@ code \
 The **test script** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/runTest.ts)) uses the `@vscode/test-electron` API to simplify the process of downloading, unzipping, and launching VS Code with extension test parameters:
 
 ```ts
-import * as path from 'path';
+import * as path from "path";
 
-import { runTests } from '@vscode/test-electron';
+import { runTests } from "@vscode/test-electron";
 
 async function main() {
   try {
     // The folder containing the Extension Manifest package.json
     // Passed to `--extensionDevelopmentPath`
-    const extensionDevelopmentPath = path.resolve(__dirname, '../../');
+    const extensionDevelopmentPath = path.resolve(__dirname, "../../");
 
     // The path to the extension test runner script
     // Passed to --extensionTestsPath
-    const extensionTestsPath = path.resolve(__dirname, './suite/index');
+    const extensionTestsPath = path.resolve(__dirname, "./suite/index");
 
     // Download VS Code, unzip it and run the integration test
     await runTests({ extensionDevelopmentPath, extensionTestsPath });
   } catch (err) {
     console.error(err);
-    console.error('Failed to run tests');
+    console.error("Failed to run tests");
     process.exit(1);
   }
 }
@@ -171,21 +171,21 @@ You can find more API usage examples at [microsoft/vscode-test](https://github.c
 When running the extension integration test, `--extensionTestsPath` points to the **test runner script** ([`src/test/suite/index.ts`](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/suite/index.ts)) that programmatically runs the test suite. Below is the [test runner script](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/suite/index.ts) of `helloworld-test-sample` that uses Mocha to run the test suite. You can use this as a starting point and customize your setup with [Mocha's API](https://mochajs.org/api/mocha). You can also replace Mocha with any other test framework that can be run programmatically.
 
 ```ts
-import * as path from 'path';
-import * as Mocha from 'mocha';
-import { glob } from 'glob';
+import * as path from "path";
+import * as Mocha from "mocha";
+import { glob } from "glob";
 
 export function run(): Promise<void> {
   // Create the mocha test
   const mocha = new Mocha({
-    ui: 'tdd',
+    ui: "tdd",
     color: true,
   });
 
-  const testsRoot = path.resolve(__dirname, '..');
+  const testsRoot = path.resolve(__dirname, "..");
 
   return new Promise((c, e) => {
-    glob('**/**.test.js', { cwd: testsRoot })
+    glob("**/**.test.js", { cwd: testsRoot })
       .then((files) => {
         // Add files to the test suite
         files.forEach((f) => mocha.addFile(path.resolve(testsRoot, f)));
@@ -194,7 +194,10 @@ export function run(): Promise<void> {
           // Run the mocha test
           mocha.run((failures) => {
             if (failures > 0) {
-              e(new Error(`${failures} tests failed.`));
+              e(
+                new Error(`$\{failures\}
+ tests failed.`)
+              );
             } else {
               c();
             }
@@ -215,20 +218,20 @@ Both the test runner script and the `*.test.js` files have access to the VS Code
 Here is a sample test ([src/test/suite/extension.test.ts](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/suite/extension.test.ts)):
 
 ```ts
-import * as assert from 'assert';
-import { after } from 'mocha';
+import * as assert from "assert";
+import { after } from "mocha";
 
 // You can import and use all API from the 'vscode' module
 // as well as import your extension to test it
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 // import * as myExtension from '../extension';
 
-suite('Extension Test Suite', () => {
+suite("Extension Test Suite", () => {
   after(() => {
-    vscode.window.showInformationMessage('All tests done!');
+    vscode.window.showInformationMessage("All tests done!");
   });
 
-  test('Sample test', () => {
+  test("Sample test", () => {
     assert.strictEqual(-1, [1, 2, 3].indexOf(5));
     assert.strictEqual(-1, [1, 2, 3].indexOf(0));
   });
@@ -249,12 +252,16 @@ Here is a sample `launch.json` debugger configuration:
       "name": "Extension Tests",
       "type": "extensionHost",
       "request": "launch",
-      "runtimeExecutable": "${execPath}",
+      "runtimeExecutable": "$\{execPath\}
+",
       "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}",
-        "--extensionTestsPath=${workspaceFolder}/out/test/suite/index"
+        "--extensionDevelopmentPath=$\{workspaceFolder\}
+",
+        "--extensionTestsPath=$\{workspaceFolder\}
+/out/test/suite/index"
       ],
-      "outFiles": ["${workspaceFolder}/out/test/**/*.js"]
+      "outFiles": ["$\{workspaceFolder\}
+/out/test/**/*.js"]
     }
   ]
 }
@@ -293,13 +300,17 @@ When you debug an extension test in VS Code, VS Code uses the globally installed
       "name": "Extension Tests",
       "type": "extensionHost",
       "request": "launch",
-      "runtimeExecutable": "${execPath}",
+      "runtimeExecutable": "$\{execPath\}
+",
       "args": [
         "--disable-extensions",
-        "--extensionDevelopmentPath=${workspaceFolder}",
-        "--extensionTestsPath=${workspaceFolder}/out/test/suite/index"
+        "--extensionDevelopmentPath=$\{workspaceFolder\}
+",
+        "--extensionTestsPath=$\{workspaceFolder\}
+/out/test/suite/index"
       ],
-      "outFiles": ["${workspaceFolder}/out/test/**/*.js"]
+      "outFiles": ["$\{workspaceFolder\}
+/out/test/**/*.js"]
     }
   ]
 }
@@ -319,7 +330,7 @@ await runTests({
    *
    * See `code --help` for possible arguments.
    */
-  launchArgs: ['--disable-extensions'],
+  launchArgs: ["--disable-extensions"],
 });
 ```
 
@@ -328,28 +339,29 @@ await runTests({
 Sometimes you might want to run custom setups, such as running `code --install-extension` to install another extension before starting your test. `@vscode/test-electron` has a more granular API to accommodate that case:
 
 ```ts
-import * as cp from 'child_process';
-import * as path from 'path';
+import * as cp from "child_process";
+import * as path from "path";
 import {
   downloadAndUnzipVSCode,
   resolveCliArgsFromVSCodeExecutablePath,
   runTests,
-} from '@vscode/test-electron';
+} from "@vscode/test-electron";
 
 async function main() {
   try {
-    const extensionDevelopmentPath = path.resolve(__dirname, '../../../');
-    const extensionTestsPath = path.resolve(__dirname, './suite/index');
-    const vscodeExecutablePath = await downloadAndUnzipVSCode('1.40.1');
-    const [cliPath, ...args] = resolveCliArgsFromVSCodeExecutablePath(vscodeExecutablePath);
+    const extensionDevelopmentPath = path.resolve(__dirname, "../../../");
+    const extensionTestsPath = path.resolve(__dirname, "./suite/index");
+    const vscodeExecutablePath = await downloadAndUnzipVSCode("1.40.1");
+    const [cliPath, ...args] =
+      resolveCliArgsFromVSCodeExecutablePath(vscodeExecutablePath);
 
     // Use cp.spawn / cp.exec for custom setup
     cp.spawnSync(
       cliPath,
-      [...args, '--install-extension', '<EXTENSION-ID-OR-PATH-TO-VSIX>'],
+      [...args, "--install-extension", "<EXTENSION-ID-OR-PATH-TO-VSIX>"],
       {
-        encoding: 'utf-8',
-        stdio: 'inherit',
+        encoding: "utf-8",
+        stdio: "inherit",
       }
     );
 
@@ -361,7 +373,7 @@ async function main() {
       extensionTestsPath,
     });
   } catch (err) {
-    console.error('Failed to run tests');
+    console.error("Failed to run tests");
     process.exit(1);
   }
 }

@@ -8,6 +8,7 @@ DateApproved: 03/05/2025
 MetaDescription: Here you will find the complete list of keyboard shortcuts for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization-keybindings-social.png
 ---
+
 # Keyboard shortcuts for Visual Studio Code
 
 Visual Studio Code lets you perform most tasks directly from the keyboard. This article explains how you can modify the default keyboard shorts that come with VS Code.
@@ -46,9 +47,9 @@ We have a printable version of the default keyboard shortcuts. Select **Help** >
 
 The following links provide access to the three platform-specific versions (US English keyboard):
 
-* [Windows](https://go.microsoft.com/fwlink/?linkid=832145)
-* [macOS](https://go.microsoft.com/fwlink/?linkid=832143)
-* [Linux](https://go.microsoft.com/fwlink/?linkid=832144)
+- [Windows](https://go.microsoft.com/fwlink/?linkid=832145)
+- [macOS](https://go.microsoft.com/fwlink/?linkid=832143)
+- [Linux](https://go.microsoft.com/fwlink/?linkid=832144)
 
 ## Detecting keyboard shortcut conflicts
 
@@ -90,28 +91,28 @@ VS Code keeps track of the keyboard shortcuts you have customized in the `keybin
 
 To open the `keybindings.json` file:
 
-* Open **Keyboard Shortcuts** editor, and then select the **Open Keyboard Shortcuts (JSON)** button on the right of the editor title bar.
+- Open **Keyboard Shortcuts** editor, and then select the **Open Keyboard Shortcuts (JSON)** button on the right of the editor title bar.
 
   ![Open Keyboard Shortcuts JSON button](images/keybinding/open-keyboard-shortcuts-json.png)
 
-* Alternatively, use the **Open Default Keyboard Shortcuts (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`).
+- Alternatively, use the **Open Default Keyboard Shortcuts (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 ## Keyboard rules
 
 A keyboard shortcut configuration in VS Code is also known as a _keyboard rule_. Each rule consists of the following attributes:
 
-* `key`: describes the pressed key(s), for example `kb(actions.find)`.
-* `command`: the identifier of the VS Code command to execute, for example `workbench.view.explorer` to open the Explorer view.
-* `when`: (optional) clause containing a boolean expression that is evaluated depending on the current [context](#when-clause-contexts).
+- `key`: describes the pressed key(s), for example `kb(actions.find)`.
+- `command`: the identifier of the VS Code command to execute, for example `workbench.view.explorer` to open the Explorer view.
+- `when`: (optional) clause containing a boolean expression that is evaluated depending on the current [context](#when-clause-contexts).
 
 Chords (two separate keypress actions) are described by separating the two keypresses with a space. For example, `kbstyle(Ctrl+K Ctrl+C)`.
 
 When a key is pressed, the following evaluation rules are applied:
 
-* Rules are evaluated from **bottom** to **top**.
-* The first rule that matches both the `key` and `when` clause, is accepted.
-* If a rule is found, no more rules are processed.
-* If a rule is found and has a `command` set, the `command` is executed.
+- Rules are evaluated from **bottom** to **top**.
+- The first rule that matches both the `key` and `when` clause, is accepted.
+- If a rule is found, no more rules are processed.
+- If a rule is found and has a `command` set, the `command` is executed.
 
 The additional `keybindings.json` rules are appended at runtime to the bottom of the default rules, thus allowing them to overwrite the default rules. The `keybindings.json` file is watched by VS Code, so editing it while VS Code is running will update the rules at run-time.
 
@@ -142,21 +143,21 @@ The `key` is made up of modifiers and the key itself.
 
 The following modifiers are accepted:
 
-| Platform | Modifiers |
-| -- | --------- |
-| macOS | `kbstyle(Ctrl+)`, `kbstyle(Shift+)`, `kbstyle(Alt+)`, `kbstyle(Cmd+)` |
-| Windows | `kbstyle(Ctrl+)`, `kbstyle(Shift+)`, `kbstyle(Alt+)`, `kbstyle(Win+)` |
-| Linux | `kbstyle(Ctrl+)`, `kbstyle(Shift+)`, `kbstyle(Alt+)`, `kbstyle(Meta+)` |
+| Platform | Modifiers                                                              |
+| -------- | ---------------------------------------------------------------------- |
+| macOS    | `kbstyle(Ctrl+)`, `kbstyle(Shift+)`, `kbstyle(Alt+)`, `kbstyle(Cmd+)`  |
+| Windows  | `kbstyle(Ctrl+)`, `kbstyle(Shift+)`, `kbstyle(Alt+)`, `kbstyle(Win+)`  |
+| Linux    | `kbstyle(Ctrl+)`, `kbstyle(Shift+)`, `kbstyle(Alt+)`, `kbstyle(Meta+)` |
 
 The following keys are accepted:
 
-* `kbstyle(f1-f19)`, `kbstyle(a-z)`, `kbstyle(0-9)`
-* ``kbstyle(`)``, `kbstyle(-)`, `kbstyle(=)`, `kbstyle([)`, `kbstyle(])`, `kbstyle(\)`, `kbstyle(;)`, `kbstyle(')`, `kbstyle(,)`, `kbstyle(.)`, `kbstyle(/)`
-* `kbstyle(left)`, `kbstyle(up)`, `kbstyle(right)`, `kbstyle(down)`, `kbstyle(pageup)`, `kbstyle(pagedown)`, `kbstyle(end)`, `kbstyle(home)`
-* `kbstyle(tab)`, `kbstyle(enter)`, `kbstyle(escape)`, `kbstyle(space)`, `kbstyle(backspace)`, `kbstyle(delete)`
-* `kbstyle(pausebreak)`, `kbstyle(capslock)`, `kbstyle(insert)`
-* `kbstyle(numpad0-numpad9)`, `kbstyle(numpad_multiply)`, `kbstyle(numpad_add)`, `kbstyle(numpad_separator)`
-* `kbstyle(numpad_subtract)`, `kbstyle(numpad_decimal)`, `kbstyle(numpad_divide)`
+- `kbstyle(f1-f19)`, `kbstyle(a-z)`, `kbstyle(0-9)`
+- `` kbstyle(`) ``, `kbstyle(-)`, `kbstyle(=)`, `kbstyle([)`, `kbstyle(])`, `kbstyle(\)`, `kbstyle(;)`, `kbstyle(')`, `kbstyle(,)`, `kbstyle(.)`, `kbstyle(/)`
+- `kbstyle(left)`, `kbstyle(up)`, `kbstyle(right)`, `kbstyle(down)`, `kbstyle(pageup)`, `kbstyle(pagedown)`, `kbstyle(end)`, `kbstyle(home)`
+- `kbstyle(tab)`, `kbstyle(enter)`, `kbstyle(escape)`, `kbstyle(space)`, `kbstyle(backspace)`, `kbstyle(delete)`
+- `kbstyle(pausebreak)`, `kbstyle(capslock)`, `kbstyle(insert)`
+- `kbstyle(numpad0-numpad9)`, `kbstyle(numpad_multiply)`, `kbstyle(numpad_add)`, `kbstyle(numpad_separator)`
+- `kbstyle(numpad_subtract)`, `kbstyle(numpad_decimal)`, `kbstyle(numpad_divide)`
 
 ## Command arguments
 
@@ -165,9 +166,12 @@ You can invoke a command with arguments. This is useful if you often perform the
 The following is an example overriding the `kbstyle(Enter)` key to print some text:
 
 ```json
-  { "key": "enter", "command": "type",
-                    "args": { "text": "Hello World" },
-                    "when": "editorTextFocus" }
+{
+  "key": "enter",
+  "command": "type",
+  "args": { "text": "Hello World" },
+  "when": "editorTextFocus"
+}
 ```
 
 The `type` command will receive `{"text": "Hello World"}` as its first argument, and add "Hello World" to the file instead of producing the default command.
@@ -178,7 +182,7 @@ For more information on commands that take arguments, refer to [Built-in Command
 
 A keyboard shortcut can be configured to run multiple commands sequentially by using the command `runCommands`.
 
-* Run several commands without arguments:
+- Run several commands without arguments:
 
   The following example copies the current line down, marks the current line as a comment, and moves the cursor to the copied line.
 
@@ -197,7 +201,7 @@ A keyboard shortcut can be configured to run multiple commands sequentially by u
   },
   ```
 
-* To pass arguments to commands:
+- To pass arguments to commands:
 
   This example creates a new untitled TypeScript file and inserts a custom snippet.
 
@@ -217,7 +221,8 @@ A keyboard shortcut can be configured to run multiple commands sequentially by u
           "command": "editor.action.insertSnippet",
           "args": {
             "langId": "typescript",
-            "snippet": "class ${1:ClassName} {\n\tconstructor() {\n\t\t$0\n\t}\n}"
+            "snippet": "class $\{1:ClassName\}
+  {\n\tconstructor() {\n\t\t$0\n\t}\n}"
           }
         }
       ]
@@ -238,10 +243,7 @@ To pass several arguments, you need to have `"args"` as an array:
       {
         // command invoked with 2 arguments: vscode.executeCommand("myCommand", "arg1", "arg2")
         "command": "myCommand",
-        "args": [
-          "arg1",
-          "arg2"
-        ]
+        "args": ["arg1", "arg2"]
       }
     ]
   }
@@ -285,20 +287,20 @@ To override a specific keyboard shortcut rule with an empty action, you can spec
 
 Keys are string representations for virtual keys and do not necessarily relate to the produced character when they are pressed. More precisely:
 
-* Reference: [Virtual-Key Codes (Windows)](https://msdn.microsoft.com/library/windows/desktop/dd375731)
-* `kbstyle(tab)` for `VK_TAB` (`0x09`)
-* `kbstyle(;)` for `VK_OEM_1` (`0xBA`)
-* `kbstyle(=)` for `VK_OEM_PLUS` (`0xBB`)
-* `kbstyle(,)` for `VK_OEM_COMMA` (`0xBC`)
-* `kbstyle(-)` for `VK_OEM_MINUS` (`0xBD`)
-* `kbstyle(.)` for `VK_OEM_PERIOD` (`0xBE`)
-* `kbstyle(/)` for `VK_OEM_2` (`0xBF`)
-* ``kbstyle(`)`` for `VK_OEM_3` (`0xC0`)
-* `kbstyle([)` for `VK_OEM_4` (`0xDB`)
-* `kbstyle(\)` for `VK_OEM_5` (`0xDC`)
-* `kbstyle(])` for `VK_OEM_6` (`0xDD`)
-* `kbstyle(')` for `VK_OEM_7` (`0xDE`)
-* etc.
+- Reference: [Virtual-Key Codes (Windows)](https://msdn.microsoft.com/library/windows/desktop/dd375731)
+- `kbstyle(tab)` for `VK_TAB` (`0x09`)
+- `kbstyle(;)` for `VK_OEM_1` (`0xBA`)
+- `kbstyle(=)` for `VK_OEM_PLUS` (`0xBB`)
+- `kbstyle(,)` for `VK_OEM_COMMA` (`0xBC`)
+- `kbstyle(-)` for `VK_OEM_MINUS` (`0xBD`)
+- `kbstyle(.)` for `VK_OEM_PERIOD` (`0xBE`)
+- `kbstyle(/)` for `VK_OEM_2` (`0xBF`)
+- `` kbstyle(`) `` for `VK_OEM_3` (`0xC0`)
+- `kbstyle([)` for `VK_OEM_4` (`0xDB`)
+- `kbstyle(\)` for `VK_OEM_5` (`0xDC`)
+- `kbstyle(])` for `VK_OEM_6` (`0xDD`)
+- `kbstyle(')` for `VK_OEM_7` (`0xDE`)
+- etc.
 
 Different keyboard layouts usually reposition these virtual keys or change the characters produced when they are pressed. When using a different keyboard layout than the standard US, Visual Studio Code does the following:
 
@@ -322,23 +324,26 @@ There is also a UI control that helps input the keyboard shortcut rule when edit
 Using scan codes, it is possible to define keyboard shortcuts that do not change with the change of the keyboard layout. For example:
 
 ```json
-{ "key": "cmd+[Slash]", "command": "editor.action.commentLine",
-                           "when": "editorTextFocus" }
+{
+  "key": "cmd+[Slash]",
+  "command": "editor.action.commentLine",
+  "when": "editorTextFocus"
+}
 ```
 
 Accepted scan codes:
 
-* `kbstyle([F1]-[F19])`, `kbstyle([KeyA]-[KeyZ])`, `kbstyle([Digit0]-[Digit9])`
-* `kbstyle([Backquote])`, `kbstyle([Minus])`, `kbstyle([Equal])`, `kbstyle([BracketLeft])`, `kbstyle([BracketRight])`, `kbstyle([Backslash])`, `kbstyle([Semicolon])`, `kbstyle([Quote])`, `kbstyle([Comma])`, `kbstyle([Period])`, `kbstyle([Slash])`
-* `kbstyle([ArrowLeft])`, `kbstyle([ArrowUp])`, `kbstyle([ArrowRight])`, `kbstyle([ArrowDown])`, `kbstyle([PageUp])`, `kbstyle([PageDown])`, `kbstyle([End])`, `kbstyle([Home])`
-* `kbstyle([Tab])`, `kbstyle([Enter])`, `kbstyle([Escape])`, `kbstyle([Space])`, `kbstyle([Backspace])`, `kbstyle([Delete])`
-* `kbstyle([Pause])`, `kbstyle([CapsLock])`, `kbstyle([Insert])`
-* `kbstyle([Numpad0]-[Numpad9])`, `kbstyle([NumpadMultiply])`, `kbstyle([NumpadAdd])`, `kbstyle([NumpadComma])`
-* `kbstyle([NumpadSubtract])`, `kbstyle([NumpadDecimal])`, `kbstyle([NumpadDivide])`
+- `kbstyle([F1]-[F19])`, `kbstyle([KeyA]-[KeyZ])`, `kbstyle([Digit0]-[Digit9])`
+- `kbstyle([Backquote])`, `kbstyle([Minus])`, `kbstyle([Equal])`, `kbstyle([BracketLeft])`, `kbstyle([BracketRight])`, `kbstyle([Backslash])`, `kbstyle([Semicolon])`, `kbstyle([Quote])`, `kbstyle([Comma])`, `kbstyle([Period])`, `kbstyle([Slash])`
+- `kbstyle([ArrowLeft])`, `kbstyle([ArrowUp])`, `kbstyle([ArrowRight])`, `kbstyle([ArrowDown])`, `kbstyle([PageUp])`, `kbstyle([PageDown])`, `kbstyle([End])`, `kbstyle([Home])`
+- `kbstyle([Tab])`, `kbstyle([Enter])`, `kbstyle([Escape])`, `kbstyle([Space])`, `kbstyle([Backspace])`, `kbstyle([Delete])`
+- `kbstyle([Pause])`, `kbstyle([CapsLock])`, `kbstyle([Insert])`
+- `kbstyle([Numpad0]-[Numpad9])`, `kbstyle([NumpadMultiply])`, `kbstyle([NumpadAdd])`, `kbstyle([NumpadComma])`
+- `kbstyle([NumpadSubtract])`, `kbstyle([NumpadDecimal])`, `kbstyle([NumpadDivide])`
 
 ## when clause contexts
 
-VS Code gives you precise control over when your keyboard shortcuts are enabled through the optional `when` clause.  If your keyboard shortcut doesn't have a `when` clause, the keyboard shortcut is globally available at all times. A `when` clause evaluates to either true or false for enabling keyboard shortcuts.
+VS Code gives you precise control over when your keyboard shortcuts are enabled through the optional `when` clause. If your keyboard shortcut doesn't have a `when` clause, the keyboard shortcut is globally available at all times. A `when` clause evaluates to either true or false for enabling keyboard shortcuts.
 
 VS Code sets various context keys and specific values depending on what elements are visible and active in the VS Code UI. For example, the built-in **Start Debugging** command has the keyboard shortcut `kb(workbench.action.debug.start)`, which is only enabled when there is an appropriate debugger available (context `debuggersAvailable` is true) and the editor isn't in debug mode (context `inDebugMode` is false):
 
@@ -355,13 +360,13 @@ You can also view a keyboard shortcut's when clause directly in the default `key
 
 For `when` clause conditional expressions, the following conditional operators are useful for keyboard shortcuts:
 
-| Operator | Symbol | Example |
-| -------- | ------ | ------- |
-| Equality | `==` | `"editorLangId == typescript"` |
-| Inequality | `!=` | `"resourceExtname != .js"` |
-| Or | <code>\|\|</code> | `"isLinux`<code>\|\|</code>`isWindows"` |
-| And | `&&` | `"textInputFocus && !editorReadonly"` |
-| Matches | `=~` | `"resourceScheme =~ /^untitled$\|^file$/"` |
+| Operator   | Symbol            | Example                                    |
+| ---------- | ----------------- | ------------------------------------------ |
+| Equality   | `==`              | `"editorLangId == typescript"`             |
+| Inequality | `!=`              | `"resourceExtname != .js"`                 |
+| Or         | <code>\|\|</code> | `"isLinux`<code>\|\|</code>`isWindows"`    |
+| And        | `&&`              | `"textInputFocus && !editorReadonly"`      |
+| Matches    | `=~`              | `"resourceScheme =~ /^untitled$\|^file$/"` |
 
 You can find the full list of when clause conditional operators in the [when clause contexts](/api/references/when-clause-contexts.md#conditional-operators) reference.
 
@@ -389,7 +394,7 @@ This is covered in depth in the [Refactoring](/docs/editor/refactoring.md#keyboa
 
 ## Related resources
 
-* [VS Code default keyboard shortcuts reference](/docs/reference/default-keybindings.md)
+- [VS Code default keyboard shortcuts reference](/docs/reference/default-keybindings.md)
 
 ## Common questions
 

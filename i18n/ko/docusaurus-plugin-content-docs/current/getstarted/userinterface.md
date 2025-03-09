@@ -3,6 +3,7 @@ ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 DateApproved: 03/05/2025
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
+
 # User interface
 
 At its heart, Visual Studio Code is a code editor. Like many other code editors, VS Code adopts a common user interface and layout of an explorer on the left, showing all of the files and folders you have access to, and an editor on the right, showing the content of the files you have opened.
@@ -13,11 +14,11 @@ At its heart, Visual Studio Code is a code editor. Like many other code editors,
 
 VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor, while leaving ample room to browse and access the full context of your folder or project. The user interface is divided into five main areas:
 
-* **Editor** - The main area to edit your files. You can open as many editors as you like side by side vertically and horizontally.
-* **Primary Side Bar** - Contains different views like the Explorer to assist you while working on your project.
-* **Status Bar** - Information about the opened project and the files you edit.
-* **Activity Bar** -  Located on the far left-hand side. Lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled. You can change the position of the Activity Bar.
-* **Panel** - An additional space for views below the editor region. By default, it contains output, debug information, errors and warnings, and an integrated terminal. The Panel can also be moved to the left or right for more vertical space.
+- **Editor** - The main area to edit your files. You can open as many editors as you like side by side vertically and horizontally.
+- **Primary Side Bar** - Contains different views like the Explorer to assist you while working on your project.
+- **Status Bar** - Information about the opened project and the files you edit.
+- **Activity Bar** - Located on the far left-hand side. Lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled. You can change the position of the Activity Bar.
+- **Panel** - An additional space for views below the editor region. By default, it contains output, debug information, errors and warnings, and an integrated terminal. The Panel can also be moved to the left or right for more vertical space.
 
 ![Screenshot of the VS Code user interface, highlighting the five main areas.](images/userinterface/hero.png)
 
@@ -35,12 +36,12 @@ Open files in each editor are displayed with tabbed headers (Tabs) at the top of
 
 You can open as many editors as you like side by side vertically and horizontally. If you already have an editor open, there are multiple ways of opening another editor to the side:
 
-* `kbstyle(Alt)` and select a file in the Explorer view.
-* `kb(workbench.action.splitEditor)` to split the active editor into two.
-* **Open to the Side** (`kb(explorer.openToSide)`) from the Explorer context menu on a file.
-* Select the **Split Editor** button in the upper right of an editor.
-* Drag and drop a file to any side of the editor region.
-* Press `kb(explorer.openToSide)` in the **Quick Open** (`kb(workbench.action.quickOpen)`) file list.
+- `kbstyle(Alt)` and select a file in the Explorer view.
+- `kb(workbench.action.splitEditor)` to split the active editor into two.
+- **Open to the Side** (`kb(explorer.openToSide)`) from the Explorer context menu on a file.
+- Select the **Split Editor** button in the upper right of an editor.
+- Drag and drop a file to any side of the editor region.
+- Press `kb(explorer.openToSide)` in the **Quick Open** (`kb(workbench.action.quickOpen)`) file list.
 
 ![Side by Side editing](images/userinterface/sidebyside.png)
 
@@ -94,7 +95,7 @@ Sticky Scroll shows the starting lines of currently visible nested scopes at the
 > [!TIP]
 > You can enable/disable Sticky Scroll with the `setting(editor.stickyScroll.enabled)` setting.
 
-Sticky Scroll uses several different content models to create its headings. It is possible to choose between the outline provider model, the folding provider model, and the indentation model to determine which lines to display in the Sticky Scroll area. If a model is not available for the current language, VS Code falls back to the next model in the  order given above. The default model initially used comes from the `setting(editor.stickyScroll.defaultModel)` setting.
+Sticky Scroll uses several different content models to create its headings. It is possible to choose between the outline provider model, the folding provider model, and the indentation model to determine which lines to display in the Sticky Scroll area. If a model is not available for the current language, VS Code falls back to the next model in the order given above. The default model initially used comes from the `setting(editor.stickyScroll.defaultModel)` setting.
 
 ### Indent guides
 
@@ -102,7 +103,7 @@ The editor shows indentation guides (vertical lines) which help you quickly see 
 
 ## Breadcrumbs
 
-The editor has a navigation bar at the top, also called [breadcrumbs](https://en.wikipedia.org/wiki/Breadcrumb_(navigation)). Breadcrumbs always show the file path and, if the current file type has language support for symbols, the symbol path up to the cursor position. The breadcrumbs enable you to quickly navigate between folders, files, and symbols.
+The editor has a navigation bar at the top, also called [breadcrumbs](<https://en.wikipedia.org/wiki/Breadcrumb_(navigation)>). Breadcrumbs always show the file path and, if the current file type has language support for symbols, the symbol path up to the cursor position. The breadcrumbs enable you to quickly navigate between folders, files, and symbols.
 
 ![Breadcrumbs](images/userinterface/breadcrumbs.png)
 
@@ -114,9 +115,9 @@ The Explorer view is used to browse, open, and manage the files and folders in y
 
 After you open a folder in VS Code, the contents of the folder are shown in the Explorer view. You can do many things from here:
 
-* Create, delete, and rename files and folders.
-* Move files and folders with drag and drop.
-* Use the context menu to explore all options.
+- Create, delete, and rename files and folders.
+- Move files and folders with drag and drop.
+- Use the context menu to explore all options.
 
 > [!TIP]
 > You can drag and drop files into the Explorer view from outside VS Code to copy them. If the explorer is empty, VS Code opens the files instead. You can also copy-paste files from outside VS Code into the Explorer view. With the `setting(explorer.autoOpenDroppedFile)` setting, you to configure whether to automatically open the file or not.
@@ -184,20 +185,20 @@ Depending on your settings, every time you save an editor, a new entry is added 
 
 From an entry you can:
 
-* Compare the changes to the local file or previous entry.
-* Restore the contents.
-* Delete or rename the entry.
+- Compare the changes to the local file or previous entry.
+- Restore the contents.
+- Delete or rename the entry.
 
 > [!TIP]
 > If you've accidentally deleted a file, you can restore it from the local history by using the **...** > **Local History: Find Entry to Restore** action in the Timeline view, and then select your file from the Quick Pick.
 
 You can configure these settings for working with the local history:
 
-* `setting(workbench.localHistory.enabled)` - Enable or disable local history (default: true)
-* `setting(workbench.localHistory.maxFileSize)` - File size limit when creating a local history entry (default: 256 KB)
-* `setting(workbench.localHistory.maxFileEntries)` - Local history entries limit per file (default: 50)
-* `setting(workbench.localHistory.exclude)` - Glob patterns for excluding certain files from local history
-* `setting(workbench.localHistory.mergeWindow)` - Interval in seconds during which further changes are added to the last entry in local file history (default 10s)
+- `setting(workbench.localHistory.enabled)` - Enable or disable local history (default: true)
+- `setting(workbench.localHistory.maxFileSize)` - File size limit when creating a local history entry (default: 256 KB)
+- `setting(workbench.localHistory.maxFileEntries)` - Local history entries limit per file (default: 50)
+- `setting(workbench.localHistory.exclude)` - Glob patterns for excluding certain files from local history
+- `setting(workbench.localHistory.mergeWindow)` - Interval in seconds during which further changes are added to the last entry in local file history (default 10s)
 
 #### Commit history
 
@@ -205,25 +206,25 @@ VS Code's built-in Git support provides the Git commit history of the specified 
 
 When you right-click a commit in the history, you can:
 
-* **Open Changes** - Open a diff view of the changes in the file.
-* **View Commit** - Open a multi-file diff view to view the changes for all files in the commit.
-* **Select for Compare** - Select an entry to compare with another entry.
-* **Copy Commit ID** - Copy the commit ID to the clipboard.
-* **Copy Commit Message** - Copy the commit message to the clipboard.
+- **Open Changes** - Open a diff view of the changes in the file.
+- **View Commit** - Open a multi-file diff view to view the changes for all files in the commit.
+- **Select for Compare** - Select an entry to compare with another entry.
+- **Copy Commit ID** - Copy the commit ID to the clipboard.
+- **Copy Commit Message** - Copy the commit message to the clipboard.
 
 You can configure this setting for working with the Git history:
 
-* `setting(git.timeline.date)` - Show the commit date or authored date of a file commit
+- `setting(git.timeline.date)` - Show the commit date or authored date of a file commit
 
 ## Views
 
 The Explorer view is only one of the views available in VS Code. There are also views for:
 
-* **Search** - Provides global search and replace across your open folder.
-* **Source Control** - VS Code includes Git source control by default.
-* **Run** - VS Code's Run and Debug View displays variables, call stacks, and breakpoints.
-* **Extensions** - Install and manage your extensions within VS Code.
-* **Custom views** - Views contributed by extensions.
+- **Search** - Provides global search and replace across your open folder.
+- **Source Control** - VS Code includes Git source control by default.
+- **Run** - VS Code's Run and Debug View displays variables, call stacks, and breakpoints.
+- **Extensions** - Install and manage your extensions within VS Code.
+- **Custom views** - Views contributed by extensions.
 
 > [!TIP]
 > You can open any view using the **View: Open View** command.
@@ -242,11 +243,11 @@ VS Code is equally accessible from the keyboard. The most important key combinat
 
 The **Command Palette** provides access to many commands. You can run editor commands, open files, search for symbols, and see a quick outline of a file, all using the same interactive window. Here are a few tips:
 
-* `kb(workbench.action.quickOpen)` enables you to navigate to any file or symbol by typing its name
-* `kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)` cycles you through the last set of files opened
-* `kb(workbench.action.showCommands)` brings you directly to the editor commands
-* `kb(workbench.action.gotoSymbol)` enables you to navigate to a specific symbol in a file
-* `kb(workbench.action.gotoLine)` enables you to navigate to a specific line in a file
+- `kb(workbench.action.quickOpen)` enables you to navigate to any file or symbol by typing its name
+- `kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)` cycles you through the last set of files opened
+- `kb(workbench.action.showCommands)` brings you directly to the editor commands
+- `kb(workbench.action.gotoSymbol)` enables you to navigate to a specific symbol in a file
+- `kb(workbench.action.gotoLine)` enables you to navigate to a specific line in a file
 
 Type `?` in the input field to get a list of available commands that you can run from the Command Palette.
 
@@ -286,14 +287,14 @@ Zen mode lets you focus on your code by hiding all UI elements, except for the e
 
 Zen Mode can be further tuned with the following settings:
 
-* `setting(zenMode.hideActivityBar)`- Hide the Activity bar. Default `true`.
-* `setting(zenMode.hideStatusBar)` - Hide the Status bar. Default `true`.
-* `setting(zenMode.hideLineNumbers)` - Hide line numbers. Default `true`.
-* `setting(zenMode.showTabs)` - Controls whether to show multiple, single, or no editors tabs. Default `multiple`.
-* `setting(zenMode.fullScreen)` - Put workbench in full screen display. Default `true`.
-* `setting(zenMode.restore)` - Restore Zen Mode on restart. Default `true`.
-* `setting(zenMode.centerLayout)` - Use [Centered editor layout](#centered-editor-layout). Default `true`.
-* `setting(zenMode.silentNotifications)` - Do not display notifications. Default `true`.
+- `setting(zenMode.hideActivityBar)`- Hide the Activity bar. Default `true`.
+- `setting(zenMode.hideStatusBar)` - Hide the Status bar. Default `true`.
+- `setting(zenMode.hideLineNumbers)` - Hide line numbers. Default `true`.
+- `setting(zenMode.showTabs)` - Controls whether to show multiple, single, or no editors tabs. Default `multiple`.
+- `setting(zenMode.fullScreen)` - Put workbench in full screen display. Default `true`.
+- `setting(zenMode.restore)` - Restore Zen Mode on restart. Default `true`.
+- `setting(zenMode.centerLayout)` - Use [Centered editor layout](#centered-editor-layout). Default `true`.
+- `setting(zenMode.silentNotifications)` - Do not display notifications. Default `true`.
 
 ### Reduce Notifications with Do Not Disturb Mode
 
@@ -361,8 +362,8 @@ Preview mode is indicated by italics in the tab heading:
 
 If you prefer not to use preview mode and always create a new tab, you can control the behavior with these settings:
 
-* `setting(workbench.editor.enablePreview)` - to globally enable or disable preview editors
-* `setting(workbench.editor.enablePreviewFromQuickOpen)` - to enable or disable preview editors when opened from **Quick Open**
+- `setting(workbench.editor.enablePreview)` - to globally enable or disable preview editors
+- `setting(workbench.editor.enablePreviewFromQuickOpen)` - to enable or disable preview editors when opened from **Quick Open**
 
 ### Wrapped tabs
 
@@ -383,26 +384,40 @@ To enable custom display labels for tabs, set the `setting(workbench.editor.cust
 You can specify one or more naming patterns for the tab display labels with the `setting(workbench.editor.customLabels.patterns)` setting. A name pattern consists of two components:
 
 - **Item** - a [glob pattern](/docs/editor/glob-patterns.md) that matches file paths for which to apply a custom label. For example, `**/static/**/*.html`.
-- **Value** - a template for the custom label. Templates can use variables such as `${filename}`, `${extname}`, `${extname(N)}`, `${dirname}`, and `${dirname(N)}`, which are dynamically replaced with values from the file's path.
+- **Value** - a template for the custom label. Templates can use variables such as `$\{filename\}
+`, `$\{extname\}
+`, `$\{extname(N)\}
+`, `$\{dirname\}
+`, and `$\{dirname(N)\}
+`, which are dynamically replaced with values from the file's path.
 
 The following sample displays the `/src/orders/index.html` file with a tab label of `orders/index`.
 
 ```json
     "workbench.editor.customLabels.patterns": {
-        "**/src/**/index.html": "${dirname}/${filename}"
+        "**/src/**/index.html": "$\{dirname\}
+/$\{filename\}
+"
     }
 ```
 
 ![Screenshot of Setting editor to enable and specify custom labels for tabs](images/userinterface/tabs-custom-labels.png)
 
-The following examples use the `${extname}` variable for the file `tests/editor.test.ts`:
+The following examples use the `$\{extname\}
+` variable for the file `tests/editor.test.ts`:
 
-* `${filename}` => editor
-* `${extname}` => test.ts
-* `${extname(0)}` => ts
-* `${extname(1)}` => test
-* `${extname(-1)}` => test
-* `${extname(-2)}` => ts
+- `$\{filename\}
+` => editor
+- `$\{extname\}
+` => test.ts
+- `$\{extname(0)\}
+` => ts
+- `$\{extname(1)\}
+` => test
+- `$\{extname(-1)\}
+` => test
+- `$\{extname(-2)\}
+` => ts
 
 > [!NOTE]
 > The custom tab labels also apply in the Open Editors view and in [Quick Open](/docs/getstarted/tips-and-tricks.md#quick-open) (`kb(workbench.action.quickOpen)`).
@@ -436,17 +451,17 @@ There are many keyboard commands for adjusting the editor layout by using the ke
 
 Here are some handy keyboard shortcuts to quickly navigate between editors and editor groups.
 
-* `kb(workbench.action.nextEditor)` - go to the right editor.
-* `kb(workbench.action.previousEditor)` - go to the left editor.
-* `kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)` - open the previous editor in the editor group's most recently used list.
-* `kb(workbench.action.focusFirstEditorGroup)` - go to the leftmost editor group.
-* `kb(workbench.action.focusSecondEditorGroup)` - go to the center editor group.
-* `kb(workbench.action.focusThirdEditorGroup)` - go to the rightmost editor group.
-* `kb(workbench.action.closeActiveEditor)` - close the active editor.
-* `kb(workbench.action.closeEditorsInGroup)` - close all editors in the editor group.
-* `kb(workbench.action.closeAllEditors)` - close all editors.
+- `kb(workbench.action.nextEditor)` - go to the right editor.
+- `kb(workbench.action.previousEditor)` - go to the left editor.
+- `kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)` - open the previous editor in the editor group's most recently used list.
+- `kb(workbench.action.focusFirstEditorGroup)` - go to the leftmost editor group.
+- `kb(workbench.action.focusSecondEditorGroup)` - go to the center editor group.
+- `kb(workbench.action.focusThirdEditorGroup)` - go to the rightmost editor group.
+- `kb(workbench.action.closeActiveEditor)` - close the active editor.
+- `kb(workbench.action.closeEditorsInGroup)` - close all editors in the editor group.
+- `kb(workbench.action.closeAllEditors)` - close all editors.
 
->If you want to modify the default keyboard shortcuts, see [Key Bindings](/docs/editor/keybindings.md) for details.
+> If you want to modify the default keyboard shortcuts, see [Key Bindings](/docs/editor/keybindings.md) for details.
 
 ## Working without tabs
 
@@ -500,8 +515,8 @@ The `setting(window.restoreWindows)` setting informs VS Code about how to restor
 
 Now that you know the overall layout of VS Code, start to customize the editor to how you like to work by looking at the following articles:
 
-* [Changing the theme](/docs/editor/themes.md) - Set a Color and/or File Icon Theme to your preference.
-* [Using custom layouts](/docs/editor/custom-layout.md) - Learn more about VS Code's workbench and editor layout customizations.
+- [Changing the theme](/docs/editor/themes.md) - Set a Color and/or File Icon Theme to your preference.
+- [Using custom layouts](/docs/editor/custom-layout.md) - Learn more about VS Code's workbench and editor layout customizations.
 
 ## Common questions
 

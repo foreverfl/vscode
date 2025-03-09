@@ -258,7 +258,8 @@ export function activate(context: vscode.ExtensionContext) {
 
       // Write to clipboard
       await vscode.env.clipboard.writeText(
-        `It looks like you're copying "${text}". Would you like help?`
+        `It looks like you're copying "$\{text\}
+". Would you like help?`
       );
     })
   );
@@ -314,7 +315,8 @@ export async function activate(context: vscode.ExtensionContext) {
 
         // Make the port available locally and get the full URI
         const fullUri = await vscode.env.asExternalUri(
-            vscode.Uri.parse(`http://localhost:${dynamicServerPort}`));
+            vscode.Uri.parse(`http://localhost:$\{dynamicServerPort\}
+`));
 
         // ... do something with the fullUri ...
 
@@ -335,7 +337,9 @@ Let's use a combination of `vscode.window.registerUriHandler` and `vscode.env.as
 ```typescript
 import * as vscode from 'vscode';
 
-// This is ${publisher}.${name} from package.json
+// This is $\{publisher\}
+.$\{name\}
+ from package.json
 const extensionId = 'my.amazing-extension';
 
 export async function activate(context: vscode.ExtensionContext) {
@@ -351,10 +355,13 @@ export async function activate(context: vscode.ExtensionContext) {
 
   // Register a sign in command
   context.subscriptions.push(
-    vscode.commands.registerCommand(`${extensionId}.signin`, async () => {
+    vscode.commands.registerCommand(`$\{extensionId\}
+.signin`, async () => {
       // Get an externally addressable callback URI for the handler that the authentication provider can use
       const callbackUri = await vscode.env.asExternalUri(
-        vscode.Uri.parse(`${vscode.env.uriScheme}://${extensionId}/auth-complete`)
+        vscode.Uri.parse(`$\{vscode.env.uriScheme\}
+://$\{extensionId\}
+/auth-complete`)
       );
 
       // Add your code to integrate with an authentication provider here - we'll fake it.
@@ -453,7 +460,8 @@ const catGifUri = panel.webview.asWebviewUri(
 panel.webview.html = `<!DOCTYPE html>
 <html>
 <body>
-    <img src="${catGifUri}" width="300" />
+    <img src="$\{catGifUri\}
+" width="300" />
 </body>
 </html>`;
 ```
@@ -492,7 +500,8 @@ Use the API to get a full URI for the iframe and add it to your HTML. You will a
 // Use asExternalUri to get the URI for the web server
 const dynamicWebServerPort = await getWebServerPort();
 const fullWebServerUri = await vscode.env.asExternalUri(
-  vscode.Uri.parse(`http://localhost:${dynamicWebServerPort}`)
+  vscode.Uri.parse(`http://localhost:$\{dynamicWebServerPort\}
+`)
 );
 
 // Create the webview
@@ -510,12 +519,18 @@ panel.webview.html = `<!DOCTYPE html>
         <head>
             <meta
                 http-equiv="Content-Security-Policy"
-                content="default-src 'none'; frame-src ${fullWebServerUri} ${cspSource} https:; img-src ${cspSource} https:; script-src ${cspSource}; style-src ${cspSource};"
+                content="default-src 'none'; frame-src $\{fullWebServerUri\}
+ $\{cspSource\}
+ https:; img-src $\{cspSource\}
+ https:; script-src $\{cspSource\}
+; style-src $\{cspSource\}
+;"
             />
         </head>
         <body>
         <!-- All content from the web server must be in an iframe -->
-        <iframe src="${fullWebServerUri}">
+        <iframe src="$\{fullWebServerUri\}
+">
     </body>
     </html>`;
 ```
@@ -549,7 +564,8 @@ const panel = vscode.window.createWebviewPanel(
 panel.webview.html = `<!DOCTYPE html>
     <body>
         <!-- This will resolve to the dynamic server port on the remote machine -->
-        <img src="http://localhost:${LOCAL_STATIC_PORT}/canvas.png">
+        <img src="http://localhost:$\{LOCAL_STATIC_PORT\}
+/canvas.png">
     </body>
     </html>`;
 ```

@@ -37,7 +37,8 @@ Now create a `HelloWorld.ts` file with the following content
 
 ```ts
 function sayHello(name: string): void {
-  console.log(`Hello ${name}!`);
+  console.log(`Hello $\{name\}
+!`);
 }
 
 sayHello("Dave");
@@ -243,7 +244,8 @@ The `tasks.json` file looks like this:
       "command": "gulp",
       "args": ["build"],
       "options": {
-        "cwd": "${workspaceFolder}/client"
+        "cwd": "$\{workspaceFolder\}
+/client"
       }
     },
     {
@@ -251,7 +253,8 @@ The `tasks.json` file looks like this:
       "command": "gulp",
       "args": ["build"],
       "options": {
-        "cwd": "${workspaceFolder}/server"
+        "cwd": "$\{workspaceFolder\}
+/server"
       }
     },
     {
@@ -453,7 +456,9 @@ For example, to bind `Ctrl+H` to the **Run tests** task from above, add the foll
 
 ## Variable substitution
 
-When authoring tasks configurations, it is useful to have a set of predefined common variables such as the active file (`${file}`) or workspace root folder (`${workspaceFolder}`). VS Code supports variable substitution inside strings in the `tasks.json` file and you can see a full list of predefined variables in the [Variables Reference](/docs/editor/variables-reference.md).
+When authoring tasks configurations, it is useful to have a set of predefined common variables such as the active file (`$\{file\}
+`) or workspace root folder (`$\{workspaceFolder\}
+`). VS Code supports variable substitution inside strings in the `tasks.json` file and you can see a full list of predefined variables in the [Variables Reference](/docs/editor/variables-reference.md).
 
 > **Note:** Not all properties will accept variable substitution. Specifically, only `command`, `args`, and `options` support variable substitution.
 
@@ -463,7 +468,8 @@ Below is an example of a custom task configuration that passes the current opene
 {
   "label": "TypeScript compile",
   "type": "shell",
-  "command": "tsc ${file}",
+  "command": "tsc $\{file\}
+",
   "problemMatcher": ["$tsc"]
 }
 ```
@@ -476,12 +482,15 @@ Below is an example of a custom task configuration, which executes autopep8 on t
 {
   "label": "autopep8 current file",
   "type": "process",
-  "command": "${config:python.formatting.autopep8Path}",
-  "args": ["--in-place", "${file}"]
+  "command": "$\{config:python.formatting.autopep8Path\}
+",
+  "args": ["--in-place", "$\{file\}
+"]
 }
 ```
 
-If you want to specify the selected Python interpreter used by the Python extension for `tasks.json` or `launch.json`, you can use the `${command:python.interpreterPath}` command.
+If you want to specify the selected Python interpreter used by the Python extension for `tasks.json` or `launch.json`, you can use the `$\{command:python.interpreterPath\}
+` command.
 
 If simple variable substitution isn't enough, you can also get input from the user of your task by adding an `inputs` section to your `tasks.json` file.
 
@@ -526,7 +535,8 @@ Task properties can also be defined in the global scope. If present, they will b
     {
       "label": "TS - Compile current file",
       "type": "shell",
-      "command": "tsc ${file}",
+      "command": "tsc $\{file\}
+",
       "problemMatcher": ["$tsc"]
     }
   ]
@@ -622,7 +632,8 @@ A matcher that captures the above warning (and errors) looks like this:
   // The problem is owned by the cpp language service.
   "owner": "cpp",
   // The file name for reported problems is relative to the opened folder.
-  "fileLocation": ["relative", "${workspaceFolder}"],
+  "fileLocation": ["relative", "$\{workspaceFolder\}
+"],
   // The name that will be shown as the source of the problem.
   "source": "gcc",
   // The actual pattern to match problems in the output.
@@ -659,7 +670,8 @@ Here is a finished `tasks.json` file with the code above (comments removed) wrap
       "args": ["-Wall", "helloWorld.c", "-o", "helloWorld"],
       "problemMatcher": {
         "owner": "cpp",
-        "fileLocation": ["relative", "${workspaceFolder}"],
+        "fileLocation": ["relative", "$\{workspaceFolder\}
+"],
         "source": "gcc",
         "pattern": {
           "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
@@ -713,7 +725,8 @@ The following problem pattern matches the output from ESLint in stylish mode - b
 ```json
 {
   "owner": "javascript",
-  "fileLocation": ["relative", "${workspaceFolder}"],
+  "fileLocation": ["relative", "$\{workspaceFolder\}
+"],
   "pattern": [
     {
       "regexp": "^([^\\s].*)$",
@@ -755,7 +768,8 @@ Here is a problem matcher to fully capture ESLint stylish problems:
 ```json
 {
   "owner": "javascript",
-  "fileLocation": ["relative", "${workspaceFolder}"],
+  "fileLocation": ["relative", "$\{workspaceFolder\}
+"],
   "pattern": [
     {
       "regexp": "^([^\\s].*)$",
@@ -931,11 +945,14 @@ You can then use the task as a `prelaunchTask` in your `launch.json` file:
   "name": "Launch Extension",
   "type": "extensionHost",
   "request": "launch",
-  "runtimeExecutable": "${execPath}",
-  "args": ["--extensionDevelopmentPath=${workspaceRoot}"],
+  "runtimeExecutable": "$\{execPath\}
+",
+  "args": ["--extensionDevelopmentPath=$\{workspaceRoot\}
+"],
   "stopOnEntry": false,
   "sourceMaps": true,
-  "outFiles": ["${workspaceRoot}/out/src/**/*.js"],
+  "outFiles": ["$\{workspaceRoot\}
+/out/src/**/*.js"],
   "preLaunchTask": "npm: watch"
 }
 ```

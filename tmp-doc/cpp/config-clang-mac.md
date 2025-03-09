@@ -143,12 +143,16 @@ Here is a sample of a `tasks.json` file on macOS:
         "-fcolor-diagnostics",
         "-fansi-escape-codes",
         "-g",
-        "${file}",
+        "$\{file\}
+",
         "-o",
-        "${fileDirname}/${fileBasenameNoExtension}"
+        "$\{fileDirname\}
+/$\{fileBasenameNoExtension\}
+"
       ],
       "options": {
-        "cwd": "${fileDirname}"
+        "cwd": "$\{fileDirname\}
+"
       },
       "problemMatcher": ["$gcc"],
       "group": {
@@ -168,7 +172,10 @@ The `command` setting specifies the program to run. In this case, that is`clang+
 
 The `args` array specifies the command-line arguments that are passed to clang++. These arguments must be specified in the order expected by the compiler.
 
-This task tells the C++ compiler to take the active file (`${file}`), compile it, and create an output file (`-o` switch) in the current directory (`${fileDirname}`) with the same name as the active file but without the file extension (`${fileBasenameNoExtension}`). This process creates `helloworld`.
+This task tells the C++ compiler to take the active file (`$\{file\}
+`), compile it, and create an output file (`-o` switch) in the current directory (`$\{fileDirname\}
+`) with the same name as the active file but without the file extension (`$\{fileBasenameNoExtension\}
+`). This process creates `helloworld`.
 
 The `label` value is what you see in the tasks list, which is based on your personal preference.
 
@@ -193,7 +200,12 @@ with this:
 
 ### Modifying tasks.json
 
-You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}/*.cpp"` instead of `"${file}"`. This builds all `.cpp` files in your current folder. You can also modify the output filename by replacing `"${fileDirname}/${fileBasenameNoExtension}"` with a hard-coded filename (for example `"${workspaceFolder}/myProgram.out"`).
+You can modify your `tasks.json` to build multiple C++ files by using an argument like `"$\{workspaceFolder\}
+/*.cpp"` instead of `"$\{file\}
+"`. This builds all `.cpp` files in your current folder. You can also modify the output filename by replacing `"$\{fileDirname\}
+/$\{fileBasenameNoExtension\}
+"` with a hard-coded filename (for example `"$\{workspaceFolder\}
+/myProgram.out"`).
 
 ## Debug helloworld.cpp
 
@@ -286,10 +298,13 @@ VS Code creates a `launch.json` file, which looks something like this:
       "name": "C/C++: clang++ build and debug active file",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "program": "$\{fileDirname\}
+/$\{fileBasenameNoExtension\}
+",
       "args": [],
       "stopAtEntry": false,
-      "cwd": "${fileDirname}",
+      "cwd": "$\{fileDirname\}
+",
       "environment": [],
       "externalConsole": false,
       "MIMode": "lldb",
@@ -300,7 +315,9 @@ VS Code creates a `launch.json` file, which looks something like this:
 }
 ```
 
-The `program` setting specifies the program you want to debug. Here it is set to the active file folder `${fileDirname}` and active filename `${fileBasenameNoExtension}`, which if `helloworld.cpp` is the active file will be `helloworld`. The `args` property is an array of arguments to pass to the program at runtime.
+The `program` setting specifies the program you want to debug. Here it is set to the active file folder `$\{fileDirname\}
+` and active filename `$\{fileBasenameNoExtension\}
+`, which if `helloworld.cpp` is the active file will be `helloworld`. The `args` property is an array of arguments to pass to the program at runtime.
 
 By default, the C++ extension does not add any breakpoints to your source code and the `stopAtEntry` value is set to `false`.
 
@@ -329,7 +346,8 @@ Visual Studio Code places these settings in `.vscode/c_cpp_properties.json`. If 
   "configurations": [
     {
       "name": "Mac",
-      "includePath": ["${workspaceFolder}/**"],
+      "includePath": ["$\{workspaceFolder\}
+/**"],
       "defines": [],
       "macFrameworkPath": [
         "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"

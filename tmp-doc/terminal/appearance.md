@@ -79,7 +79,8 @@ Nerd Fonts도 동일하게 작동하며 일반적으로 `" NF"` 접미사를 가
 다른 터미널은 종종 셸에서 보낸 이스케이프 시퀀스를 제목으로 표시하며, 이는 다음과 같이 구성할 수 있습니다:
 
 ```json
-"terminal.integrated.tabs.title": "${sequence}"
+"terminal.integrated.tabs.title": "$\{sequence\}
+"
 ```
 
 ### 아이콘 {#icons}

@@ -30,64 +30,67 @@ You can run esbuild from the command line but to reduce repetition and enable pr
 ```js
 const esbuild = require("esbuild");
 
-const production = process.argv.includes('--production');
-const watch = process.argv.includes('--watch');
+const production = process.argv.includes("--production");
+const watch = process.argv.includes("--watch");
 
 async function main() {
-	const ctx = await esbuild.context({
-		entryPoints: [
-			'src/extension.ts'
-		],
-		bundle: true,
-		format: 'cjs',
-		minify: production,
-		sourcemap: !production,
-		sourcesContent: false,
-		platform: 'node',
-		outfile: 'dist/extension.js',
-		external: ['vscode'],
-		logLevel: 'warning',
-		plugins: [
-			/* add to the end of plugins array */
-			esbuildProblemMatcherPlugin,
-		],
-	});
-	if (watch) {
-		await ctx.watch();
-	} else {
-		await ctx.rebuild();
-		await ctx.dispose();
-	}
+  const ctx = await esbuild.context({
+    entryPoints: ["src/extension.ts"],
+    bundle: true,
+    format: "cjs",
+    minify: production,
+    sourcemap: !production,
+    sourcesContent: false,
+    platform: "node",
+    outfile: "dist/extension.js",
+    external: ["vscode"],
+    logLevel: "warning",
+    plugins: [
+      /* add to the end of plugins array */
+      esbuildProblemMatcherPlugin,
+    ],
+  });
+  if (watch) {
+    await ctx.watch();
+  } else {
+    await ctx.rebuild();
+    await ctx.dispose();
+  }
 }
 
 /**
  * @type {import('esbuild').Plugin}
  */
 const esbuildProblemMatcherPlugin = {
-	name: 'esbuild-problem-matcher',
+  name: "esbuild-problem-matcher",
 
-	setup(build) {
-		build.onStart(() => {
-			console.log('[watch] build started');
-		});
-		build.onEnd((result) => {
-			result.errors.forEach(({ text, location }) => {
-				console.error(`✘ [ERROR] ${text}`);
-                if (location == null) return;
-				console.error(`    ${location.file}:${location.line}:${location.column}:`);
-			});
-			console.log('[watch] build finished');
-		});
-	}
+  setup(build) {
+    build.onStart(() => {
+      console.log("[watch] build started");
+    });
+    build.onEnd((result) => {
+      result.errors.forEach(({ text, location }) => {
+        console.error(`✘ [ERROR] $\{text\}
+`);
+        if (location == null) return;
+        console.error(`    $\{location.file\}
+:$\{location.line\}
+:$\{location.column\}
+:`);
+      });
+      console.log("[watch] build finished");
+    });
+  },
 };
 
-main().catch(e => {
-	console.error(e);
-	process.exit(1);
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
 });
 ```
 
 The build script does the following:
+
 - It creates a build context with esbuild. The context is configured to:
   - Bundle the code in `src/extension.ts` into a single file `dist/extension.js`.
   - Minify the code if the `--production` flag was passed.
@@ -120,53 +123,51 @@ The `scripts` section in `package.json` now looks like that
 The `compile` and `watch` scripts are for development and they produce the bundle file with source maps. The `package` script is used by the `vscode:prepublish` script which is used by `vsce`, the VS Code packaging and publishing tool, and run before publishing an extension. Passing the `--production` flag to the esbuild script will cause it to compress the code and create a small bundle, but also makes debugging hard, so other flags are used during development. To run above scripts, open a terminal and type `npm run watch` or select **Tasks: Run Task** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 If you configure `.vscode/tasks.json` the following way, you will get a separate terminal for each watch task.
+
 ```json
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-            "label": "watch",
-            "dependsOn": [
-                "npm: watch:tsc",
-                "npm: watch:esbuild"
-            ],
-            "presentation": {
-                "reveal": "never"
-            },
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        },
-        {
-            "type": "npm",
-            "script": "watch:esbuild",
-            "group": "build",
-            "problemMatcher": "$esbuild-watch",
-            "isBackground": true,
-            "label": "npm: watch:esbuild",
-            "presentation": {
-                "group": "watch",
-                "reveal": "never"
-            }
-        },
-		{
-            "type": "npm",
-            "script": "watch:tsc",
-            "group": "build",
-            "problemMatcher": "$tsc-watch",
-            "isBackground": true,
-            "label": "npm: watch:tsc",
-            "presentation": {
-                "group": "watch",
-                "reveal": "never"
-            }
-        }
-    ]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "watch",
+      "dependsOn": ["npm: watch:tsc", "npm: watch:esbuild"],
+      "presentation": {
+        "reveal": "never"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "type": "npm",
+      "script": "watch:esbuild",
+      "group": "build",
+      "problemMatcher": "$esbuild-watch",
+      "isBackground": true,
+      "label": "npm: watch:esbuild",
+      "presentation": {
+        "group": "watch",
+        "reveal": "never"
+      }
+    },
+    {
+      "type": "npm",
+      "script": "watch:tsc",
+      "group": "build",
+      "problemMatcher": "$tsc-watch",
+      "isBackground": true,
+      "label": "npm: watch:tsc",
+      "presentation": {
+        "group": "watch",
+        "reveal": "never"
+      }
+    }
+  ]
 }
 ```
 
-This watch tasks depends on the extension [`connor4312.esbuild-problem-matchers`](https://marketplace.visualstudio.com/items?itemName=connor4312.esbuild-problem-matchers) for problem matching that you need to install for the task to report problems in the problems view.  This extension needs to be installed for the launch to complete.
+This watch tasks depends on the extension [`connor4312.esbuild-problem-matchers`](https://marketplace.visualstudio.com/items?itemName=connor4312.esbuild-problem-matchers) for problem matching that you need to install for the task to report problems in the problems view. This extension needs to be installed for the launch to complete.
 
 To not forget that, add a `.vscode/extensions.json` file to the workspace:
 
@@ -205,48 +206,54 @@ With all tools installed, webpack can now be configured. By convention, a `webpa
 ```javascript
 //@ts-check
 
-'use strict';
+"use strict";
 
-const path = require('path');
-const webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
 
 /**@type {import('webpack').Configuration}*/
 const config = {
-    target: 'webworker', // vscode extensions run in webworker context for VS Code web 📖 -> https://webpack.js.org/configuration/target/#target
+  target: "webworker", // vscode extensions run in webworker context for VS Code web 📖 -> https://webpack.js.org/configuration/target/#target
 
-    entry: './src/extension.ts', // the entry point of this extension, 📖 -> https://webpack.js.org/configuration/entry-context/
-    output: { // the bundle is stored in the 'dist' folder (check package.json), 📖 -> https://webpack.js.org/configuration/output/
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'extension.js',
-        libraryTarget: "commonjs2",
-        devtoolModuleFilenameTemplate: "../[resource-path]",
+  entry: "./src/extension.ts", // the entry point of this extension, 📖 -> https://webpack.js.org/configuration/entry-context/
+  output: {
+    // the bundle is stored in the 'dist' folder (check package.json), 📖 -> https://webpack.js.org/configuration/output/
+    path: path.resolve(__dirname, "dist"),
+    filename: "extension.js",
+    libraryTarget: "commonjs2",
+    devtoolModuleFilenameTemplate: "../[resource-path]",
+  },
+  devtool: "source-map",
+  externals: {
+    vscode: "commonjs vscode", // the vscode-module is created on-the-fly and must be excluded. Add other modules that cannot be webpack'ed, 📖 -> https://webpack.js.org/configuration/externals/
+  },
+  resolve: {
+    // support reading TypeScript and JavaScript files, 📖 -> https://github.com/TypeStrong/ts-loader
+    mainFields: ["browser", "module", "main"], // look for `browser` entry point in imported node modules
+    extensions: [".ts", ".js"],
+    alias: {
+      // provides alternate implementation for node module and source files
     },
-    devtool: 'source-map',
-    externals: {
-        vscode: "commonjs vscode" // the vscode-module is created on-the-fly and must be excluded. Add other modules that cannot be webpack'ed, 📖 -> https://webpack.js.org/configuration/externals/
+    fallback: {
+      // Webpack 5 no longer polyfills Node.js core modules automatically.
+      // see https://webpack.js.org/configuration/resolve/#resolvefallback
+      // for the list of Node.js core module polyfills.
     },
-    resolve: { // support reading TypeScript and JavaScript files, 📖 -> https://github.com/TypeStrong/ts-loader
-        mainFields: ['browser', 'module', 'main'], // look for `browser` entry point in imported node modules
-        extensions: ['.ts', '.js'],
-        alias: {
-            // provides alternate implementation for node module and source files
-        },
-        fallback: {
-            // Webpack 5 no longer polyfills Node.js core modules automatically.
-            // see https://webpack.js.org/configuration/resolve/#resolvefallback
-            // for the list of Node.js core module polyfills.
-        }
-    },
-    module: {
-        rules: [{
-            test: /\.ts$/,
-            exclude: /node_modules/,
-            use: [{
-                loader: 'ts-loader',
-            }]
-        }]
-    },
-}
+  },
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "ts-loader",
+          },
+        ],
+      },
+    ],
+  },
+};
 module.exports = config;
 ```
 
@@ -254,11 +261,11 @@ The file is [available](https://github.com/microsoft/vscode-extension-samples/bl
 
 In the sample above, the following are defined:
 
-* The `target` indicates which context your extension will run. We recommend using `webworker` so that your extension will work both in VS Code for web and VS Code desktop versions.
-* The entry point webpack should use. This is similar to the `main` property in `package.json` except that you provide webpack with a "source" entry point, usually `src/extension.ts`, and not an "output" entry point. The webpack bundler understands TypeScript, so a separate TypeScript compile step is redundant.
-* The `output` configuration tells webpack where to place the generated bundle file. By convention, that is the `dist` folder. In this sample, webpack will produce a `dist/extension.js` file.
-* The `resolve` and `module/rules` configurations are there to support TypeScript and JavaScript input files.
-* The `externals` configuration is used to declare exclusions, for example files and modules that should not be included in the bundle. The `vscode` module should not be bundled because it doesn't exist on disk but is created by VS Code on-the-fly when required. Depending on the node modules that an extension uses, more exclusion may be necessary.
+- The `target` indicates which context your extension will run. We recommend using `webworker` so that your extension will work both in VS Code for web and VS Code desktop versions.
+- The entry point webpack should use. This is similar to the `main` property in `package.json` except that you provide webpack with a "source" entry point, usually `src/extension.ts`, and not an "output" entry point. The webpack bundler understands TypeScript, so a separate TypeScript compile step is redundant.
+- The `output` configuration tells webpack where to place the generated bundle file. By convention, that is the `dist` folder. In this sample, webpack will produce a `dist/extension.js` file.
+- The `resolve` and `module/rules` configurations are there to support TypeScript and JavaScript input files.
+- The `externals` configuration is used to declare exclusions, for example files and modules that should not be included in the bundle. The `vscode` module should not be bundled because it doesn't exist on disk but is created by VS Code on-the-fly when required. Depending on the node modules that an extension uses, more exclusion may be necessary.
 
 Finally, you will want to update your `.vscodeignore` file so that compiled files are included in the published extension. Check out the [Publishing](#publishing) section for more details.
 
@@ -297,21 +304,24 @@ Merge these entries into the `scripts` section in `package.json`:
 }
 ```
 
-
- The `compile-tests` script uses the TypeScript compiler to compile the extension into the `out` folder. With that intermediate JavaScript available, the following snippet for `launch.json` is enough to run tests.
+The `compile-tests` script uses the TypeScript compiler to compile the extension into the `out` folder. With that intermediate JavaScript available, the following snippet for `launch.json` is enough to run tests.
 
 ```json
 {
     "name": "Extension Tests",
     "type": "extensionHost",
     "request": "launch",
-    "runtimeExecutable": "${execPath}",
+    "runtimeExecutable": "$\{execPath\}
+",
     "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}",
-        "--extensionTestsPath=${workspaceFolder}/out/test"
+        "--extensionDevelopmentPath=$\{workspaceFolder\}
+",
+        "--extensionTestsPath=$\{workspaceFolder\}
+/out/test"
     ],
     "outFiles": [
-        "${workspaceFolder}/out/test/**/*.js"
+        "$\{workspaceFolder\}
+/out/test/**/*.js"
     ],
     "preLaunchTask": "npm: compile-tests"
 }
@@ -341,18 +351,18 @@ Migrating an existing extension to use esbuild or webpack is easy and similar to
 
 There you can see:
 
-* Add `esbuild` resp. `webpack`, `webpack-cli`, and `ts-loader` as `devDependencies`.
-* Update npm scripts to use the bundlers as shown above
-* Update the task configuration `tasks.json` file.
-* Add and tweak the `esbuild.js` or `webpack.config.js` build file.
-* Update `.vscodeignore` to exclude `node_modules` and intermediate output files.
-* Enjoy an extension that installs and loads much faster!
+- Add `esbuild` resp. `webpack`, `webpack-cli`, and `ts-loader` as `devDependencies`.
+- Update npm scripts to use the bundlers as shown above
+- Update the task configuration `tasks.json` file.
+- Add and tweak the `esbuild.js` or `webpack.config.js` build file.
+- Update `.vscodeignore` to exclude `node_modules` and intermediate output files.
+- Enjoy an extension that installs and loads much faster!
 
 ## Troubleshooting
 
 ### Minification
 
-Bundling in `production` mode also performs code minification. Minification compacts source code by removing whitespace and comments and by changing variable  and function names into something ugly but short. Source code that uses `Function.prototype.name` works differently and so you might have to disable minification.
+Bundling in `production` mode also performs code minification. Minification compacts source code by removing whitespace and comments and by changing variable and function names into something ugly but short. Source code that uses `Function.prototype.name` works differently and so you might have to disable minification.
 
 ### webpack critical dependencies
 
@@ -360,11 +370,11 @@ When running webpack, you might encounter a warning like **Critical dependencies
 
 To address the warning, you should either:
 
-* Try to make the dependency static so that it can be bundled.
-* Exclude that dependency via the `externals` configuration. Also make sure that those JavaScript files aren't excluded from the packaged extension, using a negated [glob pattern](/docs/editor/glob-patterns) in `.vscodeignore`, for example `!node_modules/mySpecialModule`.
+- Try to make the dependency static so that it can be bundled.
+- Exclude that dependency via the `externals` configuration. Also make sure that those JavaScript files aren't excluded from the packaged extension, using a negated [glob pattern](/docs/editor/glob-patterns) in `.vscodeignore`, for example `!node_modules/mySpecialModule`.
 
 ## Next steps
 
-* [Extension Marketplace](/docs/editor/extension-marketplace) - Learn more about VS Code's public Extension Marketplace.
-* [Testing Extensions](/api/working-with-extensions/testing-extension) - Add tests to your extension project to ensure high quality.
-* [Continuous Integration](/api/working-with-extensions/continuous-integration) - Learn how to run extension CI builds on Azure Pipelines.
+- [Extension Marketplace](/docs/editor/extension-marketplace) - Learn more about VS Code's public Extension Marketplace.
+- [Testing Extensions](/api/working-with-extensions/testing-extension) - Add tests to your extension project to ensure high quality.
+- [Continuous Integration](/api/working-with-extensions/continuous-integration) - Learn how to run extension CI builds on Azure Pipelines.

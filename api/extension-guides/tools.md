@@ -40,7 +40,7 @@ The tool-calling flow in a chat extension is as follows:
 1. Send another request to the LLM, including the tool results
 1. The LLM generates the final user response, which may incorporate tool responses
 
-    If the LLM response includes more requests for tool invocations, repeat steps 4-6 until there are no more tool requests.
+   If the LLM response includes more requests for tool invocations, repeat steps 4-6 until there are no more tool requests.
 
 ### Implement tool calling with the chat extension library
 
@@ -50,45 +50,47 @@ Implement tool calling in the `vscode.ChatRequestHandler` function of your [chat
 
 1. Determine the relevant tools for the current chat context. You can access all available tools by using `vscode.lm.tools`.
 
-    The following code snippet shows how to filter the tools to only those that have a specific tag.
+   The following code snippet shows how to filter the tools to only those that have a specific tag.
 
-    ```ts
-    const tools = request.command === 'all' ?
-        vscode.lm.tools :
-        vscode.lm.tools.filter(tool => tool.tags.includes('chat-tools-sample'));
-    ```
+   ```ts
+   const tools =
+     request.command === 'all'
+       ? vscode.lm.tools
+       : vscode.lm.tools.filter((tool) => tool.tags.includes('chat-tools-sample'));
+   ```
 
 1. Send the request and tool definitions to the LLM by using `sendChatParticipantRequest`.
 
-    ```ts
-    const libResult = chatUtils.sendChatParticipantRequest(
-        request,
-        chatContext,
-        {
-            prompt: 'You are a cat! Answer as a cat.',
-            responseStreamOptions: {
-                stream,
-                references: true,
-                responseText: true
-            },
-            tools
-        },
-        token);
-    ```
+   ```ts
+   const libResult = chatUtils.sendChatParticipantRequest(
+     request,
+     chatContext,
+     {
+       prompt: 'You are a cat! Answer as a cat.',
+       responseStreamOptions: {
+         stream,
+         references: true,
+         responseText: true,
+       },
+       tools,
+     },
+     token
+   );
+   ```
 
-    The `ChatHandlerOptions` object has the following properties:
+   The `ChatHandlerOptions` object has the following properties:
 
-    - `prompt`: (optional) Instructions for the chat participant prompt.
-    - `model`: (optional) The model to use for the request. If not specified, the model from the chat context is used.
-    - `tools`: (optional) The list of tools to consider for the request.
-    - `requestJustification`: (optional) A string that describes why the request is being made.
-    - `responseStreamOptions`: (optional) Enable `sendChatParticipantRequest` to stream the response back to VS Code. Optionally, you can also enable references and/or response text.
+   - `prompt`: (optional) Instructions for the chat participant prompt.
+   - `model`: (optional) The model to use for the request. If not specified, the model from the chat context is used.
+   - `tools`: (optional) The list of tools to consider for the request.
+   - `requestJustification`: (optional) A string that describes why the request is being made.
+   - `responseStreamOptions`: (optional) Enable `sendChatParticipantRequest` to stream the response back to VS Code. Optionally, you can also enable references and/or response text.
 
 1. Return the result from the LLM. This might contain error details or tool-calling metadata.
 
-    ```ts
-    return await libResult.result;
-    ```
+   ```ts
+   return await libResult.result;
+   ```
 
 The full source code of this [tool-calling sample](https://github.com/microsoft/vscode-extension-samples/blob/main/chat-sample/src/chatUtilsSample.ts) is available in the VS Code Extension Samples repository.
 
@@ -100,7 +102,7 @@ View the full source code for implementing [tool calling by using prompt-tsx](ht
 
 ## Create a language model tool
 
-When calling tools, you can call publicly available language model tools contributed by other extensions, or you can create your own tools. When you create a tool, you can choose whether to register it with the VS Code API, or just use it within your extension as a *private* tool.
+When calling tools, you can call publicly available language model tools contributed by other extensions, or you can create your own tools. When you create a tool, you can choose whether to register it with the VS Code API, or just use it within your extension as a _private_ tool.
 
 When you publish a tool with the VS Code API, that tool is available to all extensions.
 
@@ -120,7 +122,7 @@ Use a private tool if:
 
 To implement a language model tool:
 
-1. Define the tool in the `contributes` property in the `package.json`
+1.  Define the tool in the `contributes` property in the `package.json`
 
     The following example shows how to define a tool that counts the number of active tabs in a tab group.
 
@@ -162,21 +164,23 @@ To implement a language model tool:
     - `icon`: The icon to display for the tool in the UI.
     - `inputSchema`: The JSON schema that describes the input parameters for the tool. This is used by the language model to provide parameter values for the tool invocation.
 
-1. (optional) Register tool with `vscode.lm.registerTool`
+1.  (optional) Register tool with `vscode.lm.registerTool`
 
     If you want to publish the tool for use by other extensions, you must register the tool with the `vscode.lm.registerTool` API. Provide the name of the tool as you specified it in the `package.json` file.
 
     ```ts
     export function registerChatTools(context: vscode.ExtensionContext) {
-        context.subscriptions.push(vscode.lm.registerTool('chat-tools-sample_tabCount', new TabCountTool()));
+      context.subscriptions.push(
+        vscode.lm.registerTool('chat-tools-sample_tabCount', new TabCountTool())
+      );
     }
     ```
 
-1. Implement the language model tool by implementing the `vscode.LanguageModelTool<>` interface.
+1.  Implement the language model tool by implementing the `vscode.LanguageModelTool<>` interface.
 
-    - Implement `prepareInvocation` to provide a confirmation message for the tool invocation.
+        - Implement `prepareInvocation` to provide a confirmation message for the tool invocation.
 
-        The following example shows how to provide a confirmation message for the tab count tool.
+            The following example shows how to provide a confirmation message for the tab count tool.
 
         ```ts
         async prepareInvocation(
@@ -200,19 +204,19 @@ To implement a language model tool:
         }
         ```
 
-    - Define an interface that describes the tool input parameters. This interface is used in the `invoke` method.
+        - Define an interface that describes the tool input parameters. This interface is used in the `invoke` method.
 
-        The following example shows the interface for the tab count tool.
+            The following example shows the interface for the tab count tool.
 
-        ```ts
-        export interface ITabCountParameters {
-            tabGroup?: number;
-        }
-        ```
+            ```ts
+            export interface ITabCountParameters {
+                tabGroup?: number;
+            }
+            ```
 
-    - Implement `invoke`, which is called when the tool is invoked. It receives the tool input parameters in the `options` parameter.
+        - Implement `invoke`, which is called when the tool is invoked. It receives the tool input parameters in the `options` parameter.
 
-        The following example shows the implementation of the tab count tool. The result of the tool is an instance of type `vscode.LanguageModelToolResult`.
+            The following example shows the implementation of the tab count tool. The result of the tool is an instance of type `vscode.LanguageModelToolResult`.
 
         ```ts
         async invoke(

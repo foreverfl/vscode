@@ -7,6 +7,7 @@ PageTitle: GitHub에서 협업하기
 DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code에서 GitHub Pull Requests 및 Issues 작업하기
 ---
+
 # Visual Studio Code에서 GitHub 작업하기 {#working-with-github-in-vs-code}
 
 [GitHub](https://github.com)는 소스 코드를 저장하고 공유하기 위한 클라우드 기반 서비스입니다. Visual Studio Code와 함께 GitHub를 사용하면 소스 코드를 공유하고 편집기 내에서 다른 사람과 협업할 수 있습니다. GitHub와 상호작용하는 방법은 여러 가지가 있으며, 예를 들어 [https://github.com](https://github.com) 웹사이트나 [Git](https://git-scm.com) 명령줄 인터페이스(CLI)를 통해 가능하지만, VS Code에서는 [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) 확장을 통해 풍부한 GitHub 통합 기능을 제공합니다.
@@ -49,7 +50,7 @@ GitHub에 로그인하고 VS Code로 돌아가는 단계를 따르세요. 개인
 
 GitHub에 인증하는 방법에는 사용자 이름과 비밀번호를 사용하는 2단계 인증(2FA), 개인 액세스 토큰 또는 SSH 키를 사용하는 여러 가지 방법이 있습니다. 각 옵션에 대한 자세한 정보는 [GitHub 인증에 대한 설명](https://docs.github.com/github/authenticating-to-github/about-authentication-to-github)을 참조하세요.
 
->**참고**: 리포지토리의 내용을 로컬 머신에 복제하지 않고 작업하고 싶다면 [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) 확장을 설치하여 GitHub에서 직접 탐색하고 편집할 수 있습니다. 아래 [GitHub Repositories 확장](/docs/sourcecontrol/github.md#github-repositories-extension) 섹션에서 더 많은 정보를 확인할 수 있습니다.
+> **참고**: 리포지토리의 내용을 로컬 머신에 복제하지 않고 작업하고 싶다면 [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) 확장을 설치하여 GitHub에서 직접 탐색하고 편집할 수 있습니다. 아래 [GitHub Repositories 확장](/docs/sourcecontrol/github.md#github-repositories-extension) 섹션에서 더 많은 정보를 확인할 수 있습니다.
 
 ## 편집기 통합 {#editor-integration}
 
@@ -92,7 +93,8 @@ Pull Request를 표시하는 데 사용되는 쿼리는 **GitHub Pull Requests: 
 "githubPullRequests.queries": [
     {
         "label": "나에게 할당됨",
-        "query": "is:open assignee:${user}"
+        "query": "is:open assignee:$\{user\}
+"
     },
 ```
 
@@ -237,9 +239,9 @@ Pull Request를 생성한 후, [GitHub Pull Request and Issues](https://marketpl
 
 때때로 로컬 파일 시스템과 전체 언어 및 개발 도구 지원이 있는 개발 환경에서 리포지토리 작업으로 전환하고 싶을 수 있습니다. GitHub Repositories 확장은 다음과 같은 작업을 쉽게 수행할 수 있도록 합니다:
 
-* GitHub 코드 스페이스 생성 (만약 [GitHub Codespaces 확장](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)을 가지고 있다면).
-* 리포지토리를 로컬로 복제하기.
-* 리포지토리를 Docker 컨테이너로 복제하기 (만약 [Docker](https://docker.com/)와 Microsoft [Docker 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)을 설치했다면).
+- GitHub 코드 스페이스 생성 (만약 [GitHub Codespaces 확장](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)을 가지고 있다면).
+- 리포지토리를 로컬로 복제하기.
+- 리포지토리를 Docker 컨테이너로 복제하기 (만약 [Docker](https://docker.com/)와 Microsoft [Docker 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)을 설치했다면).
 
 개발 환경을 전환하려면 명령 팔레트(`kb(workbench.action.showCommands)`)에서 사용할 수 있는 **계속 작업하기...** 명령을 사용하거나 상태 표시줄의 원격 표시기를 클릭하세요.
 
@@ -257,4 +259,4 @@ Pull Request를 생성한 후, [GitHub Pull Request and Issues](https://marketpl
 
 ## 다음 단계 {#next-steps}
 
-* [Copilot VS Code](/docs/copilot/overview.md)에 대해 더 알아보기 - VS Code에서 Copilot에 대해 알아보세요.
+- [Copilot VS Code](/docs/copilot/overview.md)에 대해 더 알아보기 - VS Code에서 Copilot에 대해 알아보세요.

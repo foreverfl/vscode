@@ -194,7 +194,10 @@ export function run(): Promise<void> {
           // Run the mocha test
           mocha.run((failures) => {
             if (failures > 0) {
-              e(new Error(`${failures} tests failed.`));
+              e(
+                new Error(`$\{failures\}
+ tests failed.`)
+              );
             } else {
               c();
             }
@@ -249,12 +252,16 @@ Here is a sample `launch.json` debugger configuration:
       "name": "Extension Tests",
       "type": "extensionHost",
       "request": "launch",
-      "runtimeExecutable": "${execPath}",
+      "runtimeExecutable": "$\{execPath\}
+",
       "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}",
-        "--extensionTestsPath=${workspaceFolder}/out/test/suite/index"
+        "--extensionDevelopmentPath=$\{workspaceFolder\}
+",
+        "--extensionTestsPath=$\{workspaceFolder\}
+/out/test/suite/index"
       ],
-      "outFiles": ["${workspaceFolder}/out/test/**/*.js"]
+      "outFiles": ["$\{workspaceFolder\}
+/out/test/**/*.js"]
     }
   ]
 }
@@ -293,13 +300,17 @@ When you debug an extension test in VS Code, VS Code uses the globally installed
       "name": "Extension Tests",
       "type": "extensionHost",
       "request": "launch",
-      "runtimeExecutable": "${execPath}",
+      "runtimeExecutable": "$\{execPath\}
+",
       "args": [
         "--disable-extensions",
-        "--extensionDevelopmentPath=${workspaceFolder}",
-        "--extensionTestsPath=${workspaceFolder}/out/test/suite/index"
+        "--extensionDevelopmentPath=$\{workspaceFolder\}
+",
+        "--extensionTestsPath=$\{workspaceFolder\}
+/out/test/suite/index"
       ],
-      "outFiles": ["${workspaceFolder}/out/test/**/*.js"]
+      "outFiles": ["$\{workspaceFolder\}
+/out/test/**/*.js"]
     }
   ]
 }

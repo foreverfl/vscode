@@ -447,7 +447,8 @@ More than one provider can be registered for the same type.</p>
 or by directly passing a <a href={##DebugConfiguration}DebugConfiguration</a>.
 The named configurations are looked up in &#39;.vscode/launch.json&#39; found in the given folder.
 Before debugging starts, all unsaved files are saved and the launch configurations are brought up-to-date.
-Folder specific variables used in the configuration (e.g. &#39;${workspaceFolder}&#39;) are resolved against the given folder.</p>
+Folder specific variables used in the configuration (e.g. &#39;$\{workspaceFolder\}
+&#39;) are resolved against the given folder.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -604,7 +605,8 @@ vscode.window.registerUriHandler({
   }
 });
 
-const callableUri = await vscode.env.asExternalUri(vscode.Uri.parse(`${vscode.env.uriScheme}://my.extension/did-authenticate`));
+const callableUri = await vscode.env.asExternalUri(vscode.Uri.parse(`$\{vscode.env.uriScheme\}
+://my.extension/did-authenticate`));
 await vscode.env.openExternal(callableUri);
 ```
 <p><em>Note</em> that extensions should not cache the result of <code>asExternalUri</code> as the resolved uri may become invalid due to
@@ -14043,9 +14045,11 @@ the UI.</p>
 <div class="comment"><p>A snippet string is a template which allows to insert text
 and to control the editor cursor when insertion happens.</p>
 <p>A snippet can define tab stops and placeholders with <code>$1</code>, <code>$2</code>
-and <code>${3:foo}</code>. <code>$0</code> defines the final tab stop, it defaults to
+and <code>$\{3:foo\}
+</code>. <code>$0</code> defines the final tab stop, it defaults to
 the end of the snippet. Variables are defined with <code>$name</code> and
-<code>${name:default value}</code>. The full snippet syntax is documented
+<code>$\{name:default value\}
+</code>. The full snippet syntax is documented
 <a href={#https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets}here</a>.</p>
 </div>
 
@@ -14079,7 +14083,8 @@ the end of the snippet. Variables are defined with <code>$name</code> and
 <a name="SnippetString.appendChoice"></a><span class="ts"id={915}data-target="#details-915" data-toggle="collapse"><span class="ident">appendChoice</span><span>(</span><span class="ident">values</span><span>: </span><a class="type-intrinsic">string</a>[], <span class="ident">number</span><span>?</span><span>: </span><a class="type-intrinsic">number</a><span>)</span><span>: </span><a class="type-ref" href="#SnippetString">SnippetString</a></span>
 
 <div class="details collapse" id="details-915">
-<div class="comment"><p>Builder-function that appends a choice (<code>${1|a,b,c}</code>) to
+<div class="comment"><p>Builder-function that appends a choice (<code>$\{1|a,b,c\}
+</code>) to
 the <a href={##SnippetString.value}<code>value</code></a> of this snippet string.</p>
 </div>
 <div class="signature">
@@ -14100,7 +14105,8 @@ value starting at 1.</p>
 <a name="SnippetString.appendPlaceholder"></a><span class="ts"id={908}data-target="#details-908" data-toggle="collapse"><span class="ident">appendPlaceholder</span><span>(</span><span class="ident">value</span><span>: </span><a class="type-intrinsic">string</a> &#124; (snippet: <a class="type-ref" href="#SnippetString">SnippetString</a>) =&gt; <a class="type-intrinsic">any</a>, <span class="ident">number</span><span>?</span><span>: </span><a class="type-intrinsic">number</a><span>)</span><span>: </span><a class="type-ref" href="#SnippetString">SnippetString</a></span>
 
 <div class="details collapse" id="details-908">
-<div class="comment"><p>Builder-function that appends a placeholder (<code>${1:value}</code>) to
+<div class="comment"><p>Builder-function that appends a placeholder (<code>$\{1:value\}
+</code>) to
 the <a href={##SnippetString.value}<code>value</code></a> of this snippet string.</p>
 </div>
 <div class="signature">
@@ -14159,7 +14165,8 @@ the <a href={##SnippetString.value}<code>value</code></a> of this snippet string
 <a name="SnippetString.appendVariable"></a><span class="ts"id={919}data-target="#details-919" data-toggle="collapse"><span class="ident">appendVariable</span><span>(</span><span class="ident">name</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">defaultValue</span><span>: </span><a class="type-intrinsic">string</a> &#124; (snippet: <a class="type-ref" href="#SnippetString">SnippetString</a>) =&gt; <a class="type-intrinsic">any</a><span>)</span><span>: </span><a class="type-ref" href="#SnippetString">SnippetString</a></span>
 
 <div class="details collapse" id="details-919">
-<div class="comment"><p>Builder-function that appends a variable (<code>${VAR}</code>) to
+<div class="comment"><p>Builder-function that appends a variable (<code>$\{VAR\}
+</code>) to
 the <a href={##SnippetString.value}<code>value</code></a> of this snippet string.</p>
 </div>
 <div class="signature">
@@ -15507,7 +15514,8 @@ non-zero exit code.</p>
 ```typescript
 window.onDidCloseTerminal(t =&gt; {
   if (t.exitStatus &amp;&amp; t.exitStatus.code) {
-      vscode.window.showInformationMessage(`Exit code: ${t.exitStatus.code}`);
+      vscode.window.showInformationMessage(`Exit code: $\{t.exitStatus.code\}
+`);
   }
 });
 ```
@@ -18289,7 +18297,8 @@ message does not run in a browser environment.</p>
 <div class="comment"><p>Content security policy source for webview resources.</p>
 <p>This is the origin that should be used in a content security policy rule:</p>
 
-<pre><code>img-src https: ${webview.cspSource} ...;
+<pre><code>img-src https: $\{webview.cspSource\}
+ ...;
 ```</div>
 </div>
 
@@ -18336,7 +18345,8 @@ setting a <a href={#https://aka.ms/vscode-api-webview-csp}content security polic
 a webview to load the same resource:</p>
 
 ```ts
-webview.html = `&lt;img src=&quot;${webview.asWebviewUri(vscode.Uri.file(&#39;/Users/codey/workspace/cat.gif&#39;))}&quot;&gt;`
+webview.html = `&lt;img src=&quot;$\{webview.asWebviewUri(vscode.Uri.file(&#39;/Users/codey/workspace/cat.gif&#39;))\}
+&quot;&gt;`
 ```
 </div>
 <div class="signature">

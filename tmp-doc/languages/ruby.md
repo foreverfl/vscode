@@ -177,14 +177,16 @@ Example:
       "type": "ruby_lsp",
       "name": "Debug",
       "request": "launch",
-      "program": "ruby ${file}"
+      "program": "ruby $\{file\}
+"
     },
     // Launch the debugger for the current test file
     {
       "type": "ruby_lsp",
       "request": "launch",
       "name": "Debug test file",
-      "program": "ruby -Itest ${relativeFile}"
+      "program": "ruby -Itest $\{relativeFile\}
+"
     },
     // Attach the debugger client to an existing Ruby process that has already been launched with the debugger
     // server

@@ -49,7 +49,9 @@ Below is an example of a `for` loop snippet for JavaScript:
 {
   "For Loop": {
     "prefix": ["for", "for-const"],
-    "body": ["for (const ${2:element} of ${1:array}) {", "\t$0", "}"],
+    "body": ["for (const $\{2:element\}
+ of $\{1:array\}
+) {", "\t$0", "}"],
     "description": "A for loop."
   }
 }
@@ -62,7 +64,10 @@ In the example above:
 - `body` is one or more lines of content, which will be joined as multiple lines upon insertion. Newlines and embedded tabs will be formatted according to the context in which the snippet is inserted.
 - `description` is an optional description of the snippet displayed by IntelliSense.
 
-Additionally, the `body` of the example above has three placeholders (listed in order of traversal): `${1:array}`, `${2:element}`, and `$0`. You can quickly jump to the next placeholder with `kb(jumpToNextSnippetPlaceholder)`, at which point you may edit the placeholder or jump to the next one. The string after the colon `:` (if any) is the default text, for example `element` in `${2:element}`. Placeholder traversal order is ascending by number, starting from one; zero is an optional special case that always comes last, and exits snippet mode with the cursor at the specified position.
+Additionally, the `body` of the example above has three placeholders (listed in order of traversal): `$\{1:array\}
+`, `$\{2:element\}
+`, and `$0`. You can quickly jump to the next placeholder with `kb(jumpToNextSnippetPlaceholder)`, at which point you may edit the placeholder or jump to the next one. The string after the colon `:` (if any) is the default text, for example `element` in `$\{2:element\}
+`. Placeholder traversal order is ascending by number, starting from one; zero is an optional special case that always comes last, and exits snippet mode with the cursor at the specified position.
 
 ### File template snippets
 
@@ -102,15 +107,19 @@ With tabstops, you can make the editor cursor move inside a snippet. Use `$1`, `
 
 ### Placeholders
 
-Placeholders are tabstops with values, like `${1:foo}`. The placeholder text will be inserted and selected such that it can be easily changed. Placeholders can be nested, like `${1:another ${2:placeholder}}`.
+Placeholders are tabstops with values, like `$\{1:foo\}
+`. The placeholder text will be inserted and selected such that it can be easily changed. Placeholders can be nested, like `$\{1:another ${2:placeholder\}
+}`.
 
 ### Choice
 
-Placeholders can have choices as values. The syntax is a comma-separated enumeration of values, enclosed with the pipe-character, for example `${1|one,two,three|}`. When the snippet is inserted and the placeholder selected, choices will prompt the user to pick one of the values.
+Placeholders can have choices as values. The syntax is a comma-separated enumeration of values, enclosed with the pipe-character, for example `$\{1|one,two,three|\}
+`. When the snippet is inserted and the placeholder selected, choices will prompt the user to pick one of the values.
 
 ### Variables
 
-With `$name` or `${name:default}`, you can insert the value of a variable. When a variable isn't set, its **default** or the empty string is inserted. When a variable is unknown (that is, its name isn't defined) the name of the variable is inserted and it is transformed into a placeholder.
+With `$name` or `$\{name:default\}
+`, you can insert the value of a variable. When a variable isn't set, its **default** or the empty string is inserted. When a variable is unknown (that is, its name isn't defined) the name of the variable is inserted and it is transformed into a placeholder.
 
 The following variables can be used:
 
@@ -181,7 +190,8 @@ Transformations allow you to modify the value of a variable before it is inserte
 The following example inserts the name of the current file without its ending, so from `foo.txt` it makes `foo`.
 
 ```
-${TM_FILENAME/(.*)\\..+$/$1/}
+$\{TM_FILENAME/(.*)\\..+$/$1/\}
+
   |           |         |  |
   |           |         |  |-> no options
   |           |         |
@@ -205,12 +215,17 @@ The format for Placeholder-Transforms is the same as for Variable-Transforms.
 
 The examples are shown within double quotes, as they would appear inside a snippet body, to illustrate the need to double escape certain characters. Sample transformations and the resulting output for the filename `example-123.456-TEST.js`.
 
-| Example                               | Output                    | Explanation                        |
-| ------------------------------------- | ------------------------- | ---------------------------------- |
-| `"${TM_FILENAME/[\\.]/_/}"`           | `example-123_456-TEST.js` | Replace the first `.` with `_`     |
-| `"${TM_FILENAME/[\\.-]/_/g}"`         | `example_123_456_TEST_js` | Replace each `.` or `-` with `_`   |
-| `"${TM_FILENAME/(.*)/${1:/upcase}/}"` | `EXAMPLE-123.456-TEST.JS` | Change to all uppercase            |
-| `"${TM_FILENAME/[^0-9a-z]//gi}"`      | `example123456TESTjs`     | Remove non-alphanumeric characters |
+| Example | Output | Explanation |
+| ------- | ------ | ----------- |
+
+| `"$\{TM_FILENAME/[\\.]/_/\}
+"` | `example-123_456-TEST.js` | Replace the first `.` with `_` |
+| `"$\{TM_FILENAME/[\\.-]/_/g\}
+"` | `example_123_456_TEST_js` | Replace each `.` or `-` with `_` |
+| `"$\{TM_FILENAME/(.*)/${1:/upcase\}
+/}"` | `EXAMPLE-123.456-TEST.JS` | Change to all uppercase |
+| `"$\{TM_FILENAME/[^0-9a-z]//gi\}
+"` | `example123456TESTjs` | Remove non-alphanumeric characters |
 
 ### Grammar
 
@@ -219,19 +234,32 @@ Below is the EBNF ([extended Backus-Naur form](https://en.wikipedia.org/wiki/Ext
 ```
 any         ::= tabstop | placeholder | choice | variable | text
 tabstop     ::= '$' int
-                | '${' int '}'
-                | '${' int  transform '}'
-placeholder ::= '${' int ':' any '}'
-choice      ::= '${' int '|' text (',' text)* '|}'
-variable    ::= '$' var | '${' var '}'
-                | '${' var ':' any '}'
-                | '${' var transform '}'
+                | '$\{' int '\}
+'
+                | '$\{' int  transform '\}
+'
+placeholder ::= '$\{' int ':' any '\}
+'
+choice      ::= '$\{' int '|' text (',' text)* '|\}
+'
+variable    ::= '$' var | '$\{' var '\}
+'
+                | '$\{' var ':' any '\}
+'
+                | '$\{' var transform '\}
+'
 transform   ::= '/' regex '/' (format | text)+ '/' options
-format      ::= '$' int | '${' int '}'
-                | '${' int ':' '/upcase' | '/downcase' | '/capitalize' | '/camelcase' | '/pascalcase' '}'
-                | '${' int ':+' if '}'
-                | '${' int ':?' if ':' else '}'
-                | '${' int ':-' else '}' | '${' int ':' else '}'
+format      ::= '$' int | '$\{' int '\}
+'
+                | '$\{' int ':' '/upcase' | '/downcase' | '/capitalize' | '/camelcase' | '/pascalcase' '\}
+'
+                | '$\{' int ':+' if '\}
+'
+                | '$\{' int ':?' if ':' else '\}
+'
+                | '$\{' int ':-' else '\}
+' | '$\{' int ':' else '\}
+'
 regex       ::= JavaScript Regular Expression value (ctor-string)
 options     ::= JavaScript Regular Expression option (ctor-options)
 var         ::= [_a-zA-Z] [_a-zA-Z0-9]*

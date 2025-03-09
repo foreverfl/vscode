@@ -25,7 +25,7 @@ The snippet below registers a [HoverProvider](/api/references/vscode-api#HoverPr
 vscode.languages.registerHoverProvider('typescript', {
   provideHover(doc: vscode.TextDocument) {
     return new vscode.Hover('For *all* TypeScript documents.');
-  }
+  },
 });
 ```
 
@@ -37,7 +37,7 @@ vscode.languages.registerHoverProvider(
   {
     provideHover(doc: vscode.TextDocument) {
       return new vscode.Hover('For documents inside `test`-folders only');
-    }
+    },
   }
 );
 ```
@@ -50,7 +50,7 @@ vscode.languages.registerHoverProvider(
   {
     provideHover(doc: vscode.TextDocument) {
       return new vscode.Hover('For new, unsaved TypeScript documents only');
-    }
+    },
   }
 );
 ```
@@ -66,8 +66,9 @@ The importance of this comes into play when features rely on reading/writing fil
 vscode.languages.registerHoverProvider('typescript', {
   provideHover(doc: vscode.TextDocument) {
     const { size } = fs.statSync(doc.uri.fsPath); // ⚠️ what about 'untitled:/Untitled1.ts' or others?
-    return new vscode.Hover(`Size in bytes is ${size}`);
-  }
+    return new vscode.Hover(`Size in bytes is $\{size\}
+`);
+  },
 });
 ```
 
@@ -80,8 +81,9 @@ vscode.languages.registerHoverProvider(
   {
     provideHover(doc: vscode.TextDocument) {
       const { size } = fs.statSync(doc.uri.fsPath);
-      return new vscode.Hover(`Size in bytes is ${size}`);
-    }
+      return new vscode.Hover(`Size in bytes is $\{size\}
+`);
+    },
   }
 );
 ```

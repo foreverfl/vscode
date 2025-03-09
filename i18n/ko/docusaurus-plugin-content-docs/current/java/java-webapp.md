@@ -27,11 +27,15 @@ Download and install the [Extension Pack for Java](https://marketplace.visualstu
 
 Download Apache Maven version 3 or greater:
 
-<a class="install-extension-btn" href="https://maven.apache.org/download.cgi" target="_blank" style="background-color:#68217A">Download Apache Maven</a>
+<a className="install-extension-btn" href="https://maven.apache.org/download.cgi" target="_blank" style={{ backgroundColor: "#68217A" }}>
+  Download Apache Maven
+</a>
 
 Install Apache Maven for your local development environment:
 
-<a class="install-extension-btn" href="https://maven.apache.org/install" target="_blank" style="background-color:#68217A">Install Apache Maven</a>
+<a className="install-extension-btn" href="https://maven.apache.org/install" target="_blank" style={{ backgroundColor: "#68217A" }}>
+  Install Apache Maven
+</a>
 
 ## Create a Maven Web App project
 
@@ -67,7 +71,7 @@ We just built a Java web application and ran it locally. Now you will learn how 
 
 If you don't have an Azure subscription, you can sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
-<a class="install-extension-btn" href="https://azure.microsoft.com/pricing/free-trial/" target="_blank" style="background-color:#68217A">Create your free Azure account</a>
+<a className="install-extension-btn" href="https://azure.microsoft.com/pricing/free-trial/" target="_blank" style={{ backgroundColor: "#68217A"}}>Create your free Azure account</a>
 
 ### Install the Azure App Service extension
 

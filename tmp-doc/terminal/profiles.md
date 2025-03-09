@@ -24,7 +24,8 @@ MetaDescription: Visual Studio Code의 통합 터미널은 다양한 셸을 쉽�
       "args": [
         "-noexit",
         "-file",
-        "${env:APPDATA}\\PowerShell\\custom-init.ps1"
+        "$\{env:APPDATA\}
+\\PowerShell\\custom-init.ps1"
       ]
     }
   },

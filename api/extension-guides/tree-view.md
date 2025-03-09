@@ -31,37 +31,37 @@ Here's the `package.json` for the first version of our extension:
 
 ```json
 {
-    "name": "custom-view-samples",
-    "displayName": "Custom view Samples",
-    "description": "Samples for VS Code's view API",
-    "version": "0.0.1",
-    "publisher": "alexr00",
-    "engines": {
-        "vscode": "^1.74.0"
-    },
-    "activationEvents": [],
-    "main": "./out/extension.js",
-    "contributes": {
-        "views": {
-            "explorer": [
-                {
-                    "id": "nodeDependencies",
-                    "name": "Node Dependencies"
-                }
-            ]
+  "name": "custom-view-samples",
+  "displayName": "Custom view Samples",
+  "description": "Samples for VS Code's view API",
+  "version": "0.0.1",
+  "publisher": "alexr00",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "id": "nodeDependencies",
+          "name": "Node Dependencies"
         }
-    },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./"
-    },
-    "devDependencies": {
-        "@types/node": "^10.12.21",
-        "@types/vscode": "^1.42.0",
-        "typescript": "^3.5.1",
-        "tslint": "^5.12.1"
+      ]
     }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.21",
+    "@types/vscode": "^1.42.0",
+    "typescript": "^3.5.1",
+    "tslint": "^5.12.1"
+  }
 }
 ```
 
@@ -94,87 +94,97 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 export class NodeDependenciesProvider implements vscode.TreeDataProvider<Dependency> {
+  constructor(private workspaceRoot: string) {}
 
-    constructor(private workspaceRoot: string) {}
+  getTreeItem(element: Dependency): vscode.TreeItem {
+    return element;
+  }
 
-    getTreeItem(element: Dependency): vscode.TreeItem {
-        return element;
+  getChildren(element?: Dependency): Thenable<Dependency[]> {
+    if (!this.workspaceRoot) {
+      vscode.window.showInformationMessage('No dependency in empty workspace');
+      return Promise.resolve([]);
     }
 
-    getChildren(element?: Dependency): Thenable<Dependency[]> {
-        if (!this.workspaceRoot) {
-            vscode.window.showInformationMessage('No dependency in empty workspace');
-            return Promise.resolve([]);
-        }
+    if (element) {
+      return Promise.resolve(
+        this.getDepsInPackageJson(
+          path.join(this.workspaceRoot, 'node_modules', element.label, 'package.json')
+        )
+      );
+    } else {
+      const packageJsonPath = path.join(this.workspaceRoot, 'package.json');
+      if (this.pathExists(packageJsonPath)) {
+        return Promise.resolve(this.getDepsInPackageJson(packageJsonPath));
+      } else {
+        vscode.window.showInformationMessage('Workspace has no package.json');
+        return Promise.resolve([]);
+      }
+    }
+  }
 
-        if (element) {
-            return Promise.resolve(this.getDepsInPackageJson(path.join(this.workspaceRoot, 'node_modules', element.label, 'package.json')));
+  /**
+   * Given the path to package.json, read all its dependencies and devDependencies.
+   */
+  private getDepsInPackageJson(packageJsonPath: string): Dependency[] {
+    if (this.pathExists(packageJsonPath)) {
+      const toDep = (moduleName: string, version: string): Dependency => {
+        if (this.pathExists(path.join(this.workspaceRoot, 'node_modules', moduleName))) {
+          return new Dependency(
+            moduleName,
+            version,
+            vscode.TreeItemCollapsibleState.Collapsed
+          );
         } else {
-            const packageJsonPath = path.join(this.workspaceRoot, 'package.json');
-            if (this.pathExists(packageJsonPath)) {
-                return Promise.resolve(this.getDepsInPackageJson(packageJsonPath));
-            } else {
-                vscode.window.showInformationMessage('Workspace has no package.json');
-                return Promise.resolve([]);
-            }
+          return new Dependency(moduleName, version, vscode.TreeItemCollapsibleState.None);
         }
+      };
 
+      const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
+
+      const deps = packageJson.dependencies
+        ? Object.keys(packageJson.dependencies).map((dep) =>
+            toDep(dep, packageJson.dependencies[dep])
+          )
+        : [];
+      const devDeps = packageJson.devDependencies
+        ? Object.keys(packageJson.devDependencies).map((dep) =>
+            toDep(dep, packageJson.devDependencies[dep])
+          )
+        : [];
+      return deps.concat(devDeps);
+    } else {
+      return [];
     }
+  }
 
-    /**
-     * Given the path to package.json, read all its dependencies and devDependencies.
-     */
-    private getDepsInPackageJson(packageJsonPath: string): Dependency[] {
-        if (this.pathExists(packageJsonPath)) {
-            const toDep = (moduleName: string, version: string): Dependency => {
-                if (this.pathExists(path.join(this.workspaceRoot, 'node_modules', moduleName))) {
-                    return new Dependency(moduleName, version, vscode.TreeItemCollapsibleState.Collapsed);
-                } else {
-                    return new Dependency(moduleName, version, vscode.TreeItemCollapsibleState.None);
-                }
-            };
-
-            const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
-
-            const deps = packageJson.dependencies
-                ? Object.keys(packageJson.dependencies).map(dep => toDep(dep, packageJson.dependencies[dep]))
-                : [];
-            const devDeps = packageJson.devDependencies
-                ? Object.keys(packageJson.devDependencies).map(dep => toDep(dep, packageJson.devDependencies[dep]))
-                : [];
-            return deps.concat(devDeps);
-        } else {
-            return [];
-        }
+  private pathExists(p: string): boolean {
+    try {
+      fs.accessSync(p);
+    } catch (err) {
+      return false;
     }
-
-    private pathExists(p: string): boolean {
-        try {
-            fs.accessSync(p);
-        } catch (err) {
-            return false;
-        }
-        return true;
-    }
+    return true;
+  }
 }
 
 class Dependency extends vscode.TreeItem {
+  constructor(
+    public readonly label: string,
+    private version: string,
+    public readonly collapsibleState: vscode.TreeItemCollapsibleState
+  ) {
+    super(label, collapsibleState);
+    this.tooltip = `$\{this.label\}
+-$\{this.version\}
+`;
+    this.description = this.version;
+  }
 
-    constructor(
-        public readonly label: string,
-        private version: string,
-        public readonly collapsibleState: vscode.TreeItemCollapsibleState,
-    ) {
-        super(label, collapsibleState);
-        this.tooltip = `${this.label}-${this.version}`;
-        this.description = this.version;
-    }
-
-    iconPath = {
-        light: path.join(__filename, '..', '..', 'resources', 'light', 'dependency.svg'),
-        dark: path.join(__filename, '..', '..', 'resources', 'dark', 'dependency.svg')
-    };
-
+  iconPath = {
+    light: path.join(__filename, '..', '..', 'resources', 'light', 'dependency.svg'),
+    dark: path.join(__filename, '..', '..', 'resources', 'dark', 'dependency.svg'),
+  };
 }
 ```
 
@@ -186,17 +196,24 @@ This can be done in the following two ways:
 
 - `vscode.window.registerTreeDataProvider` - Register the tree data provider by providing the registered view ID and above data provider.
 
-    ```typescript
-    const rootPath = (vscode.workspace.workspaceFolders && (vscode.workspace.workspaceFolders.length > 0))
-		? vscode.workspace.workspaceFolders[0].uri.fsPath : undefined;
-    vscode.window.registerTreeDataProvider('nodeDependencies', new NodeDependenciesProvider(rootPath));
-    ```
+  ```typescript
+  const rootPath =
+    vscode.workspace.workspaceFolders && vscode.workspace.workspaceFolders.length > 0
+      ? vscode.workspace.workspaceFolders[0].uri.fsPath
+      : undefined;
+  vscode.window.registerTreeDataProvider(
+    'nodeDependencies',
+    new NodeDependenciesProvider(rootPath)
+  );
+  ```
 
 - `vscode.window.createTreeView` - Create the Tree View by providing the registered view ID and above data provider. This will give access to the [TreeView](/api/references/vscode-api#TreeView), which you can use for performing other view operations. Use `createTreeView`, if you need the `TreeView` API.
 
-    ```typescript
-    vscode.window.createTreeView('nodeDependencies', { treeDataProvider: new NodeDependenciesProvider(rootPath)});
-    ```
+  ```typescript
+  vscode.window.createTreeView('nodeDependencies', {
+    treeDataProvider: new NodeDependenciesProvider(rootPath),
+  });
+  ```
 
 Here's the extension in action:
 
@@ -243,11 +260,15 @@ import * as vscode from 'vscode';
 import { NodeDependenciesProvider } from './nodeDependencies';
 
 export function activate(context: vscode.ExtensionContext) {
-    const rootPath = (vscode.workspace.workspaceFolders && (vscode.workspace.workspaceFolders.length > 0))
-		? vscode.workspace.workspaceFolders[0].uri.fsPath : undefined;
-    const nodeDependenciesProvider = new NodeDependenciesProvider(rootPath);
-    vscode.window.registerTreeDataProvider('nodeDependencies', nodeDependenciesProvider);
-    vscode.commands.registerCommand('nodeDependencies.refreshEntry', () => nodeDependenciesProvider.refresh());
+  const rootPath =
+    vscode.workspace.workspaceFolders && vscode.workspace.workspaceFolders.length > 0
+      ? vscode.workspace.workspaceFolders[0].uri.fsPath
+      : undefined;
+  const nodeDependenciesProvider = new NodeDependenciesProvider(rootPath);
+  vscode.window.registerTreeDataProvider('nodeDependencies', nodeDependenciesProvider);
+  vscode.commands.registerCommand('nodeDependencies.refreshEntry', () =>
+    nodeDependenciesProvider.refresh()
+  );
 }
 ```
 
@@ -269,14 +290,15 @@ In the `contributes` section of your `package.json`, add:
 
 ## Activation
 
-It is important that your extension is activated only when user needs the functionality that your extension provides. In this case, you should consider activating your extension only when the user starts using the view. VS Code automatically does this for you when your extension declares a view contribution. VS Code emits an activationEvent [onView:${viewId}](/api/references/activation-events#onView) (`onView:nodeDependencies` for the example above) when the user opens the view.
+It is important that your extension is activated only when user needs the functionality that your extension provides. In this case, you should consider activating your extension only when the user starts using the view. VS Code automatically does this for you when your extension declares a view contribution. VS Code emits an activationEvent [onView:$\{viewId\}](/api/references/activation-events#onView) (`onView:nodeDependencies` for the example above) when the user opens the view.
 
 > **Note**: For VS Code versions prior to 1.74.0, you must explicitly register this activation event in `package.json` for VS Code to activate your extension on this view:
->```json
->"activationEvents": [
+>
+> ```json
+> "activationEvents": [
 >        "onView:nodeDependencies",
->],
->```
+> ],
+> ```
 
 ## View Container
 
@@ -471,7 +493,7 @@ If you would like to perform some UI operations on the view programmatically, yo
 
 ```typescript
 vscode.window.createTreeView('ftpExplorer', {
-  treeDataProvider: new FtpTreeDataProvider()
+  treeDataProvider: new FtpTreeDataProvider(),
 });
 ```
 

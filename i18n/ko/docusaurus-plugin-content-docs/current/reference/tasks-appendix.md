@@ -284,9 +284,11 @@ interface ProblemMatcher {
      *    exist, it is treated as absolute.
      *  - "search": performs a deep (and, possibly, heavy) file system
      *    search within the directories.
-     *  - ["search", {include: ["${workspaceFolder}"]}]: performs
+     *  - ["search", {include: ["$\{workspaceFolder\}
+"]}]: performs
      *    a deep search among the directories given in the "include" array.
-     *  - ["search", {include: ["${workspaceFolder}"], exclude: []}]:
+     *  - ["search", {include: ["$\{workspaceFolder\}
+"], exclude: []}]:
      *    performs a deep search among the directories given in the "include"
      *    array, excluding those named in the "exclude" array.
      */

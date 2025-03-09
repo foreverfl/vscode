@@ -72,7 +72,8 @@ Here is an example of using `dockerServerReadyAction` to launch the browser to o
       "python": {
         "pathMappings": [
           {
-            "localRoot": "${workspaceFolder}",
+            "localRoot": "$\{workspaceFolder\}
+",
             "remoteRoot": "/app"
           }
         ],
@@ -121,7 +122,8 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
      "dockerRun": {
        "volumes": [
          {
-           "containerPath": "/app", "localPath": "${workspaceFolder}"
+           "containerPath": "/app", "localPath": "$\{workspaceFolder\}
+   "
          }
        ]
      },
@@ -137,7 +139,8 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
      "dockerRun": {
        "volumes": [
          {
-           "containerPath": "/app", "localPath": "${workspaceFolder}"
+           "containerPath": "/app", "localPath": "$\{workspaceFolder\}
+   "
          }
        ]
      },
@@ -179,7 +182,8 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
        },
        "volumes": [
          {
-           "containerPath": "/app", "localPath": "${workspaceFolder}"
+           "containerPath": "/app", "localPath": "$\{workspaceFolder\}
+   "
          }
        ]
      },
@@ -199,7 +203,8 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
        },
        "volumes": [
          {
-           "containerPath": "/app", "localPath": "${workspaceFolder}"
+           "containerPath": "/app", "localPath": "$\{workspaceFolder\}
+   "
          }
        ]
      },
@@ -232,8 +237,10 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
     "label": "docker-build",
     "type": "docker-build",
     "dockerBuild": {
-        "context": "${workspaceFolder}",
-        "dockerfile": "${workspaceFolder}/Dockerfile",
+        "context": "$\{workspaceFolder\}
+",
+        "dockerfile": "$\{workspaceFolder\}
+/Dockerfile",
         "tag": "YOUR_IMAGE_NAME:YOUR_IMAGE_TAG"
     }
   }
@@ -242,92 +249,98 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
 
 **Tip:** As the dependency clearly states `docker-build` as its dependency, the name has to match this task. You can change the name, if desired.
 
-1. The `dockerBuild` object in the JSON allows for the following parameters:
+1.  The `dockerBuild` object in the JSON allows for the following parameters:
 
-   - context: The docker build context, from which your Dockerfile is called
-   - dockerfile: The path to the Dockerfile to execute
-   - tag: The name of the image to be built, with its version tag
+    - context: The docker build context, from which your Dockerfile is called
+    - dockerfile: The path to the Dockerfile to execute
+    - tag: The name of the image to be built, with its version tag
 
-1. Overall, a VS Code setup for building and debugging your Flask application can be:
+1.  Overall, a VS Code setup for building and debugging your Flask application can be:
 
-   - `launch.json`
+    - `launch.json`
 
-     ```json
-     {
-       "version": "0.2.0",
-       "configurations": [
-         {
-           "name": "Debug Flask App",
-           "type": "docker",
-           "request": "launch",
-
-           "preLaunchTask": "docker-run: debug",
-           "python": {
-             "pathMappings": [
+           ```json
+           {
+             "version": "0.2.0",
+             "configurations": [
                {
-                 "localRoot": "${workspaceFolder}",
-                 "remoteRoot": "/app"
-               }
-             ],
-             "projectType": "flask"
-           },
-           "dockerServerReadyAction": {
-             "action": "openExternally",
-             "pattern": "Running on (http?://\\S+|[0-9]+)",
-             "uriFormat": "%s://localhost:%s/"
-           }
-         }
-       ]
-     }
-     ```
+                 "name": "Debug Flask App",
+                 "type": "docker",
+                 "request": "launch",
 
-   - `tasks.json`
+                 "preLaunchTask": "docker-run: debug",
+                 "python": {
+                   "pathMappings": [
+                     {
+                       "localRoot": "$\{workspaceFolder\}
 
-     ```json
-     {
-       "version": "2.0.0",
-       "tasks": [
-         {
-           "type": "docker-run",
-           "label": "docker-run: debug",
-           "dependsOn": ["docker-build"],
-           "dockerRun": {
-             "containerName": "YOUR_IMAGE_NAME",
-             "image": "YOUR_IMAGE_NAME:YOUR_IMAGE_TAG",
-             "env": {
-               "FLASK_APP": "path_to/flask_entry_point.py",
-               "FLASK_ENV": "development"
-             },
-             "volumes": [
+      ",
+      "remoteRoot": "/app"
+      }
+      ],
+      "projectType": "flask"
+      },
+      "dockerServerReadyAction": {
+      "action": "openExternally",
+      "pattern": "Running on (http?://\\S+|[0-9]+)",
+      "uriFormat": "%s://localhost:%s/"
+      }
+      }
+      ]
+      }
+      ```
+
+    - `tasks.json`
+
+           ```json
+           {
+             "version": "2.0.0",
+             "tasks": [
                {
-                 "containerPath": "/app",
-                 "localPath": "${workspaceFolder}"
-               }
-             ],
-             "ports": [
-               {
-                 "containerPort": 5000,
-                 "hostPort": 5000
-               }
-             ]
-           },
-           "python": {
-             "args": ["run", "--host", "0.0.0.0", "--port", "5000"],
-             "module": "flask"
-           }
-         },
-         {
-           "label": "docker-build",
-           "type": "docker-build",
-           "dockerBuild": {
-             "context": "${workspaceFolder}",
-             "dockerfile": "${workspaceFolder}/Dockerfile",
-             "tag": "YOUR_IMAGE_NAME:YOUR_IMAGE_TAG"
-           }
-         }
-       ]
-     }
-     ```
+                 "type": "docker-run",
+                 "label": "docker-run: debug",
+                 "dependsOn": ["docker-build"],
+                 "dockerRun": {
+                   "containerName": "YOUR_IMAGE_NAME",
+                   "image": "YOUR_IMAGE_NAME:YOUR_IMAGE_TAG",
+                   "env": {
+                     "FLASK_APP": "path_to/flask_entry_point.py",
+                     "FLASK_ENV": "development"
+                   },
+                   "volumes": [
+                     {
+                       "containerPath": "/app",
+                       "localPath": "$\{workspaceFolder\}
+
+      "
+      }
+      ],
+      "ports": [
+      {
+      "containerPort": 5000,
+      "hostPort": 5000
+      }
+      ]
+      },
+      "python": {
+      "args": ["run", "--host", "0.0.0.0", "--port", "5000"],
+      "module": "flask"
+      }
+      },
+      {
+      "label": "docker-build",
+      "type": "docker-build",
+      "dockerBuild": {
+      "context": "$\{workspaceFolder\}
+",
+             "dockerfile": "$\{workspaceFolder\}
+      /Dockerfile",
+      "tag": "YOUR_IMAGE_NAME:YOUR_IMAGE_TAG"
+      }
+      }
+      ]
+      }
+      ```
 
 ## Next steps
 

@@ -186,12 +186,16 @@ Your new `tasks.json` file should look similar to the JSON below:
       "args": [
         "-fdiagnostics-color=always",
         "-g",
-        "${file}",
+        "$\{file\}
+",
         "-o",
-        "${fileDirname}\\${fileBasenameNoExtension}.exe"
+        "$\{fileDirname\}
+\\$\{fileBasenameNoExtension\}
+.exe"
       ],
       "options": {
-        "cwd": "${fileDirname}"
+        "cwd": "$\{fileDirname\}
+"
       },
       "problemMatcher": ["$gcc"],
       "group": {
@@ -211,7 +215,10 @@ The `command` setting specifies the program to run; in this case that is `g++`.
 
 The `args` array specifies the command-line arguments passed to g++. These arguments are listed in this file in the specific order expected by the compiler.
 
-This task tells g++ to take the active file (`${file}`), compile it, and create an output file (`-o` switch) in the current directory (`${fileDirname}`) with the same name as the active file but with the `.exe` extension (`${fileBasenameNoExtension}.exe`). For us, this results in `helloworld.exe`.
+This task tells g++ to take the active file (`$\{file\}
+`), compile it, and create an output file (`-o` switch) in the current directory (`$\{fileDirname\}
+`) with the same name as the active file but with the `.exe` extension (`$\{fileBasenameNoExtension\}
+.exe`). For us, this results in `helloworld.exe`.
 
 The `label` value is what you will see in the tasks list; you can name this whatever you like.
 
@@ -236,7 +243,12 @@ with this:
 
 ### Modifying tasks.json
 
-You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}/*.cpp"` instead of `"${file}"`.This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"${fileDirname}\\${fileBasenameNoExtension}.exe"` with a hard-coded filename (for example `"${workspaceFolder}\\myProgram.exe"`).
+You can modify your `tasks.json` to build multiple C++ files by using an argument like `"$\{workspaceFolder\}
+/*.cpp"` instead of `"$\{file\}
+"`.This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"$\{fileDirname\}
+\\$\{fileBasenameNoExtension\}
+.exe"` with a hard-coded filename (for example `"$\{workspaceFolder\}
+\\myProgram.exe"`).
 
 ## Debug helloworld.cpp
 
@@ -332,10 +344,13 @@ VS Code creates a `launch.json` file in the `.vscode` folder`, which looks somet
       "name": "C/C++: g++.exe build and debug active file",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+      "program": "$\{fileDirname\}
+\\$\{fileBasenameNoExtension\}
+.exe",
       "args": [],
       "stopAtEntry": false,
-      "cwd": "${fileDirname}",
+      "cwd": "$\{fileDirname\}
+",
       "environment": [],
       "externalConsole": false,
       "MIMode": "gdb",
@@ -359,7 +374,9 @@ VS Code creates a `launch.json` file in the `.vscode` folder`, which looks somet
 }
 ```
 
-In the JSON above, `program` specifies the program you want to debug. Here it is set to the active file folder (`${fileDirname}`) and active filename with the `.exe` extension (`${fileBasenameNoExtension}.exe`), which if `helloworld.cpp` is the active file will be `helloworld.exe`. The `args` property is an array of arguments to pass to the program at runtime.
+In the JSON above, `program` specifies the program you want to debug. Here it is set to the active file folder (`$\{fileDirname\}
+`) and active filename with the `.exe` extension (`$\{fileBasenameNoExtension\}
+.exe`), which if `helloworld.cpp` is the active file will be `helloworld.exe`. The `args` property is an array of arguments to pass to the program at runtime.
 
 By default, the C++ extension won't add any breakpoints to your source code and the `stopAtEntry` value is set to `false`.
 
@@ -388,7 +405,8 @@ Visual Studio Code places these settings in `.vscode\c_cpp_properties.json`. If 
   "configurations": [
     {
       "name": "GCC",
-      "includePath": ["${workspaceFolder}/**"],
+      "includePath": ["$\{workspaceFolder\}
+/**"],
       "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
       "windowsSdkVersion": "10.0.22000.0",
       "compilerPath": "C:/msys64/mingw64/bin/g++.exe",

@@ -7,6 +7,7 @@ PageTitle: Configure launch.json for C/C++ debugging in Visual Studio Code
 DateApproved: 6/10/2021
 MetaDescription: Configure launch.json for C/C++ debugging in Visual Studio Code
 ---
+
 # Configure C/C++ debugging
 
 A `launch.json` file is used to configure the [debugger](/docs/editor/debugging.md) in Visual Studio Code.
@@ -80,7 +81,8 @@ When a `visualizerFile` is specified, `showDisplayString` will enable the displa
        "moduleLoad": false,
        "trace": true
     },
-   "visualizerFile": "${workspaceFolder}/my.natvis",
+   "visualizerFile": "$\{workspaceFolder\}
+/my.natvis",
    "showDisplayString": true
 }
 ```
@@ -108,10 +110,12 @@ Environment variables to add to the environment for the program. Example: `[ { "
    "name": "C++ Launch",
    "type": "cppdbg",
    "request": "launch",
-   "program": "${workspaceFolder}/a.out",
+   "program": "$\{workspaceFolder\}
+/a.out",
    "args": ["arg1", "arg2"],
    "environment": [{"name": "config", "value": "Debug"}],
-   "cwd": "${workspaceFolder}"
+   "cwd": "$\{workspaceFolder\}
+"
 }
 ```
 
@@ -158,7 +162,8 @@ The command to execute after the debugger is fully set up in order to cause the 
    "name": "C++ Launch",
    "type": "cppdbg",
    "request": "launch",
-   "program": "${workspaceFolder}/a.out",
+   "program": "$\{workspaceFolder\}
+/a.out",
    "stopAtEntry": false,
    "customLaunchSetupCommands": [
       { "text": "target-run", "description": "run target", "ignoreFailures": false }
@@ -181,7 +186,7 @@ The command to execute after the debugger is fully set up in order to cause the 
 ### symbolLoadInfo
 
 - **loadAll**: If true, symbols for all libs will be loaded, otherwise no solib symbols will be loaded. Modified by ExceptionList. Default value is true.
-- **exceptionList**: List of filenames (wildcards allowed) separated by semicolons `;`. Modifies behavior of LoadAll. If LoadAll is true then don't load symbols for libs that match any name in the list. Otherwise only load symbols for libs that match. Example: ```"foo.so;bar.so"```
+- **exceptionList**: List of filenames (wildcards allowed) separated by semicolons `;`. Modifies behavior of LoadAll. If LoadAll is true then don't load symbols for libs that match any name in the list. Otherwise only load symbols for libs that match. Example: `"foo.so;bar.so"`
 
 ## Debugging dump files
 
@@ -232,13 +237,14 @@ For information about attaching to a remote process, such as debugging a process
 
 ### hardwareBreakpoints
 
-If provided, this explicitly controls hardware breakpoint behavior for remote targets. If `require` is set to true, always use hardware breakpoints. Default value is `false`. `limit` is an optional limit on the number of available hardware breakpoints to use which is only enforced when `require` is true and `limit` is greater than 0. Defaults value is 0. Example: ```"hardwareBreakpoints": { require: true, limit: 6 }```.
+If provided, this explicitly controls hardware breakpoint behavior for remote targets. If `require` is set to true, always use hardware breakpoints. Default value is `false`. `limit` is an optional limit on the number of available hardware breakpoints to use which is only enforced when `require` is true and `limit` is greater than 0. Defaults value is 0. Example: `"hardwareBreakpoints": { require: true, limit: 6 }`.
 
 ## Additional properties
 
 ### processId
 
-Defaults to `${command:pickProcess}` which will display a list of available processes the debugger can attach to. We recommend that you leave this default, but the property can be explicitly set to a specific process ID for the debugger to attach to.
+Defaults to `$\{command:pickProcess\}
+` which will display a list of available processes the debugger can attach to. We recommend that you leave this default, but the property can be explicitly set to a specific process ID for the debugger to attach to.
 
 ### request
 
@@ -308,10 +314,10 @@ The `symbolOptions` element allows customization of how the debugger searches fo
 
 #### Properties for `"loadAllButExcluded"` mode
 
-**moduleFilter.excludedModules**: Array of modules that the debugger should NOT load symbols for. Wildcards (example: MyCompany.*.dll) are supported.
+**moduleFilter.excludedModules**: Array of modules that the debugger should NOT load symbols for. Wildcards (example: MyCompany.\*.dll) are supported.
 
 #### Properties for `"loadOnlyIncluded"` mode
 
-**moduleFilter.includedModules**: Array of modules that the debugger should load symbols for. Wildcards (example: MyCompany.*.dll) are supported.
+**moduleFilter.includedModules**: Array of modules that the debugger should load symbols for. Wildcards (example: MyCompany.\*.dll) are supported.
 
 **moduleFilter.includeSymbolsNextToModules**: If true, for any module NOT in the 'includedModules' array, the debugger will still check next to the module itself and the launching executable, but it will not check paths on the symbol search list. This option defaults to 'true'.

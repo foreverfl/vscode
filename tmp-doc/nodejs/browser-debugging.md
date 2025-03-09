@@ -67,7 +67,8 @@ VS Code를 처음 사용하는 경우 [디버깅](/docs/editor/debugging.md) 주
       "type": "msedge",
       "request": "launch",
       "name": "hello.html 실행",
-      "file": "${workspaceFolder}/hello.html"
+      "file": "$\{workspaceFolder\}
+/hello.html"
     }
   ]
 }

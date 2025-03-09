@@ -40,7 +40,7 @@ To get the complete Java language support in Visual Studio Code, you can install
 
 <a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
->For details on how to get started with the extension pack, you can review the [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
+> For details on how to get started with the extension pack, you can review the [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
 
 ## Configure
 
@@ -163,7 +163,8 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
 ### Launch
 
 - `mainClass` (required) - The fully qualified class name (for example [java module name/]com.xyz.MainApp) or the java file path of the program entry.
-- `args` - The command-line arguments passed to the program. Use `"${command:SpecifyProgramArgs}"` to prompt for program arguments. It accepts a string or an array of strings.
+- `args` - The command-line arguments passed to the program. Use `"$\{command:SpecifyProgramArgs\}
+"` to prompt for program arguments. It accepts a string or an array of strings.
 - `sourcePaths` - The extra source directories of the program. The debugger looks for source code from project settings by default. This option allows the debugger to look for source code in extra directories.
 - `modulePaths` - The modulepaths for launching the JVM. If not specified, the debugger will automatically resolve from current project.
   - `$Auto` - Automatically resolve the modulepaths of current project.
@@ -180,7 +181,8 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
 - `encoding` - The `file.encoding` setting for the JVM. If not specified, 'UTF-8' will be used. Possible values can be found in [Supported Encodings](https://docs.oracle.com/javase/8/docs/technotes/guides/intl/encoding.doc.html).
 - `vmArgs` - The extra options and system properties for the JVM (for example -Xms\<size\> -Xmx\<size\> -D\<name\>=\<value\>), it accepts a string or an array of string.
 - `projectName` - The preferred project in which the debugger searches for classes. There could be duplicated class names in different projects. This setting also works when the debugger looks for the specified main class when launching a program. It is required when the workspace has multiple Java projects, otherwise the expression evaluation and conditional breakpoint may not work.
-- `cwd` - The working directory of the program. Defaults to `${workspaceFolder}`.
+- `cwd` - The working directory of the program. Defaults to `$\{workspaceFolder\}
+`.
 - `env` - The extra environment variables for the program.
 - `envFile` - Absolute path to a file containing environment variable definitions.
 - `stopOnEntry` - Automatically pause the program after launching.
@@ -205,7 +207,8 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
 - `hostName` (required) - The host name or IP address of remote debuggee.
 - `port` (required) - The debug port of remote debuggee.
 - `processId` - Use process picker to select a process to attach, or Process ID as integer.
-  - `${command:PickJavaProcess}` - Use process picker to select a process to attach.
+  - `$\{command:PickJavaProcess\}
+` - Use process picker to select a process to attach.
   - An integer PID - Attach to the specified local process.
 - `timeout` - Time out value before reconnecting, in milliseconds (default to 30000 ms).
 - `sourcePaths` - The extra source directories of the program. The debugger looks for source code from project settings by default. This option allows the debugger to look for source code in extra directories.
@@ -255,7 +258,7 @@ Common issues explained include:
 
 - Java Language Support extension fails to start.
 - Build failed, do you want to continue?
-- *.java isn't on the classpath. Only syntax errors will be reported.
+- \*.java isn't on the classpath. Only syntax errors will be reported.
 - Program Error: Could not find or load main class X.
 - Program throws ClassNotFoundException.
 - Failed to complete Hot Code Replace.

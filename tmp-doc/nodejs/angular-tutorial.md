@@ -133,7 +133,8 @@ We need to make one change for our example: change the port of the `url` from `8
       "request": "launch",
       "name": "Launch Edge against localhost",
       "url": "http://localhost:4200",
-      "webRoot": "${workspaceFolder}"
+      "webRoot": "$\{workspaceFolder\}
+"
     }
   ]
 }

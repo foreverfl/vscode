@@ -217,7 +217,8 @@ It is possible to create a keybinding that runs several other commands sequentia
         "command": "editor.action.insertSnippet",
         "args": {
           "langId": "typescript",
-          "snippet": "class ${1:ClassName} {\n\tconstructor() {\n\t\t$0\n\t}\n}"
+          "snippet": "class $\{1:ClassName\}
+ {\n\tconstructor() {\n\t\t$0\n\t}\n}"
         }
       }
     ]

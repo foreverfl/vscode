@@ -153,7 +153,8 @@ VS Code는 기본적으로 파일을 지연 후 저장하는 자동 저장을 �
       "request": "launch",
       "name": "Launch Edge against localhost",
       "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}"
+      "webRoot": "$\{workspaceFolder\}
+"
     }
   ]
 }

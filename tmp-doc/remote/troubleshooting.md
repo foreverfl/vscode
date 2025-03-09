@@ -121,7 +121,8 @@ Run one of the following commands, in a **local PowerShell** window replacing us
   $USER_AT_HOST="your-user-name-on-host@hostname"
   $PUBKEYPATH="$HOME\.ssh\id_ed25519.pub"
 
-  $pubKey=(Get-Content "$PUBKEYPATH" | Out-String); ssh "$USER_AT_HOST" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && echo '${pubKey}' >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"
+  $pubKey=(Get-Content "$PUBKEYPATH" | Out-String); ssh "$USER_AT_HOST" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && echo '$\{pubKey\}
+  ' >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"
   ```
 
 - Connecting to a **Windows** SSH host:
@@ -696,7 +697,8 @@ If you have disabled the path sharing feature, edit your `.bashrc`, add the foll
 ```bash
 WINDOWS_USERNAME="Your Windows Alias"
 
-export PATH="$PATH:/mnt/c/Windows/System32:/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft VS Code/bin"
+export PATH="$PATH:/mnt/c/Windows/System32:/mnt/c/Users/$\{WINDOWS_USERNAME\}
+/AppData/Local/Programs/Microsoft VS Code/bin"
 # or...
 # export PATH="$PATH:/mnt/c/Program Files/Microsoft VS Code/bin"
 # or...

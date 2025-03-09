@@ -167,7 +167,7 @@ import * as vscode from 'vscode';
 
 const cats = {
   'Coding Cat': 'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif',
-  'Compiling Cat': 'https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif'
+  'Compiling Cat': 'https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif',
 };
 
 export function activate(context: vscode.ExtensionContext) {
@@ -205,7 +205,8 @@ function getWebviewContent(cat: keyof typeof cats) {
     <title>Cat Coding</title>
 </head>
 <body>
-    <img src="${cats[cat]}" width="300" />
+    <img src="$\{cats[cat]\}
+" width="300" />
 </body>
 </html>`;
 }
@@ -230,7 +231,7 @@ import * as vscode from 'vscode';
 
 const cats = {
   'Coding Cat': 'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif',
-  'Compiling Cat': 'https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif'
+  'Compiling Cat': 'https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif',
 };
 
 export function activate(context: vscode.ExtensionContext) {
@@ -359,7 +360,7 @@ Whenever a webview's visibility changes, or when a webview is moved into a new c
 const cats = {
   'Coding Cat': 'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif',
   'Compiling Cat': 'https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif',
-  'Testing Cat': 'https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif'
+  'Testing Cat': 'https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif',
 };
 
 export function activate(context: vscode.ExtensionContext) {
@@ -375,7 +376,7 @@ export function activate(context: vscode.ExtensionContext) {
 
       // Update contents based on view state changes
       panel.onDidChangeViewState(
-        e => {
+        (e) => {
           const panel = e.webviewPanel;
           switch (panel.viewColumn) {
             case vscode.ViewColumn.One:
@@ -469,7 +470,8 @@ function getWebviewContent(catGifSrc: vscode.Uri) {
     <title>Cat Coding</title>
 </head>
 <body>
-    <img src="${catGifSrc}" width="300" />
+    <img src="$\{catGifSrc\}
+" width="300" />
 </body>
 </html>`;
 }
@@ -510,7 +512,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.ViewColumn.One,
         {
           // Only allow the webview to access resources in our extension's media directory
-          localResourceRoots: [vscode.Uri.joinPath(context.extensionUri, 'media')]
+          localResourceRoots: [vscode.Uri.joinPath(context.extensionUri, 'media')],
         }
       );
 
@@ -572,8 +574,8 @@ The following font related variables are also defined:
 Finally, for special cases where you need to write CSS that targets a single theme, the body element of webviews has a data attribute called `vscode-theme-id` that stores the ID of the currently active theme. This lets you write theme-specific CSS for webviews:
 
 ```css
-body[data-vscode-theme-id="One Dark Pro"] {
-    background: hotpink;
+body[data-vscode-theme-id='One Dark Pro'] {
+  background: hotpink;
 }
 ```
 
@@ -639,15 +641,17 @@ Consider this HTML for example:
 <div class="main" data-vscode-context='{"webviewSection": "main", "mouseCount": 4}'>
   <h1>Cat Coding</h1>
 
-  <textarea data-vscode-context='{"webviewSection": "editor", "preventDefaultContextMenuItems": true}'></textarea>
+  <textarea
+    data-vscode-context='{"webviewSection": "editor", "preventDefaultContextMenuItems": true}'
+  ></textarea>
 </div>
 ```
 
 If the user right-clicks on the `textarea`, the following contexts will be set:
 
-* `webviewSection == 'editor'` - This overrides `webviewSection` from the parent element.
-* `mouseCount == 4` - This is inherited from the parent element.
-* `preventDefaultContextMenuItems == true` - This is a special context that hides the copy and paste entries that VS Code normally adds to webview context menus.
+- `webviewSection == 'editor'` - This overrides `webviewSection` from the parent element.
+- `mouseCount == 4` - This is inherited from the parent element.
+- `preventDefaultContextMenuItems == true` - This is a special context that hides the copy and paste entries that VS Code normally adds to webview context menus.
 
 If the user right-clicks inside of the `<textarea>`, they will see:
 
@@ -656,15 +660,19 @@ If the user right-clicks inside of the `<textarea>`, they will see:
 Sometimes it can be useful to show a menu on left/primary click. For example, to show a menu on a split button. You can do this by dispatching the `contextmenu` event in an `onClick` event:
 
 ```html
-<button data-vscode-context='{"preventDefaultContextMenuItems": true }' onClick='((e) => {
+<button
+  data-vscode-context='{"preventDefaultContextMenuItems": true }'
+  onClick='((e) => {
         e.preventDefault();
         e.target.dispatchEvent(new MouseEvent("contextmenu", { bubbles: true, clientX: e.clientX, clientY: e.clientY }));
         e.stopPropagation();
-    })(event)'>Create</button>
+    })(event)'
+>
+  Create
+</button>
 ```
 
 ![Split button with a menu](images/webview/webview-split-button-menu.png)
-
 
 ## Scripts and message passing
 
@@ -685,7 +693,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.ViewColumn.One,
         {
           // Enable scripts in the webview
-          enableScripts: true
+          enableScripts: true,
         }
       );
 
@@ -746,7 +754,7 @@ export function activate(context: vscode.ExtensionContext) {
           'Cat Coding',
           vscode.ViewColumn.One,
           {
-            enableScripts: true
+            enableScripts: true,
           }
         );
         currentPanel.webview.html = getWebviewContent();
@@ -830,7 +838,7 @@ export function activate(context: vscode.ExtensionContext) {
         'Cat Coding',
         vscode.ViewColumn.One,
         {
-          enableScripts: true
+          enableScripts: true,
         }
       );
 
@@ -838,7 +846,7 @@ export function activate(context: vscode.ExtensionContext) {
 
       // Handle messages from the webview
       panel.webview.onDidReceiveMessage(
-        message => {
+        (message) => {
           switch (message.command) {
             case 'alert':
               vscode.window.showErrorMessage(message.text);
@@ -904,9 +912,9 @@ If you do need to load worker code from a JavaScript file in your extension, try
 const workerSource = 'absolute/path/to/worker.js';
 
 fetch(workerSource)
-  .then(result => result.blob())
-  .then(blob => {
-    const blobUrl = URL.createObjectURL(blob)
+  .then((result) => result.blob())
+  .then((blob) => {
+    const blobUrl = URL.createObjectURL(blob);
     new Worker(blobUrl);
   });
 ```
@@ -973,11 +981,15 @@ The policy `default-src 'none';` disallows all content. We can then turn back on
 ```html
 <meta
   http-equiv="Content-Security-Policy"
-  content="default-src 'none'; img-src ${webview.cspSource} https:; script-src ${webview.cspSource}; style-src ${webview.cspSource};"
+  content="default-src 'none'; img-src $\{webview.cspSource\}
+ https:; script-src $\{webview.cspSource\}
+; style-src $\{webview.cspSource\}
+;"
 />
 ```
 
-The `${webview.cspSource}` value is a placeholder for a value that comes from the webview object itself. See the [webview sample](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-sample) for a complete example of how to use this value.
+The `$\{webview.cspSource\}
+` value is a placeholder for a value that comes from the webview object itself. See the [webview sample](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-sample) for a complete example of how to use this value.
 
 This content security policy also implicitly disables inline scripts and styles. It is a best practice to extract all inline styles and scripts to external files so that they can be properly loaded without relaxing the content security policy.
 
@@ -1057,7 +1069,8 @@ export function activate(context: vscode.ExtensionContext) {
 class CatCodingSerializer implements vscode.WebviewPanelSerializer {
   async deserializeWebviewPanel(webviewPanel: vscode.WebviewPanel, state: any) {
     // `state` is the state persisted using `setState` inside the webview
-    console.log(`Got state: ${state}`);
+    console.log(`Got state: $\{state\}
+`);
 
     // Restore the content of our webview.
     //
@@ -1088,7 +1101,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.ViewColumn.One,
         {
           enableScripts: true,
-          retainContextWhenHidden: true
+          retainContextWhenHidden: true,
         }
       );
       panel.webview.html = getWebviewContent();

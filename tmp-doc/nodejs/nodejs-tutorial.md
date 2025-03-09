@@ -179,7 +179,8 @@ VS Code는 TypeScript 타입 선언(typings) 파일(예: `node.d.ts`)을 사용�
 
 ## Express 앱 디버깅 {#debug-your-express-app}
 
-Express 애플리케이션을 위한 디버거 구성 파일 `launch.json`을 만들어야 합니다. **Activity Bar**에서 **Run and Debug**를 클릭하고 (`Ctrl+Shift+D`) **create a launch.json file** 링크를 선택하여 기본 `launch.json` 파일을 만듭니다. `configurations`의 `type` 속성이 `"node"`로 설정되어 있는지 확인하여 **Node.js** 환경을 선택합니다. 파일이 처음 생성되면 VS Code는 `package.json`에서 `start` 스크립트를 찾아 **Launch Program** 구성의 `program`으로 해당 값을 사용합니다(이 경우 `"${workspaceFolder}\\bin\\www"`).
+Express 애플리케이션을 위한 디버거 구성 파일 `launch.json`을 만들어야 합니다. **Activity Bar**에서 **Run and Debug**를 클릭하고 (`Ctrl+Shift+D`) **create a launch.json file** 링크를 선택하여 기본 `launch.json` 파일을 만듭니다. `configurations`의 `type` 속성이 `"node"`로 설정되어 있는지 확인하여 **Node.js** 환경을 선택합니다. 파일이 처음 생성되면 VS Code는 `package.json`에서 `start` 스크립트를 찾아 **Launch Program** 구성의 `program`으로 해당 값을 사용합니다(이 경우 `"$\{workspaceFolder\}
+\\bin\\www"`).
 
 ```json
 {
@@ -189,7 +190,8 @@ Express 애플리케이션을 위한 디버거 구성 파일 `launch.json`을 �
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}\\bin\\www"
+      "program": "$\{workspaceFolder\}
+\\bin\\www"
     }
   ]
 }

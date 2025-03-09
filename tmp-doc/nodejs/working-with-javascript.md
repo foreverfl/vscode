@@ -274,7 +274,8 @@ TypeScript 컴파일러 `tsc`는 자바스크립트 파일을 ES6에서 다른 �
   "tasks": [
     {
       "label": "watch",
-      "command": "${workspaceFolder}/node_modules/.bin/babel",
+      "command": "$\{workspaceFolder\}
+/node_modules/.bin/babel",
       "args": ["src", "--out-dir", "lib", "-w", "--source-maps"],
       "type": "shell",
       "group": { "kind": "build", "isDefault": true },

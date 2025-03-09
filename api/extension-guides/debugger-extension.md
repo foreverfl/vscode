@@ -148,7 +148,8 @@ Set a breakpoint at the beginning of method `launchRequest(...)` in file `src/mo
       "type": "mock",
       "request": "launch",
       "name": "mock test",
-      "program": "${workspaceFolder}/readme.md",
+      "program": "$\{workspaceFolder\}
+/readme.md",
       "stopOnEntry": true,
       "debugServer": 4711
     }
@@ -206,7 +207,9 @@ Like every VS Code extension, the `package.json` declares the fundamental proper
               "program": {
                 "type": "string",
                 "description": "Absolute path to a text file.",
-                "default": "${workspaceFolder}/${command:AskForProgramName}"
+                "default": "$\{workspaceFolder\}
+/$\{command:AskForProgramName\}
+"
               },
               "stopOnEntry": {
                 "type": "boolean",
@@ -222,7 +225,9 @@ Like every VS Code extension, the `package.json` declares the fundamental proper
             "type": "mock",
             "request": "launch",
             "name": "Ask for file name",
-            "program": "${workspaceFolder}/${command:AskForProgramName}",
+            "program": "$\{workspaceFolder\}
+/$\{command:AskForProgramName\}
+",
             "stopOnEntry": true
           }
         ],
@@ -234,8 +239,11 @@ Like every VS Code extension, the `package.json` declares the fundamental proper
             "body": {
               "type": "mock",
               "request": "launch",
-              "name": "${2:Launch Program}",
-              "program": "^\"\\${workspaceFolder}/${1:Program}\""
+              "name": "$\{2:Launch Program\}
+",
+              "program": "^\"\\$\{workspaceFolder\}
+/$\{1:Program\}
+\""
             }
           }
         ],
@@ -312,10 +320,10 @@ The implementation of a command lives in the extension and it can range from a s
 Mock Debug binds a variable `AskForProgramName` to the command `extension.mock-debug.getProgramName`. The [implementation](https://github.com/microsoft/vscode-mock-debug/blob/606454ff3bd669867a38d9b2dc7b348d324a3f6b/src/extension.ts#L21-L26) of this command in `src/extension.ts` uses the `showInputBox` to let the user enter a program name:
 
 ```ts
-vscode.commands.registerCommand('extension.mock-debug.getProgramName', config => {
+vscode.commands.registerCommand('extension.mock-debug.getProgramName', (config) => {
   return vscode.window.showInputBox({
     placeHolder: 'Please enter the name of a markdown file in the workspace folder',
-    value: 'readme.md'
+    value: 'readme.md',
   });
 });
 ```
@@ -371,6 +379,6 @@ Today VS Code supports three different ways for running a debug adapter and cons
 - `DebugAdapterServer`: this object describes a debug adapter running as a server that communicates via a specific local or remote port. A debug adapter implementation based on the [`vscode-debugadapter`](https://www.npmjs.com/package/vscode-debugadapter) npm module supports this server mode automatically.
 - `DebugAdapterInlineImplementation`: this object describes a debug adapter as a JavaScript or Typescript object that implements the `vscode.DebugAdapter` interface. A debug adapter implementation based on version 1.38-pre.4 or later of the [`vscode-debugadapter`](https://www.npmjs.com/package/vscode-debugadapter) npm module implements the interface automatically.
 
-Mock Debug shows examples for the [three types of DebugAdapterDescriptorFactories](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L91-L150)  and how they are [registered for the 'mock' debug type](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L50). The run mode to use can be selected by [setting the global variable `runMode`](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L16) to one of the possible values `external`, `server`, or `inline`.
+Mock Debug shows examples for the [three types of DebugAdapterDescriptorFactories](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L91-L150) and how they are [registered for the 'mock' debug type](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L50). The run mode to use can be selected by [setting the global variable `runMode`](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L16) to one of the possible values `external`, `server`, or `inline`.
 
 For development, the `inline` and `server` modes are particularly useful because they allow for debugging extension and debug adapter within a single process.

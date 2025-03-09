@@ -160,8 +160,11 @@ Your new `tasks.json` file should look similar to the JSON below:
         "/Zi",
         "/EHsc",
         "/Fe:",
-        "${fileDirname}\\${fileBasenameNoExtension}.exe",
-        "${file}"
+        "$\{fileDirname\}
+\\$\{fileBasenameNoExtension\}
+.exe",
+        "$\{file\}
+"
       ],
       "problemMatcher": ["$msCompile"],
       "group": {
@@ -178,7 +181,10 @@ Your new `tasks.json` file should look similar to the JSON below:
 
 The `command` setting specifies the program to run; in this case that is "cl.exe". The `args` array specifies the command-line arguments that will be passed to cl.exe. These arguments must be specified in the order expected by the compiler.
 
-This task tells the C++ compiler to take the active file (`${file}`), compile it, and create an executable file (`/Fe:` switch) in the current directory (`${fileDirname}`) with the same name as the active file but with the `.exe` extension (`${fileBasenameNoExtension}.exe`), resulting in `helloworld.exe` for our example.
+This task tells the C++ compiler to take the active file (`$\{file\}
+`), compile it, and create an executable file (`/Fe:` switch) in the current directory (`$\{fileDirname\}
+`) with the same name as the active file but with the `.exe` extension (`$\{fileBasenameNoExtension\}
+.exe`), resulting in `helloworld.exe` for our example.
 
 The `label` value is what you will see in the tasks list; you can name this whatever you like.
 
@@ -203,7 +209,12 @@ with this:
 
 ### Modifying tasks.json
 
-You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}/*.cpp"` instead of `"${file}"`.This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"${fileDirname}\\${fileBasenameNoExtension}.exe"` with a hard-coded filename (for example `"${workspaceFolder}\\myProgram.exe"`).
+You can modify your `tasks.json` to build multiple C++ files by using an argument like `"$\{workspaceFolder\}
+/*.cpp"` instead of `"$\{file\}
+"`.This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"$\{fileDirname\}
+\\$\{fileBasenameNoExtension\}
+.exe"` with a hard-coded filename (for example `"$\{workspaceFolder\}
+\\myProgram.exe"`).
 
 ## Debug helloworld.cpp
 
@@ -302,10 +313,13 @@ VS Code creates a `launch.json` file, which looks something like this:
       "name": "C/C++: cl.exe build and debug active file",
       "type": "cppvsdbg",
       "request": "launch",
-      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+      "program": "$\{fileDirname\}
+\\$\{fileBasenameNoExtension\}
+.exe",
       "args": [],
       "stopAtEntry": false,
-      "cwd": "${workspaceFolder}",
+      "cwd": "$\{workspaceFolder\}
+",
       "environment": [],
       "externalConsole": false,
       "preLaunchTask": "C/C++: cl.exe build active file"
@@ -314,7 +328,9 @@ VS Code creates a `launch.json` file, which looks something like this:
 }
 ```
 
-In the JSON above, `program` specifies the program you want to debug. Here it is set to the active file folder (`${fileDirname}`) and active filename with the `.exe` extension (`${fileBasenameNoExtension}.exe`), which if `helloworld.cpp` is the active file will be `helloworld.exe`. The `args` property is an array of arguments to pass to the program at runtime.
+In the JSON above, `program` specifies the program you want to debug. Here it is set to the active file folder (`$\{fileDirname\}
+`) and active filename with the `.exe` extension (`$\{fileBasenameNoExtension\}
+.exe`), which if `helloworld.cpp` is the active file will be `helloworld.exe`. The `args` property is an array of arguments to pass to the program at runtime.
 
 By default, the C++ extension won't add any breakpoints to your source code and the `stopAtEntry` value is set to `false`.
 
@@ -341,7 +357,8 @@ Visual Studio Code places these settings in `.vscode\c_cpp_properties.json`. If 
   "configurations": [
     {
       "name": "Win32",
-      "includePath": ["${workspaceFolder}/**"],
+      "includePath": ["$\{workspaceFolder\}
+/**"],
       "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
       "windowsSdkVersion": "10.0.18362.0",
       "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.24.28314/bin/Hostx64/x64/cl.exe",
@@ -403,8 +420,11 @@ In certain circumstances, it isn't possible to run VS Code from **Developer Comm
         "/Zi",
         "/EHsc",
         "/Fe:",
-        "${fileDirname}\\${fileBasenameNoExtension}.exe",
-        "${file}"
+        "$\{fileDirname\}
+\\$\{fileBasenameNoExtension\}
+.exe",
+        "$\{file\}
+"
       ],
       "problemMatcher": ["$msCompile"],
       "group": {

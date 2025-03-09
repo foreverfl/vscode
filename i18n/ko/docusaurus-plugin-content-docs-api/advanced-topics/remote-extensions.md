@@ -229,15 +229,15 @@ If your extension needs to persist passwords or other secrets, you may want to u
 Here's an example:
 
 ```typescript
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
 export function activate(context: vscode.ExtensionContext) {
   // ...
-  const myApiKey = context.secrets.get('apiKey');
+  const myApiKey = context.secrets.get("apiKey");
   // ...
-  context.secrets.delete('apiKey');
+  context.secrets.delete("apiKey");
   // ...
-  context.secrets.store('apiKey', myApiKey);
+  context.secrets.store("apiKey", myApiKey);
 }
 ```
 
@@ -248,19 +248,23 @@ Historically, extension authors have used Node.js modules such as `clipboardy` t
 To use the VS Code clipboard API in an extension:
 
 ```typescript
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
-    vscode.commands.registerCommand('myAmazingExtension.clipboardIt', async () => {
-      // Read from clipboard
-      const text = await vscode.env.clipboard.readText();
+    vscode.commands.registerCommand(
+      "myAmazingExtension.clipboardIt",
+      async () => {
+        // Read from clipboard
+        const text = await vscode.env.clipboard.readText();
 
-      // Write to clipboard
-      await vscode.env.clipboard.writeText(
-        `It looks like you're copying "${text}". Would you like help?`
-      );
-    })
+        // Write to clipboard
+        await vscode.env.clipboard.writeText(
+          `It looks like you're copying "$\{text\}
+". Would you like help?`
+        );
+      }
+    )
   );
 }
 ```
@@ -276,19 +280,23 @@ Instead of relying on a third-party node module, we recommend that extensions ta
 To use the `vscode.env.openExternal` API:
 
 ```typescript
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
 export async function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
-    vscode.commands.registerCommand('myAmazingExtension.openExternal', () => {
+    vscode.commands.registerCommand("myAmazingExtension.openExternal", () => {
       // Example 1 - Open the VS Code homepage in the default browser.
-      vscode.env.openExternal(vscode.Uri.parse('https://code.visualstudio.com'));
+      vscode.env.openExternal(
+        vscode.Uri.parse("https://code.visualstudio.com")
+      );
 
       // Example 2 - Open an auto-forwarded localhost HTTP server.
-      vscode.env.openExternal(vscode.Uri.parse('http://localhost:3000'));
+      vscode.env.openExternal(vscode.Uri.parse("http://localhost:3000"));
 
       // Example 3 - Open the default email application.
-      vscode.env.openExternal(vscode.Uri.parse('mailto:<fill in your email here>'));
+      vscode.env.openExternal(
+        vscode.Uri.parse("mailto:<fill in your email here>")
+      );
     })
   );
 }
@@ -314,7 +322,8 @@ export async function activate(context: vscode.ExtensionContext) {
 
         // Make the port available locally and get the full URI
         const fullUri = await vscode.env.asExternalUri(
-            vscode.Uri.parse(`http://localhost:${dynamicServerPort}`));
+            vscode.Uri.parse(`http://localhost:$\{dynamicServerPort\}
+`));
 
         // ... do something with the fullUri ...
 
@@ -335,7 +344,9 @@ Let's use a combination of `vscode.window.registerUriHandler` and `vscode.env.as
 ```typescript
 import * as vscode from 'vscode';
 
-// This is ${publisher}.${name} from package.json
+// This is $\{publisher\}
+.$\{name\}
+ from package.json
 const extensionId = 'my.amazing-extension';
 
 export async function activate(context: vscode.ExtensionContext) {
@@ -351,10 +362,13 @@ export async function activate(context: vscode.ExtensionContext) {
 
   // Register a sign in command
   context.subscriptions.push(
-    vscode.commands.registerCommand(`${extensionId}.signin`, async () => {
+    vscode.commands.registerCommand(`$\{extensionId\}
+.signin`, async () => {
       // Get an externally addressable callback URI for the handler that the authentication provider can use
       const callbackUri = await vscode.env.asExternalUri(
-        vscode.Uri.parse(`${vscode.env.uriScheme}://${extensionId}/auth-complete`)
+        vscode.Uri.parse(`$\{vscode.env.uriScheme\}
+://$\{extensionId\}
+/auth-complete`)
       );
 
       // Add your code to integrate with an authentication provider here - we'll fake it.
@@ -378,23 +392,27 @@ In some cases, your Workspace Extension may need to vary the behavior when runni
 Next, you can use the three APIs as follows:
 
 ```typescript
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
 export async function activate(context: vscode.ExtensionContext) {
   // extensionKind returns ExtensionKind.UI when running locally, so use this to detect remote
-  const extension = vscode.extensions.getExtension('your.extensionId');
+  const extension = vscode.extensions.getExtension("your.extensionId");
   if (extension.extensionKind === vscode.ExtensionKind.Workspace) {
-    vscode.window.showInformationMessage('I am running remotely!');
+    vscode.window.showInformationMessage("I am running remotely!");
   }
 
   // Codespaces browser-based editor will return UIKind.Web for uiKind
   if (vscode.env.uiKind === vscode.UIKind.Web) {
-    vscode.window.showInformationMessage('I am running in the Codespaces browser editor!');
+    vscode.window.showInformationMessage(
+      "I am running in the Codespaces browser editor!"
+    );
   }
 
   // VS Code will return undefined for remoteName if working with a local workspace
-  if (typeof vscode.env.remoteName === 'undefined') {
-    vscode.window.showInformationMessage('Not currently connected to a remote workspace.');
+  if (typeof vscode.env.remoteName === "undefined") {
+    vscode.window.showInformationMessage(
+      "Not currently connected to a remote workspace."
+    );
   }
 }
 ```
@@ -410,12 +428,12 @@ If you have a set of extensions that need to interact with one another, exposing
 For example:
 
 ```typescript
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
 export async function activate(context: vscode.ExtensionContext) {
   // Register the private echo command
   const echoCommand = vscode.commands.registerCommand(
-    '_private.command.called.echo',
+    "_private.command.called.echo",
     (value: string) => {
       return value;
     }
@@ -439,21 +457,22 @@ You can use the API in your content as follows:
 ```typescript
 // Create the webview
 const panel = vscode.window.createWebviewPanel(
-  'catWebview',
-  'Cat Webview',
+  "catWebview",
+  "Cat Webview",
   vscode.ViewColumn.One
 );
 
 // Get the content Uri
 const catGifUri = panel.webview.asWebviewUri(
-  vscode.Uri.joinPath(context.extensionUri, 'media', 'cat.gif')
+  vscode.Uri.joinPath(context.extensionUri, "media", "cat.gif")
 );
 
 // Reference it in your content
 panel.webview.html = `<!DOCTYPE html>
 <html>
 <body>
-    <img src="${catGifUri}" width="300" />
+    <img src="$\{catGifUri\}
+" width="300" />
 </body>
 </html>`;
 ```
@@ -492,13 +511,14 @@ Use the API to get a full URI for the iframe and add it to your HTML. You will a
 // Use asExternalUri to get the URI for the web server
 const dynamicWebServerPort = await getWebServerPort();
 const fullWebServerUri = await vscode.env.asExternalUri(
-  vscode.Uri.parse(`http://localhost:${dynamicWebServerPort}`)
+  vscode.Uri.parse(`http://localhost:$\{dynamicWebServerPort\}
+`)
 );
 
 // Create the webview
 const panel = vscode.window.createWebviewPanel(
-  'asExternalUriWebview',
-  'asExternalUri Example',
+  "asExternalUriWebview",
+  "asExternalUri Example",
   vscode.ViewColumn.One,
   {
     enableScripts: true,
@@ -510,12 +530,18 @@ panel.webview.html = `<!DOCTYPE html>
         <head>
             <meta
                 http-equiv="Content-Security-Policy"
-                content="default-src 'none'; frame-src ${fullWebServerUri} ${cspSource} https:; img-src ${cspSource} https:; script-src ${cspSource}; style-src ${cspSource};"
+                content="default-src 'none'; frame-src $\{fullWebServerUri\}
+ $\{cspSource\}
+ https:; img-src $\{cspSource\}
+ https:; script-src $\{cspSource\}
+; style-src $\{cspSource\}
+;"
             />
         </head>
         <body>
         <!-- All content from the web server must be in an iframe -->
-        <iframe src="${fullWebServerUri}">
+        <iframe src="$\{fullWebServerUri\}
+">
     </body>
     </html>`;
 ```
@@ -534,8 +560,8 @@ const dynamicServerPort = await getWebServerPort();
 
 // Create webview and pass portMapping in
 const panel = vscode.window.createWebviewPanel(
-  'remoteMappingExample',
-  'Remote Mapping Example',
+  "remoteMappingExample",
+  "Remote Mapping Example",
   vscode.ViewColumn.One,
   {
     portMapping: [
@@ -549,7 +575,8 @@ const panel = vscode.window.createWebviewPanel(
 panel.webview.html = `<!DOCTYPE html>
     <body>
         <!-- This will resolve to the dynamic server port on the remote machine -->
-        <img src="http://localhost:${LOCAL_STATIC_PORT}/canvas.png">
+        <img src="http://localhost:$\{LOCAL_STATIC_PORT\}
+/canvas.png">
     </body>
     </html>`;
 ```
@@ -602,7 +629,7 @@ function requireWithFallback(electronModule: string, nodeModule: string) {
   return require(nodeModule);
 }
 
-const fs = requireWithFallback('original-fs', 'fs');
+const fs = requireWithFallback("original-fs", "fs");
 ```
 
 Try to avoid these situations whenever possible.

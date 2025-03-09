@@ -95,7 +95,8 @@ Pull Request를 표시하는 데 사용되는 쿼리는 **GitHub Pull Requests: 
 "githubPullRequests.queries": [
     {
         "label": "나에게 할당됨",
-        "query": "is:open assignee:${user}"
+        "query": "is:open assignee:$\{user\}
+"
     },
 ```
 

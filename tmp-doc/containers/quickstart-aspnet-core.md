@@ -187,7 +187,8 @@ You can use specific port on the host by changing the Docker run options used by
         ]
     },
     "netCore": {
-        "appProject": "${workspaceFolder}/netcorerest.csproj",
+        "appProject": "$\{workspaceFolder\}
+/netcorerest.csproj",
         "enableDebugging": true
     }
 

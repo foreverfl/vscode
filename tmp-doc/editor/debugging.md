@@ -89,7 +89,8 @@ VS Code는 디버그 환경을 자동으로 감지하려고 시도하지만 실�
       "request": "launch",
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}\\app.js"
+      "program": "$\{workspaceFolder\}
+\\app.js"
     }
   ]
 }
@@ -237,7 +238,8 @@ VS Code는 여러 환경 설정을 동시에 시작하기 위한 복합 Launch �
 다음은 모든 Launch 환경 설정에 사용할 수 있는 몇 가지 선택적 속성입니다:
 
 - `presentation` - `presentation` 객체의 `order`, `group`, 및 `hidden` 속성을 사용하여 디버그 환경 설정 드롭다운 및 디버그 빠른 선택에서 환경 설정을 정렬, 그룹화 및 숨길 수 있습니다.
-- `preLaunchTask` - 디버그 세션 시작 전에 작업을 시작하려면 이 속성을 [tasks.json](/docs/editor/tasks.md) (워크스페이스의 `.vscode` 폴더에 있음)에 지정된 작업의 레이블로 설정하세요. 또는, 기본 빌드 작업을 사용하려면 `${defaultBuildTask}`로 설정할 수 있습니다.
+- `preLaunchTask` - 디버그 세션 시작 전에 작업을 시작하려면 이 속성을 [tasks.json](/docs/editor/tasks.md) (워크스페이스의 `.vscode` 폴더에 있음)에 지정된 작업의 레이블로 설정하세요. 또는, 기본 빌드 작업을 사용하려면 `$\{defaultBuildTask\}
+`로 설정할 수 있습니다.
 - `postDebugTask` - 디버그 세션이 끝난 후 작업을 시작하려면 이 속성을 [tasks.json](/docs/editor/tasks.md) (워크스페이스의 `.vscode` 폴더에 있음)에 지정된 작업의 이름으로 설정하세요.
 - `internalConsoleOptions` - 이 속성은 디버깅 세션 동안 디버그 콘솔 패널의 가시성을 제어합니다.
 - `debugServer` - **디버그 확장 작성자 전용**: 이 속성을 사용하면 디버그 어댑터를 시작하는 대신 지정된 포트에 연결할 수 있습니다.
@@ -256,7 +258,10 @@ VS Code는 여러 환경 설정을 동시에 시작하기 위한 복합 Launch �
 
 ## 변수 대체 {#variable-substitution}
 
-VS Code는 일반적으로 사용되는 경로 및 기타 값을 변수로 제공하며 `launch.json`의 문자열 내에서 변수 대체를 지원합니다. 이는 디버그 환경 설정에서 절대 경로를 사용할 필요가 없음을 의미합니다. 예를 들어, `${workspaceFolder}`는 워크스페이스 폴더의 루트 경로를 제공하고, `${file}`은 활성 편집기에서 열린 파일을 제공하며, `${env:Name}`은 환경 변수 'Name'을 제공합니다.
+VS Code는 일반적으로 사용되는 경로 및 기타 값을 변수로 제공하며 `launch.json`의 문자열 내에서 변수 대체를 지원합니다. 이는 디버그 환경 설정에서 절대 경로를 사용할 필요가 없음을 의미합니다. 예를 들어, `$\{workspaceFolder\}
+`는 워크스페이스 폴더의 루트 경로를 제공하고, `$\{file\}
+`은 활성 편집기에서 열린 파일을 제공하며, `$\{env:Name\}
+`은 환경 변수 'Name'을 제공합니다.
 
 사전 정의된 변수의 전체 목록은 [변수 참조](/docs/editor/variables-reference.md)에서 확인하거나 `launch.json` 문자열 속성 내에서 IntelliSense를 호출하여 볼 수 있습니다.
 
@@ -265,9 +270,12 @@ VS Code는 일반적으로 사용되는 경로 및 기타 값을 변수로 제�
   "type": "node",
   "request": "launch",
   "name": "Launch Program",
-  "program": "${workspaceFolder}/app.js",
-  "cwd": "${workspaceFolder}",
-  "args": ["${env:USERNAME}"]
+  "program": "$\{workspaceFolder\}
+/app.js",
+  "cwd": "$\{workspaceFolder\}
+",
+  "args": ["$\{env:USERNAME\}
+"]
 }
 ```
 
@@ -285,7 +293,8 @@ VS Code는 일반적으로 사용되는 경로 및 기타 값을 변수로 제�
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/node_modules/gulp/bin/gulpfile.js",
+      "program": "$\{workspaceFolder\}
+/node_modules/gulp/bin/gulpfile.js",
       "args": ["myFolder/path/app.js"],
       "windows": {
         "args": ["myFolder\\path\\app.js"]
@@ -309,7 +318,8 @@ VS Code는 일반적으로 사용되는 경로 및 기타 값을 변수로 제�
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/node_modules/gulp/bin/gulpfile.js",
+      "program": "$\{workspaceFolder\}
+/node_modules/gulp/bin/gulpfile.js",
       "stopOnEntry": true,
       "osx": {
         "stopOnEntry": false
@@ -330,7 +340,8 @@ VS Code는 사용자 [설정](/docs/getstarted/settings.md) 내에 `"launch"` �
         "type": "node",
         "request": "launch",
         "name": "Launch Program",
-        "program": "${file}"
+        "program": "$\{file\}
+"
     }]
 }
 ```
@@ -452,20 +463,23 @@ VS Code 디버깅의 강력한 기능 중 하나는 표현식, 히트 카운트 
       "type": "node",
       "request": "launch",
       "name": "Server",
-      "program": "${workspaceFolder}/server.js"
+      "program": "$\{workspaceFolder\}
+/server.js"
     },
     {
       "type": "node",
       "request": "launch",
       "name": "Client",
-      "program": "${workspaceFolder}/client.js"
+      "program": "$\{workspaceFolder\}
+/client.js"
     }
   ],
   "compounds": [
     {
       "name": "Server/Client",
       "configurations": ["Server", "Client"],
-      "preLaunchTask": "${defaultBuildTask}",
+      "preLaunchTask": "$\{defaultBuildTask\}
+",
       "stopAll": true
     }
   ]
@@ -508,7 +522,8 @@ app.listen(3000, function () {
   "type": "node",
   "request": "launch",
   "name": "Launch Program",
-  "program": "${workspaceFolder}/app.js",
+  "program": "$\{workspaceFolder\}
+/app.js",
 
   "serverReadyAction": {
     "pattern": "listening on port ([0-9]+)",
@@ -532,7 +547,8 @@ app.listen(3000, function () {
 
 - **pattern**: `"listening on.* (https?://\\S+|[0-9]+)"`는 일반적으로 사용되는 메시지 "listening on port 3000" 또는 "Now listening on: `https://localhost:5001`"과 일치합니다.
 - **uriFormat**: `"http://localhost:%s"`
-- **webRoot**: `"${workspaceFolder}"`
+- **webRoot**: `"$\{workspaceFolder\}
+"`
 
 ### 임의의 Launch 환경 설정 트리거 {#triggering-an-arbitrary-launch-config}
 

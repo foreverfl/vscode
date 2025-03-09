@@ -8,13 +8,14 @@ DateApproved: 03/05/2025
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/python-social.png
 ---
+
 # Python debugging in VS Code
 
 The Python extension supports debugging through the [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy) for several types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger). Also see the [Flask tutorial](/docs/python/tutorial-flask.md). Both tutorials demonstrate core skills like setting breakpoints and stepping through code.
 
 For general debugging features such as inspecting variables, setting breakpoints, and other activities that aren't language-dependent, review [VS Code debugging](/docs/editor/debugging.md).
 
-This article mainly addresses Python-specific debugging *configurations*, including the necessary steps for specific app types and remote debugging.
+This article mainly addresses Python-specific debugging _configurations_, including the necessary steps for specific app types and remote debugging.
 
 ## Python Debugger Extension
 
@@ -48,9 +49,9 @@ To generate a `launch.json` file with Python configurations, do the following st
 
 1. A configuration menu will open from the Command Palette allowing you to choose the type of debug configuration you want to use for our Python project file. If you want to debug a single Python script, select **Python File** in the **Select a debug configuration** menu that appears.
 
-    ![List of Python debugger configuration options](images/shared/debug-configurations.png)
+   ![List of Python debugger configuration options](images/shared/debug-configurations.png)
 
-    > **Note**: Starting a debugging session through the Debug Panel, `kbstyle(F5)`, or  **Run > Start Debugging** when no configuration exists will also bring up the debug configuration menu, but will not create a `launch.json` file.
+   > **Note**: Starting a debugging session through the Debug Panel, `kbstyle(F5)`, or **Run > Start Debugging** when no configuration exists will also bring up the debug configuration menu, but will not create a `launch.json` file.
 
 1. The Python Debugger extension then creates and opens a `launch.json` file that contains a pre-defined configuration based on what you previously selected, in this case, **Python File**. You can modify configurations (to add arguments, for example), and also add custom configurations.
 
@@ -102,11 +103,13 @@ For information about creating and using debugging configurations, see the [Init
 The debugger can also be run from the command line, if `debugpy` is installed in your Python environment.
 
 ### Install debugpy
+
 You can install [debugpy](https://pypi.org/project/debugpy/) using `python -m pip install --upgrade debugpy` into your Python environment.
 
 > **Tip**: While using a virtual environment is not required, it is a recommended best practice. You can create a virtual environment in VS Code by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Python: Create Virtual Environment** command (`kb(workbench.action.terminal.newWithProfilePython)`).
 
 ### Command line syntax
+
 The debugger command line syntax is as follows:
 
 ```bash
@@ -121,6 +124,7 @@ python -m debugpy
 ```
 
 ### Example
+
 From the command line, you could start the debugger using a specified port (5678) and script using the following syntax. This example assumes the script is long-running and omits the `--wait-for-client` flag, meaning that the script will not wait for the client to attach.
 
 ```bash
@@ -131,13 +135,13 @@ You would then use the following configuration to attach from the VS Code Python
 
 ```json
 {
-    "name": "Python Debugger: Attach",
-    "type": "debugpy",
-    "request": "attach",
-    "connect": {
-        "host": "localhost",
-        "port": 5678
-    }
+  "name": "Python Debugger: Attach",
+  "type": "debugpy",
+  "request": "attach",
+  "connect": {
+    "host": "localhost",
+    "port": 5678
+  }
 }
 ```
 
@@ -153,13 +157,13 @@ The associated configuration file would then look as follows.
 
 ```json
 {
-    "name": "Attach",
-    "type": "debugpy",
-    "request": "attach",
-    "connect": {
-       "host": "remote-machine-name", // replace this with remote machine name
-       "port": 5678
-    }
+  "name": "Attach",
+  "type": "debugpy",
+  "request": "attach",
+  "connect": {
+    "host": "remote-machine-name", // replace this with remote machine name
+    "port": 5678
+  }
 }
 ```
 
@@ -167,14 +171,14 @@ The associated configuration file would then look as follows.
 
 ### Command line options
 
-|Flag  |Options  |Description  |
-|---------|---------|---------|
-|**--listen** or **--connect**  |  `[<host>:]<port>`       |   **Required**. Specifies the host address and port for the debug adapter server to wait for incoming connections (--listen) or to connect with a client that is waiting for an incoming connection (--connect). This is the same address that is used in the VS Code debug configuration. By default, the host address is `localhost (127.0.0.1)`.      |
-|**--wait-for-client**     |   none      | **Optional**. Specifies that the code should not run until there's a connection from the debug server. This setting allows you to debug from the first line of your code.        |
-|**--log-to**     |   `<path>`      | **Optional**. Specifies a path to an existing directory for saving logs.         |
-|**--log-to-stderr**     |    none     |  **Optional**. Enables debugpy to write logs directly to stderr.       |
-|**--pid**     |    `<pid>`     | **Optional**. Specifies a process that is already running to inject the debug server into.        |
-|**--configure-\<name>** | `<value>` | **Optional**. Sets a debug property that must be known to the debug server before the client connects. Such properties can be used directly in *launch* configuration, but must be set in this manner for *attach* configurations. For example, if you don't want the debug server to automatically inject itself into subprocesses created by the process you're attaching to, use `--configure-subProcess false`.|
+| Flag                          | Options           | Description                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ----------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **--listen** or **--connect** | `[<host>:]<port>` | **Required**. Specifies the host address and port for the debug adapter server to wait for incoming connections (--listen) or to connect with a client that is waiting for an incoming connection (--connect). This is the same address that is used in the VS Code debug configuration. By default, the host address is `localhost (127.0.0.1)`.                                                                   |
+| **--wait-for-client**         | none              | **Optional**. Specifies that the code should not run until there's a connection from the debug server. This setting allows you to debug from the first line of your code.                                                                                                                                                                                                                                           |
+| **--log-to**                  | `<path>`          | **Optional**. Specifies a path to an existing directory for saving logs.                                                                                                                                                                                                                                                                                                                                            |
+| **--log-to-stderr**           | none              | **Optional**. Enables debugpy to write logs directly to stderr.                                                                                                                                                                                                                                                                                                                                                     |
+| **--pid**                     | `<pid>`           | **Optional**. Specifies a process that is already running to inject the debug server into.                                                                                                                                                                                                                                                                                                                          |
+| **--configure-\<name>**       | `<value>`         | **Optional**. Sets a debug property that must be known to the debug server before the client connects. Such properties can be used directly in _launch_ configuration, but must be set in this manner for _attach_ configurations. For example, if you don't want the debug server to automatically inject itself into subprocesses created by the process you're attaching to, use `--configure-subProcess false`. |
 
 > **Note**: `[<arg>]` can be used to pass command-line arguments along to the app being launched.
 
@@ -188,16 +192,16 @@ There may be instances where you need to debug a Python script that's invoked lo
 
 1. In the script code, add the following and save the file:
 
-    ```python
-    import debugpy
+   ```python
+   import debugpy
 
-    # 5678 is the default attach port in the VS Code debug configurations. Unless a host and port are specified, host defaults to 127.0.0.1
-    debugpy.listen(5678)
-    print("Waiting for debugger attach")
-    debugpy.wait_for_client()
-    debugpy.breakpoint()
-    print('break on this line')
-    ```
+   # 5678 is the default attach port in the VS Code debug configurations. Unless a host and port are specified, host defaults to 127.0.0.1
+   debugpy.listen(5678)
+   print("Waiting for debugger attach")
+   debugpy.wait_for_client()
+   debugpy.breakpoint()
+   print('break on this line')
+   ```
 
 1. Open a terminal using **Terminal: Create New Terminal**, which activates the script's selected environment.
 
@@ -221,9 +225,9 @@ The following steps outline the general process to set up an SSH tunnel. An SSH 
 
 1. Enable port forwarding by opening the `sshd_config` config file (found under `/etc/ssh/` on Linux and under `%programfiles(x86)%/openssh/etc` on Windows) and adding or modifying the following setting:
 
-    ```
-    AllowTcpForwarding yes
-    ```
+   ```
+   AllowTcpForwarding yes
+   ```
 
    > **Note**: The default for AllowTcpForwarding is yes, so you might not need to make a change.
 
@@ -231,25 +235,27 @@ The following steps outline the general process to set up an SSH tunnel. An SSH 
 
 **On the local computer:**
 
-1. Create an SSH tunnel by running `ssh -2 -L sourceport:localhost:destinationport -i identityfile user@remoteaddress`, using a selected port for `destinationport` and the appropriate username and the remote computer's IP address in `user@remoteaddress`. For example, to use port 5678 on IP address 1.2.3.4, the command would be `ssh -2 -L 5678:localhost:5678 -i identityfile user@1.2.3.4`. You can specify the path to an identity file, using the `-i` flag.
+1.  Create an SSH tunnel by running `ssh -2 -L sourceport:localhost:destinationport -i identityfile user@remoteaddress`, using a selected port for `destinationport` and the appropriate username and the remote computer's IP address in `user@remoteaddress`. For example, to use port 5678 on IP address 1.2.3.4, the command would be `ssh -2 -L 5678:localhost:5678 -i identityfile user@1.2.3.4`. You can specify the path to an identity file, using the `-i` flag.
 
-1. Verify that you can see a prompt in the SSH session.
+1.  Verify that you can see a prompt in the SSH session.
 
-1. In your VS Code workspace, create a configuration for remote debugging in your `launch.json` file, setting the port to match the port used in the `ssh` command and the host to `localhost`. You use `localhost` here because you've set up the SSH tunnel.
+1.  In your VS Code workspace, create a configuration for remote debugging in your `launch.json` file, setting the port to match the port used in the `ssh` command and the host to `localhost`. You use `localhost` here because you've set up the SSH tunnel.
 
-    ```json
-    {
-        "name": "Python Debugger: Attach",
-        "type": "debugpy",
-        "request": "attach",
-        "port": 5678,
-        "host": "localhost",
-        "pathMappings": [
-            {
-                "localRoot": "${workspaceFolder}", // Maps C:\Users\user1\project1
-                "remoteRoot": "."                  // To current working directory ~/project1
-            }
-        ]
+        ```json
+        {
+            "name": "Python Debugger: Attach",
+            "type": "debugpy",
+            "request": "attach",
+            "port": 5678,
+            "host": "localhost",
+            "pathMappings": [
+                {
+                    "localRoot": "$\{workspaceFolder\}
+
+    ", // Maps C:\Users\user1\project1
+    "remoteRoot": "." // To current working directory ~/project1
+    }
+    ]
     }
     ```
 
@@ -265,37 +271,37 @@ Now that an SSH tunnel has been set up to the remote computer, you can begin you
 
    1. In the source code, add the following lines, replacing `address` with the remote computer's IP address and port number (IP address 1.2.3.4 is shown here for illustration only).
 
-        ```python
-        import debugpy
+      ```python
+      import debugpy
 
-        # Allow other computers to attach to debugpy at this IP address and port.
-        debugpy.listen(('1.2.3.4', 5678))
+      # Allow other computers to attach to debugpy at this IP address and port.
+      debugpy.listen(('1.2.3.4', 5678))
 
-        # Pause the program until a remote debugger is attached
-        debugpy.wait_for_client()
-        ```
+      # Pause the program until a remote debugger is attached
+      debugpy.wait_for_client()
+      ```
 
-        The IP address used in `listen` should be the remote computer's private IP address. You can then launch the program normally, causing it to pause until the debugger attaches.
+      The IP address used in `listen` should be the remote computer's private IP address. You can then launch the program normally, causing it to pause until the debugger attaches.
 
    1. Launch the remote process through debugpy, for example:
 
-       ```bash
-       python3 -m debugpy --listen 1.2.3.4:5678 --wait-for-client -m myproject
-       ```
+      ```bash
+      python3 -m debugpy --listen 1.2.3.4:5678 --wait-for-client -m myproject
+      ```
 
-       This starts the package `myproject` using `python3`, with the remote computer's private IP address of `1.2.3.4` and listening on port `5678` (you can also start the remote Python process by specifying a file path instead of using `-m`, such as `./hello.py`).
+      This starts the package `myproject` using `python3`, with the remote computer's private IP address of `1.2.3.4` and listening on port `5678` (you can also start the remote Python process by specifying a file path instead of using `-m`, such as `./hello.py`).
 
 1. Local computer: **Only if you modified the source code on the remote computer as outlined above**, then in the source code, add a commented-out copy of the same code added on the remote computer. Adding these lines makes sure that the source code on both computers matches line by line.
 
-    ```python
-    #import debugpy
+   ```python
+   #import debugpy
 
-    # Allow other computers to attach to debugpy at this IP address and port.
-    #debugpy.listen(('1.2.3.4', 5678))
+   # Allow other computers to attach to debugpy at this IP address and port.
+   #debugpy.listen(('1.2.3.4', 5678))
 
-    # Pause the program until a remote debugger is attached
-    #debugpy.wait_for_client()
-    ```
+   # Pause the program until a remote debugger is attached
+   #debugpy.wait_for_client()
+   ```
 
 1. Local computer: switch to the **Run and Debug** view (`kb(workbench.view.debug)`) in VS Code, select the **Python Debugger: Attach** configuration
 
@@ -303,13 +309,13 @@ Now that an SSH tunnel has been set up to the remote computer, you can begin you
 
 1. Local computer: start the VS Code debugger using the modified **Python Debugger: Attach** configuration and the Start Debugging button. VS Code should stop on your locally set breakpoints, allowing you to step through the code, examine variables, and perform all other debugging actions. Expressions that you enter in the **Debug Console** are run on the remote computer as well.
 
-    Text output to stdout, as from `print` statements, appears on both computers. Other outputs, such as graphical plots from a package like matplotlib, however, appear only on the remote computer.
+   Text output to stdout, as from `print` statements, appears on both computers. Other outputs, such as graphical plots from a package like matplotlib, however, appear only on the remote computer.
 
 1. During remote debugging, the debugging toolbar appears as below:
 
-    ![Debugging toolbar during remote debugging](images/debugging/remote-debug-toolbar.png)
+   ![Debugging toolbar during remote debugging](images/debugging/remote-debug-toolbar.png)
 
-    On this toolbar, the disconnect button (`kb(workbench.action.debug.stop)`) stops the debugger and allows the remote program to run to completion. The restart button (`kb(workbench.action.debug.restart)`) restarts the debugger on the local computer but does **not** restart the remote program. Use the restart button only when you've already restarted the remote program and need to reattach the debugger.
+   On this toolbar, the disconnect button (`kb(workbench.action.debug.stop)`) stops the debugger and allows the remote program to run to completion. The restart button (`kb(workbench.action.debug.restart)`) restarts the debugger on the local computer but does **not** restart the remote program. Use the restart button only when you've already restarted the remote program and need to reattach the debugger.
 
 ## Set configuration options
 
@@ -322,14 +328,16 @@ When you first create `launch.json`, there are two standard configurations that 
             "name": "Python Debugger: Current File (Integrated Terminal)",
             "type": "debugpy",
             "request": "launch",
-            "program": "${file}",
+            "program": "$\{file\}
+",
             "console": "integratedTerminal"
         },
         {
             "name": "Python Debugger: Current File (External Terminal)",
             "type": "debugpy",
             "request": "launch",
-            "program": "${file}",
+            "program": "$\{file\}
+",
             "console": "externalTerminal"
         }
     ]
@@ -345,7 +353,8 @@ The specific settings are described in the following sections. You can also add 
      "name": "Python Debugger: startup.py",
      "type": "debugpy",
      "request": "launch",
-     "program": "${workspaceFolder}/startup.py",
+     "program": "$\{workspaceFolder\}
+/startup.py",
      "args" : ["--port", "1593"]
  },
 ```
@@ -367,7 +376,8 @@ Specifies the mode in which to start debugging:
 
 ### `program`
 
-Provides the fully qualified path to the python program's entry module (startup file). The value `${file}`, often used in default configurations, uses the currently active file in the editor. By specifying a specific startup file, you can always be sure of launching your program with the same entry point regardless of which files are open. For example:
+Provides the fully qualified path to the python program's entry module (startup file). The value `$\{file\}
+`, often used in default configurations, uses the currently active file in the editor. By specifying a specific startup file, you can always be sure of launching your program with the same entry point regardless of which files are open. For example:
 
 ```json
 "program": "/Users/Me/Projects/MyProject/src/event_handlers/__init__.py",
@@ -376,7 +386,8 @@ Provides the fully qualified path to the python program's entry module (startup 
 You can also rely on a relative path from the workspace root. For example, if the root is `/Users/Me/Projects/MyProject` then you can use the following example:
 
 ```json
-"program": "${workspaceFolder}/src/event_handlers/__init__.py",
+"program": "$\{workspaceFolder\}
+/src/event_handlers/__init__.py",
 ```
 
 ### `module`
@@ -387,7 +398,8 @@ Provides the ability to specify the name of a module to be debugged, similarly t
 
 The full path that points to the Python interpreter to be used for debugging.
 
-If not specified, this setting defaults to the interpreter selected for your workspace, which is equivalent to using the value `${command:python.interpreterPath}`. To use a different interpreter, specify its path instead in the `python` property of a debug configuration.
+If not specified, this setting defaults to the interpreter selected for your workspace, which is equivalent to using the value `$\{command:python.interpreterPath\}
+`. To use a different interpreter, specify its path instead in the `python` property of a debug configuration.
 
 Alternately, you can use a custom environment variable that's defined on each platform to contain the full path to the Python interpreter to use, so that no other folder paths are needed.
 
@@ -405,9 +417,12 @@ Specifies arguments to pass to the Python program. Each element of the argument 
 "args": ["--quiet", "--norepeat", "--port", "1593"],
 ```
 
-If you want to provide different arguments per debug run, you can set `args` to `"${command:pickArgs}"`. This will prompt you to enter arguments each time you start a debug session.
+If you want to provide different arguments per debug run, you can set `args` to `"$\{command:pickArgs\}
+"`. This will prompt you to enter arguments each time you start a debug session.
 
-> **Note**: There is a difference in how `"${command:pickArgs}"` and `["${command:pickArgs}"]` are parsed, with specific notice to the usage of `[]`. As an array, all arguments are passed as a single string, without brackets each argument is passed as its own string.
+> **Note**: There is a difference in how `"$\{command:pickArgs\}
+"` and `["$\{command:pickArgs\}
+"]` are parsed, with specific notice to the usage of `[]`. As an array, all arguments are passed as a single string, without brackets each argument is passed as its own string.
 
 ### `stopOnEntry`
 
@@ -417,15 +432,15 @@ When set to `true`, breaks the debugger at the first line of the program being d
 
 Specifies how program output is displayed as long as the defaults for `redirectOutput` aren't modified.
 
-| Value                            | Where output is displayed                                          |
-|----------------------------------|--------------------------------------------------------------------|
-| `"internalConsole"`              | **VS Code debug console.** If `redirectOutput` is set to False, no output is displayed.                                 |
-| `"integratedTerminal"` (default) | [VS Code Integrated Terminal](/docs/terminal/basics.md). If `redirectOutput` is set to True, output is also displayed in the debug console.|
-| `"externalTerminal"`             | **Separate console window**. If `redirectOutput` is set to True, output is also displayed in the debug console. |
+| Value                            | Where output is displayed                                                                                                                   |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"internalConsole"`              | **VS Code debug console.** If `redirectOutput` is set to False, no output is displayed.                                                     |
+| `"integratedTerminal"` (default) | [VS Code Integrated Terminal](/docs/terminal/basics.md). If `redirectOutput` is set to True, output is also displayed in the debug console. |
+| `"externalTerminal"`             | **Separate console window**. If `redirectOutput` is set to True, output is also displayed in the debug console.                             |
 
 ### `purpose`
 
- There is more than one way to configure the **Run** button, using the `purpose` option. Setting the option to `debug-test`, defines that the configuration should be used when debugging tests in VS Code.
+There is more than one way to configure the **Run** button, using the `purpose` option. Setting the option to `debug-test`, defines that the configuration should be used when debugging tests in VS Code.
 However, setting the option to `debug-in-terminal`, defines that the configuration should only be used when accessing the **Run Python File** button on the top-right of the editor (regardless of whether the **Run Python File** or **Debug Python File** options the button provides is used).
 **Note**: The `purpose` option can't be used to start the debugger through `kbstyle(F5)` or **Run > Start Debugging**.
 
@@ -438,7 +453,8 @@ Allows for the automatic reload of the debugger when changes are made to code af
    "name": "Python Debugger: Current File",
    "type": "debugpy",
    "request": "launch",
-   "program": "${file}",
+   "program": "$\{file\}
+",
    "console": "integratedTerminal",
    "autoReload": {
       "enable": true
@@ -454,15 +470,21 @@ Specifies whether to enable subprocess debugging. Defaults to `false`, set to `t
 
 ### `cwd`
 
-Specifies the current working directory for the debugger, which is the base folder for any relative paths used in code. If omitted, defaults to `${workspaceFolder}` (the folder open in VS Code).
+Specifies the current working directory for the debugger, which is the base folder for any relative paths used in code. If omitted, defaults to `$\{workspaceFolder\}
+` (the folder open in VS Code).
 
-As an example, say `${workspaceFolder}` contains a `py_code` folder containing `app.py`, and a `data` folder containing `salaries.csv`. If you start the debugger on `py_code/app.py`, then the relative paths to the data file vary depending on the value of `cwd`:
+As an example, say `$\{workspaceFolder\}
+` contains a `py_code` folder containing `app.py`, and a `data` folder containing `salaries.csv`. If you start the debugger on `py_code/app.py`, then the relative paths to the data file vary depending on the value of `cwd`:
 
 | cwd | Relative path to data file |
-| --- | --- |
-| Omitted or `${workspaceFolder}` | `data/salaries.csv` |
-| `${workspaceFolder}/py_code` | `../data/salaries.csv` |
-| `${workspaceFolder}/data` | `salaries.csv` |
+| --- | -------------------------- |
+
+| Omitted or `$\{workspaceFolder\}
+` | `data/salaries.csv` |
+| `$\{workspaceFolder\}
+/py_code` | `../data/salaries.csv` |
+| `$\{workspaceFolder\}
+/data` | `salaries.csv` |
 
 ### `redirectOutput`
 
@@ -508,7 +530,7 @@ The Python Debugger extension supports [breakpoints](/docs/editor/debugging.md#b
 
 ### Conditional breakpoints
 
-Breakpoints can also be set to trigger based on expressions, hit counts, or a combination of both. The Python Debugger extension supports hit counts that are integers, in addition to integers preceded by the `==`, `>`, `>=`, `<`, `<=`, and `% `operators. For example, you could set a breakpoint to trigger after five occurrences by setting a hit count of `>5`  For more information, see [conditional breakpoints](/docs/editor/debugging.md#conditional-breakpoints) in the main VS Code debugging article.
+Breakpoints can also be set to trigger based on expressions, hit counts, or a combination of both. The Python Debugger extension supports hit counts that are integers, in addition to integers preceded by the `==`, `>`, `>=`, `<`, `<=`, and `% `operators. For example, you could set a breakpoint to trigger after five occurrences by setting a hit count of `>5` For more information, see [conditional breakpoints](/docs/editor/debugging.md#conditional-breakpoints) in the main VS Code debugging article.
 
 ### Invoking a breakpoint in code
 
@@ -522,13 +544,15 @@ The Python Debugger extension automatically detects breakpoints that are set on 
 
 The configuration dropdown provides various different options for general app types:
 
-| Configuration | Description |
-| --- | --- |
-| Attach | See [Remote debugging](#debugging-by-attaching-over-a-network-connection) in the previous section. |
-| Django | Specifies `"program": "${workspaceFolder}/manage.py"`, `"args": ["runserver"]`. Also adds `"django": true` to enable debugging of Django HTML templates. |
-| Flask | See [Flask debugging](#flask-debugging) below. |
-| Gevent | Adds `"gevent": true` to the standard integrated terminal configuration. |
-| Pyramid | Removes `program`, adds `"args": ["${workspaceFolder}/development.ini"]`, adds `"jinja": true` for enabling template debugging, and adds `"pyramid": true` to ensure that the program is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
+| Configuration                                                                                                                                                                                                                                                                 | Description                                                                                        |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Attach                                                                                                                                                                                                                                                                        | See [Remote debugging](#debugging-by-attaching-over-a-network-connection) in the previous section. |
+| Django                                                                                                                                                                                                                                                                        | Specifies `"program": "$\{workspaceFolder\}                                                        |
+| /manage.py"`, `"args": ["runserver"]`. Also adds `"django": true` to enable debugging of Django HTML templates.                                                                                                                                                               |
+| Flask                                                                                                                                                                                                                                                                         | See [Flask debugging](#flask-debugging) below.                                                     |
+| Gevent                                                                                                                                                                                                                                                                        | Adds `"gevent": true` to the standard integrated terminal configuration.                           |
+| Pyramid                                                                                                                                                                                                                                                                       | Removes `program`, adds `"args": ["$\{workspaceFolder\}                                            |
+| /development.ini"]`, adds `"jinja": true`for enabling template debugging, and adds`"pyramid": true`to ensure that the program is launched with [the necessary`pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
 
 Specific steps are also needed for remote debugging and Google App Engine. For details on debugging tests, see [Testing](/docs/python/testing.md).
 
@@ -553,7 +577,8 @@ To debug an app that requires administrator privileges, use `"console": "externa
 },
 ```
 
-As you can see, this configuration specifies `"env": {"FLASK_APP": "app.py"}` and `"args": ["run", "--no-debugger"]`. The `"module": "flask"` property is used instead of `program`. (You may see `"FLASK_APP": "${workspaceFolder}/app.py"` in the `env` property, in which case modify the configuration to refer to only the filename. Otherwise, you may see "Cannot import module C" errors where C is a drive letter.)
+As you can see, this configuration specifies `"env": {"FLASK_APP": "app.py"}` and `"args": ["run", "--no-debugger"]`. The `"module": "flask"` property is used instead of `program`. (You may see `"FLASK_APP": "$\{workspaceFolder\}
+/app.py"` in the `env` property, in which case modify the configuration to refer to only the filename. Otherwise, you may see "Cannot import module C" errors where C is a drive letter.)
 
 The `"jinja": true` setting also enables debugging for Flask's default Jinja templating engine.
 
@@ -577,9 +602,11 @@ If you want to run Flask's development server in development mode, use the follo
 ```
 
 <a name="debugger-not-working"></a>
+
 ## Troubleshooting
 
 There are many reasons why the debugger may not work. Sometimes the debug console reveals specific causes, but the main reasons are as follows:
+
 - Make sure the [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy) is installed and enabled in VS Code by opening the **Extensions** view (`kb(workbench.view.extensions)`) and searching for `@installed python debugger`.
 
 - The path to the python executable is incorrect: check the path of your selected interpreter by running the **Python: Select Interpreter** command and looking at the current value:
@@ -591,16 +618,16 @@ There are many reasons why the debugger may not work. Sometimes the debug consol
 - There are invalid expressions in the watch window: clear all expressions from the Watch window and restart the debugger.
 - If you're working with a multi-threaded app that uses native thread APIs (such as the Win32 `CreateThread` function rather than the Python threading APIs), it's presently necessary to include the following source code at the top of whichever file you want to debug:
 
-    ```python
-    import debugpy
-    debugpy.debug_this_thread()
-    ```
+  ```python
+  import debugpy
+  debugpy.debug_this_thread()
+  ```
 
 - If you are working with a **Linux** system, you may receive a "timed out" error message when trying to apply a debugger to any running process. To prevent this, you can temporarily run the following command:
 
-    ```bash
-    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-    ```
+  ```bash
+  echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+  ```
 
 ## Next steps
 
