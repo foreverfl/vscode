@@ -239,7 +239,7 @@ Here are two approaches you might want to consider:
 
 * Launch the program to debug ("debug target") manually in a terminal or command prompt and redirect input/output as needed. Ensure that you pass the appropriate command line options to the debug target so that a debugger can attach to it. Create and run an "attach" debug configuration that attaches to the debug target.
 
-* If the debugger extension you are using can run the debug target in VS Code's Integrated Terminal (or an external terminal), you can try to pass the shell redirect syntax (for example, "<" or ">") as arguments.
+* If the debugger extension you are using can run the debug target in VS Code's Integrated Terminal (or an external terminal), you can try to pass the shell redirect syntax (for example, `<` or `>`) as arguments.
 
     Here's an example `launch.json` configuration:
 

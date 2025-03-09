@@ -508,7 +508,7 @@ The Python Debugger extension supports [breakpoints](/docs/editor/debugging.md#b
 
 ### Conditional breakpoints
 
-Breakpoints can also be set to trigger based on expressions, hit counts, or a combination of both. The Python Debugger extension supports hit counts that are integers, in addition to integers preceded by the ==, >, >=, <, <=, and % operators. For example, you could set a breakpoint to trigger after five occurrences by setting a hit count of `>5`  For more information, see [conditional breakpoints](/docs/editor/debugging.md#conditional-breakpoints) in the main VS Code debugging article.
+Breakpoints can also be set to trigger based on expressions, hit counts, or a combination of both. The Python Debugger extension supports hit counts that are integers, in addition to integers preceded by the `==`, `>`, `>=`, `<`, `<=`, and `% `operators. For example, you could set a breakpoint to trigger after five occurrences by setting a hit count of `>5`  For more information, see [conditional breakpoints](/docs/editor/debugging.md#conditional-breakpoints) in the main VS Code debugging article.
 
 ### Invoking a breakpoint in code
 

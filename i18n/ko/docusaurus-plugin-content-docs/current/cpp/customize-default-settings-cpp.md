@@ -45,7 +45,7 @@ This property of VS Code settings allows you to configure each of your workspace
 
 ## Updated `c_cpp_properties.json` syntax
 
-A special variable has been added to the accepted syntax of `c_cpp_properties.json` that will instruct the extension to insert  the value from the VS Code settings mentioned above. If you set the value of any setting in `c_cpp_properties.json` to "${default}" it will instruct the extension to read the VS Code default setting for that property and insert it. For example:
+A special variable has been added to the accepted syntax of `c_cpp_properties.json` that will instruct the extension to insert  the value from the VS Code settings mentioned above. If you set the value of any setting in `c_cpp_properties.json` to "$\{default\}" it will instruct the extension to read the VS Code default setting for that property and insert it. For example:
 
 ```json
 "configurations": [

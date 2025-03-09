@@ -32,7 +32,7 @@ The following predefined variables are supported:
 | **${execPath}**                | Path to the running VS Code executable                                      |
 | **${defaultBuildTask}**        | Name of the default build task                                              |
 | **${pathSeparator}**           | Character used by the operating system to separate components in file paths |
-| **${/}**                       | Shorthand for **${pathSeparator}**                                          |
+| **$\{\/\}**                       | Shorthand for **$\{pathSeparator\}**                                          |
 
 ### Predefined variables example
 
@@ -72,7 +72,7 @@ For example, in a multi root workspace with folders `Server` and `Client`, a `${
 
 ## Environment variables
 
-You can reference environment variables with the **${env:Name}** syntax. For example, **${env:USERNAME}** references the `USERNAME` environment variable.
+You can reference environment variables with the **$\{env:Name\}** syntax. For example, **$\{env:USERNAME\}** references the `USERNAME` environment variable.
 
 ```json
 {
@@ -87,11 +87,11 @@ You can reference environment variables with the **${env:Name}** syntax. For exa
 
 ## Configuration variables
 
-To reference VS Code settings (_configurations_), use the **${config:Name}** syntax. For example, **${config:editor.fontSize}** references the `editor.fontSize` setting.
+To reference VS Code settings (_configurations_), use the **$\{config:Name\}** syntax. For example, **$\{config:editor.fontSize\}** references the `editor.fontSize` setting.
 
 ## Command variables
 
-You can use any VS Code command as a variable with the **${command:commandID}** syntax.
+You can use any VS Code command as a variable with the **$\{command:commandID\}** syntax.
 
 A command variable is replaced with the (string) result from the command evaluation. The implementation of a command can range from a simple calculation with no UI, to some sophisticated functionality based on the UI features available via VS Code's extension API. If the command returns anything other than a string, then the variable replacement will not complete. Command variables **must** return a string.
 
@@ -116,7 +116,7 @@ When using a command variable in a `launch.json` configuration, the enclosing `l
 
 Command variables are already powerful but they lack a mechanism to configure the command being run for a specific use case. For example, it is not possible to pass a **prompt message** or a **default value** to a generic "user input prompt".
 
-This limitation is solved with **input variables**, which have the syntax **${input:variableID}**. The `variableID` refers to entries in the `inputs` section of `launch.json` and `tasks.json`, where additional configuration attributes are specified. Nesting of input variables is not supported.
+This limitation is solved with **input variables**, which have the syntax **$\{input:variableID\}**. The `variableID` refers to entries in the `inputs` section of `launch.json` and `tasks.json`, where additional configuration attributes are specified. Nesting of input variables is not supported.
 
 The following example shows the overall structure of a `tasks.json` that makes use of input variables:
 
@@ -276,7 +276,7 @@ The predefined variables are supported in a select number of setting keys in `se
 
 Refer to the comments in the Settings editor (`kb(workbench.action.openSettings)`) to learn about setting-specific variables.
 
-### Why isn't ${workspaceRoot} documented?
+### Why isn't $\{workspaceRoot\} documented?
 
 The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` to better align with [Multi-root Workspace](/docs/editor/workspaces/multi-root-workspaces.md) support.
 
