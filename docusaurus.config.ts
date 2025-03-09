@@ -33,12 +33,15 @@ const config: Config = {
   i18n: {
     defaultLocale: "ko",
     locales: ["ko", "ja"],
+    path: "i18n",
     localeConfigs: {
       ko: {
         label: "한국어",
+        path: "ko",
       },
       ja: {
         label: "日本語",
+        path: "ja",
       },
     },
   },
@@ -59,19 +62,21 @@ const config: Config = {
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "default", // 기본 문서 설정
-        path: "docs", // 기본 문서 경로
-        routeBasePath: "/", // 기본 문서의 URL 경로 (예: /)
-        sidebarPath: require.resolve("./sidebars.ts"), // 사이드바 파일
+        id: "default",
+        path: "docs",
+        routeBasePath: "/",
+        sidebarPath: require.resolve("./sidebars.ts"),
+        editLocalizedFiles: true,
       },
     ],
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "api", // API 문서 설정
-        path: "api", // API 문서 경로
-        routeBasePath: "api", // API 문서의 URL 경로 (예: /api)
-        sidebarPath: require.resolve("./sidebarsApi.ts"), // 사이드바 파일
+        id: "api",
+        path: "api",
+        routeBasePath: "api",
+        sidebarPath: require.resolve("./sidebarsApi.ts"),
+        editLocalizedFiles: true, // 🔹 다국어 편집 활성화
       },
     ],
   ],
@@ -90,7 +95,7 @@ const config: Config = {
           sidebarId: "tutorialSidebar",
           docsPluginId: "default",
           position: "left",
-          label: "문서",
+          label: "Docs",
         },
         {
           type: "docSidebar",
@@ -109,7 +114,7 @@ const config: Config = {
             },
             {
               href: "https://github.com/foreverfl/vscode",
-              label: "번역을 도와주세요!",
+              label: "Help us improve this page",
             },
           ],
         },
@@ -124,12 +129,12 @@ const config: Config = {
           items: [
             {
               label: "Docs",
-              href: "httsp://docs.mogumogu.dev"
+              href: "httsp://docs.mogumogu.dev",
             },
             {
               label: "Discord",
               href: "https://discord.gg/KCSKP69f",
-            }
+            },
           ],
         },
         {
@@ -151,7 +156,7 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
       additionalLanguages: ["java", "javascript", "typescript", "bash"],
-    }
+    },
   } satisfies Preset.ThemeConfig,
 };
 

@@ -16,10 +16,9 @@ import { SidebarItemConfig } from "@docusaurus/plugin-content-docs/src/sidebars/
 const sidebars: SidebarsConfig = {
   // By default, Docusaurus generates a sidebar from the docs folder structure
   tutorialSidebar: [
-    // 설정
     {
       type: "category",
-      label: "설정",
+      label: "SETUP",
       collapsible: true,
       collapsed: true,
       items: [
@@ -34,10 +33,9 @@ const sidebars: SidebarsConfig = {
         "setup/uninstall",
       ],
     },
-    // 시작하기
     {
       type: "category",
-      label: "시작하기",
+      label: "GETTING STARTED",
       collapsible: true,
       collapsed: true,
       items: [
@@ -48,10 +46,9 @@ const sidebars: SidebarsConfig = {
         "getstarted/educators-and-students",
       ],
     },
-    // 유저 가이드
     {
       type: "category",
-      label: "유저 가이드",
+      label: "USER GUIDE",
       collapsible: true,
       collapsed: true,
       items: [
@@ -78,10 +75,9 @@ const sidebars: SidebarsConfig = {
         "editor/port-forwarding",
       ],
     },
-    // 소스 관리
     {
       type: "category",
-      label: "소스 관리",
+      label: "SOURCE CONTROL",
       collapsible: true,
       collapsed: true,
       items: [
@@ -91,10 +87,9 @@ const sidebars: SidebarsConfig = {
         "sourcecontrol/faq",
       ],
     },
-    // 터미널
     {
       type: "category",
-      label: "터미널",
+      label: "TERMINAL",
       collapsible: true,
       collapsed: true,
       items: [
@@ -106,7 +101,6 @@ const sidebars: SidebarsConfig = {
         "terminal/advanced",
       ],
     },
-    // GitHub Copilot
     {
       type: "category",
       label: "GitHub Copilot",
@@ -129,10 +123,9 @@ const sidebars: SidebarsConfig = {
         "copilot/faq",
       ],
     },
-    // 프로그래밍 언어
     {
       type: "category",
-      label: "프로그래밍 언어",
+      label: "LANGUAGES",
       collapsible: true,
       collapsed: true,
       items: [
@@ -158,7 +151,6 @@ const sidebars: SidebarsConfig = {
         "languages/polyglot",
       ],
     },
-    // Node.js / JavaScript
     {
       type: "category",
       label: "Node.js / JavaScript",
@@ -178,7 +170,6 @@ const sidebars: SidebarsConfig = {
         "nodejs/extensions",
       ],
     },
-    // TypeScript
     {
       type: "category",
       label: "TypeScript",
@@ -192,7 +183,6 @@ const sidebars: SidebarsConfig = {
         "typescript/typescript-debugging",
       ],
     },
-    // Python
     {
       type: "category",
       label: "Python",
@@ -218,7 +208,6 @@ const sidebars: SidebarsConfig = {
         "python/settings-reference",
       ],
     },
-    // Java
     {
       type: "category",
       label: "Java",
@@ -241,7 +230,6 @@ const sidebars: SidebarsConfig = {
         "java/java-faq",
       ],
     },
-    // C++
     {
       type: "category",
       label: "C++",
@@ -267,7 +255,6 @@ const sidebars: SidebarsConfig = {
         "cpp/faq-cpp",
       ],
     },
-    // C#
     {
       type: "category",
       label: "C#",
@@ -288,7 +275,6 @@ const sidebars: SidebarsConfig = {
         "csharp/cs-dev-kit-faq",
       ],
     },
-    // Docker
     {
       type: "category",
       label: "DOCKER",
@@ -309,10 +295,9 @@ const sidebars: SidebarsConfig = {
         "containers/troubleshooting",
       ],
     },
-    // 데이터 과학
     {
       type: "category",
-      label: "데이터 과학",
+      label: "DATA SCIENCE",
       collapsible: true,
       collapsed: true,
       items: [
@@ -328,7 +313,22 @@ const sidebars: SidebarsConfig = {
         "datascience/notebooks-web",
       ],
     },
-    // Azure
+    {
+      type: "category",
+      label: "INTELLIGENT APPS",
+      collapsible: true,
+      collapsed: true,
+      items: [
+        "intelligentapps/overview",
+        "intelligentapps/models",
+        "intelligentapps/playground",
+        "intelligentapps/bulkrun",
+        "intelligentapps/faq",
+        "intelligentapps/evaluation",
+        "intelligentapps/finetune",
+        "intelligentapps/models",
+      ],
+    },
     {
       type: "category",
       label: "AZURE",
@@ -345,10 +345,9 @@ const sidebars: SidebarsConfig = {
         "azure/remote-debugging",
       ],
     },
-    // 원격 개발
     {
       type: "category",
-      label: "원격 개발",
+      label: "REMOTE",
       collapsible: true,
       collapsed: true,
       items: [
@@ -365,10 +364,9 @@ const sidebars: SidebarsConfig = {
         "remote/faq",
       ],
     },
-    // Dev 컨테이너
     {
       type: "category",
-      label: "Dev 컨테이너",
+      label: "DEV CONTAINERS",
       collapsible: true,
       collapsed: true,
       items: [
@@ -381,6 +379,18 @@ const sidebars: SidebarsConfig = {
         "devcontainers/devcontainer-cli",
         "devcontainers/tips-and-tricks",
         "devcontainers/faq",
+      ],
+    },
+    {
+      type: "category",
+      label: "REFERENCES",
+      collapsible: true,
+      collapsed: true,
+      items: [
+        "reference/default-keybindings",
+        "reference/default-settings",
+        "reference/variables-reference",
+        "reference/tasks-appendix",
       ],
     },
   ],

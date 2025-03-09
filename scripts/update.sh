@@ -12,13 +12,23 @@ echo "upstream_version: $UPSTREAM_VERSION"
 if [ "$ORIGIN_VERSION" != "$UPSTREAM_VERSION" ]; then
     echo "🚀 Update required: upstream_version ($UPSTREAM_VERSION) is different from origin_version ($ORIGIN_VERSION)."
 
+    # Move into the submodule directory
+    cd original
+
     # Fetch the latest changes from upstream
     echo "🔄 Fetching the latest changes from upstream..."
-    git fetch upstream
+    git fetch origin
 
-    # Pull the latest changes from upstream into the "original" directory using subtree
-    echo "🌲 Updating the 'original' directory using git subtree..."
-    git subtree pull --prefix=original --squash upstream main
+    echo "🌲 Updating the 'original' submodule..."
+    git checkout main
+    git pull origin main
+
+    # Move back to the main repository
+    cd ..
+
+    # Stage the submodule update
+    echo "✅ Staging updated submodule..."
+    git add original
 
     # Display modified files only (short format)
     echo "📝 Modified files:"
@@ -31,6 +41,11 @@ if [ "$ORIGIN_VERSION" != "$UPSTREAM_VERSION" ]; then
     # Update version.yaml with the latest upstream version
     echo "📌 Updating version.yaml..."
     yq -i '.origin_version = "'$UPSTREAM_VERSION'"' version.yaml
+
+    # Stage and commit the changes
+    echo "📌 Committing changes..."
+    git add version.yaml
+    git commit -m "Updated original submodule to latest upstream version ($UPSTREAM_VERSION)"
 
     echo "✅ Update complete! The latest upstream version has been applied."
 else

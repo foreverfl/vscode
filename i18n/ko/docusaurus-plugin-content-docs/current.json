@@ -1,0 +1,86 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.SETUP": {
+    "message": "SETUP",
+    "description": "The label for category SETUP in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.GETTING STARTED": {
+    "message": "GETTING STARTED",
+    "description": "The label for category GETTING STARTED in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.USER GUIDE": {
+    "message": "USER GUIDE",
+    "description": "The label for category USER GUIDE in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.SOURCE CONTROL": {
+    "message": "SOURCE CONTROL",
+    "description": "The label for category SOURCE CONTROL in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.TERMINAL": {
+    "message": "TERMINAL",
+    "description": "The label for category TERMINAL in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.GitHub Copilot": {
+    "message": "GitHub Copilot",
+    "description": "The label for category GitHub Copilot in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.LANGUAGES": {
+    "message": "LANGUAGES",
+    "description": "The label for category LANGUAGES in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Node.js / JavaScript": {
+    "message": "Node.js / JavaScript",
+    "description": "The label for category Node.js / JavaScript in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.TypeScript": {
+    "message": "TypeScript",
+    "description": "The label for category TypeScript in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Python": {
+    "message": "Python",
+    "description": "The label for category Python in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Java": {
+    "message": "Java",
+    "description": "The label for category Java in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.C++": {
+    "message": "C++",
+    "description": "The label for category C++ in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.C#": {
+    "message": "C#",
+    "description": "The label for category C# in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.DOCKER": {
+    "message": "DOCKER",
+    "description": "The label for category DOCKER in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.DATA SCIENCE": {
+    "message": "DATA SCIENCE",
+    "description": "The label for category DATA SCIENCE in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.INTELLIGENT APPS": {
+    "message": "INTELLIGENT APPS",
+    "description": "The label for category INTELLIGENT APPS in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.AZURE": {
+    "message": "AZURE",
+    "description": "The label for category AZURE in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.REMOTE": {
+    "message": "REMOTE",
+    "description": "The label for category REMOTE in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.DEV CONTAINERS": {
+    "message": "DEV CONTAINERS",
+    "description": "The label for category DEV CONTAINERS in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.REFERENCES": {
+    "message": "REFERENCES",
+    "description": "The label for category REFERENCES in sidebar tutorialSidebar"
+  }
+}

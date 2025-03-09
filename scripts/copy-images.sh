@@ -4,7 +4,7 @@
 SRC_DIR="original"
 
 # 복사할 대상 디렉토리
-DEST_DIR="."
+DEST_DIR="i18n/ko/docusaurus-plugin-content-docs"
 
 # images 폴더를 재귀적으로 찾아서 복사
 find "$SRC_DIR" -type d -name "images" | while read -r img_dir; do

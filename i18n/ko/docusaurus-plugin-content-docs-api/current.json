@@ -1,0 +1,310 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.apiSidebar.category.시작하기": {
+    "message": "시작하기",
+    "description": "The label for category 시작하기 in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.확장 프로그램 기능": {
+    "message": "확장 프로그램 기능",
+    "description": "The label for category 확장 프로그램 기능 in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.확장 프로그램 가이드": {
+    "message": "확장 프로그램 가이드",
+    "description": "The label for category 확장 프로그램 가이드 in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.사용자 경험 지침": {
+    "message": "사용자 경험 지침",
+    "description": "The label for category 사용자 경험 지침 in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.언어 확장": {
+    "message": "언어 확장",
+    "description": "The label for category 언어 확장 in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.테스트 및 배포": {
+    "message": "테스트 및 배포",
+    "description": "The label for category 테스트 및 배포 in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.고급 주제": {
+    "message": "고급 주제",
+    "description": "The label for category 고급 주제 in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.참조": {
+    "message": "참조",
+    "description": "The label for category 참조 in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.doc.개요": {
+    "message": "개요",
+    "description": "The label for the doc item 개요 in sidebar apiSidebar, linking to the doc language-extensions/overview"
+  },
+  "sidebar.apiSidebar.doc.첫 번째 확장 프로그램 만들기": {
+    "message": "첫 번째 확장 프로그램 만들기",
+    "description": "The label for the doc item 첫 번째 확장 프로그램 만들기 in sidebar apiSidebar, linking to the doc get-started/your-first-extension"
+  },
+  "sidebar.apiSidebar.doc.확장 프로그램 구조": {
+    "message": "확장 프로그램 구조",
+    "description": "The label for the doc item 확장 프로그램 구조 in sidebar apiSidebar, linking to the doc get-started/extension-anatomy"
+  },
+  "sidebar.apiSidebar.doc.마무리": {
+    "message": "마무리",
+    "description": "The label for the doc item 마무리 in sidebar apiSidebar, linking to the doc get-started/wrapping-up"
+  },
+  "sidebar.apiSidebar.doc.공통 기능": {
+    "message": "공통 기능",
+    "description": "The label for the doc item 공통 기능 in sidebar apiSidebar, linking to the doc extension-capabilities/common-capabilities"
+  },
+  "sidebar.apiSidebar.doc.테마 구성": {
+    "message": "테마 구성",
+    "description": "The label for the doc item 테마 구성 in sidebar apiSidebar, linking to the doc extension-capabilities/theming"
+  },
+  "sidebar.apiSidebar.doc.개발 환경 확장": {
+    "message": "개발 환경 확장",
+    "description": "The label for the doc item 개발 환경 확장 in sidebar apiSidebar, linking to the doc extension-capabilities/extending-workbench"
+  },
+  "sidebar.apiSidebar.doc.명령": {
+    "message": "명령",
+    "description": "The label for the doc item 명령 in sidebar apiSidebar, linking to the doc extension-guides/command"
+  },
+  "sidebar.apiSidebar.doc.색상 테마": {
+    "message": "색상 테마",
+    "description": "The label for the doc item 색상 테마 in sidebar apiSidebar, linking to the doc extension-guides/color-theme"
+  },
+  "sidebar.apiSidebar.doc.파일 아이콘 테마": {
+    "message": "파일 아이콘 테마",
+    "description": "The label for the doc item 파일 아이콘 테마 in sidebar apiSidebar, linking to the doc extension-guides/file-icon-theme"
+  },
+  "sidebar.apiSidebar.doc.제품 아이콘 테마": {
+    "message": "제품 아이콘 테마",
+    "description": "The label for the doc item 제품 아이콘 테마 in sidebar apiSidebar, linking to the doc extension-guides/product-icon-theme"
+  },
+  "sidebar.apiSidebar.doc.채팅": {
+    "message": "채팅",
+    "description": "The label for the doc item 채팅 in sidebar apiSidebar, linking to the doc extension-guides/chat"
+  },
+  "sidebar.apiSidebar.doc.채팅 튜토리얼": {
+    "message": "채팅 튜토리얼",
+    "description": "The label for the doc item 채팅 튜토리얼 in sidebar apiSidebar, linking to the doc extension-guides/chat-tutorial"
+  },
+  "sidebar.apiSidebar.doc.언어 모델": {
+    "message": "언어 모델",
+    "description": "The label for the doc item 언어 모델 in sidebar apiSidebar, linking to the doc extension-guides/language-model"
+  },
+  "sidebar.apiSidebar.doc.언어 모델 튜토리얼": {
+    "message": "언어 모델 튜토리얼",
+    "description": "The label for the doc item 언어 모델 튜토리얼 in sidebar apiSidebar, linking to the doc extension-guides/language-model-tutorial"
+  },
+  "sidebar.apiSidebar.doc.언어 모델 도구": {
+    "message": "언어 모델 도구",
+    "description": "The label for the doc item 언어 모델 도구 in sidebar apiSidebar, linking to the doc extension-guides/tools"
+  },
+  "sidebar.apiSidebar.doc.프롬프트 TSX": {
+    "message": "프롬프트 TSX",
+    "description": "The label for the doc item 프롬프트 TSX in sidebar apiSidebar, linking to the doc extension-guides/prompt-tsx"
+  },
+  "sidebar.apiSidebar.doc.웹뷰": {
+    "message": "웹뷰",
+    "description": "The label for the doc item 웹뷰 in sidebar apiSidebar, linking to the doc ux-guidelines/webviews"
+  },
+  "sidebar.apiSidebar.doc.노트북": {
+    "message": "노트북",
+    "description": "The label for the doc item 노트북 in sidebar apiSidebar, linking to the doc extension-guides/notebook"
+  },
+  "sidebar.apiSidebar.doc.사용자 지정 편집기": {
+    "message": "사용자 지정 편집기",
+    "description": "The label for the doc item 사용자 지정 편집기 in sidebar apiSidebar, linking to the doc extension-guides/custom-editors"
+  },
+  "sidebar.apiSidebar.doc.가상 문서": {
+    "message": "가상 문서",
+    "description": "The label for the doc item 가상 문서 in sidebar apiSidebar, linking to the doc extension-guides/virtual-documents"
+  },
+  "sidebar.apiSidebar.doc.가상 작업 공간": {
+    "message": "가상 작업 공간",
+    "description": "The label for the doc item 가상 작업 공간 in sidebar apiSidebar, linking to the doc extension-guides/virtual-workspaces"
+  },
+  "sidebar.apiSidebar.doc.웹 확장": {
+    "message": "웹 확장",
+    "description": "The label for the doc item 웹 확장 in sidebar apiSidebar, linking to the doc extension-guides/web-extensions"
+  },
+  "sidebar.apiSidebar.doc.작업 공간 신뢰": {
+    "message": "작업 공간 신뢰",
+    "description": "The label for the doc item 작업 공간 신뢰 in sidebar apiSidebar, linking to the doc extension-guides/workspace-trust"
+  },
+  "sidebar.apiSidebar.doc.작업 제공자": {
+    "message": "작업 제공자",
+    "description": "The label for the doc item 작업 제공자 in sidebar apiSidebar, linking to the doc extension-guides/task-provider"
+  },
+  "sidebar.apiSidebar.doc.소스 제어": {
+    "message": "소스 제어",
+    "description": "The label for the doc item 소스 제어 in sidebar apiSidebar, linking to the doc extension-guides/scm-provider"
+  },
+  "sidebar.apiSidebar.doc.디버거 확장": {
+    "message": "디버거 확장",
+    "description": "The label for the doc item 디버거 확장 in sidebar apiSidebar, linking to the doc extension-guides/debugger-extension"
+  },
+  "sidebar.apiSidebar.doc.마크다운 확장": {
+    "message": "마크다운 확장",
+    "description": "The label for the doc item 마크다운 확장 in sidebar apiSidebar, linking to the doc extension-guides/markdown-extension"
+  },
+  "sidebar.apiSidebar.doc.테스트 확장": {
+    "message": "테스트 확장",
+    "description": "The label for the doc item 테스트 확장 in sidebar apiSidebar, linking to the doc extension-guides/testing"
+  },
+  "sidebar.apiSidebar.doc.사용자 지정 데이터 확장": {
+    "message": "사용자 지정 데이터 확장",
+    "description": "The label for the doc item 사용자 지정 데이터 확장 in sidebar apiSidebar, linking to the doc extension-guides/custom-data-extension"
+  },
+  "sidebar.apiSidebar.doc.텔레메트리": {
+    "message": "텔레메트리",
+    "description": "The label for the doc item 텔레메트리 in sidebar apiSidebar, linking to the doc extension-guides/telemetry"
+  },
+  "sidebar.apiSidebar.doc.작업 표시줄": {
+    "message": "작업 표시줄",
+    "description": "The label for the doc item 작업 표시줄 in sidebar apiSidebar, linking to the doc ux-guidelines/activity-bar"
+  },
+  "sidebar.apiSidebar.doc.사이드바": {
+    "message": "사이드바",
+    "description": "The label for the doc item 사이드바 in sidebar apiSidebar, linking to the doc ux-guidelines/sidebars"
+  },
+  "sidebar.apiSidebar.doc.패널": {
+    "message": "패널",
+    "description": "The label for the doc item 패널 in sidebar apiSidebar, linking to the doc ux-guidelines/panel"
+  },
+  "sidebar.apiSidebar.doc.상태 표시줄": {
+    "message": "상태 표시줄",
+    "description": "The label for the doc item 상태 표시줄 in sidebar apiSidebar, linking to the doc ux-guidelines/status-bar"
+  },
+  "sidebar.apiSidebar.doc.뷰": {
+    "message": "뷰",
+    "description": "The label for the doc item 뷰 in sidebar apiSidebar, linking to the doc ux-guidelines/views"
+  },
+  "sidebar.apiSidebar.doc.편집기 작업": {
+    "message": "편집기 작업",
+    "description": "The label for the doc item 편집기 작업 in sidebar apiSidebar, linking to the doc ux-guidelines/editor-actions"
+  },
+  "sidebar.apiSidebar.doc.빠른 선택": {
+    "message": "빠른 선택",
+    "description": "The label for the doc item 빠른 선택 in sidebar apiSidebar, linking to the doc ux-guidelines/quick-picks"
+  },
+  "sidebar.apiSidebar.doc.명령 팔레트": {
+    "message": "명령 팔레트",
+    "description": "The label for the doc item 명령 팔레트 in sidebar apiSidebar, linking to the doc ux-guidelines/command-palette"
+  },
+  "sidebar.apiSidebar.doc.알림": {
+    "message": "알림",
+    "description": "The label for the doc item 알림 in sidebar apiSidebar, linking to the doc ux-guidelines/notifications"
+  },
+  "sidebar.apiSidebar.doc.컨텍스트 메뉴": {
+    "message": "컨텍스트 메뉴",
+    "description": "The label for the doc item 컨텍스트 메뉴 in sidebar apiSidebar, linking to the doc ux-guidelines/context-menus"
+  },
+  "sidebar.apiSidebar.doc.워크스루": {
+    "message": "워크스루",
+    "description": "The label for the doc item 워크스루 in sidebar apiSidebar, linking to the doc ux-guidelines/walkthroughs"
+  },
+  "sidebar.apiSidebar.doc.설정": {
+    "message": "설정",
+    "description": "The label for the doc item 설정 in sidebar apiSidebar, linking to the doc ux-guidelines/settings"
+  },
+  "sidebar.apiSidebar.doc.구문 하이라이트 가이드": {
+    "message": "구문 하이라이트 가이드",
+    "description": "The label for the doc item 구문 하이라이트 가이드 in sidebar apiSidebar, linking to the doc language-extensions/syntax-highlight-guide"
+  },
+  "sidebar.apiSidebar.doc.시맨틱 하이라이트 가이드": {
+    "message": "시맨틱 하이라이트 가이드",
+    "description": "The label for the doc item 시맨틱 하이라이트 가이드 in sidebar apiSidebar, linking to the doc language-extensions/semantic-highlight-guide"
+  },
+  "sidebar.apiSidebar.doc.스니펫 가이드": {
+    "message": "스니펫 가이드",
+    "description": "The label for the doc item 스니펫 가이드 in sidebar apiSidebar, linking to the doc language-extensions/snippet-guide"
+  },
+  "sidebar.apiSidebar.doc.언어 구성 가이드": {
+    "message": "언어 구성 가이드",
+    "description": "The label for the doc item 언어 구성 가이드 in sidebar apiSidebar, linking to the doc language-extensions/language-configuration-guide"
+  },
+  "sidebar.apiSidebar.doc.프로그래밍 언어 기능": {
+    "message": "프로그래밍 언어 기능",
+    "description": "The label for the doc item 프로그래밍 언어 기능 in sidebar apiSidebar, linking to the doc language-extensions/programmatic-language-features"
+  },
+  "sidebar.apiSidebar.doc.언어 서버 확장 가이드": {
+    "message": "언어 서버 확장 가이드",
+    "description": "The label for the doc item 언어 서버 확장 가이드 in sidebar apiSidebar, linking to the doc language-extensions/language-server-extension-guide"
+  },
+  "sidebar.apiSidebar.doc.임베디드 언어": {
+    "message": "임베디드 언어",
+    "description": "The label for the doc item 임베디드 언어 in sidebar apiSidebar, linking to the doc language-extensions/embedded-languages"
+  },
+  "sidebar.apiSidebar.doc.확장 프로그램 테스트": {
+    "message": "확장 프로그램 테스트",
+    "description": "The label for the doc item 확장 프로그램 테스트 in sidebar apiSidebar, linking to the doc working-with-extensions/testing-extension"
+  },
+  "sidebar.apiSidebar.doc.확장 프로그램 배포": {
+    "message": "확장 프로그램 배포",
+    "description": "The label for the doc item 확장 프로그램 배포 in sidebar apiSidebar, linking to the doc working-with-extensions/publishing-extension"
+  },
+  "sidebar.apiSidebar.doc.확장 프로그램 번들링": {
+    "message": "확장 프로그램 번들링",
+    "description": "The label for the doc item 확장 프로그램 번들링 in sidebar apiSidebar, linking to the doc working-with-extensions/bundling-extension"
+  },
+  "sidebar.apiSidebar.doc.지속적 통합": {
+    "message": "지속적 통합",
+    "description": "The label for the doc item 지속적 통합 in sidebar apiSidebar, linking to the doc working-with-extensions/continuous-integration"
+  },
+  "sidebar.apiSidebar.doc.확장 프로그램 호스트": {
+    "message": "확장 프로그램 호스트",
+    "description": "The label for the doc item 확장 프로그램 호스트 in sidebar apiSidebar, linking to the doc advanced-topics/extension-host"
+  },
+  "sidebar.apiSidebar.doc.원격 개발 및 Codespaces": {
+    "message": "원격 개발 및 Codespaces",
+    "description": "The label for the doc item 원격 개발 및 Codespaces in sidebar apiSidebar, linking to the doc advanced-topics/remote-extensions"
+  },
+  "sidebar.apiSidebar.doc.제안된 API 사용": {
+    "message": "제안된 API 사용",
+    "description": "The label for the doc item 제안된 API 사용 in sidebar apiSidebar, linking to the doc advanced-topics/using-proposed-api"
+  },
+  "sidebar.apiSidebar.doc.TSLint에서 ESLint로 마이그레이션": {
+    "message": "TSLint에서 ESLint로 마이그레이션",
+    "description": "The label for the doc item TSLint에서 ESLint로 마이그레이션 in sidebar apiSidebar, linking to the doc advanced-topics/tslint-eslint-migration"
+  },
+  "sidebar.apiSidebar.doc.Python 확장 템플릿": {
+    "message": "Python 확장 템플릿",
+    "description": "The label for the doc item Python 확장 템플릿 in sidebar apiSidebar, linking to the doc advanced-topics/python-extension-template"
+  },
+  "sidebar.apiSidebar.doc.VS Code API": {
+    "message": "VS Code API",
+    "description": "The label for the doc item VS Code API in sidebar apiSidebar, linking to the doc references/vscode-api"
+  },
+  "sidebar.apiSidebar.doc.기여 지점": {
+    "message": "기여 지점",
+    "description": "The label for the doc item 기여 지점 in sidebar apiSidebar, linking to the doc references/contribution-points"
+  },
+  "sidebar.apiSidebar.doc.활성화 이벤트": {
+    "message": "활성화 이벤트",
+    "description": "The label for the doc item 활성화 이벤트 in sidebar apiSidebar, linking to the doc references/activation-events"
+  },
+  "sidebar.apiSidebar.doc.확장 매니페스트": {
+    "message": "확장 매니페스트",
+    "description": "The label for the doc item 확장 매니페스트 in sidebar apiSidebar, linking to the doc references/extension-manifest"
+  },
+  "sidebar.apiSidebar.doc.내장 명령어": {
+    "message": "내장 명령어",
+    "description": "The label for the doc item 내장 명령어 in sidebar apiSidebar, linking to the doc references/commands"
+  },
+  "sidebar.apiSidebar.doc.When 절 컨텍스트": {
+    "message": "When 절 컨텍스트",
+    "description": "The label for the doc item When 절 컨텍스트 in sidebar apiSidebar, linking to the doc references/when-clause-contexts"
+  },
+  "sidebar.apiSidebar.doc.테마 색상": {
+    "message": "테마 색상",
+    "description": "The label for the doc item 테마 색상 in sidebar apiSidebar, linking to the doc references/theme-color"
+  },
+  "sidebar.apiSidebar.doc.제품 아이콘 참조": {
+    "message": "제품 아이콘 참조",
+    "description": "The label for the doc item 제품 아이콘 참조 in sidebar apiSidebar, linking to the doc references/icons-in-labels"
+  },
+  "sidebar.apiSidebar.doc.문서 선택기": {
+    "message": "문서 선택기",
+    "description": "The label for the doc item 문서 선택기 in sidebar apiSidebar, linking to the doc references/document-selector"
+  }
+}
