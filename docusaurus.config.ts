@@ -67,6 +67,7 @@ const config: Config = {
         routeBasePath: "/",
         sidebarPath: require.resolve("./sidebars.ts"),
         editLocalizedFiles: true,
+        remarkPlugins: [require("./remark-keybinding-replace")], 
       },
     ],
     [
@@ -76,7 +77,8 @@ const config: Config = {
         path: "api",
         routeBasePath: "api",
         sidebarPath: require.resolve("./sidebarsApi.ts"),
-        editLocalizedFiles: true, // 🔹 다국어 편집 활성화
+        editLocalizedFiles: true, 
+        remarkPlugins: [require("./remark-keybinding-replace")], 
       },
     ],
   ],

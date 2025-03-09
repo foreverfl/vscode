@@ -1,197 +1,197 @@
 ---
 Order: 2
 Area: sourcecontrol
-TOCTitle: Introduction to Git
+TOCTitle: Git 소개
 ContentId: b3e4717d-81e2-4bfa-a022-c37aab950bce
-PageTitle: Introduction to Git in Visual Studio Code
+PageTitle: Visual Studio Code에서 Git 소개
 DateApproved: 03/05/2025
-MetaDescription: Get started with Git in Visual Studio Code and take control of your code! Our beginner's guide covers everything you need to know, from setting up a repository to committing changes and collaborating with others. Learn Git today and streamline your development workflow.
+MetaDescription: Visual Studio Code에서 Git을 시작하고 코드 제어를 해보세요! 초보자를 위한 가이드는 리포지토리 설정부터 변경 사항 커밋 및 다른 사람과의 협업까지 알아야 할 모든 것을 다룹니다. 오늘 Git을 배우고 개발 워크플로를 간소화하세요.
 ---
-# Introduction to Git in VS Code
+# Visual Studio Code에서 Git 소개 {#introduction-to-git-in-vs-code}
 
-Want to easily manage your source code and collaborate with others? Git and GitHub are the tools you need! And with Visual Studio Code, you can set up and use them in a snap. Even if you're a beginner, VS Code's user-friendly interface guides you through common Git actions like pushing and pulling code, creating and merging branches, and committing code changes. And if you're a pro, you'll love the ability to perform Git actions directly within the editor, saving you time and effort compared to using the Git command line. Plus, the seamless workflow between VS Code and Git means you can stay in your editor and get more done.
+소스 코드를 쉽게 관리하고 다른 사람과 협업하고 싶으신가요? Git과 GitHub가 필요한 도구입니다! Visual Studio Code를 사용하면 이를 간편하게 설정하고 사용할 수 있습니다. 초보자라도 VS Code의 사용자 친화적인 인터페이스가 코드를 푸시하고 풀링하며, 브랜치를 생성하고 병합하고, 코드 변경 사항을 커밋하는 등의 일반적인 Git 작업을 안내합니다. 전문가라면, Git 명령줄을 사용하는 것보다 시간을 절약하고 노력을 덜 들이면서 편집기 내에서 직접 Git 작업을 수행할 수 있는 기능을 좋아할 것입니다. 또한, VS Code와 Git 간의 원활한 워크플로 덕분에 편집기에서 작업을 계속하며 더 많은 일을 할 수 있습니다.
 
-With GitHub Copilot in VS Code, you can get suggestions for commit messages, pull requests, and review code changes before committing them. Learn more about [GitHub Copilot in VS Code](/docs/copilot/overview.md).
-
-> [!TIP]
-> If you don't have a Copilot subscription yet, use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup). You'll get a monthly limit of completions and chat interactions.
-
-## Set up Git in VS Code
-
-To use Git and GitHub in VS Code, first make sure you [have Git installed on your computer](https://git-scm.com/downloads). If Git is missing, the **Source Control** view shows instructions on how to install it. Make sure to restart VS Code afterwards.
-
-Additionally you can sign into VS Code with your GitHub account in the **Accounts** menu in the lower right of the Activity bar to enable additional features like [Settings Sync](/docs/editor/settings-sync.md), but also cloning and publishing repositories from GitHub.
-
-![Screenshot of the Accounts menu in VS Code](images/intro/vscode-accounts-menu.png)
-
-## Open a Git repository
-
-VS Code provides several ways to get started in a Git repository, from local to remote cloud-powered environments like [GitHub Codespaces](https://github.com/features/codespaces).
-
-### Clone a repository locally
-
-To clone a repository, run the **Git: Clone** command in the Command Palette (`kb(workbench.action.showCommands)`), or select the **Clone Repository** button in the **Source Control** view.
-
-If you clone from GitHub, VS Code prompts you to authenticate with GitHub. Then, select a repository from the list to clone to your machine. The list contains both public and private repositories.
-
-![Screenshot of the Clone Repository quick prompt, searching for repositories with the name vscode](images/intro/github-clone.png)
-
-For other Git providers, enter the repository URL, select **Clone**, and pick a folder on your local machine to clone the files into. VS Code opens the folder once the repository is cloned on your local machine.
-
-![Screenshot of the Clone Repository quick prompt, searching for a repository by providing the repository URL](images/intro/git-clone-repository-url.png)
-
-### Initialize a repository in a local folder
-
-To initialize a new local Git repository:
-
-1. Pick an existing or new folder on your computer and open it in VS Code.
-
-1. In the **Source Control** view, select the **Initialize Repository** button.
-
-    This creates a new Git repository in the current folder, allowing you to start tracking code changes.
-
-    This action is equivalent to running `git init` on the command-line.
-
-    ![Source Control view for a workspace not under Git source control will offer to Initialize a Git repo or Publish to GitHub](images/intro/scm-init-publish.png)
-
-#### Publish local repository to GitHub
-
-You can also initialize a local repository and publish it directly to GitHub. This creates a new repository on your GitHub account, and pushes your local code changes to the remote repository. Having your source code on a remote repository is a great way to back up your code, collaborate with others, and automate your workflow with [GitHub Actions](https://github.com/features/actions).
-
-Use the **Publish to GitHub** command button in the **Source Control** view. You can then choose a name and description for the repository, and whether to make it public or private.
-
-![Screenshot of the Publish to GitHub quick prompt, showing private and public GitHub repository names](images/intro/publish-to-github.png)
-
-Once the repository has been created, VS Code pushes your local code to the remote repository. Your code is now backed up on GitHub, and you can start collaborating with others with commits and pull requests.
-
-### Open a GitHub repository in a codespace
-
-[GitHub Codespaces](https://github.com/features/codespaces) lets you open a GitHub repository in a fully configured cloud-based development environment, enabling you to develop in a browser without having to install any software on your local computer. GitHub Codespaces allows free usage for individuals, which makes it easy to get started working on open source projects.
-
-To create a codespace for your GitHub repository:
-
-1. Install the [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension in VS Code and sign in with your GitHub account.
-
-1. Run the **Codespaces: Create New Codespace** command.
-
-1. Select the repository and branch you want to open.
-
-    VS Code opens a new window, which is connected to the codespace. The source code, terminal, and running and debugging are hosted in the remote cloud-based development environment.
-
-    Notice that the File Explorer and Status Bar indicate that the workspace is opened in a codespace.
-
-    ![Screenshot of a workspace opened in a codespace, highlighting the codespace name in the File Explorer and Status Bar](images/intro/open-workspace-in-codespace.png)
-
-Alternatively, you can also start from a codespace template on the [GitHub Codespaces website](https://github.com/codespaces/templates).
-
-If you already have a codespace open in your browser, run the **Codespaces: Open in VS Code Desktop** command in the browser to connect to the codespace from your local VS Code Desktop.
-
-You can learn more about GitHub Codespaces, including customization such as forwarding ports, in the [Developing in a codespace](https://docs.github.com/codespaces/developing-in-codespaces/developing-in-a-codespace?tool=vscode) documentation.
-
-### Open a GitHub repository remotely
-
-VS Code's remote repository support allows you to browse and edit a GitHub repository without cloning it to your local computer. This is useful for quickly making changes to a remote repository without having to clone the entire codebase to your machine.
-
-1. First install the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension.
-
-1. Run the command **Remote Repositories: Open Remote Repository...** or use the **Open Remote Repository** button the Explorer view.
-
-1. Search and select the GitHub repository that you want to open.
-
-    ![Remote Repositories opening a remote GitHub repo, pull request or Azure repo](images/intro/remote-repo.png)
+VS Code의 GitHub Copilot을 사용하면 커밋 메시지, 풀 리퀘스트에 대한 제안을 받고 커밋하기 전에 코드 변경 사항을 검토할 수 있습니다. [VS Code에서 GitHub Copilot에 대해 더 알아보세요](/docs/copilot/overview.md).
 
 > [!TIP]
-> If you need to execute code or run terminal commands, you can seamlessly switch from a remote repository to a codespace with the command **Continue Working on**.
+> 아직 Copilot 구독이 없다면, [Copilot 무료 요금제](https://github.com/github-copilot/signup)에 가입하여 무료로 Copilot을 사용해 보세요. 매달 완료 수와 채팅 상호작용의 한도가 제공됩니다.
 
-## Staging and committing code changes
+## VS Code에서 Git 설정하기 {#set-up-git-in-vs-code}
 
-Once you have a Git repository set up, you can start tracking code changes by [staging and committing](https://git-scm.com/about/staging-area) your newly created and edited code.
+VS Code에서 Git과 GitHub를 사용하려면 먼저 [컴퓨터에 Git이 설치되어 있는지 확인하세요](https://git-scm.com/downloads). Git이 없으면 **소스 제어** 뷰에서 설치 방법에 대한 지침이 표시됩니다. 이후 VS Code를 재시작해야 합니다.
+
+또한, **활동 바**의 오른쪽 하단에 있는 **계정** 메뉴에서 GitHub 계정으로 VS Code에 로그인하여 [설정 동기화](/docs/editor/settings-sync.md)와 같은 추가 기능을 활성화하고 GitHub에서 리포지토리를 복제하고 게시할 수 있습니다.
+
+![VS Code의 계정 메뉴 스크린샷](images/intro/vscode-accounts-menu.png)
+
+## Git 리포지토리 열기 {#open-a-git-repository}
+
+VS Code는 로컬에서 원격 클라우드 기반 환경인 [GitHub Codespaces](https://github.com/features/codespaces)까지 Git 리포지토리를 시작하는 여러 가지 방법을 제공합니다.
+
+### 로컬에서 리포지토리 복제하기 {#clone-a-repository-locally}
+
+리포지토리를 복제하려면 명령 팔레트에서 **Git: Clone** 명령을 실행하거나 **소스 제어** 뷰에서 **리포지토리 복제** 버튼을 선택하세요.
+
+GitHub에서 복제하는 경우, VS Code는 GitHub로 인증하라는 메시지를 표시합니다. 그런 다음 복제할 리포지토리를 목록에서 선택하세요. 목록에는 공개 및 비공개 리포지토리가 모두 포함되어 있습니다.
+
+![리포지토리 이름이 vscode인 리포지토리를 검색하는 복제 리포지토리 빠른 프롬프트 스크린샷](images/intro/github-clone.png)
+
+다른 Git 제공업체의 경우, 리포지토리 URL을 입력하고 **복제**를 선택한 후 로컬 컴퓨터에 파일을 복제할 폴더를 선택하세요. 리포지토리가 로컬 컴퓨터에 복제되면 VS Code가 해당 폴더를 엽니다.
+
+![리포지토리 URL을 제공하여 리포지토리를 검색하는 복제 리포지토리 빠른 프롬프트 스크린샷](images/intro/git-clone-repository-url.png)
+
+### 로컬 폴더에서 리포지토리 초기화하기 {#initialize-a-repository-in-a-local-folder}
+
+새로운 로컬 Git 리포지토리를 초기화하려면:
+
+1. 컴퓨터에서 기존 폴더 또는 새 폴더를 선택하고 VS Code에서 엽니다.
+
+1. **소스 제어** 뷰에서 **리포지토리 초기화** 버튼을 선택합니다.
+
+    이렇게 하면 현재 폴더에 새로운 Git 리포지토리가 생성되어 코드 변경 사항을 추적할 수 있게 됩니다.
+
+    이 작업은 명령줄에서 `git init`을 실행하는 것과 동일합니다.
+
+    ![Git 소스 제어에 속하지 않은 작업 공간에 대해 Git 리포를 초기화하거나 GitHub에 게시하라는 제안을 제공하는 소스 제어 뷰](images/intro/scm-init-publish.png)
+
+#### 로컬 리포지토리를 GitHub에 게시하기 {#publish-local-repository-to-github}
+
+로컬 리포지토리를 초기화하고 이를 GitHub에 직접 게시할 수도 있습니다. 이렇게 하면 GitHub 계정에 새로운 리포지토리가 생성되고, 로컬 코드 변경 사항이 원격 리포지토리에 푸시됩니다. 원격 리포지토리에 소스 코드를 두는 것은 코드를 백업하고, 다른 사람과 협업하며, [GitHub Actions](https://github.com/features/actions)로 워크플로를 자동화하는 좋은 방법입니다.
+
+**소스 제어** 뷰에서 **GitHub에 게시** 명령 버튼을 사용하세요. 그런 다음 리포지토리의 이름과 설명을 선택하고 공개 또는 비공개로 설정할 수 있습니다.
+
+![비공개 및 공개 GitHub 리포지토리 이름을 보여주는 GitHub에 게시하기 빠른 프롬프트 스크린샷](images/intro/publish-to-github.png)
+
+리포지토리가 생성되면 VS Code는 로컬 코드를 원격 리포지토리에 푸시합니다. 이제 코드가 GitHub에 백업되었으며, 커밋 및 풀 리퀘스트를 통해 다른 사람과 협업을 시작할 수 있습니다.
+
+### Codespace에서 GitHub 리포지토리 열기 {#open-a-github-repository-in-a-codespace}
+
+[GitHub Codespaces](https://github.com/features/codespaces)를 사용하면 GitHub 리포지토리를 완전히 구성된 클라우드 기반 개발 환경에서 열 수 있어, 로컬 컴퓨터에 소프트웨어를 설치하지 않고도 브라우저에서 개발할 수 있습니다. GitHub Codespaces는 개인에게 무료 사용을 허용하므로 오픈 소스 프로젝트 작업을 쉽게 시작할 수 있습니다.
+
+GitHub 리포지토리에 대한 codespace를 생성하려면:
+
+1. VS Code에 [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 확장을 설치하고 GitHub 계정으로 로그인합니다.
+
+1. **Codespaces: 새 Codespace 만들기** 명령을 실행합니다.
+
+1. 열고자 하는 리포지토리와 브랜치를 선택합니다.
+
+    VS Code는 codespace에 연결된 새 창을 엽니다. 소스 코드, 터미널, 실행 및 디버깅은 원격 클라우드 기반 개발 환경에서 호스팅됩니다.
+
+    파일 탐색기와 상태 표시줄에서 작업 공간이 codespace에서 열려 있음을 나타냅니다.
+
+    ![파일 탐색기와 상태 표시줄에서 codespace 이름을 강조 표시한 codespace에서 열린 작업 공간의 스크린샷](images/intro/open-workspace-in-codespace.png)
+
+또는 [GitHub Codespaces 웹사이트](https://github.com/codespaces/templates)에서 codespace 템플릿으로 시작할 수도 있습니다.
+
+브라우저에서 이미 codespace가 열려 있는 경우, 브라우저에서 **Codespaces: VS Code Desktop에서 열기** 명령을 실행하여 로컬 VS Code Desktop에서 codespace에 연결할 수 있습니다.
+
+포트 포워딩과 같은 사용자 정의를 포함하여 GitHub Codespaces에 대해 더 알아보려면 [codespace에서 개발하기](https://docs.github.com/codespaces/developing-in-codespaces/developing-in-a-codespace?tool=vscode) 문서를 참조하세요.
+
+### 원격으로 GitHub 리포지토리 열기 {#open-a-github-repository-remotely}
+
+VS Code의 원격 리포지토리 지원을 통해 GitHub 리포지토리를 로컬 컴퓨터에 복제하지 않고도 탐색하고 편집할 수 있습니다. 이는 전체 코드베이스를 로컬 컴퓨터에 복제하지 않고도 원격 리포지토리에 빠르게 변경 사항을 적용할 수 있어 유용합니다.
+
+1. 먼저 [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) 확장을 설치합니다.
+
+1. **원격 리포지토리 열기...** 명령을 실행하거나 탐색기 뷰에서 **원격 리포지토리 열기** 버튼을 사용합니다.
+
+1. 열고자 하는 GitHub 리포지토리를 검색하고 선택합니다.
+
+    ![원격 GitHub 리포지토리, 풀 리퀘스트 또는 Azure 리포를 여는 원격 리포지토리](images/intro/remote-repo.png)
 
 > [!TIP]
-> Commit your changes early and often. This makes it easier to revert back to previous versions of your code if needed.
+> 코드 실행이나 터미널 명령을 실행해야 하는 경우, **계속 작업하기** 명령을 사용하여 원격 리포지토리에서 codespace로 원활하게 전환할 수 있습니다.
 
-You can access the **Source Control** view from the Activity Bar to list all changed files in your workspace. You can toggle between a tree view or list view by using the tree/list icon in the Source Control view header.
+## 코드 변경 사항 스테이징 및 커밋하기 {#staging-and-committing-code-changes}
 
-![Source Control view, highlighting the tree/list view control in the header](images/intro/source-control-view.png)
-
-When you select a file in the Source Control view, the editor shows a diff view that highlights the file changes, compared to the previously committed file.
-
-![Source Control view with one file staged and other changes, a diff showing in the editor that highlights the changes](images/intro/scm-staging.png)
-
-To stage a file, select the **+** (plus) icon next to the file in the **Source Control** view. This adds the file to the **Staged Changes** section, indicating that it will be included in the next commit.
-
-![Source Control view with four changed files, highlighting the '+' button to stage the changes of a file](images/intro/scm-stage-changes.png)
-
-You can also stage all pending changes at once by selecting the **+** (plus) icon next to **Changes** in the Source Control view.
-
-Staged changes can also be discarded by selecting the **−** (minus) icon next to the file. Similarly, you can discard all staged changes by selecting the **−** (minus) icon next to **Staged Changes** in the Source Control view.
-
-![Source Control view with four changed files, highlighting the '-' button to unstage the changes of a file](images/intro/scm-unstage-changes.png)
-
-To commit your staged changes, type a commit message in the upper text box, and then select the **Commit** button. This saves your changes to the local Git repository, allowing you to revert to previous versions of your code if needed.
+Git 리포지토리를 설정한 후에는 새로 생성하거나 수정한 코드를 [스테이징하고 커밋](https://git-scm.com/about/staging-area)하여 코드 변경 사항을 추적할 수 있습니다.
 
 > [!TIP]
-> With GitHub Copilot in VS Code, you can [generate a commit message](/docs/copilot/overview.md#productivity-improvements) based on your code changes. Learn more about [generating commit messages with AI](/docs/sourcecontrol/overview.md#generate-a-commit-message-with-ai). Before you commit your changes, you can also let Copilot do a [code review of the uncommitted changes](/docs/sourcecontrol/overview.md#review-uncommitted-code-changes-with-ai).
+> 변경 사항을 조기에 자주 커밋하세요. 이렇게 하면 필요할 경우 이전 버전으로 쉽게 되돌릴 수 있습니다.
 
-You can navigate through and review all local file changes and commits in the **Timeline** view available in the bottom of the Explorer view.
+활동 바에서 **소스 제어** 뷰에 접근하여 작업 공간의 모든 변경된 파일을 나열할 수 있습니다. 소스 제어 뷰 헤더의 트리/리스트 아이콘을 사용하여 트리 뷰와 리스트 뷰 간에 전환할 수 있습니다.
 
-![Timeline view with one item selected and its change being shown in the editor](images/intro/timeline.png)
+![소스 제어 뷰, 헤더에서 트리/리스트 뷰 제어를 강조 표시](images/intro/source-control-view.png)
 
-## Pushing and pulling remote changes
+소스 제어 뷰에서 파일을 선택하면 편집기에서 이전에 커밋된 파일과 비교하여 파일 변경 사항을 강조 표시하는 차이 보기(diff view)가 표시됩니다.
 
-Once you have made commits to your local Git repository, you can push them to the remote repository. The **Sync Changes** button indicates how many commits are going to be pushed and pulled. Selecting the **Sync Changes** button downloads (pull) any new remote commits and uploads (push) new local commits to the remote repository.
+![하나의 파일이 스테이징되고 다른 변경 사항이 있는 소스 제어 뷰, 편집기에서 변경 사항을 강조 표시하는 차이 보기](images/intro/scm-staging.png)
 
-![Sync button with one change to push](images/intro/sync.png)
+파일을 스테이징하려면 **소스 제어** 뷰에서 파일 옆의 **+** (더하기) 아이콘을 선택하세요. 이렇게 하면 파일이 **스테이징된 변경 사항** 섹션에 추가되어 다음 커밋에 포함될 것임을 나타냅니다.
 
-> [!TIP]
-> You can enable the **Git: Autofetch** [setting](/docs/editor/settings.md) to always get an up-to-date remote commit indicator.
+![변경된 네 개의 파일이 있는 소스 제어 뷰, 파일의 변경 사항을 스테이징하기 위한 '+' 버튼 강조 표시](images/intro/scm-stage-changes.png)
 
-Push and pull can also be performed individually by using their respective commands. You can access these commands from the Source Control menu.
+또한 **소스 제어** 뷰에서 **변경 사항** 옆의 **+** (더하기) 아이콘을 선택하여 모든 보류 중인 변경 사항을 한 번에 스테이징할 수 있습니다.
 
-![Source Control menu that shows all source control commands](images/intro/scm-menu.png)
+스테이징된 변경 사항은 파일 옆의 **−** (빼기) 아이콘을 선택하여 버릴 수도 있습니다. 마찬가지로, **소스 제어** 뷰에서 **스테이징된 변경 사항** 옆의 **−** (빼기) 아이콘을 선택하여 모든 스테이징된 변경 사항을 버릴 수 있습니다.
 
-## Using branches
+![변경된 네 개의 파일이 있는 소스 제어 뷰, 파일의 변경 사항을 언스테이징하기 위한 '-' 버튼 강조 표시](images/intro/scm-unstage-changes.png)
 
-In Git, [branches](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches) allow you to work on multiple versions of your codebase simultaneously. This is useful for experimenting with new features or making large code changes without affecting the main codebase.
-
-The branch indicator in the Status bar shows the current branch and lets you switch to new and existing branches.
-
-![Branch indicator in the Status bar](images/intro/branch-indicator.png)
-
-To create a new branch, select the branch indicator and choose to create it from the current branch or another local one. Type a name for the new branch, and confirm. VS Code creates a new branch and switches to it, allowing you to make changes to your code without affecting the main branch.
-
-![Create branch quick prompt that shows when selecting the branch indicator](images/intro/scm-create-branch.png)
+스테이징된 변경 사항을 커밋하려면 상단 텍스트 상자에 커밋 메시지를 입력한 후 **커밋** 버튼을 선택하세요. 이렇게 하면 변경 사항이 로컬 Git 리포지토리에 저장되어 필요할 경우 이전 버전으로 되돌릴 수 있습니다.
 
 > [!TIP]
-> If you use the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, you can create a branch directly from an issue, which gets you started working in a new local branch and automatically prefills the pull request for you.
+> VS Code의 GitHub Copilot을 사용하면 코드 변경 사항을 기반으로 [커밋 메시지를 생성](/docs/copilot/overview.md#productivity-improvements)할 수 있습니다. 변경 사항을 커밋하기 전에 Copilot이 [커밋되지 않은 변경 사항에 대한 코드 검토](/docs/sourcecontrol/overview.md#review-uncommitted-code-changes-with-ai)를 수행하도록 할 수도 있습니다.
 
-After you create a local branch, you can push the branch to the remote repository by selecting **Publish Branch** in the **Source Control** view. This creates a new branch on the remote repository, allowing you to collaborate with others in that branch.
+**탐색기** 뷰 하단에 있는 **타임라인** 뷰에서 모든 로컬 파일 변경 사항과 커밋을 탐색하고 검토할 수 있습니다.
 
-### Creating and reviewing GitHub pull requests
+![하나의 항목이 선택되고 편집기에 변경 사항이 표시된 타임라인 뷰](images/intro/timeline.png)
 
-In Git and GitHub, [pull requests (PRs)](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) are a way for collaborators to review and merge code changes from separate branches into the main branch. This enables teams to review and approve code changes before they are incorporated into the main codebase, ensuring that only high-quality changes are merged.
+## 원격 변경 사항 푸시 및 풀링 {#pushing-and-pulling-remote-changes}
 
-To use pull requests in VS Code, you need to install the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension. This extension adds PR and issue tracking functionality to VS Code, allowing you to create, review, and merge PRs from within the editor.
+로컬 Git 리포지토리에 커밋을 만든 후에는 이를 원격 리포지토리에 푸시할 수 있습니다. **변경 사항 동기화** 버튼은 푸시 및 풀링될 커밋 수를 나타냅니다. **변경 사항 동기화** 버튼을 선택하면 새로운 원격 커밋을 다운로드(풀)하고 새로운 로컬 커밋을 원격 리포지토리에 업로드(푸시)합니다.
 
-To create a PR, make sure you are on a separate branch from the main branch, and push your code changes to the remote repository. In the **Source Control** view, select the **Create Pull Request** button. This opens the PR creation form, where you can enter a title and description for the PR, and choose which branch to merge the changes into. Select **Create** to create the PR.
-
-![Source Control view, highlighting the 'Create pull request' button](images/intro/scm-create-pull-request.png)
+![푸시할 변경 사항이 하나 있는 동기화 버튼](images/intro/sync.png)
 
 > [!TIP]
-> Use GitHub Copilot to generate a PR title and description, based on the commits that are included in the PR. Select the _sparkle_ icon next to the PR title field to generate a PR title and description. You can also let Copilot perform a code review of the PR before you create it. Select the **Copilot Code Review** button in the GitHub Pull Request view.
+> 항상 최신 원격 커밋 지표를 가져오려면 **Git: Autofetch** [설정](/docs/editor/settings.md)을 활성화할 수 있습니다.
 
-Learn more about pull requests in [VS Code's GitHub documentation](/docs/sourcecontrol/github.md).
+푸시 및 풀은 각각의 명령을 사용하여 개별적으로 수행할 수도 있습니다. 이러한 명령은 소스 제어 메뉴에서 접근할 수 있습니다.
 
-## Using Git in the built-in terminal
+![모든 소스 제어 명령을 보여주는 소스 제어 메뉴](images/intro/scm-menu.png)
 
-As all Git state is kept in the local repository, you can easily switch between VS Code's UI, the [built-in terminal](/docs/terminal/basics.md), or external tools like [GitHub Desktop](https://desktop.github.com). You can also set up [VS Code as your default Git editor](/docs/sourcecontrol/overview.md#vs-code-as-git-editor), allowing you to use VS Code to edit commit messages and other Git-related files.
+## 브랜치 사용하기 {#using-branches}
 
-### Git Bash on Windows
+Git에서 [브랜치](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)는 코드베이스의 여러 버전을 동시에 작업할 수 있도록 해줍니다. 이는 새로운 기능을 실험하거나 주요 코드 변경을 수행할 때 메인 코드베이스에 영향을 주지 않고 작업할 수 있어 유용합니다.
 
-Git Bash is a popular shell environment for Windows that provides a Unix-like command-line interface for working with Git and other command-line tools. Visual Studio Code's integrated terminal supports Git Bash as a shell, allowing you to seamlessly integrate Git Bash into your development workflow. Installing Git on your Windows machine also installs Git Bash, if it wasn't deselected during the installation steps.
+상태 표시줄의 브랜치 표시기는 현재 브랜치를 보여주며, 새로운 브랜치와 기존 브랜치로 전환할 수 있게 해줍니다.
 
-![Selecting Git Bash as shell in Visual Studio Code's built-in terminal](images/intro/git-bash.png)
+![상태 표시줄의 브랜치 표시기](images/intro/branch-indicator.png)
 
-Start by opening **View** > **Terminal** (`kb(workbench.action.terminal.toggleTerminal)`). Select the dropdown arrow next to the `+` icon in the terminal panel to pick a new shell to open. If Git Bash is installed, it's shown in the list of terminals and shells. You can toggle between different terminals and shells in the Terminal sidebar. With Git Bash configured in Visual Studio Code, you can now use all of your favorite Git commands directly from the terminal in your code editor.
+새로운 브랜치를 생성하려면 브랜치 표시기를 선택하고 현재 브랜치 또는 다른 로컬 브랜치에서 생성하도록 선택합니다. 새 브랜치의 이름을 입력하고 확인합니다. VS Code는 새 브랜치를 생성하고 해당 브랜치로 전환하여 메인 브랜치에 영향을 주지 않고 코드 변경을 수행할 수 있게 해줍니다.
 
-If you want to set Git Bash as your default shell, open the Terminal dropdown (next to the `+` icon) and select **Select Default Profile**. This opens a list of available shells, including Git Bash. Selecting *Git Bash* sets it as your default shell, and all future terminals will be opened with Git Bash. More advanced terminal tips are available in the [terminal documentation](/docs/terminal/basics.md).
+![브랜치 표시기를 선택할 때 표시되는 브랜치 생성 빠른 프롬프트](images/intro/scm-create-branch.png)
+
+> [!TIP]
+> [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) 확장을 사용하면 문제에서 직접 브랜치를 생성할 수 있어 새로운 로컬 브랜치에서 작업을 시작하고 자동으로 풀 리퀘스트를 미리 채울 수 있습니다.
+
+로컬 브랜치를 생성한 후에는 **소스 제어** 뷰에서 **브랜치 게시**를 선택하여 원격 리포지토리에 브랜치를 푸시할 수 있습니다. 이렇게 하면 원격 리포지토리에 새로운 브랜치가 생성되어 해당 브랜치에서 다른 사람과 협업할 수 있습니다.
+
+### GitHub 풀 리퀘스트 생성 및 검토하기 {#creating-and-reviewing-github-pull-requests}
+
+Git과 GitHub에서 [풀 리퀘스트 (PR)](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)은 협업자가 별도의 브랜치에서 코드 변경 사항을 검토하고 메인 브랜치로 병합하는 방법입니다. 이를 통해 팀은 코드 변경 사항을 검토하고 승인한 후 메인 코드베이스에 통합하여 고품질 변경 사항만 병합되도록 할 수 있습니다.
+
+VS Code에서 풀 리퀘스트를 사용하려면 [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) 확장을 설치해야 합니다. 이 확장은 VS Code에 PR 및 이슈 추적 기능을 추가하여 편집기 내에서 PR을 생성, 검토 및 병합할 수 있게 해줍니다.
+
+PR을 생성하려면 메인 브랜치와 별도의 브랜치에 있어야 하며, 코드 변경 사항을 원격 리포지토리에 푸시합니다. **소스 제어** 뷰에서 **풀 리퀘스트 생성** 버튼을 선택합니다. 그러면 PR 생성 양식이 열리며, PR의 제목과 설명을 입력하고 변경 사항을 병합할 브랜치를 선택할 수 있습니다. **생성**을 선택하여 PR을 생성합니다.
+
+![소스 제어 뷰, '풀 리퀘스트 생성' 버튼 강조 표시](images/intro/scm-create-pull-request.png)
+
+> [!TIP]
+> GitHub Copilot을 사용하여 PR에 포함된 커밋을 기반으로 PR 제목과 설명을 생성할 수 있습니다. PR 제목 필드 옆의 _스파클_ 아이콘을 선택하여 PR 제목과 설명을 생성하세요. PR을 생성하기 전에 Copilot이 PR에 대한 코드 검토를 수행하도록 할 수도 있습니다. GitHub 풀 리퀘스트 뷰에서 **Copilot 코드 검토** 버튼을 선택하세요.
+
+풀 리퀘스트에 대해 더 알아보려면 [VS Code의 GitHub 문서](/docs/sourcecontrol/github.md)를 참조하세요.
+
+## 내장 터미널에서 Git 사용하기 {#using-git-in-the-built-in-terminal}
+
+모든 Git 상태는 로컬 리포지토리에 저장되므로 VS Code의 UI, [내장 터미널](/docs/terminal/basics.md) 또는 [GitHub Desktop](https://desktop.github.com)과 같은 외부 도구 간에 쉽게 전환할 수 있습니다. 또한 [VS Code를 기본 Git 편집기로 설정](/docs/sourcecontrol/overview.md#vs-code-as-git-editor)하여 커밋 메시지 및 기타 Git 관련 파일을 편집하는 데 VS Code를 사용할 수 있습니다.
+
+### Windows에서 Git Bash 사용하기 {#git-bash-on-windows}
+
+Git Bash는 Git 및 기타 명령줄 도구를 사용하기 위한 Unix와 유사한 명령줄 인터페이스를 제공하는 Windows용 인기 있는 셸 환경입니다. Visual Studio Code의 통합 터미널은 Git Bash를 셸로 지원하여 개발 워크플로에 Git Bash를 원활하게 통합할 수 있게 해줍니다. Windows 컴퓨터에 Git을 설치하면 설치 단계에서 선택 해제하지 않은 경우 Git Bash도 설치됩니다.
+
+![Visual Studio Code의 내장 터미널에서 Git Bash를 셸로 선택하는 스크린샷](images/intro/git-bash.png)
+
+**보기** > **터미널** (`kb(workbench.action.terminal.toggleTerminal)`)을 열어 시작하세요. 터미널 패널의 `+` 아이콘 옆에 있는 드롭다운 화살표를 선택하여 새 셸을 열도록 선택합니다. Git Bash가 설치되어 있으면 터미널 및 셸 목록에 표시됩니다. 터미널 사이드바에서 다양한 터미널과 셸 간에 전환할 수 있습니다. Visual Studio Code에 Git Bash가 구성되면 이제 코드 편집기 내 터미널에서 모든 즐겨 사용하는 Git 명령을 직접 사용할 수 있습니다.
+
+Git Bash를 기본 셸로 설정하려면 터미널 드롭다운( `+` 아이콘 옆)을 열고 **기본 프로필 선택**을 선택하세요. 그러면 Git Bash를 포함한 사용 가능한 셸 목록이 열립니다. *Git Bash*를 선택하면 기본 셸로 설정되며, 이후 모든 터미널이 Git Bash로 열립니다. 더 고급 터미널 팁은 [터미널 문서](/docs/terminal/basics.md)에서 확인할 수 있습니다.
