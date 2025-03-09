@@ -24,7 +24,7 @@ To help you set up quickly, you can install the **Coding Pack for Java**, which 
 
 <a class="install-extension-btn" onclick="pushCodingPackEvent('java', 'win')" href="https://aka.ms/vscode-java-installer-win">Install the Coding Pack for Java - Windows</a>
 
-<a class="install-extension-btn" onclick="pushCodingPackEvent('java', 'mac')" href="https://aka.ms/vscode-java-installer-mac">Install the Coding Pack for Java - macOS</a><br>
+<a class="install-extension-btn" onclick="pushCodingPackEvent('java', 'mac')" href="https://aka.ms/vscode-java-installer-mac">Install the Coding Pack for Java - macOS</a><br />
 
 > **Note**: The Coding Pack for Java is only available for Windows and macOS. For other operating systems, you will need to manually install a JDK, VS Code, and Java extensions.
 
@@ -32,12 +32,12 @@ To help you set up quickly, you can install the **Coding Pack for Java**, which 
 
 If you are an existing VS Code user, you can also add Java support by installing the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes these extensions:
 
-* [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
-* [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
-* [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
-* [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
-* [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
-* [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
+- [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
+- [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
+- [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
+- [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
+- [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
+- [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
 
 <a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
@@ -49,8 +49,8 @@ You can also install extensions separately. The **Extensions Guide** is provided
 
 For this tutorial, the only required extensions are:
 
-* [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
-* [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
+- [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
+- [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 
 ## Installing and setting up a Java Development Kit (JDK)
 
@@ -66,14 +66,14 @@ The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemNam
 
 If you have never installed a JDK before and need to install one, we recommend you to choose from one of these sources:
 
-* [Amazon Corretto](https://aws.amazon.com/corretto)
-* [Azul Zulu](https://www.azul.com/downloads/?package=jdk)
-* [Eclipse Adoptium's Temurin](https://adoptium.net/)
-* [IBM Semeru Runtimes](https://developer.ibm.com/languages/java/semeru-runtimes)
-* [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
-* [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
-* [Red Hat build of OpenJDK](https://developers.redhat.com/products/openjdk/download)
-* [SapMachine](https://sapmachine.io)
+- [Amazon Corretto](https://aws.amazon.com/corretto)
+- [Azul Zulu](https://www.azul.com/downloads/?package=jdk)
+- [Eclipse Adoptium's Temurin](https://adoptium.net/)
+- [IBM Semeru Runtimes](https://developer.ibm.com/languages/java/semeru-runtimes)
+- [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
+- [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
+- [Red Hat build of OpenJDK](https://developers.redhat.com/products/openjdk/download)
+- [SapMachine](https://sapmachine.io)
 
 ## Creating a source code file
 
@@ -82,11 +82,11 @@ Create a folder for your Java program and open the folder with VS Code. Then in 
 <video src="images/java-tutorial/JavaHelloWorld.Standalone.mp4" autoplay loop muted playsinline controls title="Creating a source code file">
 </video>
 
->**Note**: If you open a Java file in VS Code without opening its folder, the Java Language Server might not work properly.
+> **Note**: If you open a Java file in VS Code without opening its folder, the Java Language Server might not work properly.
 
 VS Code will also try to figure out the correct package for the new type and fill the new file from a template. See [Create new file](/docs/java/java-editing.md#create-new-file).
 
-You can also create a Java project using the **Java: Create Java Project** command. Bring up the **Command Palette**  (`kb(workbench.action.showCommands)`) and then type `java` to search for this command. After selecting the command, you will be prompted for the location and name of the project. You can also choose your build tool from this command.
+You can also create a Java project using the **Java: Create Java Project** command. Bring up the **Command Palette** (`kb(workbench.action.showCommands)`) and then type `java` to search for this command. After selecting the command, you will be prompted for the location and name of the project. You can also choose your build tool from this command.
 
 <video src="images/java-tutorial/JavaHelloWorld.Project.mp4" autoplay loop muted playsinline controls title="Create Java Project">
 </video>
@@ -117,9 +117,9 @@ For more information, see [Java Debugging](/docs/java/java-debugging.md).
 
 The editor also has many more capabilities to assist with your Java workload.
 
-* [Editing Java](/docs/java/java-editing.md) explains how to navigate and edit Java in more details
-* [Debugging](/docs/java/java-debugging.md) illustrates all the key features of the Java Debugger
-* [Testing](/docs/java/java-testing.md) provides comprehensive support for JUnit and TestNG framework
-* [Java Project Management](/docs/java/java-project.md) shows you how to use a project view and work with Maven
-* [Spring Boot](/docs/java/java-spring-boot.md) and [Tomcat and Jetty](/docs/java/java-tomcat-jetty.md) demonstrate great framework support
-* [Java Web Apps](/docs/java/java-webapp.md) shows how to work with Java Web App in VS Code
+- [Editing Java](/docs/java/java-editing.md) explains how to navigate and edit Java in more details
+- [Debugging](/docs/java/java-debugging.md) illustrates all the key features of the Java Debugger
+- [Testing](/docs/java/java-testing.md) provides comprehensive support for JUnit and TestNG framework
+- [Java Project Management](/docs/java/java-project.md) shows you how to use a project view and work with Maven
+- [Spring Boot](/docs/java/java-spring-boot.md) and [Tomcat and Jetty](/docs/java/java-tomcat-jetty.md) demonstrate great framework support
+- [Java Web Apps](/docs/java/java-webapp.md) shows how to work with Java Web App in VS Code

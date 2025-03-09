@@ -179,31 +179,33 @@ export function run(): Promise<void> {
   // Create the mocha test
   const mocha = new Mocha({
     ui: 'tdd',
-    color: true
+    color: true,
   });
 
   const testsRoot = path.resolve(__dirname, '..');
 
   return new Promise((c, e) => {
-    glob('**/**.test.js', { cwd: testsRoot }).then((files) => {
-      // Add files to the test suite
-      files.forEach(f => mocha.addFile(path.resolve(testsRoot, f)));
+    glob('**/**.test.js', { cwd: testsRoot })
+      .then((files) => {
+        // Add files to the test suite
+        files.forEach((f) => mocha.addFile(path.resolve(testsRoot, f)));
 
-      try {
-        // Run the mocha test
-        mocha.run(failures => {
-          if (failures > 0) {
-            e(new Error(`${failures} tests failed.`));
-          } else {
-            c();
-          }
-        });
-      } catch (err) {
-        e(err);
-      }
-    }).catch((err) => {
-      return e(err);
-    });
+        try {
+          // Run the mocha test
+          mocha.run((failures) => {
+            if (failures > 0) {
+              e(new Error(`${failures} tests failed.`));
+            } else {
+              c();
+            }
+          });
+        } catch (err) {
+          e(err);
+        }
+      })
+      .catch((err) => {
+        return e(err);
+      });
   });
 }
 ```
@@ -259,7 +261,7 @@ Here is a sample `launch.json` debugger configuration:
 ```
 
 <video autoplay loop muted playsinline controls>
-  <source src="/assets/api/working-with-extensions/testing-extension/debug.mp4" type="video/mp4">
+  <source src="/assets/api/working-with-extensions/testing-extension/debug.mp4" type="video/mp4" />
 </video>
 
 ## Tips
@@ -317,7 +319,7 @@ await runTests({
    *
    * See `code --help` for possible arguments.
    */
-  launchArgs: ['--disable-extensions']
+  launchArgs: ['--disable-extensions'],
 });
 ```
 
@@ -331,7 +333,7 @@ import * as path from 'path';
 import {
   downloadAndUnzipVSCode,
   resolveCliArgsFromVSCodeExecutablePath,
-  runTests
+  runTests,
 } from '@vscode/test-electron';
 
 async function main() {
@@ -342,17 +344,21 @@ async function main() {
     const [cliPath, ...args] = resolveCliArgsFromVSCodeExecutablePath(vscodeExecutablePath);
 
     // Use cp.spawn / cp.exec for custom setup
-    cp.spawnSync(cliPath, [...args, '--install-extension', '<EXTENSION-ID-OR-PATH-TO-VSIX>'], {
-      encoding: 'utf-8',
-      stdio: 'inherit'
-    });
+    cp.spawnSync(
+      cliPath,
+      [...args, '--install-extension', '<EXTENSION-ID-OR-PATH-TO-VSIX>'],
+      {
+        encoding: 'utf-8',
+        stdio: 'inherit',
+      }
+    );
 
     // Run the extension test
     await runTests({
       // Use the specified `code` executable
       vscodeExecutablePath,
       extensionDevelopmentPath,
-      extensionTestsPath
+      extensionTestsPath,
     });
   } catch (err) {
     console.error('Failed to run tests');

@@ -8,6 +8,7 @@ DateApproved: 03/05/2025
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/python-social.png
 ---
+
 # Editing Python in Visual Studio Code
 
 Visual Studio Code is a powerful editing tool for Python source code. The editor includes various features to help you be productive when writing code. For more information about editing in Visual Studio Code, see [Basic Editing](/docs/editor/codebasics.md) and [Code Navigation](/docs/editor/editingevolved.md).
@@ -103,16 +104,16 @@ This Code Action also recognizes some of the popular abbreviations for the follo
 The import suggestions list displays the top 3 high-confidence import options, prioritized based on: most recently used imports, symbols from the same module, symbols from the standard library, symbols from user modules, symbols from third-party packages, and finally sorting by module and symbol name.
 
 ### Search for additional import matches
+
 By default, the add import Quick Fix only shows 3 high-confidence import options. If they don't list what you are looking for, you can use the Pylance **Search for additional import matches** Quick Fix for missing import errors. This Quick Fix displays a quick pick menu that enables you to search for import options that prefix-match the missing import symbol.
 
 ![Search for additional import matches Code Action](images/editing/search-imports-code-action.gif)
 
-
 ### Change spelling
+
 Pylance displays the **Change spelling** Quick Fix on unresolved variables or missing imports diagnostics when they are likely caused by typos. This Code Action suggests the correct spelling of the symbol, based on the closest matches found in the workspace.
 
 ![Change spelling code action on missing import due to a typo](images/editing/change-spelling-code-action.gif)
-
 
 > **Note**: For user symbols, these Quick Fixes will suggest the imports only from the files where they are defined. Import suggestions from files where the user symbols are external/imported aren't supported.
 >
@@ -150,11 +151,10 @@ To customize which references need to be updated, you can toggle the checkboxes 
 
 The Pylance extension offers two Code Actions to simplify the process of moving symbols to different files:
 
-* **Move symbol to...**: displays a file picker to select the destination file for the symbol to be moved to.
-* **Move symbol to new file**: creates a new file with the symbol name, located in the same directory as the source file where the Code Action was invoked.
+- **Move symbol to...**: displays a file picker to select the destination file for the symbol to be moved to.
+- **Move symbol to new file**: creates a new file with the symbol name, located in the same directory as the source file where the Code Action was invoked.
 
 You can access these Code Actions by hovering over the symbol you want to move, then selecting the light bulb that appears next to the desired action. Alternatively, you can right-click on the symbol and select **Refactor...** from the context menu.
-
 
 ![Move Symbol refactoring options](images/editing/move-symbol.gif)
 
@@ -166,10 +166,9 @@ Pylance offers a Code Action to simplify the process of creating these classes. 
 
 ![Implement inherited abstract classes](images/editing/implement-inherited-abstract-classes.gif)
 
-
 ### Sort Imports
 
-The Python extension supports extensions such as [isort](https://marketplace.visualstudio.com/items?itemName=ms-python.isort) and [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) that implement the **Sort Imports** functionality. This command consolidates specific imports from the same module into a single `import` statement,  and organizes `import` statements in alphabetical order.
+The Python extension supports extensions such as [isort](https://marketplace.visualstudio.com/items?itemName=ms-python.isort) and [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) that implement the **Sort Imports** functionality. This command consolidates specific imports from the same module into a single `import` statement, and organizes `import` statements in alphabetical order.
 
 You can invoke this by installing an extension that supports sorting imports, then opening the Command Palette (`kb(workbench.action.showCommands)`) and running **Organize Imports**.
 
@@ -181,13 +180,13 @@ You can invoke this by installing an extension that supports sorting imports, th
 
 For help with common IntelliSense and Python editing issues, check the table below:
 
-| Problem | Cause | Solution |
-| --- | --- | ---|
-| Pylance is only offering top-level symbol options when adding imports. | By default, only top-level modules are indexed (depth=1). <br>For example, you may see `import matplotlib` as a suggestion, but not `import matplotlib.pyplot` by default. | Try increasing the depth to which Pylance can index your installed libraries through the `python.analysis.packageIndexDepths`. Check [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings). |
-| Pylance is not automatically adding missing imports | The auto import completion setting may be disabled. | Check the [Enable Auto Imports section](/docs/python/editing.md#customize-intellisense-behavior). |
-| Auto imports are enabled but Pylance is not automatically importing symbols defined in other files in the workspace. | User defined symbols (those not coming from installed packages or libraries) are only automatically imported if they have already been used in files opened in the editor.<br> Otherwise, they will only be available through the [add imports Quick Fix](/docs/python/editing.md#quick-fixes). |  Use the add imports Quick Fix, or make sure to open the relevant files in your workspace first.  |
-| Pylance seems slow or is consuming too much memory when working on a large workspace. | Pylance analysis is done on all files present in a given workspace.  | If there are subfolders you know can be excluded from Pylance's analysis, you can add their paths to the `python.analysis.exclude` setting. Alternatively, you can try setting `python.analysis.indexing` to `false` to disable Pylance's indexer (**Note**: this will also impact the experience of completions and auto imports. Learn more about indexing in [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings)).  |
-| You are unable to install a custom module into your Python project. | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
+| Problem                                                                                                              | Cause                                                                                                                                                                                                                                                                                             | Solution                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Pylance is only offering top-level symbol options when adding imports.                                               | By default, only top-level modules are indexed (depth=1). <br />For example, you may see `import matplotlib` as a suggestion, but not `import matplotlib.pyplot` by default.                                                                                                                      | Try increasing the depth to which Pylance can index your installed libraries through the `python.analysis.packageIndexDepths`. Check [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings).                                                                                                                                                                                                                             |
+| Pylance is not automatically adding missing imports                                                                  | The auto import completion setting may be disabled.                                                                                                                                                                                                                                               | Check the [Enable Auto Imports section](/docs/python/editing.md#customize-intellisense-behavior).                                                                                                                                                                                                                                                                                                                                                     |
+| Auto imports are enabled but Pylance is not automatically importing symbols defined in other files in the workspace. | User defined symbols (those not coming from installed packages or libraries) are only automatically imported if they have already been used in files opened in the editor.<br /> Otherwise, they will only be available through the [add imports Quick Fix](/docs/python/editing.md#quick-fixes). | Use the add imports Quick Fix, or make sure to open the relevant files in your workspace first.                                                                                                                                                                                                                                                                                                                                                       |
+| Pylance seems slow or is consuming too much memory when working on a large workspace.                                | Pylance analysis is done on all files present in a given workspace.                                                                                                                                                                                                                               | If there are subfolders you know can be excluded from Pylance's analysis, you can add their paths to the `python.analysis.exclude` setting. Alternatively, you can try setting `python.analysis.indexing` to `false` to disable Pylance's indexer (**Note**: this will also impact the experience of completions and auto imports. Learn more about indexing in [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings)). |
+| You are unable to install a custom module into your Python project.                                                  | The custom module is located in a non-standard location (not installed using pip).                                                                                                                                                                                                                | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code.                                                                                                                                                                                                                                                                                                                                                                 |
 
 ### Pylance Diagnostics
 

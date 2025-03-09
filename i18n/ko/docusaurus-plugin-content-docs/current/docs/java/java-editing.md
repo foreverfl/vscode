@@ -7,6 +7,7 @@ PageTitle: Navigate and edit Java Source Code in Visual Studio Code
 DateApproved: 12/9/2021
 MetaDescription: Navigate and edit Java Source Code in Visual Studio Code
 ---
+
 # Navigate and edit Java source code
 
 Visual Studio Code is a source code editor first and foremost with rich editing [features](/docs/editor/codebasics.md). In this document, we will go through a few Java-specific features, which are helpful when working with Java.
@@ -23,7 +24,7 @@ You can search for symbols in the current file or workspace to navigate your cod
 
 ### Search for symbols in the workspace
 
-To search for a symbol in the current workspace, start by pressing `kb(workbench.action.showAllSymbols)`, then enter the name of the symbol. A list of potential matches will appear as before. If you choose a match that was found in a file that's not already open, the file will be opened before navigating to the match's location. Alternatively, you can also use  **Quick Open** (`kb(workbench.action.quickOpen)`) then enter the '#' command to search the current workspace. `kb(workbench.action.showAllSymbols)` is just the shortcut for the '#' commands, so everything works the same.
+To search for a symbol in the current workspace, start by pressing `kb(workbench.action.showAllSymbols)`, then enter the name of the symbol. A list of potential matches will appear as before. If you choose a match that was found in a file that's not already open, the file will be opened before navigating to the match's location. Alternatively, you can also use **Quick Open** (`kb(workbench.action.quickOpen)`) then enter the '#' command to search the current workspace. `kb(workbench.action.showAllSymbols)` is just the shortcut for the '#' commands, so everything works the same.
 
 <video src="images/java-editing/search-in-workspace.mp4" autoplay loop muted playsinline controls title="Search for symbols in the workspace">
 </video>
@@ -84,8 +85,8 @@ Folding regions allows you to fold or unfold code snippet to better view the sou
 
 With [Smart Selection](https://code.visualstudio.com/updates/v1_33#_smart-select-api) (semantic selection), you can expand or shrink the selection range based on the semantic information of the caret position in your source code.
 
-* To expand the selection, use `kb(editor.action.smartSelect.expand)`.
-* To shrink the selection, use `kb(editor.action.smartSelect.shrink)`.
+- To expand the selection, use `kb(editor.action.smartSelect.expand)`.
+- To shrink the selection, use `kb(editor.action.smartSelect.shrink)`.
 
 <video src="images/java-editing/smart-selection.mp4" autoplay loop muted playsinline controls title="Smart selections">
 </video>
@@ -104,10 +105,10 @@ You can learn more about the details of Java semantic highlighting on the [Java 
 
 The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot) extension provides enhanced navigation and code completion support for Spring Boot projects.
 
-* `@/` shows all defined request mappings (mapped path, request method, source location)
-* `@+` shows all defined beans (bean name, bean type, source location)
-* `@>` shows all functions (prototype implementation)
-* `@` shows all Spring annotations in the code
+- `@/` shows all defined request mappings (mapped path, request method, source location)
+- `@+` shows all defined beans (bean name, bean type, source location)
+- `@>` shows all functions (prototype implementation)
+- `@` shows all Spring annotations in the code
 
 ![Spring Navigation](images/java-editing/spring-navigation.png)
 
@@ -149,7 +150,7 @@ VS Code supports applying templates when you create a Java source file. When you
 
 Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, static main method. Using information from Java language server, it also provides a preview of the code snippet during the selection.
 
-For example, typing "**sout**" or "**sysout**" will produce a code snippet for `System.out.println()`.<br>
+For example, typing "**sout**" or "**sysout**" will produce a code snippet for `System.out.println()`.<br />
 Similarly, typing "**main**" or "**psvm**" will generate a code snippet for `public static void main(String[] args) {}`.
 
 ![Code Snippet](images/java-editing/code-snippet.png)
@@ -158,45 +159,45 @@ The complete list of shortcuts is listed below:
 
 ### Code snippet shortcuts
 
-| shortcut key | description |
-|---|---|
-| ctor | Public constructor |
-| dowhile | Do-while statement |
-| foreach, iter | Iterate over an array or Iterable |
-| fori | Iterate over array |
-| if | If statement |
-| ifelse | If-else statement |
-| ifnull | If statement checking for null |
-| ifnotnull | If statement checking for not null |
-| main, psvm | Public static main method |
-| new | Create new Object |
-| private_method | Private method |
-| private_static_method | Private static method |
-| prf | Private field |
-| protected_method | Protected method |
-| public_method | Public method |
-| public_static_method | Public static method |
-| switch | Switch statement |
-| syserr, serr | Print to standard err |
-| sysout, sout | Print to standard out |
-| systrace, soutm | Print current method to standard out |
-| try_catch | Try/catch block |
-| try_resources | Try-with-resources statement |
-| while | While statement |
+| shortcut key          | description                          |
+| --------------------- | ------------------------------------ |
+| ctor                  | Public constructor                   |
+| dowhile               | Do-while statement                   |
+| foreach, iter         | Iterate over an array or Iterable    |
+| fori                  | Iterate over array                   |
+| if                    | If statement                         |
+| ifelse                | If-else statement                    |
+| ifnull                | If statement checking for null       |
+| ifnotnull             | If statement checking for not null   |
+| main, psvm            | Public static main method            |
+| new                   | Create new Object                    |
+| private_method        | Private method                       |
+| private_static_method | Private static method                |
+| prf                   | Private field                        |
+| protected_method      | Protected method                     |
+| public_method         | Public method                        |
+| public_static_method  | Public static method                 |
+| switch                | Switch statement                     |
+| syserr, serr          | Print to standard err                |
+| sysout, sout          | Print to standard out                |
+| systrace, soutm       | Print current method to standard out |
+| try_catch             | Try/catch block                      |
+| try_resources         | Try-with-resources statement         |
+| while                 | While statement                      |
 
 ### Postfix snippet shortcuts
 
-| shortcut key | template content | description |
-|---|---|---|
-| cast | ((SomeType) expr) | Casts the expression to a new type |
-| else | if (!expr) | Creates a negated if statement |
-| for | for (T item : expr) | Creates a for statement |
-| fori | for (int i = 0; i < expr.length; i++) | Creates a for statement which iterates over an array |
-| forr | for (int i = expr.length-1; i >= 0; i--) | Creates a for statement which iterates over an array in reverse order |
-| if | if (expr) | Creates a if statement |
-| nnull | if (expr != null) | Creates an if statement and checks if the expression does not resolve to null |
-| null | if (expr == null) | Creates an if statement which checks if expression resolves to null |
-| sysout | System.out.println(expr) | Sends the affected string to a System.out.println(..) call |
-| throw | throw expr | Throws the given Exception |
-| var | T name = expr | Creates a new variable |
-| while | while (expr) {} | Creates a while loop |
+| shortcut key | template content                         | description                                                                   |
+| ------------ | ---------------------------------------- | ----------------------------------------------------------------------------- |
+| cast         | ((SomeType) expr)                        | Casts the expression to a new type                                            |
+| else         | if (!expr)                               | Creates a negated if statement                                                |
+| for          | for (T item : expr)                      | Creates a for statement                                                       |
+| fori         | for (int i = 0; i < expr.length; i++)    | Creates a for statement which iterates over an array                          |
+| forr         | for (int i = expr.length-1; i >= 0; i--) | Creates a for statement which iterates over an array in reverse order         |
+| if           | if (expr)                                | Creates a if statement                                                        |
+| nnull        | if (expr != null)                        | Creates an if statement and checks if the expression does not resolve to null |
+| null         | if (expr == null)                        | Creates an if statement which checks if expression resolves to null           |
+| sysout       | System.out.println(expr)                 | Sends the affected string to a System.out.println(..) call                    |
+| throw        | throw expr                               | Throws the given Exception                                                    |
+| var          | T name = expr                            | Creates a new variable                                                        |
+| while        | while (expr) {}                          | Creates a while loop                                                          |

@@ -51,7 +51,7 @@ The example below shows the `package.json` for a simple hello world extension, t
     "vscode:prepublish": "npm run package-web",
     "compile-web": "webpack",
     "watch-web": "webpack --watch",
-    "package-web": "webpack --mode production --devtool hidden-source-map",
+    "package-web": "webpack --mode production --devtool hidden-source-map"
   },
   "devDependencies": {
     "@types/vscode": "^1.59.0",
@@ -80,14 +80,14 @@ The [web extension enablement](#web-extension-enablement) section lists the rule
 
 The web extension's main file is defined by the `browser` property. The script runs in the web extension host in a [Browser WebWorker](https://developer.mozilla.org/docs/Web/API/Web_Workers_API) environment. It is restricted by the browser worker sandbox and has limitations compared to normal extensions running in a Node.js runtime.
 
-* Importing or requiring other modules is not supported. `importScripts` is not available as well. As a consequence, the code must be packaged to a single file.
-* The [VS Code API](/api/references/vscode-api) can be loaded via the pattern `require('vscode')`. This will work because there is a shim for `require`, but this shim cannot be used to load additional extension files or additional node modules. It only works with `require('vscode')`.
-* Node.js globals and libraries such as `process`, `os`, `setImmediate`, `path`, `util`, `url` are not available at runtime. They can, however, be added with tools like webpack. The [webpack configuration](#webpack-configuration) section explains how this is done.
-* The opened workspace or folder is on a virtual file system. Access to workspace files needs to go through the VS Code [file system](/api/references/vscode-api#FileSystem) API accessible at `vscode.workspace.fs`.
-* [Extension context](/api/references/vscode-api#ExtensionContext) locations (`ExtensionContext.extensionUri`) and  storage locations (`ExtensionContext.storageUri`, `globalStorageUri`) are also on a virtual file system and need to go through `vscode.workspace.fs`.
-* For accessing web resources, the [Fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) API must be used. Accessed resources need to support [Cross-Origin Resource Sharing](https://developer.mozilla.org/docs/Web/HTTP/CORS) (CORS)
-* Creating child processes or running executables is not possible. However, web workers can be created through the [Worker](https://developer.mozilla.org/en-US/docs/Web/API/Worker) API. This is used for running language servers as described in the [Language Server Protocol in web extensions](#language-server-protocol-in-web-extensions) section.
-* As with regular extensions, the extension's `activate/deactivate` functions need to be exported via the pattern `exports.activate = ...`.
+- Importing or requiring other modules is not supported. `importScripts` is not available as well. As a consequence, the code must be packaged to a single file.
+- The [VS Code API](/api/references/vscode-api) can be loaded via the pattern `require('vscode')`. This will work because there is a shim for `require`, but this shim cannot be used to load additional extension files or additional node modules. It only works with `require('vscode')`.
+- Node.js globals and libraries such as `process`, `os`, `setImmediate`, `path`, `util`, `url` are not available at runtime. They can, however, be added with tools like webpack. The [webpack configuration](#webpack-configuration) section explains how this is done.
+- The opened workspace or folder is on a virtual file system. Access to workspace files needs to go through the VS Code [file system](/api/references/vscode-api#FileSystem) API accessible at `vscode.workspace.fs`.
+- [Extension context](/api/references/vscode-api#ExtensionContext) locations (`ExtensionContext.extensionUri`) and storage locations (`ExtensionContext.storageUri`, `globalStorageUri`) are also on a virtual file system and need to go through `vscode.workspace.fs`.
+- For accessing web resources, the [Fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) API must be used. Accessed resources need to support [Cross-Origin Resource Sharing](https://developer.mozilla.org/docs/Web/HTTP/CORS) (CORS)
+- Creating child processes or running executables is not possible. However, web workers can be created through the [Worker](https://developer.mozilla.org/en-US/docs/Web/API/Worker) API. This is used for running language servers as described in the [Language Server Protocol in web extensions](#language-server-protocol-in-web-extensions) section.
+- As with regular extensions, the extension's `activate/deactivate` functions need to be exported via the pattern `exports.activate = ...`.
 
 ## Develop a web extension
 
@@ -103,15 +103,15 @@ The extension that is created consists of the extension's source code (a command
 
 To keep things simpler, we assume you use `webpack` as the bundler. At the end of the article we also explain what is different when choosing `esbuild`.
 
-* `src/web/extension.ts` is the extension's entry source code file. It's identical to the regular hello extension.
-* `package.json` is the extension manifest.
-  * It points to the entry file using the `browser` property.
-  * It provides scripts: `compile-web`, `watch-web` and `package-web` to compile, watch, and package.
-* `webpack.config.js` is the webpack config file that compiles and bundles the extension sources into a single file.
-* `.vscode/launch.json` contains the launch configurations that run the web extension and the tests in the VS Code desktop with a web extension host (setting `extensions.webWorker` is no longer needed).
-* `.vscode/task.json` contains the build task used by the launch configuration. It uses `npm run watch-web` and depends on the webpack specific `ts-webpack-watch` problem matcher.
-* `.vscode/extensions.json` contains the extensions that provide the problem matchers. These extensions need to be installed for the launch configurations to work.
-* `tsconfig.json` defines the compile options matching the `webworker` runtime.
+- `src/web/extension.ts` is the extension's entry source code file. It's identical to the regular hello extension.
+- `package.json` is the extension manifest.
+  - It points to the entry file using the `browser` property.
+  - It provides scripts: `compile-web`, `watch-web` and `package-web` to compile, watch, and package.
+- `webpack.config.js` is the webpack config file that compiles and bundles the extension sources into a single file.
+- `.vscode/launch.json` contains the launch configurations that run the web extension and the tests in the VS Code desktop with a web extension host (setting `extensions.webWorker` is no longer needed).
+- `.vscode/task.json` contains the build task used by the launch configuration. It uses `npm run watch-web` and depends on the webpack specific `ts-webpack-watch` problem matcher.
+- `.vscode/extensions.json` contains the extensions that provide the problem matchers. These extensions need to be installed for the launch configurations to work.
+- `tsconfig.json` defines the compile options matching the `webworker` runtime.
 
 The source code in the [helloworld-web-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-web-sample) is similar to what's created by the generator.
 
@@ -133,14 +133,14 @@ const webExtensionConfig = {
   mode: 'none', // this leaves the source code as close as possible to the original (when packaging we set this to 'production')
   target: 'webworker', // extensions run in a webworker context
   entry: {
-    'extension': './src/web/extension.ts', // source of the web extension main file
-    'test/suite/index': './src/web/test/suite/index.ts' // source of the web extension test runner
+    extension: './src/web/extension.ts', // source of the web extension main file
+    'test/suite/index': './src/web/test/suite/index.ts', // source of the web extension test runner
   },
   output: {
     filename: '[name].js',
     path: path.join(__dirname, './dist/web'),
     libraryTarget: 'commonjs',
-    devtoolModuleFilenameTemplate: '../../[resource-path]'
+    devtoolModuleFilenameTemplate: '../../[resource-path]',
   },
   resolve: {
     mainFields: ['browser', 'module', 'main'], // look for `browser` entry point in imported node modules
@@ -152,17 +152,21 @@ const webExtensionConfig = {
       // Webpack 5 no longer polyfills Node.js core modules automatically.
       // see https://webpack.js.org/configuration/resolve/#resolvefallback
       // for the list of Node.js core module polyfills.
-      'assert': require.resolve('assert')
-    }
+      assert: require.resolve('assert'),
+    },
   },
   module: {
-    rules: [{
-      test: /\.ts$/,
-      exclude: /node_modules/,
-      use: [{
-          loader: 'ts-loader'
-      }]
-    }]
+    rules: [
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'ts-loader',
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new webpack.ProvidePlugin({
@@ -170,37 +174,37 @@ const webExtensionConfig = {
     }),
   ],
   externals: {
-    'vscode': 'commonjs vscode', // ignored because it doesn't exist
+    vscode: 'commonjs vscode', // ignored because it doesn't exist
   },
   performance: {
-    hints: false
+    hints: false,
   },
-  devtool: 'nosources-source-map' // create a source map that points to the original source file
+  devtool: 'nosources-source-map', // create a source map that points to the original source file
 };
 module.exports = [webExtensionConfig];
 ```
 
 Some important fields of `webpack.config.js` are:
 
-* The `entry` field contains the main entry point into your extension and test suite.
-  * You may need to adjust this path to appropriately point to the entry point of your extension.
-  * For an existing extension, you can start by pointing this path to the file you're using currently for `main` of your `package.json`.
-  * If you do not want to package your tests, you can omit the test suite field.
-* The `output` field indicates where the compiled file will be located.
-  * `[name]` will be replaced by the key used in `entry`. So in the generated config file, it will produce `dist/web/extension.js` and `dist/web/test/suite/index.js`.
-* The `target` field indicates which type of environment the compiled JavaScript file will run. For web extensions, you want this to be `webworker`.
-* The `resolve` field contains the ability to add aliases and fallbacks for node libraries that don't work in the browser.
-  * If you're using a library like `path`, you can specify how to resolve `path` in a web compiled context. For instance, you can point to a file in the project that defines `path` with `path: path.resolve(__dirname, 'src/my-path-implementation-for-web.js')`. Or you can use the Browserify node packaged version of the library called `path-browserify` and specify `path: require.resolve('path-browserify')`.
-  * See [webpack resolve.fallback](https://webpack.js.org/configuration/resolve/#resolvefallback) for the list of Node.js core module polyfills.
-* The `plugins` section uses the [DefinePlugin plugin](https://webpack.js.org/plugins/define-plugin/) to polyfill globals such as the `process` Node.js global.
+- The `entry` field contains the main entry point into your extension and test suite.
+  - You may need to adjust this path to appropriately point to the entry point of your extension.
+  - For an existing extension, you can start by pointing this path to the file you're using currently for `main` of your `package.json`.
+  - If you do not want to package your tests, you can omit the test suite field.
+- The `output` field indicates where the compiled file will be located.
+  - `[name]` will be replaced by the key used in `entry`. So in the generated config file, it will produce `dist/web/extension.js` and `dist/web/test/suite/index.js`.
+- The `target` field indicates which type of environment the compiled JavaScript file will run. For web extensions, you want this to be `webworker`.
+- The `resolve` field contains the ability to add aliases and fallbacks for node libraries that don't work in the browser.
+  - If you're using a library like `path`, you can specify how to resolve `path` in a web compiled context. For instance, you can point to a file in the project that defines `path` with `path: path.resolve(__dirname, 'src/my-path-implementation-for-web.js')`. Or you can use the Browserify node packaged version of the library called `path-browserify` and specify `path: require.resolve('path-browserify')`.
+  - See [webpack resolve.fallback](https://webpack.js.org/configuration/resolve/#resolvefallback) for the list of Node.js core module polyfills.
+- The `plugins` section uses the [DefinePlugin plugin](https://webpack.js.org/plugins/define-plugin/) to polyfill globals such as the `process` Node.js global.
 
 ## Test your web extension
 
 There are currently three ways to test a web extension before publishing it to the Marketplace.
 
-* Use VS Code running on the desktop with the `--extensionDevelopmentKind=web` option to run your web extension in a web extension host running in VS Code.
-* Use the [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module to open a browser containing VS Code for the Web including your extension, served from a local server.
-* [Sideload](#test-your-web-extension-in-vscode.dev) your extension onto [vscode.dev](https://vscode.dev) to see your extension in the actual environment.
+- Use VS Code running on the desktop with the `--extensionDevelopmentKind=web` option to run your web extension in a web extension host running in VS Code.
+- Use the [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module to open a browser containing VS Code for the Web including your extension, served from a local server.
+- [Sideload](#test-your-web-extension-in-vscode.dev) your extension onto [vscode.dev](https://vscode.dev) to see your extension in the actual environment.
 
 ### Test your web extension in VS Code running on desktop
 
@@ -221,9 +225,7 @@ Use the `pwa-extensionhost` launch configuration provided by the **New Web Exten
         "--extensionDevelopmentPath=${workspaceFolder}",
         "--extensionDevelopmentKind=web"
       ],
-      "outFiles": [
-        "${workspaceFolder}/dist/web/**/*.js"
-      ],
+      "outFiles": ["${workspaceFolder}/dist/web/**/*.js"],
       "preLaunchTask": "npm: watch-web"
     }
   ]
@@ -241,9 +243,7 @@ It uses the task `npm: watch-web` to compile the extension by calling `npm run w
       "script": "watch-web",
       "group": "build",
       "isBackground": true,
-      "problemMatcher": [
-        "$ts-webpack-watch"
-      ]
+      "problemMatcher": ["$ts-webpack-watch"]
     }
   ]
 }
@@ -261,9 +261,9 @@ The [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module
 
 The node module contributes an npm binary `vscode-test-web` that can open VS Code for the Web from the command line:
 
-* It downloads the web bits of VS Code into `.vscode-test-web`.
-* Starts a local server on `localhost:3000`.
-* Opens a browser (Chromium, Firefox, or Webkit).
+- It downloads the web bits of VS Code into `.vscode-test-web`.
+- Starts a local server on `localhost:3000`.
+- Opens a browser (Chromium, Firefox, or Webkit).
 
 You can run it from command line:
 
@@ -284,15 +284,15 @@ Or better, add `@vscode/test-web` as a development dependency to your extension 
 
 Check the [@vscode/test-web README](https://www.npmjs.com/package/@vscode/test-web) for more CLI options:
 
-|Option|Argument Description|
-|-----|-----|
-| --browserType | The browser to launch: `chromium` (default), `firefox` or `webkit` |
-| --extensionDevelopmentPath | A path pointing to an extension under development to include. |
-| --extensionTestsPath |  A path to a test module to run. |
-| --permission|  Permission granted to the opened browser: e.g. `clipboard-read`, `clipboard-write`.<br>See [full list of options](https://playwright.dev/docs/api/class-browsercontext#browser-context-grant-permissions). Argument can be provided multiple times.  |
-| --folder-uri | URI of the workspace to open VS Code on. Ignored when `folderPath` is provided |
-| --extensionPath | A path pointing to a folder containing additional extensions to include.<br>Argument can be provided multiple times. |
-| folderPath |  A local folder to open VS Code on.<br>The folder content will be available as a virtual file system and opened as workspace. |
+| Option                     | Argument Description                                                                                                                                                                                                                                  |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --browserType              | The browser to launch: `chromium` (default), `firefox` or `webkit`                                                                                                                                                                                    |
+| --extensionDevelopmentPath | A path pointing to an extension under development to include.                                                                                                                                                                                         |
+| --extensionTestsPath       | A path to a test module to run.                                                                                                                                                                                                                       |
+| --permission               | Permission granted to the opened browser: e.g. `clipboard-read`, `clipboard-write`.<br />See [full list of options](https://playwright.dev/docs/api/class-browsercontext#browser-context-grant-permissions). Argument can be provided multiple times. |
+| --folder-uri               | URI of the workspace to open VS Code on. Ignored when `folderPath` is provided                                                                                                                                                                        |
+| --extensionPath            | A path pointing to a folder containing additional extensions to include.<br />Argument can be provided multiple times.                                                                                                                                |
+| folderPath                 | A local folder to open VS Code on.<br />The folder content will be available as a virtual file system and opened as workspace.                                                                                                                        |
 
 The web bits of VS Code are downloaded to a folder `.vscode-test-web`. You want to add this to your `.gitignore` file.
 
@@ -355,8 +355,8 @@ You can run the tests in continuous builds to ensure that the extension works on
 
 The test runner script is running on the web extension host with the same restrictions as the [web extension main file](#web-extension-main-file):
 
-* All files are bundled into a single file. It should contain the test runner (for example, Mocha) and all tests (typically `*.test.ts`).
-* Only `require('vscode')` is supported.
+- All files are bundled into a single file. It should contain the test runner (for example, Mocha) and all tests (typically `*.test.ts`).
+- Only `require('vscode')` is supported.
 
 The [webpack config](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/webpack.config.js) that is created by the `yo code` web extension generator has a section for tests. It expects the test runner script at `./src/web/test/suite/index.ts`. The provided [test runner script](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/src/web/test/suite/index.ts) uses the web version of Mocha and contains webpack-specific syntax to import all test files.
 
@@ -364,11 +364,10 @@ The [webpack config](https://github.com/microsoft/vscode-extension-samples/blob/
 require('mocha/mocha'); // import the mocha web build
 
 export function run(): Promise<void> {
-
   return new Promise((c, e) => {
     mocha.setup({
       ui: 'tdd',
-      reporter: undefined
+      reporter: undefined,
     });
 
     // bundles all files in the current directory matching `*.test`
@@ -377,7 +376,7 @@ export function run(): Promise<void> {
 
     try {
       // Run the mocha test
-      mocha.run(failures => {
+      mocha.run((failures) => {
         if (failures > 0) {
           e(new Error(`${failures} tests failed.`));
         } else {
@@ -421,9 +420,7 @@ To run (and debug) extension tests in VS Code (Insiders) desktop, use the `Exten
         "--extensionDevelopmentKind=web",
         "--extensionTestsPath=${workspaceFolder}/dist/web/test/suite/index"
       ],
-      "outFiles": [
-        "${workspaceFolder}/dist/web/**/*.js"
-      ],
+      "outFiles": ["${workspaceFolder}/dist/web/**/*.js"],
       "preLaunchTask": "npm: watch-web"
     }
   ]
@@ -450,28 +447,28 @@ Extensions with source code (defined by the `main` property) need to provide a [
 
 Use these steps to recompile your extension code for the browser environment:
 
-* Add a webpack config file as shown in the [webpack configuration](#webpack-configuration) section. If you already have a webpack file for your Node.js extension code, you can add a new section for web. Check out the [vscode-css-formatter](https://github.com/aeschli/vscode-css-formatter/blob/master/webpack.config.js) as an example.
-* Add the `launch.json` and `tasks.json` files as shown in the [Test your web extension](#test-your-web-extension) section.
-* In the webpack config file, set the input file to the existing Node.js main file or create a new main file for the web extension.
-* In `package.json`, add a `browser` and the `scripts` properties as shown in the [Web extension anatomy](#web-extension-anatomy) section.
-* Run `npm run compile-web` to invoke webpack and see where work is needed to make your extension run in the web.
+- Add a webpack config file as shown in the [webpack configuration](#webpack-configuration) section. If you already have a webpack file for your Node.js extension code, you can add a new section for web. Check out the [vscode-css-formatter](https://github.com/aeschli/vscode-css-formatter/blob/master/webpack.config.js) as an example.
+- Add the `launch.json` and `tasks.json` files as shown in the [Test your web extension](#test-your-web-extension) section.
+- In the webpack config file, set the input file to the existing Node.js main file or create a new main file for the web extension.
+- In `package.json`, add a `browser` and the `scripts` properties as shown in the [Web extension anatomy](#web-extension-anatomy) section.
+- Run `npm run compile-web` to invoke webpack and see where work is needed to make your extension run in the web.
 
 To make sure as much source code as possible can be reused, here are a few techniques:
 
-* To polyfill a Node.js core module such as `path`, add an entry to [resolve.fallback](https://webpack.js.org/configuration/resolve/#resolvefallback).
-* To provide a Node.js global such as `process` use the [DefinePlugin plugin](https://webpack.js.org/plugins/define-plugin).
-* Use node modules that work in both browser and node runtime. Node modules can do that by defining both `browser` and `main` entry points. Webpack will automatically use the one matching its target. Examples of node modules that do this are [request-light](https://github.com/microsoft/node-request-light) and [@vscode/l10n](https://github.com/microsoft/vscode-l10n).
-* To provide an alternate implementation for a node module or source file, use [resolve.alias](https://webpack.js.org/configuration/resolve/#resolvealias).
-* Separate your code in a browser part, Node.js part, and common part. In common, only use code that works in both the browser and Node.js runtime. Create abstractions for functionality that has different implementations in Node.js and the browser.
-* Look out for usages of `path`, `URI.file`, `context.extensionPath`, `rootPath`. `uri.fsPath`. These will not work with virtual workspaces (non-file system) as they are used in VS Code for the Web. Instead use URIs with `URI.parse`, `context.extensionUri`. The [vscode-uri](https://www.npmjs.com/package/vscode-uri) node module provides `joinPath`, `dirName`, `baseName`, `extName`, `resolvePath`.
-* Look out for usages of `fs`. Replace by using vscode `workspace.fs`.
+- To polyfill a Node.js core module such as `path`, add an entry to [resolve.fallback](https://webpack.js.org/configuration/resolve/#resolvefallback).
+- To provide a Node.js global such as `process` use the [DefinePlugin plugin](https://webpack.js.org/plugins/define-plugin).
+- Use node modules that work in both browser and node runtime. Node modules can do that by defining both `browser` and `main` entry points. Webpack will automatically use the one matching its target. Examples of node modules that do this are [request-light](https://github.com/microsoft/node-request-light) and [@vscode/l10n](https://github.com/microsoft/vscode-l10n).
+- To provide an alternate implementation for a node module or source file, use [resolve.alias](https://webpack.js.org/configuration/resolve/#resolvealias).
+- Separate your code in a browser part, Node.js part, and common part. In common, only use code that works in both the browser and Node.js runtime. Create abstractions for functionality that has different implementations in Node.js and the browser.
+- Look out for usages of `path`, `URI.file`, `context.extensionPath`, `rootPath`. `uri.fsPath`. These will not work with virtual workspaces (non-file system) as they are used in VS Code for the Web. Instead use URIs with `URI.parse`, `context.extensionUri`. The [vscode-uri](https://www.npmjs.com/package/vscode-uri) node module provides `joinPath`, `dirName`, `baseName`, `extName`, `resolvePath`.
+- Look out for usages of `fs`. Replace by using vscode `workspace.fs`.
 
 It is fine to provide less functionality when your extension is running in the web. Use [when clause contexts](/api/references/when-clause-contexts) to control which commands, views, and tasks are available or hidden with running in a virtual workspace on the web.
 
-* Use the `virtualWorkspace` context variable to find out if the current workspace is a non-file system workspace.
-* Use `resourceScheme` to check if the current resource is a `file` resource.
-* Use `shellExecutionSupported` if there is a platform shell present.
-* Implement alternative command handlers that show a dialog to explain why the command is not applicable.
+- Use the `virtualWorkspace` context variable to find out if the current workspace is a non-file system workspace.
+- Use `resourceScheme` to check if the current resource is a `file` resource.
+- Use `shellExecutionSupported` if there is a platform shell present.
+- Implement alternative command handlers that show a dialog to explain why the command is not applicable.
 
 WebWorkers can be used as an alternative to forking processes. We have updated several language servers to run as web extensions, including the built-in [JSON](https://github.com/microsoft/vscode/tree/main/extensions/json-language-features), [CSS](https://github.com/microsoft/vscode/tree/main/extensions/css-language-features), and [HTML](https://github.com/microsoft/vscode/tree/main/extensions/html-language-features) language servers. The [Language Server Protocol](#language-server-protocol-in-web-extensions) section below gives more details.
 
@@ -497,17 +494,17 @@ The [lsp-web-extension-sample](https://github.com/microsoft/vscode-extension-sam
 
 VS Code automatically treats an extension as a web extension if:
 
-* The extension manifest (`package.json`) has `browser` entry point.
-* The extension manifest has no `main` entry point and none of the following contribution points: `localizations`, `debuggers`, `terminal`, `typescriptServerPlugins`.
+- The extension manifest (`package.json`) has `browser` entry point.
+- The extension manifest has no `main` entry point and none of the following contribution points: `localizations`, `debuggers`, `terminal`, `typescriptServerPlugins`.
 
 If an extension wants to provide a debugger or terminal that also work in the web extension host, a `browser` entry point needs to be defined.
-
 
 ## Using ESBuild
 
 If you want to use esbuild instead of webpack, do the following:
 
 Add a `esbuild.js` build script:
+
 ```js
 const esbuild = require('esbuild');
 const glob = require('glob');
@@ -518,40 +515,37 @@ const production = process.argv.includes('--production');
 const watch = process.argv.includes('--watch');
 
 async function main() {
-	const ctx = await esbuild.context({
-		entryPoints: [
-			'src/web/extension.ts',
-			'src/web/test/suite/extensionTests.ts'
-		],
-		bundle: true,
-		format: 'cjs',
-		minify: production,
-		sourcemap: !production,
-		sourcesContent: false,
-		platform: 'browser',
-		outdir: 'dist/web',
-		external: ['vscode'],
-		logLevel: 'warning',
-		// Node.js global to browser globalThis
-		define: {
-			global: 'globalThis',
-		},
+  const ctx = await esbuild.context({
+    entryPoints: ['src/web/extension.ts', 'src/web/test/suite/extensionTests.ts'],
+    bundle: true,
+    format: 'cjs',
+    minify: production,
+    sourcemap: !production,
+    sourcesContent: false,
+    platform: 'browser',
+    outdir: 'dist/web',
+    external: ['vscode'],
+    logLevel: 'warning',
+    // Node.js global to browser globalThis
+    define: {
+      global: 'globalThis',
+    },
 
-		plugins: [
-			polyfill.NodeGlobalsPolyfillPlugin({
-				process: true,
-				buffer: true,
-			}),
-			testBundlePlugin,
-			esbuildProblemMatcherPlugin, /* add to the end of plugins array */
-		],
-	});
-	if (watch) {
-		await ctx.watch();
-	} else {
-		await ctx.rebuild();
-		await ctx.dispose();
-	}
+    plugins: [
+      polyfill.NodeGlobalsPolyfillPlugin({
+        process: true,
+        buffer: true,
+      }),
+      testBundlePlugin,
+      esbuildProblemMatcherPlugin /* add to the end of plugins array */,
+    ],
+  });
+  if (watch) {
+    await ctx.watch();
+  } else {
+    await ctx.rebuild();
+    await ctx.dispose();
+  }
 }
 
 /**
@@ -561,25 +555,25 @@ async function main() {
  * @type {import('esbuild').Plugin}
  */
 const testBundlePlugin = {
-	name: 'testBundlePlugin',
-	setup(build) {
-		build.onResolve({ filter: /[\/\\]extensionTests\.ts$/ }, args => {
-			if (args.kind === 'entry-point') {
-				return { path: path.resolve(args.path) };
-			}
-		});
-		build.onLoad({ filter: /[\/\\]extensionTests\.ts$/ }, async args => {
-			const testsRoot = path.join(__dirname, 'src/web/test/suite');
-			const files = await glob.glob('*.test.{ts,tsx}', { cwd: testsRoot, posix: true });
-			return {
-				contents:
-					`export { run } from './mochaTestRunner.ts';` +
-					files.map(f => `import('./${f}');`).join(''),
-				watchDirs: files.map(f => path.dirname(path.resolve(testsRoot, f))),
-				watchFiles: files.map(f => path.resolve(testsRoot, f))
-			};
-		});
-	}
+  name: 'testBundlePlugin',
+  setup(build) {
+    build.onResolve({ filter: /[\/\\]extensionTests\.ts$/ }, (args) => {
+      if (args.kind === 'entry-point') {
+        return { path: path.resolve(args.path) };
+      }
+    });
+    build.onLoad({ filter: /[\/\\]extensionTests\.ts$/ }, async (args) => {
+      const testsRoot = path.join(__dirname, 'src/web/test/suite');
+      const files = await glob.glob('*.test.{ts,tsx}', { cwd: testsRoot, posix: true });
+      return {
+        contents:
+          `export { run } from './mochaTestRunner.ts';` +
+          files.map((f) => `import('./${f}');`).join(''),
+        watchDirs: files.map((f) => path.dirname(path.resolve(testsRoot, f))),
+        watchFiles: files.map((f) => path.resolve(testsRoot, f)),
+      };
+    });
+  },
 };
 
 /**
@@ -588,30 +582,31 @@ const testBundlePlugin = {
  * @type {import('esbuild').Plugin}
  */
 const esbuildProblemMatcherPlugin = {
-	name: 'esbuild-problem-matcher',
+  name: 'esbuild-problem-matcher',
 
-	setup(build) {
-		build.onStart(() => {
-			console.log('[watch] build started');
-		});
-		build.onEnd((result) => {
-			result.errors.forEach(({ text, location }) => {
-				console.error(`✘ [ERROR] ${text}`);
+  setup(build) {
+    build.onStart(() => {
+      console.log('[watch] build started');
+    });
+    build.onEnd((result) => {
+      result.errors.forEach(({ text, location }) => {
+        console.error(`✘ [ERROR] ${text}`);
         if (location == null) return;
-				console.error(`    ${location.file}:${location.line}:${location.column}:`);
-			});
-			console.log('[watch] build finished');
-		});
-	},
+        console.error(`    ${location.file}:${location.line}:${location.column}:`);
+      });
+      console.log('[watch] build finished');
+    });
+  },
 };
 
-main().catch(e => {
-	console.error(e);
-	process.exit(1);
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
 });
 ```
 
 The build script does the following:
+
 - It creates a build context with esbuild. The context is configured to:
   - Bundle the code in `src/web/extension.ts` into a single file `dist/web/extension.js`.
   - Bundle all tests, including the test runner (mocha) into a single file `dist/web/test/suite/extensionTests.js`.
@@ -629,6 +624,7 @@ Only syntax error are reported and can cause esbuild to fail.
 For that reason, we separately run the TypeScript compiler (`tsc`) to check the types, but without emitting any code (flag `--noEmit`).
 
 The `scripts` section in `package.json` now looks like that
+
 ```json
   "scripts": {
     "vscode:prepublish": "npm run package-web",
@@ -647,95 +643,90 @@ The `scripts` section in `package.json` now looks like that
 `npm-run-all` is a node module that runs scripts in parallel whose name match a given prefix. For us, it runs the `watch-web:esbuild` and `watch-web:tsc` scripts. You need to add `npm-run-all` to the `devDependencies` section in `package.json`.
 
 The following `tasks.json` files gives you separate terminals for each watch task:
+
 ```json
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"label": "watch-web",
-			"dependsOn": [
-				"npm: watch-web:tsc",
-				"npm: watch-web:esbuild"
-			],
-			"presentation": {
-				"reveal": "never"
-			},
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
-			"runOptions": {
-				"runOn": "folderOpen"
-			}
-		},
-		{
-			"type": "npm",
-			"script": "watch-web:esbuild",
-			"group": "build",
-			"problemMatcher": "$esbuild-watch",
-			"isBackground": true,
-			"label": "npm: watch-web:esbuild",
-			"presentation": {
-				"group": "watch",
-				"reveal": "never"
-			}
-		},
-		{
-			"type": "npm",
-			"script": "watch-web:tsc",
-			"group": "build",
-			"problemMatcher": "$tsc-watch",
-			"isBackground": true,
-			"label": "npm: watch-web:tsc",
-			"presentation": {
-				"group": "watch",
-				"reveal": "never"
-			}
-		},
-		{
-			"label": "compile",
-			"type": "npm",
-			"script": "compile-web",
-			"problemMatcher": [
-				"$tsc",
-				"$esbuild"
-			]
-		}
-	]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "watch-web",
+      "dependsOn": ["npm: watch-web:tsc", "npm: watch-web:esbuild"],
+      "presentation": {
+        "reveal": "never"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "type": "npm",
+      "script": "watch-web:esbuild",
+      "group": "build",
+      "problemMatcher": "$esbuild-watch",
+      "isBackground": true,
+      "label": "npm: watch-web:esbuild",
+      "presentation": {
+        "group": "watch",
+        "reveal": "never"
+      }
+    },
+    {
+      "type": "npm",
+      "script": "watch-web:tsc",
+      "group": "build",
+      "problemMatcher": "$tsc-watch",
+      "isBackground": true,
+      "label": "npm: watch-web:tsc",
+      "presentation": {
+        "group": "watch",
+        "reveal": "never"
+      }
+    },
+    {
+      "label": "compile",
+      "type": "npm",
+      "script": "compile-web",
+      "problemMatcher": ["$tsc", "$esbuild"]
+    }
+  ]
 }
 ```
 
 This is the `mochaTestRunner.js` referenced in the esbuild build script:
+
 ```ts
 // Imports mocha for the browser, defining the `mocha` global.
 import 'mocha/mocha';
 
 mocha.setup({
-	ui: 'tdd',
-	reporter: undefined
+  ui: 'tdd',
+  reporter: undefined,
 });
 
 export function run(): Promise<void> {
-
-	return new Promise((c, e) => {
-		try {
-			// Run the mocha test
-			mocha.run(failures => {
-				if (failures > 0) {
-					e(new Error(`${failures} tests failed.`));
-				} else {
-					c();
-				}
-			});
-		} catch (err) {
-			console.error(err);
-			e(err);
-		}
-	});
+  return new Promise((c, e) => {
+    try {
+      // Run the mocha test
+      mocha.run((failures) => {
+        if (failures > 0) {
+          e(new Error(`${failures} tests failed.`));
+        } else {
+          c();
+        }
+      });
+    } catch (err) {
+      console.error(err);
+      e(err);
+    }
+  });
 }
 ```
 
 ## Samples
 
-* [helloworld-web-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-web-sample)
-* [lsp-web-extension-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-web-extension-sample)
+- [helloworld-web-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-web-sample)
+- [lsp-web-extension-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-web-extension-sample)

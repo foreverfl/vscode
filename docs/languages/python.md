@@ -7,6 +7,7 @@ PageTitle: Python in Visual Studio Code
 DateApproved: 03/05/2025
 MetaDescription: Learn about Visual Studio Code as a Python IDE (code completion, debugging, linting).
 ---
+
 # Python in Visual Studio Code
 
 Working with Python in Visual Studio Code, using the [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), is simple, fun, and productive. The extension makes VS Code an excellent Python editor, and works on any operating system with a variety of Python interpreters. It leverages all of VS Code's power to provide auto complete and IntelliSense, linting, debugging, and unit testing, along with the ability to easily switch between Python environments, including virtual and conda environments.
@@ -19,13 +20,13 @@ This article provides only an overview of the different capabilities of the Pyth
 
 The [tutorial](/docs/python/python-tutorial.md) guides you through installing Python and using the extension. You must install a Python interpreter yourself separately from the extension. For a quick install, use [Python from python.org](https://www.python.org/downloads/) and [install the extension from the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
->**Note**: To help get you started with Python development, you can use the [Python profile template](/docs/editor/profiles.md#python-profile-template) that includes useful extensions,  settings, and Python code snippets.
+> **Note**: To help get you started with Python development, you can use the [Python profile template](/docs/editor/profiles.md#python-profile-template) that includes useful extensions, settings, and Python code snippets.
 
 Once you have a version of Python installed, select it using the **Python: Select Interpreter** command. If VS Code doesn't automatically locate the interpreter you're looking for, refer to [Environments - Manually specify an interpreter](/docs/python/environments.md#manually-specify-an-interpreter).
 
 You can configure the Python extension through settings. Learn more in the [Python Settings reference](/docs/python/settings-reference.md).
 
->**Windows Subsystem for Linux**: If you are on Windows, WSL is a great way to do Python development. You can run Linux distributions on Windows and Python is often already installed. When coupled with the [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of WSL. To learn more, go to [Developing in WSL](/docs/remote/wsl.md) or try the [Working in WSL](/docs/remote/wsl-tutorial.md) tutorial.
+> **Windows Subsystem for Linux**: If you are on Windows, WSL is a great way to do Python development. You can run Linux distributions on Windows and Python is often already installed. When coupled with the [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of WSL. To learn more, go to [Developing in WSL](/docs/remote/wsl.md) or try the [Working in WSL](/docs/remote/wsl-tutorial.md) tutorial.
 
 ## Run Python code
 
@@ -72,7 +73,7 @@ Linting analyzes your Python code for potential errors, making it easy to naviga
 The Python extension can apply a number of different linters including Pylint, pycodestyle, Flake8, mypy, pydocstyle, prospector, and pylama. See [Linting](/docs/python/linting.md).
 
 <video autoplay loop muted playsinline controls title="Python linting video">
-  <source src="/docs/languages/python/python-linting.mp4" type="video/mp4">
+  <source src="/docs/languages/python/python-linting.mp4" type="video/mp4" />
 </video>
 
 ## Debugging
@@ -84,7 +85,7 @@ For more specific information on debugging in Python, such as configuring your `
 Additionally, the [Django](/docs/python/tutorial-django.md) and [Flask](/docs/python/tutorial-flask.md) tutorials provide examples of how to implement debugging in the context of web applications, including debugging Django templates.
 
 <video autoplay loop muted playsinline controls title="Python debugging video">
-  <source src="/docs/languages/python/python-debugging.mp4" type="video/mp4">
+  <source src="/docs/languages/python/python-debugging.mp4" type="video/mp4" />
 </video>
 
 ## Environments

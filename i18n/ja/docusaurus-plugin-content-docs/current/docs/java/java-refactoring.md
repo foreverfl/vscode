@@ -7,6 +7,7 @@ PageTitle: Java code refactoring and Source Actions for Visual Studio Code
 DateApproved: 12/9/2021
 MetaDescription: Java code refactoring and Source Actions for Visual Studio Code
 ---
+
 # Java refactoring and Source Actions
 
 Visual Studio Code provides many options to refactor your source code as well as Source Actions to generate code and fix issues while you're coding. To access them, click on the `light bulb` 💡 whenever you see it. Or right-click the editor view and pick **Source Action...**.
@@ -757,7 +758,7 @@ There are two options for you to customize the generated code:
 There is a new Source Action to generate the `toString()` method. Customization is possible with a check list of all the member variables.
 
 <video src="images/java-refactoring/generate-tostring.mp4" autoplay loop muted playsinline controls title="Generate toString()">
-  <source type="video/mp4">
+  <source type="video/mp4" />
 </video>
 
 ### Change modifiers to final where possible

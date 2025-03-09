@@ -7,6 +7,7 @@ PageTitle: Configure C/C++ IntelliSense
 DateApproved: 11/6/2023
 MetaDescription: Configure Visual Studio Code IntelliSense in the C/C++ extension
 ---
+
 # Configure C/C++ IntelliSense
 
 This article is about configuring the [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) extension to provide C++ specific [IntelliSense](/docs/editor/intellisense.md) suggestions in Visual Studio Code. IntelliSense is a helpful tool built into VS Code that provides various code editing features to help you code faster and more efficiently. For example, code completion, parameter info, syntax highlighting, Code Actions (light bulbs), and member lists are all generated using IntelliSense.
@@ -65,91 +66,79 @@ Select the sample below based on your operating system for a `c_cpp_configuratio
 
 <details>
 <summary><b>> Sample c_cpp_configuration.json on Windows</b></summary>
-<br>
+<br />
 
 Using the default install path for MinGW:
 
 ```json
 {
-    "configurations": [
-        {
-            "name": "Win32",
-            "includePath": [
-                "${workspaceFolder}/**"
-            ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
-            ],
-            "windowsSdkVersion": "10.0.22621.0",
-            "cStandard": "c17",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "${default}",
-            "compilerPath": "C:/msys64/mingw64/bin/gcc.exe"
-        }
-    ],
-    "version": 4
+  "configurations": [
+    {
+      "name": "Win32",
+      "includePath": ["${workspaceFolder}/**"],
+      "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
+      "windowsSdkVersion": "10.0.22621.0",
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "${default}",
+      "compilerPath": "C:/msys64/mingw64/bin/gcc.exe"
+    }
+  ],
+  "version": 4
 }
 ```
 
 </details>
-<br>
+<br />
 <details>
 <summary><b>> Sample c_cpp_configuration.json on macOS</b></summary>
-<br>
+<br />
 Using the default install path for Clang:
 
 ```json
 {
-    "configurations": [
-        {
-            "name": "Mac",
-            "includePath": [
-                "${workspaceFolder}/**"
-            ],
-            "defines": [],
-            "macFrameworkPath": [
-                "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
-            ],
-            "compilerPath": "/usr/bin/clang",
-            "cStandard": "c17",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "macos-clang-arm64"
-        }
-    ],
-    "version": 4
+  "configurations": [
+    {
+      "name": "Mac",
+      "includePath": ["${workspaceFolder}/**"],
+      "defines": [],
+      "macFrameworkPath": [
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
+      ],
+      "compilerPath": "/usr/bin/clang",
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "macos-clang-arm64"
+    }
+  ],
+  "version": 4
 }
 ```
 
 </details>
-<br>
+<br />
 <details>
 <summary><b>> Sample c_cpp_configuration.json on Linux</b></summary>
-<br>
+<br />
 Using the default install path for GCC:
 
 ```json
 {
   "configurations": [
-        {
-          "name": "Linux-GCC",
-          "includePath": [
-            "${workspaceFolder}/**"
-          ],
-          "defines": [],
-          "compilerPath": "/usr/bin/g++",
-          "cStandard": "c17",
-          "cppStandard": "c++17",
-          "intelliSenseMode": "gcc-x64",
-          "browse": {
-            "path": [
-              "${workspaceFolder}"
-            ],
-            "limitSymbolsToIncludedHeaders": true,
-            "databaseFilename": ""
-          }
-        }
+    {
+      "name": "Linux-GCC",
+      "includePath": ["${workspaceFolder}/**"],
+      "defines": [],
+      "compilerPath": "/usr/bin/g++",
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "gcc-x64",
+      "browse": {
+        "path": ["${workspaceFolder}"],
+        "limitSymbolsToIncludedHeaders": true,
+        "databaseFilename": ""
+      }
+    }
   ],
   "version": 4
 }
@@ -161,14 +150,14 @@ Using the default install path for GCC:
 
 Configuring IntelliSense with a compiler provides you with core IntelliSense features. This setup is called the base configuration. For more complex usage scenarios, such as setting up a project that requires:
 
-* Additional include paths, such as references to one or multiple different libraries
-* Specific compiler arguments that influence the behavior of the language(and therefore IntelliSense)
+- Additional include paths, such as references to one or multiple different libraries
+- Specific compiler arguments that influence the behavior of the language(and therefore IntelliSense)
 
 There are multiple other ways to configure IntelliSense. You can provide these additional configurations either through:
 
-* The `c_cpp_properties.json` file and related settings
-* A custom configuration provider in the form of another VS Code extension (for example, the [Makefile Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools) or [CMake Tools](/docs/cpp/cmake-linux.md) extensions)
-* A `compile_commands.json` file
+- The `c_cpp_properties.json` file and related settings
+- A custom configuration provider in the form of another VS Code extension (for example, the [Makefile Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools) or [CMake Tools](/docs/cpp/cmake-linux.md) extensions)
+- A `compile_commands.json` file
 
 ### Configuration providers
 
@@ -192,8 +181,8 @@ If your program includes header files that aren't in your workspace or that aren
 
 You can determine if IntelliSense is actively working on your file using the language status bar. To invoke the language status bar, open a C++ file. The status bar shows the text **{} C++**. Hover over the **{}** symbol to open the language status bar flyout. The top item in the flyout indicates the IntelliSense status. Here are the different statuses and their meanings:
 
-* **IntelliSense: Ready** = IntelliSense is configured for the C/C++ extension and automatically activates if you interact with the editor, for example, by writing code.
-* **IntelliSense: Updating** = IntelliSense is actively working to determine any code completions, syntax highlighting, etc. based on changes you're making to your code.
+- **IntelliSense: Ready** = IntelliSense is configured for the C/C++ extension and automatically activates if you interact with the editor, for example, by writing code.
+- **IntelliSense: Updating** = IntelliSense is actively working to determine any code completions, syntax highlighting, etc. based on changes you're making to your code.
 
 ![C++ extension language status bar flyout](images/intellisense/language-status-bar.png)
 
@@ -201,7 +190,7 @@ You can select the pin icon on the right of any item in the language status bar 
 
 ## Next steps
 
-* For more information about IntelliSense configuration, see [Customizing default settings](/docs/cpp/customize-default-settings-cpp.md).
-* If you have trouble configuring the settings, please start a discussion at [GitHub discussions](https://github.com/microsoft/vscode-cpptools/discussions), or if you find an issue that needs to be fixed, file an issue at [GitHub issues](https://github.com/microsoft/vscode-cpptools/issues).
-* Explore the [c_cpp_properties schema](/docs/cpp/c-cpp-properties-schema-reference.md).
-* Review the [Overview of the C++ extension](/docs/languages/cpp.md).
+- For more information about IntelliSense configuration, see [Customizing default settings](/docs/cpp/customize-default-settings-cpp.md).
+- If you have trouble configuring the settings, please start a discussion at [GitHub discussions](https://github.com/microsoft/vscode-cpptools/discussions), or if you find an issue that needs to be fixed, file an issue at [GitHub issues](https://github.com/microsoft/vscode-cpptools/issues).
+- Explore the [c_cpp_properties schema](/docs/cpp/c-cpp-properties-schema-reference.md).
+- Review the [Overview of the C++ extension](/docs/languages/cpp.md).

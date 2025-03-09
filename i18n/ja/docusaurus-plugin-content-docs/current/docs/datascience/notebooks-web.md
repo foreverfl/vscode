@@ -26,7 +26,7 @@ Developing Jupyter notebooks in VS Code can be done entirely through a web-based
 1. Navigate to [https://github.com/codespaces](https://github.com/codespaces).
 2. Under **Explore quick start templates**, select **Use this template** for **Jupyter Notebook**. If you don't see the **Jupyter Notebook** template, select **See all** and search for the template.
 
-    ![Use Codespaces Jupyter Notebook Template](images/notebooks-web/codespaces-jupyter-template.png)
+   ![Use Codespaces Jupyter Notebook Template](images/notebooks-web/codespaces-jupyter-template.png)
 
 3. That's it! A codespace will be created for you to get started!
 
@@ -48,12 +48,12 @@ You can securely connect to a remote machine without the requirement of SSH by i
    > **Note**: You can skip this step if VS Code Desktop is already installed on the remote machine as the `code` CLI is built into VS Code Desktop.
 
 2. Create a [secure tunnel](/docs/remote/tunnels.md) with the tunnel command: `code tunnel` (you can also run `code-insiders tunnel` if you wish to use the [daily release](/insiders) of VS Code) and follow the prompts to grant access to the server. This will download and start the VS Code Server on your remote machine and then create a tunnel to it.
-3. Use the CLI's output vscode.dev URL tied to this remote machine, such as<br>`https://vscode.dev/tunnel/<machine_name>/<folder_name>`<br>for access to this remote machine on any client.
+3. Use the CLI's output vscode.dev URL tied to this remote machine, such as<br />`https://vscode.dev/tunnel/<machine_name>/<folder_name>`<br />for access to this remote machine on any client.
 4. Open a notebook file and select any Jupyter kernel or Python environment to run your code.
 
 ## Connect to a remote Jupyter server
 
-You can also connect to any remote Jupyter server by pasting the URL with the format:<br>`http://<ip-address>:<port>/?token=<token>`.
+You can also connect to any remote Jupyter server by pasting the URL with the format:<br />`http://<ip-address>:<port>/?token=<token>`.
 
 To do so, select the **Jupyter: Specify Jupyter Server for Connections** command and then paste the URL for your remote Jupyter server.
 
@@ -100,7 +100,7 @@ You can also manually commit your changes and create a codespace through the **R
 1. Sign into Codespaces by opening the Command Palette (`kb(workbench.action.showCommands)`) and selecting **Codespaces: Sign in**.
 2. Navigate to the **Remote Explorer** view from the Activity bar.
 
-    ![Remote explorer tab](images/notebooks-web/remote-explorer-tab.png)
+   ![Remote explorer tab](images/notebooks-web/remote-explorer-tab.png)
 
 From the **Remote Explorer** view, you can either connect to an existing codespace or create a new one. This will open up a new window for you to continue working on your project on Codespaces.
 

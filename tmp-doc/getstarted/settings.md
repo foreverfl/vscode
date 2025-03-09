@@ -2919,7 +2919,7 @@ VS Code를 기본 설정으로 초기화하는 가장 쉬운 방법은 사용자
   //  - removeExtension: Prefer removing the file extension. For example, path completions to a file named `file.md` will insert `file` without the `.md`.
   "markdown.preferredMdPathExtensionStyle": "auto",
 
-  // Sets how line-breaks are rendered in the Markdown preview. Setting it to `true` creates a `<br>` for newlines inside paragraphs.
+  // Sets how line-breaks are rendered in the Markdown preview. Setting it to `true` creates a `<br />` for newlines inside paragraphs.
   "markdown.preview.breaks": false,
 
   // Double-click in the Markdown preview to switch to the editor.

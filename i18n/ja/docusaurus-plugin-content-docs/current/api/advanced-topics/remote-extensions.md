@@ -5,11 +5,12 @@ DateApproved: 03/05/2025
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding Visual Studio Code Remote Development and GitHub Codespaces support to extensions
 ---
+
 # Supporting Remote Development and GitHub Codespaces
 
 **[Visual Studio Code Remote Development](/docs/remote/remote-overview)** allows you to transparently interact with source code and runtime environments sitting on other machines (whether virtual or physical). **[GitHub Codespaces](https://github.com/features/codespaces)** is a service that expands these capabilities with managed cloud-hosted environments that are accessible from both VS Code and a browser-based editor.
 
-To ensure performance, Remote Development and GitHub Codespaces both transparently run certain VS Code extensions remotely. However, this can have subtle impacts on how extensions need to work.  While many extensions will work without any modifications, you may need to make changes so that your extension works properly in all environments, although these changes are often fairly minor.
+To ensure performance, Remote Development and GitHub Codespaces both transparently run certain VS Code extensions remotely. However, this can have subtle impacts on how extensions need to work. While many extensions will work without any modifications, you may need to make changes so that your extension works properly in all environments, although these changes are often fairly minor.
 
 This article summarizes what extension authors need to know about Remote Development and Codespaces including the extension [architecture](#architecture-and-extension-kinds), how to [debug your extension](#debugging-extensions) in remote workspaces or Codespaces, and recommendations on [what to do if your extension does not work properly](#common-problems).
 
@@ -45,7 +46,7 @@ Follow these steps:
 
 3. Finally, press `kb(workbench.action.debug.start)` or use the **Run and Debug** view to launch the extension inside in the codespace.
 
-    > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the codespace.
+   > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the codespace.
 
 The extension development host window that appears will include your extension running in a codespace with the debugger attached to it.
 
@@ -65,7 +66,7 @@ Follow these steps:
 
 6. Finally, press `kb(workbench.action.debug.start)` or use the **Run and Debug** view to launch the extension inside this same container and attach the debugger.
 
-    > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the container.
+   > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the container.
 
 The extension development host window that appears will include your extension running in the container you defined in step 2 with the debugger attached to it.
 
@@ -81,7 +82,7 @@ Follow steps:
 
 4. Finally, press `kb(workbench.action.debug.start)` or use the **Run and Debug** view to launch the extension inside on the remote host and attach the debugger.
 
-    > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else on the SSH host.
+   > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else on the SSH host.
 
 The extension development host window that appears will include your extension running on the SSH host with the debugger attached to it.
 
@@ -93,13 +94,13 @@ Follow these steps:
 
 2. In the new window that appears, either use **File > Open... / Open Folder...** to select the remote folder with your extension source code in it or select **Git: Clone** from the Command Palette (`kbstyle(F1)`) to clone it and open it in WSL.
 
-    > **Tip:** You can select the `/mnt/c` folder to access any cloned source code you have on the Windows side.
+   > **Tip:** You can select the `/mnt/c` folder to access any cloned source code you have on the Windows side.
 
 3. Install any required dependencies that might be missing (for example using `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`). You will at least want to run `yarn install` or `npm install` to ensure Linux versions of native Node.js dependencies are available.
 
 4. Finally, press `kb(workbench.action.debug.start)` or use the **Run and Debug** view to launch the extension and attach the debugger as you would locally.
 
-    > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in WSL.
+   > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in WSL.
 
 The extension development host window that appears will include your extension running in WSL with the debugger attached to it.
 
@@ -148,8 +149,8 @@ You can quickly **test** the effect of changing an extension's kind with the `re
 ```json
 {
   "remote.extensionKind": {
-      "ms-azuretools.vscode-cosmosdb": ["ui"],
-      "ms-vscode-remote.remote-ssh-edit": ["workspace"]
+    "ms-azuretools.vscode-cosmosdb": ["ui"],
+    "ms-vscode-remote.remote-ssh-edit": ["workspace"]
   }
 }
 ```
@@ -162,7 +163,7 @@ In some cases, your extension may need to persist state information that does no
 
 However, if your extension relies on current VS Code pathing conventions (for example `~/.vscode`) or the presence of certain OS folders (for example `~/.config/Code` on Linux) to persist data, you may run into problems. Fortunately, it should be simple to update your extension and avoid these challenges.
 
-If you are persisting simple key-value pairs, you can store workspace specific or global state information using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` respectively. If your data is more complicated than key-value pairs, the  `globalStorageUri` and `storageUri` properties provide "safe" URIs that you can use to read/write global workspace-specific information in a file.
+If you are persisting simple key-value pairs, you can store workspace specific or global state information using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` respectively. If your data is more complicated than key-value pairs, the `globalStorageUri` and `storageUri` properties provide "safe" URIs that you can use to read/write global workspace-specific information in a file.
 
 To use the APIs:
 
@@ -223,7 +224,7 @@ There is an example of using `setKeysforSync` in the [Extension Capabilities](/a
 
 If your extension needs to persist passwords or other secrets, you may want to use Visual Studio Code's [SecretStorage API](https://code.visualstudio.com/api/references/vscode-api#SecretStorage) which provides a way to securely store text on the filesystem backed by encryption. For example, on desktop, we use Electron's [safeStorage API](https://www.electronjs.org/docs/latest/api/safe-storage) to encrypt secrets before storing them on the filesystem. The API will always store the secrets on the client side but you can use this API regardless of where your extension is running and retrieve the same secret values.
 
->**Note**: This API is the recommended way to persist passwords & secrets. You should **not** store your secrets using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` because these APIs store data in plaintext.
+> **Note**: This API is the recommended way to persist passwords & secrets. You should **not** store your secrets using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` because these APIs store data in plaintext.
 
 Here's an example:
 
@@ -231,12 +232,12 @@ Here's an example:
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-    // ...
-    const myApiKey = context.secrets.get('apiKey');
-    // ...
-    context.secrets.delete('apiKey');
-    // ...
-    context.secrets.store('apiKey', myApiKey);
+  // ...
+  const myApiKey = context.secrets.get('apiKey');
+  // ...
+  context.secrets.delete('apiKey');
+  // ...
+  context.secrets.store('apiKey', myApiKey);
 }
 ```
 
@@ -250,13 +251,17 @@ To use the VS Code clipboard API in an extension:
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(vscode.commands.registerCommand('myAmazingExtension.clipboardIt', async () => {
-        // Read from clipboard
-        const text = await vscode.env.clipboard.readText();
+  context.subscriptions.push(
+    vscode.commands.registerCommand('myAmazingExtension.clipboardIt', async () => {
+      // Read from clipboard
+      const text = await vscode.env.clipboard.readText();
 
-        // Write to clipboard
-        await vscode.env.clipboard.writeText(`It looks like you're copying "${text}". Would you like help?`);
-    }));
+      // Write to clipboard
+      await vscode.env.clipboard.writeText(
+        `It looks like you're copying "${text}". Would you like help?`
+      );
+    })
+  );
 }
 ```
 
@@ -274,17 +279,18 @@ To use the `vscode.env.openExternal` API:
 import * as vscode from 'vscode';
 
 export async function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(vscode.commands.registerCommand('myAmazingExtension.openExternal', () => {
+  context.subscriptions.push(
+    vscode.commands.registerCommand('myAmazingExtension.openExternal', () => {
+      // Example 1 - Open the VS Code homepage in the default browser.
+      vscode.env.openExternal(vscode.Uri.parse('https://code.visualstudio.com'));
 
-        // Example 1 - Open the VS Code homepage in the default browser.
-        vscode.env.openExternal(vscode.Uri.parse('https://code.visualstudio.com'));
+      // Example 2 - Open an auto-forwarded localhost HTTP server.
+      vscode.env.openExternal(vscode.Uri.parse('http://localhost:3000'));
 
-        // Example 2 - Open an auto-forwarded localhost HTTP server.
-        vscode.env.openExternal(vscode.Uri.parse('http://localhost:3000'));
-
-        // Example 3 - Open the default email application.
-        vscode.env.openExternal(vscode.Uri.parse('mailto:<fill in your email here>'));
-    }));
+      // Example 3 - Open the default email application.
+      vscode.env.openExternal(vscode.Uri.parse('mailto:<fill in your email here>'));
+    })
+  );
 }
 ```
 
@@ -333,29 +339,31 @@ import * as vscode from 'vscode';
 const extensionId = 'my.amazing-extension';
 
 export async function activate(context: vscode.ExtensionContext) {
+  // Register a URI handler for the authentication callback
+  vscode.window.registerUriHandler({
+    handleUri(uri: vscode.Uri): vscode.ProviderResult<void> {
+      // Add your code for what to do when the authentication completes here.
+      if (uri.path === '/auth-complete') {
+        vscode.window.showInformationMessage('Sign in successful!');
+      }
+    },
+  });
 
-    // Register a URI handler for the authentication callback
-    vscode.window.registerUriHandler({
-        handleUri(uri: vscode.Uri): vscode.ProviderResult<void> {
+  // Register a sign in command
+  context.subscriptions.push(
+    vscode.commands.registerCommand(`${extensionId}.signin`, async () => {
+      // Get an externally addressable callback URI for the handler that the authentication provider can use
+      const callbackUri = await vscode.env.asExternalUri(
+        vscode.Uri.parse(`${vscode.env.uriScheme}://${extensionId}/auth-complete`)
+      );
 
-            // Add your code for what to do when the authentication completes here.
-            if (uri.path === '/auth-complete') {
-                vscode.window.showInformationMessage('Sign in successful!');
-            }
-
-        }
-    });
-
-    // Register a sign in command
-    context.subscriptions.push(vscode.commands.registerCommand(`${extensionId}.signin`, async () => {
-
-        // Get an externally addressable callback URI for the handler that the authentication provider can use
-        const callbackUri = await vscode.env.asExternalUri(vscode.Uri.parse(`${vscode.env.uriScheme}://${extensionId}/auth-complete`));
-
-        // Add your code to integrate with an authentication provider here - we'll fake it.
-        vscode.env.clipboard.writeText(callbackUri.toString());
-        await vscode.window.showInformationMessage('Open the URI copied to the clipboard in a browser window to authorize.');
-    }));
+      // Add your code to integrate with an authentication provider here - we'll fake it.
+      vscode.env.clipboard.writeText(callbackUri.toString());
+      await vscode.window.showInformationMessage(
+        'Open the URI copied to the clipboard in a browser window to authorize.'
+      );
+    })
+  );
 }
 ```
 
@@ -373,23 +381,21 @@ Next, you can use the three APIs as follows:
 import * as vscode from 'vscode';
 
 export async function activate(context: vscode.ExtensionContext) {
+  // extensionKind returns ExtensionKind.UI when running locally, so use this to detect remote
+  const extension = vscode.extensions.getExtension('your.extensionId');
+  if (extension.extensionKind === vscode.ExtensionKind.Workspace) {
+    vscode.window.showInformationMessage('I am running remotely!');
+  }
 
-    // extensionKind returns ExtensionKind.UI when running locally, so use this to detect remote
-    const extension = vscode.extensions.getExtension('your.extensionId');
-    if (extension.extensionKind === vscode.ExtensionKind.Workspace) {
-        vscode.window.showInformationMessage('I am running remotely!');
-    }
+  // Codespaces browser-based editor will return UIKind.Web for uiKind
+  if (vscode.env.uiKind === vscode.UIKind.Web) {
+    vscode.window.showInformationMessage('I am running in the Codespaces browser editor!');
+  }
 
-    // Codespaces browser-based editor will return UIKind.Web for uiKind
-    if (vscode.env.uiKind === vscode.UIKind.Web) {
-        vscode.window.showInformationMessage('I am running in the Codespaces browser editor!');
-    }
-
-    // VS Code will return undefined for remoteName if working with a local workspace
-    if (typeof(vscode.env.remoteName) === 'undefined') {
-        vscode.window.showInformationMessage('Not currently connected to a remote workspace.');
-    }
-
+  // VS Code will return undefined for remoteName if working with a local workspace
+  if (typeof vscode.env.remoteName === 'undefined') {
+    vscode.window.showInformationMessage('Not currently connected to a remote workspace.');
+  }
 }
 ```
 
@@ -407,13 +413,14 @@ For example:
 import * as vscode from 'vscode';
 
 export async function activate(context: vscode.ExtensionContext) {
-    // Register the private echo command
-    const echoCommand = vscode.commands.registerCommand('_private.command.called.echo',
-        (value: string) => {
-            return value;
-        }
-    );
-    context.subscriptions.push(echoCommand);
+  // Register the private echo command
+  const echoCommand = vscode.commands.registerCommand(
+    '_private.command.called.echo',
+    (value: string) => {
+      return value;
+    }
+  );
+  context.subscriptions.push(echoCommand);
 }
 ```
 
@@ -432,13 +439,15 @@ You can use the API in your content as follows:
 ```typescript
 // Create the webview
 const panel = vscode.window.createWebviewPanel(
-    'catWebview',
-    'Cat Webview',
-    vscode.ViewColumn.One);
+  'catWebview',
+  'Cat Webview',
+  vscode.ViewColumn.One
+);
 
 // Get the content Uri
 const catGifUri = panel.webview.asWebviewUri(
-    vscode.Uri.joinPath(context.extensionUri, 'media', 'cat.gif'));
+  vscode.Uri.joinPath(context.extensionUri, 'media', 'cat.gif')
+);
 
 // Reference it in your content
 panel.webview.html = `<!DOCTYPE html>
@@ -483,16 +492,18 @@ Use the API to get a full URI for the iframe and add it to your HTML. You will a
 // Use asExternalUri to get the URI for the web server
 const dynamicWebServerPort = await getWebServerPort();
 const fullWebServerUri = await vscode.env.asExternalUri(
-        vscode.Uri.parse(`http://localhost:${dynamicWebServerPort}`)
-    );
+  vscode.Uri.parse(`http://localhost:${dynamicWebServerPort}`)
+);
 
 // Create the webview
 const panel = vscode.window.createWebviewPanel(
-    'asExternalUriWebview',
-    'asExternalUri Example',
-    vscode.ViewColumn.One, {
-        enableScripts: true
-    });
+  'asExternalUriWebview',
+  'asExternalUri Example',
+  vscode.ViewColumn.One,
+  {
+    enableScripts: true,
+  }
+);
 
 const cspSource = panel.webview.cspSource;
 panel.webview.html = `<!DOCTYPE html>
@@ -523,14 +534,16 @@ const dynamicServerPort = await getWebServerPort();
 
 // Create webview and pass portMapping in
 const panel = vscode.window.createWebviewPanel(
-    'remoteMappingExample',
-    'Remote Mapping Example',
-    vscode.ViewColumn.One, {
-        portMapping: [
-            // This maps localhost:3000 in the webview to the web server port on the remote host.
-            { webviewPort: LOCAL_STATIC_PORT, extensionHostPort: dynamicServerPort }
-        ]
-    });
+  'remoteMappingExample',
+  'Remote Mapping Example',
+  vscode.ViewColumn.One,
+  {
+    portMapping: [
+      // This maps localhost:3000 in the webview to the web server port on the remote host.
+      { webviewPort: LOCAL_STATIC_PORT, extensionHostPort: dynamicServerPort },
+    ],
+  }
+);
 
 // Reference the port in any full URIs you reference in your HTML.
 panel.webview.html = `<!DOCTYPE html>
@@ -567,7 +580,7 @@ To resolve this problem:
 
 1. If you are dynamically acquiring compiled code, you can add support by detecting non-x86_64 targets using `process.arch` and downloading versions compiled for the right architecture. If you are including binaries for all supported architectures inside your extension instead, you can use this logic to use the correct one.
 
-2. For Alpine Linux, you can detect the operating system using  `await fs.exists('/etc/alpine-release')` and once again download or use the correct binaries for a `musl` based operating system.
+2. For Alpine Linux, you can detect the operating system using `await fs.exists('/etc/alpine-release')` and once again download or use the correct binaries for a `musl` based operating system.
 
 3. If you'd prefer not to support these platforms, you can use the same logic to provide a good error message instead.
 
@@ -583,11 +596,10 @@ The example below will use the Electron `original-fs` node module if found, and 
 
 ```typescript
 function requireWithFallback(electronModule: string, nodeModule: string) {
-    try {
-        return require(electronModule);
-    }
-    catch (err) { }
-    return require(nodeModule);
+  try {
+    return require(electronModule);
+  } catch (err) {}
+  return require(nodeModule);
 }
 
 const fs = requireWithFallback('original-fs', 'fs');
@@ -599,9 +611,9 @@ Try to avoid these situations whenever possible.
 
 There are a few extension problems that could be resolved with some added functionality for Workspace Extensions. The following table is a list of known issues under consideration:
 
-| Problem | Description |
-|---------|-------------|
-| **Cannot access attached devices from Workspace extension** | Extensions that access locally attached devices will be unable to connect to them when running remotely. One approach to overcome this is to create a companion UI extension whose job is to access the attached device and offers commands that the remote extension can invoke too. <br> Another approach is reverse tunneling, which is being tracked in a [VS Code repo issue](https://github.com/microsoft/vscode/issues/100222). |
+| Problem                                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Cannot access attached devices from Workspace extension** | Extensions that access locally attached devices will be unable to connect to them when running remotely. One approach to overcome this is to create a companion UI extension whose job is to access the attached device and offers commands that the remote extension can invoke too. <br /> Another approach is reverse tunneling, which is being tracked in a [VS Code repo issue](https://github.com/microsoft/vscode/issues/100222). |
 
 ## Questions and feedback
 

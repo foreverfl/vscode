@@ -7,6 +7,7 @@ PageTitle: Java in Visual Studio Code
 DateApproved: 03/05/2025
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Java.
 ---
+
 # Java in Visual Studio Code
 
 Support for Java in Visual Studio Code is provided through a wide range of [extensions](/docs/java/extensions.md). Combined with the power of core VS Code, these extensions give you a lightweight and performant code editor that also supports many of the most common Java development techniques.
@@ -19,12 +20,12 @@ This article will give you an overview of different capabilities of Visual Studi
 
 VS Code provides essential language features such as code completion, refactoring, linting, formatting, and code snippets along with convenient debugging and unit test support. VS Code also integrates with tooling and frameworks such as Maven, Tomcat, Jetty, and Spring Boot. Leveraging the power of Visual Studio Code, Java developers get an excellent tool for both quick code editing and also the full debugging and testing cycle. It's a great choice for your Java work if you're looking for a tool which:
 
-* Is fast, lightweight, free, and open source.
-* Supports many other languages, not just Java.
-* Helps start your Java journey without installing and learning a complex IDE.
-* Provides great microservices support including popular frameworks, container tooling, and cloud integration.
-* Offers team-based collaboration features such as [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share).
-* Improves your productivity through IntelliSense and other code-aware editing features.
+- Is fast, lightweight, free, and open source.
+- Supports many other languages, not just Java.
+- Helps start your Java journey without installing and learning a complex IDE.
+- Provides great microservices support including popular frameworks, container tooling, and cloud integration.
+- Offers team-based collaboration features such as [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share).
+- Improves your productivity through IntelliSense and other code-aware editing features.
 
 ## Install Visual Studio Code for Java
 
@@ -32,7 +33,7 @@ To help you set up quickly, we recommend you use the **Coding Pack for Java**, w
 
 <a class="install-extension-btn" onclick="pushCodingPackEvent('java', 'win')" href="https://aka.ms/vscode-java-installer-win">Install the Coding Pack for Java - Windows</a>
 
-<a class="install-extension-btn" onclick="pushCodingPackEvent('java', 'mac')" href="https://aka.ms/vscode-java-installer-mac">Install the Coding Pack for Java - macOS</a><br>
+<a class="install-extension-btn" onclick="pushCodingPackEvent('java', 'mac')" href="https://aka.ms/vscode-java-installer-mac">Install the Coding Pack for Java - macOS</a><br />
 
 > **Note**: The Coding Pack for Java is only available for Windows and macOS. For other operating systems, you will need to manually install a JDK, VS Code, and Java extensions.
 
@@ -68,7 +69,7 @@ Thanks to the great Java community around VS Code, the list doesn't end there. Y
 
 This document describes some of the key features included in those Java extensions.
 
->**Note**: To help get you started with Java development, you can use the [Java General profile template](/docs/editor/profiles.md#java-general-profile-template) to install useful extensions. You can learn more about profiles and how they let you quickly reconfigure your editor for different programming languages and workflows at [Profiles in VS Code](/docs/editor/profiles.md).
+> **Note**: To help get you started with Java development, you can use the [Java General profile template](/docs/editor/profiles.md#java-general-profile-template) to install useful extensions. You can learn more about profiles and how they let you quickly reconfigure your editor for different programming languages and workflows at [Profiles in VS Code](/docs/editor/profiles.md).
 
 ## Getting started
 
@@ -80,14 +81,14 @@ A Java Development Kit (JDK) is a software development environment used for deve
 
 We recommend you to consider installing the JDK from one of these sources:
 
-* [Amazon Corretto](https://aws.amazon.com/corretto)
-* [Azul Zulu](https://www.azul.com/downloads/?package=jdk)
-* [Eclipse Adoptium's Temurin](https://adoptium.net/)
-* [IBM Semeru Runtimes](https://developer.ibm.com/languages/java/semeru-runtimes)
-* [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
-* [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
-* [Red Hat build of OpenJDK](https://developers.redhat.com/products/openjdk/download)
-* [SapMachine](https://sapmachine.io)
+- [Amazon Corretto](https://aws.amazon.com/corretto)
+- [Azul Zulu](https://www.azul.com/downloads/?package=jdk)
+- [Eclipse Adoptium's Temurin](https://adoptium.net/)
+- [IBM Semeru Runtimes](https://developer.ibm.com/languages/java/semeru-runtimes)
+- [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
+- [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
+- [Red Hat build of OpenJDK](https://developers.redhat.com/products/openjdk/download)
+- [SapMachine](https://sapmachine.io)
 
 > **Note**: If you have multiple JDKs installed and need to use a specific JDK version for your projects, see [Configure Runtime for Projects](/docs/java/java-project.md#configure-runtime-for-projects). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions).
 
@@ -111,7 +112,7 @@ There are three things you must understand to work with Java in VS Code:
 
 ### VS Code Workspaces
 
-In Visual Studio Code, a "Workspace" means a collection of one or more filesystem folders (and their children) and all of the VS Code configurations that take effect when that "Workspace" is open in VS Code.  There are two kinds of "Workspaces" in VS Code, "folder workspaces" and "multi-root workspaces".
+In Visual Studio Code, a "Workspace" means a collection of one or more filesystem folders (and their children) and all of the VS Code configurations that take effect when that "Workspace" is open in VS Code. There are two kinds of "Workspaces" in VS Code, "folder workspaces" and "multi-root workspaces".
 
 A "folder workspace" is presented by VS Code when you open a filesystem folder (directory) in VS Code.
 
@@ -126,7 +127,7 @@ For example, Maven, Eclipse, and Gradle Java projects are supported through [Lan
 With [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), you can generate projects from [Maven Archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html), browse through all the Maven projects within your workspace, and execute Maven goals easily from an embedded explorer. Projects can also be created and managed with the [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension.
 
 <video autoplay loop muted playsinline controls title="Using the Java Projects view from the Project Manager for Java extension">
-  <source src="/docs/languages/java/package-viewer.mp4" type="video/mp4">
+  <source src="/docs/languages/java/package-viewer.mp4" type="video/mp4" />
 </video>
 
 Visual Studio Code also supports working with standalone Java files outside of a Java project, described in the [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
@@ -150,7 +151,7 @@ One of the key advantages of VS Code is speed. When you open your Java source fi
 [IntelliSense](/docs/editor/intellisense.md) is a general term for language features, including intelligent code completion (in-context method and variable suggestions) across all your files and for both built-in and third-party modules. VS Code supports code completion and IntelliSense for Java through [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). It also provides AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/) by putting what you're most likely to use at the top of your completion list.
 
 <video autoplay loop muted playsinline controls title="Java inline code completions and hovers">
-  <source src="/docs/languages/java/intellisense.mp4" type="video/mp4">
+  <source src="/docs/languages/java/intellisense.mp4" type="video/mp4" />
 </video>
 
 ### Enhance completions with AI
@@ -167,7 +168,7 @@ You can learn more about how to get started with Copilot in the [Copilot documen
 
 Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, static main method. Using information from Java language server, it also provides a preview of the code snippet during the selection.
 
-For example, typing "**sout**" or "**sysout**" will produce a code snippet for `System.out.println()`.<br>
+For example, typing "**sout**" or "**sysout**" will produce a code snippet for `System.out.println()`.<br />
 Similarly, typing "**main**" or "**psvm**" will generate a code snippet for `public static void main(String[] args) {}`.
 
 We support a wide range of code snippet shortcuts and postfix completion features. To see the complete list, see [Code Snippets](/docs/java/java-editing.md#code-snippets). VS Code also supports a range of [Refactoring](/docs/java/java-refactoring.md) and [Linting](/docs/java/java-linting.md) features.
@@ -181,7 +182,7 @@ We support a wide range of code snippet shortcuts and postfix completion feature
 Starting a debugging session is easy: click the **Run|Debug** button available at the CodeLens of your `main()` function, or press `kb(workbench.action.debug.start)`. The debugger will automatically generate the proper configuration for you.
 
 <video autoplay loop muted playsinline controls title="Setting a breakpoint, launching the debugging, and using Hot Code Replace">
-  <source src="/docs/languages/java/resolve-main.mp4" type="video/mp4">
+  <source src="/docs/languages/java/resolve-main.mp4" type="video/mp4" />
 </video>
 
 Although it's lightweight, the Java debugger supports advanced features such as expression evaluation, conditional breakpoints, and [Hot Code Replace](/docs/java/java-debugging.md#hot-code-replace). For more debugging-related information, visit [Java Debugging](/docs/java/java-debugging.md).
@@ -191,7 +192,7 @@ Although it's lightweight, the Java debugger supports advanced features such as 
 With the support from the [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) extension, you can easily run, debug, and manage your JUnit and TestNG test cases.
 
 <video autoplay loop muted playsinline controls title="Running tests and investigating a failed test">
-  <source src="/docs/languages/java/testng.mp4" type="video/mp4">
+  <source src="/docs/languages/java/testng.mp4" type="video/mp4" />
 </video>
 
 For more about testing, read [Testing Java](/docs/java/java-testing.md).
@@ -210,18 +211,18 @@ See [Spring Boot with VS Code](/docs/java/java-spring-boot.md) to learn more abo
 
 Learn more about Java in VS Code:
 
-* [Getting Started with Java](/docs/java/java-tutorial.md)
-* [Code Editing and Navigation](/docs/java/java-editing.md)
-* [Java Debugging](/docs/java/java-debugging.md)
-* [Java Testing](/docs/java/java-testing.md)
-* [Java Project Management](/docs/java/java-project.md)
-* [Spring Boot with VS Code](/docs/java/java-spring-boot.md)
-* [Application Servers](/docs/java/java-tomcat-jetty.md)
-* [Azure with VS Code](/docs/java/java-on-azure.md)
+- [Getting Started with Java](/docs/java/java-tutorial.md)
+- [Code Editing and Navigation](/docs/java/java-editing.md)
+- [Java Debugging](/docs/java/java-debugging.md)
+- [Java Testing](/docs/java/java-testing.md)
+- [Java Project Management](/docs/java/java-project.md)
+- [Spring Boot with VS Code](/docs/java/java-spring-boot.md)
+- [Application Servers](/docs/java/java-tomcat-jetty.md)
+- [Azure with VS Code](/docs/java/java-on-azure.md)
 
 Read on to find out more about Visual Studio Code:
 
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-* [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
-* [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
+- [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+- [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+- [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
+- [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
