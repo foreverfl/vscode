@@ -1,160 +1,160 @@
 ---
 Order: 8
 Area: setup
-TOCTitle: Enterprise
+TOCTitle: 기업
 ContentId: 936ab8e0-3bbe-4842-bb17-ea314665c20a
-PageTitle: Visual Studio Code enterprise support
+PageTitle: Visual Studio Code 기업 지원
 DateApproved: 03/05/2025
-MetaDescription: Learn about Visual Studio Code's enterprise support features, such as group policies or restricting allowed extensions.
+MetaDescription: 그룹 정책 또는 허용된 확장 프로그램 제한과 같은 Visual Studio Code의 기업 지원 기능에 대해 알아보세요.
 
 ---
-# Enterprise support
+# 기업 지원 {#enterprise-support}
 
-Visual Studio Code can be used as a development tool for enterprise teams of all sizes. As an IT admin, you can configure VS Code to achieve consistency and compatibility across your organization.
+Visual Studio Code는 모든 규모의 기업 팀을 위한 개발 도구로 사용될 수 있습니다. IT 관리자로서, 귀하는 조직 내에서 일관성과 호환성을 달성하기 위해 VS Code를 구성할 수 있습니다.
 
-## Network: Common hostnames
+## 네트워크: 일반 호스트 이름 {#network-common-hostnames}
 
-A handful of features within VS Code require network communication to work, such as the auto-update mechanism, querying and installing extensions, and telemetry. For these features to work properly in a proxy environment, you must have the product correctly configured.
+VS Code 내의 몇 가지 기능은 자동 업데이트 메커니즘, 확장 프로그램 쿼리 및 설치, 원격 측정과 같은 네트워크 통신이 필요합니다. 이러한 기능이 프록시 환경에서 제대로 작동하려면 제품이 올바르게 구성되어야 합니다.
 
-Refer to the [network common hostnames list](/docs/setup/network.md#common-hostnames) for the required domains.
+필요한 도메인에 대한 [네트워크 일반 호스트 이름 목록](/docs/setup/network.md#common-hostnames)을 참조하세요.
 
-## Configure allowed extensions
+## 허용된 확장 프로그램 구성 {#configure-allowed-extensions}
 
-Configure the `extensions.allowed` application-wide setting in VS Code to control which extensions can be installed. If the setting is not configured, all extensions are allowed. If the setting is configured, all extensions not listed are blocked from installing. If you block an extension or version that is already installed, the extension is disabled.
+VS Code에서 `extensions.allowed` 애플리케이션 전체 설정을 구성하여 설치할 수 있는 확장 프로그램을 제어합니다. 설정이 구성되지 않으면 모든 확장 프로그램이 허용됩니다. 설정이 구성되면 나열되지 않은 모든 확장 프로그램은 설치가 차단됩니다. 이미 설치된 확장 프로그램이나 버전을 차단하면 해당 확장 프로그램이 비활성화됩니다.
 
-To centrally manage allowed extensions for your organization, use [device management](#centrally-manage-allowed-extensions) like Windows group policies, to create a policy that overrides the VS Code setting on individual devices.
+조직의 허용된 확장 프로그램을 중앙에서 관리하려면 Windows 그룹 정책과 같은 [장치 관리](#centrally-manage-allowed-extensions)를 사용하여 개별 장치의 VS Code 설정을 재정의하는 정책을 생성하세요.
 
 > [!NOTE]
-> Support for allowed extensions is available starting from VS Code version 1.96.
+> 허용된 확장 프로그램에 대한 지원은 VS Code 버전 1.96부터 제공됩니다.
 
-The `extensions.allowed` setting contains a list of extension selectors that determine which extensions are allowed or blocked. You can specify the following types of extension selectors:
+`extensions.allowed` 설정은 허용되거나 차단된 확장 프로그램을 결정하는 확장 프로그램 선택기 목록을 포함합니다. 다음과 같은 유형의 확장 프로그램 선택기를 지정할 수 있습니다:
 
-* Allow or block all extensions from a publisher
-* Allow or block specific extensions
-* Allow specific extension versions
-* Allow specific extension versions and platforms
-* Allow only stable versions of an extension
-* Allow only stable extension versions from a publisher
+* 특정 게시자의 모든 확장 프로그램 허용 또는 차단
+* 특정 확장 프로그램 허용 또는 차단
+* 특정 확장 프로그램 버전 허용
+* 특정 확장 프로그램 버전 및 플랫폼 허용
+* 확장의 안정적인 버전만 허용
+* 특정 게시자의 안정적인 확장 버전만 허용
 
-The following JSON snippet shows examples of the different `extensions.allowed` setting values:
+다음 JSON 스니펫은 다양한 `extensions.allowed` 설정 값의 예를 보여줍니다:
 
 ```json
 "extensions.allowed": {
-    // Allow all extensions from the 'microsoft' publisher. If the key does not have a '.', it means it is a publisher ID.
+    // 'microsoft' 게시자의 모든 확장 프로그램을 허용합니다. 키에 '.'가 없으면 게시자 ID를 의미합니다.
     "microsoft": true,
 
-    // Allow all extensions from the 'github' publisher
+    // 'github' 게시자의 모든 확장 프로그램을 허용합니다.
     "github": true,
 
-    // Allow prettier extension
+    // prettier 확장 프로그램을 허용합니다.
     "esbenp.prettier-vscode": true,
 
-    // Do not allow docker extension
+    // docker 확장 프로그램을 허용하지 않습니다.
     "ms-azuretools.vscode-docker": false,
 
-    // Allow only version 3.0.0 of the eslint extension
+    // eslint 확장의 버전 3.0.0만 허용합니다.
     "dbaeumer.vscode-eslint": ["3.0.0"],
 
-    // Allow multiple versions of the figma extension
+    // figma 확장의 여러 버전을 허용합니다.
     "figma.figma-vscode-extension": ["3.0.0", "4.2.3", "4.1.2"],
 
-    // Allow version 5.0.0 of the rust extension on Windows and macOS
+    // Windows 및 macOS에서 rust 확장의 버전 5.0.0을 허용합니다.
     "rust-lang.rust-analyzer": ["5.0.0@win32-x64", "5.0.0@darwin-x64"],
 
-    // Allow only stable versions of the GitHub Pull Requests extension
+    // GitHub Pull Requests 확장의 안정적인 버전만 허용합니다.
     "github.vscode-pull-request-github": "stable",
 
-    // Allow only stable versions from redhat publisher
+    // redhat 게시자의 안정적인 버전만 허용합니다.
     "redhat": "stable",
 }
 ```
 
-Specify publishers by their publisher ID. If a key does not have a period (`.`), it is considered a publisher ID. If a key has a period, it is considered an extension ID. The use of wildcards is currently not supported.
+게시자는 게시자 ID로 지정합니다. 키에 마침표(`.`)가 없으면 게시자 ID로 간주됩니다. 키에 마침표가 있으면 확장 ID로 간주됩니다. 현재 와일드카드 사용은 지원되지 않습니다.
 
 > [!TIP]
-> You can use `microsoft` as the publisher ID to refer to all extensions published by Microsoft, even though they might have different publisher IDs.
+> `microsoft`를 게시자 ID로 사용하여 Microsoft에서 게시한 모든 확장 프로그램을 참조할 수 있습니다. 비록 그들이 다른 게시자 ID를 가질 수 있지만요.
 
-Version ranges are not supported. If you want to allow multiple versions of an extension, you must specify each version individually. To further restrict versions by platform, use the `@` symbol to specify the platform. For example, `"rust-lang.rust-analyzer": ["5.0.0@win32-x64", "5.0.0@darwin-x64"]`.
+버전 범위는 지원되지 않습니다. 여러 버전의 확장을 허용하려면 각 버전을 개별적으로 지정해야 합니다. 플랫폼별로 버전을 더 제한하려면 `@` 기호를 사용하여 플랫폼을 지정합니다. 예를 들어, `"rust-lang.rust-analyzer": ["5.0.0@win32-x64", "5.0.0@darwin-x64"]`.
 
-The more specific the selector, the higher the precedence. For example, `"microsoft": true` and `"microsoft.cplusplus": false` allows all Microsoft extensions, except for the C++ extension.
+선택기가 구체적일수록 우선 순위가 높습니다. 예를 들어, `"microsoft": true`와 `"microsoft.cplusplus": false`는 C++ 확장을 제외한 모든 Microsoft 확장을 허용합니다.
 
-Duplicate key values are not supported. For example, including both `"microsoft": true` and `"microsoft": false` results in an invalid policy.
+중복 키 값은 지원되지 않습니다. 예를 들어, `"microsoft": true`와 `"microsoft": false`를 모두 포함하면 잘못된 정책이 됩니다.
 
-If you want to learn more about extensions in VS Code, refer to the [extensions documentation](/docs/editor/extension-marketplace.md).
+VS Code의 확장 프로그램에 대해 더 알고 싶다면 [확장 프로그램 문서](/docs/editor/extension-marketplace.md)를 참조하세요.
 
-### Centrally manage allowed extensions
+### 허용된 확장 프로그램 중앙 관리 {#centrally-manage-allowed-extensions}
 
-Use [device management](#device-management) to centrally control which extensions are allowed to be installed in your organization. Configure the `AllowedExtensions` VS Code policy to override the corresponding `extensions.allowed` VS Code setting on users' devices. The value of this policy is a JSON string that contains the allowed extensions.
+[장치 관리](#device-management)를 사용하여 조직 내에서 설치할 수 있는 확장 프로그램을 중앙에서 제어합니다. `AllowedExtensions` VS Code 정책을 구성하여 사용자의 장치에서 해당 `extensions.allowed` VS Code 설정을 재정의합니다. 이 정책의 값은 허용된 확장 프로그램을 포함하는 JSON 문자열입니다.
 
-![Settings editor showing that the 'Extensions: Allowed' setting is managed by the organization.](images/enterprise/allowed-extensions-managed-by-organization.png)
+![조직에서 관리하는 '확장 프로그램: 허용됨' 설정을 보여주는 설정 편집기.](images/enterprise/allowed-extensions-managed-by-organization.png)
 
 > [!IMPORTANT]
-> If there's a syntax error in the policy value, the `extensions.allowed` setting is not applied. You can check the Window log in VS Code for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**).
+> 정책 값에 구문 오류가 있는 경우 `extensions.allowed` 설정이 적용되지 않습니다. 오류를 확인하려면 VS Code에서 Window 로그를 확인하세요 (키보드 단축키 `kb(workbench.action.showCommands)`를 누르고 **Show Window Log**를 입력합니다).
 
-## Configure automatic updates
+## 자동 업데이트 구성 {#configure-automatic-updates}
 
-The `update.mode` VS Code setting controls whether VS Code automatically updates when a new version is released. The updates are fetched from a Microsoft online service.
+`update.mode` VS Code 설정은 새 버전이 출시될 때 VS Code가 자동으로 업데이트되는지 여부를 제어합니다. 업데이트는 Microsoft 온라인 서비스에서 가져옵니다.
 
-The setting has the following options:
+설정에는 다음과 같은 옵션이 있습니다:
 
-* `none` - updates are disabled
-* `manual` - automatic checking for updates is disabled, but users can manually check for updates
-* `start` - only check for updates when VS Code starts, automatic checking for updates is disabled
-* `default` - automatic checking for updates is enabled and runs in the background periodically
+* `none` - 업데이트가 비활성화됩니다.
+* `manual` - 자동 업데이트 확인이 비활성화되지만 사용자가 수동으로 업데이트를 확인할 수 있습니다.
+* `start` - VS Code가 시작될 때만 업데이트를 확인하며, 자동 업데이트 확인은 비활성화됩니다.
+* `default` - 자동 업데이트 확인이 활성화되며 주기적으로 백그라운드에서 실행됩니다.
 
-### Centrally manage automatic updates
+### 자동 업데이트 중앙 관리 {#centrally-manage-automatic-updates}
 
-Use [device management](#device-management) to centrally control how VS Code manages updates across devices in your organization. Configure the `UpdateMode` VS Code policy, which overrides the corresponding `update.mode` VS Code setting on users's devices. The value of this policy is a string that contains the update mode.
+[장치 관리](#device-management)를 사용하여 조직 내에서 VS Code가 업데이트를 관리하는 방식을 중앙에서 제어합니다. `UpdateMode` VS Code 정책을 구성하여 사용자의 장치에서 해당 `update.mode` VS Code 설정을 재정의합니다. 이 정책의 값은 업데이트 모드를 포함하는 문자열입니다.
 
-## Device management
+## 장치 관리 {#device-management}
 
-You can control specific features of VS Code through device management solutions to ensure it meets the needs of your organization.
+조직의 요구를 충족하도록 VS Code의 특정 기능을 장치 관리 솔루션을 통해 제어할 수 있습니다.
 
-VS Code currently supports the following admin-controlled features:
+VS Code는 현재 다음과 같은 관리자가 제어하는 기능을 지원합니다:
 
-| Policy | Description | VS Code setting |
+| 정책 | 설명 | VS Code 설정 |
 | ------ | ----------- | --------------- |
-| `AllowedExtensions` | Controls which extensions can be installed. | `extensions.allowed` |
-| `UpdateMode` | Controls whether VS Code automatically updates when a new version is released. | `update.mode` |
+| `AllowedExtensions` | 설치할 수 있는 확장 프로그램을 제어합니다. | `extensions.allowed` |
+| `UpdateMode` | 새 버전이 출시될 때 VS Code가 자동으로 업데이트되는지 여부를 제어합니다. | `update.mode` |
 
 > [!NOTE]
-> Currently, VS Code only supports Windows group policies. Support for configuration profiles on macOS is coming soon ([tracking issue](https://github.com/microsoft/vscode/issues/148942)).
+> 현재 VS Code는 Windows 그룹 정책만 지원합니다. macOS의 구성 프로필 지원은 곧 제공될 예정입니다 ([추적 문제](https://github.com/microsoft/vscode/issues/148942)).
 
-### Group Policy on Windows
+### Windows의 그룹 정책 {#group-policy-on-windows}
 
-System administrators need a way to control default software settings across all client machines in their organization. Group Policy is a client solution that gives administrators flexibility to implement the behavior for each of the available policies and settings.
+시스템 관리자는 조직의 모든 클라이언트 머신에서 기본 소프트웨어 설정을 제어할 수 있는 방법이 필요합니다. 그룹 정책은 관리자가 사용 가능한 정책 및 설정에 대한 동작을 구현할 수 있는 유연성을 제공하는 클라이언트 솔루션입니다.
 
-VS Code has support for [Windows Registry-based Group Policy](https://learn.microsoft.com/previous-versions/windows/desktop/policy/implementing-registry-based-policy). Starting from VS Code version 1.69, each release ships with a `policies` directory containing ADMX template files that can be added to the following path: `C:\Windows\PolicyDefinitions`. Make sure to also copy the corresponding `adml` file to the `C:\Windows\PolicyDefinitions\<your-locale>` directory.
+VS Code는 [Windows 레지스트리 기반 그룹 정책](https://learn.microsoft.com/previous-versions/windows/desktop/policy/implementing-registry-based-policy)을 지원합니다. VS Code 버전 1.69부터 각 릴리스에는 ADMX 템플릿 파일이 포함된 `policies` 디렉토리가 제공되며, 이를 다음 경로에 추가할 수 있습니다: `C:\Windows\PolicyDefinitions`. 해당하는 `adml` 파일도 `C:\Windows\PolicyDefinitions\<your-locale>` 디렉토리에 복사해야 합니다.
 
-Once the policy definitions are installed, admins can use the [Local Group Policy Editor](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265982(v=ws.11)) to manage the policy values.
+정책 정의가 설치되면 관리자는 [로컬 그룹 정책 편집기](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265982(v=ws.11))를 사용하여 정책 값을 관리할 수 있습니다.
 
-Policies can be set both at the Computer level and the User level. If both are set, Computer level will take precedence. When a policy value is set, the value overrides the VS Code [setting](/docs/editor/settings.md) value configured at any level (default, user, workspace, etc.).
+정책은 컴퓨터 수준과 사용자 수준 모두에서 설정할 수 있습니다. 두 수준 모두 설정된 경우 컴퓨터 수준이 우선합니다. 정책 값이 설정되면 해당 값은 모든 수준(기본값, 사용자, 작업 공간 등)에서 구성된 VS Code [설정](/docs/editor/settings.md) 값을 재정의합니다.
 
-### Additional policies
+### 추가 정책 {#additional-policies}
 
-The goal is to promote current VS Code settings as policies and closely follow existing settings, so that the naming and behavior are consistent. If there are requests to enact more policies, please open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues). The team will determine if there is already a corresponding setting for the behavior or if a new setting should be created to control the desired behavior.
+목표는 현재 VS Code 설정을 정책으로 홍보하고 기존 설정을 밀접하게 따르는 것입니다. 이렇게 하면 이름과 동작이 일관되게 유지됩니다. 더 많은 정책을 시행하라는 요청이 있을 경우, VS Code [GitHub 리포지토리](https://github.com/microsoft/vscode/issues)에 문제를 열어 주세요. 팀은 해당 동작에 대한 기존 설정이 있는지 또는 원하는 동작을 제어하기 위해 새로운 설정을 생성해야 하는지를 결정할 것입니다.
 
-## Set up VS Code with preinstalled extensions
+## 사전 설치된 확장 프로그램으로 VS Code 설정 {#set-up-vs-code-with-preinstalled-extensions}
 
-You can set up VS Code with a set of preinstalled extensions (*bootstrap*). This functionality is useful in cases where you prepare a machine image, virtual machine, or cloud workstation where VS Code is preinstalled and specific extensions are immediately available for users.
+사전 설치된 확장 프로그램 세트로 VS Code를 설정할 수 있습니다 (*부트스트랩*). 이 기능은 VS Code가 사전 설치되고 특정 확장 프로그램이 사용자에게 즉시 제공되는 머신 이미지, 가상 머신 또는 클라우드 워크스테이션을 준비하는 경우에 유용합니다.
 
 > [!NOTE]
-> Support for preinstalling extensions is currently only available on Windows.
+> 사전 설치된 확장 프로그램 지원은 현재 Windows에서만 제공됩니다.
 
-Follow these steps to bootstrap extensions:
+확장 프로그램을 부트스트랩하려면 다음 단계를 따르세요:
 
-1. Create a folder `bootstrap\extensions` in the VS Code installation directory.
+1. VS Code 설치 디렉토리에 `bootstrap\extensions` 폴더를 만듭니다.
 
-1. Download the [VSIX files](/docs/editor/extension-marketplace.md#can-i-download-an-extension-directly-from-the-marketplace) for the extensions that you want to preinstall and place them in the `bootstrap\extensions` folder.
+1. 사전 설치하려는 확장의 [VSIX 파일](/docs/editor/extension-marketplace.md#can-i-download-an-extension-directly-from-the-marketplace)을 다운로드하여 `bootstrap\extensions` 폴더에 배치합니다.
 
-1. When a user launches VS Code for the first time, all extensions in the `bootstrap\extensions` folder are installed silently in the background.
+1. 사용자가 처음으로 VS Code를 실행할 때, `bootstrap\extensions` 폴더의 모든 확장이 백그라운드에서 조용히 설치됩니다.
 
-Users can still uninstall extensions that were preinstalled. Restarting VS Code after uninstalling an extension will not reinstall the extension.
+사용자는 여전히 사전 설치된 확장을 제거할 수 있습니다. 확장을 제거한 후 VS Code를 다시 시작하면 해당 확장이 재설치되지 않습니다.
 
-## Frequently asked questions
+## 자주 묻는 질문 {#frequently-asked-questions}
 
-### Does VS Code support configuration profiles on macOS or Linux?
+### VS Code가 macOS 또는 Linux에서 구성 프로필을 지원하나요? {#does-vs-code-support-configuration-profiles-on-macos-or-linux}
 
-Currently, VS Code only supports Windows group policies. Support for configuration profiles on macOS is coming soon ([tracking issue](https://github.com/microsoft/vscode/issues/148942)).
+현재 VS Code는 Windows 그룹 정책만 지원합니다. macOS의 구성 프로필 지원은 곧 제공될 예정입니다 ([추적 문제](https://github.com/microsoft/vscode/issues/148942)).
 
-Support for Linux is not on the roadmap. If you're interested in configuration profiles on Linux, open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues) and share details about your scenario.
+Linux에 대한 지원은 로드맵에 없습니다. Linux에서 구성 프로필에 관심이 있다면 VS Code [GitHub 리포지토리](https://github.com/microsoft/vscode/issues)에 문제를 열고 귀하의 시나리오에 대한 세부 정보를 공유해 주세요.

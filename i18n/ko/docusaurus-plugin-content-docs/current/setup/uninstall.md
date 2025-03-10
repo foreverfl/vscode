@@ -1,71 +1,72 @@
 ---
 Order: 9
 Area: setup
-TOCTitle: Uninstall
+TOCTitle: 제거
 ContentId: 435486d3-ad55-4a31-a087-d108f75ba669
-PageTitle: Uninstall Visual Studio Code
+PageTitle: Visual Studio Code 제거
 DateApproved: 03/05/2025
-MetaDescription: Uninstall Visual Studio Code and clean up.
+MetaDescription: Visual Studio Code를 제거하고 정리합니다.
 ---
-# Uninstall Visual Studio Code
+# Visual Studio Code 제거 {#uninstall-visual-studio-code}
 
-The steps for uninstalling Visual Studio Code will depend on your platform (Windows, macOS, or Linux) and the install option that you used. For example on Windows, you can use the System or User Windows Installers or download a `.zip` file and extract the contents anywhere on your machine.
+Visual Studio Code를 제거하는 단계는 사용 중인 플랫폼(Windows, macOS 또는 Linux)과 사용한 설치 옵션에 따라 다릅니다. 예를 들어 Windows에서는 시스템 또는 사용자 Windows 설치 프로그램을 사용하거나 `.zip` 파일을 다운로드하여 컴퓨터의 아무 곳에나 내용을 추출할 수 있습니다.
 
-In general, you would uninstall VS Code as you would any other desktop application and follow your platform's recommended flow for uninstalling software. Specific platform guidance is provided below as well as how to [completely clean up](#clean-uninstall) any remaining VS Code configuration files.
+일반적으로 VS Code는 다른 데스크톱 애플리케이션을 제거하는 것처럼 제거하며, 소프트웨어 제거를 위한 플랫폼의 권장 흐름을 따릅니다. 아래에는 특정 플랫폼에 대한 안내와 함께 남아 있는 VS Code 구성 파일을 [완전히 정리하는 방법](#clean-uninstall)이 제공됩니다.
 
-## Windows
+## Windows {#windows}
 
-### Windows Installer
+### Windows 설치 프로그램 {#windows-installer}
 
-If you installed VS Code via the Windows Installer, either the User or System version, use the installer to remove VS Code.
+Windows 설치 프로그램(사용자 또는 시스템 버전)을 통해 VS Code를 설치한 경우, 설치 프로그램을 사용하여 VS Code를 제거합니다.
 
-* Start menu
-  * Search for **Add or Remove Programs** and find Visual Studio Code in the **Apps** > **Apps & features** list.
-  * Select **Uninstall** from the actions dropdown on the right side (three vertical dots).
-  * Follow the prompts to uninstall VS Code.
-* Control Panel
-  * Under **Programs**, select the **Uninstall a program** link.
-  * Find the Visual Studio Code entry, right-click, and select the **Uninstall** command.
-  * Follow the prompts to uninstall VS Code.
+* 시작 메뉴
+  * **프로그램 추가 또는 제거**를 검색하고 **앱** > **앱 및 기능** 목록에서 Visual Studio Code를 찾습니다.
+  * 오른쪽의 작업 드롭다운에서 **제거**를 선택합니다(세 개의 수직 점).
+  * VS Code를 제거하기 위한 안내를 따릅니다.
+* 제어판
+  * **프로그램** 아래에서 **프로그램 제거** 링크를 선택합니다.
+  * Visual Studio Code 항목을 찾아 마우스 오른쪽 버튼을 클릭하고 **제거** 명령을 선택합니다.
+  * VS Code를 제거하기 위한 안내를 따릅니다.
 
-### .zip file installation
+### .zip 파일 설치 {#zip-file-installation}
 
-If you installed VS Code on Windows by downloading and extracting one of the `.zip` files found on the [Visual Studio Code website](https://code.visualstudio.com/#alt-downloads), you can uninstall by deleting the folder where you extracted the `.zip` contents.
+[Visual Studio Code 웹사이트](https://code.visualstudio.com/#alt-downloads)에서 `.zip` 파일 중 하나를 다운로드하여 추출하여 Windows에 VS Code를 설치한 경우, `.zip` 내용을 추출한 폴더를 삭제하여 제거할 수 있습니다.
 
-## macOS
+## macOS {#macos}
 
-To uninstall VS Code on macOS, open **Finder** and go to **Applications**. Right-click on the Visual Studio Code application and select **Move to Trash**.
+macOS에서 VS Code를 제거하려면 **Finder**를 열고 **응용 프로그램**으로 이동합니다. Visual Studio Code 애플리케이션을 마우스 오른쪽 버튼으로 클릭하고 **휴지통으로 이동**을 선택합니다.
 
-## Linux
+## Linux {#linux}
 
-To uninstall VS Code on Linux, you should use your package manager's uninstall or remove option. The exact command line will differ depending on which package manager you used (for example, `apt-get`, `rpn`, `dnf`, `yum`, etc.).
+Linux에서 VS Code를 제거하려면 패키지 관리자의 제거 또는 삭제 옵션을 사용해야 합니다. 정확한 명령어는 사용한 패키지 관리자에 따라 다릅니다(예: `apt-get`, `rpn`, `dnf`, `yum` 등).
 
-The names for the VS Code packages are:
+VS Code 패키지의 이름은 다음과 같습니다:
 
-* `code` - VS Code Stable release
-* `code-insiders` - VS Code [Insiders](/insiders) release
+* `code` - VS Code 안정 버전
+* `code-insiders` - VS Code [Insiders](/insiders) 버전
 
-For example, if you installed VS Code via the Debian package (`.deb`) and `apt-get` package manager, you would run:
+예를 들어, Debian 패키지(`.deb`)와 `apt-get` 패키지 관리자를 통해 VS Code를 설치한 경우, 다음 명령어를 실행합니다:
 
 ```bash
 sudo apt-get remove code
 ```
 
-where `code` is the name of the VS Code Debian package.
+여기서 `code`는 VS Code Debian 패키지의 이름입니다.
 
-## Clean uninstall
+## 완전 제거 {#clean-uninstall}
 
-If you want to remove all user data after uninstalling VS Code, you can delete the user data folders `Code` and `.vscode`. This will return you to the state before you installed VS Code. This can also be used to reset all settings if you don't want to uninstall VS Code.
+VS Code를 제거한 후 모든 사용자 데이터를 삭제하려면 사용자 데이터 폴더인 `Code`와 `.vscode`를 삭제할 수 있습니다. 이렇게 하면 VS Code를 설치하기 전 상태로 돌아갑니다. VS Code를 제거하고 싶지 않은 경우 모든 설정을 초기화하는 데에도 사용할 수 있습니다.
 
-The folder locations will vary depending on your platform:
+폴더 위치는 플랫폼에 따라 다릅니다:
 
-* **Windows** - Delete `%APPDATA%\Code` and `%USERPROFILE%\.vscode`.
-* **macOS** - Delete `$HOME/Library/Application Support/Code` and `~/.vscode`.
-* **Linux** - Delete `$HOME/.config/Code` and `~/.vscode`.
+* **Windows** - `%APPDATA%\Code` 및 `%USERPROFILE%\.vscode`를 삭제합니다.
+* **macOS** - `$HOME/Library/Application Support/Code` 및 `~/.vscode`를 삭제합니다.
+* **Linux** - `$HOME/.config/Code` 및 `~/.vscode`를 삭제합니다.
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-* [Setup overview](/docs/setup/setup-overview.md) - General information about VS Code setup and updates.
-* [Windows setup](/docs/setup/windows.md) - Details and common questions about installing VS Code on Windows.
-* [macOS setup](/docs/setup/mac.md) - VS Code is available for both Intel and Apple silicon macOS machines.
-* [Linux setup](/docs/setup/linux.md) - Learn about the different VS Code packages available for Linux.
+* [설정 개요](/docs/setup/setup-overview.md) - VS Code 설정 및 업데이트에 대한 일반 정보입니다.
+* [Windows 설정](/docs/setup/windows.md) - Windows에 VS Code를 설치하는 것에 대한 세부정보 및 일반 질문입니다.
+* [macOS 설정](/docs/setup/mac.md) - VS Code는 Intel 및 Apple 실리콘 macOS 기기 모두에서 사용할 수 있습니다.
+* [Linux 설정](/docs/setup/linux.md) - Linux에서 사용할 수 있는 다양한 VS Code 패키지에 대해 알아보세요.
+---

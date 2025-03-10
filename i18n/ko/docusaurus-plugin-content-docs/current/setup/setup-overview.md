@@ -1,100 +1,104 @@
 ---
 Order: 1
 Area: setup
-TOCTitle: Overview
+TOCTitle: 개요
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
-PageTitle: Setting up Visual Studio Code
+PageTitle: Visual Studio Code 설정하기
 DateApproved: 03/05/2025
-MetaDescription: Get Visual Studio Code up and running.
+MetaDescription: Visual Studio Code를 설치하고 실행하세요.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
+sidebar_label: 개요
 ---
-# Setting up Visual Studio Code
+# 비주얼 스튜디오 코드 설정하기 {#setting-up-visual-studio-code}
 
-VS Code is a free code editor, which runs on the macOS, Linux, and Windows operating systems. Getting up and running with Visual Studio Code is quick and easy. It is a small download so you can install in a matter of minutes and give VS Code a try.
+VS Code는 macOS, Linux 및 Windows 운영 체제에서 실행되는 무료 코드 편집기입니다. 비주얼 스튜디오 코드를 설치하고 실행하는 것은 빠르고 쉽습니다. 다운로드 용량이 작아 몇 분 안에 설치하고 VS Code를 사용해 볼 수 있습니다.
 
-VS Code is lightweight and should run on most available hardware and platform versions. You can review the [System Requirements](/docs/supporting/requirements.md) to check if your computer configuration is supported.
+VS Code는 가벼우며 대부분의 하드웨어 및 플랫폼 버전에서 실행될 수 있습니다. [시스템 요구 사항](/docs/supporting/requirements.md)을 검토하여 컴퓨터 구성의 지원 여부를 확인할 수 있습니다.
 
-## Set up VS Code for your platform
+## 플랫폼에 맞게 VS Code 설정하기 {#set-up-vs-code-for-your-platform}
 
-1. Download and install Visual Studio Code for your platform
+1. 플랫폼에 맞는 비주얼 스튜디오 코드를 다운로드하고 설치합니다.
 
     * [macOS](/docs/setup/mac.md)
     * [Linux](/docs/setup/linux.md)
     * [Windows](/docs/setup/windows.md)
 
-    > [!NOTE]
-    > VS Code ships monthly releases and supports [auto-update](#update-cadence) when a new release is available.
+    :::note
+    VS Code는 매월 새로운 릴리스를 제공하며, 새로운 릴리스가 있을 때 [자동 업데이트](#update-cadence)를 지원합니다.
+    :::
 
-1. [Install additional components](/docs/setup/additional-components.md)
+1. [추가 구성 요소 설치하기](/docs/setup/additional-components.md)
 
-    Install Git, Node.js, TypeScript, language runtimes, and more.
+    Git, Node.js, TypeScript, 언어 런타임 등을 설치합니다.
 
-1. [Install VS Code extensions from the Visual Studio Marketplace](https://marketplace.visualstudio.com/VSCode)
+1. [비주얼 스튜디오 마켓플레이스에서 VS Code 확장 설치하기](https://marketplace.visualstudio.com/VSCode)
 
-    Customize VS Code with themes, formatters, language extensions and debuggers for your favorite languages, and more.
+    테마, 포매터, 언어 확장 및 좋아하는 언어의 디버거 등으로 VS Code를 사용자화합니다.
 
-1. [Set up AI-assisted coding with GitHub Copilot](/docs/copilot/setup-simplified.md)
+1. [GitHub Copilot로 AI 지원 코딩 설정하기](/docs/copilot/setup-simplified.md)
 
-    > [!TIP]
-    > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+    :::tip
+    아직 Copilot을 구독하지 않았다면, [Copilot 무료 요금제](https://github.com/github-copilot/signup)에 가입하여 무료로 Copilot을 사용해 볼 수 있으며, 월별 사용 제한 적용 및 채팅 상호작용 한도가 제공됩니다.
+    :::
 
-1. [Get started with the VS Code tutorial](/docs/getstarted/getting-started.md)
+1. [VS Code 튜토리얼 시작하기](/docs/getstarted/getting-started.md)
 
-    Discover the user interface and key features of VS Code.
+    VS Code의 사용자 인터페이스와 주요 기능을 알아봅니다.
 
-## Update cadence
+## 업데이트 주기 {#update-cadence}
 
-VS Code releases a new version [each month](/updates) with new features and important bug fixes. Most platforms support auto updating and you are prompted to install the new release when it becomes available.
+VS Code는 [매월](https://updates) 새로운 버전을 출시하며, 새로운 기능과 중요한 버그 수정을 포함합니다. 대부분의 플랫폼은 자동 업데이트를 지원하며, 새로운 릴리스가 사용 가능해지면 설치하라는 메시지가 표시됩니다.
 
-You can also manually check for updates by running **Help** > **Check for Updates** on Linux and Windows, or running **Code** > **Check for Updates** on macOS.
+또한, Linux 및 Windows에서는 **Help** > **Check for Updates**을 실행하거나, macOS에서는 **Code** > **Check for Updates**을 실행하여 수동으로 업데이트를 확인할 수 있습니다.
 
-> [!NOTE]
-> You can [disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates) if you prefer to update VS Code on your own schedule.
+:::note
+VS Code를 원하는 일정에 맞춰 업데이트하고 싶다면 [자동 업데이트 비활성화하기](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates) 옵션을 선택할 수 있습니다.
+:::
 
-## Insiders nightly build
+## Insiders 야간 빌드 {#insiders-nightly-build}
 
-If you'd like to try our nightly builds to see new features early or verify bug fixes, you can install our [Insiders build](/insiders). The Insiders build installs side-by-side with the monthly Stable build and you can freely work with either on the same machine. The Insiders build is the same one the VS Code development team uses on a daily basis and we really appreciate people trying out new features and providing feedback.
+새로운 기능을 조기에 확인하거나 버그 수정을 검증하고 싶다면, [인사이더 빌드](/insiders)를 설치할 수 있습니다. Insiders 빌드는 매월 안정적인 빌드와 함께 설치되며, 동일한 기기에서 자유롭게 작업할 수 있습니다. Insiders 빌드는 VS Code 개발 팀이 매일 사용하는 버전이기도 하며, 새로운 기능을 테스트하고 피드백을 제공해 주시면 큰 도움이 됩니다.
 
-## Portable mode
+## 휴대용 모드 {#portable-mode}
 
-Visual Studio Code supports [Portable mode](https://en.wikipedia.org/wiki/Portable_application) installation. This mode enables all data created and maintained by VS Code to live near itself, so it can be moved around across environments, for example, on a USB drive. See the [VS Code Portable Mode](/docs/editor/portable.md) documentation for details.
+비주얼 스튜디오 코드는 [휴대용 모드](https://en.wikipedia.org/wiki/Portable_application) 설치를 지원합니다. 이 모드는 VS Code가 생성하고 유지하는 모든 데이터가 근처에 저장되도록 하여 USB 드라이브와 같은 환경 간에 이동할 수 있도록 합니다. 자세한 내용은 [VS Code 휴대용 모드](/docs/editor/portable.md) 문서를 참조하세요.
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-Once you have installed VS Code, these topics will help you learn more about it:
+VS Code를 설치한 후, 다음 주제를 통해 더 많은 정보를 배울 수 있습니다:
 
-* [VS Code tutorial](/docs/getstarted/getting-started.md) - A quick hands-on tour of the key features of VS Code.
-* [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) - A collection of productivity tips for working with VS Code.
-* [AI-assisted coding](/docs/copilot/overview.md) - Learn about using GitHub Copilot in VS Code to help you write code faster.
+* [VS Code 튜토리얼](/docs/getstarted/getting-started.md) - VS Code의 주요 기능을 간단히 체험해보는 핸즈온 투어입니다.
+* [팁과 요령](/docs/getstarted/tips-and-tricks.md) - VS Code로 작업할 때 유용한 생산성 팁 모음입니다.
+* [AI 지원 코딩](/docs/copilot/overview.md) - VS Code에서 GitHub Copilot을 사용하여 코드를 더 빠르게 작성하는 방법에 대해 알아봅니다.
 
-## Common questions
+## 자주 묻는 질문 {#common-questions}
 
-### What are the system requirements for VS Code?
+### VS Code의 시스템 요구 사항은 무엇인가요? {#what-are-the-system-requirements-for-vs-code}
 
-We have a list of [System Requirements](/docs/supporting/requirements.md).
+[시스템 요구 사항](/docs/supporting/requirements.md)을 참고해 주세요.
 
-### How big is VS Code?
+### VS Code의 크기는 얼마나 되나요? {#how-big-is-vs-code}
 
-VS Code is a small download (< 200 MB) and has a disk footprint of less than 500 MB, so you can quickly install VS Code and try it out.
+VS Code는 작은 다운로드(< 200 MB)이며, 디스크 공간은 500 MB 미만입니다. 따라서 VS Code를 빠르게 설치하고 사용해 볼 수 있습니다.
 
-### How do I create and run a new project?
+### 새 프로젝트를 어떻게 생성하고 실행하나요? {#how-do-i-create-and-run-a-new-project}
 
-VS Code doesn't include a traditional **File** > **New Project** dialog or pre-installed project templates. You'll need to add [additional components](/docs/setup/additional-components.md) and scaffolders depending on your development interests. With scaffolding tools like [Yeoman](https://yeoman.io/) and the multitude of modules available through the [npm](https://www.npmjs.com/) package manager, you're sure to find appropriate templates and tools to create your projects.
+VS Code는 오래된 **File** > **New Project** 대화상자나 미리 설치된 프로젝트 템플릿을 포함하지 않습니다. 개발 관심사에 따라 [추가 구성 요소](/docs/setup/additional-components.md)와 초기 설정 환경을 추가해야 합니다. [Yeoman](https://yeoman.io/)과 [npm](https://www.npmjs.com/) 패키지 관리자를 통해 제공되는 다양한 모듈을 사용하여 적절한 템플릿과 도구를 찾아 프로젝트를 생성할 수 있습니다.
 
-### How do I know which version I'm running?
+### 현재 어떤 버전을 사용하고 있는지 어떻게 알 수 있나요? {#how-do-i-know-which-version-im-running}
 
-On Linux and Windows, choose **Help** > **About**. On macOS, use **Code** > **About Visual Studio Code**.
+Linux 및 Windows에서는 **Help** > **About**를 선택합니다. macOS에서는 **Code** > **About Visual Studio Code**를 사용합니다.
 
-### Why is VS Code saying my installation is unsupported?
+### VS Code가 내 설치가 지원되지 않는다고 말하는 이유는 무엇인가요? {#why-is-vs-code-saying-my-installation-is-unsupported}
 
-VS Code has detected that some installation files have been modified, perhaps by an extension. Reinstalling VS Code will replace the affected files. See our [FAQ topic](/docs/supporting/faq.md#installation-appears-to-be-corrupt-unsupported) for more details.
+VS Code가 일부 설치 파일이 수정된 것을 감지했을지도 모릅니다다. 아마도 확장 프로그램에 의해 수정되었을 수 있습니다. VS Code를 재설치하면 영향을 받은 파일이 교체됩니다. 자세한 내용은 [FAQ 주제](/docs/supporting/faq.md#installation-appears-to-be-corrupt-unsupported)를 참조하세요.
 
-### How can I do a 'clean' uninstall of VS Code?
+### VS Code를 '깨끗하게' 제거하려면 어떻게 해야 하나요? {#how-can-i-do-a-clean-uninstall-of-vs-code}
 
-If you want to remove all user data after [uninstalling](/docs/setup/uninstall.md) VS Code, you can delete the user data folders `Code` and `.vscode`. This returns you to the state before you installed VS Code. This can also be used to reset all settings if you don't want to uninstall VS Code.
+[제거](/docs/setup/uninstall.md) 후 모든 사용자 데이터를 제거하려면, 사용자 데이터 폴더 `Code`와 `.vscode`를 삭제하면 됩니다. 이렇게 하면 VS Code를 설치하기 전 상태로 돌아갑니다. VS Code를 제거하지 않고 모든 설정을 초기화하는 데에도 사용할 수 있습니다.
 
-The folder locations vary depending on your platform:
+폴더 위치는 플랫폼에 따라 다릅니다:
 
-* **Windows** - Delete `%APPDATA%\Code` and `%USERPROFILE%\.vscode`.
-* **macOS** - Delete `$HOME/Library/Application Support/Code` and `~/.vscode`.
-* **Linux** - Delete `$HOME/.config/Code` and `~/.vscode`.
+* **Windows** - `%APPDATA%\Code` 및 `%USERPROFILE%\.vscode`를 삭제합니다.
+* **macOS** - `$HOME/Library/Application Support/Code` 및 `~/.vscode`를 삭제합니다.
+* **Linux** - `$HOME/.config/Code` 및 `~/.vscode`를 삭제합니다.
