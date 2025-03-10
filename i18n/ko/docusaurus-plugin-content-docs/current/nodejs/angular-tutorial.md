@@ -152,7 +152,7 @@ export class AppComponent {
 
 ## Angular 프로필 템플릿 {#angular-profile-template}
 
-[프로필](https://code.visualstudio.com/docs/editor/profiles)은 현재 프로젝트나 작업에 따라 확장, 설정 및 UI 레이아웃을 빠르게 전환할 수 있게 해줍니다. Angular 개발을 시작하는 데 도움이 되도록 유용한 확장 및 설정이 포함된 [Angular 프로필 템플릿](/docs/editor/profiles.md#angular-profile-template)을 사용할 수 있습니다. 프로필 템플릿을 그대로 사용하거나 자신의 워크플로에 맞게 추가로 사용자화하는 출발점으로 사용할 수 있습니다.
+[프로필](https://code.visualstudio.com/docs/editor/profiles)은 현재 프로젝트나 작업에 따라 확장, 설정 및 UI 레이아웃을 빠르게 전환할 수 있게 해줍니다. Angular 개발을 시작하는 데 도움이 되도록 유용한 확장 및 설정이 포함된 [Angular 프로필 템플릿](/docs/editor/profiles.md#angular-profile-template)을 사용할 수 있습니다. 프로필 템플릿을 그대로 사용하거나 자신의 워크플로우에 맞게 추가로 사용자화하는 출발점으로 사용할 수 있습니다.
 
 **프로필** > **프로필 만들기...** 드롭다운을 통해 프로필 템플릿을 선택할 수 있습니다:
 

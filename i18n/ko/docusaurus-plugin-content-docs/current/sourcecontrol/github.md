@@ -6,6 +6,7 @@ ContentId: bd1be8cf-b745-4737-be48-db381ec3acc6
 PageTitle: GitHub에서 협업하기
 DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code에서 GitHub Pull Requests 및 Issues 작업하기
+sidebar_label: GitHub에서 협업하기
 ---
 
 # Visual Studio Code에서 GitHub 작업하기 {#working-with-github-in-vs-code}
@@ -175,7 +176,7 @@ Pull Request 변경 사항 검토가 끝나면 PR을 병합하거나 **검토 �
 
 ![이슈 상태 표시줄 작업](images/github/issue-status-bar-actions.png)
 
-브랜치 이름은 **GitHub Issues: Issue Branch Title** (`setting(githubIssues.issueBranchTitle)`) 설정을 사용하여 구성할 수 있습니다. 워크플로우에 브랜치 생성을 포함하지 않거나 매번 브랜치 이름을 입력하라는 프롬프트를 받고 싶다면, **GitHub Issues: Use Branch For Issues** (`setting(githubIssues.useBranchForIssues)`) 설정을 끄면 해당 단계를 건너뛸 수 있습니다.
+브랜치 이름은 **GitHub Issues: Issue Branch Title** (`setting(githubIssues.issueBranchTitle)`) 설정을 사용하여 구성할 수 있습니다. 워크플로우우에 브랜치 생성을 포함하지 않거나 매번 브랜치 이름을 입력하라는 프롬프트를 받고 싶다면, **GitHub Issues: Use Branch For Issues** (`setting(githubIssues.useBranchForIssues)`) 설정을 끄면 해당 단계를 건너뛸 수 있습니다.
 
 이슈 작업이 끝나고 변경 사항을 커밋하고 싶을 때, **소스 제어** 보기의 커밋 메시지 입력 상자가 메시지로 채워지며, 이는 **GitHub Issues: Working Issue Format SCM** (`setting(githubIssues.workingIssueFormatScm)`)으로 구성할 수 있습니다.
 
@@ -221,7 +222,7 @@ GitHub Repositories 확장은 [Git LFS](https://git-lfs.github.com) (Large File 
 
 ### Pull Requests 생성하기 {#create-pull-requests}
 
-워크플로우에서 리포지토리에 직접 커밋하는 대신 Pull Requests를 사용하는 경우, 소스 제어 보기에서 새 PR을 생성할 수 있습니다. 제목을 제공하고 새 브랜치를 생성하라는 프롬프트가 표시됩니다.
+워크플로우우에서 리포지토리에 직접 커밋하는 대신 Pull Requests를 사용하는 경우, 소스 제어 보기에서 새 PR을 생성할 수 있습니다. 제목을 제공하고 새 브랜치를 생성하라는 프롬프트가 표시됩니다.
 
 ![소스 제어 보기의 Pull Request 생성 버튼](images/github/github-repositories-create-pull-request.png)
 

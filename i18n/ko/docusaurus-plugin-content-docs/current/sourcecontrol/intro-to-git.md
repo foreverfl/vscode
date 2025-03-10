@@ -5,22 +5,24 @@ TOCTitle: Git 소개
 ContentId: b3e4717d-81e2-4bfa-a022-c37aab950bce
 PageTitle: Visual Studio Code에서 Git 소개
 DateApproved: 03/05/2025
-MetaDescription: Visual Studio Code에서 Git을 시작하고 코드 제어를 해보세요! 초보자를 위한 가이드는 리포지토리 설정부터 변경 사항 커밋 및 다른 사람과의 협업까지 알아야 할 모든 것을 다룹니다. 오늘 Git을 배우고 개발 워크플로를 간소화하세요.
+MetaDescription: Visual Studio Code에서 Git을 시작하고 코드 제어를 해보세요! 초보자를 위한 가이드는 리포지토리 설정부터 변경 사항 커밋 및 다른 사람과의 협업까지 알아야 할 모든 것을 다룹니다. 오늘 Git을 배우고 개발 워크플로우를 간소화하세요.
+sidebar_label: Git 소개
 ---
 # Visual Studio Code에서 Git 소개 {#introduction-to-git-in-vs-code}
 
-소스 코드를 쉽게 관리하고 다른 사람과 협업하고 싶으신가요? Git과 GitHub가 필요한 도구입니다! Visual Studio Code를 사용하면 이를 간편하게 설정하고 사용할 수 있습니다. 초보자라도 VS Code의 사용자 친화적인 인터페이스가 코드를 푸시하고 풀링하며, 브랜치를 생성하고 병합하고, 코드 변경 사항을 커밋하는 등의 일반적인 Git 작업을 안내합니다. 전문가라면, Git 명령줄을 사용하는 것보다 시간을 절약하고 노력을 덜 들이면서 편집기 내에서 직접 Git 작업을 수행할 수 있는 기능을 좋아할 것입니다. 또한, VS Code와 Git 간의 원활한 워크플로 덕분에 편집기에서 작업을 계속하며 더 많은 일을 할 수 있습니다.
+소스 코드를 쉽게 관리하고 다른 사람과 협업하고 싶으신가요? Git과 GitHub를 사용해보세요! Visual Studio Code를 사용하면 이를 간편하게 설정하고 사용할 수 있습니다. 초보자라도 VS Code의 사용자 친화적인 인터페이스가 코드를 푸시하고 풀링하며, 브랜치를 생성하고 병합하고, 코드 변경 사항을 커밋하는 등의 일반적인 Git 작업을 안내합니다. 전문가라면, Git 명령줄을 사용하는 것보다 시간을 절약하고 노력을 덜 들이면서 편집기 내에서 직접 Git 작업을 수행할 수 있는 기능을 선호할 것입니다. 또한, VS Code와 Git 간의 원활한 워크플로우 덕분에 편집기에서 작업을 계속하며 더 많은 일을 할 수 있습니다.
 
 VS Code의 GitHub Copilot을 사용하면 커밋 메시지, 풀 리퀘스트에 대한 제안을 받고 커밋하기 전에 코드 변경 사항을 검토할 수 있습니다. [VS Code에서 GitHub Copilot에 대해 더 알아보세요](/docs/copilot/overview.md).
 
-> [!TIP]
-> 아직 Copilot 구독이 없다면, [Copilot 무료 요금제](https://github.com/github-copilot/signup)에 가입하여 무료로 Copilot을 사용해 보세요. 매달 완료 수와 채팅 상호작용의 한도가 제공됩니다.
+:::tip
+아직 Copilot 구독을 하지 않았다면, [Copilot 무료 요금제](https://github.com/github-copilot/signup)에 가입하여 무료로 Copilot을 사용해 보세요. 매달 제한된 횟수의 코드 자동 완성과 채팅 기능을 이용할 수 있습니다.
+:::
 
 ## VS Code에서 Git 설정하기 {#set-up-git-in-vs-code}
 
-VS Code에서 Git과 GitHub를 사용하려면 먼저 [컴퓨터에 Git이 설치되어 있는지 확인하세요](https://git-scm.com/downloads). Git이 없으면 **소스 제어** 뷰에서 설치 방법에 대한 지침이 표시됩니다. 이후 VS Code를 재시작해야 합니다.
+VS Code에서 Git과 GitHub를 사용하려면 먼저 [컴퓨터에 Git이 설치되어 있는지 확인하세요](https://git-scm.com/downloads). Git이 없으면 **Source Control** 뷰에서 설치 방법에 대한 지침이 표시됩니다. 이후 VS Code를 재시작해야 합니다.
 
-또한, **활동 바**의 오른쪽 하단에 있는 **계정** 메뉴에서 GitHub 계정으로 VS Code에 로그인하여 [설정 동기화](/docs/editor/settings-sync.md)와 같은 추가 기능을 활성화하고 GitHub에서 리포지토리를 복제하고 게시할 수 있습니다.
+또한, **Activity bar**의 오른쪽 하단에 있는 **Accounts** 메뉴에서 GitHub 계정으로 VS Code에 로그인하여 [설정 동기화](/docs/editor/settings-sync.md)와 같은 추가 기능을 활성화하고 GitHub에서 리포지토리를 복제하고 게시할 수 있습니다.
 
 ![VS Code의 계정 메뉴 스크린샷](images/intro/vscode-accounts-menu.png)
 
@@ -56,7 +58,7 @@ GitHub에서 복제하는 경우, VS Code는 GitHub로 인증하라는 메시지
 
 #### 로컬 리포지토리를 GitHub에 게시하기 {#publish-local-repository-to-github}
 
-로컬 리포지토리를 초기화하고 이를 GitHub에 직접 게시할 수도 있습니다. 이렇게 하면 GitHub 계정에 새로운 리포지토리가 생성되고, 로컬 코드 변경 사항이 원격 리포지토리에 푸시됩니다. 원격 리포지토리에 소스 코드를 두는 것은 코드를 백업하고, 다른 사람과 협업하며, [GitHub Actions](https://github.com/features/actions)로 워크플로를 자동화하는 좋은 방법입니다.
+로컬 리포지토리를 초기화하고 이를 GitHub에 직접 게시할 수도 있습니다. 이렇게 하면 GitHub 계정에 새로운 리포지토리가 생성되고, 로컬 코드 변경 사항이 원격 리포지토리에 푸시됩니다. 원격 리포지토리에 소스 코드를 두는 것은 코드를 백업하고, 다른 사람과 협업하며, [GitHub Actions](https://github.com/features/actions)로 워크플로우를 자동화하는 좋은 방법입니다.
 
 **소스 제어** 뷰에서 **GitHub에 게시** 명령 버튼을 사용하세요. 그런 다음 리포지토리의 이름과 설명을 선택하고 공개 또는 비공개로 설정할 수 있습니다.
 
@@ -188,7 +190,7 @@ PR을 생성하려면 메인 브랜치와 별도의 브랜치에 있어야 하�
 
 ### Windows에서 Git Bash 사용하기 {#git-bash-on-windows}
 
-Git Bash는 Git 및 기타 명령줄 도구를 사용하기 위한 Unix와 유사한 명령줄 인터페이스를 제공하는 Windows용 인기 있는 셸 환경입니다. Visual Studio Code의 통합 터미널은 Git Bash를 셸로 지원하여 개발 워크플로에 Git Bash를 원활하게 통합할 수 있게 해줍니다. Windows 컴퓨터에 Git을 설치하면 설치 단계에서 선택 해제하지 않은 경우 Git Bash도 설치됩니다.
+Git Bash는 Git 및 기타 명령줄 도구를 사용하기 위한 Unix와 유사한 명령줄 인터페이스를 제공하는 Windows용 인기 있는 셸 환경입니다. Visual Studio Code의 통합 터미널은 Git Bash를 셸로 지원하여 개발 워크플로우에 Git Bash를 원활하게 통합할 수 있게 해줍니다. Windows 컴퓨터에 Git을 설치하면 설치 단계에서 선택 해제하지 않은 경우 Git Bash도 설치됩니다.
 
 ![Visual Studio Code의 내장 터미널에서 Git Bash를 셸로 선택하는 스크린샷](images/intro/git-bash.png)
 

@@ -3,95 +3,95 @@ Order: 10
 Area: python
 TOCTitle: Python Interactive
 ContentId: C26E4F82-C6CD-4C52-818F-31A95F58207E
-PageTitle: Working with Jupyter code cells in the Python Interactive window
+PageTitle: Python 인터랙티브 창에서 Jupyter 코드 셀 작업하기
 DateApproved: 03/05/2025
-MetaDescription: Working with Jupyter code cells in the Python Interactive window
+MetaDescription: Python 인터랙티브 창에서 Jupyter 코드 셀 작업하기
 MetaSocialImage: images/tutorial/python-social.png
 ---
 
-# Python Interactive window
+# Python 인터랙티브 창 {#python-interactive-window}
 
-[Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a **notebook**. Visual Studio Code supports working with [Jupyter Notebooks natively](/docs/datascience/jupyter-notebooks.md), as well as through Python code files. This topic covers the support offered through Python code files and demonstrates how to:
+[Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/) (이전의 IPython Notebook)은 Markdown 텍스트와 실행 가능한 Python 소스 코드를 **노트북**이라는 하나의 캔버스에서 쉽게 결합할 수 있게 해주는 오픈 소스 프로젝트입니다. Visual Studio Code는 [Jupyter 노트북을 기본적으로 지원](/docs/datascience/jupyter-notebooks.md)하며, Python 코드 파일을 통해서도 작업할 수 있습니다. 이 주제에서는 Python 코드 파일을 통해 제공되는 지원을 다루고, 다음과 같은 방법을 보여줍니다:
 
-- Work with Jupyter-like code cells
-- Run code in the Python Interactive Window
-- View, inspect, and filter variables using the Variables Explorer and Data Viewer
-- Connect to a remote Jupyter server
-- Debug a Jupyter notebook
-- Export a Jupyter notebook
+- Jupyter와 유사한 코드 셀 작업하기
+- Python 인터랙티브 창에서 코드 실행하기
+- 변수 탐색기 및 데이터 뷰어를 사용하여 변수 보기, 검사 및 필터링하기
+- 원격 Jupyter 서버에 연결하기
+- Jupyter 노트북 디버깅하기
+- Jupyter 노트북 내보내기
 
-To work with Jupyter notebooks, you must activate an Anaconda environment in VS Code, or another Python environment in which you've installed the [Jupyter package](https://pypi.org/project/jupyter/). To select an environment, use the **Python: Select Interpreter** command from the Command Palette (`kb(workbench.action.showCommands)`).
+Jupyter 노트북을 사용하려면 VS Code에서 Anaconda 환경을 활성화하거나 [Jupyter 패키지](https://pypi.org/project/jupyter/)를 설치한 다른 Python 환경을 활성화해야 합니다. 환경을 선택하려면 명령 팔레트에서 **Python: 인터프리터 선택** 명령을 사용하세요 (`kb(workbench.action.showCommands)`).
 
-Once the appropriate environment is activated, you can create and run Jupyter-like code cells, connect to a remote Jupyter server for running code cells, and export Python files as Jupyter notebooks.
+적절한 환경이 활성화되면 Jupyter와 유사한 코드 셀을 생성하고 실행할 수 있으며, 원격 Jupyter 서버에 연결하여 코드 셀을 실행하고 Python 파일을 Jupyter 노트북으로 내보낼 수 있습니다.
 
-## Jupyter code cells
+## Jupyter 코드 셀 {#jupyter-code-cells}
 
-You define Jupyter-like code cells within Python code using a `# %%` comment:
+Python 코드 내에서 Jupyter와 유사한 코드 셀을 정의하려면 `# %%` 주석을 사용합니다:
 
 ```python
-# %%
+# %% {#}
 msg = "Hello World"
 print(msg)
 
-# %%
+# %% {#}
 msg = "Hello again"
 print(msg)
 ```
 
-> **Note**: Make sure to save the code shown above in a file with a .py extension.
+> **참고**: 위에 표시된 코드를 .py 확장자를 가진 파일에 저장해야 합니다.
 
-When the Python extension detects a code cell, it adds **Run Cell** and **Debug Cell** CodeLens adornments. The first cell also includes **Run Below** and all subsequent cells include **Run Above**:
+Python 확장이 코드 셀을 감지하면 **셀 실행** 및 **셀 디버그** 코드 렌즈 장식이 추가됩니다. 첫 번째 셀에는 **아래 실행**이 포함되고, 이후 모든 셀에는 **위 실행**이 포함됩니다:
 
-![Jupyter adornments for code cells in the VS Code editor](images/jupyter/code-cells-01.png)
+![VS Code 편집기에서 코드 셀에 대한 Jupyter 장식](images/jupyter/code-cells-01.png)
 
-> **Note:** By default, **Debug Cell** just steps into user code. If you want to step into non-user code, you need to uncheck **Debug Just My Code** in the Jupyter extension settings (`kb(workbench.action.openSettings)`).
+> **참고:** 기본적으로 **셀 디버그**는 사용자 코드로만 진입합니다. 비사용자 코드로 진입하려면 Jupyter 확장 설정에서 **내 코드만 디버그**를 선택 해제해야 합니다 (`kb(workbench.action.openSettings)`).
 
-**Run Cell** applies to only the one code cell. **Run Below**, which appears on the first cell, runs all the code in the file. **Run Above** applies to all the code cells up to, but not including, the cell with the adornment. You would use **Run Above**, for example, to initialize the state of the runtime environment before running that specific cell.
+**셀 실행**은 단지 하나의 코드 셀에만 적용됩니다. **아래 실행**은 첫 번째 셀에서 나타나며, 파일의 모든 코드를 실행합니다. **위 실행**은 장식이 있는 셀을 포함하지 않고 그 위의 모든 코드 셀에 적용됩니다. 예를 들어, 특정 셀을 실행하기 전에 런타임 환경의 상태를 초기화하기 위해 **위 실행**을 사용할 수 있습니다.
 
-Selecting a command starts Jupyter (if necessary, which might take a minute), then runs the appropriate cell(s) in the **Python Interactive** window:
+명령을 선택하면 Jupyter가 시작되고 (필요한 경우, 이 과정은 1분 정도 걸릴 수 있습니다), 그 후 **Python 인터랙티브** 창에서 적절한 셀을 실행합니다:
 
-![Code cells running in a Python Interactive window](images/jupyter/code-cells-02.png)
+![Python 인터랙티브 창에서 실행 중인 코드 셀](images/jupyter/code-cells-02.png)
 
-You can also run code cells using (`kbstyle(Ctrl+Enter)`) or the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). After using this command, the Python extension automatically moves the cursor to the next cell. If you're in the last cell in the file, the extension automatically inserts another `# %%` delimiter for a new cell, mimicking the behavior of a Jupyter notebook.
+또한 (`kbstyle(Ctrl+Enter)`) 또는 **Python: Python 터미널에서 선택/라인 실행** 명령 (`kbstyle(Shift+Enter)`)을 사용하여 코드 셀을 실행할 수 있습니다. 이 명령을 사용한 후, Python 확장은 자동으로 커서를 다음 셀로 이동시킵니다. 파일의 마지막 셀에 있는 경우, 확장은 자동으로 새로운 셀을 위한 또 다른 `# %%` 구분자를 삽입하여 Jupyter 노트북의 동작을 모방합니다.
 
-You can also click in the margin to the left of line numbers to set breakpoints. Then you can use **Debug Cell** to start a debugging session for that code cell. The debugger stops execution at breakpoints and allows you to step through code one line at a time and inspect variables (see [Debugging](/docs/editor/debugging.md) for details).
+줄 번호 왼쪽 여백을 클릭하여 중단점을 설정할 수도 있습니다. 그런 다음 **셀 디버그**를 사용하여 해당 코드 셀에 대한 디버깅 세션을 시작할 수 있습니다. 디버거는 중단점에서 실행을 중지하고 코드를 한 줄씩 단계별로 실행하며 변수를 검사할 수 있게 해줍니다 (자세한 내용은 [디버깅](/docs/editor/debugging.md)을 참조하세요).
 
-### Additional commands and keyboard shortcuts
+### 추가 명령 및 키보드 단축키 {#additional-commands-and-keyboard-shortcuts}
 
-The following table lists additional commands and keyboard shortcuts supported when working with code cells.
+다음 표는 코드 셀 작업 시 지원되는 추가 명령 및 키보드 단축키를 나열합니다.
 
-|Command  |Keyboard shortcut  |
+|명령  |키보드 단축키  |
 |---------|---------|
-|Python: Go to Next Cell                  | `kbstyle(Ctrl+Alt+])`      |
-|Python: Go to Previous Cell              | `kbstyle(Ctrl+Alt+[)`      |
-|Python: Extend Selection by Cell Above   | `kbstyle(Ctrl+Shift+Alt+[)` |
-|Python: Extend Selection by Cell Below   | `kbstyle(Ctrl+Shift+Alt+])` |
-|Python: Move Selected Cells Up           | `kbstyle(Ctrl+; U)`        |
-|Python: Move Selected Cells Down         | `kbstyle(Ctrl+; D)`        |
-|Python: Insert Cell Above                | `kbstyle(Ctrl+; A)`        |
-|Python: Insert Cell Below                | `kbstyle(Ctrl+; B)`        |
-|Python: Insert Cell Below Position       | `kbstyle(Ctrl+; S)`        |
-|Python: Delete Selected Cells            | `kbstyle(Ctrl+; X)`        |
-|Python: Change Cell to Code              | `kbstyle(Ctrl+; C)`        |
-|Python: Change Cell to Markdown          | `kbstyle(Ctrl+; M)`        |
+|Python: 다음 셀로 이동                  | `kbstyle(Ctrl+Alt+])`      |
+|Python: 이전 셀로 이동              | `kbstyle(Ctrl+Alt+[)`      |
+|Python: 위의 셀로 선택 확장   | `kbstyle(Ctrl+Shift+Alt+[)` |
+|Python: 아래의 셀로 선택 확장   | `kbstyle(Ctrl+Shift+Alt+])` |
+|Python: 선택한 셀 위로 이동           | `kbstyle(Ctrl+; U)`        |
+|Python: 선택한 셀 아래로 이동         | `kbstyle(Ctrl+; D)`        |
+|Python: 위에 셀 삽입                | `kbstyle(Ctrl+; A)`        |
+|Python: 아래에 셀 삽입                | `kbstyle(Ctrl+; B)`        |
+|Python: 위치 아래에 셀 삽입       | `kbstyle(Ctrl+; S)`        |
+|Python: 선택한 셀 삭제            | `kbstyle(Ctrl+; X)`        |
+|Python: 셀을 코드로 변경              | `kbstyle(Ctrl+; C)`        |
+|Python: 셀을 Markdown으로 변경          | `kbstyle(Ctrl+; M)`        |
 
-## Using the Python Interactive window
+## Python 인터랙티브 창 사용하기 {#using-the-python-interactive-window}
 
-The **Python Interactive** window, mentioned in the previous section, can be used as a standalone console with arbitrary code (with or without code cells). To use the window as a console, open it with the **Jupyter: Create Interactive Window** command from the Command Palette. You can then type in code, using `kbstyle(Enter)` to go to a new line and `kbstyle(Shift+Enter)` to run the code.
+이전 섹션에서 언급한 **Python 인터랙티브** 창은 임의의 코드(코드 셀 유무에 관계없이)로 사용할 수 있는 독립형 콘솔로 사용할 수 있습니다. 콘솔로 사용하려면 명령 팔레트에서 **Jupyter: 인터랙티브 창 만들기** 명령을 사용하여 창을 엽니다. 그런 다음 코드를 입력하고, `kbstyle(Enter)`를 사용하여 새 줄로 이동하고 `kbstyle(Shift+Enter)`를 사용하여 코드를 실행할 수 있습니다.
 
-To use the window with a file, use the **Jupyter: Run Current File in Python Interactive Window** command from the Command Palette.
+파일과 함께 창을 사용하려면 명령 팔레트에서 **Jupyter: 현재 파일을 Python 인터랙티브 창에서 실행** 명령을 사용하세요.
 
-### IntelliSense
+### IntelliSense {#intellisense}
 
-The Python Interactive window has full IntelliSense – code completions, member lists, quick info for methods, and parameter hints. You can be just as productive typing in the Python Interactive window as you are in the code editor.
+Python 인터랙티브 창은 완전한 IntelliSense를 제공합니다 – 코드 완성, 멤버 목록, 메서드에 대한 빠른 정보 및 매개변수 힌트. Python 인터랙티브 창에서 입력하는 것은 코드 편집기에서 입력하는 것만큼 생산적일 수 있습니다.
 
-![IntelliSense in the Python Interactive window](images/jupyter/interactive-window-intellisense.gif)
+![Python 인터랙티브 창의 IntelliSense](images/jupyter/interactive-window-intellisense.gif)
 
-### Plot Viewer
+### 플롯 뷰어 {#plot-viewer}
 
-The Plot Viewer gives you the ability to work more deeply with your plots. In the viewer you can pan, zoom, and navigate plots in the current session. You can also export plots to PDF, SVG, and PNG formats.
+플롯 뷰어는 플롯을 더 깊이 작업할 수 있는 기능을 제공합니다. 뷰어에서 현재 세션의 플롯을 팬, 줌 및 탐색할 수 있습니다. 또한 플롯을 PDF, SVG 및 PNG 형식으로 내보낼 수 있습니다.
 
-Within the Python Interactive window, double-click any plot to open it in the viewer, or select the expand button on the upper left corner of the plot.
+Python 인터랙티브 창 내에서 플롯을 더블 클릭하여 뷰어에서 열거나, 플롯의 왼쪽 상단 모서리에 있는 확장 버튼을 선택하세요.
 <!--
 ```
 #%%
@@ -110,86 +110,87 @@ ax.legend()
 plt.show()
 ``` -->
 
-![Plot Viewer with the Python Interactive window](images/jupyter/plot-viewer.gif)
+![Python 인터랙티브 창의 플롯 뷰어](images/jupyter/plot-viewer.gif)
 
-> **Note:** The Python Interactive window supports rendering plots created with [matplotlib](https://matplotlib.org/) and [Altair](https://altair-viz.github.io/index.html).
+> **참고:** Python 인터랙티브 창은 [matplotlib](https://matplotlib.org/) 및 [Altair](https://altair-viz.github.io/index.html)로 생성된 플롯 렌더링을 지원합니다.
 
-<!-- ### Live Share for Python Interactive
+<!-- ### Python 인터랙티브를 위한 라이브 공유
 
-The Python Interactive window also supports [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/) for real-time collaboration. Live Share lets you co-edit and co-debug while sharing audio, servers, terminals, diffs, comments, and more.
+Python 인터랙티브 창은 실시간 협업을 위한 [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/)도 지원합니다. 라이브 공유를 통해 오디오, 서버, 터미널, 차이, 주석 등을 공유하면서 공동 편집 및 공동 디버깅을 할 수 있습니다.
 
-![Live Share for the Python Interactive window](images/jupyter/live-share-and-interactive.gif)
+![Python 인터랙티브 창의 라이브 공유](images/jupyter/live-share-and-interactive.gif)
 
-This feature requires the [Live Share extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) to be installed on both host and guest machines. -->
+이 기능은 호스트와 게스트 머신 모두에 [라이브 공유 확장](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)을 설치해야 합니다. -->
 
-## Variables Explorer and Data Viewer
+## 변수 탐색기 및 데이터 뷰어 {#variables-explorer-and-data-viewer}
 
-Within the Python Interactive window, it's possible to view, inspect, and filter the variables within your current Jupyter session. Select the **Variables** button in the interactive window toolbar to open the Variables explorer after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code.
+Python 인터랙티브 창 내에서 현재 Jupyter 세션의 변수를 보고, 검사하고, 필터링할 수 있습니다. 코드를 실행한 후 **변수** 버튼을 선택하여 변수 탐색기를 열면 현재 변수 목록이 표시되며, 코드에서 변수가 사용될 때 자동으로 업데이트됩니다.
 
-![Variables Explorer](images/jupyter/jupyter-variable-explorer.png)
+![변수 탐색기](images/jupyter/jupyter-variable-explorer.png)
 
-For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button to see a more detailed view of a variable in the Data Viewer. Once open, you can filter the values by searching over the rows.
+변수에 대한 추가 정보를 보려면 행을 더블 클릭하거나 **데이터 뷰어에서 변수 보기** 버튼을 사용하여 데이터 뷰어에서 변수의 더 자세한 보기를 확인할 수 있습니다. 열리면 행을 검색하여 값을 필터링할 수 있습니다.
 
-![Data Viewer](images/jupyter/jupyter-data-viewer.png)
+![데이터 뷰어](images/jupyter/jupyter-data-viewer.png)
 
-## Connect to a remote Jupyter server
+## 원격 Jupyter 서버에 연결하기 {#connect-to-a-remote-jupyter-server}
 
-You can offload intensive computation in a Jupyter notebook to other computers by connecting to a remote Jupyter server. Once connected, code cells run on the remote server rather than the local computer.
+Jupyter 노트북에서 집약적인 계산을 다른 컴퓨터로 오프로드하려면 원격 Jupyter 서버에 연결할 수 있습니다. 연결되면 코드 셀은 로컬 컴퓨터가 아닌 원격 서버에서 실행됩니다.
 
-To connect to a remote Jupyter server:
+원격 Jupyter 서버에 연결하려면:
 
-1. Run the **Jupyter: Specify local or remote Jupyter server for connections** command from the Command Palette (`kb(workbench.action.showCommands)`).
-2. Select how you would like to connect to a Jupyter server.
-    ![Prompt to supply a Jupyter server URI](images/jupyter/local-remote-connections.png)
-3. If working remotely, provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter when prompted. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.
+1. 명령 팔레트에서 **Jupyter: 연결을 위한 로컬 또는 원격 Jupyter 서버 지정** 명령을 실행합니다 (`kb(workbench.action.showCommands)`).
+2. Jupyter 서버에 연결하는 방법을 선택합니다.
+    ![Jupyter 서버 URI를 제공하라는 프롬프트](images/jupyter/local-remote-connections.png)
+3. 원격으로 작업하는 경우, 프롬프트가 나타나면 인증 토큰이 포함된 서버의 URI(호스트 이름)를 `?token=` URL 매개변수와 함께 제공해야 합니다. (VS Code 터미널에서 인증 토큰이 활성화된 상태로 서버를 시작하면, 토큰이 포함된 URL이 터미널 출력에 나타나며, 여기서 복사할 수 있습니다.) 또는 URI를 제공한 후 사용자 이름과 비밀번호를 지정할 수 있습니다.
 
-    ![Prompt to supply a Jupyter server URI](images/jupyter/enter-url-auth-token.png)
+    ![Jupyter 서버 URI를 제공하라는 프롬프트](images/jupyter/enter-url-auth-token.png)
 
-4. The Python Interactive window indicates where code is run by displaying the URI (which is blurred out in the image below):
+4. Python 인터랙티브 창은 코드가 실행되는 위치를 URI를 표시하여 나타냅니다 (아래 이미지에서 흐리게 처리됨):
 
-    ![The Python Interactive window showing that code is running on a remote Jupyter server](images/jupyter/jupyter-running-remotely.png)
+    ![원격 Jupyter 서버에서 코드가 실행되고 있음을 보여주는 Python 인터랙티브 창](images/jupyter/jupyter-running-remotely.png)
 
-> **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remote server are encrypted. For guidance about securing a notebook server, see the [Jupyter docs](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server).
+> **참고:** 보안을 강화하기 위해 Microsoft는 SSL 및 토큰 지원과 같은 보안 예방 조치를 통해 Jupyter 서버를 구성할 것을 권장합니다. 이는 Jupyter 서버에 전송되는 요청이 인증되고 원격 서버와의 연결이 암호화되도록 도와줍니다. 노트북 서버 보안에 대한 안내는 [Jupyter 문서](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server)를 참조하세요.
 
-## Convert Jupyter notebooks to Python code file
+## Jupyter 노트북을 Python 코드 파일로 변환하기 {#convert-jupyter-notebooks-to-python-code-file}
 
-When you've activated an environment with Jupyter installed, you can open a Jupyter notebook file (`.ipynb`) in VS Code and then convert it to Python code. Once you've converted the file, you can run the code as you would with any other Python file and also use the VS Code debugger. Opening and debugging notebooks in VS Code is a convenient way to find and resolve code bugs, which is difficult to do directly in a Jupyter notebook.
+Jupyter가 설치된 환경을 활성화하면 VS Code에서 Jupyter 노트북 파일(`.ipynb`)을 열고 이를 Python 코드로 변환할 수 있습니다. 파일을 변환한 후에는 다른 Python 파일과 마찬가지로 코드를 실행하고 VS Code 디버거를 사용할 수 있습니다. VS Code에서 노트북을 열고 디버깅하는 것은 Jupyter 노트북에서 직접 수행하기 어려운 코드 버그를 찾고 해결하는 편리한 방법입니다.
 
-When you open a notebook file, Visual Studio Code will open it in the Notebook Editor automatically. Use the convert icon on the toolbar to convert the Notebook (.ipynb) file to a Python file (.py).
+노트북 파일을 열면 Visual Studio Code가 자동으로 노트북 편집기에서 엽니다. 도구 모음의 변환 아이콘을 사용하여 노트북(.ipynb) 파일을 Python 파일(.py)로 변환합니다.
 
-![Icon to convert a Jupyter notebook file](images/jupyter/native-toolbar-convert.png)
+![Jupyter 노트북 파일을 변환하는 아이콘](images/jupyter/native-toolbar-convert.png)
 
-Select the convert icon followed by "Python Script", wait a few seconds, and then VS Code opens the converted notebook in an untitled file. The notebook's cells are delimited in the Python file with `# %%` comments; Markdown cells are converted wholly to comments preceded with `# %% [markdown]`, and render as HTML in the interactive window alongside code and output such as graphs:
+변환 아이콘을 선택한 후 "Python 스크립트"를 선택하고 몇 초 기다리면 VS Code가 변환된 노트북을 제목 없는 파일로 엽니다. 노트북의 셀은 Python 파일 내에서 `# %%` 주석으로 구분되며, Markdown 셀은 `# %% [markdown]`로 시작하는 주석으로 완전히 변환되고, 코드 및 그래프와 같은 출력과 함께 인터랙티브 창에서 HTML로 렌더링됩니다:
 
-![Jupyter notebook running in VS Code and the Python Interactive window](images/jupyter/jupyter-notebook.png)
+![VS Code에서 실행 중인 Jupyter 노트북과 Python 인터랙티브 창](images/jupyter/jupyter-notebook.png)
 
-> **Note:** The first time you run code cells in a Python file, the Python extension starts a Jupyter server. It may take some time for the server to start up and for the **Python Interactive** window to appear with the results of the code.
+> **참고:** Python 파일에서 코드 셀을 처음 실행할 때, Python 확장은 Jupyter 서버를 시작합니다. 서버가 시작되고 **Python 인터랙티브** 창이 코드 결과와 함께 나타나는 데 시간이 걸릴 수 있습니다.
 
-## Debug a Jupyter notebook
+## Jupyter 노트북 디버깅하기 {#debug-a-jupyter-notebook}
 
-The Visual Studio Code debugger lets you step through your code, set breakpoints, examine state, and analyze problems. Using the debugger is a helpful way to find and correct issues in notebook code.
+Visual Studio Code 디버거를 사용하면 코드를 단계별로 실행하고, 중단점을 설정하고, 상태를 검사하며, 문제를 분석할 수 있습니다. 디버거를 사용하는 것은 노트북 코드에서 문제를 찾고 수정하는 데 유용한 방법입니다.
 
-1. In VS Code, activate a Python environment in which Jupyter is installed, as described at the beginning of this article.
+1. VS Code에서 Jupyter가 설치된 Python 환경을 활성화합니다. 이 기사의 시작 부분에서 설명한 대로 진행하세요.
 
-1. Import the notebook's `.ipynb` file into VS Code as described in the previous section. (Download the file first if you're using a cloud-based Jupyter environment such as [Azure Notebooks](https://learn.microsoft.com/azure/notebooks).)
+1. 이전 섹션에서 설명한 대로 노트북의 `.ipynb` 파일을 VS Code로 가져옵니다. (Azure Notebooks와 같은 클라우드 기반 Jupyter 환경을 사용하는 경우, 먼저 파일을 다운로드하세요.)
 
-1. To start the debugger, use one of the following options:
+1. 디버거를 시작하려면 다음 옵션 중 하나를 사용합니다:
 
-    - For the whole notebook, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **Jupyter: Debug Current File in Python Interactive Window** command.
-    - For an individual cell, use the **Debug Cell** adornment that appears above the cell. The debugger specifically starts on the code in that cell. By default, **Debug Cell** just steps into user code. If you want to step into non-user code, you need to uncheck **Debug Just My Code** in the Jupyter extension settings (`kb(workbench.action.openSettings)`).
+    - 전체 노트북의 경우, 명령 팔레트를 열고 (`kb(workbench.action.showCommands)`) **Jupyter: Python 인터랙티브 창에서 현재 파일 디버그** 명령을 실행합니다.
+    - 개별 셀의 경우, 셀 위에 나타나는 **셀 디버그** 장식을 사용합니다. 디버거는 해당 셀의 코드에서만 시작됩니다. 기본적으로 **셀 디버그**는 사용자 코드로만 진입합니다. 비사용자 코드로 진입하려면 Jupyter 확장 설정에서 **내 코드만 디버그**를 선택 해제해야 합니다 (`kb(workbench.action.openSettings)`).
 
-1. To familiarize yourself with the general debugging features of VS Code, such as inspecting variables, setting breakpoints, and other activities, review [VS Code debugging](/docs/editor/debugging.md).
+1. 변수를 검사하고, 중단점을 설정하는 등 VS Code의 일반적인 디버깅 기능에 익숙해지려면 [VS Code 디버깅](/docs/editor/debugging.md)을 검토하세요.
 
-1. As you find issues, stop the debugger, correct your code, save the file, and start the debugger again.
+1. 문제를 발견하면 디버거를 중지하고 코드를 수정한 후 파일을 저장하고 디버거를 다시 시작합니다.
 
-1. When you're satisfied that all your code is correct. Save the file, then export the notebook as described in the following section. You can then upload the notebook to your normal Jupyter environment.
+1. 모든 코드가 올바르다고 확신되면 파일을 저장한 후 다음 섹션에서 설명한 대로 노트북을 내보냅니다. 그런 다음 노트북을 일반 Jupyter 환경에 업로드할 수 있습니다.
 
-## Export a Jupyter notebook
+## Jupyter 노트북 내보내기 {#export-a-jupyter-notebook}
 
-In addition to opening a Jupyter notebook, you can also use one of the following commands from the Command Palette (`kb(workbench.action.showCommands)`) to export content from a Python file in VS Code to a Jupyter notebook (with the `.ipynb` extension).
+Jupyter 노트북을 여는 것 외에도, VS Code의 Python 파일에서 Jupyter 노트북(`.ipynb` 확장자)으로 콘텐츠를 내보내기 위해 명령 팔레트(`kb(workbench.action.showCommands)`)에서 다음 명령 중 하나를 사용할 수 있습니다.
 
-- **Jupyter: Export Current Python File as Jupyter Notebook**: creates a Jupyter notebook from the contents of the current file, using the `# %%` and `# %% [markdown]` delimiters to specify their respective cell types.
-- **Jupyter: Export Current Python File and Output as Jupyter Notebook**: creates a Jupyter notebook from the contents of the current file and includes output from code cells.
-- **Jupyter: Export Interactive Window as Jupyter Notebook**: creates a Jupyter notebook from the contents of the Python Interactive window.
+- **Jupyter: 현재 Python 파일을 Jupyter 노트북으로 내보내기**: 현재 파일의 내용을 사용하여 Jupyter 노트북을 생성하며, `# %%` 및 `# %% [markdown]` 구분자를 사용하여 각 셀의 유형을 지정합니다.
+- **Jupyter: 현재 Python 파일 및 출력을 Jupyter 노트북으로 내보내기**: 현재 파일의 내용을 사용하여 Jupyter 노트북을 생성하고 코드 셀의 출력을 포함합니다.
+- **Jupyter: 인터랙티브 창을 Jupyter 노트북으로 내보내기**: Python 인터랙티브 창의 내용을 사용하여 Jupyter 노트북을 생성합니다.
 
-After exporting the contents, VS Code displays a prompt through which you can open the notebook in a browser.
+내용을 내보낸 후, VS Code는 브라우저에서 노트북을 열 수 있는 프롬프트를 표시합니다.
+---

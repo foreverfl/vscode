@@ -1,107 +1,110 @@
 ---
 Order: 2
 Area: intelligentapps
-TOCTitle: Models
+TOCTitle: 모델
 ContentId: 52ad40fe-f352-4e16-a075-7a9606c5df3b
-PageTitle: AI Models in AI Toolkit
-DateApproved: 12/11/2024
-MetaDescription: Find a popular generative AI model by publisher and source. Bring your own model that is hosted with a URL, or select an Ollama model.
+PageTitle: AI Toolkit의 AI 모델
+DateApproved: 2024/12/11
+MetaDescription: 제공 업체와 소스별로 인기 있는 생성형 AI 모델을 찾아보세요. 직접 호스팅한 모델의 URL을 입력하거나 Ollama 모델을 선택할 수도 있습니다.
+sidebar_label: 모델
 ---
 
-# Models in AI Toolkit
+# AI Toolkit의 모델 {#models-in-ai-toolkit}
 
-AI Toolkit supports a broad range of generative AI models. Both Small Language Models (SLM) and Large Language Models (LLM) are supported.
+AI Toolkit은 다양한 생성 AI 모델을 지원합니다. 소형 언어 모델(SLM)과 대형 언어 모델(LLM) 모두 지원됩니다.
 
-In the model catalog, you can access models from various sources:
+모델 카탈로그에서 다양한 출처의 모델에 접근할 수 있습니다:
 
-- GitHub-hosted models (Llama3, Phi-3, Mistral models)
-- Publisher-hosted models (OpenAI ChatGPT models, Anthropic Claude, Google Gemini)
-- Locally downloaded models, for example from HuggingFace
-- Locally running Ollama models
-- Connect to Bring-Your-Own-Models
+- GitHub에 호스팅된 모델 (Llama3, Phi-3, Mistral 모델)
+- 퍼블리셔가 호스팅하는 모델 (OpenAI ChatGPT 모델, Anthropic Claude, Google Gemini)
+- HuggingFace와 같은 곳에서 로컬로 다운로드한 모델
+- 로컬에서 실행 중인 Ollama 모델
+- Bring-Your-Own-Models에 연결
 
-## Find a model
+## 모델 찾기 {#find-a-model}
 
-To find a model in the model catalog:
+모델 카탈로그에서 모델을 찾으려면:
 
-1. Select the AI Toolkit view in the Activity Bar
+1. 활동 표시줄에서 AI Toolkit 보기를 선택합니다.
 
-1. Select **CATALOG** > **Models** to open the model catalog
+1. **CATALOG** > **Models**를 선택하여 모델 카탈로그를 엽니다.
 
-    ![Select model in model catalog](./images/models/model_catalog.png)
+    ![모델 카탈로그에서 모델 선택](./images/models/model_catalog.png)
 
-    Select a model card in the model catalog to view more details of the selected model.
+    모델 카탈로그에서 모델 카드를 선택하여 선택한 모델의 자세한 정보를 확인합니다.
 
-1. Use the filters to reduce the list of available models
+1. 필터를 사용하여 사용 가능한 모델 목록을 줄입니다.
 
-    - **Hosted by**: AI Toolkit supports GitHub, ONNX, OpenAI, Anthropic, Google as model hosting sources.
+    - **osted by**: AI Toolkit은 GitHub, ONNX, OpenAI, Anthropic, Google을 모델 호스팅 출처로 지원합니다.
 
-    - **Publisher**: The publisher for AI models, such as Microsoft, Meta, Google, OpenAI, Anthropic, Mistral AI, and more.
+    - **Publisher**: Microsoft, Meta, Google, OpenAI, Anthropic, Mistral AI 등 AI 모델의 퍼블리셔입니다.
 
-    - **Tasks**: Currently, only `Text Generation` is supported.
+    - **Tasks**: 현재는 `Text Generation`만 지원됩니다.
 
-    - **Model type**: Filter models that can run remotely or locally on CPU, GPU, or NPU. This filter depends on the local availability.
+    - **Model type**: 원격 또는 로컬에서 CPU, GPU 또는 NPU에서 실행할 수 있는 모델을 필터링합니다. 이 필터는 로컬 가용성에 따라 다릅니다.
 
-    - **Fine-tuning Support**: Show models that can be used to run fine-tuning.
+    - **Fine-tuning Support**: 미세 조정을 실행할 수 있는 모델을 표시합니다.
 
-To reference a self-hosted model or locally-running Ollama model:
+자체 호스팅된 모델이나 로컬에서 실행 중인 Ollama 모델을 참조하려면:
 
-1. Select **+ Add model** in the model catalog
+1. 모델 카탈로그에서 **+ Add model**를 선택합니다.
 
-1. Choose between Ollama or a custom model in the model Quick Pick
+1. Ollama 또는 사용자 정의 모델 중에서 선택합니다.
 
-1. Provide details to add the model
+1. 모델을 추가하기 위한 세부 정보를 제공합니다.
 
-## License and sign-in
+## 라이선스 및 로그인 {#license-and-sign-in}
 
-Some models require a publisher or hosting-service license and account to sign-in. In that case, before you can run the model in the [model playground](/docs/intelligentapps/playground.md), you are prompted to provide this information.
+일부 모델은 퍼블리셔 또는 호스팅 서비스 라이선스와 계정 로그인이 필요합니다. 이 경우, [모델 플레이그라운드](/docs/intelligentapps/playground.md)에서 모델을 실행하기 전에 이 정보를 제공하라는 메시지가 표시됩니다.
 
-## Select a model for testing
+## 테스트할 모델 선택 {#select-a-model-for-testing}
 
-AI Toolkit enables you to test run a model in the playground for chat completions. You have different options, available through the actions on the model card in the model catalog.
+AI Toolkit은 모델 플레이그라운드에서 채팅 완성을 위해 모델을 테스트 실행할 수 있도록 합니다. 모델 카탈로그의 모델 카드에서 사용할 수 있는 다양한 옵션이 있습니다.
 
-- **Try in Playground**: load the selected model for testing in the playground without downloading it
-- **Download**: download the model from a source like Hugging Face
-- **Load in Playground**: load a downloaded model into the playground for chat
+- **Try in Playground**: 다운로드 없이 선택한 모델을 플레이그라운드에서 테스트하기 위해 로드합니다.
+- **Download**: Hugging Face와 같은 출처에서 모델을 다운로드합니다.
+- **Load in Playground**: 다운로드한 모델을 플레이그라운드에 로드하여 채팅에 사용합니다.
 
-## Bring your own models
+## 나만의 모델 가져오기 {#bring-your-own-models}
 
-AI Toolkit's playground also supports remote models. If you have a self-hosted or deployed model that is accessible from the internet, you can add it to AI Toolkit and use it in the playground.
+AI Toolkit의 플레이그라운드는 원격 모델도 지원합니다. 인터넷에서 접근 가능한 자체 호스팅된 모델이나 배포된 모델이 있는 경우, 이를 AI Toolkit에 추가하고 플레이그라운드에서 사용할 수 있습니다.
 
-1. Hover over **MY MODELS** in the tree view, and select the `+` icon to add a remote model into AI Toolkit.
-1. Fill in the requested information, such as model name, display name, model hosting URL, and optional auth string.
+1. 트리 뷰에서 **MY MODELS** 위에 마우스를 올리고 `+` 아이콘을 선택하여 원격 모델을 AI Toolkit에 추가합니다.
+1. 모델 이름, 표시 이름, 모델 호스팅 URL 및 선택적 인증 문자열과 같은 요청된 정보를 입력합니다.
 
-![Bring Your Own Models](./images/models/byom.png)
+![자신의 모델 가져오기](./images/models/byom.png)
 
-## Add Ollama models
+## Ollama 모델 추가 {#add-ollama-models}
 
-Ollama enables many popular genAI models to run locally with CPU via GGUF quantization. If you have Ollama installed on your local machine with downloaded Ollama models, you can add them to AI Toolkit for use in the model playground.
+Ollama는 많은 인기 있는 생성 AI 모델을 CPU를 통해 로컬에서 실행할 수 있도록 GGUF 양자화를 지원합니다. 로컬 머신에 Ollama가 설치되어 있고 다운로드한 Ollama 모델이 있는 경우, 이를 AI Toolkit에 추가하여 모델 플레이그라운드에서 사용할 수 있습니다.
 
-### Prerequisites
+### 필수 조건 {#prerequisites}
 
-- AI Toolkit v0.6.2 or newer.
-- [Ollama](https://ollama.com/download) (Tested on Ollama v0.4.1)
+- AI Toolkit v0.6.2 이상.
+- [Ollama](https://ollama.com/download) (Ollama v0.4.1에서 테스트됨)
 
-### Add local Ollama into AI Toolkit
+### 로컬 Ollama를 AI Toolkit에 추가하기 {#add-local-ollama-into-ai-toolkit}
 
-1. Hover over **MY MODELS** in the tree view and select the "+" icon to add a model
+1. 트리 뷰에서 **MY MODELS** 위에 마우스를 올리고 "+" 아이콘을 선택하여 모델을 추가합니다.
 
-    Alternatively, select the **+ Add model** button in the model catalog or playground.
+    또는 모델 카탈로그나 플레이그라운드에서 **+ Add model** 버튼을 선택합니다.
 
-1. Select **Add an Ollama model**
+1. **Ollama 모델 추가**를 선택합니다.
 
-    ![Select model type to add](./images/models/select-type.png)
+    ![추가할 모델 유형 선택](./images/models/select-type.png)
 
-1. Next, select **Select models from Ollama library**
+1. 다음으로 **Select models from Ollama library**을 선택합니다.
 
-    If you start the Ollama runtime at a different endpoint, choose **Provide custom Ollama endpoint** to specify an Ollama endpoint.
+    Ollama 런타임을 다른 엔드포인트에서 시작하는 경우, **Provide custom Ollama endpoint**을 선택하여 Ollama 엔드포인트를 지정합니다.
 
-1. Select the models you want to add to AI Toolkit, and then select **OK**
+1. AI Toolkit에 추가할 모델을 선택한 후 **OK**을 선택합니다.
 
-    > [!NOTE]
-    > AI Toolkit only shows models that are already downloaded in Ollama and not yet added to AI Toolkit. To download a model from Ollama, you can run `ollama pull <model-name>`. To see the list of models supported by Ollama, see the [Ollama library](https://ollama.com/library) or refer to the [Ollama documentation](https://github.com/ollama/ollama).
+    :::note
+    AI Toolkit은 이미 Ollama에 다운로드되었지만 아직 AI Toolkit에 추가되지 않은 모델만 표시합니다. Ollama에서 모델을 다운로드하려면 `ollama pull <모델 이름>`을 실행할 수 있습니다. Ollama에서 지원하는 모델 목록을 보려면 [Ollama 라이브러리](https://ollama.com/library)를 참조하거나 [Ollama 문서](https://github.com/ollama/ollama)를 참조하세요.
+    :::
 
-1. You should now see the selected Ollama model(s) in the list of models in the tree view.
+1. 이제 트리 뷰의 모델 목록에서 선택한 Ollama 모델을 확인할 수 있습니다.
 
-    > [!NOTE]
-    > Attachment is not support yet for Ollama models. Since we connect to Ollama using its [OpenAI compatible endpoint](https://github.com/ollama/ollama/blob/main/docs/openai.md) and it doesn't support attachments yet.
+    :::note
+    Ollama 모델에 대한 첨부는 아직 지원되지 않습니다. Ollama에 연결할 때 [OpenAI 호환 엔드포인트](https://github.com/ollama/ollama/blob/main/docs/openai.md)를 사용하며, 현재 첨부를 지원하지 않습니다.
+    :::

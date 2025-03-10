@@ -164,7 +164,7 @@ reportWebVitals();
 
 ### 실시간 편집 및 디버깅 {#live-editing-and-debugging}
 
-[webpack](https://webpack.js.org/)을 React 앱과 함께 사용하면 VS Code에서 직접 실시간 편집 및 디버깅을 할 수 있는 더 효율적인 워크플로를 가질 수 있습니다. 이에 대한 자세한 내용은 [VS Code에서 React 앱을 직접 실시간으로 편집하고 디버깅하기](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f) 블로그 게시물과 [webpack 핫 모듈 교체 문서](https://webpack.js.org/concepts/hot-module-replacement/)를 참조하세요.
+[webpack](https://webpack.js.org/)을 React 앱과 함께 사용하면 VS Code에서 직접 실시간 편집 및 디버깅을 할 수 있는 더 효율적인 워크플로우를 가질 수 있습니다. 이에 대한 자세한 내용은 [VS Code에서 React 앱을 직접 실시간으로 편집하고 디버깅하기](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f) 블로그 게시물과 [webpack 핫 모듈 교체 문서](https://webpack.js.org/concepts/hot-module-replacement/)를 참조하세요.
 
 ## 린팅 {#linting}
 

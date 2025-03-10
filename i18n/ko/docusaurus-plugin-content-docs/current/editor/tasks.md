@@ -5,7 +5,7 @@ TOCTitle: 작업
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Visual Studio Code의 작업
 DateApproved: 03/05/2025
-MetaDescription: Visual Studio Code에서 작업 통합으로 개발 워크플로를 확장하세요.
+MetaDescription: Visual Studio Code에서 작업 통합으로 개발 워크플로우를 확장하세요.
 ---
 
 # 외부 도구와 작업을 통한 통합 {#integrate-with-external-tools-via-tasks}
@@ -219,7 +219,7 @@ VS Code는 현재 Gulp, Grunt, Jake 및 npm에 대한 작업을 자동으로 감
 
 명령 자체에 공백이 포함된 경우, VS Code는 기본적으로 명령도 강하게 인용합니다. 인수와 마찬가지로 사용자는 동일한 리터럴 스타일을 사용하여 명령의 인용을 제어할 수 있습니다.
 
-워크플로를 구성하기 위한 더 많은 작업 속성이 있습니다. `kb(editor.action.triggerSuggest)`를 사용하여 유효한 속성에 대한 개요를 얻을 수 있습니다.
+워크플로우를 구성하기 위한 더 많은 작업 속성이 있습니다. `kb(editor.action.triggerSuggest)`를 사용하여 유효한 속성에 대한 개요를 얻을 수 있습니다.
 
 ![작업 IntelliSense](images/tasks/intellisense.png)
 

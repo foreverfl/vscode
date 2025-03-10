@@ -73,6 +73,7 @@ const sidebars: SidebarsConfig = {
         "editor/voice",
         "editor/custom-layout",
         "editor/port-forwarding",
+        "editor/telemetry",
       ],
     },
     {
@@ -324,10 +325,9 @@ const sidebars: SidebarsConfig = {
         "intelligentapps/models",
         "intelligentapps/playground",
         "intelligentapps/bulkrun",
-        "intelligentapps/faq",
         "intelligentapps/evaluation",
         "intelligentapps/finetune",
-        "intelligentapps/models",
+        "intelligentapps/faq",
       ],
     },
     {
