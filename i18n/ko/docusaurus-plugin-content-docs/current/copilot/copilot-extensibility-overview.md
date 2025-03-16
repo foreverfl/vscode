@@ -7,6 +7,7 @@ PageTitle: GitHub Copilot 확장성 개요
 DateApproved: 03/05/2025
 MetaDescription: Chat API 또는 Language Model API를 사용하여 Visual Studio Code 확장에서 GitHub Copilot을 확장하는 방법에 대한 개요입니다.
 MetaSocialImage: images/shared/github-copilot-social.png
+sidebar_label: Copilot 확장성
 ---
 # GitHub Copilot 확장성 in VS Code {#github-copilot-extensibility-in-vs-code}
 

@@ -1,3 +1,14 @@
+---  
+Order: 9  
+Area: copilot  
+TOCTitle: 모범 사례  
+ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c  
+PageTitle: VS Code에서 GitHub Copilot을 위한 모범 사례  
+DateApproved: 03/05/2025  
+MetaDescription: VS Code에서 GitHub Copilot을 최적화하여 개발 경험을 향상시키는 모범 사례를 알아보세요. 채팅 프롬프트 작성 및 컨텍스트 제공 방법에 대한 가이드를 제공합니다.  
+MetaSocialImage: images/shared/github-copilot-social.png  
+sidebar_label: 모범 사례  
+---
 # GitHub Copilot을 VS Code에서 사용하는 모범 사례 {#best-practices-for-using-github-copilot-in-vs-code}
 
 이 문서에서는 GitHub Copilot을 Visual Studio Code에서 사용하는 모범 사례를 다루며, 프롬프트 제작과 GitHub Copilot에 적절한 컨텍스트를 제공하는 방법에 대해 설명합니다.

@@ -3,6 +3,7 @@ ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
 DateApproved: 03/05/2025
 MetaDescription: VS Code에서 AI 기반 채팅 대화를 통해 GitHub Copilot과 상호작용하여 코드를 생성하고 코드 이해도를 높이며 편집기를 구성할 수 있습니다.
 MetaSocialImage: images/shared/github-copilot-social.png
+sidebar_label: Copilot 채팅 컨텍스트
 ---
 # Copilot 채팅 컨텍스트 {#copilot-chat-context}
 

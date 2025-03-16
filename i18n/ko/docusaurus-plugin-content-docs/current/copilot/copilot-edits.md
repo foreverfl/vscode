@@ -1,12 +1,13 @@
 ---
 Order: 8
 Area: copilot
-TOCTitle: Copilot Edits
+TOCTitle: Copilot 편집
 ContentId: 393f3945-0821-42ca-bdd7-fb82affacb6a
 PageTitle: Copilot Edits
 DateApproved: 03/05/2025
 MetaDescription: Copilot Edits를 사용하여 프로젝트의 여러 파일에서 AI 기반 코드 편집 세션을 시작하세요.
 MetaSocialImage: images/shared/github-copilot-social.png
+sidebar_label: Copilot 편집
 ---
 # Copilot Edits {#copilot-edits}
 

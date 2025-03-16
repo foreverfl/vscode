@@ -1,12 +1,13 @@
 ---
 Order: 11
 Area: copilot
-TOCTitle: Copilot 사용자 정의
+TOCTitle: Copilot 커스터마이징
 ContentId: 16c73175-a606-4aab-8ae5-a507fe8947eb
-PageTitle: VS Code에서 GitHub Copilot 사용자 정의
+PageTitle: VS Code에서 GitHub Copilot 커스터마이징
 DateApproved: 03/05/2025
 MetaDescription: GitHub Copilot이 프로젝트에 대한 코드를 생성하거나 테스트를 생성하는 방식을 사용자 정의하는 방법을 알아보세요.
 MetaSocialImage: images/shared/github-copilot-social.png
+sidebar_label: Copilot 커스터마이징
 ---
 # VS Code에서 GitHub Copilot을 위한 사용자 정의 지침 {#custom-instructions-for-github-copilot-in-vs-code}
 

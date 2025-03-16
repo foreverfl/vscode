@@ -2,6 +2,7 @@
 ContentId: 2f21c45a-8931-4da2-a921-af23a3b92949
 DateApproved: 03/05/2025
 MetaDescription: GitHub Copilot을 사용하여 Visual Studio Code에서 디버깅 구성을 설정하고 디버깅 중 문제를 해결하는 방법을 배워보세요.
+sidebar_label: Copilot으로 디버깅하기
 ---
 
 # GitHub Copilot으로 디버깅하기 {#debug-with-github-copilot}

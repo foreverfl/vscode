@@ -7,6 +7,7 @@ PageTitle: GitHub Copilot을 통한 AI 기반 코드 완성
 DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code에서 GitHub Copilot의 AI 기반 코드 완성으로 코딩을 향상시키세요.
 MetaSocialImage: images/shared/github-copilot-social.png
+sidebar_label: 코드 완성
 ---
 # GitHub Copilot을 이용한 VS Code에서의 코드 완성 {#code-completions-with-github-copilot-in-vs-code}
 

@@ -430,4 +430,3 @@ VS Code는 UI에서 어떤 요소가 보이고 활성화되어 있는지에 따�
 ### `keybindings.json`에서 키보드 단축키를 수정했는데 왜 작동하지 않나요? {#i-have-modified-my-keyboard-shortcuts-in-keybindingsjson-why-dont-they-work}
 
 가장 일반적인 문제는 파일의 구문 오류입니다. 그렇지 않으면 `when` 절을 제거하거나 다른 `key`를 선택해 보세요. 불행히도 이 시점에서는 시행착오 과정이 필요합니다.
----

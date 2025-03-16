@@ -1,11 +1,12 @@
 ---
 Order: 6
 Area: copilot
-TOCTitle: Copilot Chat
+TOCTitle: Copilot 채팅
 ContentId: 130ecf6c-6f06-4ddd-8b1d-f85f023af77b
 PageTitle: AI-powered chat conversations with GitHub Copilot
 DateApproved: 03/05/2025
 MetaDescription: VS Code에서 AI 기반의 채팅 대화를 통해 GitHub Copilot과 상호작용하여 코드를 생성하고, 코드 이해도를 높이며, 편집기를 구성할 수 있습니다.
+sidebar_label: Copilot 채팅
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # VS Code에서 Copilot Chat 사용하기 {#use-copilot-chat-in-vs-code}

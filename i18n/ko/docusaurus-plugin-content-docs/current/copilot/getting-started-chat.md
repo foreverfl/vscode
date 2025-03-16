@@ -7,6 +7,7 @@ PageTitle: Copilot Chat 시작하기
 DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code에서 GitHub Copilot과 함께 AI 기반의 채팅 대화를 시작하고, 코딩 중 인라인으로 또는 별도의 채팅 뷰에서 대화하세요.
 MetaSocialImage: images/shared/github-copilot-social.png
+sidebar_label: Copilot Chat 튜토리얼
 ---
 # Visual Studio Code에서 Copilot Chat 시작하기 {#getting-started-with-copilot-chat-in-vs-code}
 

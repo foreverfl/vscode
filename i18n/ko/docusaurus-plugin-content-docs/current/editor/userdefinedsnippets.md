@@ -344,4 +344,3 @@ $MyVar = 2
 ![Hide from IntelliSense button in Insert Snippet dropdown](images/userdefinedsnippets/hide-from-intellisense.png)
 
 여전히 **Insert Snippet** 명령으로 코드 조각을 선택할 수 있지만, 숨겨진 코드 조각은 IntelliSense에 표시되지 않습니다.
----

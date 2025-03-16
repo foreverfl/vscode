@@ -7,6 +7,7 @@ PageTitle: VS Code에서 GitHub Copilot 설정 참조
 DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code에서 GitHub Copilot의 구성 설정 개요.
 MetaSocialImage: images/shared/github-copilot-social.png
+sidebar_label: 설정 참조
 ---
 # VS Code에서 GitHub Copilot 설정 참조 {#github-copilot-in-vs-code-settings-reference}
 

@@ -1,29 +1,3 @@
-### 지침:
-- 모든 Markdown 형식을 유지합니다: 헤더(`#`), 목록(`-`, `*`), 코드 블록(```)을 변경하지 않습니다.
-- 코드 블록을 제거하지 마십시오. 그대로 유지하십시오.
-- 코드 블록 내부의 모든 주석을 번역하되, 코드 자체는 번역하지 마십시오.
-  - 예시:
-    - 영어:
-      ```js
-      // This function returns a number
-      function getNumber() { return 42; }
-      ```
-    - 한국어:
-      ```js
-      // 이 함수는 숫자를 반환합니다.
-      function getNumber() { return 42; }
-      ```
-- 보이는 텍스트만 번역합니다. 링크, 파일 경로 또는 Markdown 구문을 수정하지 마십시오.
-- 헤딩(`#`)의 경우, 원본에 ID가 존재하면 번역 후에도 그대로 유지합니다.
-  - 예시:  
-    - 영어: `## Apple {#apple}`  
-    - 한국어: `## 사과 {#apple}` (ID `{#apple}`는 변경되지 않음)
-- 번역이 자연스럽게 흐르도록 합니다.  
-  - 문장 구조가 자연스러운 한국어 작문에 맞도록 합니다.  
-  - 필요에 따라 문장을 결합하거나 재구성하되, 원래 의미를 유지합니다.  
-  - 지나치게 직역하지 않도록 하며, 적절한 한국어 표현을 사용합니다.  
-  - 여러 포인트를 나열할 때는 더 읽기 쉬운 한국어 형식으로 재구성하는 것을 고려합니다.
----
 ---
 Order: 15
 Area: copilot
@@ -33,6 +7,7 @@ PageTitle: GitHub Copilot 자주 묻는 질문
 DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code에서 GitHub Copilot을 사용하는 것에 대한 자주 묻는 질문.
 MetaSocialImage: images/shared/github-copilot-social.png
+sidebar_label: FAQ
 ---
 # GitHub Copilot 자주 묻는 질문 {#github-copilot-frequently-asked-questions}
 

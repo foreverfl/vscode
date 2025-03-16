@@ -7,6 +7,7 @@ PageTitle: workspace 컨텍스트 참조를 사용한 채팅
 DateApproved: 03/05/2025
 MetaDescription: Copilot의 @workspace 채팅을 사용하여 전체 코드베이스에 대한 질문을 하는 방법.
 MetaSocialImage: images/shared/github-copilot-social.png
+sidebar_label: 작업공간 컨텍스트
 ---
 # Copilot 채팅을 작업공간의 전문가로 만들기 {#making-copilot-chat-an-expert-in-your-workspace}
 

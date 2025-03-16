@@ -2,6 +2,7 @@
 ContentId: 9f84b21e-5b76-4c3a-a5dd-2021ab343f1f
 DateApproved: 03/05/2025
 MetaDescription: GitHub Copilot을 사용하여 Visual Studio Code에서 테스트를 작성하고 디버그하며 수정하는 방법을 배워보세요.
+sidebar_label: Copilot으로 테스트하기
 ---
 
 # GitHub Copilot로 테스트하기 {#test-with-github-copilot}

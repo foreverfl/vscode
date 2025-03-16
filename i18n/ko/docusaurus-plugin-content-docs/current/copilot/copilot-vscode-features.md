@@ -1,3 +1,14 @@
+---
+Order: 2  
+Area: copilot  
+TOCTitle: Copilot 치트 시트  
+ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b  
+PageTitle: VS Code에서 GitHub Copilot 치트 시트  
+DateApproved: 03/05/2025  
+MetaDescription: Visual Studio Code에서 GitHub Copilot의 기능을 빠르게 살펴보세요. GitHub Copilot은 AI 기반 기능을 제공하여 더 빠르고 효율적으로 코드를 작성할 수 있도록 도와줍니다.  
+MetaSocialImage: images/shared/github-copilot-social.png  
+sidebar_label: Copilot 치트 시트  
+---
 # GitHub Copilot in VS Code cheat sheet {#github-copilot-in-vs-code-cheat-sheet}
 
 Visual Studio Code에서 GitHub Copilot은 코드를 더 빠르고 적은 노력으로 작성할 수 있도록 돕는 AI 기반 기능을 제공합니다. 이 치트 시트는 Visual Studio Code에서 GitHub Copilot의 기능에 대한 간략한 개요를 제공합니다.
