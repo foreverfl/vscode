@@ -6,6 +6,7 @@ ContentId: 01210769-05be-4854-9482-13e342850ad7
 PageTitle: 자바 웹 앱 배포
 DateApproved: 10/18/2022
 MetaDescription: Visual Studio Code를 사용하여 Java 애플리케이션을 Azure에 배포하는 방법
+sidebar_label: 자바 웹 앱 배포
 ---
 
 # 자바 웹 앱 배포 {#deploy-java-web-apps}

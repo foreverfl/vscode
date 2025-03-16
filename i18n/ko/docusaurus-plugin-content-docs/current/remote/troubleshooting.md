@@ -1,85 +1,85 @@
 ---
 Order: 16
 Area: remote
-TOCTitle: Tips and Tricks
-PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
+TOCTitle: 팁과 요령
+PageTitle: Visual Studio Code 원격 개발 문제 해결 팁과 요령
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
-MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
+MetaDescription: SSH, 컨테이너 및 Windows Subsystem for Linux (WSL)에 대한 Visual Studio Code 원격 개발 문제 해결 팁과 요령
 DateApproved: 03/05/2025
 ---
-# Remote Development Tips and Tricks
+# 원격 개발 팁과 요령 {#remote-development-tips-and-tricks}
 
-This article covers troubleshooting tips and tricks for each of the Visual Studio Code [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/devcontainers/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension. Or try the introductory [Tutorials](/docs/remote/ssh-tutorial.md) to help get you running quickly in a remote environment.
+이 문서에서는 Visual Studio Code [원격 개발](https://aka.ms/vscode-remote/download/extension) 확장 프로그램에 대한 문제 해결 팁과 요령을 다룹니다. 각 특정 확장을 설정하고 작업하는 방법에 대한 자세한 내용은 [SSH](/docs/remote/ssh.md), [컨테이너](/docs/devcontainers/containers.md), [WSL](/docs/remote/wsl.md) 문서를 참조하세요. 또는 소개용 [튜토리얼](/docs/remote/ssh-tutorial.md)을 시도하여 원격 환경에서 빠르게 실행할 수 있도록 도와주세요.
 
-For tips and questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces).
+[GitHub Codespaces](https://github.com/features/codespaces)에 대한 팁과 질문은 [GitHub Codespaces 문서](https://docs.github.com/github/developing-online-with-codespaces)를 참조하세요.
 
-## SSH tips
+## SSH 팁 {#ssh-tips}
 
-SSH is powerful and flexible, but this also adds some setup complexity. This section includes some tips and tricks for getting the Remote - SSH extension up and running in different environments.
+SSH는 강력하고 유연하지만, 이로 인해 설정 복잡성이 추가됩니다. 이 섹션에서는 다양한 환경에서 Remote - SSH 확장을 설정하고 실행하기 위한 몇 가지 팁과 요령을 포함합니다.
 
-### Configuring the $EDITOR variable
+### $EDITOR 변수 구성하기 {#configuring-the-editor-variable}
 
-For macOS / linux remote hosts, add this snippet to your shell configuration file (like `.bashrc` or `.zshrc`)
+macOS / Linux 원격 호스트의 경우, 이 코드를 셸 구성 파일(예: `.bashrc` 또는 `.zshrc`)에 추가하세요.
 
 ```bash
 if [ "$VSCODE_INJECTION" = "1" ]; then
-    export EDITOR="code --wait" # or 'code-insiders' if you're using VS Code Insiders
+    export EDITOR="code --wait" # 또는 VS Code Insiders를 사용하는 경우 'code-insiders'
 fi
 ```
 
-For Windows hosts, here is the equivalent Powershell:
+Windows 호스트의 경우, 다음과 같은 Powershell 명령어를 사용하세요:
 
 ```pwsh
 if ($env:VSCODE_INJECTION -eq "1") {
-    $env:EDITOR = "code --wait"  # or 'code-insiders' for VS Code Insiders
+    $env:EDITOR = "code --wait"  # 또는 VS Code Insiders의 경우 'code-insiders'
 }
 ```
 
-Now running a terminal command that uses the $EDITOR variable, like `git commit`, will open the file in VS Code instead of the default terminal-based editor (like `vim` or `nano`).
+이제 `$EDITOR` 변수를 사용하는 터미널 명령어(예: `git commit`)를 실행하면 기본 터미널 기반 편집기(예: `vim` 또는 `nano`) 대신 VS Code에서 파일이 열립니다.
 
-### Configuring key based authentication
+### 키 기반 인증 구성하기 {#configuring-key-based-authentication}
 
-[SSH public key authentication](https://www.ssh.com/ssh/public-key-authentication) is a convenient, high security authentication method that combines a local "private" key with a "public" key that you associate with your user account on an SSH host. This section will walk you through how to generate these keys and add them to a host.
+[SSH 공개 키 인증](https://www.ssh.com/ssh/public-key-authentication)은 로컬 "개인" 키와 SSH 호스트의 사용자 계정과 연결된 "공개" 키를 결합한 편리하고 높은 보안의 인증 방법입니다. 이 섹션에서는 이러한 키를 생성하고 호스트에 추가하는 방법을 안내합니다.
 
-> **Tip:** PuTTY for Windows is not a [supported client](#installing-a-supported-ssh-client), but you can [convert your PuTTYGen keys](#reusing-a-key-generated-in-puttygen).
+> **팁:** Windows용 PuTTY는 [지원되는 클라이언트](#installing-a-supported-ssh-client)가 아니지만, [PuTTYGen 키를 변환할 수 있습니다](#reusing-a-key-generated-in-puttygen).
 
-### Quick start: Using SSH keys
+### 빠른 시작: SSH 키 사용하기 {#quick-start-using-ssh-keys}
 
-To set up SSH key based authentication for your remote host. First we'll create a key pair and then copy the public key to the host.
+원격 호스트에 대한 SSH 키 기반 인증을 설정하려면 먼저 키 쌍을 생성한 다음 공개 키를 호스트에 복사합니다.
 
-**Create your local SSH key pair**
+**로컬 SSH 키 쌍 생성하기**
 
- Check to see if you already have an SSH key on your **local** machine. This is typically located at `~/.ssh/id_ed25519.pub` on macOS / Linux, and the `.ssh` directory in your user profile folder on Windows (for example `C:\Users\your-user\.ssh\id_ed25519.pub`).
+로컬 머신에 SSH 키가 이미 있는지 확인하세요. 일반적으로 macOS / Linux에서는 `~/.ssh/id_ed25519.pub`에 위치하며, Windows에서는 사용자 프로필 폴더의 `.ssh` 디렉토리(예: `C:\Users\your-user\.ssh\id_ed25519.pub`)에 있습니다.
 
-If you do not have a key, run the following command in a **local** terminal / PowerShell to generate an SSH key pair:
+키가 없는 경우, **로컬** 터미널 / PowerShell에서 다음 명령어를 실행하여 SSH 키 쌍을 생성하세요:
 
 ```bash
 ssh-keygen -t ed25519 -b 4096
 ```
 
-> **Tip:** Don't have `ssh-keygen`? Install [a supported SSH client](#installing-a-supported-ssh-client).
+> **팁:** `ssh-keygen`이 없으신가요? [지원되는 SSH 클라이언트](#installing-a-supported-ssh-client)를 설치하세요.
 
-**Restrict the permissions on the private key file**
+**개인 키 파일의 권한 제한하기**
 
-* For macOS / Linux, run the following shell command, replacing the path to your private key if necessary:
+* macOS / Linux의 경우, 필요한 경우 개인 키 경로를 바꿔서 다음 셸 명령어를 실행하세요:
 
     ```bash
     chmod 400 ~/.ssh/id_ed25519
     ```
 
-* For Windows, run the following command in PowerShell to grant explicit read access to your username:
+* Windows의 경우, PowerShell에서 다음 명령어를 실행하여 사용자 이름에 대한 명시적 읽기 권한을 부여하세요:
 
     ```powershell
     icacls "privateKeyPath" /grant <username>:R
     ```
 
-    Then navigate to the private key file in Windows Explorer, right-click and select **Properties**. Select the **Security** tab > **Advanced** > **Disable inheritance** > **Remove all inherited permissions from this object**.
+    그런 다음 Windows 탐색기에서 개인 키 파일로 이동하여 마우스 오른쪽 버튼을 클릭하고 **속성**을 선택합니다. **보안** 탭 > **고급** > **상속 사용 중지** > **이 객체에서 모든 상속된 권한 제거**를 선택합니다.
 
-**Authorize your macOS or Linux machine to connect**
+**macOS 또는 Linux 머신을 연결할 수 있도록 승인하기**
 
-Run one of the following commands, in a **local terminal window** replacing user and host name as appropriate to copy your local public key to the SSH host.
+다음 명령어 중 하나를 **로컬 터미널 창**에서 실행하여 사용자 및 호스트 이름을 적절히 바꿔 로컬 공개 키를 SSH 호스트에 복사하세요.
 
-* Connecting to a **macOS or Linux** SSH host:
+* **macOS 또는 Linux** SSH 호스트에 연결하기:
 
     ```bash
     export USER_AT_HOST="your-user-name-on-host@hostname"
@@ -88,9 +88,9 @@ Run one of the following commands, in a **local terminal window** replacing user
     ssh-copy-id -i "$PUBKEYPATH" "$USER_AT_HOST"
     ```
 
-* Connecting to a **Windows** SSH host:
+* **Windows** SSH 호스트에 연결하기:
 
-  * The host uses OpenSSH Server and the user [belongs to the administrator group](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_server_configuration#authorizedkeysfile):
+  * 호스트가 OpenSSH Server를 사용하고 사용자가 [관리자 그룹에 속하는 경우](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_server_configuration#authorizedkeysfile):
 
     ```bash
     export USER_AT_HOST="your-user-name-on-host@hostname"
@@ -99,7 +99,7 @@ Run one of the following commands, in a **local terminal window** replacing user
     ssh $USER_AT_HOST "powershell Add-Content -Force -Path \"\$Env:PROGRAMDATA\\ssh\\administrators_authorized_keys\" -Value '$(tr -d '\n\r' < "$PUBKEYPATH")'"
     ```
 
-  * Otherwise:
+  * 그렇지 않은 경우:
 
     ```bash
     export USER_AT_HOST="your-user-name-on-host@hostname"
@@ -108,13 +108,13 @@ Run one of the following commands, in a **local terminal window** replacing user
     ssh $USER_AT_HOST "powershell New-Item -Force -ItemType Directory -Path \"\$HOME\\.ssh\"; Add-Content -Force -Path \"\$HOME\\.ssh\\authorized_keys\" -Value '$(tr -d '\n\r' < "$PUBKEYPATH")'"
     ```
 
-    You may want to validate that the `authorized_keys` file in the `.ssh` folder for your **remote user on the SSH host** is owned by you and no other user has permission to access it. See the [OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH#authorized_keys) for details.
+    SSH 호스트의 **원격 사용자**에 대한 `.ssh` 폴더의 `authorized_keys` 파일이 본인 소유이며 다른 사용자가 접근할 수 없는지 확인하세요. 자세한 내용은 [OpenSSH 위키](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH#authorized_keys)를 참조하세요.
 
-**Authorize your Windows machine to connect**
+**Windows 머신을 연결할 수 있도록 승인하기**
 
-Run one of the following commands, in a **local PowerShell** window replacing user and host name as appropriate to copy your local public key to the SSH host.
+다음 명령어 중 하나를 **로컬 PowerShell** 창에서 실행하여 사용자 및 호스트 이름을 적절히 바꿔 로컬 공개 키를 SSH 호스트에 복사하세요.
 
-* Connecting to a **macOS or Linux** SSH host:
+* **macOS 또는 Linux** SSH 호스트에 연결하기:
 
     ```powershell
     $USER_AT_HOST="your-user-name-on-host@hostname"
@@ -124,9 +124,9 @@ Run one of the following commands, in a **local PowerShell** window replacing us
 ' >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"
     ```
 
-* Connecting to a **Windows** SSH host:
+* **Windows** SSH 호스트에 연결하기:
 
-  * The host uses OpenSSH Server and the user [belongs to the administrator group](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_server_configuration#authorizedkeysfile):
+  * 호스트가 OpenSSH Server를 사용하고 사용자가 [관리자 그룹에 속하는 경우](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_server_configuration#authorizedkeysfile):
 
     ```powershell
     $USER_AT_HOST="your-user-name-on-host@hostname"
@@ -135,7 +135,7 @@ Run one of the following commands, in a **local PowerShell** window replacing us
     Get-Content "$PUBKEYPATH" | Out-String | ssh $USER_AT_HOST "powershell `"Add-Content -Force -Path `"`$Env:PROGRAMDATA\ssh\administrators_authorized_keys`" `""
     ```
 
-  * Otherwise:
+  * 그렇지 않은 경우:
 
     ```powershell
     $USER_AT_HOST="your-user-name-on-host@hostname"
@@ -144,29 +144,29 @@ Run one of the following commands, in a **local PowerShell** window replacing us
     Get-Content "$PUBKEYPATH" | Out-String | ssh $USER_AT_HOST "powershell `"New-Item -Force -ItemType Directory -Path `"`$HOME\.ssh`"; Add-Content -Force -Path `"`$HOME\.ssh\authorized_keys`" `""
     ```
 
-    Validate that the `authorized_keys` file in the `.ssh` folder for your **remote user on the SSH host** is owned by you and no other user has permission to access it. See the [OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH#authorized_keys) for details.
+    SSH 호스트의 **원격 사용자**에 대한 `.ssh` 폴더의 `authorized_keys` 파일이 본인 소유이며 다른 사용자가 접근할 수 없는지 확인하세요. 자세한 내용은 [OpenSSH 위키](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH#authorized_keys)를 참조하세요.
 
-### Improving your security with a dedicated key
+### 전용 키로 보안 강화하기 {#improving-your-security-with-a-dedicated-key}
 
-While using a single SSH key across all your SSH hosts can be convenient, if anyone gains access to your private key, they will have access to all of your hosts as well. You can prevent this by creating a separate SSH key for your development hosts. Just follow these steps:
+모든 SSH 호스트에서 단일 SSH 키를 사용하는 것은 편리하지만, 누군가 개인 키에 접근하면 모든 호스트에 접근할 수 있게 됩니다. 개발 호스트에 대해 별도의 SSH 키를 생성하여 이를 방지할 수 있습니다. 다음 단계를 따르세요:
 
-1. Generate a separate SSH key in a different file.
+1. 다른 파일에 별도의 SSH 키를 생성합니다.
 
-    **macOS / Linux**: Run the following command in a **local terminal**:
+    **macOS / Linux**: **로컬 터미널**에서 다음 명령어를 실행하세요:
 
     ```bash
     ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519-remote-ssh
     ```
 
-    **Windows**: Run the following command in a **local PowerShell**:
+    **Windows**: **로컬 PowerShell**에서 다음 명령어를 실행하세요:
 
     ```powershell
     ssh-keygen -t ed25519 -f "$HOME\.ssh\id_ed25519-remote-ssh"
     ```
 
-2. Follow the same steps in the [quick start](#quick-start-using-ssh-keys) to authorize the key on the SSH host, but set the `PUBKEYPATH` to the `id_ed25519-remote-ssh.pub` file instead.
+2. SSH 호스트에서 키를 승인하기 위해 [빠른 시작](#quick-start-using-ssh-keys)에서와 같은 단계를 따르되, `PUBKEYPATH`를 `id_ed25519-remote-ssh.pub` 파일로 설정하세요.
 
-3. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select an SSH config file, and add (or modify) a host entry as follows:
+3. VS Code에서 Command Palette(`kbstyle(F1)`)에서 **Remote-SSH: Open Configuration File...**을 실행하고 SSH 구성 파일을 선택한 후 다음과 같이 호스트 항목을 추가(또는 수정)하세요:
 
     ```yaml
     Host name-of-ssh-host-here
@@ -175,16 +175,16 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
         IdentityFile ~/.ssh/id_ed25519-remote-ssh
     ```
 
-    > **Tip:** You can use `/` for Windows paths as well. If you use `\` you will need to use two slashes. For example, `C:\\path\\to\\my\\id_ed25519`.
+    > **팁:** Windows 경로에도 `/`를 사용할 수 있습니다. `\`를 사용하는 경우 두 개의 슬래시를 사용해야 합니다. 예를 들어, `C:\\path\\to\\my\\id_ed25519`.
 
-### Reusing a key generated in PuTTYGen
+### PuTTYGen에서 생성된 키 재사용하기 {#reusing-a-key-generated-in-puttygen}
 
-If you used PuTTYGen to set up SSH public key authentication for the host you are connecting to, you need to convert your private key so that other SSH clients can use it. To do this:
+PuTTYGen을 사용하여 연결할 호스트에 대한 SSH 공개 키 인증을 설정한 경우, 다른 SSH 클라이언트에서 사용할 수 있도록 개인 키를 변환해야 합니다. 이를 위해:
 
-1. Open PuTTYGen **locally** and load the private key you want to convert.
-2. Select **Conversions > Export OpenSSH key** from the application menu. Save the converted key to a **local** location under the`.ssh` directory in your user profile folder (for example `C:\Users\youruser\.ssh`).
-3. Validate that this new **local** file is owned by you and no other user has permissions to access it.
-4. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select the SSH config file you want to change, and add (or modify) a host entry in the config file as follows to point to the file:
+1. **로컬**에서 PuTTYGen을 열고 변환할 개인 키를 로드합니다.
+2. 애플리케이션 메뉴에서 **Conversions > Export OpenSSH key**를 선택합니다. 변환된 키를 사용자 프로필 폴더의 `.ssh` 디렉토리 아래에 **로컬** 위치에 저장합니다(예: `C:\Users\youruser\.ssh`).
+3. 이 새로운 **로컬** 파일이 본인 소유이며 다른 사용자가 접근할 수 없는지 확인하세요.
+4. VS Code에서 Command Palette(`kbstyle(F1)`)에서 **Remote-SSH: Open Configuration File...**을 실행하고 변경할 SSH 구성 파일을 선택한 후 다음과 같이 파일을 가리키는 호스트 항목을 추가(또는 수정)하세요:
 
     ```yaml
     Host name-of-ssh-host-here
@@ -193,61 +193,61 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
         IdentityFile ~/.ssh/exported-keyfile-from-putty
     ```
 
-### Improving security on multi-user servers
+### 다중 사용자 서버에서 보안 강화하기 {#improving-security-on-multi-user-servers}
 
-The Remote - SSH extension installs and maintains the "VS Code Server". The server is started with a randomly generated key, and any new connection to the server needs to provide the key. The key is stored on the remote's disk, readable only by the current user. There is one HTTP path that is available without authentication at `/version`.
+Remote - SSH 확장은 "VS Code Server"를 설치하고 유지 관리합니다. 서버는 무작위로 생성된 키로 시작되며, 서버에 대한 새로운 연결은 키를 제공해야 합니다. 이 키는 원격 디스크에 저장되며 현재 사용자만 읽을 수 있습니다. 인증 없이 사용할 수 있는 HTTP 경로는 `/version`입니다.
 
-By default, the server listens to `localhost` on a random TCP port that is then forwarded to your local machine. If you are connecting to a **Linux or macOS** host, you can switch to using Unix sockets that are locked down to a particular user. This socket is then forwarded instead of the port.
+기본적으로 서버는 무작위 TCP 포트에서 `localhost`를 수신 대기하며, 이 포트는 로컬 머신으로 전달됩니다. **Linux 또는 macOS** 호스트에 연결하는 경우, 특정 사용자에게 잠겨 있는 Unix 소켓을 사용하는 것으로 전환할 수 있습니다. 이 소켓은 포트 대신 전달됩니다.
 
-> **Note:** This setting **disables connection multiplexing** so configuring [public key authentication](#configuring-key-based-authentication) is recommended.
+> **참고:** 이 설정은 **연결 다중화**를 비활성화하므로 [공개 키 인증 구성](#configuring-key-based-authentication)을 설정하는 것이 좋습니다.
 
-To configure it:
+구성하려면:
 
-1. Ensure you have a **local OpenSSH 6.7+ SSH client** on Windows, macOS, or Linux and an **OpenSSH 6.7+ Linux or macOS Host** (Windows does not support this mode).
+1. Windows, macOS 또는 Linux에서 **로컬 OpenSSH 6.7+ SSH 클라이언트**와 **OpenSSH 6.7+ Linux 또는 macOS 호스트**가 있는지 확인하세요(Windows는 이 모드를 지원하지 않습니다).
 
-2. Switch Remote - SSH into socket mode by enabling **Remote.SSH: Remote Server Listen On Socket** in your **local** VS Code [User settings](/docs/editor/settings.md).
+2. **로컬** VS Code [사용자 설정](/docs/editor/settings.md)에서 **Remote.SSH: Remote Server Listen On Socket**을 활성화하여 Remote - SSH를 소켓 모드로 전환하세요.
 
-    ![Listen on socket VS Code setting](images/ssh/ssh-listen-on-socket.png)
+    ![소켓에서 수신 대기하는 VS Code 설정](images/ssh/ssh-listen-on-socket.png)
 
-3. If you've already connected to the SSH Host, select **Remote-SSH: Kill VS Code Server on Host...** from the Command Palette (`kbstyle(F1)`) so the setting takes effect.
+3. 이미 SSH 호스트에 연결한 경우, Command Palette(`kbstyle(F1)`)에서 **Remote-SSH: Kill VS Code Server on Host...**를 선택하여 설정이 적용되도록 하세요.
 
-If you encounter an error when connecting, you may need to enable socket forwarding on your SSH Host's [sshd config](https://www.ssh.com/ssh/sshd_config/). To do so:
+연결할 때 오류가 발생하면 SSH 호스트의 [sshd 구성](https://www.ssh.com/ssh/sshd_config/)에서 소켓 전달을 활성화해야 할 수 있습니다. 이를 위해:
 
-1. Open `/etc/ssh/sshd_config` in a text editor (like vi, nano, or pico) on the **SSH host** (not locally).
-2. Add the setting  `AllowStreamLocalForwarding yes`.
-3. Restart the SSH server. (On Ubuntu, run `sudo systemctl restart sshd`.).
-4. Retry.
+1. **SSH 호스트**(로컬이 아님)에서 텍스트 편집기(예: vi, nano 또는 pico)를 사용하여 `/etc/ssh/sshd_config`를 엽니다.
+2. `AllowStreamLocalForwarding yes` 설정을 추가합니다.
+3. SSH 서버를 재시작합니다. (Ubuntu에서는 `sudo systemctl restart sshd`를 실행합니다.)
+4. 다시 시도합니다.
 
-### Troubleshooting hanging or failing connections
+### 연결이 멈추거나 실패하는 문제 해결하기 {#troubleshooting-hanging-or-failing-connections}
 
-If you are running into problems with VS Code hanging while trying to connect (and potentially timing out), there are a few things you can do to try to resolve the issue.
+VS Code가 연결을 시도하는 동안 멈추는 문제가 발생하는 경우(그리고 잠재적으로 타임아웃되는 경우), 문제를 해결하기 위해 할 수 있는 몇 가지 방법이 있습니다.
 
-**General troubleshooting: Remove the server**
+**일반 문제 해결: 서버 제거하기**
 
-One command helpful to troubleshoot a variety of Remote-SSH issues is **Remote-SSH: Kill VS Code Server on Host**. This will remove the server, which can fix a wide range of issues and error messages you may see, such as "Could not establish connection to `server_name`: The VS Code Server failed to start."
+다양한 Remote-SSH 문제를 해결하는 데 유용한 명령어는 **Remote-SSH: Kill VS Code Server on Host**입니다. 이 명령어는 서버를 제거하며, "서버 이름에 대한 연결을 설정할 수 없습니다: VS Code 서버가 시작되지 않았습니다."와 같은 다양한 문제 및 오류 메시지를 해결할 수 있습니다.
 
-**See if VS Code is waiting on a prompt**
+**VS Code가 프롬프트를 기다리고 있는지 확인하기**
 
-Enable the `remote.SSH.showLoginTerminal` [setting](/docs/editor/settings.md) in VS Code and retry. If you are prompted to input a password or token, see [Enabling alternate SSH authentication methods](#enabling-alternate-ssh-authentication-methods) for details on reducing the frequency of prompts.
+VS Code에서 `remote.SSH.showLoginTerminal` [설정](/docs/editor/settings.md)을 활성화하고 다시 시도하세요. 비밀번호나 토큰을 입력하라는 프롬프트가 표시되면, [대체 SSH 인증 방법 활성화](#enabling-alternate-ssh-authentication-methods)에 대한 세부정보를 참조하여 프롬프트 빈도를 줄이는 방법을 확인하세요.
 
-If you are still having trouble, set the following properties in `settings.json` and retry:
+여전히 문제가 발생하면 `settings.json`에 다음 속성을 설정하고 다시 시도하세요:
 
 ```json
 "remote.SSH.showLoginTerminal": true,
 "remote.SSH.useLocalServer": false
 ```
 
-**Work around a bug with some versions of Windows OpenSSH server**
+**일부 Windows OpenSSH 서버 버전의 버그 우회하기**
 
-Due to a bug in certain versions of OpenSSH server for Windows, the default check to determine if the host is running Windows may not work properly. This does not occur with OpenSSH server that ships with Windows 1909 and below.
+특정 버전의 Windows용 OpenSSH 서버에서 호스트가 Windows에서 실행 중인지 확인하는 기본 검사가 제대로 작동하지 않을 수 있습니다. 이는 Windows 1909 및 이전 버전과 함께 제공되는 OpenSSH 서버에서는 발생하지 않습니다.
 
-Fortunately, you can work around this problem by specifically telling VS Code if your SSH host is running Windows by adding the following to `settings.json`:
+다행히도, `settings.json`에 다음을 추가하여 VS Code에 SSH 호스트가 Windows에서 실행 중임을 명시적으로 알림으로써 이 문제를 우회할 수 있습니다:
 
 ```json
 "remote.SSH.useLocalServer": false
 ```
 
-You can also force VS Code to identify a particular host as Windows using the following property:
+특정 호스트를 Windows로 식별하도록 VS Code를 강제할 수도 있습니다:
 
 ```json
 "remote.SSH.remotePlatform": {
@@ -255,88 +255,88 @@ You can also force VS Code to identify a particular host as Windows using the fo
 }
 ```
 
-A fix has been merged so this problem should be resolved in a version of the server greater than 8.1.0.0.
+이 문제는 8.1.0.0 이상의 서버 버전에서 해결될 예정입니다.
 
-**Enable TCP Forwarding on the remote host**
+**원격 호스트에서 TCP 전달 활성화하기**
 
-Remote - SSH extension makes use of an SSH tunnel to facilitate communication with the host. In some cases, this may be disabled on your SSH server. To see if this is the problem, open the **Remote - SSH** category in the output window and check for the following message:
+Remote - SSH 확장은 호스트와의 통신을 용이하게 하기 위해 SSH 터널을 사용합니다. 경우에 따라 SSH 서버에서 이 기능이 비활성화되어 있을 수 있습니다. 이것이 문제인지 확인하려면 출력 창의 **Remote - SSH** 카테고리에서 다음 메시지를 확인하세요:
 
 ```
 open failed: administratively prohibited: open failed
 ```
 
-If you do see that message, follow these steps to update your SSH server's [sshd config](https://www.ssh.com/ssh/sshd_config/):
+이 메시지가 표시되면 SSH 서버의 [sshd 구성](https://www.ssh.com/ssh/sshd_config/)을 업데이트하세요:
 
-1. Open `/etc/ssh/sshd_config` or `C:\ProgramData\ssh\sshd_config` in a text editor (like Vim, nano, Pico, or Notepad) on the **SSH host** (not locally).
-2. Add the setting  `AllowTcpForwarding yes`.
-3. Restart the SSH server. (On Ubuntu, run `sudo systemctl restart sshd`. On Windows, in an admin PowerShell run, `Restart-Service sshd`).
-4. Retry.
+1. **SSH 호스트**(로컬이 아님)에서 텍스트 편집기(예: Vim, nano, Pico 또는 Notepad)를 사용하여 `/etc/ssh/sshd_config` 또는 `C:\ProgramData\ssh\sshd_config`를 엽니다.
+2. `AllowTcpForwarding yes` 설정을 추가합니다.
+3. SSH 서버를 재시작합니다. (Ubuntu에서는 `sudo systemctl restart sshd`를 실행합니다. Windows에서는 관리자 PowerShell에서 `Restart-Service sshd`를 실행합니다.)
+4. 다시 시도합니다.
 
-**Set the ProxyCommand parameter in your SSH config file**
+**SSH 구성 파일에서 ProxyCommand 매개변수 설정하기**
 
-If you are behind a proxy and are unable to connect to your SSH host, you may need to use the `ProxyCommand` parameter for your host in a **local** [SSH config file](https://linux.die.net/man/5/ssh_config). You can read this [SSH ProxyCommand article](https://www.cyberciti.biz/faq/linux-unix-ssh-proxycommand-passing-through-one-host-gateway-server/) for an example of its use.
+프록시 뒤에 있고 SSH 호스트에 연결할 수 없는 경우, **로컬** [SSH 구성 파일](https://linux.die.net/man/5/ssh_config)에서 호스트에 대한 `ProxyCommand` 매개변수를 사용해야 할 수 있습니다. 사용 예에 대한 [SSH ProxyCommand 기사](https://www.cyberciti.biz/faq/linux-unix-ssh-proxycommand-passing-through-one-host-gateway-server/)를 읽어보세요.
 
-**Ensure the remote machine has internet access**
+**원격 머신이 인터넷에 접근할 수 있는지 확인하기**
 
-The remote machine must have internet access to be able to download the VS Code Server and extensions from the Marketplace. See the [FAQ for details](/docs/remote/faq.md#what-are-the-connectivity-requirements-for-vs-code-server) on connectivity requirements.
+원격 머신은 VS Code Server 및 마켓플레이스에서 확장을 다운로드할 수 있도록 인터넷에 접근할 수 있어야 합니다. 연결 요구 사항에 대한 세부정보는 [FAQ](/docs/remote/faq.md#what-are-the-connectivity-requirements-for-vs-code-server)를 참조하세요.
 
-**Set HTTP_PROXY / HTTPS_PROXY on the remote host**
+**원격 호스트에서 HTTP_PROXY / HTTPS_PROXY 설정하기**
 
-If your remote host is behind a proxy, you may need to set the HTTP_PROXY or HTTPS_PROXY environment variable on the **SSH host**. Open your `~/.bashrc` file add the following (replacing `proxy.fqdn.or.ip:3128` with the appropriate hostname / IP and port):
+원격 호스트가 프록시 뒤에 있는 경우, **SSH 호스트**에서 HTTP_PROXY 또는 HTTPS_PROXY 환경 변수를 설정해야 할 수 있습니다. `~/.bashrc` 파일을 열고 다음을 추가하세요(적절한 호스트 이름 / IP 및 포트로 `proxy.fqdn.or.ip:3128`을 바꾸세요):
 
 ```bash
 export HTTP_PROXY=http://proxy.fqdn.or.ip:3128
 export HTTPS_PROXY=$HTTP_PROXY
 
-# Or if an authenticated proxy
+# 또는 인증된 프록시인 경우 {#or-if-an-authenticated-proxy}
 export HTTP_PROXY=http://username:password@proxy.fqdn.or.ip:3128
 export HTTPS_PROXY=$HTTP_PROXY
 ```
 
-**Work around `/tmp` mounted with `noexec`**
+**`noexec`로 마운트된 `/tmp` 우회하기**
 
-Some remote servers are set up to disallow executing scripts from `/tmp`. VS Code writes its install script to the system temp directory and tries to execute it from there. You can work with your system administrator to determine whether this can be worked around.
+일부 원격 서버는 `/tmp`에서 스크립트 실행을 허용하지 않도록 설정되어 있습니다. VS Code는 설치 스크립트를 시스템 임시 디렉토리에 작성하고 거기에서 실행하려고 합니다. 시스템 관리자와 협력하여 이 문제를 해결할 수 있는지 확인하세요.
 
-**Check whether a different shell is launched during install**
+**설치 중에 다른 셸이 실행되는지 확인하기**
 
-Some users launch a different shell from their `.bash_profile` or other startup script on their **SSH host** because they want to use a different shell than the default. This can break VS Code's remote server install script and isn't recommended. Instead, use `chsh` to change your default shell on the remote machine.
+일부 사용자는 **SSH 호스트**에서 `.bash_profile` 또는 다른 시작 스크립트에서 기본 셸과 다른 셸을 사용하고자 하여 다른 셸을 실행합니다. 이는 VS Code의 원격 서버 설치 스크립트를 방해할 수 있으며 권장되지 않습니다. 대신, 원격 머신에서 기본 셸을 변경하려면 `chsh`를 사용하세요.
 
-**Connecting to systems that dynamically assign machines per connection**
+**연결 시마다 동적으로 머신을 할당하는 시스템에 연결하기**
 
-Some systems will dynamically route an SSH connection to one node from a cluster each time an SSH connection is made. This is an issue for VS Code because it makes two connections to open a remote window: the first to install or start the VS Code Server (or find an already running instance) and the second to create the SSH port tunnel that VS Code uses to talk to the server. If VS Code is routed to a different machine when it creates the second connection, it won't be able to talk to the VS Code server.
+일부 시스템은 SSH 연결이 이루어질 때마다 클러스터의 한 노드로 SSH 연결을 동적으로 라우팅합니다. 이는 VS Code에 문제가 됩니다. VS Code는 원격 창을 열기 위해 두 개의 연결을 만듭니다: 첫 번째는 VS Code Server를 설치하거나 시작하기 위해(또는 이미 실행 중인 인스턴스를 찾기 위해) 연결하고, 두 번째는 VS Code가 서버와 통신하는 데 사용하는 SSH 포트 터널을 생성하기 위해 연결합니다. VS Code가 두 번째 연결을 생성할 때 다른 머신으로 라우팅되면 VS Code 서버와 통신할 수 없습니다.
 
-One workaround for this is to use the `ControlMaster` option in OpenSSH (macOS/Linux clients only), described in [Enabling alternate SSH authentication methods](#enabling-alternate-ssh-authentication-methods), so that VS Code's two connections will be multiplexed through a single SSH connection to the same node.
+이 문제를 해결하기 위한 한 가지 방법은 OpenSSH의 `ControlMaster` 옵션을 사용하는 것입니다(오직 macOS/Linux 클라이언트에서만 가능). 이는 [대체 SSH 인증 방법 활성화](#enabling-alternate-ssh-authentication-methods)에서 설명되어 있으며, VS Code의 두 연결이 동일한 노드에 대한 단일 SSH 연결을 통해 다중화되도록 합니다.
 
-**Contact your system administrator for configuration help**
+**구성 도움을 위해 시스템 관리자에게 문의하기**
 
-SSH is a very flexible protocol and supports many configurations. If you see other errors, in either the login terminal or the **Remote-SSH** output window, they could be due to a missing setting.
+SSH는 매우 유연한 프로토콜이며 많은 구성을 지원합니다. 로그인 터미널이나 **Remote-SSH** 출력 창에서 다른 오류가 발생하면 누락된 설정 때문일 수 있습니다.
 
-Contact your system administrator for information about the required settings for your SSH host and client. Specific command-line arguments for connecting to your SSH host can be added to an [SSH config file](https://linux.die.net/man/5/ssh_config).
+SSH 호스트 및 클라이언트에 필요한 설정에 대한 정보를 시스템 관리자에게 문의하세요. SSH 호스트에 연결하기 위한 특정 명령줄 인수는 [SSH 구성 파일](https://linux.die.net/man/5/ssh_config)에 추가할 수 있습니다.
 
-To access your config file, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`). You can then work with your admin to add the necessary settings.
+구성 파일에 접근하려면 Command Palette(`kbstyle(F1)`)에서 **Remote-SSH: Open Configuration File...**을 실행하세요. 그런 다음 관리자와 협력하여 필요한 설정을 추가할 수 있습니다.
 
-### Enabling alternate SSH authentication methods
+### 대체 SSH 인증 방법 활성화하기 {#enabling-alternate-ssh-authentication-methods}
 
-If you are connecting to an SSH remote host and are either:
+SSH 원격 호스트에 연결하고 다음 중 하나인 경우:
 
-* Connecting with two-factor authentication
-* Using password authentication
-* Using an SSH key with a passphrase when the [SSH Agent](#setting-up-the-ssh-agent) is not running or accessible
+* 이중 인증으로 연결하는 경우
+* 비밀번호 인증을 사용하는 경우
+* [SSH 에이전트](#setting-up-the-ssh-agent)가 실행 중이 아니거나 접근할 수 없는 경우에 암호로 보호된 SSH 키를 사용하는 경우
 
-then VS Code should automatically prompt you to enter needed information. If you do not see the prompt, enable the `remote.SSH.showLoginTerminal` [setting](/docs/editor/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your authentication code, password, or passphrase when the terminal appears.
+VS Code는 필요한 정보를 입력하라는 프롬프트를 자동으로 표시해야 합니다. 프롬프트가 표시되지 않으면 VS Code에서 `remote.SSH.showLoginTerminal` [설정](/docs/editor/settings.md)을 활성화하세요. 이 설정은 VS Code가 SSH 명령을 실행할 때마다 터미널을 표시합니다. 터미널이 나타나면 인증 코드, 비밀번호 또는 암호를 입력할 수 있습니다.
 
-If you are still having trouble, you may need to add the following properties in `settings.json` and retry:
+여전히 문제가 발생하면 `settings.json`에 다음 속성을 추가하고 다시 시도하세요:
 
 ```json
 "remote.SSH.showLoginTerminal": true,
 "remote.SSH.useLocalServer": false
 ```
 
-If you are on macOS and Linux and want to reduce how often you have to enter a password or token, you can enable the `ControlMaster` feature on your **local machine** so that OpenSSH runs multiple SSH sessions over a single connection.
+macOS 및 Linux에서 비밀번호나 토큰을 입력해야 하는 빈도를 줄이려면 **로컬 머신**에서 `ControlMaster` 기능을 활성화하여 OpenSSH가 단일 연결을 통해 여러 SSH 세션을 실행하도록 할 수 있습니다.
 
-To enable `ControlMaster`:
+`ControlMaster`를 활성화하려면:
 
-1. Add an entry like this to your SSH config file:
+1. SSH 구성 파일에 다음과 같은 항목을 추가하세요:
 
     ```yaml
     Host *
@@ -345,43 +345,43 @@ To enable `ControlMaster`:
         ControlPersist  600
     ```
 
-2. Then run `mkdir -p ~/.ssh/sockets` to create the sockets folder.
+2. 그런 다음 `mkdir -p ~/.ssh/sockets`를 실행하여 소켓 폴더를 생성하세요.
 
-### Setting up the SSH Agent
+### SSH 에이전트 설정하기 {#setting-up-the-ssh-agent}
 
-If you are connecting to an SSH host using a key with a passphrase, you should ensure that the [SSH Agent](https://www.ssh.com/ssh/agent) is running **locally**. VS Code will automatically add your key to the agent so you don't have to enter your passphrase every time you open a remote VS Code window.
+암호가 있는 키를 사용하여 SSH 호스트에 연결하는 경우, [SSH 에이전트](https://www.ssh.com/ssh/agent)가 **로컬**에서 실행되고 있는지 확인해야 합니다. VS Code는 자동으로 키를 에이전트에 추가하므로 원격 VS Code 창을 열 때마다 암호를 입력할 필요가 없습니다.
 
-To verify that the agent is running and is reachable from VS Code's environment, run `ssh-add -l` in the terminal of a local VS Code window. You should see a listing of the keys in the agent (or a message that it has no keys). If the agent is not running, follow these instructions to start it. After starting the agent, be sure to restart VS Code.
+에이전트가 실행 중이며 VS Code의 환경에서 접근할 수 있는지 확인하려면 로컬 VS Code 창의 터미널에서 `ssh-add -l`을 실행하세요. 에이전트의 키 목록이 표시되거나 키가 없다는 메시지가 표시되어야 합니다. 에이전트가 실행 중이지 않다면, 다음 지침을 따라 시작하세요. 에이전트를 시작한 후에는 VS Code를 재시작하세요.
 
 **Windows:**
 
-To enable SSH Agent automatically on Windows, start a **local Administrator PowerShell** and run the following commands:
+Windows에서 SSH 에이전트를 자동으로 활성화하려면 **로컬 관리자 PowerShell**을 시작하고 다음 명령어를 실행하세요:
 
 ```powershell
-# Make sure you're running as an Administrator
+# 관리자 권한으로 실행 중인지 확인하세요 {#make-sure-youre-running-as-an-administrator}
 Set-Service ssh-agent -StartupType Automatic
 Start-Service ssh-agent
 Get-Service ssh-agent
 ```
 
-Now the agent will be started automatically on login.
+이제 로그인 시 에이전트가 자동으로 시작됩니다.
 
 **Linux:**
 
-To start the SSH Agent in the background, run:
+SSH 에이전트를 백그라운드에서 시작하려면 다음을 실행하세요:
 
 ```bash
 eval "$(ssh-agent -s)"
 ```
 
-To start the SSH Agent automatically on login, add these lines to your `~/.bash_profile`:
+로그인 시 SSH 에이전트를 자동으로 시작하려면 `~/.bash_profile`에 다음 줄을 추가하세요:
 
 ```bash
 if [ -z "$SSH_AUTH_SOCK" ]; then
-   # Check for a currently running instance of the agent
+   # 현재 실행 중인 에이전트 인스턴스 확인
    RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
    if [ "$RUNNING_AGENT" = "0" ]; then
-        # Launch a new instance of the agent
+        # 새로운 에이전트 인스턴스 시작
         ssh-agent -s &> .ssh/ssh-agent
    fi
    eval `cat .ssh/ssh-agent`
@@ -390,106 +390,106 @@ fi
 
 **macOS:**
 
-The agent should be running by default on macOS.
+macOS에서는 기본적으로 에이전트가 실행되고 있어야 합니다.
 
-### Making local SSH Agent available on the remote
+### 로컬 SSH 에이전트를 원격에서 사용 가능하게 만들기 {#making-local-ssh-agent-available-on-the-remote}
 
-An SSH Agent on your local machine allows the Remote - SSH extension to connect to your chosen remote system without repeatedly prompting for a passphrase, but tools like Git that run on the remote, don't have access to your locally-unlocked private keys.
+로컬 머신의 SSH 에이전트는 Remote - SSH 확장이 선택한 원격 시스템에 연결할 수 있도록 하여 암호를 반복해서 입력할 필요가 없도록 합니다. 그러나 원격에서 실행되는 Git과 같은 도구는 로컬에서 잠금 해제된 개인 키에 접근할 수 없습니다.
 
-You can see this by opening the integrated terminal on the remote and running `ssh-add -l`. The command should list the unlocked keys, but instead reports an error about not being able to connect to the authentication agent. Setting `ForwardAgent yes` makes the local SSH Agent available in the remote environment, solving this problem.
+원격에서 통합 터미널을 열고 `ssh-add -l`을 실행하여 이를 확인할 수 있습니다. 이 명령어는 잠금 해제된 키를 나열해야 하지만, 대신 인증 에이전트에 연결할 수 없다는 오류를 보고합니다. `ForwardAgent yes`를 설정하면 로컬 SSH 에이전트가 원격 환경에서 사용 가능해져 이 문제를 해결할 수 있습니다.
 
-You can do this by editing your `.ssh/config` file (or whatever `Remote.SSH.configFile` is set to - use the **Remote-SSH: Open SSH Configuration File...** command to be sure) and adding:
+이를 위해 `.ssh/config` 파일(또는 `Remote.SSH.configFile`이 설정된 파일)을 편집하고 다음을 추가하세요:
 
 ```ssh-config
 Host *
     ForwardAgent yes
 ```
 
-Note that you might want to be more restrictive and only set the option for particular named hosts.
+특정 이름의 호스트에 대해서만 이 옵션을 설정하여 더 제한적으로 설정할 수 있습니다.
 
-### Fixing SSH file permission errors
+### SSH 파일 권한 오류 수정하기 {#fixing-ssh-file-permission-errors}
 
-SSH can be strict about file permissions and if they are set incorrectly, you may see errors such as "WARNING: UNPROTECTED PRIVATE KEY FILE!". There are several ways to update file permissions in order to fix this, which are described in the sections below.
+SSH는 파일 권한에 대해 엄격할 수 있으며, 권한이 잘못 설정되면 "WARNING: UNPROTECTED PRIVATE KEY FILE!"과 같은 오류가 발생할 수 있습니다. 이를 수정하기 위해 파일 권한을 업데이트하는 여러 가지 방법이 있으며, 아래 섹션에서 설명합니다.
 
-### Local SSH file and folder permissions
-
-**macOS / Linux:**
-
-On your local machine, make sure the following permissions are set:
-
-| Folder / File |  Permissions |
-|---------------|---------------------------|
-| `.ssh` in your user folder | `chmod 700 ~/.ssh` |
-| `.ssh/config` in your user folder | `chmod 600 ~/.ssh/config` |
-| `.ssh/id_ed25519.pub` in your user folder | `chmod 600 ~/.ssh/id_ed25519.pub` |
-| Any other key file | `chmod 600 /path/to/key/file` |
-
-**Windows:**
-
-The specific expected permissions can vary depending on the exact SSH implementation you are using. We recommend using the out of box [Windows 10 OpenSSH Client](https://learn.microsoft.com/windows-server/administration/openssh/openssh_overview).
-
-In this case, make sure that all of the files in the `.ssh` folder for your remote user on the SSH host is owned by you and no other user has permissions to access it. See the [Windows OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH) for details.
-
-For all other clients, consult your client's documentation for what the implementation expects.
-
-### Server SSH file and folder permissions
+### 로컬 SSH 파일 및 폴더 권한 {#local-ssh-file-and-folder-permissions}
 
 **macOS / Linux:**
 
-On the remote machine you are connecting to, make sure the following permissions are set:
+로컬 머신에서 다음 권한이 설정되어 있는지 확인하세요:
 
-| Folder / File | Linux / macOS Permissions |
+| 폴더 / 파일 | 권한 |
 |---------------|---------------------------|
-| `.ssh` in your user folder on the server | `chmod 700 ~/.ssh` |
-| `.ssh/authorized_keys` in your user folder on the server  | `chmod 600 ~/.ssh/authorized_keys` |
-
-Note that only Linux hosts are currently supported, which is why permissions for macOS and Windows 10 have been omitted.
+| 사용자 폴더의 `.ssh` | `chmod 700 ~/.ssh` |
+| 사용자 폴더의 `.ssh/config` | `chmod 600 ~/.ssh/config` |
+| 사용자 폴더의 `.ssh/id_ed25519.pub` | `chmod 600 ~/.ssh/id_ed25519.pub` |
+| 기타 키 파일 | `chmod 600 /path/to/key/file` |
 
 **Windows:**
 
-See the [Windows OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH) for details on setting the appropriate file permissions for the Windows OpenSSH server.
+특정 예상 권한은 사용 중인 SSH 구현에 따라 다를 수 있습니다. 기본 제공 [Windows 10 OpenSSH 클라이언트](https://learn.microsoft.com/windows-server/administration/openssh/openssh_overview)를 사용하는 것을 권장합니다.
 
-### Installing a supported SSH client
+이 경우, SSH 호스트의 원격 사용자에 대한 `.ssh` 폴더의 모든 파일이 본인 소유이며 다른 사용자가 접근할 수 없는지 확인하세요. [Windows OpenSSH 위키](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH)에서 자세한 내용을 참조하세요.
 
-| OS | Instructions |
+기타 클라이언트의 경우, 구현에서 기대하는 내용을 클라이언트 문서를 참조하세요.
+
+### 서버 SSH 파일 및 폴더 권한 {#server-ssh-file-and-folder-permissions}
+
+**macOS / Linux:**
+
+연결할 원격 머신에서 다음 권한이 설정되어 있는지 확인하세요:
+
+| 폴더 / 파일 | Linux / macOS 권한 |
+|---------------|---------------------------|
+| 서버의 사용자 폴더 내 `.ssh` | `chmod 700 ~/.ssh` |
+| 서버의 사용자 폴더 내 `.ssh/authorized_keys`  | `chmod 600 ~/.ssh/authorized_keys` |
+
+현재 지원되는 호스트는 Linux뿐이므로 macOS 및 Windows 10에 대한 권한은 생략되었습니다.
+
+**Windows:**
+
+Windows OpenSSH 서버에 대한 적절한 파일 권한 설정에 대한 자세한 내용은 [Windows OpenSSH 위키](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH)를 참조하세요.
+
+### 지원되는 SSH 클라이언트 설치하기 {#installing-a-supported-ssh-client}
+
+| OS | 지침 |
 |----|--------------|
-| Windows 10 1803+ / Server 2016/2019 1803+ | Install the [Windows OpenSSH Client](https://learn.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). |
-| Earlier Windows | Install [Git for Windows](https://git-scm.com/download/win). |
-| macOS | Comes pre-installed. |
-| Debian/Ubuntu | Run `sudo apt-get install openssh-client` |
-| RHEL / Fedora / CentOS | Run `sudo yum install openssh-clients` |
+| Windows 10 1803+ / Server 2016/2019 1803+ | [Windows OpenSSH 클라이언트](https://learn.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse)를 설치하세요. |
+| 이전 Windows | [Git for Windows](https://git-scm.com/download/win)를 설치하세요. |
+| macOS | 기본적으로 설치되어 있습니다. |
+| Debian/Ubuntu | `sudo apt-get install openssh-client`를 실행하세요. |
+| RHEL / Fedora / CentOS | `sudo yum install openssh-clients`를 실행하세요. |
 
-VS Code will look for the `ssh` command in the PATH. Failing that, on Windows it will attempt to find `ssh.exe` in the default Git for Windows install path. You can also specifically tell VS Code where to find the SSH client by adding the `remote.SSH.path` property to `settings.json`.
+VS Code는 PATH에서 `ssh` 명령어를 찾습니다. 그렇지 않은 경우, Windows에서는 기본 Git for Windows 설치 경로에서 `ssh.exe`를 찾으려고 시도합니다. 또한 `settings.json`에 `remote.SSH.path` 속성을 추가하여 VS Code에 SSH 클라이언트를 찾을 위치를 명시적으로 지정할 수 있습니다.
 
-### Installing a supported SSH server
+### 지원되는 SSH 서버 설치하기 {#installing-a-supported-ssh-server}
 
-| OS | Instructions | Details |
+| OS | 지침 | 세부정보 |
 |----|--------------|---|
-| Debian 8+ / Ubuntu 16.04+ | Run `sudo apt-get install openssh-server` |  See the [Ubuntu SSH](https://help.ubuntu.com/community/SSH?action=show) documentation for details. |
-| RHEL / CentOS 7+ | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | See the [RedHat SSH](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/ch-openssh) documentation for details. |
-| SuSE 12+ / openSUSE 42.3+ |  In Yast, go to Services Manager, select "sshd" in the list, and click **Enable**. Next go to Firewall, select the **Permanent** configuration, and under services check **sshd**. | See the [SuSE SSH](https://en.opensuse.org/OpenSSH) documentation for details. |
-| Windows 10 1803+ / Server 2016/2019 1803+ | Install the [Windows OpenSSH Server](https://learn.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). |
-| macOS 10.14+ (Mojave) | Enable [Remote Login](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac). | |
+| Debian 8+ / Ubuntu 16.04+ | `sudo apt-get install openssh-server`를 실행하세요. |  [Ubuntu SSH](https://help.ubuntu.com/community/SSH?action=show) 문서를 참조하세요. |
+| RHEL / CentOS 7+ | `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service`를 실행하세요. | [RedHat SSH](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/ch-openssh) 문서를 참조하세요. |
+| SuSE 12+ / openSUSE 42.3+ | Yast에서 서비스 관리자로 이동하여 목록에서 "sshd"를 선택하고 **활성화**를 클릭하세요. 그런 다음 방화벽으로 이동하여 **영구** 구성을 선택하고 서비스에서 **sshd**를 확인하세요. | [SuSE SSH](https://en.opensuse.org/OpenSSH) 문서를 참조하세요. |
+| Windows 10 1803+ / Server 2016/2019 1803+ | [Windows OpenSSH 서버](https://learn.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse)를 설치하세요. |
+| macOS 10.14+ (Mojave) | [원격 로그인](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac)을 활성화하세요. |
 
-### Resolving hangs when doing a Git push or sync on an SSH host
+### SSH 호스트에서 Git 푸시 또는 동기화 시 멈춤 문제 해결하기 {#resolving-hangs-when-doing-a-git-push-or-sync-on-an-ssh-host}
 
-If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely.
+SSH를 사용하여 Git 저장소를 복제하고 SSH 키에 암호가 있는 경우, VS Code의 풀 및 동기화 기능이 원격에서 실행될 때 멈출 수 있습니다.
 
-Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
+암호가 없는 SSH 키를 사용하거나 HTTPS를 사용하여 복제하거나, 명령줄에서 `git push`를 실행하여 문제를 우회하세요.
 
-### Using SSHFS to access files on your remote host
+### 원격 호스트의 파일에 접근하기 위해 SSHFS 사용하기 {#using-sshfs-to-access-files-on-your-remote-host}
 
-[SSHFS](https://en.wikipedia.org/wiki/SSHFS) is a secure remote filesystem access protocol that builds up from SFTP. It provides advantages over something like a CIFS / Samba share in that all that is required is SSH access to the machine.
+[SSHFS](https://en.wikipedia.org/wiki/SSHFS)는 SFTP에서 구축된 안전한 원격 파일 시스템 접근 프로토콜입니다. SSH 접근만 있으면 되기 때문에 CIFS / Samba 공유보다 장점이 있습니다.
 
-> **Note:** For performance reasons, SSHFS is best used for single file edits and uploading/downloading content. If you need to use an application that bulk reads/write to many files at once (like a local source control tool), [rsync](#using-rsync-to-maintain-a-local-copy-of-your-source-code) is a better choice.
+> **참고:** 성능상의 이유로 SSHFS는 단일 파일 편집 및 콘텐츠 업로드/다운로드에 가장 적합합니다. 많은 파일을 동시에 읽거나 쓰는 애플리케이션을 사용해야 하는 경우(예: 로컬 소스 제어 도구), [rsync](#using-rsync-to-maintain-a-local-copy-of-your-source-code)가 더 나은 선택입니다.
 
 **macOS / Linux**:
 
-On Linux, you can use your distribution's package manager to install SSHFS. For Debian/Ubuntu: `sudo apt-get install sshfs`
+Linux에서는 배포판의 패키지 관리자를 사용하여 SSHFS를 설치할 수 있습니다. Debian/Ubuntu의 경우: `sudo apt-get install sshfs`
 
-> **Note:** WSL 1 does not support FUSE or SSHFS, so the instructions differ for Windows currently. **WSL 2 does include FUSE and SSHFS support**, so this will change soon.
+> **참고:** WSL 1은 FUSE 또는 SSHFS를 지원하지 않으므로 현재 Windows에 대한 지침이 다릅니다. **WSL 2는 FUSE 및 SSHFS 지원을 포함하므로** 곧 변경될 것입니다.
 
-On macOS, you can install SSHFS using [Homebrew](https://brew.sh/):
+macOS에서는 [Homebrew](https://brew.sh/)를 사용하여 SSHFS를 설치할 수 있습니다:
 
 ```bash
 brew install --cask macfuse
@@ -497,20 +497,21 @@ brew install gromgit/fuse/sshfs-mac
 brew link --overwrite sshfs-mac
 ```
 
-In addition, if you would prefer not to use the command line to mount the remote filesystem, you can also install [SSHFS GUI](https://github.com/dstuecken/sshfs-gui).
+또한 원격 파일 시스템을 마운트하기 위해 명령줄을 사용하지 않으려면 [SSHFS GUI](https://github.com/dstuecken/sshfs-gui)를 설치할 수도 있습니다.
 
-To use the command line, run the following commands from a local terminal (replacing `user@hostname` with the remote user and hostname / IP):
+### 명령줄 사용하기
+로컬 터미널에서 다음 명령어를 실행하여 원격 사용자 및 호스트 이름/IP를 `user@hostname`으로 바꾸세요:
 
 ```bash
 export USER_AT_HOST=user@hostname
-# Make the directory where the remote filesystem will be mounted
+# 원격 파일 시스템이 마운트될 디렉토리 만들기 {#make-the-directory-where-the-remote-filesystem-will-be-mounted}
 mkdir -p "$HOME/sshfs/$USER_AT_HOST"
-# Mount the remote filesystem
+# 원격 파일 시스템 마운트하기 {#mount-the-remote-filesystem}
 sshfs "$USER_AT_HOST:" "$HOME/sshfs/$USER_AT_HOST" -ovolname="$USER_AT_HOST" -p 22  \
     -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
 ```
 
-This will make your home folder on the remote machine available under the `~/sshfs`. When you are done, you can unmount it using your OS's Finder / file explorer or by using the command line:
+이렇게 하면 원격 머신의 홈 폴더가 `~/sshfs` 아래에서 사용 가능해집니다. 작업이 끝나면 운영 체제의 Finder/파일 탐색기를 사용하거나 명령줄을 통해 언마운트할 수 있습니다:
 
 ```bash
 umount "$HOME/sshfs/$USER_AT_HOST"
@@ -518,241 +519,240 @@ umount "$HOME/sshfs/$USER_AT_HOST"
 
 **Windows:**
 
-Follow these steps:
+다음 단계를 따르세요:
 
-1. On Linux, add `.gitattributes` file to your project to **force consistent line endings** between Linux and Windows to avoid unexpected issues due to CRLF/LF differences between the two operating systems. See [Resolving Git line ending issues](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
+1. Linux에서 `.gitattributes` 파일을 프로젝트에 추가하여 **Linux와 Windows 간의 일관된 줄 끝을 강제**하여 CRLF/LF 차이로 인한 예기치 않은 문제를 피하세요. 자세한 내용은 [Git 줄 끝 문제 해결](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files)을 참조하세요.
 
-2. Next, install [SSHFS-Win](https://github.com/billziss-gh/sshfs-win) using [Chocolatey](https://chocolatey.org/): `choco install sshfs`
+2. 다음으로, [Chocolatey](https://chocolatey.org/)를 사용하여 [SSHFS-Win](https://github.com/billziss-gh/sshfs-win)을 설치하세요: `choco install sshfs`
 
-3. Once you've installed SSHFS for Windows, you can use the File Explorer's **Map Network Drive...** option with the path `\\sshfs\user@hostname`, where `user@hostname` is your remote user and hostname / IP. You can script this using the command prompt as follows: `net use /PERSISTENT:NO X: \\sshfs\user@hostname`
+3. Windows용 SSHFS를 설치한 후, 파일 탐색기의 **네트워크 드라이브 연결...** 옵션을 사용하여 경로 `\\sshfs\user@hostname`로 연결할 수 있습니다. 이를 명령 프롬프트에서 스크립트로 작성하려면 다음과 같이 입력하세요: `net use /PERSISTENT:NO X: \\sshfs\user@hostname`
 
-4. Once done, disconnect by right-clicking on the drive in the File Explorer and selecting **Disconnect**.
+4. 완료되면 파일 탐색기에서 드라이브를 마우스 오른쪽 버튼으로 클릭하고 **연결 끊기**를 선택하여 연결을 끊습니다.
 
-### Connect to a remote host from the terminal
+### 터미널에서 원격 호스트에 연결하기 {#connect-to-a-remote-host-from-the-terminal}
 
-Once a host has been configured, you can connect to it directly from the terminal by passing a remote URI.
+호스트가 구성되면 원격 URI를 전달하여 터미널에서 직접 연결할 수 있습니다.
 
-For example, to connect to `remote_server` and open the `/code/my_project` folder, run:
+예를 들어, `remote_server`에 연결하고 `/code/my_project` 폴더를 열려면 다음을 실행하세요:
 
 ```bash
 code --remote ssh-remote+remote_server /code/my_project
 ```
 
-We need to do some guessing on whether the input path is a file or a folder. If it has a file extension, it is considered a file.
+입력 경로가 파일인지 폴더인지 추측해야 합니다. 파일 확장자가 있으면 파일로 간주됩니다.
 
-To force that a folder is opened, add slash to the path or use:
+폴더를 강제로 열려면 경로에 슬래시를 추가하거나 다음을 사용하세요:
 
 `code --folder-uri vscode-remote://ssh-remote+remote_server/code/folder.with.dot`
 
-To force that a file is opened, add `--goto` or use:
+파일을 강제로 열려면 `--goto`를 추가하거나 다음을 사용하세요:
 
 `code --file-uri vscode-remote://ssh-remote+remote_server/code/fileWithoutExtension`
 
-### Using rsync to maintain a local copy of your source code
+### 로컬 소스 코드 복사본 유지하기 위해 rsync 사용하기 {#using-rsync-to-maintain-a-local-copy-of-your-source-code}
 
-An alternative to [using SSHFS to access remote files](#using-sshfs-to-access-files-on-your-remote-host) is to [use `rsync`](https://rsync.samba.org/) to copy the entire contents of a folder on remote host to your local machine. The `rsync` command will determine which files need to be updated each time it is run, which is far more efficient and convenient than using something like `scp` or `sftp`. This is primarily something to consider if you really need to use multi-file or performance intensive local tools.
+[원격 파일에 접근하기 위해 SSHFS 사용하기](#using-sshfs-to-access-files-on-your-remote-host)의 대안으로 [rsync를 사용하여](https://rsync.samba.org/) 원격 호스트의 폴더 전체 내용을 로컬 머신으로 복사할 수 있습니다. `rsync` 명령은 매번 실행될 때 업데이트가 필요한 파일을 결정하므로 `scp`나 `sftp`와 같은 방법보다 훨씬 효율적이고 편리합니다. 이는 다중 파일이나 성능 집약적인 로컬 도구를 사용해야 하는 경우에 고려해야 할 사항입니다.
 
-The `rsync` command is available out of box on macOS and can be installed using Linux package managers (for example `sudo apt-get install rsync` on Debian/Ubuntu). For Windows, you'll need to either use [WSL](https://learn.microsoft.com/windows/wsl/install) or [Cygwin](https://www.cygwin.com/) to access the command.
+`rsync` 명령은 macOS에서 기본적으로 사용할 수 있으며, Linux 패키지 관리자를 사용하여 설치할 수 있습니다 (예: Debian/Ubuntu에서는 `sudo apt-get install rsync`).
 
-To use the command, navigate to the folder you want to store the synched contents and run the following replacing `user@hostname` with the remote user and hostname / IP and `/remote/source/code/path` with the remote source code location.
+명령을 사용하려면 동기화된 내용을 저장할 폴더로 이동한 후 `user@hostname`을 원격 사용자 및 호스트 이름/IP로, `/remote/source/code/path`를 원격 소스 코드 위치로 바꿔서 다음을 실행하세요.
 
-On **macOS, Linux, or inside WSL**:
+**macOS, Linux 또는 WSL 내부에서:**
 
 ```bash
 rsync -rlptzv --progress --delete --exclude=.git "user@hostname:/remote/source/code/path" .
 ```
 
-Or using **WSL from PowerShell on Windows**:
+**Windows의 PowerShell에서 WSL 사용:**
 
 ```powershell
 wsl rsync -rlptzv --progress --delete --exclude=.git "user@hostname:/remote/source/code/path" "`$(wslpath -a '$PWD')"
 ```
 
-You can rerun this command each time you want to get the latest copy of your files and only updates will be transferred. The `.git` folder is intentionally excluded both for performance reasons and so you can use local Git tools without worrying about the state on the remote host.
+이 명령을 매번 실행하여 파일의 최신 복사본을 가져올 수 있으며, 업데이트만 전송됩니다. `.git` 폴더는 성능상의 이유로 의도적으로 제외되며, 원격 호스트의 상태에 대해 걱정하지 않고 로컬 Git 도구를 사용할 수 있습니다.
 
-To push content, reverse the source and target parameters in the command. However, **on Windows** you should add a `.gitattributes` file to your project to **force consistent line endings** before doing so. See [Resolving Git line ending issues](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
+내용을 푸시하려면 명령에서 소스와 대상 매개변수를 반대로 설정하세요. 그러나 **Windows에서는** 푸시하기 전에 프로젝트에 `.gitattributes` 파일을 추가하여 **일관된 줄 끝을 강제**해야 합니다. 자세한 내용은 [Git 줄 끝 문제 해결](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files)을 참조하세요.
 
 ```bash
 rsync -rlptzv --progress --delete --exclude=.git . "user@hostname:/remote/source/code/path"
 ```
 
-### Cleaning up the VS Code Server on the remote
+### 원격에서 VS Code 서버 정리하기 {#cleaning-up-the-vs-code-server-on-the-remote}
 
-The SSH extension provides a command for cleaning up the VS Code Server from the remote machine, **Remote-SSH: Uninstall VS Code Server from Host...**. The command does two things: it kills any running VS Code Server processes and it deletes the folder where the server was installed.
+SSH 확장은 원격 머신에서 VS Code 서버를 정리하는 명령을 제공합니다, **Remote-SSH: 호스트에서 VS Code 서버 제거...**. 이 명령은 두 가지 작업을 수행합니다: 실행 중인 VS Code 서버 프로세스를 종료하고 서버가 설치된 폴더를 삭제합니다.
 
-If you want to run these steps manually, or if the command isn't working for you, you can run a script like this:
+이 단계를 수동으로 실행하려면, 또는 명령이 작동하지 않는 경우 다음과 같은 스크립트를 실행할 수 있습니다:
 
 ```bash
-# Kill server processes
+# 서버 프로세스 종료 {#kill-server-processes}
 kill -9 $(ps aux | grep vscode-server | grep $USER | grep -v grep | awk '{print $2}')
-# Delete related files and folder
-rm -rf $HOME/.vscode-server # Or ~/.vscode-server-insiders
+# 관련 파일 및 폴더 삭제 {#delete-related-files-and-folder}
+rm -rf $HOME/.vscode-server # 또는 ~/.vscode-server-insiders
 ```
 
-The VS Code Server was previously installed under `~/.vscode-remote` so you can check that location too.
+VS Code 서버는 이전에 `~/.vscode-remote` 아래에 설치되었으므로 해당 위치도 확인할 수 있습니다.
 
-### SSH into a remote WSL 2 host
+### 원격 WSL 2 호스트에 SSH 접속하기 {#ssh-into-a-remote-wsl-2-host}
 
-You may want to use SSH to connect to a WSL distro running on your remote machine. Check out [this guide](https://www.hanselman.com/blog/the-easy-way-how-to-ssh-into-bash-and-wsl2-on-windows-10-from-an-external-machine) to learn how to SSH into Bash and WSL 2 on Windows 10 from an external machine.
+원격 머신에서 실행 중인 WSL 배포판에 SSH를 사용하여 연결하고 싶을 수 있습니다. [이 가이드](https://www.hanselman.com/blog/the-easy-way-how-to-ssh-into-bash-and-wsl2-on-windows-10-from-an-external-machine)를 참조하여 Windows 10에서 Bash 및 WSL 2에 SSH로 연결하는 방법을 알아보세요.
 
-### Filing an issue
+### 문제 제기하기 {#filing-an-issue}
 
-If you are having trouble using the Remote-SSH extension and think that you need to file an issue, first make sure that you have read through the documentation on this site, and then see the [troubleshooting wiki doc](https://github.com/microsoft/vscode-remote-release/wiki/Remote-SSH-troubleshooting) for information on grabbing the log file and trying more steps that may help narrow down the source of the problem.
+Remote-SSH 확장을 사용하는 데 문제가 발생하고 문제를 제기해야 한다고 생각되면, 먼저 이 사이트의 문서를 모두 읽었는지 확인한 후, [문제 해결 위키 문서](https://github.com/microsoft/vscode-remote-release/wiki/Remote-SSH-troubleshooting)를 참조하여 로그 파일을 가져오고 문제의 원인을 좁히는 데 도움이 될 수 있는 추가 단계를 시도하세요.
 
-## Dev Containers tips
+## Dev Containers 팁 {#dev-containers-tips}
 
-If you'd like to read about tips for using Dev Containers, you can go to Dev Containers [Tips and Tricks](/docs/devcontainers/tips-and-tricks.md).
+Dev Containers 사용에 대한 팁을 읽고 싶다면 Dev Containers [팁과 요령](/docs/devcontainers/tips-and-tricks.md)로 가세요.
 
-## WSL tips
+## WSL 팁 {#wsl-tips}
 
-### First time start: VS Code Server prerequisites
+### 처음 시작하기: VS Code 서버 전제 조건 {#first-time-start-vs-code-server-prerequisites}
 
-Some WSL Linux distributions are lacking libraries that are required by the VS Code server to start up. You can add additional libraries into your Linux distribution by using its package manager.
+일부 WSL Linux 배포판은 VS Code 서버가 시작하는 데 필요한 라이브러리가 부족합니다. 패키지 관리자를 사용하여 Linux 배포판에 추가 라이브러리를 추가할 수 있습니다.
 
-#### Debian and Ubuntu
+#### Debian 및 Ubuntu {#debian-and-ubuntu}
 
-Open the Debian or Ubuntu WSL shell to add `wget` and `ca-certificates`:
+Debian 또는 Ubuntu WSL 셸을 열어 `wget` 및 `ca-certificates`를 추가하세요:
 
 ```sh
 sudo apt-get update && sudo apt-get install wget ca-certificates
 ```
 
-#### Alpine
+#### Alpine {#alpine}
 
-Open the Alpine WSL shell as root (`wsl -d Alpine -u root`) to add `libstdc++`:
+루트로 Alpine WSL 셸을 열어(`wsl -d Alpine -u root`) `libstdc++`를 추가하세요:
 
 ```sh
 apk update && apk add libstdc++
 ```
 
-On Windows 10 April 2018 Update (build 1803) and older, `/bin/bash` is required:
+Windows 10 2018년 4월 업데이트(빌드 1803) 및 이전 버전에서는 `/bin/bash`가 필요합니다:
 
 ```sh
 apk update && apk add bash
 ```
 
-### Selecting the distribution used by the WSL extension
+### WSL 확장에서 사용하는 배포판 선택하기 {#selecting-the-distribution-used-by-the-wsl-extension}
 
-**WSL: New Window** will open the WSL distro registered as default.
+**WSL: 새 창**은 기본으로 등록된 WSL 배포판을 엽니다.
 
-To open a non-default distro, run `code .` from the WSL shell of the distro to use or use **WSL: New Window using Distro**.
+비기본 배포판을 열려면 사용하려는 배포판의 WSL 셸에서 `code .`를 실행하거나 **WSL: 배포판을 사용하여 새 창 열기**를 사용하세요.
 
- With WSL versions older than Windows 10, May 2019 Update (version 1903), the WSL command can only use the **default distro**. For this reason, the WSL extension might prompt you if you agree to change the default distro.
+Windows 10 2019년 5월 업데이트(버전 1903) 이전의 WSL 버전에서는 WSL 명령이 **기본 배포판**만 사용할 수 있습니다. 이 때문에 WSL 확장은 기본 배포판을 변경할 것인지 묻는 메시지를 표시할 수 있습니다.
 
-You can always use [wslconfig.exe](https://learn.microsoft.com/windows/wsl/wsl-config) to change your default.
+[ wslconfig.exe](https://learn.microsoft.com/windows/wsl/wsl-config)를 사용하여 기본값을 변경할 수 있습니다.
 
-For example:
+예를 들어:
 
 ```bat
 wslconfig /setdefault Ubuntu
 ```
 
-You can see which distributions you have installed by running:
+설치된 배포판을 확인하려면 다음을 실행하세요:
 
 ```bat
 wslconfig /l
 ```
 
-### Configure the environment for the server startup
+### 서버 시작을 위한 환경 구성하기 {#configure-the-environment-for-the-server-startup}
 
-When the WSL extension starts the VS Code server in WSL, it does not run any shell configuration scripts. This was done to avoid that custom configuration scripts can prevent the startup.
+WSL 확장이 WSL에서 VS Code 서버를 시작할 때, 셸 구성 스크립트를 실행하지 않습니다. 이는 사용자 정의 구성 스크립트가 시작을 방해하지 않도록 하기 위해서입니다.
 
-If you need to configure the startup environment, you can use the environment setup script as described [here](/docs/remote/wsl.md#advanced-environment-setup-script).
+시작 환경을 구성해야 하는 경우, [여기](/docs/remote/wsl.md#advanced-environment-setup-script)에서 설명한 환경 설정 스크립트를 사용할 수 있습니다.
 
-### Configure the environment for the remote extension host
+### 원격 확장 호스트를 위한 환경 구성하기 {#configure-the-environment-for-the-remote-extension-host}
 
-The environment for the remote extension host and terminal are based on the default shell's configuration scripts. To evaluate the environment variables for the remote extension host process, the server creates an instance of the default shell as an **interactive login shell**. It probes the environment variables from it and uses them as the initial environment for the remote extension host process. The values of environment variables therefore depend on what shell is configured as the default and the content of the configuration scripts for that shell.
+원격 확장 호스트 및 터미널의 환경은 기본 셸의 구성 스크립트를 기반으로 합니다. 원격 확장 호스트 프로세스의 환경 변수를 평가하기 위해, 서버는 기본 셸의 **대화형 로그인 셸** 인스턴스를 생성합니다. 이를 통해 환경 변수를 탐색하고 이를 원격 확장 호스트 프로세스의 초기 환경으로 사용합니다. 따라서 환경 변수의 값은 기본으로 설정된 셸과 해당 셸의 구성 스크립트 내용에 따라 달라집니다.
 
-See [Unix shell initialization](https://github.com/rbenv/rbenv/wiki/unix-shell-initialization) for an overview of each shell's configuration scripts. Most WSL distributions have `/bin/bash` configured as the default shell. `/bin/bash` will look for startup files under `/etc/profile` first and for any startup files under `~/.bash_profile`, `~/.bash_login`, `~/.profile`.
+각 셸의 구성 스크립트에 대한 개요는 [Unix 셸 초기화](https://github.com/rbenv/rbenv/wiki/unix-shell-initialization)를 참조하세요. 대부분의 WSL 배포판은 기본 셸로 `/bin/bash`를 설정합니다. `/bin/bash`는 먼저 `/etc/profile` 아래의 시작 파일을 찾고, 그 다음 `~/.bash_profile`, `~/.bash_login`, `~/.profile` 아래의 시작 파일을 찾습니다.
 
-To change the default shell of a WSL distro, follow the instructions of [this blog post](https://medium.com/@vinhp/set-and-use-zsh-as-default-shell-in-wsl-on-windows-10-the-right-way-4f30ed9592dc).
+WSL 배포판의 기본 셸을 변경하려면 [이 블로그 게시물](https://medium.com/@vinhp/set-and-use-zsh-as-default-shell-in-wsl-on-windows-10-the-right-way-4f30ed9592dc)의 지침을 따르세요.
 
-### Fixing problems with the code command not working
+### code 명령이 작동하지 않는 문제 해결하기 {#fixing-problems-with-the-code-command-not-working}
 
-If typing `code` from a WSL terminal on Window does not work because `code` cannot be found, you may be missing some key locations from your PATH in WSL.
+Windows의 WSL 터미널에서 `code`를 입력해도 `code`를 찾을 수 없는 경우, WSL의 PATH에서 일부 주요 위치가 누락되었을 수 있습니다.
 
-Check by opening a WSL terminal and typing `echo $PATH`. You should see VS Code install path listed. By default, this would be:
+WSL 터미널을 열고 `echo $PATH`를 입력하여 확인하세요. VS Code 설치 경로가 나열되어 있어야 합니다. 기본적으로는 다음과 같습니다:
 
 ```bash
 /mnt/c/Users/Your Username/AppData/Local/Programs/Microsoft VS Code/bin
 ```
 
-But, if you used the **System Installer**, the install path is:
+하지만 **시스템 설치 프로그램**을 사용한 경우 설치 경로는 다음과 같습니다:
 
 ```bash
 /mnt/c/Program Files/Microsoft VS Code/bin
 ```
 
-...or...
+...또는...
 
 ```bash
 /mnt/c/Program Files (x86)/Microsoft VS Code/bin
 ```
 
-It's a feature of WSL that paths are inherited from the PATH variable in Windows. To change the Windows PATH variable, use the **Edit environment variables for your account** command from the start menu in Windows.
+WSL의 특징 중 하나는 Windows의 PATH 변수에서 경로를 상속받는 것입니다. Windows PATH 변수를 변경하려면 Windows 시작 메뉴에서 **내 계정에 대한 환경 변수 편집** 명령을 사용하세요.
 
-If you have disabled the path sharing feature, edit your `.bashrc`, add the following, and start a new terminal:
+경로 공유 기능을 비활성화한 경우, `.bashrc`를 편집하고 다음을 추가한 후 새 터미널을 시작하세요:
 
 ```bash
 WINDOWS_USERNAME="Your Windows Alias"
 
 export PATH="$PATH:/mnt/c/Windows/System32:/mnt/c/Users/$\{WINDOWS_USERNAME\}
 /AppData/Local/Programs/Microsoft VS Code/bin"
-# or...
-# export PATH="$PATH:/mnt/c/Program Files/Microsoft VS Code/bin"
-# or...
-# export PATH="$PATH:/mnt/c/Program Files (x86)/Microsoft VS Code/bin"
+# 또는... {#or}
+# export PATH="$PATH:/mnt/c/Program Files/Microsoft VS Code/bin" {#export-pathpathmntcprogram-filesmicrosoft-vs-codebin}
+# 또는... {#or}
+# export PATH="$PATH:/mnt/c/Program Files (x86)/Microsoft VS Code/bin" {#export-pathpathmntcprogram-files-x86microsoft-vs-codebin}
 
 ```
 
-> **Note:** Be sure to quote or escape space characters in the directory names.
+> **참고:** 디렉토리 이름의 공백 문자는 반드시 따옴표로 묶거나 이스케이프 처리하세요.
 
-### Finding problems with the 'code' command
+### 'code' 명령의 문제 찾기 {#finding-problems-with-the-code-command}
 
-If typing `code` from a Windows command prompt does not launch VS Code, you can help us diagnose the problem by running `VSCODE_WSL_DEBUG_INFO=true code .`.
+Windows 명령 프롬프트에서 `code`를 입력해도 VS Code가 실행되지 않는 경우, `VSCODE_WSL_DEBUG_INFO=true code .`를 실행하여 문제를 진단하는 데 도움을 줄 수 있습니다.
 
-Please file an issue and attach the full output.
+문제를 제기하고 전체 출력을 첨부하세요.
 
-### Finding problems starting or connected to the server
+### 서버 시작 또는 연결 문제 찾기 {#finding-problems-starting-or-connected-to-the-server}
 
-When the WSL window fails to connect to the remote server, you can get more information in the WSL log. When filing an issue, it is important to always send the full content of the WSL log.
+WSL 창이 원격 서버에 연결하지 못할 경우, WSL 로그에서 더 많은 정보를 얻을 수 있습니다. 문제를 제기할 때는 항상 WSL 로그의 전체 내용을 보내는 것이 중요합니다.
 
-Open the WSL log by running the command **WSL: Open Log**. The log will show in the terminal view under the WSL tab.
+**WSL: 로그 열기** 명령을 실행하여 WSL 로그를 엽니다. 로그는 WSL 탭 아래의 터미널 뷰에 표시됩니다.
 
-![WSL Log](images/troubleshooting/wsl-log.png)
+![WSL 로그](images/troubleshooting/wsl-log.png)
 
-To get even more verbose logging, enable the setting `remote.WSL.debug` in the user settings.
+더 많은 자세한 로그를 얻으려면 사용자 설정에서 `remote.WSL.debug` 설정을 활성화하세요.
 
-### The server fails to start with a segmentation fault
+### 세그멘테이션 오류로 서버 시작 실패 {#the-server-fails-to-start-with-a-segmentation-fault}
 
-You can help us investigate this problem by sending us the core dump file. To get the core dump file, follow these steps:
+이 문제를 조사하는 데 도움을 주기 위해 코어 덤프 파일을 보내주실 수 있습니다. 코어 덤프 파일을 얻으려면 다음 단계를 따르세요:
 
-In a Windows command prompt:
+Windows 명령 프롬프트에서:
 
-* Run `code --locate-extension ms-vscode-remote.remote-wsl` to determine the WSL extension folder.
-* `cd` to the path that is returned.
-* Open the `wslServer.sh` script with VS Code, `code .\scripts\wslServer.sh`.
-* Before the last line (before `"$VSCODE_REMOTE_BIN/$COMMIT/bin/$SERVER_APPNAME" "$@"`), add
-`ulimit -C unlimited`.
-* Start the WSL window running the remote server and wait for the segmentation fault.
+* `code --locate-extension ms-vscode-remote.remote-wsl`을 실행하여 WSL 확장 폴더를 확인합니다.
+* 반환된 경로로 이동합니다.
+* VS Code로 `wslServer.sh` 스크립트를 엽니다, `code .\scripts\wslServer.sh`.
+* 마지막 줄( `"$VSCODE_REMOTE_BIN/$COMMIT/bin/$SERVER_APPNAME" "$@"` 이전)에 `ulimit -C unlimited`를 추가합니다.
+* 원격 서버를 실행하는 WSL 창을 시작하고 세그멘테이션 오류가 발생할 때까지 기다립니다.
 
-The core file will be in the WSL extension folder from above.
+코어 파일은 위에서 언급한 WSL 확장 폴더에 있을 것입니다.
 
-### I see EACCES: permission denied error trying to rename a folder in the open workspace
+### 열린 작업 공간에서 폴더 이름을 바꾸려고 할 때 EACCES: 권한 거부 오류가 발생합니다 {#i-see-eacces-permission-denied-error-trying-to-rename-a-folder-in-the-open-workspace}
 
-This is a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/microsoft/WSL/issues/1956)) caused by the file watcher active by VS Code. The issue will only be fixed in WSL 2.
+이는 VS Code에서 활성화된 파일 감시자로 인해 발생하는 WSL 파일 시스템 구현의 알려진 문제입니다 ([Microsoft/WSL#3395](https://github.com/microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/microsoft/WSL/issues/1956)). 이 문제는 WSL 2에서만 수정될 것입니다.
 
-To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polling based has a performance impact for large workspaces.
+문제를 피하려면 `remote.WSL.fileWatcher.polling`을 true로 설정하세요. 그러나 폴링 기반은 대규모 작업 공간에 성능 영향을 미칠 수 있습니다.
 
-For large workspace you may want to increase the polling interval, `remote.WSL.fileWatcher.pollingInterval`, and control the folders that are watched with `setting(files.watcherExclude)`.
+대규모 작업 공간의 경우 폴링 간격 `remote.WSL.fileWatcher.pollingInterval`을 늘리고, `setting(files.watcherExclude)`로 감시할 폴더를 제어할 수 있습니다.
 
-[WSL 2](https://learn.microsoft.com/windows/wsl/compare-versions#whats-new-in-wsl-2) does not have that file watcher problem and is not affected by the new setting.
+[WSL 2](https://learn.microsoft.com/windows/wsl/compare-versions#whats-new-in-wsl-2)는 해당 파일 감시자 문제를 가지고 있지 않으며 새로운 설정의 영향을 받지 않습니다.
 
-### Resolving Git line ending issues in WSL (resulting in many modified files)
+### WSL에서 Git 줄 끝 문제 해결 (수많은 수정된 파일 발생) {#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files}
 
-Since Windows and Linux use different default line endings, Git may report a large number of modified files that have no differences aside from their line endings. To prevent this from happening, you can disable line-ending conversion using a `.gitattributes` file or globally on the Windows side.
+Windows와 Linux는 서로 다른 기본 줄 끝을 사용하므로, Git은 줄 끝을 제외하고는 차이가 없는 많은 수정된 파일을 보고할 수 있습니다. 이를 방지하려면 `.gitattributes` 파일을 사용하거나 Windows 측에서 전역적으로 줄 끝 변환을 비활성화할 수 있습니다.
 
-Typically adding or modifying a  `.gitattributes` file in your repository is the most reliable way to solve this problem. Committing this file to source control will help others and allows you to vary behaviors by repository as appropriate. For example, adding the following to `.gitattributes` file to the root of your repository will force everything to be LF, except for Windows batch files that require CRLF:
+일반적으로 리포지토리에 `.gitattributes` 파일을 추가하거나 수정하는 것이 이 문제를 해결하는 가장 신뢰할 수 있는 방법입니다. 이 파일을 소스 제어에 커밋하면 다른 사람들에게 도움이 되며, 리포지토리별로 동작을 다르게 설정할 수 있습니다. 예를 들어, 리포지토리의 루트에 다음을 추가하면 모든 파일이 LF로 강제되며, CRLF가 필요한 Windows 배치 파일은 제외됩니다:
 
 ```yaml
 * text=auto eol=lf
@@ -760,184 +760,183 @@ Typically adding or modifying a  `.gitattributes` file in your repository is the
 *.{bat,[bB][aA][tT]} text eol=crlf
 ```
 
-Note that this works in **Git v2.10+**, so if you are running into problems, be sure you've got a recent Git client installed. You can add other file types in your repository that require CRLF to this same file.
+이것은 **Git v2.10+**에서 작동하므로, 문제가 발생하면 최신 Git 클라이언트가 설치되어 있는지 확인하세요. CRLF가 필요한 다른 파일 유형을 이 파일에 추가할 수 있습니다.
 
-If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option.
+Unix 스타일의 줄 끝(LF)을 항상 업로드하려면 `input` 옵션을 사용할 수 있습니다.
 
 ```bash
 git config --global core.autocrlf input
 ```
 
-If you'd prefer to disable line-ending conversion entirely, run the following instead:
+줄 끝 변환을 완전히 비활성화하려면 대신 다음을 실행하세요:
 
 ```bash
 git config --global core.autocrlf false
 ```
 
-Finally, you may need to clone the repository again for these settings to take effect.
+마지막으로, 이러한 설정이 적용되도록 리포지토리를 다시 클론해야 할 수도 있습니다.
 
-### Sharing Git credentials between Windows and WSL
+### Windows와 WSL 간 Git 자격 증명 공유하기 {#sharing-git-credentials-between-windows-and-wsl}
 
-If you use HTTPS to clone your repositories and **have a [credential helper configured](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) in Windows**, you can share this with WSL so that passwords you enter are persisted on both sides. (Note that this does not apply to using SSH keys.)
+HTTPS를 사용하여 리포지토리를 클론하고 **Windows에서 [자격 증명 도우미를 구성](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git)**한 경우, WSL과 이를 공유하여 입력한 비밀번호가 양쪽에서 유지되도록 할 수 있습니다. (SSH 키를 사용하는 경우에는 적용되지 않습니다.)
 
-Just follow these steps:
+다음 단계를 따르세요:
 
-1. Configure the credential manager on Windows by running the following in a **Windows command prompt** or **PowerShell**:
+1. Windows의 **명령 프롬프트** 또는 **PowerShell**에서 다음을 실행하여 자격 증명 관리자를 구성하세요:
 
     ```bat
      git config --global credential.helper wincred
     ```
 
-2. Configure WSL to use the same credential helper, but running the following in a **WSL terminal**:
+2. WSL에서 동일한 자격 증명 도우미를 사용하도록 구성하려면 **WSL 터미널**에서 다음을 실행하세요:
 
     ```bash
      git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
     ```
 
-Any password you enter when working with Git on the Windows side will now be available to WSL and vice versa.
+Windows 측에서 Git 작업을 수행할 때 입력한 비밀번호는 이제 WSL에서도 사용 가능하며 그 반대도 마찬가지입니다.
 
-### Resolving hangs when doing a Git push or sync from WSL
+### WSL에서 Git 푸시 또는 동기화 시 멈춤 문제 해결하기 {#resolving-hangs-when-doing-a-git-push-or-sync-from-wsl}
 
-If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely.
+SSH를 사용하여 Git 리포지토리를 클론하고 SSH 키에 비밀번호가 있는 경우, VS Code의 풀 및 동기화 기능이 원격으로 실행될 때 멈출 수 있습니다.
 
-Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
+비밀번호가 없는 SSH 키를 사용하거나 HTTPS를 사용하여 클론하거나, 명령줄에서 `git push`를 실행하여 문제를 우회하세요.
 
-## GitHub Codespaces tips
+## GitHub Codespaces 팁 {#github-codespaces-tips}
 
-For tips and questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces). You can also check out the [known web limitations and adaptations](/docs/remote/codespaces.md#known-limitations-and-adaptations) that may impact your Codespaces.
+[GitHub Codespaces](https://github.com/features/codespaces)에 대한 팁과 질문은 [GitHub Codespaces 문서](https://docs.github.com/github/developing-online-with-codespaces)를 참조하세요. Codespaces에 영향을 미칠 수 있는 [알려진 웹 제한 및 조정](/docs/remote/codespaces.md#known-limitations-and-adaptations)도 확인하세요.
 
-## Extension tips
+## 확장 팁 {#extension-tips}
 
-While many extensions will work unmodified, there are a few issues that can prevent certain features from working as expected. In some cases, you can use another command to work around the issue, while in others, the extension may need to be modified. This section provides a quick reference for common issues and tips on resolving them. You can also refer to the main extension article on [Supporting Remote Development](/api/advanced-topics/remote-extensions) for an in-depth guide on modifying extensions to support remote extension hosts.
+많은 확장이 수정 없이 작동하지만, 특정 기능이 예상대로 작동하지 않도록 방해하는 몇 가지 문제가 있습니다. 경우에 따라 다른 명령을 사용하여 문제를 우회할 수 있으며, 다른 경우에는 확장을 수정해야 할 수 있습니다. 이 섹션에서는 일반적인 문제와 이를 해결하기 위한 팁에 대한 빠른 참조를 제공합니다. 원격 확장 호스트를 지원하기 위해 확장을 수정하는 방법에 대한 심층 가이드는 [원격 개발 지원](/api/advanced-topics/remote-extensions)을 참조하세요.
 
-### Resolving errors about missing dependencies
+### 누락된 종속성에 대한 오류 해결하기 {#resolving-errors-about-missing-dependencies}
 
-Some extensions rely on libraries not found in the basic install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager. For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned in the error message for additional installation details.
+일부 확장은 특정 WSL Linux 배포판의 기본 설치에서 찾을 수 없는 라이브러리에 의존합니다. 패키지 관리자를 사용하여 Linux 배포판에 추가 라이브러리를 추가할 수 있습니다. Ubuntu 및 Debian 기반 배포판의 경우, 필요한 라이브러리를 설치하려면 `sudo apt-get install <package>`를 실행하세요. 오류 메시지에 언급된 확장 또는 런타임의 문서를 확인하여 추가 설치 세부정보를 확인하세요.
 
-### Local absolute path settings fail when applied remotely
+### 원격에서 적용할 때 로컬 절대 경로 설정 실패 {#local-absolute-path-settings-fail-when-applied-remotely}
 
-VS Code's local user settings are reused when you connect to a remote endpoint. While this keeps your user experience consistent, you may need to vary absolute path settings between your local machine and each host / container / WSL since the target locations are different.
+VS Code의 로컬 사용자 설정은 원격 엔드포인트에 연결할 때 재사용됩니다. 이는 사용자 경험을 일관되게 유지하지만, 대상 위치가 다르기 때문에 로컬 머신과 각 호스트/컨테이너/WSL 간에 절대 경로 설정을 다르게 설정해야 할 수 있습니다.
 
-**Resolution:** You can set endpoint-specific settings after you connect to a remote endpoint by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting the **Remote** tab in the Settings editor. These settings will override any local settings you have in place whenever you connect.
+**해결책:** 원격 엔드포인트에 연결한 후 **Preferences: Open Remote Settings** 명령을 실행하거나 설정 편집기에서 **Remote** 탭을 선택하여 엔드포인트별 설정을 설정할 수 있습니다. 이러한 설정은 연결할 때마다 기존의 로컬 설정을 무시합니다.
 
-### Need to install local VSIX on remote endpoint
+### 원격 엔드포인트에 로컬 VSIX 설치 필요 {#need-to-install-local-vsix-on-remote-endpoint}
 
-Sometimes you want to install a local VSIX on a remote machine, either during development or when an extension author asks you to try out a fix.
+개발 중이거나 확장 작성자가 수정 사항을 시험해 보라고 요청할 때 로컬 VSIX를 원격 머신에 설치하고 싶을 수 있습니다.
 
-**Resolution:** Once you have connected to an SSH host, container, or WSL, you can install the VSIX the same way you would locally. Run the **Extensions: Install from VSIX...** command from the Command Palette (`kbstyle(F1)`). You may also want to add `"extensions.autoUpdate": false` to `settings.json` to prevent auto-updating to the latest Marketplace version. See [Supporting Remote Development](/api/advanced-topics/remote-extensions) for more information on developing and testing extensions in a remote environment.
+**해결책:** SSH 호스트, 컨테이너 또는 WSL에 연결한 후, 로컬에서와 동일한 방법으로 VSIX를 설치할 수 있습니다. 명령 팔레트(`kbstyle(F1)`)에서 **Extensions: Install from VSIX...** 명령을 실행하세요. 또한 자동으로 최신 마켓플레이스 버전으로 업데이트되는 것을 방지하기 위해 `settings.json`에 `"extensions.autoUpdate": false`를 추가할 수 있습니다. 원격 환경에서 확장을 개발하고 테스트하는 방법에 대한 자세한 내용은 [원격 개발 지원](/api/advanced-topics/remote-extensions)을 참조하세요.
 
-### Browser does not open locally
+### 브라우저가 로컬에서 열리지 않음 {#browser-does-not-open-locally}
 
-Some extensions use external node modules or custom code to launch a browser window. Unfortunately, this may cause the extension to launch the browser remotely instead of locally.
+일부 확장은 외부 노드 모듈이나 사용자 정의 코드를 사용하여 브라우저 창을 열 수 있습니다. 불행히도, 이로 인해 확장이 로컬이 아닌 원격에서 브라우저를 열 수 있습니다.
 
-**Resolution:** The extension can use the `vscode.env.openExternal` API to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
+**해결책:** 확장은 `vscode.env.openExternal` API를 사용하여 이 문제를 해결할 수 있습니다. 자세한 내용은 [확장 작성자 가이드](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application)를 참조하세요.
 
-### Clipboard does not work
+### 클립보드가 작동하지 않음 {#clipboard-does-not-work}
 
-Some extensions use node modules like `clipboardy` to integrate with the clipboard. Unfortunately, this may cause the extension to incorrectly integrate with the clipboard on the remote side.
+일부 확장은 `clipboardy`와 같은 노드 모듈을 사용하여 클립보드와 통합합니다. 불행히도, 이로 인해 확장이 원격 측의 클립보드와 잘못 통합될 수 있습니다.
 
-**Resolution:** The extension can switch to the VS Code clipboard API to resolve the problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#using-the-clipboard) for details.
+**해결책:** 확장은 VS Code 클립보드 API로 전환하여 문제를 해결할 수 있습니다. 자세한 내용은 [확장 작성자 가이드](/api/advanced-topics/remote-extensions#using-the-clipboard)를 참조하세요.
 
-### Cannot access local web server from browser or application
+### 로컬 웹 서버에 브라우저나 애플리케이션에서 접근할 수 없음 {#cannot-access-local-web-server-from-browser-or-application}
 
-When working inside a container, SSH host, or through GitHub Codespaces, the port the browser is connecting to may be blocked.
+컨테이너, SSH 호스트 또는 GitHub Codespaces에서 작업할 때 브라우저가 연결하는 포트가 차단될 수 있습니다.
 
-**Resolution:** Extensions can use the `vscode.env.openExternal` or `vscode.env.asExternalUri` APIs (which automatically forwards localhost ports) to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details. As a workaround, use the **Forward a Port** command to do so manually.
+**해결책:** 확장은 `vscode.env.openExternal` 또는 `vscode.env.asExternalUri` API를 사용하여 이 문제를 해결할 수 있습니다(이 API는 로컬호스트 포트를 자동으로 전달합니다). 자세한 내용은 [확장 작성자 가이드](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application)를 참조하세요. 우회 방법으로 **포트 전달** 명령을 사용하여 수동으로 수행할 수 있습니다.
 
-### Webview contents do not appear
+### 웹뷰 내용이 나타나지 않음 {#webview-contents-do-not-appear}
 
-If the extension's webview content uses an `iframe` to connect to a local web server, the port the webview is connecting to may be blocked. In addition, if the extension hard codes `vscode-resource://` URIs instead of using `asWebviewUri`, content may not appear in the Codespaces browser editor.
+확장의 웹뷰 내용이 로컬 웹 서버에 연결하기 위해 `iframe`을 사용하는 경우, 웹뷰가 연결하는 포트가 차단될 수 있습니다. 또한, 확장이 `asWebviewUri` 대신 `vscode-resource://` URI를 하드코딩하면 내용이 Codespaces 브라우저 편집기에 나타나지 않을 수 있습니다.
 
-**Resolution:** The extension can use the `webview.asWebviewUri` to resolve issues with `vscode-resource://` URIs.
+**해결책:** 확장은 `webview.asWebviewUri`를 사용하여 `vscode-resource://` URI와 관련된 문제를 해결할 수 있습니다.
 
-If ports are being blocked, the best approach is to instead use the [webview message passing](/api/extension-guides/webview#scripts-and-message-passing) API. As a workaround, `vscode.env.asExternalUri`  can be used allow the webview to connect to spawned localhost web servers from VS Code. However, this is currently blocked for the Codespaces browser-based editor (only) by [MicrosoftDocs/vscodespaces#11](https://github.com/MicrosoftDocs/vscodespaces/issues/11). See the [extension author's guide](/api/advanced-topics/remote-extensions#workarounds-for-using-localhost-from-a-webview) for details on the workaround.
+포트가 차단되는 경우, 가장 좋은 접근 방식은 [웹뷰 메시지 전달](/api/extension-guides/webview#scripts-and-message-passing) API를 사용하는 것입니다. 우회 방법으로 `vscode.env.asExternalUri`를 사용하여 VS Code에서 생성된 로컬호스트 웹 서버에 웹뷰가 연결되도록 할 수 있습니다. 그러나 이는 현재 Codespaces 브라우저 기반 편집기에서 [MicrosoftDocs/vscodespaces#11](https://github.com/MicrosoftDocs/vscodespaces/issues/11)로 차단되어 있습니다. 우회 방법에 대한 자세한 내용은 [확장 작성자 가이드](/api/advanced-topics/remote-extensions#workarounds-for-using-localhost-from-a-webview)를 참조하세요.
 
-### Blocked localhost ports
+### 차단된 로컬호스트 포트 {#blocked-localhost-ports}
 
-If you are trying to connect to a localhost port from an external application, the port may be blocked.
+외부 애플리케이션에서 로컬호스트 포트에 연결하려고 할 때 포트가 차단될 수 있습니다.
 
-**Resolution:** VS Code 1.40 introduced a new `vscode.env.asExternalUri` API for extensions to programmatically forward arbitrary ports.  See the [extension author's guide](/api/advanced-topics/remote-extensions#forwarding-localhost) for details. As a workaround, you can use the **Forward a Port** command to do so manually.
+**해결책:** VS Code 1.40에서는 확장이 임의의 포트를 프로그래밍적으로 전달할 수 있는 새로운 `vscode.env.asExternalUri` API가 도입되었습니다. 자세한 내용은 [확장 작성자 가이드](/api/advanced-topics/remote-extensions#forwarding-localhost)를 참조하세요. 우회 방법으로 **포트 전달** 명령을 사용하여 수동으로 수행할 수 있습니다.
 
-### Errors storing extension data
+### 확장 데이터 저장 오류 {#errors-storing-extension-data}
 
-Extensions may try to persist global data by looking for the `~/.config/Code` folder on Linux. This folder may not exist, which can cause the extension to throw errors like `ENOENT: no such file or directory, open '/root/.config/Code/User/filename-goes-here`.
+확장은 Linux에서 `~/.config/Code` 폴더를 찾아 전역 데이터를 지속하려고 할 수 있습니다. 이 폴더가 존재하지 않을 경우, 확장이 `ENOENT: no such file or directory, open '/root/.config/Code/User/filename-goes-here`와 같은 오류를 발생시킬 수 있습니다.
 
-**Resolution:** Extensions can use the `context.globalStorageUri` or `context.storageUri` property to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#persisting-extension-data-or-state) for details.
+**해결책:** 확장은 `context.globalStorageUri` 또는 `context.storageUri` 속성을 사용하여 이 문제를 해결할 수 있습니다. 자세한 내용은 [확장 작성자 가이드](/api/advanced-topics/remote-extensions#persisting-extension-data-or-state)를 참조하세요.
 
-### Cannot sign in / have to sign in each time I connect to a new endpoint
+### 로그인할 수 없음 / 새 엔드포인트에 연결할 때마다 로그인해야 함 {#cannot-sign-in-have-to-sign-in-each-time-i-connect-to-a-new-endpoint}
 
-Extensions that require sign in may persist secrets using their own code. This code can fail due to missing dependencies. Even if it succeeds, the secrets will be stored remotely, which means you have to sign in for every new endpoint.
+로그인이 필요한 확장은 자체 코드를 사용하여 비밀을 지속할 수 있습니다. 이 코드는 누락된 종속성으로 인해 실패할 수 있습니다. 성공하더라도 비밀은 원격으로 저장되므로 새 엔드포인트마다 로그인을 해야 합니다.
 
-**Resolution:** Extensions can use the [SecretStorage API](https://code.visualstudio.com/api/references/vscode-api#SecretStorage) to solve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#persisting-secrets) for details.
+**해결책:** 확장은 [SecretStorage API](https://code.visualstudio.com/api/references/vscode-api#SecretStorage)를 사용하여 이 문제를 해결할 수 있습니다. 자세한 내용은 [확장 작성자 가이드](/api/advanced-topics/remote-extensions#persisting-secrets)를 참조하세요.
 
-### An incompatible extension prevents VS Code from connecting
+### 호환되지 않는 확장이 VS Code의 연결을 방해함 {#an-incompatible-extension-prevents-vs-code-from-connecting}
 
-If an incompatible extension has been installed on a remote host, container, or in WSL, we have seen instances where the VS Code Server hangs or crashes due to the incompatibility. If the extension activates right away, this can prevent you from connecting and being able to uninstall the extension.
+원격 호스트, 컨테이너 또는 WSL에 호환되지 않는 확장이 설치된 경우, VS Code 서버가 호환성 문제로 인해 멈추거나 충돌하는 경우가 있습니다. 확장이 즉시 활성화되면 연결을 방해하고 확장을 제거할 수 없게 됩니다.
 
-**Resolution:** Manually delete the remote extensions folder by following these steps:
+**해결책:** 다음 단계를 따라 원격 확장 폴더를 수동으로 삭제하세요:
 
-1. For containers, ensure your `devcontainer.json` no longer includes a reference to the faulty extension.
+1. 컨테이너의 경우, `devcontainer.json`에서 결함이 있는 확장에 대한 참조가 더 이상 포함되어 있지 않은지 확인하세요.
 
-2. Next, use a separate terminal / command prompt to connect to the remote host, container, or WSL.
+2. 다음으로, 원격 호스트, 컨테이너 또는 WSL에 연결하기 위해 별도의 터미널/명령 프롬프트를 사용하세요.
 
-   * If SSH or WSL, connect to the environment accordingly (run `ssh` to connect to the server or open WSL terminal).
-   * If using a container, identify the container ID by calling `docker ps -a` and looking through the list for an image with the correct name. If the container is stopped, run `docker run -it <id> /bin/sh`. If it is running, run `docker exec -it <id> /bin/sh`.
+   * SSH 또는 WSL인 경우, 해당 환경에 따라 연결하세요 (서버에 연결하려면 `ssh`를 실행하거나 WSL 터미널을 엽니다).
+   * 컨테이너를 사용하는 경우, `docker ps -a`를 호출하여 올바른 이름의 이미지를 찾고 컨테이너 ID를 확인하세요. 컨테이너가 중지된 경우, `docker run -it <id> /bin/sh`를 실행하세요. 실행 중인 경우, `docker exec -it <id> /bin/sh`를 실행하세요.
 
-3. Once you are connected, run `rm -rf ~/.vscode-server/extensions` for VS Code stable and/or `rm -rf ~/.vscode-server-insiders/extensions` for VS Code Insiders to remove all extensions.
+3. 연결되면 VS Code 안정 버전의 경우 `rm -rf ~/.vscode-server/extensions`를 실행하고, VS Code 인사이더 버전의 경우 `rm -rf ~/.vscode-server-insiders/extensions`를 실행하여 모든 확장을 제거하세요.
 
-### Extensions that ship or acquire pre-built native modules fail
+### 사전 구축된 네이티브 모듈을 포함하거나 획득한 확장이 실패함 {#extensions-that-ship-or-acquire-pre-built-native-modules-fail}
 
-Native modules bundled with (or dynamically acquired for) a VS Code extension must be recompiled [using Electron's `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules). However, VS Code Server runs a standard (non-Electron) version of Node.js, which can cause binaries to fail when used remotely.
+VS Code 확장에 포함되거나 동적으로 획득된 네이티브 모듈은 [Electron의 `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules)를 사용하여 재컴파일해야 합니다. 그러나 VS Code 서버는 표준(비-Electron) 버전의 Node.js를 실행하므로 원격에서 사용할 때 바이너리가 실패할 수 있습니다.
 
-**Resolution:** Extensions need to be modified to solve this problem. They will need to include (or dynamically acquire) both sets of binaries (Electron and standard Node.js) for the "modules" version in Node.js that VS Code ships and then check to see if `context.executionContext === vscode.ExtensionExecutionContext.Remote` in their activation function to set up the correct binaries. See the [extension author's guide](/api/advanced-topics/remote-extensions#using-native-node.js-modules) for details.
+**해결책:** 확장은 이 문제를 해결하기 위해 수정해야 합니다. VS Code가 제공하는 Node.js의 "모듈" 버전용으로 Electron 및 표준 Node.js의 두 세트를 포함(또는 동적으로 획득)해야 하며, 활성화 함수에서 `context.executionContext === vscode.ExtensionExecutionContext.Remote`를 확인하여 올바른 바이너리를 설정해야 합니다. 자세한 내용은 [확장 작성자 가이드](/api/advanced-topics/remote-extensions#using-native-node.js-modules)를 참조하세요.
 
-### Extension only fails on non-x86_64 hosts or Alpine Linux
+### 비 x86_64 호스트 또는 Alpine Linux에서만 확장이 실패함 {#extension-only-fails-on-non-x86_64-hosts-or-alpine-linux}
 
-If an extension works on Debian 9+, Ubuntu 16.04+, or RHEL / CentOS 7+ remote SSH hosts, containers, or WSL, but fails on supported non-x86_64 hosts (for example, ARMv7l) or Alpine Linux containers, the extension may only include native code or runtimes that do not support these platforms. For example, the extensions may only include x86_64 compiled versions of native modules or runtimes. For Alpine Linux, the included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`).
+확장이 Debian 9+, Ubuntu 16.04+, 또는 RHEL / CentOS 7+ 원격 SSH 호스트, 컨테이너 또는 WSL에서 작동하지만 지원되는 비 x86_64 호스트(예: ARMv7l) 또는 Alpine Linux 컨테이너에서 실패하는 경우, 확장이 이러한 플랫폼을 지원하지 않는 네이티브 코드 또는 런타임만 포함하고 있을 수 있습니다. 예를 들어, 확장이 x86_64로 컴파일된 네이티브 모듈 또는 런타임만 포함할 수 있습니다. Alpine Linux의 경우, 포함된 네이티브 코드 또는 런타임은 Alpine Linux(`musl`)와 다른 배포판(`glibc`) 간의 [근본적인 차이](https://wiki.musl-libc.org/functional-differences-from-glibc.html)로 인해 작동하지 않을 수 있습니다.
 
-**Resolution:**
-Extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. It is important to note that some third-party npm modules may also include native code that can cause this problem. So, in some cases you may need to work with the npm module author to add additional compilation targets. See the [extension author's guide](/api/advanced-topics/remote-extensions#supporting-nonx8664-hosts-or-alpine-linux-containers) for details.
+**해결책:** 확장은 이러한 플랫폼을 지원하기 위해 선택적으로 추가 대상에 대한 바이너리를 컴파일/포함해야 합니다. 일부 서드파티 npm 모듈도 네이티브 코드를 포함할 수 있으므로, 경우에 따라 npm 모듈 작성자와 협력하여 추가 컴파일 대상을 추가해야 할 수 있습니다. 자세한 내용은 [확장 작성자 가이드](/api/advanced-topics/remote-extensions#supporting-nonx8664-hosts-or-alpine-linux-containers)를 참조하세요.
 
-### Extensions fail due to missing modules
+### 누락된 모듈로 인해 확장이 실패함 {#extensions-fail-due-to-missing-modules}
 
-Extensions that rely on Electron or VS Code base modules (not exposed by the extension API) without providing a fallback can fail when running remotely. You may see errors in the Developer Tools console like `original-fs` not being found.
+Electron 또는 VS Code 기본 모듈(확장 API에서 노출되지 않음)에 의존하는 확장은 대체 방법을 제공하지 않으면 원격에서 실행할 때 실패할 수 있습니다. `original-fs`를 찾을 수 없다는 오류가 개발자 도구 콘솔에 표시될 수 있습니다.
 
-**Resolution:** Remove the dependency on an Electron module or provide a fallback. See the [extension author's guide](/api/advanced-topics/remote-extensions#avoid-using-electron-modules) for details.
+**해결책:** Electron 모듈에 대한 의존성을 제거하거나 대체 방법을 제공하세요. 자세한 내용은 [확장 작성자 가이드](/api/advanced-topics/remote-extensions#avoid-using-electron-modules)를 참조하세요.
 
-### Cannot access / transfer remote workspace files to local machines
+### 원격 작업 공간 파일에 접근하거나 로컬 머신으로 전송할 수 없음 {#cannot-access-transfer-remote-workspace-files-to-local-machines}
 
-Extensions that open workspace files in external applications may encounter errors because the external application cannot directly access the remote files.
+외부 애플리케이션에서 작업 공간 파일을 열면 원격 파일에 직접 접근할 수 없기 때문에 오류가 발생할 수 있습니다.
 
-**Resolution:** If you create a "UI" extension designed to run locally, you can use the `vscode.workspace.fs` API to interact with the remote workspace filesystem. You can then make this a dependency of your "Workspace" extension and invoke it using a command as needed. See the [extension author's guide](/api/advanced-topics/remote-extensions) for details on different types of extensions and how to use commands to communicate between them.
+**해결책:** 로컬에서 실행되도록 설계된 "UI" 확장을 생성하는 경우, `vscode.workspace.fs` API를 사용하여 원격 작업 공간 파일 시스템과 상호작용할 수 있습니다. 그런 다음 이를 "Workspace" 확장의 종속성으로 만들고 필요에 따라 명령을 사용하여 호출할 수 있습니다. 다양한 유형의 확장 및 이를 통해 명령을 사용하는 방법에 대한 자세한 내용은 [확장 작성자 가이드](/api/advanced-topics/remote-extensions)를 참조하세요.
 
-### Cannot access attached device from extension
+### 확장에서 연결된 장치에 접근할 수 없음 {#cannot-access-attached-device-from-extension}
 
-Extensions that access locally attached devices will be unable to connect to them when running remotely.
+로컬에 연결된 장치에 접근하는 확장은 원격에서 실행할 때 이를 연결할 수 없습니다.
 
-**Resolution:** None currently. We are investigating the best approach to solve this problem.
+**해결책:** 현재로서는 없습니다. 이 문제를 해결하기 위한 최선의 접근 방식을 조사하고 있습니다.
 
-## Questions and feedback
+## 질문 및 피드백 {#questions-and-feedback}
 
-### Reporting issues
+### 문제 보고하기 {#reporting-issues}
 
-If you run into an issue with one of the remote development extensions, it's important to collect the correct logs so that we'll be able to help [diagnose your issue](https://aka.ms/vscode-remote/issues/new).
+원격 개발 확장 중 하나에서 문제가 발생하면, 올바른 로그를 수집하는 것이 중요합니다. 그래야 문제를 [진단하는 데 도움을 줄 수 있습니다](https://aka.ms/vscode-remote/issues/new).
 
-Each remote extension has a command to view its logs.
+각 원격 확장에는 로그를 볼 수 있는 명령이 있습니다.
 
-You can get the Remote - SSH extension logs with **Remote-SSH: Show Log** from the Command Palette (`kbstyle(F1)`). When reporting Remote - SSH issues, please also verify if you're able to SSH into your machine from an external terminal (not using Remote - SSH).
+명령 팔레트(`kbstyle(F1)`)에서 **Remote-SSH: Show Log**를 사용하여 Remote - SSH 확장 로그를 가져올 수 있습니다. Remote - SSH 문제를 보고할 때는 외부 터미널에서 머신에 SSH로 연결할 수 있는지 확인하세요(원격 - SSH를 사용하지 않고).
 
-Similarly, you can get the Dev Containers extension logs with **Dev Containers: Show Container Log**.
+유사하게, **Dev Containers: Show Container Log**를 사용하여 Dev Containers 확장 로그를 가져올 수 있습니다.
 
-Like the two above, you can get the WSL extension logs with **WSL: Show Log**. Also check whether your issue is being tracked upstream in the [WSL repo](https://github.com/microsoft/WSL/issues) (and is not due to the WSL extension).
+위의 두 가지와 마찬가지로, **WSL: Show Log**를 사용하여 WSL 확장 로그를 가져올 수 있습니다. 또한 문제가 [WSL 리포지토리](https://github.com/microsoft/WSL/issues)에서 추적되고 있는지 확인하세요(WSL 확장 때문이 아닌 경우).
 
-If you're experiencing issues using other extensions remotely (for example, other extensions aren't loading or installing properly in a remote context), it's helpful to grab the log from the **Remote Extension Host** output channel (**Output: Focus on Output View**), and select **Log (Remote Extension Host)** from the dropdown.
+원격에서 다른 확장을 사용할 때 문제가 발생하는 경우(예: 다른 확장이 원격 컨텍스트에서 제대로 로드되거나 설치되지 않는 경우), **Remote Extension Host** 출력 채널에서 로그를 가져오는 것이 도움이 됩니다 (**Output: Focus on Output View**) 및 드롭다운에서 **Log (Remote Extension Host)**를 선택하세요.
 
-> **Note**: If you only see **Log (Extension Host)**, this is the local extension host, and the remote extension host didn't launch. This is because the log channel is created only after the log file is created, so if the remote extension host does not launch, the remote extension host log file was not created and is not shown in the Output view. This is still helpful information to include in your issue.
+> **참고**: **Log (Extension Host)**만 보이는 경우, 이는 로컬 확장 호스트이며 원격 확장 호스트가 시작되지 않았음을 의미합니다. 로그 채널은 로그 파일이 생성된 후에만 생성되므로, 원격 확장 호스트가 시작되지 않으면 원격 확장 호스트 로그 파일이 생성되지 않으며 출력 뷰에 표시되지 않습니다. 이는 여전히 문제에 포함할 수 있는 유용한 정보입니다.
 
-### Remote question and feedback resources
+### 원격 질문 및 피드백 리소스 {#remote-question-and-feedback-resources}
 
-We have a variety of other remote resources:
+다양한 원격 리소스가 있습니다:
 
-* See [Remote Development FAQ](/docs/remote/faq.md).
-* Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
-* Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
+* [원격 개발 FAQ](/docs/remote/faq.md)를 참조하세요.
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote)에서 검색하세요.
+* [기능 요청](https://aka.ms/vscode-remote/feature-requests) 또는 [문제 보고](https://aka.ms/vscode-remote/issues/new)를 추가하세요.

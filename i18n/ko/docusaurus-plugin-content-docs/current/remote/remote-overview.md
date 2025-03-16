@@ -1,58 +1,59 @@
 ---
 Order: 1
 Area: remote
-TOCTitle: Overview
-PageTitle: Visual Studio Code Remote Development
+TOCTitle: 개요
+PageTitle: Visual Studio Code 원격 개발
 ContentId: eceea3f0-feee-47c2-8b65-1f1b0825355b
-MetaDescription: Visual Studio Code Remote Development
+MetaDescription: Visual Studio Code 원격 개발
 DateApproved: 03/05/2025
+sidebar_label: 개요
 ---
-# VS Code Remote Development
+# VS Code 원격 개발 {#vs-code-remote-development}
 
-**Visual Studio Code Remote Development** allows you to use a container, remote machine, or the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl) (WSL) as a full-featured development environment. You can:
+**Visual Studio Code 원격 개발**을 사용하면 컨테이너, 원격 머신 또는 [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl) (WSL)를 완전한 기능을 갖춘 개발 환경으로 사용할 수 있습니다. 다음과 같은 작업을 수행할 수 있습니다:
 
-- Develop on the **same operating system** you deploy to or use **larger or more specialized** hardware.
-- **Separate** your development environment to avoid impacting your local **machine configuration**.
-- Make it easy for new contributors to **get started** and keep everyone on a **consistent environment**.
-- Use tools or runtimes **not available** on your local OS or manage **multiple versions** of them.
-- Develop your Linux-deployed applications using the **Windows Subsystem for Linux**.
-- Access an **existing** development environment from **multiple machines or locations**.
-- Debug an **application running somewhere else** such as a customer site or in the cloud.
+- **배포할 동일한 운영 체제**에서 개발하거나 **더 크거나 전문화된** 하드웨어를 사용할 수 있습니다.
+- 로컬 **머신 구성**에 영향을 주지 않도록 개발 환경을 **분리**할 수 있습니다.
+- 새로운 기여자가 **시작하기** 쉽게 하고 모든 사람이 **일관된 환경**에서 작업할 수 있도록 합니다.
+- 로컬 OS에서 **사용할 수 없는** 도구나 런타임을 사용하거나 **여러 버전**을 관리할 수 있습니다.
+- **Windows Subsystem for Linux**를 사용하여 리눅스에 배포된 애플리케이션을 개발할 수 있습니다.
+- **여러 머신이나 위치**에서 **기존** 개발 환경에 접근할 수 있습니다.
+- 고객 사이트나 클라우드와 같은 **다른 곳에서 실행 중인 애플리케이션**을 디버깅할 수 있습니다.
 
-**No source code** needs to be on your local machine to get these benefits. Each extension in the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) can run commands and other extensions directly inside a container, in WSL, or on a remote machine so that everything feels as it does when you run locally. The extensions install VS Code Server on the remote OS; the server is independent of any existing VS Code installation on the remote OS.
+이러한 이점을 얻기 위해 로컬 머신에 **소스 코드**가 필요하지 않습니다. [원격 개발 확장 팩](https://aka.ms/vscode-remote/download/extension)의 각 확장은 컨테이너, WSL 또는 원격 머신 내에서 명령 및 다른 확장을 직접 실행할 수 있어 모든 것이 로컬에서 실행할 때와 같은 느낌을 줍니다. 확장은 원격 OS에 VS Code 서버를 설치하며, 이 서버는 원격 OS의 기존 VS Code 설치와 독립적입니다.
 
 ![Architecture](images/remote-overview/architecture.png)
 
-## Getting started
+## 시작하기 {#getting-started}
 
-### Remote Development extension pack
+### 원격 개발 확장 팩 {#remote-development-extension-pack}
 
-The [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) includes four extensions. See the following articles to get started with each of them:
+[원격 개발 확장 팩](https://aka.ms/vscode-remote/download/extension)에는 네 가지 확장이 포함되어 있습니다. 각 확장을 시작하는 방법에 대한 다음 페이지를를 참조하세요:
 
-- [Remote - SSH](/docs/remote/ssh.md) - Connect to any location by opening folders on a remote machine/VM using SSH.
-- [Dev Containers](/docs/devcontainers/containers.md) - Work with a separate toolchain or container-based application inside (or mounted into) a container.
-- [WSL](/docs/remote/wsl.md) - Get a Linux-powered development experience in the Windows Subsystem for Linux.
-- [Remote - Tunnels](/docs/remote/tunnels.md) - Connect to a remote machine via a secure tunnel, without configuring SSH.
+- [Remote - SSH](/docs/remote/ssh) - SSH를 사용하여 원격 머신/VM에서 폴더를 열어 어떤 위치에든 연결합니다.
+- [Dev Containers](/docs/devcontainers/containers) - 컨테이너 내부(또는 마운트된)에서 별도의 툴체인 또는 컨테이너 기반 애플리케이션으로 작업합니다.
+- [WSL](/docs/remote/wsl) - Windows Subsystem for Linux에서 리눅스 기반의 개발 경험을 얻습니다.
+- [Remote - Tunnels](/docs/remote/tunnels) - SSH를 구성하지 않고 안전한 터널을 통해 원격 머신에 연결합니다.
 
-While most VS Code extensions should work unmodified in a remote environment, extension authors can learn more at [Supporting Remote Development](/api/advanced-topics/remote-extensions.md).
+대부분의 VS Code 확장은 원격 환경에서 수정 없이 작동해야 하지만, 확장 작성자는 [원격 개발 지원](https://api/advanced-topics/remote-extensions)에서 더 많은 정보를 얻을 수 있습니다.
 
-## Remote tutorials
+## 원격 튜토리얼 {#remote-tutorials}
 
-The tutorials below will walk you through running Visual Studio Code with the Remote Development extensions.
+아래 튜토리얼은 원격 개발 확장 프로그램을 사용하여 Visual Studio Code를 실행하는 방법을 안내합니다.
 
-Tutorial | Description
+튜토리얼 | 설명
 --- | ---
-[Remote via SSH](/docs/remote/ssh-tutorial.md) | Connect to remote and virtual machines with Visual Studio Code via SSH.
-[Work in WSL](/docs/remote/wsl-tutorial.md) | Run Visual Studio Code in Windows Subsystem for Linux.
-[Develop in Containers](/docs/devcontainers/tutorial.md) | Run Visual Studio Code in a Docker Container.
-[GitHub Codespaces](https://docs.github.com/github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code) | Connect to a codespace with Visual Studio Code.
+[SSH를 통한 원격 연결](/docs/remote/ssh-tutorial.md) | SSH를 통해 Visual Studio Code로 원격 및 가상 머신에 연결합니다.
+[WSL에서 작업하기](/docs/remote/wsl-tutorial.md) | Windows Subsystem for Linux에서 Visual Studio Code를 실행합니다.
+[컨테이너에서 개발하기](/docs/devcontainers/tutorial.md) | Docker 컨테이너에서 Visual Studio Code를 실행합니다.
+[GitHub Codespaces](https://docs.github.com/github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code) | Visual Studio Code로 codespace에 연결합니다.
 
-## GitHub Codespaces
+## GitHub Codespaces {#github-codespaces}
 
-[GitHub Codespaces](/docs/remote/codespaces.md) provides remote development environments that are managed for you. You can configure and create a development environment hosted in the cloud, which is spun up and available when you need it.
+[GitHub Codespaces](/docs/remote/codespaces.md)는 관리되는 원격 개발 환경을 제공합니다. 클라우드에 호스팅된 개발 환경을 구성하고 생성할 수 있으며, 필요할 때마다 시작되고 사용할 수 있습니다.
 
-## Questions or feedback
+## 질문이나 피드백 {#questions-or-feedback}
 
-- See [Tips and Tricks](/docs/remote/troubleshooting.md) or the [FAQ](/docs/remote/faq.md).
-- Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
-- Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
+- [팁과 요령](/docs/remote/troubleshooting.md) 또는 [자주 묻는 질문(FAQ)](/docs/remote/faq.md)을 참조하세요.
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote)에서 검색하세요.
+- [기능 요청](https://aka.ms/vscode-remote/feature-requests)을 추가하거나 [문제 보고](https://aka.ms/vscode-remote/issues/new)하세요.

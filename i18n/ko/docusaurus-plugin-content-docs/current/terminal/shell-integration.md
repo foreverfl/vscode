@@ -1,3 +1,13 @@
+---
+Order: 4
+Area: terminal
+TOCTitle: 셸 통합
+ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
+PageTitle: Visual Studio Code의 터미널 셸 통합
+DateApproved: 03/05/2025
+MetaDescription: Visual Studio Code의 내장 터미널은 일부 셸과 통합되어 터미널 기능을 확장할 수 있습니다.
+sidebar_label: 셸 통합
+---
 # 터미널 셸 통합 {#terminal-shell-integration}
 
 Visual Studio Code는 일반적인 셸과 통합할 수 있는 기능을 제공하여 터미널이 셸 내부에서 실제로 발생하는 일에 대해 더 많은 정보를 이해할 수 있게 합니다. 이 추가 정보는 [작업 디렉터리 감지](#current-working-directory-detection), 명령 감지, [장식](#command-decorations-and-the-overview-ruler), [탐색](#command-navigation)과 같은 유용한 기능을 가능하게 합니다.
@@ -15,13 +25,17 @@ Visual Studio Code는 일반적인 셸과 통합할 수 있는 기능을 제공�
 
 이 표준적이고 쉬운 방법은 서브 셸, 일반 `ssh` 세션(예: [Remote - SSH 확장](/docs/remote/ssh.md)을 사용하지 않을 때) 또는 복잡한 셸 설정과 같은 일부 고급 사용 사례에서는 작동하지 않을 수 있습니다. 이러한 경우에 셸 통합을 활성화하는 권장 방법은 [수동 설치](#manual-installation)입니다.
 
-> **참고**: 자동 주입은 구버전의 셸에서는 작동하지 않을 수 있습니다. 예를 들어, 구버전의 fish는 주입이 작동하는 방식인 `$XDG_DATA_DIRS` 환경 변수를 지원하지 않습니다. 여전히 수동 설치를 통해 작동시킬 수 있습니다.
+:::note
+자동 주입은 구버전의 셸에서는 작동하지 않을 수 있습니다. 예를 들어, 구버전의 fish는 주입이 작동하는 방식인 `$XDG_DATA_DIRS` 환경 변수를 지원하지 않습니다. 여전히 수동 설치를 통해 작동시킬 수 있습니다.
+:::
 
 ### 수동 설치 {#manual-installation}
 
 셸 통합을 수동으로 설치하려면, VS Code 셸 통합 스크립트가 셸 초기화 중에 실행되어야 합니다. 이를 수행하는 위치와 방법은 사용 중인 셸과 운영 체제에 따라 다릅니다. 수동 설치를 사용할 때는 `setting(terminal.integrated.shellIntegration.enabled)`를 `false`로 설정하는 것이 권장되지만 필수는 아닙니다.
 
-> **팁:** [Insiders 빌드](https://code.visualstudio.com/insiders)를 사용할 때는 아래의 `code`를 `code-insiders`로 교체하세요.
+:::tip
+[Insiders 빌드](https://code.visualstudio.com/insiders)를 사용할 때는 아래의 `code`를 `code-insiders`로 교체하세요.
+:::
 
 **bash**
 
@@ -78,15 +92,15 @@ code --locate-shell-integration-path bash
 
 ## 명령 장식 및 개요 눈금자 {#command-decorations-and-the-overview-ruler}
 
-셸 통합이 가능하게 하는 것 중 하나는 터미널 내에서 실행된 명령의 종료 코드를 가져오는 기능입니다. 이 정보를 사용하여 명령이 성공했는지 실패했는지를 나타내기 위해 줄 왼쪽에 장식이 추가됩니다. 이러한 장식은 편집기와 마찬가지로 스크롤 바의 비교적 새로운 개요 눈금자에도 표시됩니다.
+셸 통합 기능을 활용하면, 터미널에서 실행된 명령어의 종료 코드(exit code)를 가져올 수 있습니다. 이를 바탕으로 명령어가 성공했는지 실패했는지를 나타내는 아이콘이 줄 왼쪽에 추가됩니다. 또한, 이 아이콘은 편집기에서 코드 변경 사항을 표시하는 스크롤 바의 개요 눈금자(overview ruler)에도 나타납니다.
 
 ![성공적인 명령 옆에 파란색 원이 나타나고, 실패한 명령 옆에는 빨간색 X가 있는 원이 나타납니다. 원의 색상은 스크롤 바에 표시됩니다.](images/shell-integration/decorations.png)
 
-장식은 명령을 다시 실행하는 등의 맥락적 작업을 제공하기 위해 상호작용할 수 있습니다:
+추가된 아이콘을 클릭하면 해당 명령어를 다시 실행하거나 관련된 작업을 수행할 수 있습니다:
 
 ![성공적인 명령 장식을 클릭하면 복사 출력, HTML로 출력 복사, 명령 다시 실행 및 이 기능은 어떻게 작동합니까? 항목이 포함된 컨텍스트 메뉴가 표시됩니다.](images/shell-integration/decoration-menu.png)
 
-명령 및 개요 눈금자 장식은 `setting(terminal.integrated.shellIntegration.decorationsEnabled)` 설정으로 구성할 수 있습니다.
+명령 및 개요 눈금자는 `setting(terminal.integrated.shellIntegration.decorationsEnabled)` 설정으로 구성할 수 있습니다.
 
 ## 명령 탐색 {#command-navigation}
 
@@ -126,7 +140,7 @@ VS Code는 명령의 출력을 스캔하고 사용자가 다음에 수행할 가
 
 ## 최근 명령 실행 {#run-recent-command}
 
-**터미널: 최근 명령 실행** 명령은 다양한 출처의 기록을 Quick Pick에 표시하여 셸의 역 검색(`kbstyle(Ctrl+R)`)과 유사한 기능을 제공합니다. 출처는 현재 세션의 기록, 이 셸 유형의 이전 세션 기록 및 일반 셸 기록 파일입니다.
+**Terminal: Run Recent Command** 명령은 다양한 출처의 기록을 Quick Pick에 표시하여 셸의 역 검색(`kbstyle(Ctrl+R)`)과 유사한 기능을 제공합니다. 출처는 현재 세션의 기록, 이 셸 유형의 이전 세션 기록 및 일반 셸 기록 파일입니다.
 
 !["최근 명령 실행" 명령은 이전에 실행된 명령을 필터링할 수 있는 빠른 선택을 보여줍니다.](images/shell-integration/recent-command.png)
 
@@ -158,15 +172,16 @@ VS Code는 명령의 출력을 스캔하고 사용자가 다음에 수행할 가
 
 ## 최근 디렉터리로 이동 {#go-to-recent-directory}
 
-최근 명령 실행 기능과 유사하게, **터미널: 최근 디렉터리로 이동** 명령은 방문한 디렉터리를 추적하고 이를 빠르게 필터링하고 탐색(`cd`)할 수 있게 합니다. `kbstyle(Alt)`를 누르고 있으면 텍스트를 실행하지 않고 터미널에 작성할 수 있습니다.
+최근 명령 실행 기능과 유사하게, **Terminal: Go to Recent Directory** 명령은 방문한 디렉터리를 추적하고 이를 빠르게 필터링하고 탐색(`cd`)할 수 있게 합니다. `kbstyle(Alt)`를 누르고 있으면 텍스트를 실행하지 않고 터미널에 작성할 수 있습니다.
 
-이 명령의 기본 키보드 단축키는 `kb(workbench.action.terminal.goToRecentDirectory)`로, 편집기에서 **행/열로 이동** 명령과 유사하게 작동합니다. Ctrl+G는 `kbstyle(Ctrl+Alt+G)`로 셸로 전송할 수 있습니다.
+이 명령의 기본 키보드 단축키는 `kb(workbench.action.terminal.goToRecentDirectory)`로, 편집기에서 **Go to Line/Column** 명령과 유사하게 작동합니다. Ctrl+G는 `kbstyle(Ctrl+Alt+G)`로 셸로 전송할 수 있습니다.
 
 ## 현재 작업 디렉터리 감지 {#current-working-directory-detection}
 
-셸 통합은 VS Code에 셸의 현재 작업 디렉터리를 알려줍니다. 이 정보는 Windows에서 정규 표현식을 통해 프롬프트를 감지하려고 시도하지 않고는 얻을 수 없으며, macOS와 Linux에서는 폴링이 필요하므로 성능에 좋지 않습니다.
+셸 통합은 VS Code에 셸의 현재 작업 디렉터리를 알려줍니다. 이 정보는 Windows에서 정규 표현식을 통해 프롬프트를 감지하려고 시도하지 않고는 얻을 수 없으며, macOS와 Linux에서는 주기적으로 상태를 확인(Polling)해야 하기 때문에 성능 저하를 초래할 수 있습니다.
 
-이 기능이 가능하게 하는 가장 큰 기능 중 하나는 터미널 내 링크의 향상된 해석입니다. 예를 들어, 링크 `package.json`이 있을 때, 셸 통합이 비활성화된 상태에서 링크를 활성화하면 작업 공간에 여러 개의 `package.json` 파일이 있을 경우 `package.json`을 필터로 하는 검색 빠른 선택이 열립니다. 그러나 셸 통합이 활성화되면 현재 위치가 알려져 있기 때문에 현재 폴더의 `package.json` 파일을 직접 열 수 있습니다. 이는 예를 들어 `ls`의 출력이 올바른 파일을 신뢰성 있게 열 수 있도록 합니다.
+이 기능을 활성화하면 터미널에서 파일 링크를 보다 정확하게 해석할 수 있습니다.  
+예를 들어, `package.json` 파일이 링크로 표시되어 있을 때, 셸 통합이 비활성화된 상태에서는 해당 링크를 클릭하면 작업 공간 내 여러 개의 `package.json` 파일 중에서 선택할 수 있는 검색 창(Quick Pick)이 열립니다. 즉, 사용자가 원하는 파일을 직접 선택해야 합니다. 반면, 셸 통합이 활성화된 경우에는 현재 작업 디렉터리를 알 수 있기 때문에, 클릭하면 현재 폴더의 `package.json` 파일이 즉시 열립니다. 이 덕분에, `ls` 명령어를 실행한 후 파일 이름을 클릭하면 해당 파일이 정확히 열리므로, 보다 직관적인 파일 탐색이 가능합니다.
 
 현재 작업 디렉터리는 터미널 탭에 디렉터리를 표시하고, 최근 명령 실행 빠른 선택 및 `"terminal.integrated.splitCwd": "inherited"` 기능에 사용됩니다.
 
@@ -182,9 +197,9 @@ Windows의 콘솔 API는 Linux/macOS 터미널보다 더 많은 키보드 단축
 - `kbstyle(Shift+End)`: 모든 플랫폼에서 기본값은 `SelectLine`
 - `kbstyle(Shift+Home)`: 모든 플랫폼에서 기본값은 `SelectBackwardsLine`
 
-## 실험적 IntelliSense for PowerShell {#experimental-intellisense-for-powershell}
+## 실험적인 IntelliSense for PowerShell {#experimental-intellisense-for-powershell}
 
-PowerShell에 대한 실험적 IntelliSense는 PowerShell에서 입력할 때 편집기 경험과 유사한 완성 목록을 표시합니다. 이 기능은 PowerShell 세션의 기본 완성 API에 의해 지원되므로, 변수와 같은 컨텍스트 인식 완성이 가능합니다.
+PowerShell에 대한 실험적인 IntelliSense는 PowerShell에서 입력할 때 편집기 경험과 유사한 완성 목록을 표시합니다. 이 기능은 PowerShell 세션의 기본 완성 API에 의해 지원되므로, 변수와 같은 컨텍스트 인식 완성이 가능합니다.
 
 ![PowerShell IntelliSense는 Get-Alias, Get-ChildItem과 같은 완성을 보여줍니다. 예를 들어 Get-을 입력할 때.](images/shell-integration/pwsh-intellisense.png)
 
@@ -194,11 +209,13 @@ PowerShell에 대한 실험적 IntelliSense는 `setting(terminal.integrated.sugg
 "terminal.integrated.suggest.enabled": true
 ```
 
-> **참고**: 이 기능은 현재 Windows와 macOS에서만 사용할 수 있습니다.
+:::note
+이 기능은 현재 Windows와 macOS에서만 사용할 수 있습니다.
+:::
 
-### Git 및 VS Code 완성 {#git-and-vs-code-completions}
+### Git 및 VS Code 항목 추천 {#git-and-vs-code-completions}
 
-실험적 IntelliSense가 활성화되면 `git`, `code`, 및 `code-insiders`에 대한 완성이 기본적으로 켜집니다. PowerShell 프로필에 이미 완성이 있는 경우, `setting(terminal.integrated.suggest.builtinCompletions)` 설정을 사용하여 이를 끌 수 있습니다.
+실험적 IntelliSense가 활성화되면 `git`, `code`, 및 `code-insiders`에 대한 항목 추천이 기본적으로 켜집니다. PowerShell 프로필에 이미 완성이 있는 경우, `setting(terminal.integrated.suggest.builtinCompletions)` 설정을 사용하여 이를 끌 수 있습니다.
 
 ## 향상된 접근성 {#enhanced-accessibility}
 
@@ -285,9 +302,9 @@ iTerm2가 선도한 다음 시퀀스가 지원됩니다:
 
 - 일부 셸 플러그인은 초기화할 때 `$VSCODE_SHELL_INTEGRATION`을 해제하여 VS Code의 셸 통합을 명시적으로 비활성화할 수 있습니다.
 
-### 기능이 비활성화되어 있는데도 명령 장식이 표시되는 이유는 무엇인가요? {#why-are-command-decorations-showing-when-the-feature-is-disabled}
+### 기능이 비활성화되어 있는데도 명령어 상태 표시가 나타나는 이유는 무엇인가요? {#why-are-command-decorations-showing-when-the-feature-is-disabled}
 
-이러한 현상의 가장 가능성이 높은 원인은 시스템에 VS Code가 이해하는 다른 터미널에 대한 셸 통합이 설치되어 있기 때문입니다 [VS Code 이해](#final-term-shell-integration). 장식을 원하지 않는 경우, 다음 설정으로 숨길 수 있습니다:
+이러한 현상의 가장 가능성이 높은 원인은 시스템에 [VS Code](#final-term-shell-integration)가 이해하는 다른 터미널에 대한 셸 통합이 설치되어 있기 때문입니다. 장식을 원하지 않는 경우, 다음 설정으로 숨길 수 있습니다:
 
 ```json
 "terminal.integrated.shellIntegration.decorationsEnabled": never
@@ -295,6 +312,6 @@ iTerm2가 선도한 다음 시퀀스가 지원됩니다:
 
 또는 셸 rc/startup 스크립트에서 셸 통합 스크립트를 제거할 수 있지만, 이 경우 [명령 탐색](#command-navigation)과 같은 명령 인식 기능에 대한 접근을 잃게 됩니다.
 
-### Windows에서 명령 장식이 왜 이리 저절로 움직이나요? {#why-does-the-command-decoration-jump-around-on-windows}
+### Windows에서 명령어 상태 표시가 왜 이리 저절로 움직이나요? {#why-does-the-command-decoration-jump-around-on-windows}
 
-Windows는 ConPTY라는 에뮬레이트된 가상 터미널(pty) 백엔드를 사용합니다. 이는 일반적인 pty와 약간 다르게 작동하며, Windows 콘솔 API와의 호환성을 유지해야 합니다. 이로 인해 pty는 렌더링을 특별한 방식으로 처리하여 터미널 버퍼에서 명령을 식별하는 셸 통합 시퀀스가 잘못 배치될 수 있습니다. 명령이 저절로 움직일 때는 일반적으로 명령이 실행된 후 VS Code의 휴리스틱이 작동하여 명령 장식의 위치를 개선하려고 할 때 발생합니다.
+Windows는 ConPTY라는 가상 터미널(PTY) 백엔드를 사용합니다. 이는 일반적인 PTY와 다르게 동작하는데, Windows 콘솔 API와의 호환성을 유지해야 하기 때문입니다. 이로 인해 터미널에서 명령어를 식별하는 셸 통합 시퀀스가 올바르게 배치되지 않을 수 있습니다. 특히, Windows의 PTY는 렌더링을 독특한 방식으로 처리하기 때문에 명령어가 실행된 후 예상치 않게 위치가 변하는 경우가 발생할 수 있습니다. 이런 문제를 보완하기 위해, VS Code는 자체적인 휴리스틱(heuristics, 경험 기반 알고리즘)을 사용하여 명령어 상태 표시(명령 장식)의 위치를 자동으로 조정합니다. 즉, 명령이 실행된 후 갑자기 위치가 변경되는 것처럼 보일 수 있지만, 이는 VS Code가 정확한 위치를 맞추려는 과정에서 발생하는 현상입니다.

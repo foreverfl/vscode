@@ -1,6 +1,17 @@
+---
+Order: 3
+Area: java
+TOCTitle: 리팩토링
+ContentId: 36ee3e12-9bcc-4f01-9672-857ad2733c2d
+PageTitle: Visual Studio Code에서 Java 코드 리팩토링 및 소스 액션
+DateApproved: 12/9/2021
+MetaDescription: Visual Studio Code에서 Java 코드 리팩토링 및 소스 액션
+sidebar_label: 리팩토링
+---
+
 # 자바 리팩토링 및 소스 액션 {#java-refactoring-and-source-actions}
 
-Visual Studio Code는 소스 코드를 리팩토링할 수 있는 다양한 옵션과 코드를 생성하고 문제를 해결할 수 있는 소스 액션을 제공합니다. 이를 사용하려면 `전구` 💡를 클릭하세요. 또는 편집기 뷰에서 마우스 오른쪽 버튼을 클릭하고 **소스 액션...**을 선택하세요.
+Visual Studio Code는 소스 코드를 리팩토링할 수 있는 다양한 옵션과 코드를 생성하고 문제를 해결할 수 있는 소스 액션을 제공합니다. 이를 사용하려면 `전구` 💡를 클릭하세요. 또는 편집기 화면에서 마우스 오른쪽 버튼을 클릭하고 **Source Action...** 을 선택하세요.
 
 ## 지원되는 코드 액션 목록 {#list-of-supported-code-actions}
 
@@ -10,7 +21,7 @@ Visual Studio Code는 소스 코드를 리팩토링할 수 있는 다양한 옵�
   - [익명 클래스 생성으로 변환](#convert-to-anonymous-class-creation)
   - [향상된 for 루프로 변환](#convert-to-enhanced-for-loop)
   - [람다 표현식으로 변환](#convert-to-lambda-expression)
-  - [정적 임포트로 변환](#convert-to-static-import)
+  - [정적 import로 변환](#convert-to-static-import)
   - 추출 리팩토링
     - [상수로 추출](#extract-to-constant)
     - [필드로 추출](#extract-to-field)
@@ -32,7 +43,7 @@ Visual Studio Code는 소스 코드를 리팩토링할 수 있는 다양한 옵�
   - [생성자 생성](#generate-constructors)
   - [위임 메서드 생성](#generate-delegate-methods)
   - [메서드 재정의/구현](#overrideimplement-methods)
-  - [임포트 정리](#organize-imports)
+  - [import 정리](#organize-imports)
   - [getter 및 setter 생성](#generate-getters-and-setters)
   - [`hashCode()` 및 `equals()` 생성](#generate-hashcode-and-equals)
   - [`toString()` 생성](#generate-tostring)
@@ -218,13 +229,13 @@ public void method() {
 
 > 추가 참고: [익명 클래스 생성으로 변환](#convert-to-anonymous-class-creation)
 
-### 정적 임포트로 변환 {#convert-to-static-import}
+### 정적 import로 변환 {#convert-to-static-import}
 
-필드 또는 메서드를 정적 임포트로 변환합니다.
+필드 또는 메서드를 정적 import로 변환합니다.
 
 #### 예제 {#example}
 
-`Assert.assertEquals()` 호출을 정적 임포트로 변환해 보겠습니다.
+`Assert.assertEquals()` 호출을 정적 import로 변환해 보겠습니다.
 
 ##### 이전 {#before}
 
@@ -246,7 +257,7 @@ public void test() {
 }
 ```
 
-<video src="images/java-refactoring/convert-static-imports.mp4" autoplay loop muted playsinline controls title="정적 임포트로 변환">
+<video src="images/java-refactoring/convert-static-imports.mp4" autoplay loop muted playsinline controls title="정적 import로 변환">
 </video>
 
 ### 상수로 추출 {#extract-to-constant}
@@ -717,11 +728,11 @@ String s = "";
 <video src="images/java-refactoring/override-implement-methods.mp4" autoplay loop muted playsinline controls title="메서드 재정의/구현">
 </video>
 
-### 임포트 정리 {#organize-imports}
+### import 정리 {#organize-imports}
 
-이 소스 작업을 사용하여 임포트를 정리할 수 있습니다. 모호한 임포트도 처리할 수 있으며, 이 경우 올바른 것을 선택할 수 있도록 드롭다운 목록이 제공됩니다. 해결되지 않은 타입이 있는 코드 줄도 제공되어 결정을 도와줍니다.
+이 소스 작업을 사용하여 import를 정리할 수 있습니다. 모호한 import도 처리할 수 있으며, 이 경우 올바른 것을 선택할 수 있도록 드롭다운 목록이 제공됩니다. 해결되지 않은 타입이 있는 코드 줄도 제공되어 결정을 도와줍니다.
 
-<video src="images/java-refactoring/resolve-ambiguous-imports.mp4" autoplay loop muted playsinline controls title="임포트 정리">
+<video src="images/java-refactoring/resolve-ambiguous-imports.mp4" autoplay loop muted playsinline controls title="import 정리">
 </video>
 
 ### getter 및 setter 생성 {#generate-getters-and-setters}

@@ -7,130 +7,130 @@ ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: Visual Studio Code Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
 DateApproved: 03/05/2025
 ---
-# Remote Development FAQ
+# 원격 개발 FAQ {#remote-development-faq}
 
-This article covers frequently asked questions for each of the **Visual Studio Code Remote Development** extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/devcontainers/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities. Or try the introductory [Tutorials](/docs/remote/ssh-tutorial.md) to help get you running quickly in a remote environment.
+이 문서는 **Visual Studio Code 원격 개발** 확장에 대한 자주 묻는 질문을 다룹니다. 각 기능을 설정하고 작업하는 방법에 대한 자세한 내용은 [SSH](/docs/remote/ssh.md), [컨테이너](/docs/devcontainers/containers.md), [WSL](/docs/remote/wsl.md) 문서를 참조하세요. 또는 원격 환경에서 빠르게 작업을 시작하는 데 도움이 되는 소개 [튜토리얼](/docs/remote/ssh-tutorial.md)을 시도해 보세요.
 
-For questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces).
+[GitHub Codespaces](https://github.com/features/codespaces)에 대한 질문은 [GitHub Codespaces 문서](https://docs.github.com/github/developing-online-with-codespaces)를 참조하세요.
 
-## General
+## 일반 {#general}
 
-### What is Visual Studio Code Remote Development?
+### Visual Studio Code 원격 개발이란 무엇인가요? {#what-is-visual-studio-code-remote-development}
 
-The Visual Studio Code [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) allows you to open any folder in a container, on a remote machine (via SSH), or in the Windows Subsystem for Linux and take advantage of VS Code's full feature set. This means that VS Code can provide a local-quality development experience — including full IntelliSense (completions), debugging, and more — regardless of where your code is located or hosted.
+Visual Studio Code [원격 개발 확장 팩](https://aka.ms/vscode-remote/download/extension)을 사용하면 컨테이너, 원격 머신(SSH를 통해) 또는 Windows Subsystem for Linux에서 모든 폴더를 열고 VS Code의 전체 기능을 활용할 수 있습니다. 이는 코드가 위치하거나 호스팅되는 곳에 관계없이 VS Code가 로컬 품질의 개발 경험을 제공할 수 있음을 의미합니다. 여기에는 전체 IntelliSense(완성), 디버깅 등이 포함됩니다.
 
-### What advantages does VS Code Remote Development provide over local editing?
+### VS Code 원격 개발이 로컬 편집에 비해 제공하는 이점은 무엇인가요? {#what-advantages-does-vs-code-remote-development-provide-over-local-editing}
 
-Some benefits of remote development include:
+원격 개발의 몇 가지 이점은 다음과 같습니다:
 
-* Being able to edit, build, or debug on a different OS than you are running locally.
-* Being able to develop in an environment that matches the target deployment environment.
-* Using larger or more specialized hardware than your local machine for development.
-* The ability to edit code stored in another location, such as in the cloud or at a customer site.
-* Separating developer environments to avoid conflicts, improve security, and speed up on-boarding.
+* 로컬에서 실행 중인 OS와 다른 OS에서 편집, 빌드 또는 디버깅할 수 있습니다.
+* 대상 배포 환경과 일치하는 환경에서 개발할 수 있습니다.
+* 로컬 머신보다 더 크거나 전문화된 하드웨어를 사용하여 개발할 수 있습니다.
+* 클라우드나 고객 사이트와 같은 다른 위치에 저장된 코드를 편집할 수 있습니다.
+* 개발자 환경을 분리하여 충돌을 피하고 보안을 개선하며 온보딩 속도를 높일 수 있습니다.
 
-Compared to using a network share or synchronizing files, VS Code Remote Development provides dramatically better performance along with better control over your development environment and tools.
+네트워크 공유를 사용하거나 파일을 동기화하는 것과 비교할 때, VS Code 원격 개발은 개발 환경과 도구에 대한 더 나은 제어와 함께 성능이 크게 향상됩니다.
 
-### How do the Remote Development extensions relate to GitHub Codespaces?
+### 원격 개발 확장과 GitHub Codespaces는 어떻게 관련이 있나요? {#how-do-the-remote-development-extensions-relate-to-github-codespaces}
 
-[GitHub Codespaces](https://github.com/features/codespaces) is a service that provides managed cloud-hosted development environments accessible from both VS Code and a new browser-based editor. The service also allows VS Code and the browser-based editor to access self-hosted environments (desktop or server) without requiring an SSH server or even a direct network route. You can read more in the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces).
+[GitHub Codespaces](https://github.com/features/codespaces)는 VS Code와 새로운 브라우저 기반 편집기에서 접근할 수 있는 관리형 클라우드 호스팅 개발 환경을 제공하는 서비스입니다. 이 서비스는 또한 VS Code와 브라우저 기반 편집기가 SSH 서버나 직접 네트워크 경로 없이 자체 호스팅 환경(데스크탑 또는 서버)에 접근할 수 있도록 합니다. 자세한 내용은 [GitHub Codespaces 문서](https://docs.github.com/github/developing-online-with-codespaces)를 참조하세요.
 
-While the Remote Development and Codespaces extensions share technology and features, the Remote Development extensions are released separately and can operate independently from GitHub Codespaces.
+원격 개발 및 Codespaces 확장은 기술과 기능을 공유하지만, 원격 개발 확장은 별도로 출시되며 GitHub Codespaces와 독립적으로 작동할 수 있습니다.
 
-### How do the Remote Development extensions work?
+### 원격 개발 확장은 어떻게 작동하나요? {#how-do-the-remote-development-extensions-work}
 
-Visual Studio Code Remote Development allows your local VS Code installation to transparently interact with source code and runtime environments on other machines (whether virtual or physical) by moving the execution of certain commands to a "remote server". The **VS Code Server** is quickly installed by VS Code when you connect to a remote endpoint and can host extensions that interact directly with the remote workspace, machine, and file system.
+Visual Studio Code 원격 개발은 로컬 VS Code 설치가 다른 머신(가상 또는 물리적)의 소스 코드 및 런타임 환경과 투명하게 상호작용할 수 있도록 하며, 특정 명령의 실행을 "원격 서버"로 이동합니다. **VS Code 서버**는 원격 엔드포인트에 연결할 때 VS Code에 의해 신속하게 설치되며, 원격 작업 공간, 머신 및 파일 시스템과 직접 상호작용하는 확장을 호스팅할 수 있습니다.
 
 ![Architecture summary](images/troubleshooting/architecture.png)
 
-See [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for additional details about extensions.
+추가적인 확장에 대한 세부정보는 [원격 개발 지원](/api/advanced-topics/remote-extensions.md)을 참조하세요.
 
-### How do the Remote Development extensions secure access to a remote machine, VM, or container?
+### 원격 개발 확장은 원격 머신, VM 또는 컨테이너에 대한 접근을 어떻게 보안하나요? {#how-do-the-remote-development-extensions-secure-access-to-a-remote-machine-vm-or-container}
 
-Visual Studio Code Remote Development uses existing, well known transports like [secure shell](https://en.wikipedia.org/wiki/Secure_Shell) to authenticate and secure traffic. No ports need to be publicly opened beyond those used by these well-known, secure transports.
+Visual Studio Code 원격 개발은 [보안 셸](https://en.wikipedia.org/wiki/Secure_Shell)과 같은 기존의 잘 알려진 전송 방법을 사용하여 인증하고 트래픽을 보안합니다. 이러한 잘 알려진 보안 전송 방법이 사용하는 포트 외에는 공개적으로 열 필요가 없습니다.
 
-The VS Code Server that is injected runs as the same user you used to sign in to the machine, ensuring that VS Code and its extensions are not given improper elevated access without permission. The server is started and stopped by VS Code and is not wired into any user or global login or startup scripts. VS Code manages the server's lifecycle so you do not need to worry about whether or not it is running.
+주입된 VS Code 서버는 머신에 로그인할 때 사용한 사용자로 실행되며, 이는 VS Code와 그 확장이 허가 없이 부적절한 상승된 접근 권한을 부여받지 않도록 보장합니다. 서버는 VS Code에 의해 시작되고 중지되며, 사용자 또는 전역 로그인 또는 시작 스크립트에 연결되어 있지 않습니다. VS Code는 서버의 생명 주기를 관리하므로 서버가 실행 중인지 여부에 대해 걱정할 필요가 없습니다.
 
-### Can VS Code Server be installed or used on its own?
+### VS Code 서버를 독립적으로 설치하거나 사용할 수 있나요? {#can-vs-code-server-be-installed-or-used-on-its-own}
 
-No. The VS Code Server is a component of the Remote Development extensions and is managed by a VS Code client. It is installed and updated automatically by VS Code when it connects to an endpoint and if installed separately could become quickly out of date. It is not intended or [licensed](#license-and-privacy) for use by other clients.
+아니요. VS Code 서버는 원격 개발 확장의 구성 요소이며 VS Code 클라이언트에 의해 관리됩니다. 엔드포인트에 연결할 때 VS Code에 의해 자동으로 설치 및 업데이트되며, 별도로 설치할 경우 빠르게 구식이 될 수 있습니다. 다른 클라이언트에서 사용하기 위한 것이 아니며 [라이센스](#license-and-privacy)가 부여되지 않았습니다.
 
-### What are the connectivity requirements for VS Code Server?
+### VS Code 서버의 연결 요구 사항은 무엇인가요? {#what-are-the-connectivity-requirements-for-vs-code-server}
 
-Installation of VS Code Server requires that your local machine have outbound HTTPS (port 443) connectivity to:
+VS Code 서버 설치를 위해서는 로컬 머신이 다음에 대한 아웃바운드 HTTPS(포트 443) 연결을 가져야 합니다:
 
 * `update.code.visualstudio.com`
 * `*.vo.msecnd.net` (Azure CDN)
 
-By default, the Remote - SSH will attempt to download on the remote host, and fail back to downloading VS Code Server locally and transferring it remotely once a connection is established. You can change this behavior with the `setting(remote.SSH.localServerDownload)` setting to always download locally and then transfer it, or to never download locally.
+기본적으로 Remote - SSH는 원격 호스트에서 다운로드를 시도하며, 연결이 설정되면 VS Code 서버를 로컬에서 다운로드하고 원격으로 전송하는 방식으로 실패합니다. `setting(remote.SSH.localServerDownload)` 설정을 사용하여 항상 로컬에서 다운로드한 후 전송하도록 변경하거나, 로컬에서 다운로드하지 않도록 설정할 수 있습니다.
 
-The Dev Containers extension always downloads locally and transfers into the container.
+Dev Containers 확장은 항상 로컬에서 다운로드하고 컨테이너로 전송합니다.
 
-You can install extensions manually without an internet connection using the **Extensions: Install from VSIX...** command, but if you use the extension panel or `devcontainer.json` to install extensions, your local machine and VS Code Server will need outbound HTTPS (port 443) access to:
+인터넷 연결 없이 수동으로 확장을 설치할 수 있는 **Extensions: Install from VSIX...** 명령을 사용할 수 있지만, 확장 패널이나 `devcontainer.json`을 사용하여 확장을 설치하는 경우 로컬 머신과 VS Code 서버는 다음에 대한 아웃바운드 HTTPS(포트 443) 접근이 필요합니다:
 
 * `marketplace.visualstudio.com`
 * `vscode.blob.core.windows.net`
 * `*.vo.msecnd.net` (Azure CDN)
 * `*.gallerycdn.vsassets.io` (Azure CDN)
 
-Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://learn.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
+마지막으로, 일부 확장(C#와 같은)은 `download.microsoft.com` 또는 `download.visualstudio.microsoft.com`에서 추가 종속성을 다운로드합니다. 다른 확장([Visual Studio Live Share](https://learn.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)와 같은)는 추가적인 연결 요구 사항이 있을 수 있습니다. 문제가 발생하면 확장 문서를 참조하세요.
 
-All other communication between the server and the VS Code client is accomplished through the following transport channels depending on the extension:
+서버와 VS Code 클라이언트 간의 모든 다른 통신은 확장에 따라 다음 전송 채널을 통해 이루어집니다:
 
-* SSH: An authenticated, secure SSH tunnel.
-* Containers: Docker's configured communication channel (via `docker exec`).
-* WSL: A random local port.
+* SSH: 인증된 보안 SSH 터널.
+* 컨테이너: Docker의 구성된 통신 채널(`docker exec`를 통해).
+* WSL: 임의의 로컬 포트.
 
-You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
+VS Code가 접근해야 하는 위치 목록은 [네트워크 연결 문서](/docs/setup/network.md#common-hostnames)에서 확인할 수 있습니다.
 
-### Why can't I see my local containers in the Docker extension when using the Remote - extensions?
+### 원격 확장을 사용할 때 Docker 확장에서 로컬 컨테이너를 볼 수 없는 이유는 무엇인가요? {#why-cant-i-see-my-local-containers-in-the-docker-extension-when-using-the-remote---extensions}
 
-By default, the Docker extension will run remotely. While this is a sensible default in some cases, it means the extension may not show local containers when VS Code is connected to a remote SSH host, container, or WSL.
+기본적으로 Docker 확장은 원격에서 실행됩니다. 이는 일부 경우에 합리적인 기본값이지만, VS Code가 원격 SSH 호스트, 컨테이너 또는 WSL에 연결되어 있을 때 확장이 로컬 컨테이너를 표시하지 않을 수 있습니다.
 
-You can use one of the following solutions to resolve this problem:
+이 문제를 해결하기 위해 다음 솔루션 중 하나를 사용할 수 있습니다:
 
-* Open a new local window (**File > New Window**) and use it to work with local containers.
+* 새 로컬 창을 열고 (**파일 > 새 창**) 로컬 컨테이너와 작업합니다.
 
-* Install the [Dev Containers](https://aka.ms/vscode-remote/download/containers) extension and use the [Remote Explorer](/docs/devcontainers/containers.md#managing-containers) in situations when you need to see your local containers.
+* [Dev Containers](https://aka.ms/vscode-remote/download/containers) 확장을 설치하고 로컬 컨테이너를 볼 필요가 있을 때 [원격 탐색기](/docs/devcontainers/containers.md#managing-containers)를 사용합니다.
 
-* **WSL only**:  Use the [Docker Technical Preview for WSL 2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) or [configure Docker Desktop for use in WSL 1](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
+* **WSL 전용**: [WSL 2용 Docker 기술 미리보기](https://docs.docker.com/docker-for-windows/wsl-tech-preview/)를 사용하거나 [WSL 1에서 사용할 Docker Desktop 구성](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly)을 설정합니다.
 
-* **Dev Containers only**: Forward the [Docker socket and install the Docker CLI](https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker) (only) in the container.
+* **Dev Containers 전용**: [Docker 소켓을 포워딩하고 Docker CLI를 설치](https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker)합니다(컨테이너 내에서만).
 
-* Use the [extensionKind property](/docs/devcontainers/containers.md#advanced-forcing-an-extension-to-run-locally-or-remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
+* [extensionKind 속성](/docs/devcontainers/containers.md#advanced-forcing-an-extension-to-run-locally-or-remotely)을 사용하여 확장을 `ui`로 강제할 수 있습니다. 그러나 이 경우 일부 명령이 작동하지 않을 수 있습니다.
 
-### What Linux packages or libraries need to be installed on a host to use Remote Development?
+### 원격 개발을 사용하기 위해 호스트에 설치해야 하는 Linux 패키지나 라이브러리는 무엇인가요? {#what-linux-packages-or-libraries-need-to-be-installed-on-a-host-to-use-remote-development}
 
-Remote Development requires kernel >= 4.18, glibc >=2.28, and libstdc++ >= 3.4.25. Recent x86_64 glibc-based distributions have the best support, but exact requirements can vary by distribution.
+원격 개발은 kernel >= 4.18, glibc >=2.28, libstdc++ >= 3.4.25가 필요합니다. 최근 x86_64 glibc 기반 배포판이 가장 좋은 지원을 제공하지만, 정확한 요구 사항은 배포판에 따라 다를 수 있습니다.
 
-Support for musl-based [Alpine Linux](https://alpinelinux.org) is available for the Dev Containers and WSL extensions and ARMv7l (AArch32) / ARMv8l (AArch64) is available in Remote - SSH. However, native dependencies in certain extensions may cause them not to function on non-x86_64 glibc distributions. Note that experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
+musl 기반 [Alpine Linux](https://alpinelinux.org)에 대한 지원은 Dev Containers 및 WSL 확장에서 제공되며 ARMv7l (AArch32) / ARMv8l (AArch64)는 Remote - SSH에서 사용할 수 있습니다. 그러나 특정 확장에서의 네이티브 종속성으로 인해 비 x86_64 glibc 배포판에서 작동하지 않을 수 있습니다. 실험적인 ARMv8l (AArch64)는 [VS Code Insiders](https://code.visualstudio.com/insiders/)에서만 사용할 수 있습니다.
 
-See [Remote Development with Linux](/docs/remote/linux.md) for additional details.
+추가 세부정보는 [Linux와 함께하는 원격 개발](/docs/remote/linux.md)을 참조하세요.
 
-### Can I run VS Code Server on older Linux distributions?
+### 오래된 Linux 배포판에서 VS Code 서버를 실행할 수 있나요? {#can-i-run-vs-code-server-on-older-linux-distributions}
 
-Starting with VS Code release 1.99 (March 2025), the prebuilt servers distributed by VS Code are only compatible with Linux distributions that are based on glibc 2.28 or later. These include for example, Debian 10, RHEL 8, or Ubuntu 20.04.
+VS Code 버전 1.99(2025년 3월)부터 VS Code에서 배포하는 미리 빌드된 서버는 glibc 2.28 이상을 기반으로 하는 Linux 배포판과만 호환됩니다. 예를 들어 Debian 10, RHEL 8 또는 Ubuntu 20.04가 이에 해당합니다.
 
-VS Code will still allow users to connect to an OS that is not supported by VS Code (OSes that don't have glibc >= 2.28 and libstdc++ >= 3.4.25) via the [Remote - SSH](https://aka.ms/vscode-remote/download/ssh) extension, if a sysroot with these required library versions is provided. This approach gives you and your organization more time to migrate to newer Linux distributions.
+VS Code는 여전히 사용자가 VS Code에서 지원하지 않는 OS(즉, glibc >= 2.28 및 libstdc++ >= 3.4.25가 없는 OS)에 [Remote - SSH](https://aka.ms/vscode-remote/download/ssh) 확장을 통해 연결할 수 있도록 허용합니다. 이 경우 이러한 필수 라이브러리 버전이 포함된 sysroot가 제공되어야 합니다. 이 접근 방식은 귀하와 귀하의 조직이 최신 Linux 배포판으로 마이그레이션할 수 있는 시간을 더 제공합니다.
 
-| VS Code version | Base Requirements | Notes |
+| VS Code 버전 | 기본 요구 사항 | 비고 |
 |--------------|-------------------|-------|
-| 1.99.x |  kernel >= 4.18, glibc >=2.28, libstdc++ >= 3.4.25, binutils >= 2.29 | &lt;none&gt; |
+| 1.99.x | kernel >= 4.18, glibc >=2.28, libstdc++ >= 3.4.25, binutils >= 2.29 | &lt;없음&gt; |
 
-> [!IMPORTANT]
-> This approach is a technical workaround and is not an officially supported usage scenario.
+> [!중요]
+> 이 접근 방식은 기술적인 우회 방법이며 공식적으로 지원되는 사용 시나리오는 아닙니다.
 
-Follow these steps to configure your environment for this workaround:
+이 우회 방법을 위해 환경을 구성하려면 다음 단계를 따르세요:
 
-1. Build the sysroot
+1. sysroot 빌드
 
-    We recommend using [Crosstool-ng](https://crosstool-ng.github.io/docs/) to build the sysroot. Here are some example configs that you can start with:
+    sysroot를 빌드하기 위해 [Crosstool-ng](https://crosstool-ng.github.io/docs/)를 사용하는 것을 권장합니다. 시작할 수 있는 몇 가지 예제 구성은 다음과 같습니다:
 
     * [x86_64-gcc-8.5.0-glibc-2.28](https://github.com/microsoft/vscode-linux-build-agent/blob/main/x86_64-gcc-8.5.0-glibc-2.28.config)
     * [aarch64-gcc-8.5.0-glibc-2.28](https://github.com/microsoft/vscode-linux-build-agent/blob/main/aarch64-gcc-8.5.0-glibc-2.28.config)
     * [armhf-gcc-8.5.0-glibc-2.28](https://github.com/microsoft/vscode-linux-build-agent/blob/main/armhf-gcc-8.5.0-glibc-2.28.config)
 
-    The following example container can also be used to have an environment with [Crosstool-ng](https://crosstool-ng.github.io/docs/) installed:
+    다음 예제 컨테이너를 사용하여 [Crosstool-ng](https://crosstool-ng.github.io/docs/)가 설치된 환경을 만들 수도 있습니다:
 
     ```docker
     FROM ubuntu:latest
@@ -140,14 +140,14 @@ Follow these steps to configure your environment for this workaround:
     python3-dev autoconf automake libtool libtool-bin gawk wget bzip2 xz-utils unzip \
     patch rsync meson ninja-build
 
-    # Install crosstool-ng
+    # crosstool-ng 설치
     RUN wget http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.26.0.tar.bz2
     RUN tar -xjf crosstool-ng-1.26.0.tar.bz2
     RUN cd crosstool-ng-1.26.0 && ./configure --prefix=/crosstool-ng-1.26.0/out && make && make install
     ENV PATH=$PATH:/crosstool-ng-1.26.0/out/bin
     ```
 
-    Once you have an environment with [Crosstool-ng](https://crosstool-ng.github.io/docs/) and the relevant configs prepared, run the following commands to generate the sysroot
+    [Crosstool-ng](https://crosstool-ng.github.io/docs/)와 관련된 구성이 준비되면 다음 명령을 실행하여 sysroot를 생성합니다.
 
     ```sh
     mkdir toolchain-dir
@@ -156,103 +156,103 @@ Follow these steps to configure your environment for this workaround:
     ct-ng build
     ```
 
-2. VS Code server uses [patchelf](https://github.com/NixOS/patchelf) during the installation process to consume the required libraries from the sysroot.
+2. VS Code 서버는 설치 과정에서 [patchelf](https://github.com/NixOS/patchelf)를 사용하여 sysroot에서 필요한 라이브러리를 사용합니다.
 
-> [!IMPORTANT]
-> patchelf `v0.17.x` is known to cause segfaults with the remote server, we recommend using patchelf `>=v0.18.x`
+> [!중요]
+> patchelf `v0.17.x`는 원격 서버에서 세그멘테이션 오류를 유발하는 것으로 알려져 있으며, patchelf `>=v0.18.x`를 사용하는 것이 좋습니다.
 
-3. Install the patchelf binary and the sysroot on the remote host
+3. 원격 호스트에 patchelf 바이너리와 sysroot를 설치합니다.
 
-4. Create the following 3 environment variables:
+4. 다음 3개의 환경 변수를 생성합니다:
 
-    * **VSCODE_SERVER_CUSTOM_GLIBC_LINKER** path to the dynamic linker in the sysroot (used for `--set-interpreter` option with [patchelf](https://github.com/NixOS/patchelf))
-    * **VSCODE_SERVER_CUSTOM_GLIBC_PATH** path to the library locations in the sysroot (used as `--set-rpath` option with [patchelf](https://github.com/NixOS/patchelf))
-    * **VSCODE_SERVER_PATCHELF_PATH** path to the [patchelf](https://github.com/NixOS/patchelf) binary on the remote host
+    * **VSCODE_SERVER_CUSTOM_GLIBC_LINKER**: sysroot의 동적 링커 경로( [patchelf](https://github.com/NixOS/patchelf)와 함께 `--set-interpreter` 옵션에 사용)
+    * **VSCODE_SERVER_CUSTOM_GLIBC_PATH**: sysroot의 라이브러리 위치 경로( [patchelf](https://github.com/NixOS/patchelf)와 함께 `--set-rpath` 옵션에 사용)
+    * **VSCODE_SERVER_PATCHELF_PATH**: 원격 호스트의 [patchelf](https://github.com/NixOS/patchelf) 바이너리 경로
 
-You can now connect to the remote by using the [Remote - SSH](https://aka.ms/vscode-remote/download/ssh) extension. On successful connection, VS Code will show a dialog and banner message about the connection not being supported.
+이제 [Remote - SSH](https://aka.ms/vscode-remote/download/ssh) 확장을 사용하여 원격에 연결할 수 있습니다. 연결이 성공하면 VS Code는 연결이 지원되지 않는다는 대화 상자와 배너 메시지를 표시합니다.
 
-### Can I install individual extensions instead of the extension pack?
+### 개별 확장을 설치할 수 있나요, 아니면 확장 팩만 설치해야 하나요? {#can-i-install-individual-extensions-instead-of-the-extension-pack}
 
-Yes. The [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) provides a convenient way for you to access all of the latest remote capabilities as they are released. However, you can always install the individual extensions from the Marketplace or VS Code Extensions view.
+네. [원격 개발 확장 팩](https://aka.ms/vscode-remote/download/extension)은 최신 원격 기능에 접근할 수 있는 편리한 방법을 제공합니다. 그러나 항상 마켓플레이스나 VS Code 확장 보기에서 개별 확장을 설치할 수 있습니다.
 
 * [Remote - SSH](https://aka.ms/vscode-remote/download/ssh)
 * [Dev Containers](https://aka.ms/vscode-remote/download/containers)
 * [WSL](https://aka.ms/vscode-remote/download/wsl)
 
-## How can I review and configure extension settings?
+## 확장 설정을 검토하고 구성하려면 어떻게 해야 하나요? {#how-can-i-review-and-configure-extension-settings}
 
-As with [other parts of Visual Studio Code](/docs/editor/settings.md), you can customize each of the Remote Development extensions through their settings. Using Dev Containers as an example, you may review a list of all Dev Containers settings by opening the extension in the Extensions view (`kb(workbench.view.extensions)`), and navigating to **Feature Contributions**:
+[Visual Studio Code의 다른 부분](/docs/editor/settings.md)와 마찬가지로, 각 원격 개발 확장은 설정을 통해 사용자 정의할 수 있습니다. Dev Containers를 예로 들면, 확장 보기에서 확장을 열고 **기능 기여**로 이동하여 모든 Dev Containers 설정 목록을 검토할 수 있습니다:
 
-![List of settings in Feature Contributions](images/faq/feature-contributions.png)
+![기능 기여의 설정 목록](images/faq/feature-contributions.png)
 
-## WSL
+## WSL {#wsl}
 
-### What is the advantage of the extension over using WSL as the terminal?
+### 터미널로 WSL을 사용하는 것에 비해 확장의 장점은 무엇인가요? {#what-is-the-advantage-of-the-extension-over-using-wsl-as-the-terminal}
 
-You can think of WSL as a Linux machine running on Windows, where you can install Linux specific frameworks/tools (for example Python, Go, Rust, etc.) without impacting your Windows setup. You can then use VS Code and the WSL extension to develop in the context of what is installed in WSL, isolated from what is installed on Windows.
+WSL을 Windows에서 실행되는 Linux 머신으로 생각할 수 있으며, Windows 설정에 영향을 주지 않고 Linux 전용 프레임워크/도구(예: Python, Go, Rust 등)를 설치할 수 있습니다. 그런 다음 VS Code와 WSL 확장을 사용하여 WSL에 설치된 내용을 기반으로 개발할 수 있으며, Windows에 설치된 내용과는 격리됩니다.
 
-For example, you might install the Go stack in WSL (compiler, debugger, linters, etc.). If you run VS Code only on Windows, you must also install the same Go stack there to get features like smart completions, debugging, Go to Definition navigation. And because the language services are running on Windows, they don’t know what is in WSL.
+예를 들어, WSL에 Go 스택(컴파일러, 디버거, 린터 등)을 설치할 수 있습니다. Windows에서만 VS Code를 실행하면 스마트 완성, 디버깅, 정의로 이동과 같은 기능을 얻기 위해 동일한 Go 스택을 Windows에 설치해야 합니다. 그리고 언어 서비스가 Windows에서 실행되기 때문에 WSL에 무엇이 있는지 알지 못합니다.
 
-It’s true that you can run binaries in WSL from Windows and vice-versa, but regular VS Code extensions don’t know how to do this. This is how we started out supporting debugging in WSL, but quickly realized we would have to update all extensions to know about WSL.
+WSL에서 Windows로, 또는 그 반대로 바이너리를 실행할 수 있지만, 일반적인 VS Code 확장은 이를 수행하는 방법을 알지 못합니다. 이것이 우리가 WSL에서 디버깅을 지원하기 시작한 방법이지만, 모든 확장을 WSL에 대해 업데이트해야 한다는 것을 빠르게 깨달았습니다.
 
-We decided instead to make parts of VS Code run in WSL and let the UI running on Windows talk to the VS Code server running in WSL. This is what the WSL extension enables and with it, the Go extension runs in WSL along with the rest of the Go tools (compiler, debugger, linters), while VS Code runs on Windows.
+대신 VS Code의 일부를 WSL에서 실행하고 Windows에서 실행되는 UI가 WSL에서 실행되는 VS Code 서버와 통신하도록 하기로 결정했습니다. 이것이 WSL 확장이 가능하게 하며, 이를 통해 Go 확장은 WSL에서 나머지 Go 도구(컴파일러, 디버거, 린터)와 함께 실행되며, VS Code는 Windows에서 실행됩니다.
 
-With this approach, language features like smart completions just work against what is in WSL without having to set up anything on Windows. You don't have to worry about path issues or set up different versions of development stacks on Windows. If you are deploying applications to Linux, you can set up your WSL instances to look like your runtime environment while still getting a rich editing experience on Windows.
+이 접근 방식을 통해 스마트 완성과 같은 언어 기능이 Windows에서 아무것도 설정할 필요 없이 WSL에 있는 내용을 대상으로 작동합니다. 경로 문제에 대해 걱정할 필요가 없으며 Windows에서 개발 스택의 다른 버전을 설정할 필요가 없습니다. Linux에 애플리케이션을 배포하는 경우, WSL 인스턴스를 런타임 환경처럼 설정하면서도 Windows에서 풍부한 편집 경험을 얻을 수 있습니다.
 
-## Extensions authors
+## 확장 작성자 {#extensions-authors}
 
-### As an extension author, what do I need to do?
+### 확장 작성자로서 무엇을 해야 하나요? {#as-an-extension-author-what-do-i-need-to-do}
 
-The VS Code extension API abstracts away local/remote details so most extensions will work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension (particularly in a container) to be sure that no updates are required. See [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
+VS Code 확장 API는 로컬/원격 세부 정보를 추상화하므로 대부분의 확장은 수정 없이 작동합니다. 그러나 확장이 원하는 모든 노드 모듈이나 런타임을 사용할 수 있기 때문에 조정이 필요할 수 있는 상황이 있습니다. 확장을 테스트하여(특히 컨테이너에서) 업데이트가 필요한지 확인하는 것이 좋습니다. 자세한 내용은 [원격 개발 지원](/api/advanced-topics/remote-extensions.md)을 참조하세요.
 
-### Can an extension access local resources or APIs when a user is connected remotely?
+### 사용자가 원격으로 연결할 때 확장이 로컬 리소스나 API에 접근할 수 있나요? {#can-an-extension-access-local-resources-or-apis-when-a-user-is-connected-remotely}
 
-When VS Code connects to a remote environment, extensions are classified as either **UI** or **Workspace** extensions. UI Extensions run in a **local extension host**, can contribute UI or personalization features (for example themes), and have access to local files or APIs. Workspace extensions run in a **remote extension host** with the workspace and have full access to the source code, remote filesystem, and remote APIs. While Workspace extensions do not focus on UI customization, they can contribute explorers, views, and other UI elements as well.
+VS Code가 원격 환경에 연결할 때 확장은 **UI** 또는 **작업 공간** 확장으로 분류됩니다. UI 확장은 **로컬 확장 호스트**에서 실행되며, UI 또는 개인화 기능(예: 테마)을 기여할 수 있고 로컬 파일이나 API에 접근할 수 있습니다. 작업 공간 확장은 **원격 확장 호스트**에서 실행되며, 작업 공간과 함께 소스 코드, 원격 파일 시스템 및 원격 API에 대한 전체 접근 권한을 가집니다. 작업 공간 확장은 UI 사용자 정의에 중점을 두지 않지만, 탐색기, 보기 및 기타 UI 요소를 기여할 수 있습니다.
 
-When a user installs an extension, VS Code attempts to infer the correct location and install it based on its type. Extensions that do not need to run remotely like themes and other UI customizations are automatically installed on the UI side. All others are treated as Workspace extensions since they are the most full-featured. However, extension authors can also override this location with an `extensionKind` property in `package.json`.
+사용자가 확장을 설치하면 VS Code는 올바른 위치를 유추하고 유형에 따라 설치를 시도합니다. 테마 및 기타 UI 사용자 정의와 같이 원격으로 실행할 필요가 없는 확장은 자동으로 UI 측에 설치됩니다. 나머지는 가장 기능이 풍부한 작업 공간 확장으로 처리됩니다. 그러나 확장 작성자는 `package.json`의 `extensionKind` 속성을 사용하여 이 위치를 재정의할 수도 있습니다.
 
-If your extension is not functioning as expected, [there are steps to check](/api/advanced-topics/remote-extensions#incorrect-execution-location) if it is running in the correct location or should perhaps have a different `extensionKind`. Also see [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for additional details on what extension authors need to know about Remote Development and Codespaces.
+확장이 예상대로 작동하지 않는 경우, [확장이 올바른 위치에서 실행되고 있는지 확인하는 단계](/api/advanced-topics/remote-extensions#incorrect-execution-location)를 확인하거나 다른 `extensionKind`를 가질 수 있는지 확인하세요. 또한 원격 개발 및 Codespaces에 대해 확장 작성자가 알아야 할 추가 세부정보는 [원격 개발 지원](/api/advanced-topics/remote-extensions.md)을 참조하세요.
 
-## License and privacy
+## 라이센스 및 개인 정보 보호 {#license-and-privacy}
 
-### Location
+### 위치 {#location}
 
-You can find the licenses for the VS Code Remote Development extensions here:
+VS Code 원격 개발 확장의 라이센스는 다음에서 확인할 수 있습니다:
 
-* [Remote-SSH License](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh/license)
-* [WSL License](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl/license)
-* [Dev Containers License](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-containers/license)
+* [Remote-SSH 라이센스](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh/license)
+* [WSL 라이센스](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl/license)
+* [Dev Containers 라이센스](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-containers/license)
 
-### Why aren't the Remote Development extensions or their components open source?
+### 왜 원격 개발 확장이나 그 구성 요소가 오픈 소스가 아닌가요? {#why-arent-the-remote-development-extensions-or-their-components-open-source}
 
-The Visual Studio Code Remote Development extensions and their related components use an [open planning, issue, and feature request process](https://aka.ms/vscode-remote/feedback), but are not currently open source. The extensions share source code which is also used in fully managed remote development services like [GitHub Codespaces](https://github.com/features/codespaces) and their related extensions.
+Visual Studio Code 원격 개발 확장 및 관련 구성 요소는 [오픈 계획, 문제 및 기능 요청 프로세스](https://aka.ms/vscode-remote/feedback)를 사용하지만 현재 오픈 소스가 아닙니다. 이 확장은 [GitHub Codespaces](https://github.com/features/codespaces)와 같은 완전 관리형 원격 개발 서비스에서 사용되는 소스 코드를 공유합니다.
 
-See the [Visual Studio Code and 'Code - OSS' Differences](https://github.com/microsoft/vscode/wiki/Differences-between-the-repository-and-Visual-Studio-Code) and [Microsoft Extension Licenses](/docs/supporting/oss-extensions.md) articles for more information.
+자세한 내용은 [Visual Studio Code와 'Code - OSS'의 차이점](https://github.com/microsoft/vscode/wiki/Differences-between-the-repository-and-Visual-Studio-Code) 및 [Microsoft 확장 라이센스](/docs/supporting/oss-extensions.md) 문서를 참조하세요.
 
-### Are there any restrictions on where the Remote Development extensions can connect?
+### 원격 개발 확장이 연결할 수 있는 위치에 제한이 있나요? {#are-there-any-restrictions-on-where-the-remote-development-extensions-can-connect}
 
-You are free to use the extensions for both personal or corporate use to connect to your own physical machines, virtual machines, or containers. These can be on-premise, in your own private cloud or datacenter, in Azure, or other cloud/non-cloud hosting providers. You cannot build public products or services on top of the extensions or their related components (see next question).
+개인적 또는 기업적 용도로 자신의 물리적 머신, 가상 머신 또는 컨테이너에 연결하기 위해 확장을 자유롭게 사용할 수 있습니다. 이들은 온프레미스, 개인 클라우드 또는 데이터 센터, Azure 또는 기타 클라우드/비클라우드 호스팅 제공업체에 있을 수 있습니다. 확장이나 관련 구성 요소(다음 질문 참조) 위에 공개 제품이나 서비스를 구축할 수는 없습니다.
 
-### Can I use the VS Code Remote Development extensions to build my own product or service?
+### VS Code 원격 개발 확장을 사용하여 자신의 제품이나 서비스를 구축할 수 있나요? {#can-i-use-the-vs-code-remote-development-extensions-to-build-my-own-product-or-service}
 
-You can use the extensions with your own internal or private services. You cannot build a public or commercial service on top of the VS Code Remote Development extensions or their related components (for example VS Code Server). You cannot create other extensions that extend or manipulate the Remote Development extensions. While the license states you may not "provide the software as a stand-alone or integrated offering or combine it with any of your applications for others to use", you can document how to use the extensions in conjunction with your service.
+자신의 내부 또는 개인 서비스와 함께 확장을 사용할 수 있습니다. 그러나 VS Code 원격 개발 확장이나 관련 구성 요소(예: VS Code 서버) 위에 공개 또는 상업적 서비스를 구축할 수는 없습니다. 원격 개발 확장을 확장하거나 조작하는 다른 확장을 만들 수 없습니다. 라이센스에 "소프트웨어를 독립형 또는 통합 제공으로 제공하거나 다른 사람들이 사용할 수 있도록 귀하의 애플리케이션과 결합할 수 없다"고 명시되어 있지만, 귀하의 서비스와 함께 확장을 사용하는 방법을 문서화할 수 있습니다.
 
-### Can I repackage or reuse VS Code Server in my own public service offering?
+### VS Code 서버를 자신의 공개 서비스 제공에 재포장하거나 재사용할 수 있나요? {#can-i-repackage-or-reuse-vs-code-server-in-my-own-public-service-offering}
 
-No. The license states that you may not "provide the software as a stand-alone or integrated offering or combine it with any of your applications for others to use" which means you may not build public products or services on top of the VS Code Server.
+아니요. 라이센스에 "소프트웨어를 독립형 또는 통합 제공으로 제공하거나 다른 사람들이 사용할 수 있도록 귀하의 애플리케이션과 결합할 수 없다"고 명시되어 있어 VS Code 서버 위에 공개 제품이나 서비스를 구축할 수 없습니다.
 
-### I have a question about whether I can use the extensions for X, who can I ask?
+### X에 대해 확장을 사용할 수 있는지에 대한 질문이 있습니다. 누구에게 물어봐야 하나요? {#i-have-a-question-about-whether-i-can-use-the-extensions-for-x-who-can-i-ask}
 
-Please file an [issue](https://github.com/microsoft/vscode-remote-release/issues).
+[문제](https://github.com/microsoft/vscode-remote-release/issues)를 제기해 주세요.
 
-### GDPR and VS Code Remote Development
+### GDPR 및 VS Code 원격 개발 {#gdpr-and-vs-code-remote-development}
 
-The VS Code Remote Development extensions follow the GDPR policies as Visual Studio Code itself. See the [general FAQ](/docs/supporting/faq.md#gdpr-and-vs-code) for more details.
+VS Code 원격 개발 확장은 Visual Studio Code 자체와 동일한 GDPR 정책을 따릅니다. 자세한 내용은 [일반 FAQ](/docs/supporting/faq.md#gdpr-and-vs-code)를 참조하세요.
 
-## Questions or feedback
+## 질문이나 피드백 {#questions-or-feedback}
 
-Have a question or feedback?
+질문이나 피드백이 있으신가요?
 
-* See [Tips and Tricks](/docs/remote/troubleshooting.md).
-* Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
-* Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
+* [팁과 요령](/docs/remote/troubleshooting.md)을 참조하세요.
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote)에서 검색하세요.
+* [기능 요청](https://aka.ms/vscode-remote/feature-requests)을 추가하거나 [문제를 보고](https://aka.ms/vscode-remote/issues/new)하세요.

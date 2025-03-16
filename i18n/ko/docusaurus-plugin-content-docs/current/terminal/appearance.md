@@ -1,16 +1,17 @@
 ---
 Order: 5
 Area: terminal
-TOCTitle: Appearance
+TOCTitle: 스타일
 ContentId: F1AA7F3E-E078-4C02-B2DE-EC3F5F36F751
-PageTitle: Visual Studio Code의 터미널 외관
+PageTitle: Visual Studio Code의 터미널 스타일
 DateApproved: 03/05/2025
-MetaDescription: Visual Studio Code의 통합 터미널은 다양한 방법으로 외관을 사용자 정의할 수 있습니다.
+MetaDescription: Visual Studio Code의 통합 터미널은 다양한 방법으로 스타일을 사용자 정의할 수 있습니다.
+sidebar_label: 스타일
 ---
 
-# 터미널 외관 {#terminal-appearance}
+# 터미널 스타일 {#terminal-appearance}
 
-Visual Studio Code의 터미널 외관은 광범위하게 사용자 정의할 수 있습니다.
+Visual Studio Code의 터미널 스타일은 광범위하게 사용자 정의할 수 있습니다.
 
 ![프롬프트에서 Powerline 및 Nerd Font 기호를 사용하고 사용자 정의 작업대 테마를 적용한 사용자 인터페이스의 예](images/appearance/terminal_appearance.png)
 
@@ -26,7 +27,7 @@ _[Sapphire](https://marketplace.visualstudio.com/items?itemName=tyriar.theme-sap
 - `setting(terminal.integrated.lineHeight)`: 일반 줄 높이의 배수로서 문자 간의 추가 수직 간격을 설정합니다. 예를 들어, `1.1`은 10%의 추가 수직 공간을 추가합니다.
 - `setting(terminal.integrated.fontWeight)`: "일반" 텍스트의 글꼴 두께를 설정합니다.
 - `setting(terminal.integrated.fontWeightBold)`: "굵게" 텍스트의 글꼴 두께를 설정합니다.
-- `terminal.integrated.fontLigatures.*`: [리가처 설정](#ligatures).
+- `terminal.integrated.fontLigatures.*`: [리가처(Ligature) 설정](#ligatures).
 
 ### Powerline 기호 및 Nerd Fonts {#powerline-symbols-and-nerd-fonts}
 
@@ -53,19 +54,19 @@ Nerd Fonts도 동일하게 작동하며 일반적으로 `" NF"` 접미사가 붙
 
 ## 탭 사용자 정의 {#customizing-tabs}
 
-기본적으로 두 개 이상의 터미널이 있을 때 터미널 뷰의 오른쪽에 탭이 나타나며, 하나의 터미널만 있을 경우 활성 터미널이 뷰 헤더에 표시됩니다.
+기본적으로 두 개 이상의 터미널이 있을 때 터미널 화면의 오른쪽에 탭이 나타나며, 하나의 터미널만 있을 경우 활성 터미널이 화면 헤더에 표시됩니다.
 
 ![탭이 없는 빈 터미널과 세 개의 터미널에 대해 탭이 표시된 모습](images/appearance/tabs.png)
 
-### 가시성 {#visibility}
+### 표시 형태 {#visibility}
 
-기본 가시성은 수평 공간을 절약하기 위해 설계되었지만, 바람직하지 않을 수 있습니다. 탭의 표시 방법은 다음 설정으로 구성할 수 있습니다:
+기본 표시 형태은 수평 공간을 절약하기 위해 설계되었지만, 바람직하지 않을 수 있습니다. 탭의 표시 방법은 다음 설정으로 구성할 수 있습니다:
 
 - `setting(terminal.integrated.tabs.hideCondition)`: 오른쪽의 탭을 숨길 시점을 설정하며, `"never"`로 설정하면 항상 표시됩니다.
-- `setting(terminal.integrated.tabs.showActiveTerminal)`: 터미널 뷰 헤더에 활성 터미널을 표시할 시점을 설정합니다.
-- `setting(terminal.integrated.tabs.showActions)`: 뷰 헤더에 활성 터미널의 작업을 표시할 시점을 설정합니다.
+- `setting(terminal.integrated.tabs.showActiveTerminal)`: 터미널 화면 헤더에 활성 터미널을 표시할 시점을 설정합니다.
+- `setting(terminal.integrated.tabs.showActions)`: 화면 헤더에 활성 터미널의 작업을 표시할 시점을 설정합니다.
 - `setting(terminal.integrated.tabs.location)`: 탭을 터미널의 왼쪽 또는 오른쪽에 표시할지 여부를 설정합니다.
-- `setting(terminal.integrated.tabs.enabled)`: 탭을 사용할지 여부를 설정하며, 비활성화하면 원래 드롭다운 뷰가 표시됩니다.
+- `setting(terminal.integrated.tabs.enabled)`: 탭을 사용할지 여부를 설정하며, 비활성화하면 원래 드롭다운 화면가 표시됩니다.
 
 ### 탭 텍스트 {#tab-text}
 
@@ -80,38 +81,24 @@ Nerd Fonts도 동일하게 작동하며 일반적으로 `" NF"` 접미사가 붙
 다른 터미널은 종종 셸에서 전송된 이스케이프 시퀀스를 제목으로 표시하며, 이는 다음과 같이 구성할 수 있습니다:
 
 ```json
-"terminal.integrated.tabs.title": "$\{sequence\}
-"
+"terminal.integrated.tabs.title": "${sequence}"
 ```
 
 사용 가능한 모든 변수는 다음과 같습니다:
 
-- `$\{cwd\}
-`: 터미널의 현재 작업 디렉토리.
-- `$\{cwdFolder\}
-`: 터미널의 현재 작업 디렉토리로, 다중 루트 작업 공간 또는 초기 작업 디렉토리와 값이 다른 단일 루트 작업 공간에서 표시됩니다. Windows에서는 셸 통합이 활성화된 경우에만 표시됩니다.
-- `$\{workspaceFolder\}
-`: 터미널이 시작된 작업 공간.
-- `$\{workspaceFolderName\}
-`: 터미널이 시작된 작업 공간의 이름.
-- `$\{local\}
-`: 원격 작업 공간의 로컬 터미널을 나타냅니다.
-- `$\{process\}
-`: 터미널 프로세스의 이름.
-- `$\{progress\}
-`: OSC `9;4` 시퀀스에 의해 보고된 진행 상태.
-- `$\{separator\}
-`: 값이 있는 변수 또는 정적 텍스트로 둘러싸일 때만 표시되는 조건부 구분 기호 (-).
-- `$\{sequence\}
-`: 프로세스에 의해 터미널에 제공된 이름.
-- `$\{task\}
-`: 이 터미널이 작업과 연결되어 있음을 나타냅니다.
-- `$\{shellType\}
-`: 감지된 셸 유형.
-- `$\{shellCommand\}
-`: 셸 통합에 따라 실행 중인 명령. 이는 감지된 명령 줄에 대한 높은 신뢰도가 필요하며, 일부 프롬프트 프레임워크에서는 작동하지 않을 수 있습니다.
-- `$\{shellPromptInput\}
-`: 셸 통합에 따라 셸의 전체 프롬프트 입력.
+- `${cwd}`: 터미널의 현재 작업 디렉토리.
+- `${cwdFolder}`: 터미널의 현재 작업 디렉토리로, 다중 루트 작업 공간 또는 초기 작업 디렉토리와 값이 다른 단일 루트 작업 공간에서 표시됩니다. Windows에서는 셸 통합이 활성화된 경우에만 표시됩니다.
+- `${workspaceFolder}`: 터미널이 시작된 작업 공간.
+- `${workspaceFolderName}`: 터미널이 시작된 작업 공간의 이름.
+- `${local}`: 원격 작업 공간의 로컬 터미널을 나타냅니다.
+- `${process}`: 터미널 프로세스의 이름.
+- `${progress}`: OSC `9;4` 시퀀스에 의해 보고된 진행 상태.
+- `${separator}`: 값이 있는 변수 또는 정적 텍스트로 둘러싸일 때만 표시되는 조건부 구분 기호 (-).
+- `${sequence}`: 프로세스에 의해 터미널에 제공된 이름.
+- `${task}`: 이 터미널이 작업과 연결되어 있음을 나타냅니다.
+- `${shellType}`: 감지된 셸 유형.
+- `${shellCommand}`: 셸 통합에 따라 실행 중인 명령. 이는 감지된 명령 줄에 대한 높은 신뢰도가 필요하며, 일부 프롬프트 프레임워크에서는 작동하지 않을 수 있습니다.
+- `${shellPromptInput}`: 셸 통합에 따라 셸의 전체 프롬프트 입력.
 
 ### 아이콘 {#icons}
 
@@ -125,7 +112,7 @@ Nerd Fonts도 동일하게 작동하며 일반적으로 `" NF"` 접미사가 붙
 "terminal.integrated.tabs.enableAnimation": false
 ```
 
-### 시각적 벨 {#visual-bell}
+### 시각적 벨 아이콘 {#visual-bell}
 
 터미널의 벨이 울릴 때 노란색 벨 아이콘이 잠시 표시됩니다. 이는 `setting(terminal.integrated.enableBell)`로 비활성화할 수 있으며, 지속 시간은 `setting(terminal.integrated.bellDuration)`으로 구성할 수 있습니다.
 
@@ -147,7 +134,7 @@ Nerd Fonts도 동일하게 작동하며 일반적으로 `" NF"` 접미사가 붙
 "terminal.integrated.minimumContrastRatio": 1
 ```
 
-## 리가처 {#ligatures}
+## 리가처 (Ligature) {#ligatures}
 
 터미널 [리가처](<https://en.wikipedia.org/wiki/Ligature_(writing)>)는 여러 문자를 하나로 렌더링할 수 있게 해줍니다. 터미널 글꼴 패밀리(`setting(terminal.integrated.fontFamily)`)가 이를 지원하는 경우, `setting(terminal.integrated.fontLigatures.enabled)` 설정을 구성하여 터미널에서 리가처를 활성화할 수 있습니다.
 
@@ -214,4 +201,3 @@ WebGL 렌더러에 의해 구동되는 GPU 가속은 기본적으로 터미널�
 ```
 
 이것이 기본값인 이유에 대한 배경은 [vscode#146406](https://github.com/microsoft/vscode/issues/146406#issuecomment-1084825473)에서 설명되어 있습니다.
----

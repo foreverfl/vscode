@@ -1,13 +1,14 @@
 ---
 Order: 6
 Area: terminal
-TOCTitle: Advanced
+TOCTitle: 고급 기능
 ContentId: D458AFDC-C001-43FD-A4BB-9474767B2C04
-PageTitle: Visual Studio Code에서의 고급 터미널 사용법
+PageTitle: Visual Studio Code에서의 심화 터미널 사용법
 DateApproved: 03/05/2025
-MetaDescription: Visual Studio Code의 통합 터미널은 여러 가지 고급 기능을 제공합니다.
+MetaDescription: Visual Studio Code의 통합 터미널은 여러 가지 심화 기능을 제공합니다.
+sidebar_label: 고급 기능
 ---
-# 터미널 고급 {#terminal-advanced}
+# 터미널 고급 기능 {#terminal-advanced}
 
 Visual Studio Code의 통합 터미널은 유니코드 및 이모지 지원, 사용자 정의 키보드 단축키, 자동 응답과 같은 많은 고급 기능 및 설정을 제공합니다. 이 주제에서는 이러한 고급 기능을 자세히 설명합니다. VS Code나 통합 터미널을 처음 사용하는 경우, 먼저 [터미널 기초](/docs/terminal/basics.md) 주제를 검토하는 것이 좋습니다.
 
@@ -15,7 +16,7 @@ Visual Studio Code의 통합 터미널은 유니코드 및 이모지 지원, 사
 
 터미널은 두 가지 유형의 지속 세션을 지원합니다:
 
-* 프로세스 재연결: 창을 다시 로드할 때(예: 확장을 설치한 후), **이전 프로세스에 재연결**하고 그 내용을 복원합니다.
+* 프로세스 재연결: 창을 다시 로드할 때(예: 확장을 설치한 후), 이전 프로세스에 **재연결**하고 그 내용을 복원합니다.
 * 프로세스 복구: VS Code를 다시 시작할 때, 터미널의 내용이 복원되고 프로세스가 원래 환경을 사용하여 **다시 시작**됩니다.
 
 이 두 가지 지속 세션은 `setting(terminal.integrated.enablePersistentSessions)`를 `false`로 설정하여 비활성화할 수 있으며, 복원되는 스크롤백의 양은 `setting(terminal.integrated.persistentSessionScrollback)` 설정으로 제어됩니다. 프로세스 복구는 `setting(terminal.integrated.persistentSessionReviveProcess)`로 독립적으로 구성할 수 있습니다.
@@ -26,13 +27,13 @@ Visual Studio Code의 통합 터미널은 유니코드 및 이모지 지원, 사
 
 ### 터미널 가시성 구성 {#configure-terminal-visibility}
 
-창을 열 때, 터미널 뷰가 보이는 경우 지속 세션을 사용하여 터미널에 재연결하거나 새 셸을 생성합니다. 이 동작은 `setting(terminal.integrated.hideOnStartup)` 설정으로 세밀하게 조정할 수 있습니다.
+창을 열 때, 터미널 화면이 보이는 경우 지속 세션을 사용하여 터미널에 재연결하거나 새 셸을 생성합니다. 이 동작은 `setting(terminal.integrated.hideOnStartup)` 설정으로 세밀하게 조정할 수 있습니다.
 
-* `never` (기본값): 시작 시 터미널 뷰를 숨기지 않습니다.
+* `never` (기본값): 시작 시 터미널 화면을 숨기지 않습니다.
 * `whenEmpty`: 복원된 지속 세션이 없을 때만 터미널을 숨깁니다.
 * `always`: 복원된 지속 세션이 있어도 항상 터미널을 숨깁니다.
 
-`setting(terminal.integrated.hideOnLastClosed)` 설정도 사용 가능하여 마지막 터미널이 닫힐 때 터미널 뷰를 닫는 기본 동작을 재정의할 수 있습니다.
+`setting(terminal.integrated.hideOnLastClosed)` 설정도 사용 가능하여 마지막 터미널이 닫힐 때 터미널 화면을 닫는 기본 동작을 재정의할 수 있습니다.
 
 ## 키보드 단축키 및 셸 {#keyboard-shortcuts-and-the-shell}
 
@@ -40,7 +41,7 @@ Visual Studio Code의 통합 터미널은 유니코드 및 이모지 지원, 사
 
 구성 가능한 `setting(terminal.integrated.commandsToSkipShell)` 설정은 어떤 명령의 키보드 단축키가 항상 "셸을 건너뛰고" 대신 VS Code의 키보드 단축키 시스템에 의해 처리되어야 하는지를 결정합니다. 기본적으로, 이 설정은 VS Code 경험에 필수적인 명령의 하드코딩된 목록을 포함하지만, 특정 명령을 추가하거나 제거할 수 있습니다:
 
-```jsonc
+```json
 {
   "terminal.integrated.commandsToSkipShell": [
     // 사이드바 가시성 전환 키보드 단축키가 셸을 건너뛰도록 보장합니다.
@@ -53,7 +54,9 @@ Visual Studio Code의 통합 터미널은 유니코드 및 이모지 지원, 사
 
 `setting(terminal.integrated.commandsToSkipShell)` 설정 세부정보를 확인하여 기본 명령의 전체 목록을 확인하세요.
 
->**팁:** `setting(terminal.integrated.sendKeybindingsToShell)`를 구성하여 `setting(terminal.integrated.commandsToSkipShell)`를 재정의하고 대부분의 키보드 단축키를 셸로 전송할 수 있습니다. 그러나 이 경우 `kbstyle(Ctrl+F)`와 같은 키보드 단축키는 [찾기](/docs/terminal/basics#find)를 열 수 없게 됩니다.
+:::tip
+`setting(terminal.integrated.sendKeybindingsToShell)`를 구성하여 `setting(terminal.integrated.commandsToSkipShell)`를 재정의하고 대부분의 키보드 단축키를 셸로 전송할 수 있습니다. 그러나 이 경우 `kbstyle(Ctrl+F)`와 같은 키보드 단축키는 [찾기](/docs/terminal/basics#find)를 열 수 없게 됩니다.
+:::
 
 ### 코드 {#chords}
 
@@ -80,9 +83,9 @@ macOS에서 `kbstyle(Cmd+K)`는 터미널에서 화면을 지우기 위한 일�
 }
 ```
 
-### 기억법 {#mnemonics}
+### 단축키 {#mnemonics}
 
-VS Code의 메뉴에 접근하기 위한 기억법(예: 파일 메뉴를 위한 `kbstyle(Alt+F)`)은 기본적으로 터미널에서 비활성화되어 있습니다. 이는 이러한 키 이벤트가 셸에서 중요한 단축키인 경우가 많기 때문입니다. `setting(terminal.integrated.allowMnemonics)`를 설정하여 기억법을 활성화할 수 있지만, 이 경우 `kbstyle(Alt)` 키 이벤트가 셸로 전송되지 않음을 유의하세요. 이 설정은 macOS에서는 아무런 효과가 없습니다.
+VS Code의 메뉴에 접근하기 위한 단축키(예: 파일 메뉴를 위한 `kbstyle(Alt+F)`)은 기본적으로 터미널에서 비활성화되어 있습니다. 이는 이러한 키 이벤트가 셸에서 중요한 단축키인 경우가 많기 때문입니다. `setting(terminal.integrated.allowMnemonics)` 설정을 활성화하면 메뉴 단축키를 사용할 수 있지만, 이 경우 `kbstyle(Alt)` 키 이벤트가 셸로 전송되지 않음을 유의하세요. 이 설정은 macOS에서는 아무런 효과가 없습니다.
 
 ### 사용자 정의 시퀀스 키보드 단축키 {#custom-sequence-keyboard-shortcuts}
 
@@ -90,7 +93,7 @@ VS Code의 메뉴에 접근하기 위한 기억법(예: 파일 메뉴를 위한 
 
 예를 들어, 아래 시퀀스는 커서 왼쪽의 단어를 건너뛰고(`kbstyle(Ctrl+Left)`) `kbstyle(Backspace)`를 누릅니다:
 
-```jsonc
+```json
 {
   "key": "ctrl+u",
   "command": "workbench.action.terminal.sendSequence",
@@ -160,7 +163,7 @@ VS Code의 메뉴에 접근하기 위한 기억법(예: 파일 메뉴를 위한 
 
 ### 환경 상속 {#environment-inheritance}
 
-VS Code가 열리면 로그인 셸 환경을 시작하여 셸 환경을 소싱합니다. 이는 개발 도구가 종종 `~/.bash_profile`과 같은 셸 시작 스크립트에 `$PATH`에 추가되기 때문입니다. 기본적으로 터미널은 이 환경을 상속받으며, 이는 [프로파일 셸 인수](/docs/terminal/profiles.md#configuring-profiles)에 따라 달라질 수 있으며, 여러 프로파일 스크립트가 실행되었을 수 있어 예기치 않은 동작을 초래할 수 있습니다.
+VS Code가 열리면 로그인 셸 환경을 시작하여 셸 환경을 설정합니다. 이는 개발 도구가 종종 `~/.bash_profile`과 같은 셸 시작 스크립트에 `$PATH`에 추가되기 때문입니다. 기본적으로 터미널은 이 환경을 상속받으며, 이는 [프로파일 셸 인수](/docs/terminal/profiles.md#configuring-profiles)에 따라 달라질 수 있으며, 여러 프로파일 스크립트가 실행되었을 수 있어 예기치 않은 동작을 초래할 수 있습니다.
 
 이 환경 상속은 macOS 및 Linux에서 `setting(terminal.integrated.inheritEnv)` 설정을 통해 비활성화할 수 있습니다.
 
@@ -174,9 +177,9 @@ VS Code가 열리면 로그인 셸 환경을 시작하여 셸 환경을 소싱�
 | `auto` (기본값) | `$LANG`가 올바르게 구성되지 않은 경우(UTF 또는 EUC 인코딩으로 설정되지 않은 경우) `on` 동작과 유사하게 `$LANG`를 설정합니다.
 | `off`            | `$LANG`를 수정하지 않습니다.
 
-### 확장 환경 기여 {#extension-environment-contributions}
+### 확장 프로그램 환경 기여 {#extension-environment-contributions}
 
-확장은 [터미널 환경에 기여할 수 있습니다](https://code.visualstudio.com/api/references/vscode-api#ExtensionContext.environmentVariableCollection), 이를 통해 터미널과의 통합을 제공할 수 있습니다. 예를 들어, 내장 Git 확장은 VS Code가 Git 원격에 대한 인증을 처리할 수 있도록 `GIT_ASKPASS` 환경 변수를 주입합니다.
+확장 프로그램은 [터미널 환경에 기여할 수 있습니다](https://code.visualstudio.com/api/references/vscode-api#ExtensionContext.environmentVariableCollection). 이를 통해 터미널과의 통합을 제공할 수 있습니다. 예를 들어, 내장 Git 확장은 VS Code가 Git 원격에 대한 인증을 처리할 수 있도록 `GIT_ASKPASS` 환경 변수를 주입합니다.
 
 확장이 터미널 환경을 변경하면, 기존 터미널은 안전하게 재시작될 수 있는 경우에만 재시작되며, 그렇지 않으면 터미널 상태에 경고가 표시됩니다. 변경 사항에 대한 자세한 정보는 호버에서 확인할 수 있으며, 여기에는 재시작 버튼도 포함됩니다.
 
@@ -190,11 +193,11 @@ VS Code의 터미널은 [xterm.js](https://github.com/xtermjs/xterm.js) 프로�
 
 VS Code는 Windows 10+ (빌드 번호 18309부터)에서 기본적으로 ConPTY를 사용하며, 이전 버전의 Windows에 대해서는 레거시 옵션으로 winpty로 돌아갑니다. ConPTY는 `setting(terminal.integrated.windowsEnableConpty)` 설정을 통해 명시적으로 비활성화할 수 있지만, 이는 일반적으로 피해야 합니다.
 
-ConPTY는 에뮬레이션 레이어이기 때문에 몇 가지 특이점이 있습니다. 가장 일반적인 것은 ConPTY가 뷰포트의 소유자로 간주되므로 때때로 화면을 다시 출력합니다. 이 재출력은 **터미널: 지우기** 명령을 실행한 후 이전 콘텐츠가 표시되는 등의 예기치 않은 동작을 초래할 수 있습니다.
+ConPTY는 에뮬레이션 레이어이기 때문에 몇 가지 특이한 점이 있습니다. 가장 일반적인 것은 ConPTY가 화면포트의 소유자로 간주되므로 때때로 화면을 다시 출력합니다. 이 재출력은 **터미널: 지우기** 명령을 실행한 후 이전 콘텐츠가 표시되는 등의 예기치 않은 동작을 초래할 수 있습니다.
 
 ## 원격 개발 {#remote-development}
 
-이 섹션에서는 VS Code가 VS Code [원격 개발](https://code.visualstudio.com/docs/remote/remote-overview) 확장을 사용하여 원격 머신에 연결될 때 특정 주제를 설명합니다.
+이 섹션에서는 VS Code가 VS Code [원격 개발](https://code.visualstudio.com/docs/remote/remote-overview) 확장 프로그램을 사용하여 원격 머신에 연결될 때 특정 주제를 설명합니다.
 
 ### 원격 입력 지연 줄이기 {#reducing-remote-input-latency}
 
@@ -212,4 +215,4 @@ ConPTY는 에뮬레이션 레이어이기 때문에 몇 가지 특이점이 있�
 
 ### 원격 창에서의 로컬 터미널 {#local-terminals-in-remote-windows}
 
-기본 **로컬** 터미널 프로파일은 명령 팔레트를 통해 **터미널: 새 통합 터미널 생성(로컬)** 명령으로 원격 창에서 실행할 수 있습니다. 현재 비기본 프로파일은 원격 창에서 실행할 수 없습니다.
+기본 **로컬** 터미널 프로파일은 명령 팔레트를 통해 **Terminal: Create New Integrated Terminal (Local)** 명령으로 원격 창에서 실행할 수 있습니다. 현재 사용자 지정 프로파일은 원격 창에서 실행할 수 없습니다.
