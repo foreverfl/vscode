@@ -6,6 +6,7 @@ ContentId: 643d022e-9370-4ca5-bccd-c3a583c5df75
 PageTitle: Visual Studio Code에서 Rust 사용하기
 DateApproved: 03/05/2025
 MetaDescription: Rust를 위한 Visual Studio Code 편집기 기능(코드 완성, 디버깅, 스니펫, 린팅)에 대해 알아보세요.
+sidebar_label: Rust
 ---
 # Visual Studio Code에서 Rust 사용하기 {#rust-in-visual-studio-code}
 

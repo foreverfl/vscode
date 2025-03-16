@@ -1,146 +1,146 @@
 ---
 Order: 4
 Area: java
-TOCTitle: Formatting and Linting
+TOCTitle: 포맷팅 및 린팅
 ContentId: dd4fa82e-0021-404c-87e4-3b69f1e12463
-PageTitle: Formatting, linting, and code analysis for Java in Visual Studio Code
+PageTitle: Visual Studio Code에서 Java의 포맷팅, 린팅 및 코드 분석
 DateApproved: 12/12/2021
-MetaDescription: Formatting, linting, and code analysis for Java in Visual Studio Code
+MetaDescription: Visual Studio Code에서 Java의 포맷팅, 린팅 및 코드 분석
 ---
-# Java formatting and linting
+# Java 포맷팅 및 린팅 {#java-formatting-and-linting}
 
-[Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) also provides [formatting settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings). You can export an Eclipse formatter file and then use it for your project in VS Code.
+[Red Hat의 Java™에 대한 언어 지원](https://marketplace.visualstudio.com/items?itemName=redhat.java)에서는 [포맷팅 설정](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings)도 제공합니다. Eclipse 포맷터 파일을 내보낸 다음 VS Code 프로젝트에 사용할 수 있습니다.
 
-In addition, there are also the [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) and [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) extensions, which provide features for live linting and code analysis.
+또한, [Java용 Checkstyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) 및 [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) 확장 프로그램도 있어 실시간 린팅 및 코드 분석 기능을 제공합니다.
 
-## Formatter
+## 포맷터 {#formatter}
 
-You can use **Format Document** command to format a Java file. If you didn't specify a formatter profile before, the Java file will be formatted using default settings.
+**문서 포맷** 명령을 사용하여 Java 파일을 포맷할 수 있습니다. 이전에 포맷터 프로필을 지정하지 않았다면, Java 파일은 기본 설정을 사용하여 포맷됩니다.
 
-<video src="images/java-linting/formatting.mp4" autoplay loop muted playsinline controls title="Format document">
+<video src="images/java-linting/formatting.mp4" autoplay loop muted playsinline controls title="문서 포맷">
 </video>
 
-### Applying formatter settings
+### 포맷터 설정 적용하기 {#applying-formatter-settings}
 
-You can easily apply formatter settings from an existing formatter profile in Eclipse scheme. For example, if you want to apply [Google Style](https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml) for your Java project, then you can set the following property in `settings.json`:
+기존의 Eclipse 스킴에서 포맷터 설정을 쉽게 적용할 수 있습니다. 예를 들어, Java 프로젝트에 [Google 스타일](https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml)을 적용하려면 `settings.json`에 다음 속성을 설정할 수 있습니다:
 
 ```json
 "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
 ```
 
-The property can be set to a URL or a local file path. If the formatter XML file contains more than one profile, you can specify the profile name:
+속성은 URL 또는 로컬 파일 경로로 설정할 수 있습니다. 포맷터 XML 파일에 여러 프로필이 포함되어 있는 경우 프로필 이름을 지정할 수 있습니다:
 
 ```json
 "java.format.settings.profile": "GoogleStyle",
 ```
 
-After setting the formatter profile, the **Format Document** command will use the specific profile to format your Java files.
+포맷터 프로필을 설정한 후, **문서 포맷** 명령은 특정 프로필을 사용하여 Java 파일을 포맷합니다.
 
-### Editing formatter settings
+### 포맷터 설정 편집하기 {#editing-formatter-settings}
 
-The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) provides an editor to help users edit an existing formatter profile. You can open the editor with the command **Java: Open Java Formatter Settings with Preview**. In the editor, you can change the formatter settings and preview the effects. After saving the current editor, the changes will be saved to the formatter profile.
+[Java용 확장 팩](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)은 사용자가 기존 포맷터 프로필을 편집할 수 있도록 도와주는 편집기를 제공합니다. **Java: 미리보기와 함께 Java 포맷터 설정 열기** 명령으로 편집기를 열 수 있습니다. 편집기에서 포맷터 설정을 변경하고 효과를 미리 볼 수 있습니다. 현재 편집기를 저장하면 변경 사항이 포맷터 프로필에 저장됩니다.
 
-<video src="images/java-linting/formatting-editing.mp4" autoplay loop muted playsinline controls title="Editing formatter settings">
+<video src="images/java-linting/formatting-editing.mp4" autoplay loop muted playsinline controls title="포맷터 설정 편집하기">
 </video>
 
-> Note: the formatter settings editor supports only local formatter profile. If your workspace contains a remote formatter profile, it will guide you to download it in `.vscode` folder.
+> 주의: 포맷터 설정 편집기는 로컬 포맷터 프로필만 지원합니다. 작업 공간에 원격 포맷터 프로필이 포함되어 있는 경우, `.vscode` 폴더에 다운로드하라는 안내가 표시됩니다.
 
-When editing settings in the editor, you can preview the changes' effects in the right **Preview** panel.
+편집기에서 설정을 편집할 때 오른쪽 **미리보기** 패널에서 변경 사항의 효과를 미리 볼 수 있습니다.
 
-<video src="images/java-linting/formatting-preview.mp4" autoplay loop muted playsinline controls title="Preview formatting effects">
+<video src="images/java-linting/formatting-preview.mp4" autoplay loop muted playsinline controls title="포맷 효과 미리보기">
 </video>
 
-You can also undo and redo changes.
+변경 사항을 실행 취소하고 다시 실행할 수도 있습니다.
 
-<video src="images/java-linting/formatting-undoredo.mp4" autoplay loop muted playsinline controls title="Undo and redo changes to formatting effects">
+<video src="images/java-linting/formatting-undoredo.mp4" autoplay loop muted playsinline controls title="포맷 효과에 대한 변경 사항 실행 취소 및 다시 실행">
 </video>
 
-## SonarLint
+## SonarLint {#sonarlint}
 
-[SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) is an easy-to-use extension that helps you find and fix bugs and security issues as you code. The extension runs in the background and, just like a spell checker, highlights source code issues that pose a quality or security concern. The extension not only tells you what the issue is but also provides in-context guidance on why it's harmful and how to fix it, with examples. The extension supports over [500+ Java rules](https://rules.sonarsource.com/java) and includes several [Quick Fixes](https://rules.sonarsource.com/java/quickfix) to automatically fix certain quality issues.
+[SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)는 코딩 중 버그와 보안 문제를 찾고 수정하는 데 도움을 주는 사용하기 쉬운 확장 프로그램입니다. 이 확장 프로그램은 백그라운드에서 실행되며, 맞춤법 검사기처럼 품질 또는 보안 문제를 나타내는 소스 코드 문제를 강조 표시합니다. 이 확장 프로그램은 문제의 내용을 알려줄 뿐만 아니라, 왜 해로운지와 어떻게 수정할 수 있는지에 대한 맥락 내 지침과 예시를 제공합니다. 이 확장 프로그램은 [500개 이상의 Java 규칙](https://rules.sonarsource.com/java)을 지원하며, 특정 품질 문제를 자동으로 수정하는 여러 [빠른 수정](https://rules.sonarsource.com/java/quickfix)을 포함합니다.
 
-### Code analysis on the fly
+### 실시간 코드 분석 {#code-analysis-on-the-fly}
 
-Issues are highlighted directly in the editor with hovers to provide detailed explanations.
+문제는 편집기에서 직접 강조 표시되며, 자세한 설명을 제공하는 호버가 나타납니다.
 
-<video src="images/java-linting/sonarlint.mp4" autoplay loop muted playsinline controls title="Code analysis on the fly">
+<video src="images/java-linting/sonarlint.mp4" autoplay loop muted playsinline controls title="실시간 코드 분석">
 </video>
 
-Issues found in the opened file can also be reviewed through the Problems panel of VS Code. When applicable, secondary code locations are mentioned so you can understand where the issue originates from (for example, the code path that led to a bug).
+열린 파일에서 발견된 문제는 VS Code의 문제 패널을 통해 검토할 수 있습니다. 해당되는 경우, 문제의 출처를 이해할 수 있도록 보조 코드 위치가 언급됩니다(예: 버그로 이어진 코드 경로).
 
-### Rule documentation and remediation guidance
+### 규칙 문서화 및 수정 지침 {#rule-documentation-and-remediation-guidance}
 
-For any issues detected, SonarLint provides full documentation about the rule that was violated, and the best coding practice it relates to. This allows you to understand why an issue is raised, and how to fix it.
+감지된 모든 문제에 대해 SonarLint는 위반된 규칙에 대한 전체 문서와 관련된 최상의 코딩 관행을 제공합니다. 이를 통해 문제의 발생 이유와 수정 방법을 이해할 수 있습니다.
 
-<video src="images/java-linting/sonarlint-description.mp4" autoplay loop muted playsinline controls title="Rule documentation and remediation guidance">
+<video src="images/java-linting/sonarlint-description.mp4" autoplay loop muted playsinline controls title="규칙 문서화 및 수정 지침">
 </video>
 
-### Enabling more quality and security rules
+### 더 많은 품질 및 보안 규칙 활성화 {#enabling-more-quality-and-security-rules}
 
-By default, SonarLint provides a wide array of rules to detect bugs and vulnerabilities. More checks can be enabled through the **SonarLint Rules** view.
+기본적으로 SonarLint는 버그와 취약성을 감지하기 위한 다양한 규칙을 제공합니다. 더 많은 검사를 **SonarLint 규칙** 보기에서 활성화할 수 있습니다.
 
-<video src="images/java-linting/sonarlint-rules.mp4" autoplay loop muted playsinline controls title="Enabling more quality and security rules">
+<video src="images/java-linting/sonarlint-rules.mp4" autoplay loop muted playsinline controls title="더 많은 품질 및 보안 규칙 활성화">
 </video>
 
-For more details about the [SonarLint for VS Code extension](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode), visit the [SonarLint website](https://www.sonarlint.org/vscode/).
+[VS Code용 SonarLint 확장 프로그램](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)에 대한 자세한 내용은 [SonarLint 웹사이트](https://www.sonarlint.org/vscode/)를 방문하세요.
 
-## Checkstyle
+## Checkstyle {#checkstyle}
 
-With the [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension, you can use either existing `checkstyle` configurations (Google's or Sun's Check) or your own customized files for your project. When editing a Java file, the extension will check the file format and provide Quick Fixes if possible on the fly.
+[Java용 Checkstyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) 확장 프로그램을 사용하면 기존의 `checkstyle` 구성(구글 또는 썬 체크) 또는 프로젝트에 대한 사용자 지정 파일을 사용할 수 있습니다. Java 파일을 편집할 때, 이 확장 프로그램은 파일 형식을 검사하고 가능한 경우 실시간으로 빠른 수정을 제공합니다.
 
-Set Checkstyle configuration file using the **Checkstyle: Set the Checkstyle Configuration File** command and select the Checkstyle file from the dropdown.
+**Checkstyle: Checkstyle 구성 파일 설정** 명령을 사용하여 Checkstyle 구성 파일을 설정하고 드롭다운에서 Checkstyle 파일을 선택합니다.
 
-<video src="images/java-linting/checkstyle.mp4" autoplay loop muted playsinline controls title="Set checkstyle configuration file command">
+<video src="images/java-linting/checkstyle.mp4" autoplay loop muted playsinline controls title="Checkstyle 구성 파일 설정 명령">
 </video>
 
-The [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension supports live linting.
+[Java용 Checkstyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) 확장 프로그램은 실시간 린팅을 지원합니다.
 
-<video src="images/java-linting/checkstyle-live-linting.mp4" autoplay loop muted playsinline controls title="Live linting">
+<video src="images/java-linting/checkstyle-live-linting.mp4" autoplay loop muted playsinline controls title="실시간 린팅">
 </video>
 
-And batch check.
+그리고 배치 검사도 지원합니다.
 
-<video src="images/java-linting/checkstyle-batch.mp4" autoplay loop muted playsinline controls title="Batch check">
+<video src="images/java-linting/checkstyle-batch.mp4" autoplay loop muted playsinline controls title="배치 검사">
 </video>
 
-The Problems panel will open when you click the Checkstyle status icon in the Status bar.
+상태 표시줄의 Checkstyle 상태 아이콘을 클릭하면 문제 패널이 열립니다.
 
-### Set Checkstyle configuration file
+### Checkstyle 구성 파일 설정 {#set-checkstyle-configuration-file}
 
-To set the configuration file, right-click the `.xml` file and select **Set the Checkstyle Configuration File**.
+구성 파일을 설정하려면 `.xml` 파일을 마우스 오른쪽 버튼으로 클릭하고 **Checkstyle 구성 파일 설정**을 선택합니다.
 
-![Set Checkstyle configuration file](images/java-linting/set_config.png)
+![Checkstyle 구성 파일 설정](images/java-linting/set_config.png)
 
-You can also trigger the command **Checkstyle: Set Checkstyle Configuration File** to choose the configuration file in the File Explorer. The extension looks for a `checkstyle.xml` file in your workspace to make Checkstyle configuration easier. You will also see the two built-in configurations:
+또한 **Checkstyle: Checkstyle 구성 파일 설정** 명령을 트리거하여 파일 탐색기에서 구성 파일을 선택할 수 있습니다. 이 확장 프로그램은 작업 공간에서 `checkstyle.xml` 파일을 찾아 Checkstyle 구성을 쉽게 합니다. 두 가지 내장 구성을 볼 수 있습니다:
 
-* **Google's Check**
-* **Sun's Check**
+* **구글 체크**
+* **썬 체크**
 
-The command **Checkstyle: Set the Checkstyle Configuration** detects potential **Checkstyle** configuration files and lists them. You can also provide a configuration file by directly writing a URL in the input box.
+**Checkstyle: Checkstyle 구성 설정** 명령은 잠재적인 **Checkstyle** 구성 파일을 감지하고 목록화합니다. 입력 상자에 URL을 직접 작성하여 구성 파일을 제공할 수도 있습니다.
 
-<video src="images/java-linting/checkstyle-configuration.mp4" autoplay loop muted playsinline controls title="Set checkstyle configuration">
+<video src="images/java-linting/checkstyle-configuration.mp4" autoplay loop muted playsinline controls title="Checkstyle 구성 설정">
 </video>
 
-You can also set the Checkstyle version by using the command **Checkstyle: Set the Checkstyle Version**.
+**Checkstyle: Checkstyle 버전 설정** 명령을 사용하여 Checkstyle 버전을 설정할 수도 있습니다.
 
-The command will:
+이 명령은:
 
-* List the latest Checkstyle version from the main repo.
-* List all the downloaded versions.
-* List all the supported versions.
-* Mark the currently used version with a check symbol.
+* 주요 저장소에서 최신 Checkstyle 버전을 나열합니다.
+* 다운로드된 모든 버전을 나열합니다.
+* 지원되는 모든 버전을 나열합니다.
+* 현재 사용 중인 버전을 체크 기호로 표시합니다.
 
-In addition, you can also bring any 3rd-party modules for Checkstyle by configuring its path. For example, after using the configuration below, you can add `<module name="SingleBreakOrContinueCheck"/>` or `<module name="com.github.sevntu.checkstyle.checks.naming.SingleBreakOrContinueCheck"/>` to `checkstyle.xml` to use those checks.
+또한, Checkstyle의 경로를 구성하여 3rd-party 모듈을 가져올 수도 있습니다. 예를 들어, 아래 구성을 사용한 후 `checkstyle.xml`에 `<module name="SingleBreakOrContinueCheck"/>` 또는 `<module name="com.github.sevntu.checkstyle.checks.naming.SingleBreakOrContinueCheck"/>`를 추가하여 해당 검사를 사용할 수 있습니다.
 
 ```json
 "java.checkstyle.modules": [ "$\{workspaceFolder\}
 /src/main/resources/sevntu-checks-1.35.0.jar" ]
 ```
 
-### Check the style and fix the violations
+### 스타일 확인 및 위반 사항 수정 {#check-the-style-and-fix-the-violations}
 
-When editing a Java file, the extension will check the file format and provide Quick Fixes if possible. You can click the lightbulb button in the editor to show the available Quick Fixes.
+Java 파일을 편집할 때, 이 확장 프로그램은 파일 형식을 검사하고 가능한 경우 빠른 수정을 제공합니다. 편집기에서 제공되는 빠른 수정을 보려면 전구 버튼을 클릭할 수 있습니다.
 
-![Fix style violation](images/java-linting/quick_fix.png)
+![스타일 위반 수정](images/java-linting/quick_fix.png)
 
-For more details about [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle), visit its [GitHub Repository](https://github.com/jdneo/vscode-checkstyle).
+[Java용 Checkstyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)에 대한 자세한 내용은 [GitHub 리포지토리](https://github.com/jdneo/vscode-checkstyle)를 방문하세요.

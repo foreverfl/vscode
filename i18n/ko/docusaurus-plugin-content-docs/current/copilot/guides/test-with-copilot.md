@@ -1,103 +1,104 @@
 ---
 ContentId: 9f84b21e-5b76-4c3a-a5dd-2021ab343f1f
 DateApproved: 03/05/2025
-MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to write, debug, and fix tests.
+MetaDescription: GitHub Copilot을 사용하여 Visual Studio Code에서 테스트를 작성하고 디버그하며 수정하는 방법을 배워보세요.
 ---
 
-# Test with GitHub Copilot
+# GitHub Copilot로 테스트하기 {#test-with-github-copilot}
 
-Writing and maintaining tests is a crucial but often time-consuming part of software development. GitHub Copilot streamlines this process by helping you write, debug, and fix tests more efficiently in Visual Studio Code. This article shows you how to leverage Copilot's testing capabilities to improve your testing workflow and increase test coverage in your projects.
+테스트를 작성하고 유지하는 것은 소프트웨어 개발에서 매우 중요하지만 종종 시간이 많이 소요되는 작업입니다. GitHub Copilot은 Visual Studio Code에서 테스트를 더 효율적으로 작성하고 디버그하며 수정하는 데 도움을 줍니다. 이 문서에서는 Copilot의 테스트 기능을 활용하여 테스트 워크플로를 개선하고 프로젝트의 테스트 범위를 늘리는 방법을 보여줍니다.
 
-Copilot can help with the following testing tasks:
+Copilot은 다음과 같은 테스트 작업을 도와줄 수 있습니다:
 
-* **Set up testing frameworks**: get help configuring the right testing framework and VS Code extensions for your project and language.
-* **Generate test code**: create unit tests, integration tests, and end-to-end tests that cover your application code.
-* **Handle edge cases**: generate comprehensive test suites to cover edge cases and error conditions.
-* **Fix failing tests**: receive suggestions for fixing test failures.
-* **Maintain consistency**: personalize Copilot to generate tests that follow your project's coding practices.
+* **테스트 프레임워크 설정**: 프로젝트와 언어에 맞는 적절한 테스트 프레임워크 및 VS Code 확장을 구성하는 데 도움을 받을 수 있습니다.
+* **테스트 코드 생성**: 애플리케이션 코드를 커버하는 단위 테스트, 통합 테스트 및 엔드 투 엔드 테스트를 생성합니다.
+* **엣지 케이스 처리**: 엣지 케이스와 오류 조건을 커버하는 포괄적인 테스트 스위트를 생성합니다.
+* **실패한 테스트 수정**: 테스트 실패를 수정하기 위한 제안을 받습니다.
+* **일관성 유지**: 프로젝트의 코딩 관행을 따르는 테스트를 생성하도록 Copilot을 개인화합니다.
 
 > [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+> 아직 Copilot 구독이 없다면, [Copilot 무료 요금제](https://github.com/github-copilot/signup)에 가입하여 무료로 Copilot을 사용할 수 있으며, 월별 완료 및 채팅 상호작용 한도를 받을 수 있습니다.
 
-## Set up your testing framework
+## 테스트 프레임워크 설정하기 {#set-up-your-testing-framework}
 
-To accelerate your testing workflow, Copilot can help set up the testing framework and VS Code extensions for your project. Copilot suggests appropriate testing frameworks based on your project type.
+테스트 워크플로를 가속화하기 위해, Copilot은 프로젝트에 대한 테스트 프레임워크 및 VS Code 확장을 설정하는 데 도움을 줄 수 있습니다. Copilot은 프로젝트 유형에 따라 적절한 테스트 프레임워크를 제안합니다.
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`).
-1. Enter the `/setupTests` command in the chat input field.
-1. Follow Copilot's guidance to configure your project.
+1. 채팅 뷰를 엽니다 (`kb(workbench.action.chat.open)`).
+1. 채팅 입력 필드에 `/setupTests` 명령어를 입력합니다.
+1. Copilot의 안내에 따라 프로젝트를 구성합니다.
 
-## Write tests with Copilot
+## Copilot으로 테스트 작성하기 {#write-tests-with-copilot}
 
-Copilot can help you write tests for your application code by generating test code that covers your codebase. This includes unit tests, end-to-end tests, and tests for edge cases.
+Copilot은 애플리케이션 코드에 대한 테스트를 작성하는 데 도움을 줄 수 있으며, 코드베이스를 커버하는 테스트 코드를 생성합니다. 여기에는 단위 테스트, 엔드 투 엔드 테스트 및 엣지 케이스에 대한 테스트가 포함됩니다.
 
-### Use chat prompts
+### 채팅 프롬프트 사용하기 {#use-chat-prompts}
 
-1. Open your application code file.
+1. 애플리케이션 코드 파일을 엽니다.
 
-1. Open one of these views:
+1. 다음 중 하나의 뷰를 엽니다:
     * Copilot Edits (`kb(workbench.action.chat.openEditSession)`)
-    * Chat view (`kb(workbench.action.chat.open)`)
-    * Inline Chat (`kb(inlineChat.start)`)
+    * 채팅 뷰 (`kb(workbench.action.chat.open)`)
+    * 인라인 채팅 (`kb(inlineChat.start)`)
 
-1. Enter a prompt like:
-    * "Generate tests for this code"
-    * "Write unit tests including edge cases"
-    * "Create integration tests for this module"
+1. 다음과 같은 프롬프트를 입력합니다:
+    * "이 코드에 대한 테스트 생성"
+    * "엣지 케이스를 포함한 단위 테스트 작성"
+    * "이 모듈에 대한 통합 테스트 생성"
 
-Get more guidance about [using GitHub Copilot for writing tests](https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/writing-tests-with-github-copilot) in the GitHub documentation.
+GitHub 문서에서 [테스트 작성을 위한 GitHub Copilot 사용](https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/writing-tests-with-github-copilot)에 대한 추가 안내를 확인하세요.
 
-### Use editor smart actions
+### 편집기 스마트 액션 사용하기 {#use-editor-smart-actions}
 
-To generate tests for your application code without writing a prompt, you can use the editor smart actions.
+프롬프트를 작성하지 않고 애플리케이션 코드에 대한 테스트를 생성하려면 편집기 스마트 액션을 사용할 수 있습니다.
 
-1. Open your application code file.
-1. Optionally, select the code you want to test.
-1. Right-click and select **Copilot** > **Generate Tests**.
+1. 애플리케이션 코드 파일을 엽니다.
+1. 선택적으로, 테스트할 코드를 선택합니다.
+1. 마우스 오른쪽 버튼을 클릭하고 **Copilot** > **테스트 생성**을 선택합니다.
 
-    Copilot generates test code in an existing test file, or creates a new test file if one doesn't exist.
+    Copilot은 기존 테스트 파일에 테스트 코드를 생성하거나, 파일이 존재하지 않는 경우 새 테스트 파일을 생성합니다.
 
-1. Optionally, refine the generated tests by providing additional context in the Inline Chat prompt.
+1. 선택적으로, 인라인 채팅 프롬프트에 추가 컨텍스트를 제공하여 생성된 테스트를 다듬습니다.
 
-## Fix failing tests
+## 실패한 테스트 수정하기 {#fix-failing-tests}
 
-Copilot integrates with the Test Explorer in VS Code and can help with fixing failing tests.
+Copilot은 VS Code의 테스트 탐색기와 통합되어 실패한 테스트를 수정하는 데 도움을 줄 수 있습니다.
 
-1. In the Test Explorer, hover over a failing test
-1. Select the **Fix Test Failure** button (sparkle icon)
-1. Review and apply Copilot's suggested fix
+1. 테스트 탐색기에서 실패한 테스트 위에 마우스를 올립니다.
+1. **테스트 실패 수정** 버튼(스파클 아이콘)을 선택합니다.
+1. Copilot의 제안된 수정을 검토하고 적용합니다.
 
-Alternatively, you can:
+대안으로, 다음과 같이 할 수 있습니다:
 
-1. Open the Chat view
-1. Enter the `/fixTestFailure` command
-1. Follow Copilot's suggestions to fix the test
+1. 채팅 뷰를 엽니다.
+1. `/fixTestFailure` 명령어를 입력합니다.
+1. 테스트 수정을 위한 Copilot의 제안을 따릅니다.
 
 > [!TIP]
-> [Copilot Edits agent mode (preview)](/docs/copilot/copilot-edits.md#use-agent-mode-preview) monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
+> [Copilot Edits 에이전트 모드(미리보기)](/docs/copilot/copilot-edits.md#use-agent-mode-preview)는 테스트 실행 시 테스트 출력을 모니터링하고, 실패한 테스트를 자동으로 수정하고 재실행하려고 시도합니다.
 
-## Personalize test generation
+## 테스트 생성 개인화하기 {#personalize-test-generation}
 
-If your organization has specific testing requirements, you can customize how Copilot generates tests to ensure they meet your standards. You can personalize how Copilot generates tests by providing custom instructions. For example:
+조직에 특정 테스트 요구 사항이 있는 경우, Copilot이 테스트를 생성하는 방식을 사용자 정의하여 기준을 충족하도록 할 수 있습니다. 사용자 정의 지침을 제공하여 Copilot이 테스트를 생성하는 방식을 개인화할 수 있습니다. 예를 들어:
 
-* Specify preferred testing frameworks
-* Define naming conventions for tests
-* Set code structure preferences
-* Request specific test patterns or methodologies
+* 선호하는 테스트 프레임워크 지정
+* 테스트에 대한 명명 규칙 정의
+* 코드 구조 선호도 설정
+* 특정 테스트 패턴 또는 방법론 요청
 
-Get more information about [personalizing Copilot for generating tests](/docs/copilot/copilot-customization.md).
+테스트 생성을 위한 [Copilot 개인화에 대한 추가 정보](/docs/copilot/copilot-customization.md)를 확인하세요.
 
-## Tips for better test generation
+## 더 나은 테스트 생성을 위한 팁 {#tips-for-better-test-generation}
 
-To get the best results when generating tests with Copilot, follow these tips:
+Copilot으로 테스트를 생성할 때 최상의 결과를 얻으려면 다음 팁을 따르세요:
 
-* Provide context in your prompts about the testing framework you prefer
-* Specify if you want particular types of tests (unit, integration, end-to-end)
-* Ask for specific test cases or edge cases
-* Request tests that follow your project's coding standards
+* 선호하는 테스트 프레임워크에 대한 컨텍스트를 프롬프트에 제공하세요.
+* 특정 유형의 테스트(단위, 통합, 엔드 투 엔드)를 원한다고 명시하세요.
+* 특정 테스트 케이스나 엣지 케이스를 요청하세요.
+* 프로젝트의 코딩 표준을 따르는 테스트를 요청하세요.
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-* Learn more about [Copilot in VS Code](/docs/copilot/overview.md).
-* Explore [general testing features in VS Code](/docs/editor/testing.md).
-* Check out example prompts for [generating unit tests](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat/testing-code/generate-unit-tests)
+* [VS Code에서 Copilot에 대해 더 알아보기](/docs/copilot/overview.md).
+* [VS Code의 일반 테스트 기능 탐색하기](/docs/editor/testing.md).
+* [단위 테스트 생성을 위한 예시 프롬프트](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat/testing-code/generate-unit-tests)를 확인하세요.
+---

@@ -1,98 +1,103 @@
 ---
 Order: 3
 Area: copilot
-TOCTitle: Setup
+TOCTitle: 설정
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-PageTitle: Set up GitHub Copilot
+PageTitle: GitHub Copilot 설정하기
 DateApproved: 03/05/2025
-MetaDescription: Access your GitHub Copilot subscription and set up GitHub Copilot in Visual Studio.
+MetaDescription: GitHub Copilot 구독에 접근하고 Visual Studio에서 GitHub Copilot을 설정하세요.
 MetaSocialImage: images/shared/github-copilot-social.png
+sidebar_label: 설정
 ---
-# Set up GitHub Copilot in VS Code
+# VS Code에서 GitHub Copilot 설정하기 {#set-up-github-copilot-in-vs-code}
 
-This guide walks you through setting up GitHub Copilot in Visual Studio Code. To use Copilot in VS Code, you need to have access to GitHub Copilot with your GitHub account and have the Copilot extensions installed in VS Code.
+이 가이드는 Visual Studio Code에서 GitHub Copilot을 설정하는 방법을 안내합니다. VS Code에서 Copilot을 사용하려면 GitHub 계정으로 GitHub Copilot에 접근할 수 있어야 하며, VS Code에 Copilot 확장 프로그램을 설치해야 합니다.
 
-> [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+:::tip
+아직 Copilot 구독이 없다면, [Copilot 무료 플랜](https://github.com/github-copilot/signup)에 가입하여 무료로 Copilot을 사용할 수 있으며, 월별 완료 수 및 채팅 상호작용에 대한 제한이 있습니다.
+:::
 
-## Get access to GitHub Copilot
+## GitHub Copilot 사용하기 {#get-access-to-github-copilot}
 
-There are different ways to get access to GitHub Copilot:
+GitHub Copilot을 사용하는 방법은 여러 가지가 있습니다:
 
-| Type of User                   | Description |
+| 사용자 유형                     | 설명 |
 |--------------------------------|-------------|
-| Individual                     | <ul><li>Set up [GitHub Copilot Free](https://github.com/github-copilot/signup) to get a limited experience of Copilot without a subscription. See [About GitHub Copilot Free](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).</li><li>Sign up for a paid GitHub Copilot subscription to get unlimited completions and chat interactions. You can [try GitHub Copilot for free](https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs) with a one-time 30-day trial.</li><li>See [Setting up GitHub Copilot for yourself](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself) for all options. </li></ul> |
-| Organization/Enterprise member | <ul><li>If you are a member of an organization or enterprise that has a subscription to GitHub Copilot, you can request access to Copilot by going to https://github.com/settings/copilot and requesting access under "Get Copilot from an organization."</li><li>See [Setting up GitHub Copilot for your organization](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization) to enable Copilot for your organization.</li></ul> |
+| 개인                           | <ul><li>[GitHub Copilot 무료](https://github.com/github-copilot/signup) 설정하여 구독 없이 제한된 Copilot 경험을 얻을 수 있습니다. [GitHub Copilot 무료에 대한 설명](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free)을 참조하세요.</li><li>무제한 코드 완성 및 채팅 상호작용을 위해 유료 GitHub Copilot 구독에 가입하세요. [GitHub Copilot을 무료로 체험해보세요](https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs) 30일 무료 체험을 제공합니다.</li><li>[자신을 위한 GitHub Copilot 설정하기](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself)에서 모든 옵션을 확인하세요.</li></ul> |
+| 조직/기업 구성원               | <ul><li>조직이나 기업의 구성원으로 GitHub Copilot 구독이 있는 경우, https://github.com/settings/copilot로 가서 "조직에서 Copilot 받기" 아래에서 접근 요청을 할 수 있습니다.</li><li>[조직을 위한 GitHub Copilot 설정하기](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization)를 참조하여 조직에 Copilot을 활성화하세요.</li></ul> |
 
-## Set up Copilot in VS Code
+## VS Code에서 Copilot 설정하기 {#set-up-copilot-in-vs-code}
 
-VS Code provides a streamlined experience to set up GitHub Copilot. This installs the GitHub Copilot extensions and signs you in to your GitHub account. If you don't have a Copilot subscription yet, it activates the [Copilot Free plan](https://github.com/github-copilot/signup).
+VS Code는 GitHub Copilot을 설정하는 간소화된 경험을 제공합니다. 이 과정에서 GitHub Copilot 확장 프로그램이 설치되고 GitHub 계정으로 로그인됩니다. 아직 Copilot 구독이 없다면, [Copilot 무료 플랜](https://github.com/github-copilot/signup)이 활성화됩니다.
 
-1. Select **Use AI Features with Copilot for Free...** from the Copilot menu in the VS Code title bar or from the Command Palette (`kb(workbench.action.showCommands)`)
+1. VS Code 제목 표시줄의 Copilot 메뉴 또는 명령 팔레트(`kb(workbench.action.showCommands)`)에서 **Use AI Features with Copilot for Free...** 을 선택합니다.
 
-    ![The Copilot menu in the VS Code title bar, showing the option to use AI features with Copilot for free.](images/setup/copilot-menu-use-ai-features.png)
+    ![VS Code 제목 표시줄의 Copilot 메뉴, Copilot으로 무료 AI 기능을 사용할 수 있는 옵션을 보여줍니다.](images/setup/copilot-menu-use-ai-features.png)
 
-    > [!TIP]
-    > You can also open the Chat view directly by using the keyboard shortcut `kb(workbench.action.chat.open)` or with the **Open Chat** command.
+    :::tip
+    키보드 단축키 `kb(workbench.action.chat.open)`를 사용하거나 **Open Chat** 명령으로 채팅 보기를 직접 열 수 있습니다.
+    :::
 
-1. Select **Sign in to Use Copilot for Free** to sign in to your GitHub account. This step also installs the Copilot extensions.
+1. **Sign in to Use Copilot for Free**을 선택하여 GitHub 계정으로 로그인합니다. 이 단계에서 Copilot 확장 프로그램도 설치됩니다.
 
-    ![Chat view shows the Copilot message and a button that enables you to sign in to use Copilot.](images/setup/copilot-chat-view-new-user.png)
+    ![채팅 보기에서 Copilot 메시지와 Copilot을 사용하기 위해 로그인할 수 있는 버튼을 보여줍니다.](images/setup/copilot-chat-view-new-user.png)
 
-    If you already have a Copilot subscription, you can now start using Copilot in VS Code.
+    이미 Copilot 구독이 있는 경우, 이제 VS Code에서 Copilot을 사용할 수 있습니다.
 
-1. If you don't yet have a Copilot subscription, follow the steps in the browser to sign up for the Copilot Free plan
+1. 아직 Copilot 구독이 없다면, 브라우저에서 Copilot 무료 플랜에 가입하는 단계를 따릅니다.
 
-    > [!IMPORTANT]
-    > Telemetry in your free version of GitHub Copilot is currently enabled. By default, code suggestions that match public code, including code references in the VS Code and github.com experience, are allowed. You can opt out of telemetry data collection by disabling telemetry in VS Code by setting `setting(telemetry.telemetryLevel)` to `off`, or you can adjust both telemetry and code suggestion settings in [Copilot Settings](https://github.com/settings/copilot).
+    :::important
+    무료 버전의 GitHub Copilot에서 사용 데이터 수집 기능이 현재 활성화되어 있습니다. 기본적으로 공개 코드와 일치하는 코드 제안이 허용됩니다. VS Code에서 `setting(telemetry.telemetryLevel)`을 `off`로 설정하여 사용 데이터 수집을 선택 해제할 수 있으며, [Copilot 설정](https://github.com/settings/copilot)에서 사용 데이터 수집 기능 및 코드 제안 설정을 조정할 수 있습니다.
+    :::
 
-## Get started with Copilot in VS Code
+## VS Code에서 Copilot 시작하기 {#get-started-with-copilot-in-vs-code}
 
-After you've signed in to your GitHub account and have access to Copilot, start to explore AI-powered coding in VS Code.
+GitHub 계정으로 로그인하고 Copilot에 접근한 후, VS Code에서 AI 기반 코딩을 탐색해 보세요.
 
-1. Verify that the Chat view (`kb(workbench.action.chat.open)`) shows, and that you can enter a prompt in the chat input box.
+1. 채팅 보기(`kb(workbench.action.chat.open)`)가 표시되고, 채팅 입력 상자에 프롬프트를 입력할 수 있는지 확인합니다.
 
-    ![The Chat view opens in the Secondary Side Bar and shows the Copilot welcome message.](images/setup/copilot-chat-view-welcome.png)
+    ![채팅 보기가 보조 사이드 바에 열리고 Copilot 환영 메시지를 보여줍니다.](images/setup/copilot-chat-view-welcome.png)
 
-    Notice that you can choose from multiple language models to use with Copilot.
+    Copilot과 함께 사용할 수 있는 여러 언어 모델 중에서 선택할 수 있음을 확인하세요.
 
-1. Continue with the [Copilot Quickstart](/docs/copilot/getting-started.md) to discover the key features of Copilot in VS Code.
+1. [Copilot 빠른 시작](/docs/copilot/getting-started.md)을 계속 진행하여 VS Code에서 Copilot의 주요 기능을 발견하세요.
 
-## Manually set up GitHub Copilot in VS Code
+## VS Code에서 GitHub Copilot 수동 설정하기 {#manually-set-up-github-copilot-in-vs-code}
 
-To manually set up GitHub Copilot in VS Code, perform the following steps:
+VS Code에서 GitHub Copilot을 수동으로 설정하려면 다음 단계를 수행합니다:
 
-1. Install the GitHub Copilot extensions in VS Code
+1. VS Code에 GitHub Copilot 확장 프로그램을 설치합니다.
 
-    > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot?referrer=docs-copilot-setup">Install the GitHub Copilot extensions</a>
+    > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot?referrer=docs-copilot-setup">GitHub Copilot 확장 프로그램 설치</a>
 
-    You can also open the Extensions view and search for *GitHub Copilot* to install the extension.
+    또한 확장 프로그램 보기에서 *GitHub Copilot*을 검색하여 확장 프로그램을 설치할 수 있습니다.
 
-    > [!NOTE]
-    > When you install the GitHub Copilot extension, the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension is also installed.
+    :::note
+    GitHub Copilot 확장 프로그램을 설치하면 [GitHub Copilot 채팅](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) 확장 프로그램도 함께 설치됩니다.
+    :::
 
-1. Sign in to Copilot from VS Code
+1. VS Code에서 Copilot에 로그인합니다.
 
-    Sign in to your GitHub account by entering **GitHub Copilot: Sign in** in the Command Palette (`kb(workbench.action.showCommands)`)
+    명령 팔레트(`kb(workbench.action.showCommands)`)에 **GitHub Copilot: 로그인**을 입력하여 GitHub 계정으로 로그인합니다.
 
-    ![Command Palette in VS Code, showing the option to sign in to GitHub Copilot.](images/setup/command-palette-copilot-sign-in.png)
+    ![VS Code의 명령 팔레트, GitHub Copilot에 로그인할 수 있는 옵션을 보여줍니다.](images/setup/command-palette-copilot-sign-in.png)
 
-## Use a different GitHub account with Copilot
+## 다른 GitHub 계정으로 Copilot 사용하기 {#use-a-different-github-account-with-copilot}
 
-If your Copilot subscription is associated with another GitHub account, sign out of your GitHub account in VS Code, and sign in with another account.
+Copilot 구독이 다른 GitHub 계정에 연결되어 있는 경우, VS Code에서 현재 로그인된 GitHub 계정에서 로그아웃하고 다른 계정으로 로그인합니다.
 
-1. Select the **Accounts** menu in the Activity Bar, and then select **Sign out** for the account you're currently signed in with for Copilot.
+1. 활동 표시줄에서 **Accounts** 메뉴를 선택한 후, Copilot에 현재 로그인된 계정에 대해 **Sign out**을 선택합니다.
 
-    ![Accounts menu in VS Code, showing the option to sign out of the current GitHub account.](images/setup/vscode-accounts-menu-signout.png)
+    ![VS Code의 계정 메뉴, 현재 GitHub 계정에서 로그아웃할 수 있는 옵션을 보여줍니다.](images/setup/vscode-accounts-menu-signout.png)
 
-1. Sign in to your GitHub account by entering **GitHub Copilot: Sign in** in the Command Palette (`kb(workbench.action.showCommands)`)
+1. 명령 팔레트(`kb(workbench.action.showCommands)`)에 **GitHub Copilot: Sign in**을 입력하여 GitHub 계정으로 로그인합니다.
 
-    Alternatively, sign in to GitHub in VS Code by selecting the **Accounts** menu in the Activity Bar, and then **Sign in with GitHub to use GitHub Copilot**.
+    또는 활동 표시줄의 **Accounts** 메뉴를 선택한 후, **Sign in with GitHub to use GitHub Copilot**을 선택하여 VS Code에서 GitHub에 로그인할 수 있습니다.
 
-    ![Accounts menu in VS Code, showing the option to sign in with GitHub to use GitHub Copilot.](images/setup/vscode-accounts-menu.png)
+    ![VS Code의 계정 메뉴, GitHub Copilot을 사용하기 위해 GitHub으로 로그인할 수 있는 옵션을 보여줍니다.](images/setup/vscode-accounts-menu.png)
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-* Continue with the [Copilot Quickstart](/docs/copilot/getting-started.md) to discover the key features of Copilot in VS Code.
+* [Copilot 빠른 시작](/docs/copilot/getting-started.md)을 계속 진행하여 VS Code에서 Copilot의 주요 기능을 발견하세요.
 
-* Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an overview of the key Copilot commands and shortcuts.
+* [Copilot 요약 시트](/docs/copilot/copilot-vscode-features.md)를 확인하여 주요 Copilot 명령 및 단축키에 대한 개요를 확인하세요.

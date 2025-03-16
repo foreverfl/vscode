@@ -16,12 +16,19 @@ Visual Studio Code에서는 거의 모든 주요 프로그래밍 언어를 지�
 
 가장 인기 있는 언어 확장 프로그램 8가지는 다음과 같습니다:
 
-<div class="marketplace-extensions-languages-curated"></div>
+- [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+- [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+- [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+- [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+- [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go)
+- [Dart](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code)
+- [PHP Extension Pack](https://marketplace.visualstudio.com/items?itemName=xdebug.php-pack)
+- [Ruby LSP](https://marketplace.visualstudio.com/items?itemName=Shopify.ruby-lsp)
 
-원하는 프로그래밍 언어에 대한 스니펫, 코드 완성/IntelliSense 제공자, 린터, 디버거 등을 찾으려면 [Marketplace](https://marketplace.visualstudio.com/vscode)로 이동하거나 통합된 [Extensions view](/docs/editor/extension-marketplace.md)를 사용하여 검색하세요.
+원하는 프로그래밍 언어에 대한 스니펫, 코드 완성/IntelliSense 제공자, 린터, 디버거 등을 찾으려면 [Marketplace](https://marketplace.visualstudio.com/vscode)로 이동하거나 통합된 [Extensions 화면](/docs/editor/extension-marketplace.md)을 사용하여 검색하세요.
 
 :::note
-VS Code의 표시 언어를 변경하려면 (예: 중국어로) [표시 언어](/docs/editor/locales.md) 주제를 참조하세요.
+VS Code의 표시 언어를 변경하려면 (예: 중국어로) [UI 언어](/docs/editor/locales.md) 주제를 참조하세요.
 :::
 
 ## 언어별 문서 {#language-specific-documentation}
@@ -50,7 +57,7 @@ VS Code에서 지원하는 프로그래밍 언어에 대해 알아보세요. 여
 - [Rust](/docs/languages/rust.md)
 - [SCSS](/docs/languages/css.md)
 - [T-SQL](/docs/languages/tsql.md)
-- [TypeScript](/docs/languages/typescript.md).
+- [TypeScript](/docs/languages/typescript.md)
 
 링크된 항목을 클릭하면 각 프로그래밍 언어에서 VS Code를 활용하는 방법을 한눈에 볼 수 있습니다. 또한, 대부분의 언어 확장 프로그램은 README에 핵심 기능을 요약해 제공합니다.
 

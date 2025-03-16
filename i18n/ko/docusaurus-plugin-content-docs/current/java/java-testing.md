@@ -1,59 +1,59 @@
 ---
 Order: 8
 Area: java
-TOCTitle: Testing
+TOCTitle: 테스트
 ContentId: 82be3b78-2c09-4571-abec-69f95f111e0f
-PageTitle: Java Testing in Visual Studio Code
+PageTitle: Visual Studio Code에서의 Java 테스트
 DateApproved: 2/11/2022
-MetaDescription: See how you can test your Java code in Visual Studio Code.
+MetaDescription: Visual Studio Code에서 Java 코드를 테스트하는 방법을 확인하세요.
 MetaSocialImage:
 ---
 
-# Testing Java with Visual Studio Code
+# Visual Studio Code에서 Java 테스트하기 {#testing-java-with-visual-studio-code}
 
-Testing Java in Visual Studio Code is enabled by the [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) extension. It's a lightweight extension to run and debug Java test cases.
+Visual Studio Code에서 Java 테스트는 [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) 확장 프로그램을 통해 활성화됩니다. 이 확장 프로그램은 Java 테스트 케이스를 실행하고 디버깅하기 위한 경량 확장입니다.
 
-## Overview
+## 개요 {#overview}
 
-The extension supports the following test frameworks:
+이 확장 프로그램은 다음 테스트 프레임워크를 지원합니다:
 
 - [JUnit 4](https://junit.org/junit4/) (v4.8.0+)
 - [JUnit 5](https://junit.org/junit5/) (v5.1.0+)
 - [TestNG](https://testng.org/doc/) (v6.9.13.3+)
 
-The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) works with the [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) and [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extensions to provide the following features:
+[Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)는 [Red Hat의 Java™에 대한 언어 지원](https://marketplace.visualstudio.com/items?itemName=redhat.java) 및 [Java 디버거](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) 확장 프로그램과 함께 작동하여 다음 기능을 제공합니다:
 
-- Run/Debug test cases
-- Customize test configurations
-- View test report
-- View tests in Testing Explorer
+- 테스트 케이스 실행/디버깅
+- 테스트 구성 사용자 정의
+- 테스트 보고서 보기
+- Testing Explorer에서 테스트 보기
 
-## Requirements
+## 요구 사항 {#requirements}
 
-- JDK (version 1.8 or later)
-- Visual Studio Code (version 1.59.0 or later)
-- [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+- JDK (버전 1.8 이상)
+- Visual Studio Code (버전 1.59.0 이상)
+- [Java용 확장 팩](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 
-<a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
+<a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Java용 확장 팩 설치</a>
 
-## Project Setup
+## 프로젝트 설정 {#project-setup}
 
-> **Note**: If you have already setup your Java test framework in your project, you can skip to the [Features](#features) section.
+> **참고**: 이미 프로젝트에 Java 테스트 프레임워크를 설정한 경우 [기능](#features) 섹션으로 건너뛸 수 있습니다.
 
-### Enable testing and adding test framework JARs to your project
+### 테스트 활성화 및 프로젝트에 테스트 프레임워크 JAR 추가하기 {#enable-testing-and-adding-test-framework-jars-to-your-project}
 
-Starting with Test Runner for Java version 0.34.0, you can enable a test framework for your unmanaged folder project (a project without any build tools) with just a few steps in the **Testing** Explorer:
+Test Runner for Java 버전 0.34.0부터는 **Testing** Explorer에서 몇 가지 단계만으로 관리되지 않는 폴더 프로젝트(빌드 도구가 없는 프로젝트)에 테스트 프레임워크를 활성화할 수 있습니다:
 
-<video src="images/java-testing/enable-tests.mp4" autoplay loop muted playsinline controls title="Enable testing and adding test framework JARs to your project">
+<video src="images/java-testing/enable-tests.mp4" autoplay loop muted playsinline controls title="테스트 활성화 및 프로젝트에 테스트 프레임워크 JAR 추가하기">
 </video>
 
-> **Note**: Currently this feature only supports unmanaged folders that do not contain any testing dependencies.
+> **참고**: 현재 이 기능은 테스트 종속성이 포함되지 않은 관리되지 않는 폴더만 지원합니다.
 
-### JUnit 4
+### JUnit 4 {#junit-4}
 
-#### Maven
+#### Maven {#maven}
 
-Add following configuration into your `pom.xml`:
+다음 구성을 `pom.xml`에 추가하세요:
 
 ```xml
 <dependency>
@@ -64,9 +64,9 @@ Add following configuration into your `pom.xml`:
 </dependency>
 ```
 
-#### Gradle
+#### Gradle {#gradle}
 
-Make sure following lines are added in your `build.gradle`:
+다음 줄이 `build.gradle`에 추가되었는지 확인하세요:
 
 ```groovy
 plugins {
@@ -78,28 +78,28 @@ dependencies {
 }
 ```
 
-#### Unmanaged folder
+#### 관리되지 않는 폴더 {#unmanaged-folder}
 
-If your project does not use any build tools, you can enable JUnit 4 via the [Testing Explorer](#enable-testing-and-adding-test-framework-jars-to-your-project) or by manually downloading the following JARs and adding them to the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information):
+프로젝트가 빌드 도구를 사용하지 않는 경우, [Testing Explorer](#enable-testing-and-adding-test-framework-jars-to-your-project)를 통해 JUnit 4를 활성화하거나 다음 JAR를 수동으로 다운로드하여 프로젝트 클래스 경로에 추가할 수 있습니다 (`java.project.referencedLibraries` 설정을 통해, [종속성 관리](/docs/java/java-project.md#dependency-management)에서 더 많은 정보를 확인하세요):
 
 - [junit.jar](https://search.maven.org/search?q=g:junit%20AND%20a:junit)
 - [hamcrest-core.jar](https://search.maven.org/artifact/org.hamcrest/hamcrest-core/1.3/jar)
 
-> You can check the [official JUnit Wiki](https://github.com/junit-team/junit4/wiki/Download-and-Install) for more information about how to setup JUnit 4.
+> JUnit 4 설정 방법에 대한 자세한 내용은 [공식 JUnit 위키](https://github.com/junit-team/junit4/wiki/Download-and-Install)를 확인하세요.
 
-### JUnit 5
+### JUnit 5 {#junit-5}
 
-The JUnit 5 team provides a collection of sample projects with different build tools. Check the [junit5-sample repository](https://github.com/junit-team/junit5-samples) if your project uses Maven or Gradle as your build tool.
+JUnit 5 팀은 다양한 빌드 도구를 사용하는 샘플 프로젝트 모음을 제공합니다. 프로젝트에서 Maven 또는 Gradle을 빌드 도구로 사용하는 경우 [junit5-sample 리포지토리](https://github.com/junit-team/junit5-samples)를 확인하세요.
 
-#### Unmanaged folder
+#### 관리되지 않는 폴더 {#unmanaged-folder}
 
-If your project does not use any build tools, you can enable JUnit 5 via the [Testing Explorer](#enable-testing-and-adding-test-framework-jars-to-your-project) or by manually including the [junit-platform-console-standalone](https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/) JAR in the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information).
+프로젝트가 빌드 도구를 사용하지 않는 경우, [Testing Explorer](#enable-testing-and-adding-test-framework-jars-to-your-project)를 통해 JUnit 5를 활성화하거나 [junit-platform-console-standalone](https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/) JAR를 프로젝트 클래스 경로에 수동으로 포함할 수 있습니다 (`java.project.referencedLibraries` 설정을 통해, [종속성 관리](/docs/java/java-project.md#dependency-management)에서 더 많은 정보를 확인하세요).
 
-### TestNG
+### TestNG {#testng}
 
-#### Maven
+#### Maven {#maven}
 
-Add following configuration into your `pom.xml`:
+다음 구성을 `pom.xml`에 추가하세요:
 
 ```xml
 <dependency>
@@ -110,9 +110,9 @@ Add following configuration into your `pom.xml`:
 </dependency>
 ```
 
-#### Gradle
+#### Gradle {#gradle}
 
-Make sure following lines are added in your `build.gradle`:
+다음 줄이 `build.gradle`에 추가되었는지 확인하세요:
 
 ```groovy
 plugins {
@@ -124,113 +124,113 @@ dependencies {
 }
 ```
 
-#### Unmanaged folder
+#### 관리되지 않는 폴더 {#unmanaged-folder}
 
-If your project does not use any build tools, you can enable TestNG via the [Testing Explorer](#enable-testing-and-adding-test-framework-jars-to-your-project) or by manually downloading the following JARs and adding them to the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information):
+프로젝트가 빌드 도구를 사용하지 않는 경우, [Testing Explorer](#enable-testing-and-adding-test-framework-jars-to-your-project)를 통해 TestNG를 활성화하거나 다음 JAR를 수동으로 다운로드하여 프로젝트 클래스 경로에 추가할 수 있습니다 (`java.project.referencedLibraries` 설정을 통해, [종속성 관리](/docs/java/java-project.md#dependency-management)에서 더 많은 정보를 확인하세요):
 
 - [testng.jar](https://search.maven.org/search?q=g:org.testng%20AND%20a:testng)
 - [jcommander.jar](https://search.maven.org/search?q=g:com.beust%20AND%20a:jcommander)
 - [slf4j-api.jar](https://search.maven.org/search?q=g:org.slf4j%20AND%20a:slf4j-api)
 
-## Features
+## 기능 {#features}
 
-### Run/Debug test cases
+### 테스트 케이스 실행/디버깅 {#rundebug-test-cases}
 
-The Test Runner for Java extension will generate shortcuts (the green play button) on the left side of the class and method definition. To run the target test cases, select the green play button. You can also right-click on it to see more options.
+Test Runner for Java 확장 프로그램은 클래스 및 메서드 정의의 왼쪽에 단축키(녹색 재생 버튼)를 생성합니다. 대상 테스트 케이스를 실행하려면 녹색 재생 버튼을 선택하세요. 오른쪽 클릭하여 추가 옵션을 볼 수도 있습니다.
 
-<video src="images/java-testing/gutter-icon.mp4" autoplay loop muted playsinline controls title="Run/debug test cases">
+<video src="images/java-testing/gutter-icon.mp4" autoplay loop muted playsinline controls title="테스트 케이스 실행/디버깅">
 </video>
 
-### Testing Explorer
+### Testing Explorer {#testing-explorer}
 
-The Testing Explorer is a tree view to show all the test cases in your workspace. You can select the beaker button on the left-side Activity bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there.
+Testing Explorer는 작업 공간의 모든 테스트 케이스를 보여주는 트리 뷰입니다. Visual Studio Code의 왼쪽 활동 바에서 비커 버튼을 선택하여 열 수 있습니다. 여기서 테스트 케이스를 실행/디버깅하고 테스트 결과를 볼 수 있습니다.
 
 <video src="images/java-testing/test-explorer.mp4" autoplay loop muted playsinline controls title="Testing Explorer">
 </video>
 
-### Customize test configurations
+### 테스트 구성 사용자 정의 {#customize-test-configurations}
 
-Sometimes you may want to customize the configuration to run your test cases. To achieve this, you can add the configuration into your workspace [settings](/docs/editor/settings.md) under the section: `java.test.config`.
+때때로 테스트 케이스를 실행하기 위해 구성을 사용자 정의하고 싶을 수 있습니다. 이를 위해 작업 공간의 [설정](/docs/editor/settings.md)에서 `java.test.config` 섹션 아래에 구성을 추가할 수 있습니다.
 
-![Customize test configurations](images/java-testing/configuration.png)
+![테스트 구성 사용자 정의](images/java-testing/configuration.png)
 
-Currently the supported configurations are:
+현재 지원되는 구성은 다음과 같습니다:
 
-- **args**: Specify the command-line arguments that will be passed to the test runner.
-- **classPaths**: The classpaths defined in this setting will be appended to the resolved classpaths.
-- **env**: Specify the extra environment variables when running the tests via a key-value object.
-- **envFile**: Specify the absolute path to a file containing environment variable definitions.
-- **modulePaths**: The modulepaths defined in this setting will be appended to the resolved modulepaths.
-- **name**: Specify the name of the configuration item. You can set the default configuration name via setting `java.test.defaultConfig`.
-- **preLaunchTask**: Specify the label of a task specified in `tasks.json` (in the workspace's `.vscode` folder). The task will be launched before the start of testing.
-- **sourcePaths**: Specify the extra source paths when debugging the tests.
-- **vmArgs**: Specify the extra options and system properties for the JVM.
-- **workingDirectory**: Specify the working directory when running the tests.
-- **testKind**: Specify the targeting test framework for this test configuration. Supported values are `junit`, `testng`.
-- **filters**: Specify the test filters.
-  - **tags**: Specify the tags to be included or excluded. Tags having `!` as the prefix will be **excluded**. Note: This setting only takes effect when `testKind` is set to `junit`
+- **args**: 테스트 러너에 전달될 명령줄 인수를 지정합니다.
+- **classPaths**: 이 설정에 정의된 클래스 경로는 해결된 클래스 경로에 추가됩니다.
+- **env**: 테스트 실행 시 추가 환경 변수를 키-값 객체로 지정합니다.
+- **envFile**: 환경 변수 정의가 포함된 파일의 절대 경로를 지정합니다.
+- **modulePaths**: 이 설정에 정의된 모듈 경로는 해결된 모듈 경로에 추가됩니다.
+- **name**: 구성 항목의 이름을 지정합니다. 기본 구성 이름은 `java.test.defaultConfig` 설정을 통해 설정할 수 있습니다.
+- **preLaunchTask**: `tasks.json`(작업 공간의 `.vscode` 폴더)에 지정된 작업의 레이블을 지정합니다. 테스트 시작 전에 작업이 실행됩니다.
+- **sourcePaths**: 테스트 디버깅 시 추가 소스 경로를 지정합니다.
+- **vmArgs**: JVM에 대한 추가 옵션 및 시스템 속성을 지정합니다.
+- **workingDirectory**: 테스트 실행 시 작업 디렉토리를 지정합니다.
+- **testKind**: 이 테스트 구성의 대상 테스트 프레임워크를 지정합니다. 지원되는 값은 `junit`, `testng`입니다.
+- **filters**: 테스트 필터를 지정합니다.
+  - **tags**: 포함하거나 제외할 태그를 지정합니다. `!`가 접두사로 있는 태그는 **제외**됩니다. 주의: 이 설정은 `testKind`가 `junit`으로 설정된 경우에만 적용됩니다.
 
-More details can be found on the [vscode-java-test Wiki](https://github.com/Microsoft/vscode-java-test/wiki/Run-with-Configuration).
+자세한 내용은 [vscode-java-test 위키](https://github.com/Microsoft/vscode-java-test/wiki/Run-with-Configuration)에서 확인할 수 있습니다.
 
-### View test results
+### 테스트 결과 보기 {#view-test-results}
 
-After running/debugging the test cases, the state of the related test items will be updated in both editor decorations and the Testing Explorer.
+테스트 케이스를 실행/디버깅한 후 관련 테스트 항목의 상태는 편집기 장식과 Testing Explorer 모두에서 업데이트됩니다.
 
-<video src="images/java-testing/test-result.mp4" autoplay loop muted playsinline controls title="View test results">
+<video src="images/java-testing/test-result.mp4" autoplay loop muted playsinline controls title="테스트 결과 보기">
 </video>
 
-You can trigger the command **Test: Peek Output** to peek the results view. You can select the links in the stack trace to navigate to the source location.
+**Test: Peek Output** 명령을 트리거하여 결과 뷰를 미리 볼 수 있습니다. 스택 추적의 링크를 선택하여 소스 위치로 이동할 수 있습니다.
 
-### Generate tests
+### 테스트 생성 {#generate-tests}
 
-The extension provides features to help you scaffold test cases. You can find the entry in the editor context menu. Select **Source Action...** and then choose **Generate Tests...**.
+이 확장 프로그램은 테스트 케이스를 스캐폴딩하는 데 도움이 되는 기능을 제공합니다. 편집기 컨텍스트 메뉴에서 항목을 찾을 수 있습니다. **Source Action...**을 선택한 다음 **Generate Tests...**를 선택하세요.
 
-If you trigger this source action from your main source code (test subject), you will be asked the test class's fully qualified name and the methods you want to test. The extension will then generate the test code for you:
+주 소스 코드(테스트 주제)에서 이 소스 작업을 트리거하면 테스트 클래스의 완전한 이름과 테스트할 메서드를 요청받게 됩니다. 그러면 확장 프로그램이 테스트 코드를 생성합니다:
 
-<video src="images/java-testing/generate-tests-from-main.mp4" autoplay loop muted playsinline controls title="Generate tests">
+<video src="images/java-testing/generate-tests-from-main.mp4" autoplay loop muted playsinline controls title="테스트 생성">
 </video>
 
-If you trigger the source action from your test source code, you will be asked which kinds of test methods you want to add. Including the lifecycle methods and the test method:
+테스트 소스 코드에서 소스 작업을 트리거하면 추가할 테스트 메서드의 종류를 요청받게 됩니다. 생명 주기 메서드와 테스트 메서드가 포함됩니다:
 
-<video src="images/java-testing/generate-tests-from-test.mp4" autoplay loop muted playsinline controls title="Generate tests from test">
+<video src="images/java-testing/generate-tests-from-test.mp4" autoplay loop muted playsinline controls title="테스트 생성하기">
 </video>
 
-### Test navigation
+### 테스트 탐색 {#test-navigation}
 
-The extension provides features to help you navigate between your tests and test subjects. If your source code is contained in `src/main/java` or `src/test/java`, you can find the entry named **Go to Test** or **Go to Test Subject** in the editor context menu:
+이 확장 프로그램은 테스트와 테스트 주제 간의 탐색을 도와주는 기능을 제공합니다. 소스 코드가 `src/main/java` 또는 `src/test/java`에 포함되어 있는 경우, 편집기 컨텍스트 메뉴에서 **Go to Test** 또는 **Go to Test Subject**라는 항목을 찾을 수 있습니다:
 
-<video src="images/java-testing/test-navigation.mp4" autoplay loop muted playsinline controls title="Test navigation">
+<video src="images/java-testing/test-navigation.mp4" autoplay loop muted playsinline controls title="테스트 탐색">
 </video>
 
-You can also find the command in the Command Palette (`kb(workbench.action.showCommands)`) by searching for **Java: Go to Test**.
+명령 팔레트(`kb(workbench.action.showCommands)`)에서 **Java: Go to Test**를 검색하여 명령을 찾을 수도 있습니다.
 
-### VS Code testing commands
+### VS Code 테스트 명령 {#vs-code-testing-commands}
 
-There are other testing commands (for example, **Run Tests in Current File**) that can be found by searching for 'Test:' in the Command Palette (`kb(workbench.action.showCommands)`).
+명령 팔레트(`kb(workbench.action.showCommands)`)에서 'Test:'를 검색하여 찾을 수 있는 다른 테스트 명령(예: **Run Tests in Current File**)이 있습니다.
 
-![Testing commands in the Command Palette](images/java-testing/command_palette.png)
+![명령 팔레트의 테스트 명령](images/java-testing/command_palette.png)
 
-### VS Code testing settings
+### VS Code 테스트 설정 {#vs-code-testing-settings}
 
-There are VS Code settings specific to testing that can be found by searching for 'testing' in the Settings editor (`kb(workbench.action.openSettings)`).
+테스트에 특정한 VS Code 설정은 설정 편집기(`kb(workbench.action.openSettings)`)에서 'testing'을 검색하여 찾을 수 있습니다.
 
-![Testing settings in the Settings editor](images/java-testing/settings.png)
+![설정 편집기의 테스트 설정](images/java-testing/settings.png)
 
-## FAQ
+## FAQ {#faq}
 
-If you meet any problem when using the extension, you can review the [FAQ](https://github.com/microsoft/vscode-java-test/wiki/FAQ) and our [issue list](https://github.com/microsoft/vscode-java-test/issues) to check if there is an answer to your problem.
+확장 프로그램 사용 중 문제가 발생하면 [FAQ](https://github.com/microsoft/vscode-java-test/wiki/FAQ) 및 [문제 목록](https://github.com/microsoft/vscode-java-test/issues)을 검토하여 문제에 대한 답변이 있는지 확인할 수 있습니다.
 
-## Contributing and feedback
+## 기여 및 피드백 {#contributing-and-feedback}
 
-If you are interested in providing feedback or contributing directly to the code base, please read [Contributing to Test Runner for Java](https://github.com/Microsoft/vscode-java-test/blob/main/CONTRIBUTING.md), which covers the following:
+피드백을 제공하거나 코드베이스에 직접 기여하는 데 관심이 있다면 [Test Runner for Java에 기여하기](https://github.com/Microsoft/vscode-java-test/blob/main/CONTRIBUTING.md)를 읽어보세요. 여기에는 다음 내용이 포함됩니다:
 
-- [Questions and Feedback](https://github.com/Microsoft/vscode-java-test/blob/main/CONTRIBUTING.md#questions-and-feedback)
-- [Reporting Issues](https://github.com/Microsoft/vscode-java-test/blob/main/CONTRIBUTING.md#reporting-issues)
-- [Contributing Fixes](https://github.com/Microsoft/vscode-java-test/blob/main/CONTRIBUTING.md#contributing-fixes)
+- [질문 및 피드백](https://github.com/Microsoft/vscode-java-test/blob/main/CONTRIBUTING.md#questions-and-feedback)
+- [문제 보고](https://github.com/Microsoft/vscode-java-test/blob/main/CONTRIBUTING.md#reporting-issues)
+- [수정 기여](https://github.com/Microsoft/vscode-java-test/blob/main/CONTRIBUTING.md#contributing-fixes)
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-Read on to find out about:
+다음에 대해 알아보세요:
 
-- [Debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
-- [Extensions for Java](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.
+- [디버깅](/docs/java/java-debugging.md) - VS Code로 Java 프로젝트를 디버깅하는 방법을 알아보세요.
+- [Java용 확장](/docs/java/extensions.md) - VS Code에 유용한 Java 확장에 대해 알아보세요.

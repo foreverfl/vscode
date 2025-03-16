@@ -6,6 +6,7 @@ ContentId: d7ec8e7c-de5e-42b3-86df-a48660f1f6e1
 PageTitle: Visual Studio Code에서의 Julia
 DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code에서 Julia 프로그래밍 언어를 사용하는 방법에 대해 알아보세요.
+sidebar_label: Julia
 ---
 # Visual Studio Code에서의 Julia {#julia-in-visual-studio-code}
 

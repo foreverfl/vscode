@@ -1,58 +1,58 @@
 ---
 Order: 12
 Area: java
-TOCTitle: GUI Applications
+TOCTitle: GUI 애플리케이션
 ContentId: 517db620-d166-4f72-99c1-fa046710dffe
-PageTitle: Develop Java GUI Applications in Visual Studio Code
+PageTitle: Visual Studio Code에서 Java GUI 애플리케이션 개발하기
 DateApproved: 10/11/2022
-MetaDescription: How to develop Java GUI Applications (JavaFX, AWT, Swing) in Visual Studio Code
+MetaDescription: Visual Studio Code에서 Java GUI 애플리케이션(JavaFX, AWT, Swing)을 개발하는 방법
 ---
 
-# Working with GUI applications in VS Code
+# VS Code에서 GUI 애플리케이션 작업하기 {#working-with-gui-applications-in-vs-code}
 
-You can develop Java GUI applications in Visual Studio Code easily. To achieve that, you need to install the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes all the required extensions to develop Java GUI applications.
+Visual Studio Code에서 Java GUI 애플리케이션을 쉽게 개발할 수 있습니다. 이를 위해서는 Java GUI 애플리케이션 개발에 필요한 모든 확장 기능이 포함된 [Java 확장 팩](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)을 설치해야 합니다.
 
-<a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
+<a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Java 확장 팩 설치하기</a>
 
-If you run into any issues when using the features below, you can contact us by entering an [issue](https://github.com/microsoft/vscode-java-pack/issues).
+아래의 기능을 사용할 때 문제가 발생하면, [문제 보고서](https://github.com/microsoft/vscode-java-pack/issues)를 입력하여 저희에게 연락할 수 있습니다.
 
-## Develop JavaFX applications
+## JavaFX 애플리케이션 개발하기 {#develop-javafx-applications}
 
-### Create a new JavaFX project
+### 새로운 JavaFX 프로젝트 만들기 {#create-a-new-javafx-project}
 
-You can create a new JavaFX application with just a few steps in VS Code:
+VS Code에서 몇 가지 단계만으로 새로운 JavaFX 애플리케이션을 만들 수 있습니다:
 
-- Step 1: Install the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
-- Step 2: In Visual Studio Code, open the Command Palette (`kb(workbench.action.showCommands)`) and then select the command **Java: Create Java Project**.
-- Step 3: Select the option **JavaFX** in the list, follow the wizard, which will help you scaffold a new JavaFX project via Maven Archetype.
+- 1단계: [Java 확장 팩](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)을 설치합니다.
+- 2단계: Visual Studio Code에서 명령 팔레트(`kb(workbench.action.showCommands)`)를 열고 **Java: Java 프로젝트 만들기** 명령을 선택합니다.
+- 3단계: 목록에서 **JavaFX** 옵션을 선택하고, Maven Archetype을 통해 새로운 JavaFX 프로젝트를 설정하는 마법사를 따릅니다.
 
 ![create JavaFX project](images/java-gui/create-javafx.png)
 
-### Run the JavaFX application
+### JavaFX 애플리케이션 실행하기 {#run-the-javafx-application}
 
-> Note: The following guidance only works for projects managed by Maven. The generated project requires at least JDK 11 to launch it. Please make sure you have JDK 11 installed locally and set the installation path to the setting [`java.configuration.runtimes`](https://github.com/redhat-developer/vscode-java#project-jdks).
+> 참고: 아래의 지침은 Maven으로 관리되는 프로젝트에만 적용됩니다. 생성된 프로젝트는 실행하기 위해 최소 JDK 11이 필요합니다. 로컬에 JDK 11이 설치되어 있고 설치 경로가 [`java.configuration.runtimes`](https://github.com/redhat-developer/vscode-java#project-jdks) 설정에 맞게 설정되어 있는지 확인하세요.
 
-To run the JavaFX application, you can open the **Maven** Explorer, expand `hellofx` > `Plugins` > `javafx` and run the Maven goal: `javafx:run`.
+JavaFX 애플리케이션을 실행하려면 **Maven** 탐색기를 열고 `hellofx` > `Plugins` > `javafx`를 확장한 후 Maven 목표: `javafx:run`을 실행합니다.
 
-> **Note**: Make sure you have installed the [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension. If you cannot find the **Maven** explorer, open the Command Palette (`kb(workbench.action.showCommands)`) and then select the command **Explorer: Focus on Maven View**.
+> **참고**: [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) 확장을 설치했는지 확인하세요. **Maven** 탐색기를 찾을 수 없다면, 명령 팔레트(`kb(workbench.action.showCommands)`)를 열고 **탐색기: Maven 보기로 초점 맞추기** 명령을 선택하세요.
 
-<video src="images/java-gui/run-javafx.mp4" autoplay loop muted playsinline controls title="Run JavaFX application">
+<video src="images/java-gui/run-javafx.mp4" autoplay loop muted playsinline controls title="JavaFX 애플리케이션 실행하기">
 </video>
 
-### More JavaFX examples
+### 더 많은 JavaFX 예제 {#more-javafx-examples}
 
-More JavaFX project examples can be found in the [openjfx samples repository](https://github.com/openjfx/samples/tree/master/IDE/VSCode), which covers different project structures (such as Gradle and unmanaged folder projects). There is documentation on each sample to describe how to run the program.
+더 많은 JavaFX 프로젝트 예제는 [openjfx 샘플 리포지토리](https://github.com/openjfx/samples/tree/master/IDE/VSCode)에서 찾을 수 있으며, 다양한 프로젝트 구조(예: Gradle 및 관리되지 않는 폴더 프로젝트)를 다룹니다. 각 샘플에 대한 문서가 있어 프로그램 실행 방법을 설명합니다.
 
-## Develop AWT applications
+## AWT 애플리케이션 개발하기 {#develop-awt-applications}
 
-By default, the types from the Abstract Window Toolkit (AWT) are hidden. You may notice that code completions are not working when you are developing an AWT application. To enable completions, you can open the Command Palette  (`kb(workbench.action.showCommands)`) and then select the command **Java: Help Center**. Go to the **Student** section and select **Enable AWT Development**.
+기본적으로, Abstract Window Toolkit (AWT)의 유형은 숨겨져 있습니다. AWT 애플리케이션을 개발할 때 코드 완성이 작동하지 않는 것을 알 수 있습니다. 완성을 활성화하려면 명령 팔레트(`kb(workbench.action.showCommands)`)를 열고 **Java: 도움말 센터** 명령을 선택합니다. **학생** 섹션으로 가서 **AWT 개발 활성화**를 선택하세요.
 
-<video src="images/java-gui/enable-awt.mp4" autoplay loop muted playsinline controls title="Develop AWT application">
+<video src="images/java-gui/enable-awt.mp4" autoplay loop muted playsinline controls title="AWT 애플리케이션 개발하기">
 </video>
 
-> Note: This action will update a setting, `java.completion.filteredTypes` at the workspace level in `.vscode\settings.json`, so please make sure a workspace is opened in VS Code.
+> 참고: 이 작업은 `.vscode\settings.json`의 작업 공간 수준에서 `java.completion.filteredTypes` 설정을 업데이트하므로, VS Code에서 작업 공간이 열려 있는지 확인하세요.
 
-You can use the sample code below to run a simple Java AWT application in VS Code.
+아래의 샘플 코드를 사용하여 VS Code에서 간단한 Java AWT 애플리케이션을 실행할 수 있습니다.
 
 ```java
 import java.awt.*;
@@ -60,11 +60,11 @@ import java.awt.event.*;
 
 public class AwtExample extends Frame {
   public AwtExample() {
-    Button btn = new Button("Button");
+    Button btn = new Button("버튼");
     btn.setBounds(50, 50, 50, 50);
     add(btn);
     setSize(150, 150);
-    setTitle("This is my First AWT example");
+    setTitle("이것은 나의 첫 번째 AWT 예제입니다.");
     setLayout(new FlowLayout());
     setVisible(true);
     addWindowListener(new WindowAdapter() {
@@ -80,8 +80,9 @@ public class AwtExample extends Frame {
 }
 ```
 
-## Develop Swing applications
+## Swing 애플리케이션 개발하기 {#develop-swing-applications}
 
-Swing application development is supported by default. You can directly write your Swing application code without any setup.
+Swing 애플리케이션 개발은 기본적으로 지원됩니다. 별도의 설정 없이 바로 Swing 애플리케이션 코드를 작성할 수 있습니다.
 
-You can find more Swing samples in the [Oracle Swing documentation](https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html).
+더 많은 Swing 샘플은 [Oracle Swing 문서](https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html)에서 찾을 수 있습니다.
+---

@@ -1,11 +1,12 @@
 ---
 Order: 15
 Area: languages
-TOCTitle: 루비
+TOCTitle: Ruby
 ContentId: 33c079a7-f8d5-48fc-9d92-16be760b42ab
 PageTitle: Visual Studio Code에서 루비 사용하기
 DateApproved: 19/09/2024
 MetaDescription: 루비를 위한 Visual Studio Code 편집기 기능(코드 완성, 디버깅, 스니펫, 린팅)에 대해 알아보세요.
+sidebar_label: Ruby
 ---
 
 # Visual Studio Code에서 루비 사용하기 {#ruby-in-visual-studio-code}

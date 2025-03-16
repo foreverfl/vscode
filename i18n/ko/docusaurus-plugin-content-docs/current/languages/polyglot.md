@@ -1,3 +1,14 @@
+---
+Order: 21
+Area: languages
+TOCTitle: 폴리글랏
+ContentId: 4bbd7ad1-8420-4ddd-a86f-442497e597b1
+PageTitle: Visual Studio Code에서 노트북을 활용한 폴리글랏 프로그래밍
+DateApproved: 03/05/2025
+MetaDescription: Visual Studio Code에서 여러 프로그래밍 언어를 지원하는 폴리글랏 노트북.
+sidebar_label: 폴리글랏
+---
+
 # VS Code의 다국어 노트북 {#polyglot-notebooks-in-vs-code}
 
 **다국어 프로그래밍이란 무엇인가요?**
@@ -33,7 +44,7 @@
 
 - **각 언어에 대한 IntelliSense, 자동 완성 및 구문 강조**와 같은 **언어 서버 지원**.
 
-- **노트북 내에서 지속적인 워크플로우우를 보장하는 언어 간의 **변수 공유**. (HTML 및 Mermaid에 대한 변수 공유는 제공되지 않음)
+- **노트북 내에서 지속적인 워크플로우를 보장하는 언어 간의 **변수 공유**. (HTML 및 Mermaid에 대한 변수 공유는 제공되지 않음)
 
 - **변수 상태 및 해당 변수가 존재하는 서브커널을 확인할 수 있는 **변수 탐색기**.
 

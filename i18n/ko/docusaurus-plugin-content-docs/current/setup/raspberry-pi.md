@@ -6,6 +6,7 @@ ContentId: E059E35A-8AD0-4D4A-9BE1-E23D45D75C1C
 PageTitle: Raspberry Pi OS에서 Visual Studio Code 실행하기
 DateApproved: 03/05/2025
 MetaDescription: Raspberry Pi OS에서 Visual Studio Code를 설치하고 실행하세요.
+sidebar_label: Raspberry Pi
 ---
 # Raspberry Pi에서 Visual Studio Code {#visual-studio-code-on-raspberry-pi}
 
@@ -45,7 +46,7 @@ sudo apt upgrade code
 
 ## 시스템 요구 사항 {#system-requirements}
 
-VS Code는 Raspberry Pi에서 공식적으로 지원되지 않습니다. 작동하는 플랫폼에 대한 정보는 [커뮤니티 토론](https://github.com/microsoft/vscode-discussions/discussions/2379)을 확인하세요.
+VS Code는 Raspberry Pi에서 공식적으로 지원되지 않습니다. 지원 가능성이 확인된 플랫폼에 대한 정보는 [커뮤니티 토론](https://github.com/microsoft/vscode-discussions/discussions/2379)을 확인하세요.
 
 ## 다음 단계 {#next-steps}
 
@@ -54,4 +55,3 @@ VS Code를 설치한 후, 다음 주제를 통해 더 많은 정보를 배울 �
 * [추가 구성 요소](/docs/setup/additional-components.md) - Git, Node.js, TypeScript 및 Yeoman과 같은 도구를 설치하는 방법을 배웁니다.
 * [사용자 인터페이스](/docs/getstarted/userinterface.md) - VS Code에 대한 간단한 안내입니다.
 * [사용자/작업 공간 설정](/docs/editor/settings.md) - 설정을 통해 VS Code를 개인의 취향에 맞게 구성하는 방법을 배웁니다.
----

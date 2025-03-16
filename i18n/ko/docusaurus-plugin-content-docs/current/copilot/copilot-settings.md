@@ -1,112 +1,112 @@
 ---
 Order: 14
 Area: copilot
-TOCTitle: Settings Reference
+TOCTitle: 설정 참조
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-PageTitle: GitHub Copilot in VS Code settings reference
+PageTitle: VS Code에서 GitHub Copilot 설정 참조
 DateApproved: 03/05/2025
-MetaDescription: Overview of the configuration settings for GitHub Copilot in Visual Studio Code.
+MetaDescription: Visual Studio Code에서 GitHub Copilot의 구성 설정 개요.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# GitHub Copilot in VS Code settings reference
+# VS Code에서 GitHub Copilot 설정 참조 {#github-copilot-in-vs-code-settings-reference}
 
-This article lists the configuration settings for GitHub Copilot in Visual Studio Code. For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/editor/settings.md), as well as the [Variables reference](/docs/reference/variables-reference.md) for information about predefined variable support.
+이 문서에서는 Visual Studio Code에서 GitHub Copilot의 구성 설정을 나열합니다. VS Code에서 설정 작업에 대한 일반 정보는 [사용자 및 작업 공간 설정](/docs/editor/settings.md)와 미리 정의된 변수 지원에 대한 정보는 [변수 참조](/docs/reference/variables-reference.md)를 참조하십시오.
 
 > [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+> 아직 Copilot 구독이 없다면, [Copilot 무료 요금제](https://github.com/github-copilot/signup)에 가입하여 무료로 Copilot을 사용할 수 있으며, 월별 완료 및 채팅 상호작용의 한도를 받을 수 있습니다.
 
-The team is continuously working on improving Copilot in VS Code and adding new features. Some features are still experimental. Try them out and share your feedback in [our issues](https://github.com/microsoft/vscode-copilot-release/issues). Get more info about the [feature lifecycle in VS Code](/docs/editor/settings.md#feature-lifecycle).
+팀은 VS Code에서 Copilot을 개선하고 새로운 기능을 추가하기 위해 지속적으로 작업하고 있습니다. 일부 기능은 여전히 실험적입니다. 사용해보고 [우리의 이슈](https://github.com/microsoft/vscode-copilot-release/issues)에 피드백을 공유해 주세요. VS Code의 [기능 생애 주기](/docs/editor/settings.md#feature-lifecycle)에 대한 자세한 정보도 확인하세요.
 
-## General settings
+## 일반 설정 {#general-settings}
 
-* `setting(github.copilot.editor.enableAutoCompletions)`: Automatically show inline completions.
-* `setting(github.copilot.enable)`: Enable or disable Copilot completions for specified [languages](/docs/languages/identifiers.md).
-* `setting(github.copilot.editor.enableCodeActions)`: Controls if Copilot commands are shown as Code Actions when available.
-* `setting(github.copilot.renameSuggestions.triggerAutomatically)`: Controls whether Copilot generates suggestions for renaming.
-* `setting(chat.commandCenter.enabled)` _(Experimental)_: Controls whether the command center shows a menu for chat actions.
-* `setting(workbench.commandPalette.experimental.askChatLocation)` _(Experimental)_: Controls where the Command Palette should ask chat questions.
-* `setting(github.copilot.chat.search.semanticTextResults)` _(Experimental)_: Enables semantic search results in the Search view.
-* `setting(github.copilot.nextEditSuggestions.enabled)` _(Preview)_: Enables Copilot Next Edit Suggestions (Copilot NES) _(Preview)_.
-* `setting(editor.inlineSuggest.edits.codeShifting)`: Configure if Copilot NES is able to shift your code to show a suggestion.
-* `setting(editor.inlineSuggest.edits.renderSideBySide)`: Configure if Copilot NES can show larger suggestions side-by-side if possible, or if Copilot NES should always show larger suggestions below the relevant code.
+* `setting(github.copilot.editor.enableAutoCompletions)`: 인라인 완성을 자동으로 표시합니다.
+* `setting(github.copilot.enable)`: 지정된 [언어](/docs/languages/identifiers.md)에 대해 Copilot 완성을 활성화하거나 비활성화합니다.
+* `setting(github.copilot.editor.enableCodeActions)`: 사용 가능한 경우 Copilot 명령이 코드 작업으로 표시되는지 제어합니다.
+* `setting(github.copilot.renameSuggestions.triggerAutomatically)`: Copilot이 이름 변경 제안을 생성할지 여부를 제어합니다.
+* `setting(chat.commandCenter.enabled)` _(실험적)_: 명령 센터가 채팅 작업을 위한 메뉴를 표시할지 여부를 제어합니다.
+* `setting(workbench.commandPalette.experimental.askChatLocation)` _(실험적)_: 명령 팔레트가 채팅 질문을 어디에서 해야 하는지 제어합니다.
+* `setting(github.copilot.chat.search.semanticTextResults)` _(실험적)_: 검색 보기에서 의미론적 검색 결과를 활성화합니다.
+* `setting(github.copilot.nextEditSuggestions.enabled)` _(미리보기)_: Copilot 다음 편집 제안(Copilot NES)을 활성화합니다 _(미리보기)_.
+* `setting(editor.inlineSuggest.edits.codeShifting)`: Copilot NES가 제안을 표시하기 위해 코드를 이동할 수 있는지 구성합니다.
+* `setting(editor.inlineSuggest.edits.renderSideBySide)`: Copilot NES가 가능할 경우 더 큰 제안을 나란히 표시할 수 있는지, 또는 항상 관련 코드 아래에 더 큰 제안을 표시해야 하는지 구성합니다.
 
-## Chat settings
+## 채팅 설정 {#chat-settings}
 
-* `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_: When using `#codebase` in the prompt, Copilot automatically discovers relevant files to be edited.
-* `setting(github.copilot.chat.followUps)`: Controls whether Copilot should suggest follow-up questions in chat.
-* `setting(github.copilot.chat.localeOverride)`: Specify a locale that Copilot should respond in, such as `en` or `fr`.
-* `setting(github.copilot.chat.runCommand.enabled)`: Enables the `/runCommand` intent in the Chat view to run VS Code commands.
-* `setting(github.copilot.chat.useProjectTemplates)`: Use relevant GitHub projects as starter projects when using `/new`.
-* `setting(github.copilot.chat.scopeSelection)`: Whether to prompt for a specific symbol scope if you use `/explain` and the active editor has no selection.
-* `setting(github.copilot.chat.terminalChatLocation)`: Controls where chat queries from the terminal should be opened.
-* `setting(chat.experimental.detectParticipant.enabled)` _(Experimental)_: Enable chat participant detection in the Chat view.
-* `setting(chat.editor.fontFamily)`: Font family in chat codeblocks.
-* `setting(chat.editor.fontSize)`: Font size in pixels in chat codeblocks.
-* `setting(chat.editor.fontWeight)`: Font weight in chat codeblocks.
-* `setting(chat.editor.lineHeight)`: Line height in pixels in chat codeblocks.
-* `setting(chat.editor.wordWrap)`: Toggle line wrapping in chat codeblocks.
-* `setting(chat.implicitContext.enabled)` _(Preview)_ - configure if the active editor should be automatically added as context to the chat prompt.
+* `setting(github.copilot.chat.codesearch.enabled)` _(미리보기)_: 프롬프트에서 `#codebase`를 사용할 때, Copilot이 자동으로 편집할 관련 파일을 발견합니다.
+* `setting(github.copilot.chat.followUps)`: Copilot이 채팅에서 후속 질문을 제안할지 여부를 제어합니다.
+* `setting(github.copilot.chat.localeOverride)`: Copilot이 응답할 로케일을 지정합니다. 예: `en` 또는 `fr`.
+* `setting(github.copilot.chat.runCommand.enabled)`: VS Code 명령을 실행하기 위해 채팅 보기에서 `/runCommand` 의도를 활성화합니다.
+* `setting(github.copilot.chat.useProjectTemplates)`: `/new`를 사용할 때 관련 GitHub 프로젝트를 시작 프로젝트로 사용합니다.
+* `setting(github.copilot.chat.scopeSelection)`: `/explain`을 사용할 때 특정 기호 범위를 요청할지 여부를 제어합니다. 활성 편집기에 선택 항목이 없을 경우.
+* `setting(github.copilot.chat.terminalChatLocation)`: 터미널에서 채팅 쿼리가 열릴 위치를 제어합니다.
+* `setting(chat.experimental.detectParticipant.enabled)` _(실험적)_: 채팅 보기에서 채팅 참가자 감지를 활성화합니다.
+* `setting(chat.editor.fontFamily)`: 채팅 코드 블록의 글꼴 패밀리입니다.
+* `setting(chat.editor.fontSize)`: 채팅 코드 블록의 글꼴 크기(픽셀)입니다.
+* `setting(chat.editor.fontWeight)`: 채팅 코드 블록의 글꼴 두께입니다.
+* `setting(chat.editor.lineHeight)`: 채팅 코드 블록의 줄 높이(픽셀)입니다.
+* `setting(chat.editor.wordWrap)`: 채팅 코드 블록에서 줄 바꿈을 전환합니다.
+* `setting(chat.implicitContext.enabled)` _(미리보기)_ - 활성 편집기가 채팅 프롬프트에 자동으로 컨텍스트로 추가될지 구성합니다.
 
-## Copilot Edits settings
+## Copilot 편집 설정 {#copilot-edits-settings}
 
-* `setting(chat.editing.confirmEditRequestRemoval)` - ask for confirmation before undoing an edit (default: `true`)
-* `setting(chat.editing.confirmEditRequestRetry)` - ask for confirmation before performing a redo of the last edit (default: `true`)
-* `setting(github.copilot.chat.edits.temporalContext.enabled)` _(Experimental)_: Whether to include recently viewed and edited files with requests in Copilot Edits.
-* `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_: When using `#codebase` in the prompt, Copilot automatically discovers relevant files to be edited.
-* `setting(chat.editing.alwaysSaveWithGeneratedChanges)` - automatically save generated changes from Copilot Edits to disk (default: `false`)
-* `setting(chat.implicitContext.enabled)` _(Preview)_ - configure if the active editor should be automatically added as context to the chat prompt.
-* `setting(chat.editing.autoAcceptDelay)` - configure a delay after which suggested edits are automatically accepted, use zero to disable auto-accept (default: 0)
-* `setting(chat.agent.maxRequests)` - maximum number of requests that Copilot Edits can make in agent mode (default: 15)
-* `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)`_(Experimental)_ - suggest related files from git history in Copilot Edits (default: `false`)
-* `setting(github.copilot.chat.agent.runTasks)` - run workspace tasks when using agent mode in Copilot Edits (default: `true`)
+* `setting(chat.editing.confirmEditRequestRemoval)` - 편집을 실행 취소하기 전에 확인을 요청합니다 (기본값: `true`)
+* `setting(chat.editing.confirmEditRequestRetry)` - 마지막 편집을 다시 실행하기 전에 확인을 요청합니다 (기본값: `true`)
+* `setting(github.copilot.chat.edits.temporalContext.enabled)` _(실험적)_: Copilot Edits의 요청에 최근에 본 파일과 편집된 파일을 포함할지 여부입니다.
+* `setting(github.copilot.chat.codesearch.enabled)` _(미리보기)_: 프롬프트에서 `#codebase`를 사용할 때, Copilot이 자동으로 편집할 관련 파일을 발견합니다.
+* `setting(chat.editing.alwaysSaveWithGeneratedChanges)` - Copilot Edits에서 생성된 변경 사항을 자동으로 디스크에 저장합니다 (기본값: `false`)
+* `setting(chat.implicitContext.enabled)` _(미리보기)_ - 활성 편집기가 채팅 프롬프트에 자동으로 컨텍스트로 추가될지 구성합니다.
+* `setting(chat.editing.autoAcceptDelay)` - 제안된 편집이 자동으로 수락되는 지연 시간을 구성합니다. 자동 수락을 비활성화하려면 0을 사용합니다 (기본값: 0)
+* `setting(chat.agent.maxRequests)` - Copilot Edits가 에이전트 모드에서 수행할 수 있는 최대 요청 수 (기본값: 15)
+* `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(실험적)_ - Copilot Edits에서 git 기록의 관련 파일을 제안합니다 (기본값: `false`)
+* `setting(github.copilot.chat.agent.runTasks)` - Copilot Edits에서 에이전트 모드를 사용할 때 작업 공간 작업을 실행합니다 (기본값: `true`)
 
-## Inline Chat settings
+## 인라인 채팅 설정 {#inline-chat-settings}
 
-* `setting(inlineChat.acceptedOrDiscardBeforeSave)`: Controls whether pending Inline Chat sessions in an editor prevent saving the file.
-* `setting(inlineChat.finishOnType)`: Whether to finish an Inline Chat session when typing outside of changed regions.
-* `setting(inlineChat.holdToSpeech)`: Whether holding the Inline Chat keyboard shortcut will automatically enable speech recognition.
-* `setting(inlineChat.inlineChat.lineEmptyHint)` _(Experimental)_: Controls whether to show a hint for Inline Chat on an empty line.
-* `setting(inlineChat.lineNaturalLanguageHint)` _(Experimental)_: Experimental suggestion that triggers Inline Chat as soon as a line mostly consists of words.
-* `setting(github.copilot.chat.editor.temporalContext.enabled)` _(Experimental)_: Whether to include recently viewed and edited files with Copilot requests in Inline Chat.
+* `setting(inlineChat.acceptedOrDiscardBeforeSave)`: 편집기에서 보류 중인 인라인 채팅 세션이 파일 저장을 방해하는지 여부를 제어합니다.
+* `setting(inlineChat.finishOnType)`: 변경된 영역 외부에서 입력할 때 인라인 채팅 세션을 종료할지 여부입니다.
+* `setting(inlineChat.holdToSpeech)`: 인라인 채팅 키보드 단축키를 누르고 있으면 음성 인식이 자동으로 활성화되는지 여부입니다.
+* `setting(inlineChat.inlineChat.lineEmptyHint)` _(실험적)_: 빈 줄에서 인라인 채팅에 대한 힌트를 표시할지 여부를 제어합니다.
+* `setting(inlineChat.lineNaturalLanguageHint)` _(실험적)_: 대부분 단어로 구성된 줄에서 인라인 채팅을 즉시 트리거하는 실험적 제안입니다.
+* `setting(github.copilot.chat.editor.temporalContext.enabled)` _(실험적)_: 인라인 채팅에서 Copilot 요청과 함께 최근에 본 파일과 편집된 파일을 포함할지 여부입니다.
 
-## Customize Copilot prompts
+## Copilot 프롬프트 사용자 정의 {#customize-copilot-prompts}
 
-* `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`: Controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
-* `setting(github.copilot.chat.codeGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate code.
-* `setting(github.copilot.chat.testGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate tests.
-* `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_: A set of instructions that will be added to Copilot requests for reviewing the current editor selection.
-* `setting(github.copilot.chat.commitMessageGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate commit messages.
-Copilot requests for reviewing the current editor selection.
-* `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate pull request titles and descriptions.
-* `setting(chat.promptFiles)` _(Experimental)_: enable prompt files and specify prompt file folder(s). Set to `true` to use the default location (`.github/prompts`), or use the `{ "/path/to/folder": boolean }` notation to specify a different path. Relative paths are resolved from the root folder(s) of your workspace.
+* `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`: `.github/copilot-instructions.md`의 코드 지침이 Copilot 요청에 추가될지 여부를 제어합니다.
+* `setting(github.copilot.chat.codeGeneration.instructions)` _(실험적)_: 코드를 생성하는 Copilot 요청에 추가될 지침 세트입니다.
+* `setting(github.copilot.chat.testGeneration.instructions)` _(실험적)_: 테스트를 생성하는 Copilot 요청에 추가될 지침 세트입니다.
+* `setting(github.copilot.chat.reviewSelection.instructions)` _(미리보기)_: 현재 편집기 선택을 검토하기 위한 Copilot 요청에 추가될 지침 세트입니다.
+* `setting(github.copilot.chat.commitMessageGeneration.instructions)` _(실험적)_: 커밋 메시지를 생성하는 Copilot 요청에 추가될 지침 세트입니다.
+* `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` _(실험적)_: 풀 리퀘스트 제목 및 설명을 생성하는 Copilot 요청에 추가될 지침 세트입니다.
+* `setting(chat.promptFiles)` _(실험적)_: 프롬프트 파일을 활성화하고 프롬프트 파일 폴더를 지정합니다. 기본 위치(`.github/prompts`)를 사용하려면 `true`로 설정하거나, 다른 경로를 지정하려면 `{ "/path/to/folder": boolean }` 표기법을 사용합니다. 상대 경로는 작업 공간의 루트 폴더에서 해결됩니다.
 
-## Debugging settings
+## 디버깅 설정 {#debugging-settings}
 
-* `setting(github.copilot.chat.startDebugging.enabled)` _(Preview)_: Enables the experimental `/startDebugging` intent in the Chat view to generate debugging configuration.
+* `setting(github.copilot.chat.startDebugging.enabled)` _(미리보기)_: 디버깅 구성을 생성하기 위해 채팅 보기에서 실험적인 `/startDebugging` 의도를 활성화합니다.
 
-## Testing settings
+## 테스트 설정 {#testing-settings}
 
-* `setting(github.copilot.chat.generateTests.codeLens)` _(Experimental)_: Show **Generate tests** code lens for symbols that are not covered by current test coverage information.
-* `setting(github.copilot.chat.setupTests.enabled)` _(Experimental)_: Enables the experimental `/setupTests` intent and prompting in `/tests` generation.
-* `setting(github.copilot.chat.fixTestFailure.enabled)`: Enables the preview `/fixTestFailure` intent in chat and delegates certain `/fix` invocations automatically if no testing setup is found.
-* `setting(github.copilot.chat.testGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate tests.
+* `setting(github.copilot.chat.generateTests.codeLens)` _(실험적)_: 현재 테스트 커버리지 정보로 커버되지 않은 기호에 대해 **테스트 생성** 코드 렌즈를 표시합니다.
+* `setting(github.copilot.chat.setupTests.enabled)` _(실험적)_: 실험적인 `/setupTests` 의도 및 `/tests` 생성을 활성화합니다.
+* `setting(github.copilot.chat.fixTestFailure.enabled)`: 채팅에서 미리보기 `/fixTestFailure` 의도를 활성화하고, 테스트 설정이 발견되지 않으면 특정 `/fix` 호출을 자동으로 위임합니다.
+* `setting(github.copilot.chat.testGeneration.instructions)` _(실험적)_: 테스트를 생성하는 Copilot 요청에 추가될 지침 세트입니다.
 
-## Notebook settings
+## 노트북 설정 {#notebook-settings}
 
-* `setting(notebook.experimental.generate)` _(Experimental)_: Enable the **Generate** action to create code cells with Inline Chat enabled in the notebook editor.
+* `setting(notebook.experimental.generate)` _(실험적)_: 노트북 편집기에서 인라인 채팅이 활성화된 코드 셀을 생성하기 위해 **생성** 작업을 활성화합니다.
 
-## Accessibility settings
+## 접근성 설정 {#accessibility-settings}
 
-* `setting(inlineChat.accessibleDiffView)`: Whether the Inline Chat also renders an accessible diff viewer for its changes.
-* `setting(accessibility.signals.chatRequestSent)`: Plays a signal - sound (audio cue) and/or announcement (alert) - when a chat request is made.
-* `setting(accessibility.signals.chatResponseReceived)`: Plays a sound / audio cue when the response has been received.
-* `setting(accessibility.verbosity.inlineChat)`: Provide information about how to access the inline editor chat accessibility help menu and alert with hints that describe how to use the feature when the input is focused.
-* `setting(accessibility.verbosity.inlineCompletions)`: Provide information about how to access the inline completions hover and Accessible View.
-* `setting(accessibility.verbosity.panelChat)`: Provide information about how to access the chat help menu when the chat input is focused.
-* `setting(accessibility.voice.keywordActivation)`: Controls whether the keyword phrase 'Hey Code' is recognized to start a voice chat session.
-* `setting(accessibility.voice.autoSynthesize)`: Controls whether a textual response should automatically be read out aloud when speech was used as input.
-* `setting(accessibility.voice.speechTimeout)`: The duration in milliseconds that voice speech recognition remains active after you stop speaking.
+* `setting(inlineChat.accessibleDiffView)`: 인라인 채팅이 변경 사항에 대한 접근 가능한 차이 뷰어를 렌더링할지 여부입니다.
+* `setting(accessibility.signals.chatRequestSent)`: 채팅 요청이 이루어질 때 신호 - 소리(오디오 신호) 및/또는 발표(알림)를 재생합니다.
+* `setting(accessibility.signals.chatResponseReceived)`: 응답이 수신되었을 때 소리/오디오 신호를 재생합니다.
+* `setting(accessibility.verbosity.inlineChat)`: 인라인 편집기 채팅 접근성 도움말 메뉴에 접근하는 방법과 입력이 포커스될 때 기능 사용 방법을 설명하는 힌트를 제공하는 정보를 제공합니다.
+* `setting(accessibility.verbosity.inlineCompletions)`: 인라인 완성 호버 및 접근 가능한 뷰에 접근하는 방법에 대한 정보를 제공합니다.
+* `setting(accessibility.verbosity.panelChat)`: 채팅 입력이 포커스될 때 채팅 도움말 메뉴에 접근하는 방법에 대한 정보를 제공합니다.
+* `setting(accessibility.voice.keywordActivation)`: 'Hey Code'라는 키워드 문구가 음성 채팅 세션을 시작하기 위해 인식되는지 여부를 제어합니다.
+* `setting(accessibility.voice.autoSynthesize)`: 음성이 입력으로 사용될 때 텍스트 응답이 자동으로 읽혀야 하는지 여부를 제어합니다.
+* `setting(accessibility.voice.speechTimeout)`: 음성 인식이 사용자가 말을 멈춘 후 활성 상태로 유지되는 밀리초 단위의 기간입니다.
 
-## Related resources
+## 관련 리소스 {#related-resources}
 
-* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/copilot-vscode-features.md)
+* [VS Code에서 Copilot 기능에 대한 간략한 개요를 확인하세요](/docs/copilot/copilot-vscode-features.md)
+---

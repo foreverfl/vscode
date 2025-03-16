@@ -6,6 +6,7 @@ ContentId: 6f06908a-6694-4fad-ac1e-fc6d9c5747ca
 PageTitle: Visual Studio Code로 Go 사용하기
 DateApproved: 03/05/2025
 MetaDescription: Go를 위한 Visual Studio Code 편집기 기능(코드 완성, 디버깅, 스니펫, 린팅)에 대해 알아보세요.
+sidebar_label: Go
 ---
 # Visual Studio Code에서 Go 사용하기 {#go-in-visual-studio-code}
 

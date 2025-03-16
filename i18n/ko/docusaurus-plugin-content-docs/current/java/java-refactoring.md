@@ -1,101 +1,91 @@
----
-Order: 3
-Area: java
-TOCTitle: Refactoring
-ContentId: 36ee3e12-9bcc-4f01-9672-857ad2733c2d
-PageTitle: Java code refactoring and Source Actions for Visual Studio Code
-DateApproved: 12/9/2021
-MetaDescription: Java code refactoring and Source Actions for Visual Studio Code
----
+# 자바 리팩토링 및 소스 액션 {#java-refactoring-and-source-actions}
 
-# Java refactoring and Source Actions
+Visual Studio Code는 소스 코드를 리팩토링할 수 있는 다양한 옵션과 코드를 생성하고 문제를 해결할 수 있는 소스 액션을 제공합니다. 이를 사용하려면 `전구` 💡를 클릭하세요. 또는 편집기 뷰에서 마우스 오른쪽 버튼을 클릭하고 **소스 액션...**을 선택하세요.
 
-Visual Studio Code provides many options to refactor your source code as well as Source Actions to generate code and fix issues while you're coding. To access them, click on the `light bulb` 💡 whenever you see it. Or right-click the editor view and pick **Source Action...**.
+## 지원되는 코드 액션 목록 {#list-of-supported-code-actions}
 
-## List of Supported Code Actions
+- [리팩토링](#refactoring)
+  - [변수에 할당](#assign-to-variable)
+  - [익명 클래스를 중첩 클래스로 변환](#convert-anonymous-to-nested-class)
+  - [익명 클래스 생성으로 변환](#convert-to-anonymous-class-creation)
+  - [향상된 for 루프로 변환](#convert-to-enhanced-for-loop)
+  - [람다 표현식으로 변환](#convert-to-lambda-expression)
+  - [정적 임포트로 변환](#convert-to-static-import)
+  - 추출 리팩토링
+    - [상수로 추출](#extract-to-constant)
+    - [필드로 추출](#extract-to-field)
+    - [메서드로 추출](#extract-to-method)
+    - [로컬 변수로 추출](#extract-to-local-variable)
+  - 인라인 리팩토링
+    - [상수 인라인](#inline-constant)
+    - [로컬 변수 인라인](#inline-local-variable)
+    - [메서드 인라인](#inline-method)
+  - 불리언 반전
+    - [조건 반전](#invert-conditions)
+    - [로컬 변수 반전](#invert-local-variable)
+  - [이동](#move)
+  - [이름 변경](#rename)
+  - 타입 변경
+    - [해결된 타입을 var 타입으로 변경](#change-resolved-type-to-var-type)
+    - [var 타입을 해결된 타입으로 변경](#change-var-type-to-resolved-type)
+- [소스 액션](#source-actions)
+  - [생성자 생성](#generate-constructors)
+  - [위임 메서드 생성](#generate-delegate-methods)
+  - [메서드 재정의/구현](#overrideimplement-methods)
+  - [임포트 정리](#organize-imports)
+  - [getter 및 setter 생성](#generate-getters-and-setters)
+  - [`hashCode()` 및 `equals()` 생성](#generate-hashcode-and-equals)
+  - [`toString()` 생성](#generate-tostring)
+  - [가능한 경우 수정자를 final로 변경](#change-modifiers-to-final-where-possible)
+- 지원되는 기타 코드 액션
+  - [비접근 참조 수정](#fix-nonaccessible-reference)
+  - [존재하지 않는 패키지 생성](#create-non-existing-package)
+  - [더 보기...](#other-code-actions-supported)
 
-- [Refactoring](#refactoring)
-  - [Assign to variable](#assign-to-variable)
-  - [Convert anonymous to nested class](#convert-anonymous-to-nested-class)
-  - [Convert to anonymous class creation](#convert-to-anonymous-class-creation)
-  - [Convert to enhanced for loop](#convert-to-enhanced-for-loop)
-  - [Convert to lambda expression](#convert-to-lambda-expression)
-  - [Convert to static import](#convert-to-static-import)
-  - Extract refactorings
-    - [Extract to constant](#extract-to-constant)
-    - [Extract to field](#extract-to-field)
-    - [Extract to method](#extract-to-method)
-    - [Extract to local variable](#extract-to-local-variable)
-  - Inline refactorings
-    - [Inline constant](#inline-constant)
-    - [Inline local variable](#inline-local-variable)
-    - [Inline method](#inline-method)
-  - Invert boolean
-    - [Invert conditions](#invert-conditions)
-    - [Invert local variable](#invert-local-variable)
-  - [Move](#move)
-  - [Rename](#rename)
-  - Type change
-    - [Change resolved type to var type](#change-resolved-type-to-var-type)
-    - [Change var type to resolved type](#change-var-type-to-resolved-type)
-- [Source Actions](#source-actions)
-  - [Generate constructors](#generate-constructors)
-  - [Generate delegate methods](#generate-delegate-methods)
-  - [Override/implement methods](#overrideimplement-methods)
-  - [Organize imports](#organize-imports)
-  - [Generate getters and setters](#generate-getters-and-setters)
-  - [Generate `hashCode()` and `equals()`](#generate-hashcode-and-equals)
-  - [Generate `toString()`](#generate-tostring)
-  - [Change modifiers to final where possible](#change-modifiers-to-final-where-possible)
-- Other Code Actions supported
-  - [Fix non-accessible reference](#fix-nonaccessible-reference)
-  - [Create non-existing package](#create-non-existing-package)
-  - [More...](#other-code-actions-supported)
+## 리팩토링 {#refactoring}
 
-## Refactoring
+자바 프로그램 리팩토링의 목표는 프로그램의 동작에 영향을 주지 않으면서 시스템 전반에 걸쳐 코드 변경을 수행하는 것입니다. VS Code의 자바 언어 지원은 쉽게 접근할 수 있는 많은 리팩토링 옵션을 제공합니다.
 
-The goal of the Java program refactoring is to make system-wide code changes without affecting behavior of the program. The Java Language Support for VS Code provides many easily accessible refactoring options.
+### 리팩토링 호출 {#invoke-refactoring}
 
-### Invoke refactoring
+리팩토링 명령은 편집기의 컨텍스트 메뉴에서 사용할 수 있습니다. 리팩토링할 요소를 선택하고 마우스 오른쪽 버튼을 클릭하여 컨텍스트 메뉴를 열고 **리팩토링...**을 선택하세요:
 
-Refactoring commands are available from the context menu of the editor. Select the element you want to refactor, right-click to open the context menu, and choose **Refactor...**:
+![리팩토링 호출](images/java-refactoring/refactoring_menu.png)
 
-![Invoke Refactoring](images/java-refactoring/refactoring_menu.png)
+그러면 사용 가능한 모든 리팩토링 옵션이 표시됩니다.
 
-Then you will see all the available refactoring options.
+### 변수에 할당 {#assign-to-variable}
 
-### Assign to variable
+표현식을 로컬 변수 또는 필드에 할당합니다.
 
-Assigns an expression to a local variable or a field.
+#### 예제 {#example}
 
-#### Example
-
-##### Before
+##### 이전 {#before}
 
 ```java
 Arrays.asList("apple", "lemon", "banana");
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 List<String> fruits = Arrays.asList("apple", "lemon", "banana");
 ```
 
-It can also be used to assign a parameter to a new field for unused parameter(s) in a constructor.
+생성자에서 사용되지 않는 매개변수를 새 필드에 할당하는 데에도 사용할 수 있습니다.
 
-<video src="images/java-refactoring/assign-to-field.mp4" autoplay loop muted playsinline controls title="Assign a parameter to a new field">
+<video src="images/java-refactoring/assign-to-field.mp4" autoplay loop muted playsinline controls title="매개변수를 새 필드에 할당">
 </video>
 
-### Convert anonymous to nested class
+### 익명 클래스를 중첩 클래스로 변환 {#convert-anonymous-to-nested-class}
 
-Converts an anonymous inner class to a member class.
+익명 내부 클래스를 멤버 클래스로 변환합니다.
 
-#### Example
+#### 예제 {#example}
 
-Let's convert the anonymous class `Interface(){...}` to a member of the class `Clazz`.
+익명 클래스 `Interface(){...}`를 클래스 `Clazz`의 멤버로 변환해 보겠습니다.
 
-##### Before
+##### 이전 {#before}
 
 ```java
 public class Clazz {
@@ -110,7 +100,7 @@ public class Clazz {
 }
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 public class Clazz {
@@ -133,110 +123,110 @@ public class Clazz {
 }
 ```
 
-### Convert to anonymous class creation
+### 익명 클래스 생성으로 변환 {#convert-to-anonymous-class-creation}
 
-Converts lambda expression to anonymous class creation.
+람다 표현식을 익명 클래스 생성으로 변환합니다.
 
-#### Example
+#### 예제 {#example}
 
-The variable `runnable` is assigned with a lambda expression. Let's convert it to an anonymous class creation.
+변수 `runnable`에 람다 표현식이 할당되어 있습니다. 이를 익명 클래스 생성으로 변환해 보겠습니다.
 
-##### Before
+##### 이전 {#before}
 
 ```java
 public void method() {
   Runnable runnable = () -> {
-    // do something
+    // 무언가를 수행
   };
 }
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 public void method() {
   Runnable runnable = new Runnable() {
     @Override
     public void run() {
-      // do something
+      // 무언가를 수행
     }
   };
 }
 ```
 
-> Also see: [Convert to lambda expression](#convert-to-lambda-expression)
+> 추가 참고: [람다 표현식으로 변환](#convert-to-lambda-expression)
 
-### Convert to enhanced for loop
+### 향상된 for 루프로 변환 {#convert-to-enhanced-for-loop}
 
-Converts the simple `for` loop to `for-each` style.
+단순 `for` 루프를 `for-each` 스타일로 변환합니다.
 
-#### Example
+#### 예제 {#example}
 
-##### Before
+##### 이전 {#before}
 
 ```java
 public void order(String[] books) {
   for (int i = 0; i < books.length; i++) {
-    // do something
+    // 무언가를 수행
   }
 }
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 public void order(String[] books) {
   for (String book : books) {
-    // do something
+    // 무언가를 수행
   }
 }
 ```
 
-<video src="images/java-refactoring/convert-for-loop.mp4" autoplay loop muted playsinline controls title="Convert to enhanced for loop">
+<video src="images/java-refactoring/convert-for-loop.mp4" autoplay loop muted playsinline controls title="향상된 for 루프로 변환">
 </video>
 
-### Convert to lambda expression
+### 람다 표현식으로 변환 {#convert-to-lambda-expression}
 
-Converts an anonymous class creation to the lambda expression.
+익명 클래스 생성을 람다 표현식으로 변환합니다.
 
-#### Example
+#### 예제 {#example}
 
-Let's convert the anonymous class `Runnable(){...}` to a lambda expression.
+익명 클래스 `Runnable(){...}`를 람다 표현식으로 변환해 보겠습니다.
 
-##### Before
+##### 이전 {#before}
 
 ```java
 public void method() {
   Runnable runnable = new Runnable(){
     @Override
     public void run() {
-      // do something
+      // 무언가를 수행
     }
   };
 }
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 public void method() {
     Runnable runnable = () -> {
-      // do something
+      // 무언가를 수행
     };
   }
 ```
 
-> Also see: [Convert to anonymous class creation](#convert-to-anonymous-class-creation)
+> 추가 참고: [익명 클래스 생성으로 변환](#convert-to-anonymous-class-creation)
 
-### Convert to static import
+### 정적 임포트로 변환 {#convert-to-static-import}
 
-Converts the field or method to static import.
+필드 또는 메서드를 정적 임포트로 변환합니다.
 
-#### Example
+#### 예제 {#example}
 
-Let's transform the `Assert.assertEquals()` invocation to a static import.
+`Assert.assertEquals()` 호출을 정적 임포트로 변환해 보겠습니다.
 
-##### Before
+##### 이전 {#before}
 
 ```java
 import org.junit.Assert;
@@ -246,7 +236,7 @@ public void test() {
 }
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 import static org.junit.Assert.assertEquals;
@@ -256,18 +246,18 @@ public void test() {
 }
 ```
 
-<video src="images/java-refactoring/convert-static-imports.mp4" autoplay loop muted playsinline controls title="Convert to static import">
+<video src="images/java-refactoring/convert-static-imports.mp4" autoplay loop muted playsinline controls title="정적 임포트로 변환">
 </video>
 
-### Extract to constant
+### 상수로 추출 {#extract-to-constant}
 
-Creates a static final field from the selected expression and substitutes a field reference, then rewrites other places where the same expression occurs.
+선택한 표현식으로부터 정적 최종 필드를 생성하고 필드 참조로 대체한 후, 동일한 표현식이 발생하는 다른 위치를 다시 작성합니다.
 
-#### Examples
+#### 예제 {#examples}
 
-Let's extract the value of π: `3.14` to a constant.
+π의 값을 `3.14`로 추출해 보겠습니다.
 
-##### Before
+##### 이전 {#before}
 
 ```java
 public double getArea(double r) {
@@ -275,7 +265,7 @@ public double getArea(double r) {
 }
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 private static final double PI = 3.14;
@@ -285,17 +275,17 @@ public double getArea(double r) {
 }
 ```
 
-> Also see: [Inline constant](#inline-constant)
+> 추가 참고: [상수 인라인](#inline-constant)
 
-### Extract to field
+### 필드로 추출 {#extract-to-field}
 
-Declares a new field and initializes it with the selected expression. The original expression is replaced with the usage of the field.
+새 필드를 선언하고 선택한 표현식으로 초기화합니다. 원래 표현식은 필드 사용으로 대체됩니다.
 
-#### Examples
+#### 예제 {#examples}
 
-Let's extract the variable `area` to a field of the class `Square`.
+변수 `area`를 클래스 `Square`의 필드로 추출해 보겠습니다.
 
-##### Before
+##### 이전 {#before}
 
 ```java
 class Square {
@@ -307,7 +297,7 @@ class Square {
 }
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 class Square {
@@ -321,23 +311,23 @@ class Square {
 }
 ```
 
-<video src="images/java-refactoring/extract-field.mp4" autoplay loop muted playsinline controls title="Extract to field">
+<video src="images/java-refactoring/extract-field.mp4" autoplay loop muted playsinline controls title="필드로 추출">
 </video>
 
-When selecting a variable declaration, convert the variable to field.
+변수 선언을 선택할 때, 변수를 필드로 변환합니다.
 
-<video src="images/java-refactoring/convert-field.mp4" autoplay loop muted playsinline controls title="Convert the variable to field">
+<video src="images/java-refactoring/convert-field.mp4" autoplay loop muted playsinline controls title="변수를 필드로 변환">
 </video>
 
-### Extract to method
+### 메서드로 추출 {#extract-to-method}
 
-Creates a new method containing the statements or expressions currently selected and replaces the selection with a reference to the new method. This feature is useful for cleaning up lengthy, cluttered, or overly complicated methods.
+현재 선택된 문장이나 표현식을 포함하는 새 메서드를 생성하고 선택된 부분을 새 메서드에 대한 참조로 대체합니다. 이 기능은 길고 복잡한 메서드를 정리하는 데 유용합니다.
 
-#### Examples
+#### 예제 {#examples}
 
-Let's extract the expression `height * width` to a new method.
+표현식 `height * width`를 새 메서드로 추출해 보겠습니다.
 
-##### Before
+##### 이전 {#before}
 
 ```java
 public void method() {
@@ -347,7 +337,7 @@ public void method() {
 }
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 public void method() {
@@ -361,59 +351,59 @@ private int getArea(int height, int width) {
 }
 ```
 
-<video src="images/java-refactoring/refactor.mp4" autoplay loop muted playsinline controls title="Extract to method">
+<video src="images/java-refactoring/refactor.mp4" autoplay loop muted playsinline controls title="메서드로 추출">
 </video>
 
-> Also see: [Inline method](#inline-method)
+> 추가 참고: [메서드 인라인](#inline-method)
 
-### Extract to local variable
+### 로컬 변수로 추출 {#extract-to-local-variable}
 
-Creates a new variable assigned to the expression currently selected and replaces the selection with a reference to the new variable.
+현재 선택된 표현식에 할당된 새 변수를 생성하고 선택된 부분을 새 변수에 대한 참조로 대체합니다.
 
-#### Examples
+#### 예제 {#examples}
 
-Let's extract the expression `platform.equalsIgnoreCase("MAC")` to a new variable.
+표현식 `platform.equalsIgnoreCase("MAC")`를 새 변수로 추출해 보겠습니다.
 
-##### Before
+##### 이전 {#before}
 
 ```java
 public void method() {
   if (platform.equalsIgnoreCase("MAC")) {
-    // do something
+    // 무언가를 수행
   }
 }
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 public void method() {
   boolean isMac = platform.equalsIgnoreCase("MAC");
   if (isMac) {
-    // do something
+    // 무언가를 수행
   }
 }
 ```
 
-<video src="images/java-refactoring/extract-local-variable.mp4" autoplay loop muted playsinline controls title="Extract to local variable">
+<video src="images/java-refactoring/extract-local-variable.mp4" autoplay loop muted playsinline controls title="로컬 변수로 추출">
 </video>
 
-After the extraction, you can also perform a rename in the same transaction.
+추출 후, 같은 트랜잭션에서 이름 변경도 수행할 수 있습니다.
 
-<video src="images/java-refactoring/extract-rename.mp4" autoplay loop muted playsinline controls title="Rename local variable after extraction">
+<video src="images/java-refactoring/extract-rename.mp4" autoplay loop muted playsinline controls title="추출 후 로컬 변수 이름 변경">
 </video>
 
-> Also see: [Inline local variable](#inline-local-variable)
+> 추가 참고: [로컬 변수 인라인](#inline-local-variable)
 
-### Inline constant
+### 상수 인라인 {#inline-constant}
 
-Replaces a constant reference with its defined value.
+상수 참조를 정의된 값으로 대체합니다.
 
-#### Examples
+#### 예제 {#examples}
 
-Let's replace the constant `PI` to its defined value: `3.14`.
+상수 `PI`를 정의된 값 `3.14`로 대체해 보겠습니다.
 
-##### Before
+##### 이전 {#before}
 
 ```java
 private static final double PI = 3.14;
@@ -423,7 +413,7 @@ public double getArea(double r) {
 }
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 private static final double PI = 3.14;
@@ -433,48 +423,48 @@ public double getArea(double r) {
 }
 ```
 
-> Also see: [Extract to constant](#extract-to-constant)
+> 추가 참고: [상수로 추출](#extract-to-constant)
 
-### Inline local variable
+### 로컬 변수 인라인 {#inline-local-variable}
 
-Replaces redundant variable usage with its initializer.
+불필요한 변수 사용을 초기화 값으로 대체합니다.
 
-#### Examples
+#### 예제 {#examples}
 
-Let's replace the variable `isMac` directly to the boolean expression.
+변수 `isMac`을 불리언 표현식으로 직접 대체해 보겠습니다.
 
-##### Before
+##### 이전 {#before}
 
 ```java
 public void method() {
   boolean isMac = platform.equalsIgnoreCase("MAC");
   if (isMac) {
-    // do something
+    // 무언가를 수행
   }
 }
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 public void method() {
   if (platform.equalsIgnoreCase("MAC")) {
-    // do something
+    // 무언가를 수행
   }
 }
 ```
 
-> Also see: [Extract to local variable](#extract-to-local-variable)
+> 추가 참고: [로컬 변수로 추출](#extract-to-local-variable)
 
-### Inline method
+### 메서드 인라인 {#inline-method}
 
-Replaces calls to the method with the method’s body.
+메서드 호출을 메서드 본체로 대체합니다.
 
-#### Example
+#### 예제 {#example}
 
-Let's replace the method `getArea(int height, int width)` directly to the expression `height * width`.
+메서드 `getArea(int height, int width)`를 표현식 `height * width`로 직접 대체해 보겠습니다.
 
-##### Before
+##### 이전 {#before}
 
 ```java
 public void method() {
@@ -488,7 +478,7 @@ private int getArea(int height, int width) {
 }
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 public void method() {
@@ -498,48 +488,48 @@ public void method() {
 }
 ```
 
-<video src="images/java-refactoring/inline.mp4" autoplay loop muted playsinline controls title="Replace calls to the method with method's body">
+<video src="images/java-refactoring/inline.mp4" autoplay loop muted playsinline controls title="메서드 호출을 메서드 본체로 교체하기">
 </video>
 
-> Also see: [Extract to method](#extract-to-method)
+> 추가 참고: [메서드로 추출하기](#extract-to-method)
 
-### Invert conditions
+### 조건 반전 {#invert-conditions}
 
-Inverts the boolean expression in the conditions.
+조건의 불리언 표현식을 반전시킵니다.
 
-#### Example
+#### 예제 {#example}
 
-Let's invert the boolean expression in the if statement.
+if 문에서 불리언 표현식을 반전시켜 보겠습니다.
 
-##### Before
+##### 이전 {#before}
 
 ```java
 public void method(int value) {
   if (value > 5 && value < 15) {
-    // do something
+    // 무언가를 수행합니다.
   }
 }
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 public void method(int value) {
   if (value <= 5 || value >= 15) {
-    // do something
+    // 무언가를 수행합니다.
   }
 }
 ```
 
-### Invert local variable
+### 지역 변수 반전 {#invert-local-variable}
 
-Inverts the local boolean variable.
+지역 불리언 변수를 반전시킵니다.
 
-#### Example
+#### 예제 {#example}
 
-Let's invert the variable `valid`.
+변수 `valid`를 반전시켜 보겠습니다.
 
-##### Before
+##### 이전 {#before}
 
 ```java
 public void method(int value) {
@@ -547,7 +537,7 @@ public void method(int value) {
 }
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 public void method(int value) {
@@ -555,22 +545,22 @@ public void method(int value) {
 }
 ```
 
-<video src="images/java-refactoring/invert-variable.mp4" autoplay loop muted playsinline controls title="Invert local variable">
+<video src="images/java-refactoring/invert-variable.mp4" autoplay loop muted playsinline controls title="지역 변수 반전">
 </video>
 
-### Move
+### 이동 {#move}
 
-Moves the selected elements and corrects all references to the elements (also in other files). Available actions are:
+선택한 요소를 이동하고 요소에 대한 모든 참조를 수정합니다(다른 파일에서도). 사용 가능한 작업은 다음과 같습니다:
 
-- Move class to another package
-- Move static or instance method to another class
-- Move inner class to a new file
+- 클래스를 다른 패키지로 이동
+- 정적 또는 인스턴스 메서드를 다른 클래스로 이동
+- 내부 클래스를 새 파일로 이동
 
-#### Example
+#### 예제 {#example}
 
-Let's move the static method `print()` from class `Office` to class `Printer`.
+정적 메서드 `print()`를 클래스 `Office`에서 클래스 `Printer`로 이동해 보겠습니다.
 
-##### Before
+##### 이전 {#before}
 
 ```java
 public class Office {
@@ -579,14 +569,14 @@ public class Office {
   }
 
   public static void print() {
-    System.out.println("This is printer");
+    System.out.println("프린터입니다.");
   }
 
   static class Printer { }
 }
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 public class Office {
@@ -596,38 +586,38 @@ public class Office {
 
   static class Printer {
     public static void print() {
-      System.out.println("This is printer");
+      System.out.println("프린터입니다.");
     }
   }
 }
 ```
 
-Move refactoring on a static method if it is used more in another class than in its own class.
+정적 메서드가 자신의 클래스보다 다른 클래스에서 더 많이 사용되는 경우 이동 리팩토링을 수행합니다.
 
-<video src="images/java-refactoring/move-static-method.mp4" autoplay loop muted playsinline controls title="Refactoring on a static method">
+<video src="images/java-refactoring/move-static-method.mp4" autoplay loop muted playsinline controls title="정적 메서드 리팩토링">
 </video>
 
-Move a class to another package. Currently, move refactoring is not supported from the File Explorer.
+클래스를 다른 패키지로 이동합니다. 현재 파일 탐색기에서 이동 리팩토링은 지원되지 않습니다.
 
-<video src="images/java-refactoring/move-class.mp4" autoplay loop muted playsinline controls title="Move a class to another package">
+<video src="images/java-refactoring/move-class.mp4" autoplay loop muted playsinline controls title="클래스를 다른 패키지로 이동">
 </video>
 
-Move an inner class to a new file.
+내부 클래스를 새 파일로 이동합니다.
 
-<video src="images/java-refactoring/move-inner-type.mp4" autoplay loop muted playsinline controls title="Move an inner class to a new File">
+<video src="images/java-refactoring/move-inner-type.mp4" autoplay loop muted playsinline controls title="내부 클래스를 새 파일로 이동">
 </video>
 
-### Rename
+### 이름 변경 {#rename}
 
-Default shortcut: `kb(editor.action.rename)`
+기본 단축키: `kb(editor.action.rename)`
 
-Renames the selected element and corrects all references to the elements (also in other files).
+선택한 요소의 이름을 변경하고 요소에 대한 모든 참조를 수정합니다(다른 파일에서도).
 
-#### Example
+#### 예제 {#example}
 
-Let's rename the class `Foo` to `Bar`
+클래스 `Foo`의 이름을 `Bar`로 변경해 보겠습니다.
 
-##### Before
+##### 이전 {#before}
 
 ```java
 public class Foo {
@@ -639,7 +629,7 @@ public void myMethod() {
 }
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 public class Bar {
@@ -651,170 +641,170 @@ public void myMethod() {
 }
 ```
 
-The shortcut to invoke the Rename refactoring is `kb(editor.action.rename)`. When you invoke the shortcut on an identifier in the editor, a small box displays within the editor itself where you can change the identifier name. When you press `kbstyle(Enter)`, all references to that identifier are changed too.
+이름 변경 리팩토링을 호출하는 단축키는 `kb(editor.action.rename)`입니다. 편집기에서 식별자에 대해 단축키를 호출하면, 식별자 이름을 변경할 수 있는 작은 상자가 편집기 내에 표시됩니다. `kbstyle(Enter)`를 누르면 해당 식별자에 대한 모든 참조도 변경됩니다.
 
-<video src="images/java-refactoring/rename.mp4" autoplay loop muted playsinline controls title="Shortcut to invoke the Rename refactoring">
+<video src="images/java-refactoring/rename.mp4" autoplay loop muted playsinline controls title="이름 변경 리팩토링 호출 단축키">
 </video>
 
-Rename refactoring is also supported from the File Explorer for folders and files. After requesting the change, a preview of impacted files will be provided and you can decide how to apply those changes.
+이름 변경 리팩토링은 파일 탐색기에서도 폴더와 파일에 대해 지원됩니다. 변경 요청 후 영향을 받는 파일의 미리보기가 제공되며, 변경 사항을 적용할 방법을 결정할 수 있습니다.
 
-![Rename from Explorer](images/java-refactoring/rename-explorer.gif)
+![탐색기에서 이름 변경](images/java-refactoring/rename-explorer.gif)
 
-### Change resolved type to var type
+### 해결된 타입을 var 타입으로 변경 {#change-resolved-type-to-var-type}
 
-Uses `var` to declare local variables.
+지역 변수를 선언할 때 `var`를 사용합니다.
 
-#### Example
+#### 예제 {#example}
 
-##### Before
+##### 이전 {#before}
 
 ```java
 String s = "";
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 var s = "";
 ```
 
-> Also see: [Change var type to resolved type](#change-var-type-to-resolved-type)
+> 추가 참고: [var 타입을 해결된 타입으로 변경](#change-var-type-to-resolved-type)
 
 ---
 
-### Change var type to resolved type
+### var 타입을 해결된 타입으로 변경 {#change-var-type-to-resolved-type}
 
-Uses the resolved type to declare local variables.
+해결된 타입을 사용하여 지역 변수를 선언합니다.
 
-#### Example
+#### 예제 {#example}
 
-##### Before
+##### 이전 {#before}
 
 ```java
 var s = "";
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 String s = "";
 ```
 
-> Also see: [Change resolved type to var type](#change-resolved-type-to-var-type)
+> 추가 참고: [해결된 타입을 var 타입으로 변경](#change-resolved-type-to-var-type)
 
-## Source Actions
+## 소스 작업 {#source-actions}
 
-Source Actions could be used to generate common code structures and recurring elements. Some of them are Quick Fixes that help you fix code issues on the fly.
+소스 작업은 일반 코드 구조와 반복 요소를 생성하는 데 사용할 수 있습니다. 그 중 일부는 코드 문제를 즉시 수정하는 데 도움이 되는 빠른 수정입니다.
 
-### Generate constructors
+### 생성자 생성 {#generate-constructors}
 
-Add a constructor for the class.
+클래스에 대한 생성자를 추가합니다.
 
-<video src="images/java-refactoring/generate-constructor.mp4" autoplay loop muted playsinline controls title="Generate constructors">
+<video src="images/java-refactoring/generate-constructor.mp4" autoplay loop muted playsinline controls title="생성자 생성">
 </video>
 
-### Generate delegate methods
+### 위임 메서드 생성 {#generate-delegate-methods}
 
-Generate delegate methods
+위임 메서드를 생성합니다.
 
-<video src="images/java-refactoring/generate-delegate-methods.mp4" autoplay loop muted playsinline controls title="Generate delegate methods">
+<video src="images/java-refactoring/generate-delegate-methods.mp4" autoplay loop muted playsinline controls title="위임 메서드 생성">
 </video>
 
-### Override/implement methods
+### 메서드 재정의/구현 {#overrideimplement-methods}
 
-With this Source Action, all the candidates are presented to you with a checklist. You can then decide what to override or implement.
+이 소스 작업을 사용하면 모든 후보가 체크리스트와 함께 제공됩니다. 그런 다음 무엇을 재정의하거나 구현할지 결정할 수 있습니다.
 
-<video src="images/java-refactoring/override-implement-methods.mp4" autoplay loop muted playsinline controls title="Override/implement methods">
+<video src="images/java-refactoring/override-implement-methods.mp4" autoplay loop muted playsinline controls title="메서드 재정의/구현">
 </video>
 
-### Organize imports
+### 임포트 정리 {#organize-imports}
 
-You can use this Source Action to clean up your imports. It can also deal with ambiguous imports, in that case, a dropdown list will be presented for you to pick the right one. The code line with the unresolved type is also presented to you to help you decide.
+이 소스 작업을 사용하여 임포트를 정리할 수 있습니다. 모호한 임포트도 처리할 수 있으며, 이 경우 올바른 것을 선택할 수 있도록 드롭다운 목록이 제공됩니다. 해결되지 않은 타입이 있는 코드 줄도 제공되어 결정을 도와줍니다.
 
-<video src="images/java-refactoring/resolve-ambiguous-imports.mp4" autoplay loop muted playsinline controls title="Organize imports">
+<video src="images/java-refactoring/resolve-ambiguous-imports.mp4" autoplay loop muted playsinline controls title="임포트 정리">
 </video>
 
-### Generate getters and setters
+### getter 및 setter 생성 {#generate-getters-and-setters}
 
-You can bulk generate getters and setters for all new member variables. If the class has more than one field, the Source Action will prompt a Quick Pick for you to select the target fields to use to generate the accessor methods.
+모든 새 멤버 변수에 대해 getter 및 setter를 대량으로 생성할 수 있습니다. 클래스에 필드가 여러 개 있는 경우, 소스 작업이 액세서 메서드를 생성하는 데 사용할 대상 필드를 선택하기 위한 빠른 선택을 요청합니다.
 
-<video src="images/java-refactoring/advancedgettersetter.mp4" autoplay loop muted playsinline controls title="Generate getters and setters">
+<video src="images/java-refactoring/advancedgettersetter.mp4" autoplay loop muted playsinline controls title="getter 및 setter 생성">
 </video>
 
-### Generate `hashCode()` and `equals()`
+### `hashCode()` 및 `equals()` 생성 {#generate-hashcode-and-equals}
 
-`hashCode()` and `equals()` can be generated with default implementations. All the non-static member variables are listed, and you can customize the generated code using the check list.
+`hashCode()` 및 `equals()`는 기본 구현으로 생성할 수 있습니다. 모든 비정적 멤버 변수가 나열되며, 체크리스트를 사용하여 생성된 코드를 사용자 정의할 수 있습니다.
 
-There are two options for you to customize the generated code:
+생성된 코드를 사용자 정의할 수 있는 두 가지 옵션이 있습니다:
 
-- If you use Java 7+, you can set `java.codeGeneration.hashCodeEquals.useJava7Objects` to `true` to generate shorter code that calls `Objects.hash` and `Objects.equals`.
-- You can also set `java.codeGeneration.hashCodeEquals.useInstanceof` to `true` to use `instanceOf` operator to check the object types instead of calling `Object.getClass()`.
+- Java 7+를 사용하는 경우, `java.codeGeneration.hashCodeEquals.useJava7Objects`를 `true`로 설정하여 `Objects.hash` 및 `Objects.equals`를 호출하는 짧은 코드를 생성할 수 있습니다.
+- 또한 `java.codeGeneration.hashCodeEquals.useInstanceof`를 `true`로 설정하여 `Object.getClass()`를 호출하는 대신 `instanceOf` 연산자를 사용하여 객체 타입을 확인할 수 있습니다.
 
-<video src="images/java-refactoring/generate-hashcode-equals.mp4" autoplay loop muted playsinline controls title="Generate hashCode() and equals()">
+<video src="images/java-refactoring/generate-hashcode-equals.mp4" autoplay loop muted playsinline controls title="hashCode() 및 equals() 생성">
 </video>
 
-### Generate `toString()`
+### `toString()` 생성 {#generate-tostring}
 
-There is a new Source Action to generate the `toString()` method. Customization is possible with a check list of all the member variables.
+`toString()` 메서드를 생성하는 새로운 소스 작업이 있습니다. 모든 멤버 변수의 체크리스트를 사용하여 사용자 정의할 수 있습니다.
 
-<video src="images/java-refactoring/generate-tostring.mp4" autoplay loop muted playsinline controls title="Generate toString()">
+<video src="images/java-refactoring/generate-tostring.mp4" autoplay loop muted playsinline controls title="toString() 생성">
   <source type="video/mp4" />
 </video>
 
-### Change modifiers to final where possible
+### 가능한 경우 수정자를 final로 변경 {#change-modifiers-to-final-where-possible}
 
-Adds `final` modifier to all the variables and parameters in the current source file.
+현재 소스 파일의 모든 변수와 매개변수에 `final` 수정자를 추가합니다.
 
-#### Example
+#### 예제 {#example}
 
-##### Before
+##### 이전 {#before}
 
 ```java
 public class Clazz {
   public void method(int value) {
     boolean notValid = value > 5;
     if (notValid) {
-      // do something
+      // 무언가를 수행합니다.
     }
   }
 }
 ```
 
-##### After
+##### 이후 {#after}
 
 ```java
 public class Clazz {
   public void method(final int value) {
     final boolean notValid = value > 5;
     if (notValid) {
-      // do something
+      // 무언가를 수행합니다.
     }
   }
 }
 ```
 
-### Fix non-accessible reference
+### 접근 불가능한 참조 수정 {#fix-non-accessible-reference}
 
-This Quick Fix helps you fix non-accessible reference.
+이 빠른 수정은 접근 불가능한 참조를 수정하는 데 도움을 줍니다.
 
-<video src="images/java-refactoring/fix-non-access-reference.mp4" autoplay loop muted playsinline controls title="Fix non-accessible references">
+<video src="images/java-refactoring/fix-non-access-reference.mp4" autoplay loop muted playsinline controls title="접근 불가능한 참조 수정">
 </video>
 
-### Create non-existing package
+### 존재하지 않는 패키지 생성 {#create-non-existing-package}
 
-When your package name doesn't match the folder name, you have the options to either change the package name in your source code, or move the folder in the file system (even when the destination folder doesn't exist yet).
+패키지 이름이 폴더 이름과 일치하지 않을 때, 소스 코드에서 패키지 이름을 변경하거나 파일 시스템에서 폴더를 이동할 수 있는 옵션이 있습니다(목적지 폴더가 아직 존재하지 않더라도).
 
-<video src="images/java-refactoring/create-non-exist-package.mp4" autoplay loop muted playsinline controls title="Create non-existing package">
+<video src="images/java-refactoring/create-non-exist-package.mp4" autoplay loop muted playsinline controls title="존재하지 않는 패키지 생성">
 </video>
 
-### Other Code Actions supported
+### 지원되는 기타 코드 작업 {#other-code-actions-supported}
 
-The list of Code Actions supported by VS Code keeps growing and only lists the most popular ones above. Other notable supported actions include (but not limited to):
+VS Code에서 지원하는 코드 작업 목록은 계속 증가하고 있으며, 위에는 가장 인기 있는 작업만 나열되어 있습니다. 그 외에 주목할 만한 지원 작업에는 다음이 포함됩니다(단, 이에 국한되지 않음):
 
-- Create unresolved types
-- Remove the `final` modifier
-- Remove unnecessary cast
-- Remove redundant interfaces
-- Add missing case labels in switch statements
-- Jump to definition on break/continue
-- Correct access to static elements
+- 해결되지 않은 타입 생성
+- `final` 수정자 제거
+- 불필요한 캐스트 제거
+- 중복 인터페이스 제거
+- switch 문에서 누락된 case 레이블 추가
+- break/continue에서 정의로 점프
+- 정적 요소에 대한 접근 수정

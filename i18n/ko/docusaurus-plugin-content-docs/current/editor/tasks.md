@@ -481,7 +481,7 @@ VS Code는 문제 매처로 작업 출력을 처리할 수 있습니다. 문제 
 }
 ```
 
-유사하게, 프로젝트의 구성 설정을 참조하려면 이름 앞에 **$\{config:**를 붙이면 됩니다. 예를 들어, `$\{config:python.formatting.autopep8Path\}`는 Python 확장 설정 `formatting.autopep8Path`를 반환합니다.
+유사하게, 프로젝트의 구성 설정을 참조하려면 이름 앞에 **$\{config:** 를 붙이면 됩니다. 예를 들어, ``${config:python.formatting.autopep8Path}``는 Python 확장 설정 `formatting.autopep8Path`를 반환합니다.
 
 다음은 `python.formatting.autopep8Path` 설정에 의해 정의된 autopep8 실행 파일을 사용하여 현재 파일에서 autopep8을 실행하는 사용자 정의 작업 구성의 예입니다:
 
@@ -489,11 +489,11 @@ VS Code는 문제 매처로 작업 출력을 처리할 수 있습니다. 문제 
 {
     "label": "autopep8 current file",
     "type": "process",
-    "command": "$\{config:python.formatting.autopep8Path\}
+    "command": "${config:python.formatting.autopep8Path}
 ",
     "args": [
         "--in-place",
-        "$\{file\}
+        "${file}
 "
     ]
 }

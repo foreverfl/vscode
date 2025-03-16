@@ -7,6 +7,7 @@ PageTitle: C++ 프로그래밍과 Visual Studio Code
 DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code와 C++를 최대한 활용하는 방법을 알아보세요.
 MetaSocialImage: images/cpp/languages-cpp-social.png
+sidebar_label: C++
 ---
 # C/C++ for Visual Studio Code {#cc-for-visual-studio-code}
 
@@ -25,7 +26,7 @@ Visual Studio Code에 대한 C/C++ 지원은 [Microsoft C/C++ 확장](https://ma
 
 ## C++ 환경 설정하기 {#set-up-your-c-environment}
 
-C++는 컴파일된 언어로, 프로그램의 소스 코드는 컴퓨터에서 실행되기 전에 번역(컴파일)되어야 합니다. C/C++ 확장에는 C++ 컴파일러나 디버거가 포함되어 있지 않으며, VS Code는 개발 워크플로우우를 위해 명령줄 도구에 의존합니다. 이러한 도구를 설치하거나 이미 컴퓨터에 설치된 도구를 사용해야 합니다.
+C++는 컴파일된 언어로, 프로그램의 소스 코드는 컴퓨터에서 실행되기 전에 번역(컴파일)되어야 합니다. C/C++ 확장에는 C++ 컴파일러나 디버거가 포함되어 있지 않으며, VS Code는 개발 워크플로우를 위해 명령줄 도구에 의존합니다. 이러한 도구를 설치하거나 이미 컴퓨터에 설치된 도구를 사용해야 합니다.
 
 ### 컴파일러가 설치되어 있는지 확인하기 {#check-if-you-have-a-compiler-installed}
 

@@ -9,9 +9,9 @@ MetaDescription: Windows에서 Visual Studio Code를 설치하고 실행하는 �
 sidebar_label: Windows
 ---
 
-# Visual Studio Code 에서의 Windows {#visual-studio-code-on-windows}
+# Visual Studio Code에서의 Windows {#visual-studio-code-on-windows}
 
-## Installation {#installation}
+## 설치 {#installation}
 
 1. [Visual Studio Code 다운로드 및 설치](#install-vs-code-on-windows)
 
@@ -37,9 +37,9 @@ sidebar_label: Windows
 
     VS Code의 사용자 인터페이스와 주요 기능을 알아봅니다.
 
-## Install VS Code on Windows {#install-vs-code-on-windows}
+## Windows에서의 VS Code 설치 {#install-vs-code-on-windows}
 
-### Use the Windows installer {#use-the-windows-installer}
+### Windows 인스톨러 사용하기 {#use-the-windows-installer}
 
 1. Windows용 [Visual Studio Code 설치 프로그램](https://go.microsoft.com/fwlink/?LinkID=534107) 다운로드
 
@@ -51,13 +51,13 @@ sidebar_label: Windows
 설치 과정에서 Visual Studio Code가 `%PATH%` 환경 변수에 추가되어, 콘솔에서 'code .'를 입력하여 해당 폴더에서 VS Code를 열 수 있습니다. 설치 후 `%PATH%` 환경 변수의 변경 사항이 적용되려면 콘솔을 다시 시작해야 합니다.
 :::
 
-### Use the ZIP file {#use-the-zip-file}
+### ZIP 파일 사용하기 {#use-the-zip-file}
 
 1. [Visual Studio Code Zip 아카이브](/docs/?dv=winzip) 다운로드
 
 1. Zip 아카이브를 추출하고 그곳에서 VS Code를 실행합니다.
 
-## User setup versus system setup {#user-setup-versus-system-setup}
+## 사용자 설치와 시스템 설치 비교 {#user-setup-versus-system-setup}
 
 VS Code는 Windows **사용자** 및 **시스템** 수준의 설치를 모두 제공합니다.
 
@@ -68,9 +68,9 @@ VS Code는 Windows **사용자** 및 **시스템** 수준의 설치를 모두 �
 
 사용 가능한 설치 옵션의 전체 목록은 [Visual Studio Code 다운로드](/download) 페이지를 참조하세요.
 
-## Updates {#updates}
+## 업데이트 {#updates}
 
-VS Code는 매월 [릴리스](/updates)를 제공하며, 새로운 릴리스가 있을 때 자동 업데이트를 지원합니다. VS Code에서 업데이트를 요청하면 최신 업데이트를 수락하고 설치됩니다(최신 버전을 받기 위해 추가 작업이 필요하지 않습니다).
+VS Code는 매월 [릴리스](/updates)를 제공하며, 새로운 릴리스가 있을 때 자동 업데이트를 지원합니다. VS Code에서 업데이트를 요청하면 최신 업데이트를 수락하고 설치됩니다. 즉, 최신 버전을 받기 위해 추가 작업이 필요하지 않습니다.
 
 :::note
 VS Code를 자신의 일정에 맞춰 업데이트하려면 [자동 업데이트 비활성화](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates)를 선택할 수 있습니다.
@@ -92,7 +92,7 @@ WSL을 사용하면 Windows에서 Linux 배포판을 설치하고 실행하여 L
 
 자세한 내용은 [WSL에서 개발하기](/docs/remote/wsl.md) 문서를 참조하거나 [WSL에서 작업하기](/docs/remote/wsl-tutorial.md) 소개 튜토리얼을 시도해 보세요.
 
-### Windows Terminal {#windows-terminal}
+### Windows 터미널 {#windows-terminal}
 
 Microsoft Store에서 제공되는 [Windows Terminal](https://apps.microsoft.com/detail/9n0dx20hk701)은 Command Prompt, PowerShell 및 WSL과 같은 명령줄 도구 및 셸 사용자를 위한 터미널 애플리케이션입니다. 주요 기능으로는 여러 탭, 창, 유니코드 및 UTF-8 문자 지원, GPU 가속 텍스트 렌더링 엔진, 사용자 정의 테마, 스타일 및 구성 등이 있습니다.
 
@@ -106,13 +106,13 @@ VS Code를 설치한 후, 다음 주제를 통해 더 많은 정보를 배울 �
 
 ## FAQ {#common-questions}
 
-### What command-line arguments are supported by the Windows Setup? {#what-command-line-arguments-are-supported-by-the-windows-setup}
+### Windows 설치 프로그램에서 지원하는 명령줄 인수는 무엇인가요? {#what-command-line-arguments-are-supported-by-the-windows-setup}
 
 VS Code는 Windows용 설치 패키지를 만들기 위해 [Inno Setup](https://www.jrsoftware.org/isinfo.php)을 사용합니다. 따라서 모든 [Inno Setup 명령줄 스위치](https://www.jrsoftware.org/ishelp/index.php?topic=setupcmdline)를 사용할 수 있습니다.
 
 또한, 설치 완료 후 VS Code가 자동으로 실행되지 않도록 하려면 `/mergetasks=!runcode`를 사용할 수 있습니다.
 
-### I'm having trouble with the installer {#im-having-trouble-with-the-installer}
+### 설치 프로그램 사용 중 문제가 발생했어요 {#im-having-trouble-with-the-installer}
 
 설치 프로그램 대신 [zip 파일](/docs/?dv=winzip)을 사용해 보세요. 이를 사용하려면 VS Code를 `AppData\Local\Programs` 폴더에 압축 해제하세요.
 
@@ -122,7 +122,7 @@ Zip 파일을 통해 VS Code를 설치한 경우, 각 [릴리스](/updates)에 �
 
 ### AppLocker가 설정된 경우, VS Code를 관리자 권한으로 실행할 수 없는 이유는 무엇인가요?{#unable-to-run-as-admin-when-applocker-is-enabled}
 
-프로세스 샌드박스가 도입됨에 따라 (이 [블로그 게시물](https://code.visualstudio.com/blogs/2022/11/28/vscode-sandbox)에서 논의됨) AppLocker가 구성된 경우 관리자 권한으로 실행하는 것이 현재 지원되지 않습니다.
+프로세스 샌드박스가 도입됨에 따라 (이 [블로그 게시물](https://code.visualstudio.com/blogs/2022/11/28/vscode-sandbox)에서 논의되었습니다) AppLocker가 구성된 경우 관리자 권한으로 실행하는 것이 현재 지원되지 않습니다.
 
 작업에 관리자 권한으로 VS Code를 실행해야 하는 경우:
 
@@ -152,4 +152,4 @@ VS Code에서 UNC 경로를 사용하는 경우 다음 중 하나를 선택할 �
 원격 작업 공간에 원격으로 연결하기 위해 원격 확장을 사용하는 경우 (예: SSH), `setting(security.allowedUNCHosts)`는 로컬 머신이 아닌 원격 머신에서 구성해야 합니다.
 :::
 
-이 변경 사항항은 UNC 경로를 사용할 때 VS Code의 보안을 개선하기 위해 이루어졌습니다. 자세한 내용은 관련 [보안 권고](https://github.com/microsoft/vscode/security/advisories/GHSA-mmfh-4pv3-39hr)를 참조하세요.
+이 변경 사항은 UNC 경로를 사용할 때 VS Code의 보안을 개선하기 위해 이루어졌습니다. 자세한 내용은 관련 [보안 권고](https://github.com/microsoft/vscode/security/advisories/GHSA-mmfh-4pv3-39hr)를 참조하세요.

@@ -277,7 +277,7 @@ WSL - 경로는 WSL 인스턴스에 상대적입니다 (/mnt/) (이미 신뢰된
 
 작업 공간 신뢰 대화상자에서 **신뢰하지 않음** 버튼이 보이지 않는 경우, 폴더의 신뢰 수준이 부모 폴더에서 상속되었을 수 있습니다. **신뢰된 폴더 및 작업 공간** 목록을 검토하여 부모 폴더가 작업 공간 신뢰를 활성화했는지 확인하십시오.
 
-[GitHub Codespace](/docs/remote/codespaces.md) 또는 실행 중인 Docker 컨테이너에 [연결](/docs/remote/attach-container.md)하는 것과 같은 일부 워크플로우우는 자동으로 신뢰되며, 이는 이미 높은 수준의 신뢰를 가져야 하는 관리되는 환경입니다.
+[GitHub Codespace](/docs/remote/codespaces.md) 또는 실행 중인 Docker 컨테이너에 [연결](/docs/remote/attach-container.md)하는 것과 같은 일부 워크플로우는 자동으로 신뢰되며, 이는 이미 높은 수준의 신뢰를 가져야 하는 관리되는 환경입니다.
 
 ### 작업 공간 신뢰는 무엇으로부터 보호하나요? {#what-does-workspace-trust-protect-against}
 

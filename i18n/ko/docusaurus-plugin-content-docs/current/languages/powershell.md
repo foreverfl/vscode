@@ -1,3 +1,13 @@
+---
+Order: 8
+Area: languages
+TOCTitle: PowerShell
+ContentId: 8688bb6d-793e-4a37-aed2-5af4cfe89940
+PageTitle: Visual Studio Code에서 PowerShell 편집하기
+DateApproved: 02/20/2025
+MetaDescription: Visual Studio Code에서 PowerShell을 사용하는 방법에 대해 알아보세요.
+sidebar_label: PowerShell
+---
 # PowerShell in Visual Studio Code {#powershell-in-visual-studio-code}
 
 [PowerShell][24]은 [.NET][23] 위에 구축된 작업 기반의 명령줄 셸 및 스크립팅 언어로, 모든 플랫폼에서 관리자를 위한 강력한 도구 세트를 제공합니다.

@@ -1,112 +1,113 @@
 ---
 Order: 13
 Area: java
-TOCTitle: Extensions
+TOCTitle: 확장 프로그램
 ContentId: 6076911c-276b-41a3-8510-0022c03c0ef6
-PageTitle: Java extensions for Visual Studio Code
+PageTitle: Visual Studio Code를 위한 Java 확장 프로그램
 DateApproved: 1/4/2022
-MetaDescription: Popular Java extensions for Visual Studio Code
+MetaDescription: Visual Studio Code를 위한 인기 Java 확장 프로그램
 ---
-# Java extensions for Visual Studio Code
+# Visual Studio Code를 위한 Java 확장 프로그램 {#java-extensions-for-visual-studio-code}
 
-Thanks to the great Java community around Visual Studio Code, you can use a wide range of extensions to enhance your Java development experience.
+Visual Studio Code 주변의 훌륭한 Java 커뮤니티 덕분에 Java 개발 경험을 향상시키기 위해 다양한 확장 프로그램을 사용할 수 있습니다.
 
-> **Tip:** To learn how to install and manage your extensions, refer to the general [VS Code extension documentation](/docs/editor/extension-marketplace.md).
+> **팁:** 확장 프로그램을 설치하고 관리하는 방법에 대해서는 일반 [VS Code 확장 문서](/docs/editor/extension-marketplace.md)를 참조하세요.
 
-In this topic, we recommend a list of popular extensions helpful for different Java development scenarios.
+이 주제에서는 다양한 Java 개발 시나리오에 유용한 인기 확장 프로그램 목록을 추천합니다.
 
-## Fundamental Java development
+## 기본 Java 개발 {#fundamental-java-development}
 
-If you are looking for core Java development experience on Visual Studio Code (including Java code auto-completion, running / debugging / testing Java applications, Java project management, etc.), we recommend the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). This extension pack contains a list of popular Java extensions for fundamental Java development:
+Visual Studio Code에서 핵심 Java 개발 경험(자동 완성, Java 애플리케이션 실행/디버깅/테스트, Java 프로젝트 관리 등)을 찾고 있다면, [Java용 확장 팩](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)을 추천합니다. 이 확장 팩에는 기본 Java 개발을 위한 인기 Java 확장 프로그램 목록이 포함되어 있습니다:
 
-1. [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
-2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
-3. [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
-4. [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
-5. [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
+1. [Red Hat의 Java™ 언어 지원](https://marketplace.visualstudio.com/items?itemName=redhat.java)
+2. [Java 디버거](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
+3. [Java 테스트 러너](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
+4. [Java용 Maven](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
+5. [Java 프로젝트 관리자](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
 6. [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
 
-<a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
+<a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Java용 확장 팩 설치</a>
 
-To get started with this extension pack, you can visit [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
+이 확장 팩을 시작하려면 [Java 시작하기](/docs/java/java-tutorial.md) 튜토리얼을 방문하세요.
 
-You can also install the [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) extension that detects quality and security issues in your code.
+또한 코드의 품질 및 보안 문제를 감지하는 [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) 확장 프로그램을 설치할 수 있습니다.
 
-## Spring Boot extensions
+## Spring Boot 확장 프로그램 {#spring-boot-extensions}
 
-Spring Boot is an open source, microservice-based Java web framework that is very popular among Java developers. There are great extensions provided by VMware and Microsoft for Spring Boot development.
+Spring Boot는 Java 개발자들 사이에서 매우 인기 있는 오픈 소스 마이크로서비스 기반 Java 웹 프레임워크입니다. VMware와 Microsoft에서 제공하는 훌륭한 Spring Boot 개발용 확장 프로그램이 있습니다.
 
-We recommend installing the [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vvmware.vscode-boot-dev-pack) that contains the following extensions:
+다음 확장 프로그램이 포함된 [Spring Boot 확장 팩](https://marketplace.visualstudio.com/items?itemName=vvmware.vscode-boot-dev-pack)을 설치하는 것을 추천합니다:
 
-1. [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot)
-2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
-3. [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
+1. [Spring Boot 도구](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot)
+2. [Spring Initializr Java 지원](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
+3. [Spring Boot 대시보드](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
 
-<a class="install-extension-btn" href="vscode:extension/vmware.vscode-boot-dev-pack">Install the Spring Boot Extension Pack</a>
+<a class="install-extension-btn" href="vscode:extension/vmware.vscode-boot-dev-pack">Spring Boot 확장 팩 설치</a>
 
-More Spring Boot related information can be found at the [Spring Boot](/docs/java/java-spring-boot.md) page.
+Spring Boot 관련 정보는 [Spring Boot](/docs/java/java-spring-boot.md) 페이지에서 확인할 수 있습니다.
 
-## Gradle for Java
+## Java용 Gradle {#gradle-for-java}
 
-Visual Studio Code offers support Gradle support via the [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension. To learn more how to use this extension, visit the [Gradle section](/docs/java/java-build.md#gradle) on Build Tools page.
+Visual Studio Code는 [Java용 Gradle](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) 확장을 통해 Gradle을 지원합니다. 이 확장을 사용하는 방법에 대한 자세한 내용은 빌드 도구 페이지의 [Gradle 섹션](/docs/java/java-build.md#gradle)을 방문하세요.
 
-## Application Servers (Tomcat / Jetty / etc.)
+## 애플리케이션 서버 (Tomcat / Jetty / 등) {#application-servers-tomcat-jetty-etc}
 
-[Community Server Connectors](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector) is an excellent extension for application servers such as Tomcat and Jetty.
+[커뮤니티 서버 커넥터](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector)는 Tomcat 및 Jetty와 같은 애플리케이션 서버에 대한 훌륭한 확장 프로그램입니다.
 
-To learn more about how to work with Java application servers on Visual Studio Code, refer to the [Application Server](/docs/java/java-tomcat-jetty.md) page.
+Visual Studio Code에서 Java 애플리케이션 서버와 작업하는 방법에 대한 자세한 내용은 [애플리케이션 서버](/docs/java/java-tomcat-jetty.md) 페이지를 참조하세요.
 
-## MicroProfile / Quarkus
+## MicroProfile / Quarkus {#microprofile-quarkus}
 
-Support for Eclipse MicroProfile and Quarkus are provided via the following extensions:
+Eclipse MicroProfile 및 Quarkus에 대한 지원은 다음 확장을 통해 제공됩니다:
 
-* [Extension pack for MicroProfile](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
+* [MicroProfile용 확장 팩](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
 * [Quarkus](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-quarkus)
 
-## Keymaps for other Java IDEs
+## 다른 Java IDE를 위한 키맵 {#keymaps-for-other-java-ides}
 
-There are some extensions from the community for developers who might be used to the keyboard shortcuts from other Java IDEs.
+다른 Java IDE의 키보드 단축키에 익숙한 개발자를 위한 커뮤니티 확장 프로그램이 있습니다.
 
-* [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings)
-* [IntelliJ IDEA keyboard shortcuts](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings)
+* [Eclipse 키맵](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings)
+* [IntelliJ IDEA 키보드 단축키](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings)
 
-Keymap extensions apply keyboard shortcuts from other IDEs or editors on to VS Code so you don't have to retrain your fingers to new keyboard shortcuts.
+키맵 확장은 다른 IDE나 편집기의 키보드 단축키를 VS Code에 적용하여 새로운 키보드 단축키에 다시 적응할 필요가 없습니다.
 
-## Remote development and container support
+## 원격 개발 및 컨테이너 지원 {#remote-development-and-container-support}
 
-We'd also like to recommend a couple of other extensions that are useful for remote and container development scenarios.
+원격 및 컨테이너 개발 시나리오에 유용한 몇 가지 다른 확장 프로그램도 추천합니다.
 
-* The [Remote Development](/docs/remote/remote-overview.md) extensions let you use VS Code to access a container, a remote machine, or the Windows Subsystem for Linux.
-* You can use [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to build docker images and work with image registries.
-* [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension provides an Explorer view to manage clusters and the nodes inside. It also provides advanced syntax support for editing Kubernetes manifest files.
-* [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) is a great tool to use when you need to collaborate with someone else on the same code base.
+* [원격 개발](/docs/remote/remote-overview.md) 확장을 사용하면 VS Code를 통해 컨테이너, 원격 머신 또는 Windows Subsystem for Linux에 접근할 수 있습니다.
+* [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) 확장을 사용하여 Docker 이미지를 빌드하고 이미지 레지스트리와 작업할 수 있습니다.
+* [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) 확장은 클러스터와 내부 노드를 관리할 수 있는 탐색기 뷰를 제공합니다. 또한 Kubernetes 매니페스트 파일 편집을 위한 고급 구문 지원을 제공합니다.
+* [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)는 동일한 코드베이스에서 다른 사람과 협업할 때 유용한 도구입니다.
 
-## Azure on Visual Studio Code
+## Visual Studio Code의 Azure {#azure-on-visual-studio-code}
 
-The Azure extensions for Visual Studio Code provide seamless integration with Azure and the cloud. There are a few Azure extensions we'd like to recommend.
+Visual Studio Code의 Azure 확장은 Azure 및 클라우드와의 원활한 통합을 제공합니다. 추천할 몇 가지 Azure 확장이 있습니다.
 
-### Team development
+### 팀 개발 {#team-development}
 
-* The [Azure Repos](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension makes it easy to connect to your Azure DevOps Servers, allowing you to easily monitor builds, pull requests, and work items for your TFVC or Git source repositories.
+* [Azure Repos](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) 확장은 Azure DevOps 서버에 쉽게 연결할 수 있게 해주며, TFVC 또는 Git 소스 리포지토리에 대한 빌드, 풀 요청 및 작업 항목을 쉽게 모니터링할 수 있습니다.
 
-### Internet of Things
+### 사물인터넷 {#internet-of-things}
 
-* The [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) for VS Code makes it easy to develop and connect your [IoT applications to Azure](https://learn.microsoft.com/azure/?product=iot). With this extension, you can interact with Azure IoT Hub, manage devices connected to Azure IoT Hub, and develop with code snippets for Azure IoT Hub.
+* [Azure IoT 툴킷](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)은 VS Code에서 IoT 애플리케이션을 Azure에 개발하고 연결하는 것을 쉽게 해줍니다. 이 확장을 사용하면 Azure IoT Hub와 상호작용하고, Azure IoT Hub에 연결된 장치를 관리하며, Azure IoT Hub를 위한 코드 스니펫으로 개발할 수 있습니다.
 
-### General tools
+### 일반 도구 {#general-tools}
 
-* The [Azure Tools Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) provides a rich set of extensions that makes it easy to discover and interact with Azure services to power your applications.
-* The [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) provide a rich editing experience for Azure Resource Manager deployment templates and template language expressions. For example, IntelliSense for TLE function names, parameter references, signature help, Go to Definition, Peek Definition, and Peek References as well as Errors and Warnings, making it quick and easy to author Azure Resource Manager templates in VS Code.
+* [Azure 도구 확장 팩](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)은 애플리케이션에 전력을 공급하기 위해 Azure 서비스와 상호작용하고 발견하는 것을 쉽게 해주는 다양한 확장 프로그램을 제공합니다.
+* [Azure Resource Manager 도구](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)는 Azure Resource Manager 배포 템플릿 및 템플릿 언어 표현을 위한 풍부한 편집 경험을 제공합니다. 예를 들어, TLE 함수 이름, 매개변수 참조, 서명 도움말, 정의로 이동, 정의 미리 보기 및 참조 미리 보기, 오류 및 경고에 대한 IntelliSense를 제공하여 VS Code에서 Azure Resource Manager 템플릿을 신속하고 쉽게 작성할 수 있습니다.
 
-Visit [Azure Extensions](/docs/azure/extensions.md) to find more Azure extensions.
+더 많은 Azure 확장을 찾으려면 [Azure 확장](/docs/azure/extensions.md)을 방문하세요.
 
-## Search for other Java extensions
+## 다른 Java 확장 프로그램 검색 {#search-for-other-java-extensions}
 
-If the extensions above do not meet your requirement, you can also search for other Java related extensions within Visual Studio Code. Here are the steps:
+위의 확장 프로그램이 요구 사항을 충족하지 않는 경우, Visual Studio Code 내에서 다른 Java 관련 확장을 검색할 수도 있습니다. 다음은 단계입니다:
 
-1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
-2. Filter the extensions list by typing "java".
+1. **확장 프로그램** 뷰로 이동합니다 (`kb(workbench.view.extensions)`).
+2. "java"를 입력하여 확장 프로그램 목록을 필터링합니다.
 
 ![Java Extensions](images/extensions/extensions.png)
 
-We also appreciate contributions to any of our existing extensions and we hope you'll create new Java extensions if you don't find what you're looking for in the Marketplace.
+기존 확장 프로그램에 대한 기여도 감사하며, 마켓플레이스에서 원하는 것을 찾지 못한 경우 새로운 Java 확장 프로그램을 만들어 주시기 바랍니다.
+---

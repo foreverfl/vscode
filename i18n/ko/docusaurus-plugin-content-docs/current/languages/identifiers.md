@@ -1,3 +1,12 @@
+---
+Area: languages
+TOCTitle: 언어 식별자
+ContentId: 3f773ade-7e71-4fb9-9bb9-d9e0b20fa799
+PageTitle: Visual Studio Code 언어 식별자
+DateApproved: 03/05/2025
+MetaDescription: Visual Studio Code 언어 모드 식별자
+sidebar_label: 언어 식별자
+---
 # 언어 식별자 {#language-identifiers}
 
 Visual Studio Code에서 각 [언어 모드](/docs/languages/overview.md#changing-the-language-for-the-selected-file)는 고유한 언어 식별자를 가지고 있습니다. 이 식별자는 설정에서 파일 확장을 언어에 연결할 때와 같이 사용자에게는 거의 보이지 않습니다:

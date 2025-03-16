@@ -1,126 +1,152 @@
+### 지침:
+- 모든 Markdown 형식을 유지합니다: 헤더(`#`), 목록(`-`, `*`), 코드 블록(```)을 변경하지 않습니다.
+- 코드 블록을 제거하지 마십시오. 그대로 유지하십시오.
+- 코드 블록 내부의 모든 주석을 번역하되, 코드 자체는 번역하지 마십시오.
+  - 예시:
+    - 영어:
+      ```js
+      // This function returns a number
+      function getNumber() { return 42; }
+      ```
+    - 한국어:
+      ```js
+      // 이 함수는 숫자를 반환합니다.
+      function getNumber() { return 42; }
+      ```
+- 보이는 텍스트만 번역합니다. 링크, 파일 경로 또는 Markdown 구문을 수정하지 마십시오.
+- 헤딩(`#`)의 경우, 원본에 ID가 존재하면 번역 후에도 그대로 유지합니다.
+  - 예시:  
+    - 영어: `## Apple {#apple}`  
+    - 한국어: `## 사과 {#apple}` (ID `{#apple}`는 변경되지 않음)
+- 번역이 자연스럽게 흐르도록 합니다.  
+  - 문장 구조가 자연스러운 한국어 작문에 맞도록 합니다.  
+  - 필요에 따라 문장을 결합하거나 재구성하되, 원래 의미를 유지합니다.  
+  - 지나치게 직역하지 않도록 하며, 적절한 한국어 표현을 사용합니다.  
+  - 여러 포인트를 나열할 때는 더 읽기 쉬운 한국어 형식으로 재구성하는 것을 고려합니다.
+---
 ---
 Order: 15
 Area: copilot
 TOCTitle: FAQ
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
-PageTitle: GitHub Copilot frequently asked questions
+PageTitle: GitHub Copilot 자주 묻는 질문
 DateApproved: 03/05/2025
-MetaDescription: Frequently asked questions for using GitHub Copilot in Visual Studio Code.
+MetaDescription: Visual Studio Code에서 GitHub Copilot을 사용하는 것에 대한 자주 묻는 질문.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# GitHub Copilot frequently asked questions
+# GitHub Copilot 자주 묻는 질문 {#github-copilot-frequently-asked-questions}
 
-This article answers frequently asked questions about using GitHub Copilot in Visual Studio Code.
+이 문서는 Visual Studio Code에서 GitHub Copilot을 사용하는 것에 대한 자주 묻는 질문에 답변합니다.
 
-## GitHub Copilot subscription
+## GitHub Copilot 구독 {#github-copilot-subscription}
 
-### How can I get a Copilot subscription?
+### Copilot 구독을 어떻게 받을 수 있나요? {#how-can-i-get-a-copilot-subscription}
 
-There are different ways to get access to GitHub Copilot:
+GitHub Copilot에 접근하는 방법은 여러 가지가 있습니다:
 
-| Type of User                   | Description |
-|--------------------------------|-------------|
-| Individual                     | <ul><li>Set up [GitHub Copilot Free](https://github.com/github-copilot/signup) to get a limited experience of Copilot without a subscription. See [About GitHub Copilot Free](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).</li><li>Sign up for a paid GitHub Copilot subscription to get unlimited completions and chat interactions. You can [try GitHub Copilot for free](https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs) with a one-time 30-day trial.</li><li>See [Setting up GitHub Copilot for yourself](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself) for all options. </li></ul> |
-| Organization/Enterprise member | <ul><li>If you are a member of an organization or enterprise that has a subscription to GitHub Copilot, you can request access to Copilot by going to https://github.com/settings/copilot and requesting access under "Get Copilot from an organization."</li><li>See [Setting up GitHub Copilot for your organization](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization) to enable Copilot for your organization.</li></ul> |
+| 사용자 유형                   | 설명 |
+|------------------------------|-------------|
+| 개인                         | <ul><li>[GitHub Copilot Free](https://github.com/github-copilot/signup)를 설정하여 구독 없이 제한된 Copilot 경험을 얻을 수 있습니다. [GitHub Copilot Free에 대한 설명](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free)을 참조하세요.</li><li>유료 GitHub Copilot 구독에 가입하여 무제한 완성과 채팅 상호작용을 이용할 수 있습니다. [GitHub Copilot을 무료로 사용해 보세요](https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs)라는 30일 무료 체험을 이용할 수 있습니다.</li><li>모든 옵션에 대한 내용은 [자신을 위한 GitHub Copilot 설정](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself)을 참조하세요.</li></ul> |
+| 조직/기업 회원              | <ul><li>GitHub Copilot 구독이 있는 조직이나 기업의 회원인 경우, https://github.com/settings/copilot로 가서 "조직에서 Copilot 받기" 아래에서 접근을 요청할 수 있습니다.</li><li>조직을 위한 GitHub Copilot 설정에 대한 내용은 [조직을 위한 GitHub Copilot 설정](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization)을 참조하세요.</li></ul> |
 
-### I reached my completions or chat interactions limit
+### 내 완성 또는 채팅 상호작용 한도에 도달했습니다 {#i-reached-my-completions-or-chat-interactions-limit}
 
-Your limit of code completions and chat interactions is reset every month, starting from the day you first signed up for the Copilot Free plan. If you reach your limit, you can opt to sign up for a [paid subscription](#how-can-i-get-a-copilot-subscription), and get an unlimited number of completions and chat messages. Alternatively, you can wait until the next month to continue using Copilot for free.
+코드 완성과 채팅 상호작용의 한도는 Copilot Free 플랜에 처음 가입한 날부터 매달 초기화됩니다. 한도에 도달하면 [유료 구독](#how-can-i-get-a-copilot-subscription)에 가입하여 무제한 완성과 채팅 메시지를 받을 수 있습니다. 또는 다음 달까지 기다려 무료로 Copilot을 계속 사용할 수 있습니다.
 
-![Visual indicators in Chat view, Status Bar, and title bar that you reached a limit for Copilot chat messages.](images/faq/copilot-chat-limit-reached.png)
+![채팅 뷰, 상태 표시줄 및 제목 표시줄에서 Copilot 채팅 메시지 한도에 도달했음을 나타내는 시각적 표시기.](images/faq/copilot-chat-limit-reached.png)
 
-If only the chat interactions are reaching the limit, you can still use Copilot for code completions.
+채팅 상호작용만 한도에 도달한 경우, 코드 완성을 위해 Copilot을 계속 사용할 수 있습니다.
 
-If only the code completions are reaching the limit, you can still use Copilot for chat interactions and Copilot Edits.
+코드 완성만 한도에 도달한 경우, 채팅 상호작용 및 Copilot Edits를 위해 Copilot을 계속 사용할 수 있습니다.
 
-### My Copilot subscription is not detected in VS Code
+### 내 Copilot 구독이 VS Code에서 감지되지 않습니다 {#my-copilot-subscription-is-not-detected-in-vs-code}
 
-- To use Copilot Chat in Visual Studio Code, you must be signed into Visual Studio Code with a GitHub ID that has access to GitHub Copilot. If your Copilot subscription is associated with another GitHub account, you might have to sign out of your GitHub account and sign in with another account. Use the **Accounts** menu in the Activity Bar for signing out of your current GitHub account.
+- Visual Studio Code에서 Copilot Chat을 사용하려면 GitHub ID로 Visual Studio Code에 로그인해야 하며, 해당 ID가 GitHub Copilot에 접근할 수 있어야 합니다. Copilot 구독이 다른 GitHub 계정에 연결되어 있는 경우, 현재 GitHub 계정에서 로그아웃하고 다른 계정으로 로그인해야 할 수 있습니다. 현재 GitHub 계정에서 로그아웃하려면 활동 표시줄의 **계정** 메뉴를 사용하세요.
 
-- Verify that your Copilot subscription is still active in [GitHub Copilot settings](https://github.com/settings/copilot).
+- [GitHub Copilot 설정](https://github.com/settings/copilot)에서 Copilot 구독이 여전히 활성 상태인지 확인하세요.
 
-### How can I switch accounts for Copilot
+### Copilot을 위한 계정을 어떻게 전환하나요 {#how-can-i-switch-accounts-for-copilot}
 
-To switch to another GitHub account for using Copilot:
+Copilot을 사용하기 위해 다른 GitHub 계정으로 전환하려면:
 
-1. Open the Extensions view from the Activity Bar ( or use `kb(workbench.view.extensions)`) and enter *GitHub Copilot* in the search box.
+1. 활동 표시줄에서 확장 보기로 이동하거나(`kb(workbench.view.extensions)`) 검색 상자에 *GitHub Copilot*을 입력합니다.
 
-    ![Extensions view in VS Code, showing the GitHub Copilot extension.](images/faq/copilot-extensions.png)
+    ![VS Code의 확장 보기, GitHub Copilot 확장을 보여줍니다.](images/faq/copilot-extensions.png)
 
     > [!NOTE]
-    > There are two Copilot extensions: GitHub Copilot and GitHub Copilot Chat.
+    > 두 개의 Copilot 확장이 있습니다: GitHub Copilot과 GitHub Copilot Chat.
 
-1. For the **GitHub Copilot** extension, select the gear icon, and then select **Account Preferences**.
+2. **GitHub Copilot** 확장을 위해 기어 아이콘을 선택한 다음 **계정 기본 설정**을 선택합니다.
 
-    ![Accounts menu in VS Code, showing the option to sign out of the current GitHub account.](images/faq/extension-account-preferences.png)
+    ![VS Code의 계정 메뉴, 현재 GitHub 계정에서 로그아웃할 수 있는 옵션을 보여줍니다.](images/faq/extension-account-preferences.png)
 
-1. From the Account Preferences Quick Pick, choose an existing account or select **Use a new account...** to sign in with a different GitHub account.
+3. 계정 기본 설정 빠른 선택에서 기존 계정을 선택하거나 **새 계정 사용...**을 선택하여 다른 GitHub 계정으로 로그인합니다.
 
-    ![Accounts menu in VS Code, showing the option to sign in with GitHub to use GitHub Copilot.](images/faq/account-preferences-quick-pick.png)
+    ![VS Code의 계정 메뉴, GitHub Copilot을 사용하기 위해 GitHub에 로그인할 수 있는 옵션을 보여줍니다.](images/faq/account-preferences-quick-pick.png)
 
-1. Repeat these steps for the **GitHub Copilot Chat** extension.
+4. **GitHub Copilot Chat** 확장에 대해서도 이 단계를 반복합니다.
 
-## General
+## 일반 {#general}
 
-### Network and firewall configuration for Copilot
+### Copilot을 위한 네트워크 및 방화벽 구성 {#network-and-firewall-configuration-for-copilot}
 
-- If you or your organization employs security measures like a firewall or proxy server, it may be beneficial to include certain domain URLs in an "allowlist" and open specific ports and protocols. Learn more about troubleshooting [firewall settings for GitHub Copilot](https://docs.github.com/en/copilot/troubleshooting-github-copilot/troubleshooting-firewall-settings-for-github-copilot).
+- 귀하 또는 귀하의 조직이 방화벽이나 프록시 서버와 같은 보안 조치를 사용하는 경우, 특정 도메인 URL을 "허용 목록"에 포함하고 특정 포트 및 프로토콜을 열어두는 것이 유용할 수 있습니다. [GitHub Copilot을 위한 방화벽 설정 문제 해결](https://docs.github.com/en/copilot/troubleshooting-github-copilot/troubleshooting-firewall-settings-for-github-copilot)에 대한 자세한 내용을 확인하세요.
 
-- If you're working on company equipment and connecting to a corporate network, you may be connecting to the Internet via a VPN or an HTTP proxy server. In some cases, these types of network setups may prevent GitHub Copilot from connecting to GitHub's server. Learn more about [troubleshooting network errors for GitHub Copilot](https://docs.github.com/en/copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot).
+- 회사 장비에서 작업하고 기업 네트워크에 연결하는 경우, VPN 또는 HTTP 프록시 서버를 통해 인터넷에 연결할 수 있습니다. 이러한 유형의 네트워크 설정이 GitHub Copilot이 GitHub 서버에 연결하는 것을 방해할 수 있습니다. [GitHub Copilot을 위한 네트워크 오류 문제 해결](https://docs.github.com/en/copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot)에 대한 자세한 내용을 확인하세요.
 
-### How can I provide feedback on Copilot?
+### Copilot에 대한 피드백을 어떻게 제공하나요? {#how-can-i-provide-feedback-on-copilot}
 
-If you would like to provide feedback on the Copilot features including inline suggestions and chat, you can create issues in the [vscode-copilot-release](https://github.com/microsoft/vscode-copilot-release/issues) repository.
+Copilot 기능에 대한 피드백을 제공하고 싶다면, [vscode-copilot-release](https://github.com/microsoft/vscode-copilot-release/issues) 리포지토리에 이슈를 생성할 수 있습니다.
 
-It can be helpful to include information from the [GitHub Copilot logs](#view-logs-for-github-copilot-in-vs-code) if you're reporting an issue.
+문제를 보고할 때 [GitHub Copilot 로그](#view-logs-for-github-copilot-in-vs-code)의 정보를 포함하는 것이 도움이 될 수 있습니다.
 
-### View logs for GitHub Copilot in VS Code
+### VS Code에서 GitHub Copilot 로그 보기 {#view-logs-for-github-copilot-in-vs-code}
 
-The log files for the GitHub Copilot extension are stored in the standard log location for Visual Studio Code extensions. The log files are useful for diagnosing connection issues.
+GitHub Copilot 확장의 로그 파일은 Visual Studio Code 확장의 표준 로그 위치에 저장됩니다. 로그 파일은 연결 문제를 진단하는 데 유용합니다.
 
-Use the **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`) and select **GitHub Copilot** or **GitHub Copilot Chat** in the dropdown.
+**출력 전환** 명령(`kb(workbench.action.output.toggleOutput)`)을 사용하고 드롭다운에서 **GitHub Copilot** 또는 **GitHub Copilot Chat**을 선택합니다.
 
-### Are there pre-release builds of the Copilot extensions?
+### Copilot 확장의 사전 릴리스 빌드가 있나요? {#are-there-pre-release-builds-of-the-copilot-extensions}
 
-Yes, you can switch to the pre-release (nightly) version of a Copilot extension to try the latest features and fixes. From the Extensions view, right-click or select the gear icon to bring up the context menu, and then select **Switch to Pre-Release Version**:
+네, Copilot 확장의 사전 릴리스(야간) 버전으로 전환하여 최신 기능과 수정 사항을 시도할 수 있습니다. 확장 보기에서 마우스 오른쪽 버튼을 클릭하거나 기어 아이콘을 선택하여 컨텍스트 메뉴를 열고 **사전 릴리스 버전으로 전환**을 선택합니다:
 
-![Extensions view context menu with Switch to Pre-Release Version option](images/faq/switch-to-pre-release.png)
+![사전 릴리스 버전으로 전환 옵션이 있는 확장 보기 컨텍스트 메뉴](images/faq/switch-to-pre-release.png)
 
-You can tell if you're running a pre-release version by the "Pre-release" badge in the extension details:
+사전 릴리스 버전을 실행 중인지 확인하려면 확장 세부정보에서 "사전 릴리스" 배지를 확인하세요:
 
-![Pre-release version of the GitHub Copilot extension](images/faq/copilot-ext-pre-release.png)
+![GitHub Copilot 확장의 사전 릴리스 버전](images/faq/copilot-ext-pre-release.png)
 
-## Copilot code completions
+## Copilot 코드 완성 {#copilot-code-completions}
 
-### How do I enable/disable Copilot?
+### Copilot을 어떻게 활성화/비활성화하나요? {#how-do-i-enabledisable-copilot}
 
-You can temporarily deactivate Copilot completions from the Status Bar. You're prompted whether you want to disable Copilot for all code (globally) or just the programming language detected in the active editor (for example, Python).
+상태 표시줄에서 Copilot 완성을 일시적으로 비활성화할 수 있습니다. 모든 코드(전역적으로) 또는 활성 편집기에서 감지된 프로그래밍 언어(예: Python)에 대해서만 Copilot을 비활성화할 것인지 선택하라는 메시지가 표시됩니다.
 
-![Screenshot showing the VS Code status bar, highlighting the Copilot icon that indicates Copilot is active.](./images/faq/vscode-status-bar-copilot-active.jpg)
+![VS Code 상태 표시줄의 스크린샷, Copilot 아이콘이 활성화된 Copilot을 나타냅니다.](./images/faq/vscode-status-bar-copilot-active.jpg)
 
-### Inline completions are not working in the editor
+### 편집기에서 인라인 완성이 작동하지 않습니다 {#inline-completions-are-not-working-in-the-editor}
 
-- Verify that [GitHub Copilot is not disabled](#how-do-i-enabledisable-copilot) globally or for this language
-- Verify that your [GitHub Copilot subscription is active and detected](#my-copilot-subscription-is-not-detected-in-vs-code)
-- Verify that your [network settings](#network-and-firewall-configuration-for-copilot) are configured to allow connectivity to GitHub Copilot.
-- Verify that you have not reached the limit of completions for the month with the [Copilot Free plan](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
+- [GitHub Copilot이 비활성화되지 않았는지](#how-do-i-enabledisable-copilot) 확인하세요.
+- [GitHub Copilot 구독이 활성화되어 있고 감지되는지](#my-copilot-subscription-is-not-detected-in-vs-code) 확인하세요.
+- [네트워크 설정](#network-and-firewall-configuration-for-copilot)이 GitHub Copilot에 대한 연결을 허용하도록 구성되어 있는지 확인하세요.
+- [Copilot Free 플랜](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free)으로 월별 완성 한도에 도달하지 않았는지 확인하세요.
 
-## Copilot Chat
+## Copilot 채팅 {#copilot-chat}
 
-### Copilot Chat features aren't working for me?
+### Copilot 채팅 기능이 작동하지 않나요? {#copilot-chat-features-arent-working-for-me}
 
-Check each requirement if Copilot Chat doesn't work:
+Copilot Chat이 작동하지 않는 경우 각 요구 사항을 확인하세요:
 
-- Make sure you are on the latest version of Visual Studio Code (run **Code: Check for Updates**).
-- Make sure you have the latest version of both the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
-- Your GitHub account that is signed into VS Code must have an active Copilot subscription. Check your [Copilot subscription](https://github.com/settings/copilot).
-- Verify that you have not reached your limit of chat interactions for the month with the [Copilot Free plan](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
+- Visual Studio Code의 최신 버전을 사용하고 있는지 확인하세요( **Code: Check for Updates** 실행).
+- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) 및 [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) 확장의 최신 버전을 사용하고 있는지 확인하세요.
+- VS Code에 로그인한 GitHub 계정이 활성 Copilot 구독을 가지고 있는지 확인하세요. [Copilot 구독](https://github.com/settings/copilot)을 확인하세요.
+- [Copilot Free 플랜](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free)으로 월별 채팅 상호작용 한도에 도달하지 않았는지 확인하세요.
 
-### Why is my Copilot Chat extension blocked?
+### 왜 내 Copilot Chat 확장이 차단되었나요? {#why-is-my-copilot-chat-extension-blocked}
 
-If you receive a message that an extension is blocked from using Copilot Chat, the extension was likely disabled due to a detected pattern of abuse coming from that specific extension. Contact the publisher of the extension when you encounter this issue. You can find the publisher information on the extension details page in the Visual Studio Marketplace.
+Copilot Chat을 사용하는 데 차단되었다는 메시지가 표시되면, 해당 확장이 특정 확장에서 발생한 남용 패턴으로 인해 비활성화되었을 가능성이 높습니다. 이 문제를 겪을 경우 확장 게시자에게 문의하세요. 게시자 정보는 Visual Studio Marketplace의 확장 세부정보 페이지에서 확인할 수 있습니다.
 
-## Additional resources
+## 추가 리소스 {#additional-resources}
 
-- [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
-- [GitHub Copilot FAQ](https://github.com/features/copilot#faq) in the GitHub documentation
+- [GitHub Copilot 신뢰 센터](https://resources.github.com/copilot-trust-center/)
+- [GitHub Copilot FAQ](https://github.com/features/copilot#faq) GitHub 문서에서

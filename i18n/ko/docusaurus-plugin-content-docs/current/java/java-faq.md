@@ -3,41 +3,41 @@ Order: 14
 Area: java
 TOCTitle: FAQ
 ContentId: 2ad03b46-0779-4c9a-897e-6e6b628f598a
-PageTitle: Java on Visual Studio Code FAQ and Wiki
+PageTitle: Visual Studio Code에서의 Java FAQ 및 위키
 DateApproved: 8/31/2021
-MetaDescription: Java on Visual Studio Code Frequent Asked Questions and Troubleshooting Guide
+MetaDescription: Visual Studio Code에서의 Java 자주 묻는 질문 및 문제 해결 가이드
 ---
-# Frequent Asked Questions
+# 자주 묻는 질문 {#frequent-asked-questions}
 
-Thanks for your interest in Java on Visual Studio Code! This FAQ will hopefully answer some of the questions you may have.
+Visual Studio Code에서 Java에 관심을 가져 주셔서 감사합니다! 이 FAQ는 여러분이 가질 수 있는 질문에 대한 답변을 제공할 것입니다.
 
-## Are these Java extensions open source?
+## 이 Java 확장 기능들은 오픈 소스인가요? {#are-these-java-extensions-open-source}
 
-Yes. All the [Java Extensions](/docs/java/extensions.md) provided by Red Hat, Microsoft, and VMware are open source, as well as most extensions supported by the community. You can find their corresponding repositories on GitHub from the Marketplace pages.
+네. Red Hat, Microsoft, VMware에서 제공하는 모든 [Java 확장 기능](/docs/java/extensions.md)은 오픈 소스이며, 커뮤니티에서 지원하는 대부분의 확장 기능도 마찬가지입니다. 해당하는 리포지토리는 마켓플레이스 페이지에서 GitHub에서 찾을 수 있습니다.
 
-## Are there any other features coming to Java on Visual Studio Code?
+## Visual Studio Code에서 Java에 추가 기능이 있나요? {#are-there-any-other-features-coming-to-java-on-visual-studio-code}
 
-Definitely. We use GitHub issues to track incoming requests and planned work for each of our extensions. Currently we're working on adding more refactoring and linting features to enhance the editing productivity, as well as some performance improvements to make it even faster.
+확실히 있습니다. 우리는 GitHub 이슈를 사용하여 각 확장 기능에 대한 요청 및 계획된 작업을 추적합니다. 현재 우리는 편집 생산성을 높이기 위해 더 많은 리팩토링 및 린팅 기능을 추가하고 있으며, 더욱 빠르게 만들기 위한 성능 개선 작업도 진행 중입니다.
 
-Most of our work is collected from and prioritized by customer feedback. If you're interested in providing your thoughts, you can go directly to our project repositories to submit a new issue to share your thoughts.
+우리의 작업 대부분은 고객 피드백을 통해 수집되고 우선순위가 매겨집니다. 여러분의 의견을 제공하고 싶다면, 프로젝트 리포지토리로 직접 가서 새로운 이슈를 제출하여 생각을 공유할 수 있습니다.
 
-We do have limited capacity within the team and we'd really like to encourage more contributions from the great Java community. If you're passionate about your idea and would like to help fellow Java developers, you're welcome to join us! Some areas worth considering including Gradle support, code analysis and test coverage tools, profiler, and additional framework support including DropWizard, JavaFX, JPA, Play, Akka, OSGi.
+우리 팀은 제한된 인력을 가지고 있으며, 훌륭한 Java 커뮤니티의 더 많은 기여를 장려하고 싶습니다. 여러분의 아이디어에 열정이 있고 다른 Java 개발자들을 도와주고 싶다면, 언제든지 참여해 주세요! 고려해볼 만한 영역으로는 Gradle 지원, 코드 분석 및 테스트 커버리지 도구, 프로파일러, DropWizard, JavaFX, JPA, Play, Akka, OSGi와 같은 추가 프레임워크 지원이 있습니다.
 
-## Can I use keyboard shortcuts from other IDE?
+## 다른 IDE의 키보드 단축키를 사용할 수 있나요? {#can-i-use-keyboard-shortcuts-from-other-ide}
 
-Sure. [Keymap extensions](/docs/editor/keybindings.md#keymap-extensions) in VS Code modify the VS Code shortcuts to match those of other editors. You can find [IntelliJ IDEA keyboard shortcuts](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings), [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings) as well as keymaps for other popular editors in [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs) of extensions in the Marketplace.
+물론입니다. VS Code의 [키맵 확장 기능](/docs/editor/keybindings.md#keymap-extensions)은 VS Code 단축키를 다른 편집기의 단축키와 일치하도록 수정합니다. [IntelliJ IDEA 키보드 단축키](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings), [Eclipse 키맵](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings) 및 마켓플레이스의 [키맵 카테고리](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs)에서 다른 인기 있는 편집기용 키맵을 찾을 수 있습니다.
 
-## Where can I find the latest progress of Java support on Visual Studio Code?
+## Visual Studio Code에서 Java 지원의 최신 진행 상황은 어디에서 확인할 수 있나요? {#where-can-i-find-the-latest-progress-of-java-support-on-visual-studio-code}
 
-You can follow us on the [Java at Microsoft](https://devblogs.microsoft.com/java/) blog, which will keep you updated on our progress.
+[Microsoft의 Java](https://devblogs.microsoft.com/java/) 블로그를 팔로우하면 우리의 진행 상황에 대한 업데이트를 받을 수 있습니다.
 
-While you're using Java within VS Code, you may also see a **Release Notes** section after you update the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). The notes will give you an overview on the notable updates included in the extensions.
+VS Code 내에서 Java를 사용할 때, [Java 확장 팩](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)을 업데이트한 후 **릴리스 노트** 섹션을 볼 수 있습니다. 이 노트는 확장 기능에 포함된 주요 업데이트에 대한 개요를 제공합니다.
 
-## How can I use Visual Studio Code with new Java versions?
+## 새로운 Java 버전과 함께 Visual Studio Code를 어떻게 사용할 수 있나요? {#how-can-i-use-visual-studio-code-with-new-java-versions}
 
-Thanks to the upstream update from JDT, you can now build your project up to Java 22 with VS Code as well. To use the experimental/preview language features, you need to modify your project settings.
+JDT의 업스트림 업데이트 덕분에 이제 VS Code로 Java 22까지 프로젝트를 빌드할 수 있습니다. 실험적/미리 보기 언어 기능을 사용하려면 프로젝트 설정을 수정해야 합니다.
 
-Maven - modify `pom.xml`:
+Maven - `pom.xml` 수정:
 
 ```xml
   <build>
@@ -67,13 +67,13 @@ tasks.withType(Test) {
 }
 ```
 
-> Note: If you are modifying a project that was already opened in VS Code, you may need to force clean the workspace and reload. To do so, run command **Java: Clean Java Language Server Workspace**.
+> 참고: 이미 VS Code에서 열려 있는 프로젝트를 수정하는 경우, 작업 공간을 강제로 정리하고 다시 로드해야 할 수 있습니다. 이를 위해 **Java: Clean Java Language Server Workspace** 명령을 실행하세요.
 
-## How can I use it behind a corporate proxy?
+## 기업 프록시 뒤에서 어떻게 사용할 수 있나요? {#how-can-i-use-it-behind-a-corporate-proxy}
 
-When using the Java Language Support (redhat.java) extension behind a corporate proxy, you might need to let the Java Language server know how to connect to the Internet, in order to download build runtimes, Java dependencies, and their sources through that proxy.
+기업 프록시 뒤에서 Java Language Support (redhat.java) 확장을 사용할 때, Java Language 서버가 인터넷에 연결하는 방법을 알려줘야 할 수 있습니다. 이는 빌드 런타임, Java 종속성 및 해당 소스를 다운로드하기 위해 필요합니다.
 
-This is done by configuring the `java.jdt.ls.vmargs` setting in VS Code preferences (all on one line):
+이는 VS Code 환경 설정에서 `java.jdt.ls.vmargs` 설정을 구성하여 수행됩니다 (모두 한 줄로):
 
 ```json
 {
@@ -81,24 +81,24 @@ This is done by configuring the `java.jdt.ls.vmargs` setting in VS Code preferen
 }
 ```
 
-## Will this be available for Visual Studio?
+## Visual Studio에서 사용할 수 있나요? {#will-this-be-available-for-visual-studio}
 
-Currently we don't plan to extend the Java support to Visual Studio. There are already great IDEs for Java and we're focusing on VS Code to provide a lightweight experience in a polyglot editor.
+현재로서는 Visual Studio에 Java 지원을 확장할 계획이 없습니다. 이미 Java를 위한 훌륭한 IDE가 있으며, 우리는 경량 경험을 제공하기 위해 VS Code에 집중하고 있습니다.
 
-## Does VS Code Java support other display languages?
+## VS Code Java는 다른 표시 언어를 지원하나요? {#does-vs-code-java-support-other-display-languages}
 
-Currently we support Chinese in addition to English for a few extensions including [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug), [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency). To learn how to switch the VS Code display language, see [Display Languages](/docs/editor/locales.md).
+현재 우리는 [Java 디버거](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug), [Java 테스트 실행기](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), [Java용 Maven](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), [Java 프로젝트 관리자](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) 등 몇 가지 확장에서 영어 외에 중국어를 지원합니다. VS Code 표시 언어를 전환하는 방법은 [표시 언어](/docs/editor/locales.md)를 참조하세요.
 
-You can contribute to the extension repositories if you're interested in additional display language support.
+추가 표시 언어 지원에 관심이 있다면 확장 리포지토리에 기여할 수 있습니다.
 
-## How to troubleshoot and contribute to the Java Language Server
+## Java Language Server를 문제 해결하고 기여하는 방법 {#how-to-troubleshoot-and-contribute-to-the-java-language-server}
 
-You can visit the [Java for Visual Studio Code wiki](https://github.com/redhat-developer/vscode-java/wiki) to find answers regarding:
+[Visual Studio Code용 Java 위키](https://github.com/redhat-developer/vscode-java/wiki)를 방문하면 다음과 관련된 답변을 찾을 수 있습니다:
 
-1. ["Classpath is incomplete" warning](https://github.com/redhat-developer/vscode-java/wiki/%22Classpath-is-incomplete%22-warning)
-2. [Annotation Processing support for Maven projects](https://github.com/redhat-developer/vscode-java/wiki/Annotation-Processing-support-for-Maven-projects)
-3. [Contribute a Java extension](https://github.com/redhat-developer/vscode-java/wiki/Contribute-a-Java-Extension)
-4. [Formatter settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings)
-5. [Lombok Support](https://github.com/redhat-developer/vscode-java/wiki/Lombok-support)
-6. [Using a Proxy](https://github.com/redhat-developer/vscode-java/wiki/Using-a-Proxy)
-7. [Troubleshooting](https://github.com/redhat-developer/vscode-java/wiki/Troubleshooting)
+1. ["Classpath is incomplete" 경고](https://github.com/redhat-developer/vscode-java/wiki/%22Classpath-is-incomplete%22-warning)
+2. [Maven 프로젝트에 대한 주석 처리 지원](https://github.com/redhat-developer/vscode-java/wiki/Annotation-Processing-support-for-Maven-projects)
+3. [Java 확장 기여하기](https://github.com/redhat-developer/vscode-java/wiki/Contribute-a-Java-Extension)
+4. [포매터 설정](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings)
+5. [롬복 지원](https://github.com/redhat-developer/vscode-java/wiki/Lombok-support)
+6. [프록시 사용하기](https://github.com/redhat-developer/vscode-java/wiki/Using-a-Proxy)
+7. [문제 해결](https://github.com/redhat-developer/vscode-java/wiki/Troubleshooting)

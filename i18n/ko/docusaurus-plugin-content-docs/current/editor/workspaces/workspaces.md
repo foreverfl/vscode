@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code 작업 공간에 대해 알아보세요.
 ---
 # VS Code 작업 공간이란 무엇인가요? {#what-is-a-vs-code-workspace}
 
-Visual Studio Code의 *작업 공간*은 VS Code 창(인스턴스)에서 열려 있는 하나 이상의 폴더의 모음입니다. 대부분의 경우, 단일 폴더가 작업 공간으로 열리게 됩니다. 그러나 개발 워크플로우우에 따라 [다중 루트 작업 공간](#multiroot-workspaces)이라는 고급 구성을 사용하여 여러 폴더를 포함할 수 있습니다.
+Visual Studio Code의 *작업 공간*은 VS Code 창(인스턴스)에서 열려 있는 하나 이상의 폴더의 모음입니다. 대부분의 경우, 단일 폴더가 작업 공간으로 열리게 됩니다. 그러나 개발 워크플로우에 따라 [다중 루트 작업 공간](#multiroot-workspaces)이라는 고급 구성을 사용하여 여러 폴더를 포함할 수 있습니다.
 
 작업 공간의 개념은 VS Code가 다음을 가능하게 합니다:
 

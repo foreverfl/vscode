@@ -2,8 +2,9 @@
 ContentId: ee9b8bb7-0e8a-478d-842b-f9691f25e820
 DateApproved: 03/05/2025
 MetaDescription: 테마, 아이콘, 키보드 단축키, 표시 언어 및 설정을 통해 VS Code를 개인화하는 방법을 알아보세요.
+sidebar_label: 커스터마이징
 ---
-# VS Code 개인화하기 {#personalize-vs-code}
+# VS Code 커스터마이징 {#personalize-vs-code}
 
 VS Code는 매우 사용자 정의가 가능합니다. 색상 및 아이콘 테마로 편집기의 모양을 변경하고, 가장 익숙한 키보드 단축키를 지정할 수 있습니다. 설정을 통해 VS Code의 편집기, 사용자 인터페이스 및 기능 동작의 거의 모든 부분을 구성할 수 있습니다.
 

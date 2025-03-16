@@ -6,6 +6,7 @@ ContentId: 1eb31e23-be14-4613-be84-621a51cb59d7
 PageTitle: Visual Studio Code에서의 R
 DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code에서 R 프로그래밍 언어 작업에 대해 알아보세요.
+sidebar_label: R
 ---
 
 # Visual Studio Code에서의 R {#r-in-visual-studio-code}

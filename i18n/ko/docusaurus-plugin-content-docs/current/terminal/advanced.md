@@ -3,65 +3,65 @@ Order: 6
 Area: terminal
 TOCTitle: Advanced
 ContentId: D458AFDC-C001-43FD-A4BB-9474767B2C04
-PageTitle: Advanced Terminal Usage in Visual Studio Code
+PageTitle: Visual Studio Code에서의 고급 터미널 사용법
 DateApproved: 03/05/2025
-MetaDescription: Visual Studio Code's integrated terminal has several advanced features.
+MetaDescription: Visual Studio Code의 통합 터미널은 여러 가지 고급 기능을 제공합니다.
 ---
-# Terminal Advanced
+# 터미널 고급 {#terminal-advanced}
 
-Visual Studio Code's integrated terminal has many advanced features and settings, such as Unicode and emoji support, custom keyboard shortcuts, and automatic replies. This topic explains these advanced features in detail. If you are new to VS Code or the integrated terminal, you may want to review the [Terminal Basics](/docs/terminal/basics.md) topic first.
+Visual Studio Code의 통합 터미널은 유니코드 및 이모지 지원, 사용자 정의 키보드 단축키, 자동 응답과 같은 많은 고급 기능 및 설정을 제공합니다. 이 주제에서는 이러한 고급 기능을 자세히 설명합니다. VS Code나 통합 터미널을 처음 사용하는 경우, 먼저 [터미널 기초](/docs/terminal/basics.md) 주제를 검토하는 것이 좋습니다.
 
-## Persistent sessions
+## 지속 세션 {#persistent-sessions}
 
-The terminal supports two different types of persistent sessions:
+터미널은 두 가지 유형의 지속 세션을 지원합니다:
 
-* Process reconnection: When reloading a window (for example, after installing an extension), **reconnect** to the previous process and restore its content.
-* Process revive: When restarting VS Code, a terminal's content is restored and the process is **relaunched** using its original environment.
+* 프로세스 재연결: 창을 다시 로드할 때(예: 확장을 설치한 후), **이전 프로세스에 재연결**하고 그 내용을 복원합니다.
+* 프로세스 복구: VS Code를 다시 시작할 때, 터미널의 내용이 복원되고 프로세스가 원래 환경을 사용하여 **다시 시작**됩니다.
 
-Both of these persistent sessions can be disabled by setting `setting(terminal.integrated.enablePersistentSessions)` to `false`, and the amount of scrollback restored is controlled by the`setting(terminal.integrated.persistentSessionScrollback)` setting. Process revive can be configured independently with `setting(terminal.integrated.persistentSessionReviveProcess)`.
+이 두 가지 지속 세션은 `setting(terminal.integrated.enablePersistentSessions)`를 `false`로 설정하여 비활성화할 수 있으며, 복원되는 스크롤백의 양은 `setting(terminal.integrated.persistentSessionScrollback)` 설정으로 제어됩니다. 프로세스 복구는 `setting(terminal.integrated.persistentSessionReviveProcess)`로 독립적으로 구성할 수 있습니다.
 
-### Moving terminals between windows
+### 창 간 터미널 이동 {#moving-terminals-between-windows}
 
-Terminal tabs can be dragged and dropped between VS Code windows. This can also be done manually through the Command Palette and the **Terminal: Detach Session** and **Terminal: Attach to Session** commands.
+터미널 탭은 VS Code 창 간에 드래그 앤 드롭할 수 있습니다. 이는 명령 팔레트를 통해 **터미널: 세션 분리** 및 **터미널: 세션에 연결** 명령을 사용하여 수동으로 수행할 수도 있습니다.
 
-### Configure terminal visibility
+### 터미널 가시성 구성 {#configure-terminal-visibility}
 
-When opening a window, if the terminal view is visible it will either reconnect to the terminal using persistent sessions, or create a new shell. This behavior can be fine tuned with the `setting(terminal.integrated.hideOnStartup)` setting.
+창을 열 때, 터미널 뷰가 보이는 경우 지속 세션을 사용하여 터미널에 재연결하거나 새 셸을 생성합니다. 이 동작은 `setting(terminal.integrated.hideOnStartup)` 설정으로 세밀하게 조정할 수 있습니다.
 
-* `never` (default): Never hide the terminal view on startup.
-* `whenEmpty`: Only hide the terminal when there are no persistent sessions restored.
-* `always`: Always hide the terminal, even when there are persistent sessions restored.
+* `never` (기본값): 시작 시 터미널 뷰를 숨기지 않습니다.
+* `whenEmpty`: 복원된 지속 세션이 없을 때만 터미널을 숨깁니다.
+* `always`: 복원된 지속 세션이 있어도 항상 터미널을 숨깁니다.
 
-The `setting(terminal.integrated.hideOnLastClosed)` setting is also available to override the default behavior of closing the terminal view when the last terminal is closed.
+`setting(terminal.integrated.hideOnLastClosed)` 설정도 사용 가능하여 마지막 터미널이 닫힐 때 터미널 뷰를 닫는 기본 동작을 재정의할 수 있습니다.
 
-## Keyboard shortcuts and the shell
+## 키보드 단축키 및 셸 {#keyboard-shortcuts-and-the-shell}
 
-As an embedded application, the integrated terminal should intercept some, but not all, keyboard shortcuts dispatched within VS Code.
+통합 터미널은 VS Code 내에서 전송된 일부 키보드 단축키를 가로채야 합니다. 그러나 모든 단축키를 가로채지는 않습니다.
 
-The configurable `setting(terminal.integrated.commandsToSkipShell)` setting determines which command's keyboard shortcuts should always "skip the shell" and instead be handled by VS Code's keyboard shortcut system. By default, it contains a hard-coded list of commands that are integral to the VS Code experience but you can add or remove specific commands:
+구성 가능한 `setting(terminal.integrated.commandsToSkipShell)` 설정은 어떤 명령의 키보드 단축키가 항상 "셸을 건너뛰고" 대신 VS Code의 키보드 단축키 시스템에 의해 처리되어야 하는지를 결정합니다. 기본적으로, 이 설정은 VS Code 경험에 필수적인 명령의 하드코딩된 목록을 포함하지만, 특정 명령을 추가하거나 제거할 수 있습니다:
 
 ```jsonc
 {
   "terminal.integrated.commandsToSkipShell": [
-    // Ensure the toggle sidebar visibility keyboard shortcut skips the shell
+    // 사이드바 가시성 전환 키보드 단축키가 셸을 건너뛰도록 보장합니다.
     "workbench.action.toggleSidebarVisibility",
-    // Send quick open's keyboard shortcut to the shell
+    // 빠른 열기 키보드 단축키를 셸로 전송합니다.
     "-workbench.action.quickOpen",
   ]
 }
 ```
 
-Look at the `setting(terminal.integrated.commandsToSkipShell)` setting details to see the complete list of default commands.
+`setting(terminal.integrated.commandsToSkipShell)` 설정 세부정보를 확인하여 기본 명령의 전체 목록을 확인하세요.
 
->**Tip:** `setting(terminal.integrated.sendKeybindingsToShell)` can be configured to override `setting(terminal.integrated.commandsToSkipShell)` and dispatch most keyboard shortcuts to the shell. Note that this will disable keyboard shortcuts like `kbstyle(Ctrl+F)` to open [find](/docs/terminal/basics#find) though.
+>**팁:** `setting(terminal.integrated.sendKeybindingsToShell)`를 구성하여 `setting(terminal.integrated.commandsToSkipShell)`를 재정의하고 대부분의 키보드 단축키를 셸로 전송할 수 있습니다. 그러나 이 경우 `kbstyle(Ctrl+F)`와 같은 키보드 단축키는 [찾기](/docs/terminal/basics#find)를 열 수 없게 됩니다.
 
-### Chords
+### 코드 {#chords}
 
-Chord keyboard shortcuts are made up of two keyboard shortcuts, for example `kbstyle(Ctrl+K)` followed by `kbstyle(Ctrl+C)` to change the line to a comment. Chords always skip the shell by default but can be disabled with `setting(terminal.integrated.allowChords)`.
+코드 키보드 단축키는 두 개의 키보드 단축키로 구성됩니다. 예를 들어, `kbstyle(Ctrl+K)` 다음에 `kbstyle(Ctrl+C)`를 눌러 줄을 주석으로 변경합니다. 코드 키보드는 기본적으로 셸을 건너뛰지만, `setting(terminal.integrated.allowChords)`로 비활성화할 수 있습니다.
 
-### macOS clear screen
+### macOS 화면 지우기 {#macos-clear-screen}
 
-On macOS, `kbstyle(Cmd+K)` is a common keyboard shortcuts in terminals to clear the screen so VS Code also respects that, which means `kbstyle(Cmd+K)` chords will not work. `kbstyle(Cmd+K)` chords can be enabled by [removing the clear keyboard shortcut](/docs/editor/keybindings.md#removing-a-specific-keyboard-shortcut-rule):
+macOS에서 `kbstyle(Cmd+K)`는 터미널에서 화면을 지우기 위한 일반적인 키보드 단축키이므로 VS Code도 이를 존중합니다. 이는 `kbstyle(Cmd+K)` 코드가 작동하지 않음을 의미합니다. `kbstyle(Cmd+K)` 코드는 [지우기 키보드 단축키 제거하기](/docs/editor/keybindings.md#removing-a-specific-keyboard-shortcut-rule)를 통해 활성화할 수 있습니다:
 
 ```json
 {
@@ -70,7 +70,7 @@ On macOS, `kbstyle(Cmd+K)` is a common keyboard shortcuts in terminals to clear 
 }
 ```
 
-Additionally, this keyboard shortcut will be overridden automatically if any extensions contribute `kbstyle(Cmd+K)` keyboard shortcuts due to how keyboard shortcut priority works. To re-enable the `kbstyle(Cmd+K)` clear keyboard shortcut in this case, you can redefine it in user keyboard shortcuts, which have a higher priority than extension keyboard shortcuts:
+또한, 이 키보드 단축키는 키보드 단축키 우선순위 작동 방식으로 인해 어떤 확장이 `kbstyle(Cmd+K)` 키보드 단축키를 제공하면 자동으로 재정의됩니다. 이 경우 `kbstyle(Cmd+K)` 화면 지우기 키보드 단축키를 다시 활성화하려면 사용자 키보드 단축키에서 재정의할 수 있습니다. 사용자 키보드 단축키는 확장 키보드 단축키보다 우선순위가 높습니다:
 
 ```json
 {
@@ -80,15 +80,15 @@ Additionally, this keyboard shortcut will be overridden automatically if any ext
 }
 ```
 
-### Mnemonics
+### 기억법 {#mnemonics}
 
-Using mnemonics to access VS Code's menu (for example, `kbstyle(Alt+F)` for File menu) is disabled by default in the terminal as these key events are often important hotkeys in shells. Set `setting(terminal.integrated.allowMnemonics)` to enable mnemonics, but note that this will disallow any `kbstyle(Alt)` key events to go to the shell. This setting does nothing on macOS.
+VS Code의 메뉴에 접근하기 위한 기억법(예: 파일 메뉴를 위한 `kbstyle(Alt+F)`)은 기본적으로 터미널에서 비활성화되어 있습니다. 이는 이러한 키 이벤트가 셸에서 중요한 단축키인 경우가 많기 때문입니다. `setting(terminal.integrated.allowMnemonics)`를 설정하여 기억법을 활성화할 수 있지만, 이 경우 `kbstyle(Alt)` 키 이벤트가 셸로 전송되지 않음을 유의하세요. 이 설정은 macOS에서는 아무런 효과가 없습니다.
 
-### Custom sequence keyboard shortcuts
+### 사용자 정의 시퀀스 키보드 단축키 {#custom-sequence-keyboard-shortcuts}
 
-The `workbench.action.terminal.sendSequence` command can be used to send a specific sequence of text to the terminal, including escape sequences that are interpreted specially by the shell. The command enables you to send Arrow keys, `kbstyle(Enter)`, cursor moves, etc.
+`workbench.action.terminal.sendSequence` 명령은 터미널에 특정 텍스트 시퀀스를 전송하는 데 사용될 수 있으며, 셸에 의해 특별히 해석되는 이스케이프 시퀀스를 포함합니다. 이 명령은 화살표 키, `kbstyle(Enter)`, 커서 이동 등을 전송할 수 있게 해줍니다.
 
-For example, the sequence below jumps over the word to the left of the cursor (`kbstyle(Ctrl+Left)`) and then presses `kbstyle(Backspace)`:
+예를 들어, 아래 시퀀스는 커서 왼쪽의 단어를 건너뛰고(`kbstyle(Ctrl+Left)`) `kbstyle(Backspace)`를 누릅니다:
 
 ```jsonc
 {
@@ -100,24 +100,24 @@ For example, the sequence below jumps over the word to the left of the cursor (`
 }
 ```
 
-This feature supports [variable substitution](/docs/reference/variables-reference.md).
+이 기능은 [변수 치환](/docs/reference/variables-reference.md)을 지원합니다.
 
-The `sendSequence` command only works with the `\u0000` format for using characters via their character code (not `\x00`). Read more about these hex codes and terminal sequences in the following resources:
+`sendSequence` 명령은 문자 코드를 통해 문자를 사용하는 경우에만 `\u0000` 형식으로 작동합니다(즉, `\x00`가 아님). 이러한 16진수 코드와 터미널 시퀀스에 대한 자세한 내용은 다음 자료를 참조하세요:
 
-* [XTerm Control Sequences](https://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
-* [List of C0 and C1 control codes](https://github.com/xtermjs/xterm.js/blob/0e45909c7e79c83452493d2cd46d99c0a0bb585f/src/common/data/EscapeSequences.ts)
+* [XTerm 제어 시퀀스](https://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
+* [C0 및 C1 제어 코드 목록](https://github.com/xtermjs/xterm.js/blob/0e45909c7e79c83452493d2cd46d99c0a0bb585f/src/common/data/EscapeSequences.ts)
 
-## Confirmation dialogs
+## 확인 대화 상자 {#confirmation-dialogs}
 
-In order to avoid unnecessary output and user prompts, the terminal does not show warning dialogs when processes exit. If warnings are desirable, they can be configured with the following settings:
+불필요한 출력 및 사용자 프롬프트를 피하기 위해, 터미널은 프로세스가 종료될 때 경고 대화 상자를 표시하지 않습니다. 경고가 필요한 경우, 다음 설정으로 구성할 수 있습니다:
 
-* `setting(terminal.integrated.confirmOnExit)` - Controls whether to confirm when the window closes if there are active debug sessions.
-* `setting(terminal.integrated.confirmOnKill)` - Controls whether to confirm killing terminals when they have child processes.
-* `setting(terminal.integrated.showExitAlert)` - Controls whether to show the alert "The terminal process terminated with exit code" when exit code is non-zero.
+* `setting(terminal.integrated.confirmOnExit)` - 활성 디버그 세션이 있는 경우 창을 닫을 때 확인할지를 제어합니다.
+* `setting(terminal.integrated.confirmOnKill)` - 자식 프로세스가 있는 터미널을 종료할 때 확인할지를 제어합니다.
+* `setting(terminal.integrated.showExitAlert)` - 종료 코드가 0이 아닐 때 "터미널 프로세스가 종료 코드와 함께 종료되었습니다"라는 경고를 표시할지를 제어합니다.
 
-## Auto replies
+## 자동 응답 {#auto-replies}
 
-The terminal can automatically provide a configurable input response to the shell if an exact sequence of output is received. The most common use case is to automatically reply to a prompt when hitting `kbstyle(Ctrl+C)` in batch scripts that ask whether the user wants to terminate the batch job. To automatically dismiss this message, add this setting:
+터미널은 특정 출력 시퀀스가 수신되면 셸에 대한 구성 가능한 입력 응답을 자동으로 제공할 수 있습니다. 가장 일반적인 사용 사례는 배치 스크립트에서 `kbstyle(Ctrl+C)`를 눌렀을 때 사용자에게 배치 작업을 종료할 것인지 묻는 프롬프트에 자동으로 응답하는 것입니다. 이 메시지를 자동으로 무시하려면 다음 설정을 추가하세요:
 
 ```json
 {
@@ -127,82 +127,82 @@ The terminal can automatically provide a configurable input response to the shel
 }
 ```
 
-Notice that the `\r` character used here means `kbstyle(Enter)`, and much like [custom sequence keyboard shortcuts](#custom-sequence-keyboard-shortcuts), this feature supports sending escape sequences to the shell.
+여기서 사용된 `\r` 문자는 `kbstyle(Enter)`를 의미하며, [사용자 정의 시퀀스 키보드 단축키](#custom-sequence-keyboard-shortcuts)와 마찬가지로 이 기능은 셸에 이스케이프 시퀀스를 전송하는 것을 지원합니다.
 
-No auto replies are configured by default as providing shell input should be an explicit action or configuration by the user.
+기본적으로 자동 응답은 구성되어 있지 않으며, 셸 입력 제공은 사용자에 의한 명시적인 작업이나 구성이어야 합니다.
 
-## Change tab stop width
+## 탭 정지 너비 변경 {#change-tab-stop-width}
 
-The `setting(terminal.integrated.tabStopWidth)` setting allows configuring the tab stop width when a program running in the terminal outputs `\t`. This should typically not be needed as programs will often move the cursor instead of using the `kbstyle(Tab)` character, but may be useful in some situations.
+`setting(terminal.integrated.tabStopWidth)` 설정은 터미널에서 프로그램이 `\t`를 출력할 때 탭 정지 너비를 구성할 수 있게 해줍니다. 일반적으로 프로그램은 `kbstyle(Tab)` 문자를 사용하기보다는 커서를 이동시키기 때문에 이 설정은 필요하지 않지만, 특정 상황에서는 유용할 수 있습니다.
 
-## Unicode and emoji support
+## 유니코드 및 이모지 지원 {#unicode-and-emoji-support}
 
-The terminal has both Unicode and emoji support. When these characters are used in the terminal, there are some caveats to that support:
+터미널은 유니코드 및 이모지 지원을 제공합니다. 이러한 문자가 터미널에서 사용될 때 몇 가지 주의사항이 있습니다:
 
-* Some Unicode symbols have ambiguous width that may change between Unicode versions. Currently we support Unicode version 6 and 11 widths, which can be configured with the `setting(terminal.integrated.unicodeVersion)` setting. The version specified should match the Unicode version used by the shell/operating system, otherwise there could be rendering issues. Note that the Unicode version of the shell/OS may not match the font's actual width.
-* Some emojis comprised of multiple characters may not render correctly, for example, skin tone modifiers.
-* Emoji support is limited on Windows.
+* 일부 유니코드 기호는 모호한 너비를 가지며, 이는 유니코드 버전 간에 변경될 수 있습니다. 현재 우리는 `setting(terminal.integrated.unicodeVersion)` 설정으로 구성할 수 있는 유니코드 버전 6 및 11 너비를 지원합니다. 지정된 버전은 셸/운영 체제가 사용하는 유니코드 버전과 일치해야 하며, 그렇지 않으면 렌더링 문제가 발생할 수 있습니다. 셸/OS의 유니코드 버전이 글꼴의 실제 너비와 일치하지 않을 수 있습니다.
+* 여러 문자로 구성된 일부 이모지는 올바르게 렌더링되지 않을 수 있습니다. 예를 들어, 피부 톤 수정자가 있습니다.
+* Windows에서는 이모지 지원이 제한적입니다.
 
-## Image support
+## 이미지 지원 {#image-support}
 
-Images in the terminal work provided they use either the Sixel or iTerm inline image protocols. This feature is disabled by default and can be enabled with the `setting(terminal.integrated.enableImages)` setting.
+터미널에서 이미지는 Sixel 또는 iTerm 인라인 이미지 프로토콜을 사용하는 경우 작동합니다. 이 기능은 기본적으로 비활성화되어 있으며, `setting(terminal.integrated.enableImages)` 설정으로 활성화할 수 있습니다.
 
-Current limitations:
+현재 제한 사항:
 
-* Serialization does not work, so reloading a terminal will not retain any images ([jerch/xterm-addon-image#47](https://github.com/jerch/xterm-addon-image/issues/47)).
-* Copying the selection as HTML does not include the selected image ([jerch/xterm-addon-image#50](https://github.com/jerch/xterm-addon-image/issues/50)).
-* Animated gifs don't work ([jerch/xterm-addon-image#51](https://github.com/jerch/xterm-addon-image/issues/51)).
-* Images that are shorter than a cell will not work properly, this is a [design flaw with the sequences and also occurs in XTerm](https://github.com/microsoft/vscode/issues/183840#issuecomment-1569345048).
+* 직렬화가 작동하지 않으므로 터미널을 다시 로드하면 이미지가 유지되지 않습니다 ([jerch/xterm-addon-image#47](https://github.com/jerch/xterm-addon-image/issues/47)).
+* 선택한 이미지를 포함하여 HTML로 선택 내용을 복사할 수 없습니다 ([jerch/xterm-addon-image#50](https://github.com/jerch/xterm-addon-image/issues/50)).
+* 애니메이션 GIF는 작동하지 않습니다 ([jerch/xterm-addon-image#51](https://github.com/jerch/xterm-addon-image/issues/51)).
+* 셀보다 짧은 이미지는 제대로 작동하지 않으며, 이는 [시퀀스의 설계 결함이며 XTerm에서도 발생합니다](https://github.com/microsoft/vscode/issues/183840#issuecomment-1569345048).
 
-## Process environment
+## 프로세스 환경 {#process-environment}
 
-The process environment of the application running within the terminal is influenced by various settings and extensions and can cause the output in the VS Code terminal to look different than in other terminals.
+터미널 내에서 실행되는 애플리케이션의 프로세스 환경은 다양한 설정 및 확장에 의해 영향을 받으며, VS Code 터미널의 출력이 다른 터미널과 다르게 보일 수 있습니다.
 
-### Environment inheritance
+### 환경 상속 {#environment-inheritance}
 
-When VS Code is opened, it launches a login shell environment in order to source a shell environment. This is done because developer tools are often added to the `$PATH` in a shell launch script like `~/.bash_profile`. By default, the terminal inherits this environment, depending on your [profile shell arguments](/docs/terminal/profiles.md#configuring-profiles), and means that multiple profile scripts may have run, which could cause unexpected behavior.
+VS Code가 열리면 로그인 셸 환경을 시작하여 셸 환경을 소싱합니다. 이는 개발 도구가 종종 `~/.bash_profile`과 같은 셸 시작 스크립트에 `$PATH`에 추가되기 때문입니다. 기본적으로 터미널은 이 환경을 상속받으며, 이는 [프로파일 셸 인수](/docs/terminal/profiles.md#configuring-profiles)에 따라 달라질 수 있으며, 여러 프로파일 스크립트가 실행되었을 수 있어 예기치 않은 동작을 초래할 수 있습니다.
 
-This environment inheritance can be disabled on macOS and Linux via the `setting(terminal.integrated.inheritEnv)` setting.
+이 환경 상속은 macOS 및 Linux에서 `setting(terminal.integrated.inheritEnv)` 설정을 통해 비활성화할 수 있습니다.
 
-### Interaction with `$LANG`
+### `$LANG`와의 상호작용 {#interaction-with-lang}
 
-There is some special interaction with the `$LANG` environment variable, which determines how characters are presented in the terminal. This feature is configured with the `setting(terminal.integrated.detectLocale)` setting:
+문자가 터미널에 표시되는 방식을 결정하는 `$LANG` 환경 변수와의 특별한 상호작용이 있습니다. 이 기능은 `setting(terminal.integrated.detectLocale)` 설정으로 구성됩니다:
 
-| Value            | Behavior
+| 값               | 동작
 |------------------|---
-| `on`             | Always set `$LANG` to the most commonly desired value. The chosen value is based on the operating system locale (falling back to `en-US`) with UTF-8 encoding.
-| `auto` (default) | Set `$LANG` similar to the `on` behavior if `$LANG` is not properly configured (is not set to a UTF or EUC encoding).
-| `off`            | Do not modify `$LANG`.
+| `on`             | 항상 `$LANG`를 가장 일반적으로 원하는 값으로 설정합니다. 선택된 값은 운영 체제 로케일을 기반으로 하며(기본값은 `en-US`) UTF-8 인코딩을 사용합니다.
+| `auto` (기본값) | `$LANG`가 올바르게 구성되지 않은 경우(UTF 또는 EUC 인코딩으로 설정되지 않은 경우) `on` 동작과 유사하게 `$LANG`를 설정합니다.
+| `off`            | `$LANG`를 수정하지 않습니다.
 
-### Extension environment contributions
+### 확장 환경 기여 {#extension-environment-contributions}
 
-Extensions are able to [contribute to terminal environments](https://code.visualstudio.com/api/references/vscode-api#ExtensionContext.environmentVariableCollection), allowing them to provide some integration with the terminal. For example, the built-in Git extension injects the `GIT_ASKPASS` environment variable to allow VS Code to handle authentication to a Git remote.
+확장은 [터미널 환경에 기여할 수 있습니다](https://code.visualstudio.com/api/references/vscode-api#ExtensionContext.environmentVariableCollection), 이를 통해 터미널과의 통합을 제공할 수 있습니다. 예를 들어, 내장 Git 확장은 VS Code가 Git 원격에 대한 인증을 처리할 수 있도록 `GIT_ASKPASS` 환경 변수를 주입합니다.
 
-If an extension changes the terminal environment, any existing terminals will be relaunched if it is safe to do so, otherwise a warning will show in the terminal status. More information about the change can be viewed in the hover, which also includes a relaunch button.
+확장이 터미널 환경을 변경하면, 기존 터미널은 안전하게 재시작될 수 있는 경우에만 재시작되며, 그렇지 않으면 터미널 상태에 경고가 표시됩니다. 변경 사항에 대한 자세한 정보는 호버에서 확인할 수 있으며, 여기에는 재시작 버튼도 포함됩니다.
 
-![A warning icon appears next to the terminal tab when a relaunch is required, information on the changes can be viewed by hovering it](images/advanced/envvarcollection-warning.png)
+![재시작이 필요한 경우 터미널 탭 옆에 경고 아이콘이 나타나며, 변경 사항에 대한 정보는 호버하여 확인할 수 있습니다.](images/advanced/envvarcollection-warning.png)
 
-## Windows and ConPTY
+## Windows 및 ConPTY {#windows-and-conpty}
 
-VS Code's terminal is built on the [xterm.js](https://github.com/xtermjs/xterm.js) project to implement a Unix-style terminal that serializes all data into a string and pipes it through a "pseudoterminal". Historically, this was not how the terminal worked on Windows, which used the [Console API](https://learn.microsoft.com/windows/console/console-functions) to implement its console called 'conhost'.
+VS Code의 터미널은 [xterm.js](https://github.com/xtermjs/xterm.js) 프로젝트를 기반으로 하여 모든 데이터를 문자열로 직렬화하고 "가상 터미널"을 통해 파이프하는 유닉스 스타일의 터미널을 구현합니다. 역사적으로, Windows에서는 [Console API](https://learn.microsoft.com/windows/console/console-functions)를 사용하여 'conhost'라는 콘솔을 구현했기 때문에 터미널이 이렇게 작동하지 않았습니다.
 
-An open source project called [winpty](https://github.com/rprichard/winpty) was created to try to fix this issue by providing an emulation/translation layer between a Unix-style terminal and a Windows console. VS Code's terminal was originally implemented using only winpty. This was great at the time, but in 2018, Windows 10 received [the ConPTY API](https://devblogs.microsoft.com/commandline/windows-command-line-introducing-the-windows-pseudo-console-conpty/), which took the idea pioneered by winpty and baked it into Windows, providing a more reliable and supported system to leverage Unix-style terminals and apps on Windows.
+[winpty](https://github.com/rprichard/winpty)라는 오픈 소스 프로젝트가 이 문제를 해결하기 위해 유닉스 스타일의 터미널과 Windows 콘솔 간의 에뮬레이션/변환 레이어를 제공하기 위해 만들어졌습니다. VS Code의 터미널은 원래 winpty만 사용하여 구현되었습니다. 당시에는 훌륭했지만, 2018년에 Windows 10은 [ConPTY API](https://devblogs.microsoft.com/commandline/windows-command-line-introducing-the-windows-pseudo-console-conpty/)를 받았으며, 이는 winpty가 선도한 아이디어를 Windows에 통합하여 유닉스 스타일의 터미널 및 앱을 Windows에서 활용할 수 있는 보다 신뢰할 수 있고 지원되는 시스템을 제공합니다.
 
-VS Code defaults to ConPTY on Windows 10+ (from build number 18309) and falls back to winpty as a legacy option for older versions of Windows. ConPTY can be explicitly disabled via the `setting(terminal.integrated.windowsEnableConpty)` settings but this should normally be avoided.
+VS Code는 Windows 10+ (빌드 번호 18309부터)에서 기본적으로 ConPTY를 사용하며, 이전 버전의 Windows에 대해서는 레거시 옵션으로 winpty로 돌아갑니다. ConPTY는 `setting(terminal.integrated.windowsEnableConpty)` 설정을 통해 명시적으로 비활성화할 수 있지만, 이는 일반적으로 피해야 합니다.
 
-Since ConPTY is an emulation layer, it does come with some quirks. The most common is that ConPTY considers itself the owner of the viewport and because of that will sometimes reprint the screen. This reprinting can cause unexpected behavior such as old content displaying after running the **Terminal: Clear** command.
+ConPTY는 에뮬레이션 레이어이기 때문에 몇 가지 특이점이 있습니다. 가장 일반적인 것은 ConPTY가 뷰포트의 소유자로 간주되므로 때때로 화면을 다시 출력합니다. 이 재출력은 **터미널: 지우기** 명령을 실행한 후 이전 콘텐츠가 표시되는 등의 예기치 않은 동작을 초래할 수 있습니다.
 
-## Remote development
+## 원격 개발 {#remote-development}
 
-This section outlines topics specific to when VS Code is connected to a remote machine using a VS Code [Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) extension.
+이 섹션에서는 VS Code가 VS Code [원격 개발](https://code.visualstudio.com/docs/remote/remote-overview) 확장을 사용하여 원격 머신에 연결될 때 특정 주제를 설명합니다.
 
-### Reducing remote input latency
+### 원격 입력 지연 줄이기 {#reducing-remote-input-latency}
 
-Local echo is a feature that helps mitigate the effect of input latency on remote windows. It writes the keystrokes in the terminal in a dimmed color before the result is confirmed by the remote. By default, the feature start running when latency is detected to be above 30 ms and the timing can be configured with `setting(terminal.integrated.localEchoLatencyThreshold)`. The color of the unconfirmed characters is defined by `setting(terminal.integrated.localEchoStyle)`.
+로컬 에코는 원격 창에서 입력 지연의 영향을 완화하는 데 도움이 되는 기능입니다. 원격에서 결과가 확인되기 전에 터미널에 키 입력을 흐릿한 색으로 기록합니다. 기본적으로 이 기능은 지연이 30ms 이상으로 감지될 때 실행되며, 타이밍은 `setting(terminal.integrated.localEchoLatencyThreshold)`로 구성할 수 있습니다. 확인되지 않은 문자의 색상은 `setting(terminal.integrated.localEchoStyle)`로 정의됩니다.
 
-Local echo disables itself dynamically depending on the active program in the terminal. This is controlled by `setting(terminal.integrated.localEchoExcludePrograms)`, which defaults to `['vim', 'vi', 'nano', 'tmux']`. It's recommended that you disable the feature for any application or shell that is highly dynamic and/or does a lot of reprinting of the screen when typing.
+로컬 에코는 터미널에서 활성 프로그램에 따라 동적으로 비활성화됩니다. 이는 `setting(terminal.integrated.localEchoExcludePrograms)`에 의해 제어되며, 기본값은 `['vim', 'vi', 'nano', 'tmux']`입니다. 입력 시 화면을 많이 다시 출력하는 동적 애플리케이션이나 셸에 대해서는 이 기능을 비활성화하는 것이 좋습니다.
 
-To disable the feature completely, use:
+기능을 완전히 비활성화하려면 다음을 사용하세요:
 
 ```json
 {
@@ -210,6 +210,6 @@ To disable the feature completely, use:
 }
 ```
 
-### Local terminals in remote windows
+### 원격 창에서의 로컬 터미널 {#local-terminals-in-remote-windows}
 
-The default **local** terminal profile can be launched in remote windows with the **Terminal: Create New Integrated Terminal (Local)** command via the Command Palette. Currently non-default profiles cannot be launched from remote windows.
+기본 **로컬** 터미널 프로파일은 명령 팔레트를 통해 **터미널: 새 통합 터미널 생성(로컬)** 명령으로 원격 창에서 실행할 수 있습니다. 현재 비기본 프로파일은 원격 창에서 실행할 수 없습니다.

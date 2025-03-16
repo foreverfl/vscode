@@ -6,6 +6,7 @@ ContentId: DD4E5A59-1586-4A5D-8047-3D58B2FE6937
 PageTitle: Visual Studio Code로 PHP 프로그래밍하기
 DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code 편집기의 기능(구문 강조, 코드 조각, 린팅) 및 PHP용 확장에 대해 알아보세요.
+sidebar_label: PHP
 ---
 # Visual Studio Code에서의 PHP {#php-in-visual-studio-code}
 

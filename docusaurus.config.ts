@@ -60,10 +60,9 @@ const config: Config = {
       {
         id: "default",
         path: "docs",
-        routeBasePath: "/",
+        routeBasePath: "docs",
         sidebarPath: require.resolve("./sidebars.ts"),
         editLocalizedFiles: true,
-        remarkPlugins: [require("./remark-keybinding-replace")], 
       },
     ],
     [
@@ -74,7 +73,6 @@ const config: Config = {
         routeBasePath: "api",
         sidebarPath: require.resolve("./sidebarsApi.ts"),
         editLocalizedFiles: true, 
-        remarkPlugins: [require("./remark-keybinding-replace")], 
       },
     ],
   ],
@@ -93,7 +91,7 @@ const config: Config = {
           sidebarId: "tutorialSidebar",
           docsPluginId: "default",
           position: "left",
-          label: "Docs",
+          label: "문서",
         },
         {
           type: "docSidebar",
@@ -119,6 +117,11 @@ const config: Config = {
       ],
     },
 
+    sidebar: {
+      hideable: true, 
+      autoCollapseCategories: true, 
+    },
+
     footer: {
       style: "dark",
       links: [
@@ -126,7 +129,7 @@ const config: Config = {
           title: "Community",
           items: [
             {
-              label: "Docs",
+              label: "문서 모음",
               href: "httsp://docs.mogumogu.dev",
             },
             {

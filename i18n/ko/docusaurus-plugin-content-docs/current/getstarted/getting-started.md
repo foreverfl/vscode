@@ -2,6 +2,7 @@
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
 DateApproved: 03/05/2025
 MetaDescription: 이 튜토리얼은 Visual Studio Code의 주요 기능에 대한 개요를 제공하여 빠르게 시작할 수 있도록 도와줍니다.
+sidebar_label: 튜토리얼
 ---
 
 # 튜토리얼: Visual Studio Code 시작하기 {#tutorial-get-started-with-visual-studio-code}

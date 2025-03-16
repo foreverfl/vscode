@@ -6,6 +6,7 @@ ContentId: 84F36EDE-4D66-4A2E-B4D1-F020C73EB2AD
 PageTitle: Visual Studio Code의 네트워크 연결 설정
 DateApproved: 03/05/2025
 MetaDescription: VS Code의 네트워크 연결을 설정합니다.
+sidebar_label: 네트워크
 ---
 # Visual Studio Code의 네트워크 연결 {#network-connections-in-visual-studio-code}
 
@@ -42,7 +43,7 @@ VS Code에서 사용하는 특정 도메인을 허용해야 하는 방화벽 뒤
 
 VS Code는 Google Chromium과 동일한 프록시 서버 지원을 제공합니다. 다음은 [Chromium 문서](https://www.chromium.org/developers/design-documents/network-settings)에서 발췌한 내용입니다:
 
-```
+```plaintext
 "Chromium 네트워크 스택은 시스템 네트워크 설정을 사용하여 사용자와 관리자가 모든 애플리케이션의 네트워크 설정을 쉽게 제어할 수 있도록 합니다. 네트워크 설정에는 다음이 포함됩니다:
 
  - 프록시 설정
@@ -77,10 +78,10 @@ VS Code는 Google Chromium과 동일한 프록시 서버 지원을 제공합니�
 
 지원되는 인증 방법은 다음과 같습니다:
 
-* 기본
-* 다이제스트
+* Basic
+* Digest
 * NTLM
-* 협상
+* Negotiate
 
 인증된 HTTP 프록시 뒤에서 VS Code를 사용할 때 다음 인증 팝업이 나타나야 합니다:
 
@@ -104,7 +105,7 @@ VS Code 내의 HTTP 프록시 인증에 대해 더 읽으려면 [Chromium HTTP �
 
 확장 프로그램과 유사하게, 몇 가지 다른 VS Code 기능도 아직 프록시 네트워킹을 완전히 지원하지 않습니다. 즉, CLI 인터페이스입니다. CLI 인터페이스는 명령 프롬프트나 터미널에서 `code --install-extension vscodevim.vim`을 실행할 때 얻는 것입니다. 이 문제의 진행 상황은 [GitHub](https://github.com/microsoft/vscode/issues/29910)에서 확인할 수 있습니다.
 
-이 두 가지 제약으로 인해 `setting(http.proxy)`, `setting(http.proxyStrictSSL)` 및 `setting(http.proxyAuthorization)` 변수는 여전히 VS Code의 설정의 일부이지만, 이 두 가지 시나리오에서만 존중됩니다.
+이 두 가지 제약으로 인해 `setting(http.proxy)`, `setting(http.proxyStrictSSL)` 및 `setting(http.proxyAuthorization)` 변수는 여전히 VS Code 설정에 포함되어 있지만, 실제로 적용되는 것은 이 두 가지 경우에 한합니다.
 
 ## 문제 해결 {#troubleshooting}
 

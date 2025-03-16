@@ -1,3 +1,13 @@
+---
+Order: 18
+Area: languages
+TOCTitle: T-SQL
+ContentId: 5325cf50-e4c7-11e6-bf01-fe55135034f3
+PageTitle: Visual Studio Code에서 Transact-SQL 사용하기
+DateApproved: 03/05/2025
+MetaDescription: Visual Studio Code에서 Transact-SQL을 위한 코드 완성, 디버깅, 스니펫, 린팅 등의 기능을 알아보세요.
+sidebar_label: T-SQL
+---
 # Transact-SQL in Visual Studio Code {#transact-sql-in-visual-studio-code}
 
 Visual Studio Code를 [Transact-SQL] (T-SQL) 개발을 위한 강력한 편집기로 변환하세요. VS Code Marketplace에서 사용할 수 있는 [mssql] 확장 프로그램을 통해 가능합니다. [mssql] 확장 프로그램은 온프레미스, 클라우드, Azure SQL Database 및 Azure SQL Data Warehouse에서 실행되는 SQL Server와 함께 작동하도록 최적화되어 있습니다.

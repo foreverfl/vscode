@@ -7,6 +7,7 @@ PageTitle: C# 프로그래밍과 Visual Studio Code
 DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code와 C#을 최대한 활용하는 방법을 알아보세요.
 MetaSocialImage: images/csharp/languages-csharp-social.png
+sidebar_label: C#
 ---
 # C&#35; 작업하기 {#working-with-c35}
 

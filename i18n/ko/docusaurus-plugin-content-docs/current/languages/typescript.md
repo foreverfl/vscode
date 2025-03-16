@@ -7,6 +7,7 @@ PageTitle: Visual Studio Code로 TypeScript 프로그래밍하기
 DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code로 TypeScript를 편집하는 최고의 방법을 알아보세요.
 MetaSocialImage: images/typescript/typescript-social.png
+sidebar_label: TypeScript
 ---
 
 # Visual Studio Code에서의 TypeScript {#typescript-in-visual-studio-code}

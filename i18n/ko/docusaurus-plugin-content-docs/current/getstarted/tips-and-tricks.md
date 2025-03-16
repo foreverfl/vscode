@@ -2,6 +2,7 @@
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code 사용자들을 위한 팁과 요령.
+sidebar_label: 팁과 요령
 ---
 # Visual Studio Code 팁과 요령 {#visual-studio-code-tips-and-tricks}
 

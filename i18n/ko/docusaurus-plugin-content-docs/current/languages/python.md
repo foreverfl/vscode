@@ -6,6 +6,7 @@ ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
 PageTitle: Visual Studio Code에서의 Python
 DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code를 Python IDE로 사용하는 방법(코드 완성, 디버깅, 린팅)에 대해 알아보세요.
+sidebar_label: Python
 ---
 
 # Visual Studio Code에서의 Python {#python-in-visual-studio-code}
@@ -134,7 +135,7 @@ Python 확장은 다양한 기능을 위한 다양한 설정을 제공합니다.
 
 ## Python 프로필 템플릿 {#python-profile-template}
 
-[프로필](https://code.visualstudio.com/docs/editor/profiles)은 현재 프로젝트나 작업에 따라 확장, 설정 및 UI 레이아웃을 빠르게 전환할 수 있게 해줍니다. Python 개발을 시작하는 데 도움이 되는 [Python 프로필 템플릿](/docs/editor/profiles.md#python-profile-template)을 사용할 수 있으며, 유용한 확장, 설정 및 스니펫이 포함된 큐레이션된 프로필입니다. 이 프로필 템플릿을 그대로 사용하거나 자신의 워크플로우우에 맞게 추가로 사용자화할 수 있는 출발점으로 사용할 수 있습니다.
+[프로필](https://code.visualstudio.com/docs/editor/profiles)은 현재 프로젝트나 작업에 따라 확장, 설정 및 UI 레이아웃을 빠르게 전환할 수 있게 해줍니다. Python 개발을 시작하는 데 도움이 되는 [Python 프로필 템플릿](/docs/editor/profiles.md#python-profile-template)을 사용할 수 있으며, 유용한 확장, 설정 및 스니펫이 포함된 큐레이션된 프로필입니다. 이 프로필 템플릿을 그대로 사용하거나 자신의 워크플로우에 맞게 추가로 사용자화할 수 있는 출발점으로 사용할 수 있습니다.
 
 **Profiles** > **Create Profile...** 드롭다운을 통해 프로필 템플릿을 선택합니다:
 

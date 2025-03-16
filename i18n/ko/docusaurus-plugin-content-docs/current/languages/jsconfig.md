@@ -1,3 +1,13 @@
+---
+Order:
+Area: languages
+TOCTitle: 부록 - jsconfig.json
+ContentId: 201cd81d-523c-4f62-b1f5-ed26c091657b
+PageTitle: jsconfig.json 참고 문서
+DateApproved: 03/05/2025
+MetaDescription: jsconfig.json 참고 문서를 확인하세요.
+sidebar_label: jsconfig.json
+---
 # jsconfig.json {#jsconfigjson}
 
 ## jsconfig.json이란 무엇인가요? {#what-is-jsconfigjson}

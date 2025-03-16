@@ -6,6 +6,7 @@ ContentId: AFFD7BDB-925E-4D02-828D-4E14360C70DA
 PageTitle: .NET 및 Visual Studio Code
 DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code로 .NET 앱을 작성하고 디버깅하는 방법을 알아보세요.
+sidebar_label: .NET
 ---
 # Visual Studio Code에서 .NET 사용하기 {#using-net-in-visual-studio-code}
 

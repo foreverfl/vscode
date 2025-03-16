@@ -1,197 +1,172 @@
 ---
 Order: 1
 Area: copilot
-TOCTitle: Overview
+TOCTitle: 개요
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
-PageTitle: GitHub Copilot overview
-DateApproved: 03/05/2025
-MetaDescription: Copilot is your AI pair programmer in VS Code. Code faster with completions and Inline Chat. Build features or resolve bugs with Copilot Edits, and explore your codebase using chat.
+PageTitle: GitHub Copilot 개요
+DateApproved: 2025-03-05
+MetaDescription: Copilot은 VS Code에서 사용하는 AI 페어 프로그래머입니다. 자동 완성과 인라인 채팅으로 더 빠르게 코딩하세요. Copilot Edits를 사용해 기능을 개발하거나 버그를 수정하고, 채팅을 통해 코드베이스를 탐색할 수 있습니다.
 MetaSocialImage: images/shared/github-copilot-social.png
+sidebar_label: 개요
 ---
-# GitHub Copilot in VS Code
 
-[GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) is your AI pair programmer tool in Visual Studio Code. Get code suggestions as you type or use Inline Chat in the editor to write code faster. Add new functionality or resolve bugs across your project with Copilot Edits, or use natural language in chat to explore your codebase.
+# VS Code에서의 GitHub Copilot {#github-copilot-in-vs-code}
 
-> [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+[GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)는 Visual Studio Code에서 사용할 수 있는 AI 페어 프로그래머 도구입니다. 코드를 입력하는 동안 코드 제안을 받거나 편집기에서 인라인 채팅을 사용하여 더 빠르게 코드를 작성하세요. Copilot Edits를 사용하여 프로젝트 전반에 걸쳐 새로운 기능을 추가하거나 버그를 해결하고, 자연어를 사용하여 채팅으로 코드베이스를 탐색하세요.
 
-GitHub Copilot can provide assistance in a variety of scenarios.
+:::tip
+아직 Copilot 구독이 없다면, [Copilot 무료 요금제](https://github.com/github-copilot/signup)에 가입하여 무료로 Copilot을 사용할 수 있으며, 월별 완성 및 채팅 상호작용의 한도를 받을 수 있습니다.
+:::
 
-<div class="card-grid">
-<a href="#_code-completions-in-the-editor" class="card">
-    <i class="codicon codicon-keyboard"></i>
-    <p class="card-title">Get code suggestions as you type</p>
-</a>
-<a href="#_iterate-on-changes-across-multiple-files" class="card">
-    <i class="codicon codicon-edit-session"></i>
-    <p class="card-title">Make changes across multiple files</p>
-</a>
-<a href="#_answer-coding-questions" class="card">
-    <i class="codicon codicon-comment-discussion"></i>
-    <p class="card-title">Ask questions about your code</p>
-</a>
-<a href="#_code-refactoring-and-improvements" class="card">
-    <i class="codicon codicon-lightbulb"></i>
-    <p class="card-title">Refactor and improve your code</p>
-</a>
-<a href="#_fix-issues" class="card">
-    <i class="codicon codicon-debug"></i>
-    <p class="card-title">Fix code issues and debugging</p>
-</a>
-<a href="#_jumpstart-your-project" class="card">
-    <i class="codicon codicon-new-file"></i>
-    <p class="card-title">Scaffold a new project or files</p>
-</a>
-<a href="#_generate-unit-test-cases" class="card">
-    <i class="codicon codicon-beaker"></i>
-    <p class="card-title">Configure and generate tests</p>
-</a>
-<a href="#_generate-code-documentation" class="card">
-    <i class="codicon codicon-book"></i>
-    <p class="card-title">Generate code documentation</p>
-</a>
-<a href="#_productivity-improvements" class="card">
-    <i class="codicon codicon-sparkle"></i>
-    <p class="card-title">Improve your productivity in VS Code</p>
-</a>
-</div>
+GitHub Copilot은 다양한 시나리오에서 도움을 줄 수 있습니다.
 
-## Getting started
+- 입력하는 동안 코드 제안 받기
+- 여러 파일에서 변경 사항 적용하기
+- 코드에 대한 질문하기
+- 코드 리팩토링 및 개선하기
+- 코드 문제 수정 및 디버깅
+- 새 프로젝트 또는 파일 시작하기
+- 테스트 구성 및 생성하기
+- 코드 문서 생성하기
+- VS Code에서 생산성 향상하기
 
-1. Select **Use AI Features with Copilot for Free...** from the Copilot menu in the VS Code title bar or from the Command Palette (`kb(workbench.action.showCommands)`)
+## 시작하기 {#getting-started}
 
-1. Sign in with your GitHub account to use Copilot
+1. VS Code 제목 표시줄의 Copilot 메뉴에서 **Use AI Features with Copilot for Free...** 를 선택하거나 명령 팔레트(`kb(workbench.action.showCommands)`)에서 선택합니다.
 
-    > [!TIP]
-    > You can get started for free with the [Copilot Free plan](https://github.com/github-copilot/signup) if you don't yet have a Copilot subscription. Follow the steps in the [setup guide](/docs/copilot/setup.md) to set up a Copilot subscription.
+1. Copilot을 사용하기 위해 GitHub 계정으로 로그인합니다.
 
-1. Discover the key features of Copilot in VS Code with our [Copilot Quickstart](/docs/copilot/getting-started.md).
+    :::tip
+    아직 Copilot 구독이 없다면, [Copilot 무료 요금제](https://github.com/github-copilot/signup)로 무료로 시작할 수 있습니다. [설정 가이드](/docs/copilot/setup.md)의 단계를 따라 Copilot 구독을 설정하세요.
+    :::
 
-## Keyboard shortcuts
+1. [Copilot 빠른 시작](/docs/copilot/getting-started.md)을 통해 VS Code에서 Copilot의 주요 기능을 알아보세요.
 
-Use the following keyboard shortcuts to start a chat conversation with Copilot:
+## Keyboard shortcuts {#keyboard-shortcuts}
 
-| Shortcut | Description |
+Copilot과 채팅 대화를 시작하기 위해 다음 키보드 단축키를 사용하세요:
+
+| 단축키 | 설명 |
 |----------|-------------|
-| `kb(workbench.action.chat.open)` | Open the **Chat view** and start a chat conversation with Copilot by using natural language. |
-| `kb(workbench.action.chat.openEditSession)` | Open the **Copilot Edits view** and start a code editing session across multiple files. |
-| `kb(workbench.action.quickchat.toggle)` | Open **Quick Chat** and ask a quick question to Copilot. |
-| `kb(inlinechat.start)` | Start **Inline Chat** to send a chat request to Copilot directly from the editor. Use natural language or use `/` commands to give instructions to Copilot. |
+| `kb(workbench.action.chat.open)` | **Chat view**를 열고 자연어를 사용하여 Copilot과 채팅 대화를 시작합니다. |
+| `kb(workbench.action.chat.openEditSession)` | **Copilot Edits view**를 열고 여러 파일에서 코드 편집 세션을 시작합니다. |
+| `kb(workbench.action.quickchat.toggle)` | **Quick Chat**을 열고 Copilot에게 간단한 질문을 합니다. |
+| `kb(inlinechat.start)` | **Inline Chat**을 시작하여 편집기에서 직접 Copilot에게 채팅 요청을 보냅니다. 자연어를 사용하거나 `/` 명령어를 사용하여 Copilot에게 지시를 내릴 수 있습니다. |
 
-Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an overview of the key Copilot commands and shortcuts.
+주요 Copilot 명령 및 단축키에 대한 개요는 [Copilot 치트 시트](/docs/copilot/copilot-vscode-features.md)를 확인하세요.
 
-## Use cases for GitHub Copilot in VS Code
+## VS Code에서 GitHub Copilot 활용 사례 {#use-cases-for-github-copilot-in-vs-code}
 
-### Code completions in the editor
+### 편집기에서 코드 자동 완성 {#code-completions-in-the-editor}
 
-* **Copilot suggests code as you type**. Copilot analyzes the context in the file you're editing and related files, and offers suggestions from within the editor. For example, begin typing the name of a method and Copilot suggests the implementation, following your coding style.
+* **Copilot은 입력하는 동안 코드를 제안합니다**. Copilot은 편집 중인 파일과 관련 파일의 맥락을 분석하고 편집기 내에서 제안을 제공합니다. 예를 들어, 메서드 이름을 입력하기 시작하면 Copilot이 구현을 제안하며, 사용자의 코딩 스타일을 따릅니다.
 
-    ![Inline chat suggests the implementation of a 'CalculateDaysBetweenDates' JavaScript function](images/overview/js-suggest.png)
+    ![인라인 채팅이 'CalculateDaysBetweenDates' JavaScript 함수의 구현을 제안합니다.](images/overview/js-suggest.png)
 
-* **Predict your next code edit** with Copilot Next Edit Suggestions (Copilot NES) (preview). Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be. Use the `kbstyle(Tab)` key to quickly navigate and accept suggestions. Learn how to get started with [Copilot NES](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions-preview).
+* **Copilot 다음 편집 제안(Copilot NES)**(Preview)를 통해 **다음 코드 편집을 예측합니다**. 사용자가 하고 있는 편집을 기반으로 Copilot NES는 사용자가 다음에 원하는 편집의 위치와 내용을 예측합니다. `kbstyle(Tab)` 키를 사용하여 제안을 빠르게 탐색하고 수락하세요. [Copilot NES](/docs/copilot/ai-powered-suggestions#next-edit-suggestions-preview)를 시작하는 방법을 알아보세요.
 
-    ![Copilot NES for adding z to distance calculation of Point3D](images/overview/point3d-distance.png)
+    ![Copilot NES가 Point3D의 거리 계산에 z를 추가하는 것을 제안합니다.](images/overview/point3d-distance.png)
 
-### Iterate on changes across multiple files
+### 여러 파일에 걸친 변경 사항 반복 적용 {#iterate-on-changes-across-multiple-files}
 
-* **Start an AI-powered code editing session**. [Copilot Edits](/docs/copilot/copilot-edits.md) brings the conversational flow of Copilot Chat and fast feedback from Inline Chat together in one experience. Have an ongoing, multi-turn chat conversation on the side, while benefiting of inline code suggestions.
+* **AI 기반 코드 편집 세션을 시작합니다**. [Copilot Edits](/docs/copilot/copilot-edits.md)는 Copilot Chat의 대화 흐름과 인라인 채팅의 빠른 피드백을 하나의 경험으로 결합합니다. 진행 중인 다중 턴 채팅 대화를 옆에서 진행하면서 인라인 코드 제안의 이점을 누리세요.
 
-    ![Screenshot showing the Copilot Edits response for "Make the activities page the home page" and showing the diff in the editor.](images/copilot-edits/copilot-edits-changed-files.png)
+    !["활동 페이지를 홈페이지로 만들기"에 대한 Copilot Edits 응답과 편집기에서의 차이를 보여주는 스크린샷입니다.](images/copilot-edits/copilot-edits-changed-files.png)
 
-### Answer coding questions
+### 코딩 질문 답변하기 {#answer-coding-questions}
 
-* **Provide guidance and support for common coding tasks and challenges**. Ask Copilot about syntax or general programming concepts without requiring to navigate documentation or search online forums. Copilot gives responses in natural language format or in code snippet format. For example, you can ask questions such as "what is recursion?" or "how to create a singleton in Java?".
+* **일반적인 코딩 작업 및 문제에 대한 안내 및 지원을 제공합니다**. 문서를 탐색하거나 온라인 포럼을 검색할 필요 없이 Copilot에게 구문이나 일반 프로그래밍 개념에 대해 질문하세요. Copilot은 자연어 형식 또는 코드 스니펫 형식으로 응답합니다. 예를 들어, "재귀란 무엇인가요?" 또는 "Java에서 싱글턴을 만드는 방법은?"과 같은 질문을 할 수 있습니다.
 
-    ![Copilot Chat answering what a singleton is](images/overview/copilot-chat-singleton.png)
+    ![Copilot Chat이 싱글턴이 무엇인지에 대해 답변합니다.](images/overview/copilot-chat-singleton.png)
 
-* **Improve code understanding by explaining selected code**. Copilot generates natural language descriptions of the code's functionality and purpose. This can be useful if you want to understand the code's behavior or for non-technical stakeholders who need to understand how the code works.
+* **선택한 코드에 대한 설명을 통해 코드 이해도를 향상시킵니다**. Copilot은 코드의 기능과 목적에 대한 자연어 설명을 생성합니다. 이는 코드의 동작을 이해하거나 코드가 어떻게 작동하는지 이해해야 하는 비개발자에게 유용할 수 있습니다.
 
-    ![Inline chat explaining which sorting algorithm is used in the selected text](images/overview/inline-chat-question-example.png)
+    ![선택한 텍스트에서 어떤 정렬 알고리즘이 사용되는지 설명하는 인라인 채팅](images/overview/inline-chat-question-example.png)
 
-* **Provide guidance that is specific to your codebase**. Copilot has the context of your workspace and can give step-by-step guidance and code samples that are tailored to your project. For example, "how to add a contacts page?" or "how do I read customer data from the database?".
+* **코드베이스에 특화된 안내를 제공합니다**. Copilot은 작업 공간의 맥락을 가지고 있으며, 프로젝트에 맞춘 단계별 안내와 코드 샘플을 제공합니다. 예를 들어, "연락처 페이지를 추가하는 방법은?" 또는 "데이터베이스에서 고객 데이터를 읽는 방법은?"과 같은 질문을 할 수 있습니다.
 
-    ![Copilot Chat provides step-by-step guidance about adding a page to an Express app](images/getting-started-chat/copilot-chat-view-add-page.png)
+    ![Copilot Chat이 Express 앱에 페이지를 추가하는 방법에 대한 단계별 안내를 제공합니다.](images/getting-started-chat/copilot-chat-view-add-page.png)
 
-### Code refactoring and improvements
+### 코드 리팩토링 및 개선 {#code-refactoring-and-improvements}
 
-* **Provide suggestions for implementing code refactorings**. Copilot suggests refactorings using the context of your codebase. For example, ask Copilot to refactor a function to not use recursion, or to suggest an algorithm that can improve performance.
+* **코드 리팩토링을 구현하기 위한 제안을 제공합니다**. Copilot은 코드베이스의 맥락을 사용하여 리팩토링을 제안합니다. 예를 들어, Copilot에게 재귀를 사용하지 않도록 함수를 리팩토링하거나 성능을 개선할 수 있는 알고리즘을 제안하도록 요청할 수 있습니다.
 
-    ![Inline Chat refactoring to use different sorting algorithm](images/overview/inline-chat-convert-sort.png)
+    ![인라인 채팅이 다른 정렬 알고리즘을 사용하도록 리팩토링합니다.](images/overview/inline-chat-convert-sort.png)
 
-* **Suggest potential improvements to selected code**, such as improved handling of errors and edge cases, or changes to the logical flow to make the code more readable.
+* **선택한 코드에 대한 잠재적 개선 사항을 제안합니다**, 예를 들어 오류 및 예외적인 경우에 대한 처리 개선이나 코드의 가독성을 높이기 위한 논리 흐름 변경 등을 포함합니다.
 
-    ![Copilot Inline Chat suggesting improvements to error handling](images/overview/copilot-inline-chat-error-handling.png)
+    ![Copilot 인라인 채팅이 오류 처리 개선을 제안합니다.](images/overview/copilot-inline-chat-error-handling.png)
 
-### Fix issues
+### 버그 수정 {#fix-issues}
 
-* **Propose a fix for bugs in your code** with the `/fix` command by suggesting code snippets and solutions based on the context of the error or issue. For example, if your code produces an error message or warning, Copilot Chat can suggest possible fixes based on the error message, the code's syntax, and the surrounding code. The changes might consist of changes to variables, control structures, or function calls that could resolve the issue.
+* **코드의 버그에 대한 수정을 제안합니다**. `/fix` 명령을 사용하여 오류 또는 문제의 맥락에 따라 코드 스니펫과 솔루션을 제안합니다. 예를 들어, 코드에서 오류 메시지나 경고가 발생하면 Copilot Chat이 오류 메시지, 코드 구문 및 주변 코드를 기반으로 가능한 수정을 제안할 수 있습니다. 변경 사항은 변수를 변경하거나 제어 구조 또는 함수 호출을 수정하여 문제를 해결할 수 있습니다.
 
-    ![Inline Chat /fix for an error proposing to install a missing library](images/overview/inline-chat-fix-error-message-example.png)
+    ![인라인 채팅 /fix가 누락된 라이브러리 설치를 제안하는 오류를 수정합니다.](images/overview/inline-chat-fix-error-message-example.png)
 
-* **Propose a fix for failing tests** (preview). When you run automated tests for your code, Copilot can suggest code fixes for tests that fail with the `/fixTestFailure` command.
+* **실패한 테스트에 대한 수정을 제안합니다**(Preview). 코드에 대한 자동화된 테스트를 실행할 때, Copilot은 `/fixTestFailure` 명령을 사용하여 실패한 테스트에 대한 코드 수정을 제안할 수 있습니다.
 
-    ![Copilot Chat /fixTestFailure for identifying and suggesting a fix for a failing test](images/overview/copilot-chat-fix-test-failure.png)
+    ![Copilot Chat이 실패한 테스트를 식별하고 수정을 제안합니다.](images/overview/copilot-chat-fix-test-failure.png)
 
-* **Suggest terminal command fixes**. When a command fails to run in the terminal, Copilot displays a sparkle in the gutter that offers a Quick Fix to explain what happened.
+* **터미널 명령 수정을 제안합니다**. 터미널에서 명령이 실패하면 Copilot은 발생한 일을 설명하는 빠른 수정을 제공하는 스파클을 표시합니다.
 
-    ![Fix with Copilot option in the terminal after a failed terminal command.](images/overview/terminal-command-explanation.png)
+    ![실패한 터미널 명령 후 터미널에서 Copilot 옵션으로 수정합니다.](images/overview/terminal-command-explanation.png)
 
-### Jumpstart your project
+### 프로젝트 빠르게 시작하기 {#jumpstart-your-project}
 
-* **Generate a new VS Code workspace** for your choice of technologies with `/new` to get started quickly with a new project. Pick and choose your technology stack, preview the workspace files, and let Copilot scaffold the entire workspace for you.
+* **원하는 기술에 대한 새로운 VS Code 작업 공간을 생성합니다**. `/new` 명령을 사용하여 새로운 프로젝트를 빠르게 시작하세요. 기술 스택을 선택하고 작업 공간 파일을 미리 보고 Copilot이 전체 작업 공간을 자동으로 구성하도록 하세요.
 
-    ![Asking the @workspace agent to scaffold a new Node.js project using TypeScript](images/overview/copilot-chat-view-workspace-file-tree.png)
+    ![@workspace 에이전트에게 TypeScript를 사용하여 새로운 Node.js 프로젝트를 자동으로 구성하도록 요청합니다.](images/overview/copilot-chat-view-workspace-file-tree.png)
 
-* **Scaffold a new Jupyter notebook by using natural language**. Generate a new notebook that is preconfigured based on a description by using `/newNotebook`. For example, to scaffold a new notebook that loads, inspects, and visualizes a sample dataset, prompt Copilot with "@workspace /newNotebook download titanic dataset and display key information using MatPlotLib".
+* **자연어를 사용하여 새로운 Jupyter 노트를 자동으로 구성합니다**. `/newNotebook`을 사용하여 설명에 따라 미리 구성된 새로운 노트를 생성합니다. 예를 들어, 샘플 데이터 세트를 로드하고 검사하며 시각화하는 새로운 노트를 자동으로 구성하도록 하려면, Copilot에게 "@workspace /newNotebook download titanic dataset and display key information using MatPlotLib"라고 요청하세요.
 
-    ![Asking the @workspace agent to scaffold a new notebook that reads titanic data, and visualizes with MatPlotLib](images/overview/copilot-new-notebook.png)
+    ![@workspace 에이전트에게 타이타닉 데이터를 읽고 MatPlotLib로 시각화하는 새로운 노트를 자동으로 구성하도록 요청합니다.](images/overview/copilot-new-notebook.png)
 
-### Generate unit test cases
+### 유닛 테스트 케이스 생성 {#generate-unit-test-cases}
 
-* **Configure your testing framework setup** based on your codebase. For example, if you have a JavaScript and TypeScript project, Copilot will suggest suitable testing frameworks and steps to configure them for your workspace.
+* **코드베이스에 따라 테스트 프레임워크 설정을 구성합니다**. 예를 들어, JavaScript 및 TypeScript 프로젝트가 있는 경우, Copilot은 적합한 테스트 프레임워크와 이를 작업 공간에 구성하는 단계를 제안합니다.
 
-    ![Chat view showing the /setupTests slash command to set up a testing framework for JavaScript and TypeScript](images/overview/copilot-chat-setup-tests.png)
+    ![JavaScript 및 TypeScript용 테스트 프레임워크를 설정하기 위한 /setupTests 슬래시 명령을 보여주는 채팅 보기](images/overview/copilot-chat-setup-tests.png)
 
-* **Write unit test cases for your testing framework** based on the code open in the editor or the code snippet you highlight in the editor. Copilot identifies your testing framework and coding style and generates matching code snippets.
+* **편집기에서 열려 있는 코드 또는 편집기에서 강조 표시한 코드 스니펫에 따라 테스트 프레임워크에 대한 단위 테스트 케이스를 작성합니다**. Copilot은 테스트 프레임워크와 코딩 스타일을 식별하고 일치하는 코드 스니펫을 생성합니다.
 
-    ![Chat view showing the /tests slash command to generate unit tests for the Divide method in a C# calculator class](images/overview/workspace-agent-tests-example.png)
+    ![C# 계산기 클래스의 Divide 메서드에 대한 단위 테스트를 생성하기 위한 /tests 슬래시 명령을 보여주는 채팅 보기](images/overview/workspace-agent-tests-example.png)
 
-* **Identify and write test cases for edge cases and boundary conditions** that might be difficult to identify manually. For instance, Copilot can suggest test cases for error handling, null values, or unexpected input types.
+* **수동으로 식별하기 어려운 엣지 케이스 및 경계 조건에 대한 테스트 케이스를 식별하고 작성합니다**. 예를 들어, Copilot은 오류 처리, null 값 또는 예상치 못한 입력 유형에 대한 테스트 케이스를 제안할 수 있습니다.
 
-* **Suggest assertions** that ensure the function is working correctly, based on the code's context and semantics. For example, generate assertions to ensure that function input parameters are valid.
+* **함수가 올바르게 작동하는지 확인하는 단언을 제안합니다**. 예를 들어, 함수 입력 매개변수가 유효한지 확인하는 단언을 생성합니다.
 
-### Generate code documentation
+### 코드 문서 자동 생성 {#generate-code-documentation}
 
-* **Generate code documentation for multiple languages** for the code open in the editor or the code snippet you highlight in the editor. Use `/doc` or a Copilot smart action to help you generate meaningful code documentation.
+* **편집기에서 열려 있는 코드 또는 편집기에서 강조 표시한 코드 스니펫에 대한 여러 언어의 코드 문서를 생성합니다**. `/doc` 또는 Copilot 스마트 작업을 사용하여 의미 있는 코드 문서를 생성하는 데 도움을 받으세요.
 
-    ![Inline chat /doc example to generate documentation code comments for a calculator class](images/overview/inline-chat-doc-example.png)
+    ![계산기 클래스에 대한 문서 코드 주석을 생성하기 위한 인라인 채팅 /doc 예제](images/overview/inline-chat-doc-example.png)
 
-### Productivity improvements
+### 생산성 향상 {#productivity-improvements}
 
-* **AI-generated commit messages and PR descriptions** based on the code changes in a commit or the changes in a pull request. Use the *sparkle* button in the Source Control view or GitHub PR extension to generate a title and description that summarizes your changes.
+* **Commit 또는 Pull Request의 코드 변경 사항에 기반한 AI 생성 커밋 메시지 및 PR 설명**. 소스 제어 화면 또는 GitHub PR 확장에서 스파클 버튼을 사용하여 변경 사항을 요약하는 제목과 설명을 생성하세요.
 
-    ![Hover over Source Control input box sparkle buttons shows Generate Commit Message](images/overview/generate-commit-message.png)
+    ![소스 제어 입력 상자 스파클 버튼 위에 마우스를 올리면 커밋 메시지 생성이 표시됩니다.](images/overview/generate-commit-message.png)
 
-* **AI-generated rename suggestions** for symbols in your source code. When you rename a symbol in your code, Copilot suggests a new name based on the context of the symbol and the codebase.
+* **소스 코드의 기호에 대한 AI 생성 이름 변경 제안**. 코드에서 기호의 이름을 변경할 때, Copilot은 기호와 코드베이스의 맥락에 따라 새로운 이름을 제안합니다.
 
-    ![Inline chat suggesting a new name for a symbol in a Python file](images/overview/copilot-inline-chat-rename-suggestion.png)
+    ![Python 파일의 기호에 대한 새로운 이름을 제안하는 인라인 채팅](images/overview/copilot-inline-chat-rename-suggestion.png)
 
-* **Semantic search results** (preview). The Search view lists exact text matches across your files, in addition to matches that are semantically relevant based on your search text.
+* **의미 기반 검색 결과**(Preview). 검색 보기에서는 파일 전반에 걸쳐 정확한 텍스트 일치뿐만 아니라 검색 텍스트에 기반하여 관련성이 높은 일치 항목도 나열됩니다.
 
-    ![Search view showing semantic search results that are not an exact match for the search criteria.](images/overview/semantic-search-results.png)
+    ![검색 보기에서 검색 기준과 정확히 일치하지 않는 의미론적 검색 결과를 보여줍니다.](images/overview/semantic-search-results.png)
 
-* **Use terminal Inline Chat** to ask questions about the terminal or how to use specific shell commands. For example, you can ask questions such as "list the top 5 largest files in the src directory", or "how to enable shell integration".
+* **터미널 인라인 채팅을 사용하여 터미널이나 특정 셸 명령 사용에 대한 질문을 합니다**. 예를 들어, "src 디렉토리에서 가장 큰 파일 5개를 나열하세요" 또는 "셸 통합을 활성화하는 방법은?"과 같은 질문을 할 수 있습니다.
 
-    ![Screenshot showing that you can ask complex questions like "list the top 5 largest files in the src dir"](images/overview/terminal-chat-2.png)
+    ![src 디렉토리에서 가장 큰 파일 5개를 나열하는 것과 같은 복잡한 질문을 할 수 있음을 보여주는 스크린샷](images/overview/terminal-chat-2.png)
 
-## Next steps
+## 다음 단계 {#next-steps}
 
-* [Get started with the Copilot in VS Code Quickstart](/docs/copilot/getting-started.md)
-* [Get started with editing across multiple files with Copilot Edits](/docs/copilot/copilot-edits.md)
-* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/copilot-vscode-features.md)
+* [VS Code에서 Copilot 시작하기 빠른 시작](/docs/copilot/getting-started.md)
+* [Copilot Edits로 여러 파일에서 편집 시작하기](/docs/copilot/copilot-edits.md)
+* [VS Code에서 Copilot 기능에 대한 간단한 개요 보기](/docs/copilot/copilot-vscode-features.md)
 
-## Additional resources
+## 추가 자료 {#additional-resources}
 
-You can read more about Copilot and how to use it in VS Code in the [GitHub Copilot documentation](https://docs.github.com/copilot/getting-started-with-github-copilot?tool=vscode).
+VS Code에서 Copilot을 사용하는 방법에 대한 자세한 내용은 [GitHub Copilot 문서](https://docs.github.com/copilot/getting-started-with-github-copilot?tool=vscode)를 참조하세요.
 
-Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), [C++](https://www.youtube.com/watch?v=ZfT2CXY5-Dc), and more.
+또한 YouTube에서 [VS Code Copilot 시리즈](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt)를 확인하여 Copilot을 [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), [C++](https://www.youtube.com/watch?v=ZfT2CXY5-Dc) 등과 함께 사용하는 방법에 대한 더 많은 소개 콘텐츠와 프로그래밍 관련 비디오를 찾아보세요.

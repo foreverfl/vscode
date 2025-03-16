@@ -6,15 +6,16 @@ ContentId: 080fd21f-92b7-4491-9ab2-6eb9a3bb0793
 PageTitle: Visual Studio Code에서의 Java
 DateApproved: 03/05/2025
 MetaDescription: Java를 위한 Visual Studio Code 편집기 기능(코드 완성, 디버깅, 스니펫, 린팅)에 대해 알아보세요.
+sidebar_label: Java
 ---
 
 # Visual Studio Code에서의 Java {#java-in-visual-studio-code}
 
 Visual Studio Code에서 Java에 대한 지원은 다양한 [확장 프로그램](/docs/java/extensions.md)을 통해 제공됩니다. 이러한 확장 프로그램은 VS Code의 강력한 기능과 결합되어 경량화되고 성능이 뛰어난 코드 편집기를 제공하며, 가장 일반적인 Java 개발 기술을 지원합니다.
 
-이 문서에서는 Java 개발자를 위한 Visual Studio Code의 다양한 기능에 대한 개요를 제공합니다. Visual Studio Code를 사용하여 Java 프로그램을 편집하고 실행하며 디버깅하는 방법에 대한 간단한 안내는 아래의 **Java 시작하기 튜토리얼** 버튼을 사용하세요.
+이 문서에서는 Java 개발자를 위한 Visual Studio Code의 다양한 기능에 대한 개요를 제공합니다. Visual Studio Code를 사용하여 Java 프로그램을 편집하고 실행하며 디버깅하는 방법에 대한 간단한 안내는 아래의 **Java Getting Started Tutorial** 링크를 클릭하세요.
 
-<a class="next-topic-btn" href="/docs/java/java-tutorial">Java 시작하기 튜토리얼</a>
+- [Java 시작하기 튜토리얼](/docs/java/java-tutorial)
 
 ## 개요 {#overview}
 
@@ -29,13 +30,14 @@ VS Code는 코드 완성, 리팩토링, 린팅, 포맷팅, 코드 스니펫과 �
 
 ## Visual Studio Code에서 Java 설치하기 {#install-visual-studio-code-for-java}
 
-빠르게 설정할 수 있도록 **Java용 코딩 팩**을 사용하는 것을 권장합니다. 이는 VS Code, Java Development Kit (JDK), 그리고 Microsoft에서 제안하는 확장 프로그램 모음입니다. 코딩 팩은 기존 개발 환경을 수정하는 데에도 사용할 수 있습니다.
+빠르게 설정할 수 있도록 **Coding Pack for Java**을 사용하는 것을 권장합니다. 이는 VS Code, Java Development Kit (JDK), 그리고 Microsoft에서 제안하는 확장 프로그램 모음입니다. 코딩 팩은 기존 개발 환경을 수정하는 데에도 사용할 수 있습니다.
 
-<a class="install-extension-btn" onclick="pushCodingPackEvent('java', 'win')" href="https://aka.ms/vscode-java-installer-win">Windows용 Java 코딩 팩 설치</a>
+- [Windows용 Java 코딩 팩 설치](https://aka.ms/vscode-java-installer-win)
+- [macOS용 Java 코딩 팩 설치](https://aka.ms/vscode-java-installer-mac)
 
-<a class="install-extension-btn" onclick="pushCodingPackEvent('java', 'mac')" href="https://aka.ms/vscode-java-installer-mac">macOS용 Java 코딩 팩 설치</a><br />
-
-> **참고**: Java 코딩 팩은 Windows와 macOS에서만 사용할 수 있습니다. 다른 운영 체제의 경우 JDK, VS Code 및 Java 확장을 수동으로 설치해야 합니다.
+:::note
+Java 코딩 팩은 Windows와 macOS에서만 사용할 수 있습니다. 다른 운영 체제의 경우 JDK, VS Code 및 Java 확장을 수동으로 설치해야 합니다.
+:::
 
 이미 VS Code를 설치했으며 Java 지원을 추가하고 싶다면, Microsoft에서 제안하는 확장 프로그램 모음인 [Java용 확장 팩](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)을 사용하는 것을 권장합니다:
 
@@ -46,13 +48,13 @@ VS Code는 코드 완성, 리팩토링, 린팅, 포맷팅, 코드 스니펫과 �
 5. [Java용 프로젝트 관리자](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
 6. [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
 
-<a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Java용 확장 팩 설치</a>
+- [Java용 확장 팩 설치](vscode:extension/vscjava.vscode-java-pack)
 
 또는 인기 있는 Java 확장을 직접 설치하여 VS Code에 Java 언어 지원을 추가할 수 있습니다.
 
 > [VS Code 다운로드](/download) - 아직 VS Code를 다운로드하지 않았다면, 플랫폼(Windows, macOS, Linux)에 맞게 빠르게 설치하세요.
 
-자신의 필요에 맞게 선택할 수 있는 다른 인기 있는 Java 확장도 있습니다:
+자신의 필요에 맞게 선택할 수 있는 다른 인기 있는 Java 확장 프로그램도 있습니다:
 
 1. [Spring Boot 확장 팩](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack)
 2. [Java용 Gradle](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle)
@@ -64,16 +66,20 @@ VS Code는 코드 완성, 리팩토링, 린팅, 포맷팅, 코드 스니펫과 �
 
 VS Code 주변의 훌륭한 Java 커뮤니티 덕분에 목록은 여기서 끝나지 않습니다. VS Code 내에서 더 많은 Java 확장을 쉽게 검색할 수 있습니다:
 
-1. **확장 프로그램** 뷰로 이동합니다 (`kb(workbench.view.extensions)`).
+1. **Extensions** 화면으로 이동합니다 (`kb(workbench.view.extensions)`).
 2. "java"를 입력하여 확장 프로그램 목록을 필터링합니다.
 
 이 문서에서는 이러한 Java 확장 프로그램에 포함된 주요 기능 중 일부를 설명합니다.
 
-> **참고**: Java 개발을 시작하는 데 도움이 되도록 [Java 일반 프로필 템플릿](/docs/editor/profiles.md#java-general-profile-template)을 사용하여 유용한 확장을 설치할 수 있습니다. 프로필에 대해 더 알아보고, 프로필이 다양한 프로그래밍 언어와 워크플로우우에 맞게 편집기를 빠르게 재구성하는 방법에 대해서는 [VS Code의 프로필](/docs/editor/profiles.md)에서 확인하세요.
+:::note
+Java 개발을 시작하는 데 도움이 되도록 [Java 일반 프로필 템플릿](/docs/editor/profiles.md#java-general-profile-template)을 사용하여 유용한 확장을 설치할 수 있습니다. 프로필에 대해 더 알아보고, 프로필이 다양한 프로그래밍 언어와 워크플로우에 맞게 편집기를 빠르게 재구성하는 방법에 대해서는 [VS Code의 프로필](/docs/editor/profiles.md)에서 확인하세요.
+:::
 
 ## 시작하기 {#getting-started}
 
-**참고:** Windows에서 VS Code를 사용하고 Windows Subsystem for Linux를 활용하고 싶다면, [WSL에서 개발하기](/docs/remote/wsl)를 참조하세요.
+:::note
+Windows에서 VS Code를 사용하고 Windows Subsystem for Linux를 활용하고 싶다면, [WSL에서 개발하기](/docs/remote/wsl)를 참조하세요.
+:::
 
 ### Java Development Kit (JDK) 설치하기 {#install-a-java-development-kit-jdk}
 
@@ -90,9 +96,11 @@ Java Development Kit (JDK)는 Java 애플리케이션 개발에 사용되는 소
 - [Red Hat OpenJDK 빌드](https://developers.redhat.com/products/openjdk/download)
 - [SapMachine](https://sapmachine.io)
 
-> **참고**: 여러 개의 JDK가 설치되어 있고 프로젝트에 특정 JDK 버전을 사용해야 하는 경우, [프로젝트에 대한 런타임 구성](/docs/java/java-project.md#configure-runtime-for-projects)을 참조하세요. Java 미리 보기 기능을 활성화하려면 [새 Java 버전으로 VS Code를 사용하는 방법](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions)을 참조하세요.
+:::note
+여러 개의 JDK가 설치되어 있고 프로젝트에 특정 JDK 버전을 사용해야 하는 경우, [프로젝트에 대한 런타임 구성](/docs/java/java-project.md#configure-runtime-for-projects)을 참조하세요. Java 미리 보기 기능을 활성화하려면 [새 Java 버전으로 VS Code를 사용하는 방법](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions)을 참조하세요.
+:::
 
-Java에 새로 입문했거나 VS Code에 익숙하지 않은 개발자를 위해, 확장에서 몇 가지 팁을 제공합니다. [Java용 확장 팩](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)을 설치한 후, VS Code의 명령 팔레트에서 **Java: 초보자를 위한 팁** 명령을 사용하여 팁을 확인할 수 있습니다.
+Java에 새로 입문했거나 VS Code에 익숙하지 않은 개발자를 위해, 확장에서 몇 가지 팁을 제공합니다. [Java용 확장 팩](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)을 설치한 후, VS Code의 명령 팔레트에서 **Java: Tips for Beginners** 명령을 사용하여 팁을 확인할 수 있습니다.
 
 명령 팔레트를 열고 (`kb(workbench.action.showCommands)`) "java tips"를 입력하여 명령을 선택하세요.
 
@@ -100,7 +108,7 @@ Java에 새로 입문했거나 VS Code에 익숙하지 않은 개발자를 위�
 
 ## Java 소스 파일 작업하기 {#working-with-java-source-files}
 
-VS Code를 사용하여 프로젝트를 생성하지 않고도 Java 소스 파일을 읽고, 쓰고, 실행하고, 디버깅할 수 있습니다. Java용 VS Code는 경량 모드와 표준 모드의 두 가지 모드를 지원합니다. 경량 모드는 소스 파일만 다루는 시나리오에 적합합니다. 전체 규모의 프로젝트로 작업하려면 표준 모드가 필요합니다. 필요할 때 경량 모드에서 표준 모드로 쉽게 전환할 수 있습니다. 자세한 내용은 [경량 모드](/docs/java/java-project.md#lightweight-mode)를 참조하세요.
+VS Code를 사용하여 프로젝트를 생성하지 않고도 Java 소스 파일을 읽고, 쓰고, 실행하고, 디버깅할 수 있습니다. Java용 VS Code는 경량 모드와 표준 모드의 두 가지 모드를 지원합니다. 경량 모드는 소스 파일만 다루는 시나리오에 적합합니다. 전체 규모의 프로젝트로 작업하려면 표준 모드가 필요합니다. 필요할 때 경량 모드에서 표준 모드로 쉽게 전환할 수 있습니다. 자세한 내용은 [경량 모드](/docs/java/java-project#lightweight-mode)를 참조하세요.
 
 ## Java 프로젝트 작업하기 {#working-with-java-projects}
 
@@ -126,15 +134,15 @@ IntelliJ IDEA, NetBeans 또는 Eclipse와 같은 IDE와는 달리, "Java 프로�
 
 [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)를 사용하면 [Maven Archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html)에서 프로젝트를 생성하고, 작업 공간 내의 모든 Maven 프로젝트를 탐색하며, 내장 탐색기에서 Maven 목표를 쉽게 실행할 수 있습니다. 프로젝트는 [Java용 프로젝트 관리자](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) 확장을 사용하여 생성하고 관리할 수도 있습니다.
 
-<video autoplay loop muted playsinline controls title="Java 프로젝트 관리자 확장에서 Java 프로젝트 보기 사용하기">
-  <source src="/docs/languages/java/package-viewer.mp4" type="video/mp4" />
+<video autoplay loop muted playsinline controls title="Java 프로젝트 관리자 확장에서 Java 프로젝트 보기 사용하기" width="100%">
+  <source src="https://code.visualstudio.com/assets/docs/languages/java/package-viewer.mp4" type="video/mp4" />
 </video>
 
-Visual Studio Code는 Java 프로젝트 외부의 독립적인 Java 파일 작업도 지원하며, 이는 [Java 시작하기](/docs/java/java-tutorial.md) 튜토리얼에서 설명됩니다.
+Visual Studio Code는 Java 프로젝트 외부의 독립적인 Java 파일 작업도 지원하며, 이는 [Java 시작하기](/docs/java/java-tutorial.md) 튜토리얼에서 확인할 수 있습니다.
 
 ### Java 프로젝트가 포함된 VS Code 작업 공간 {#vs-code-workspaces-that-contain-java-projects}
 
-필요한 Java 확장이 설치되어 있다고 가정할 때, Java 아티팩트가 포함된 VS Code 작업 공간을 열면 해당 확장이 이러한 아티팩트를 이해하고 작업할 수 있는 옵션을 제공합니다.
+필요한 Java 확장 프로그램이 설치되어 있다면, Java 관련 파일이 포함된 VS Code 작업 공간을 열었을 때 해당 확장 프로그램이 이를 인식하고 다양한 작업 옵션을 제공합니다.
 
 Java 프로젝트 지원에 대한 자세한 내용은 [Visual Studio Code의 Java 프로젝트 관리](/docs/java/java-project.md) 및 [Java 빌드 도구](/docs/java/java-build.md)를 참조하세요.
 
@@ -144,14 +152,14 @@ Java 프로젝트 지원에 대한 자세한 내용은 [Visual Studio Code의 Ja
 
 Visual Studio Code의 Java는 기호 검색, 정의 미리 보기, 정의로 이동과 같은 소스 코드 탐색 기능도 지원합니다. [Spring Boot 도구](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot) 확장은 [Spring Boot](https://projects.spring.io/spring-boot/) 프로젝트에 대한 향상된 탐색 및 코드 완성 지원을 제공합니다.
 
-VS Code의 주요 장점 중 하나는 속도입니다. Java 소스 파일이나 폴더를 열면 몇 초 내에 [경량 모드](/docs/java/java-project.md#lightweight-mode)의 도움으로 코드베이스를 개요 보기로 탐색할 수 있으며, **정의로 이동** 및 **참조로 이동**과 같은 명령을 사용할 수 있습니다. 이는 프로젝트를 처음 열 때 특히 유용합니다.
+VS Code의 주요 장점 중 하나는 속도입니다. Java 소스 파일이나 폴더를 열면 몇 초 내에 [경량 모드](/docs/java/java-project.md#lightweight-mode)의 도움으로 코드베이스를 개요 보기로 탐색할 수 있으며, **Go to Definition** 및 **Go to Reference**과 같은 명령을 사용할 수 있습니다. 이는 프로젝트를 처음 열 때 특히 유용합니다.
 
 ### 코드 완성 {#code-completion}
 
 [IntelliSense](/docs/editor/intellisense.md)는 모든 파일에서의 지능형 코드 완성(문맥 내 메서드 및 변수 제안)을 포함한 언어 기능에 대한 일반적인 용어입니다. VS Code는 [Red Hat의 Java™ 언어 지원](https://marketplace.visualstudio.com/items?itemName=redhat.java)을 통해 Java에 대한 코드 완성과 IntelliSense를 지원합니다. 또한, 가장 많이 사용할 가능성이 있는 항목을 완성 목록의 상단에 배치하여 AI 지원 IntelliSense인 [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/)를 제공합니다.
 
-<video autoplay loop muted playsinline controls title="Java 인라인 코드 완성과 호버">
-  <source src="/docs/languages/java/intellisense.mp4" type="video/mp4" />
+<video autoplay loop muted playsinline controls title="Java 인라인 코드 완성과 호버" width="100%">
+  <source src="https://code.visualstudio.com/assets/docs/languages/java/intellisense.mp4" type="video/mp4" />
 </video>
 
 ### AI로 완성 향상하기 {#enhance-completions-with-ai}
@@ -179,10 +187,10 @@ Visual Studio Code는 클래스/인터페이스, syserr, sysout, if/else, try/ca
 
 [Java 디버거](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)는 [Java 디버그 서버](https://github.com/microsoft/java-debug)를 기반으로 한 경량 Java 디버거입니다. 이는 [Red Hat의 Java™ 언어 지원](https://marketplace.visualstudio.com/items?itemName=redhat.java)과 함께 작동하여 사용자가 Visual Studio Code 내에서 Java 코드를 디버깅할 수 있도록 합니다.
 
-디버깅 세션을 시작하는 것은 쉽습니다: `main()` 함수의 CodeLens에서 **실행|디버그** 버튼을 클릭하거나 `kb(workbench.action.debug.start)`를 누르세요. 디버거가 자동으로 적절한 구성을 생성합니다.
+디버깅 세션을 시작하는 것은 쉽습니다. `main()` 함수의 CodeLens에서 **Run|Debug** 버튼을 클릭하거나 `kb(workbench.action.debug.start)`를 누르세요. 디버거가 자동으로 적절한 구성을 생성합니다.
 
-<video autoplay loop muted playsinline controls title="중단점 설정, 디버깅 시작 및 핫 코드 교체 사용하기">
-  <source src="/docs/languages/java/resolve-main.mp4" type="video/mp4" />
+<video autoplay loop muted playsinline controls title="중단점 설정, 디버깅 시작 및 핫 코드 교체 사용하기" width="100%">
+  <source src="https://code.visualstudio.com/assets/docs/languages/java/resolve-main.mp4" type="video/mp4" />
 </video>
 
 비록 경량이지만, Java 디버거는 표현식 평가, 조건부 중단점 및 [핫 코드 교체](/docs/java/java-debugging.md#hot-code-replace)와 같은 고급 기능을 지원합니다. 디버깅 관련 정보는 [Java 디버깅](/docs/java/java-debugging.md)을 방문하세요.
@@ -191,8 +199,8 @@ Visual Studio Code는 클래스/인터페이스, syserr, sysout, if/else, try/ca
 
 [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) 확장의 지원을 통해 JUnit 및 TestNG 테스트 케이스를 쉽게 실행, 디버깅 및 관리할 수 있습니다.
 
-<video autoplay loop muted playsinline controls title="테스트 실행 및 실패한 테스트 조사하기">
-  <source src="/docs/languages/java/testng.mp4" type="video/mp4" />
+<video autoplay loop muted playsinline controls title="테스트 실행 및 실패한 테스트 조사하기" width="100%">
+  <source src="https://code.visualstudio.com/assets/docs//languages/java/testng.mp4" type="video/mp4" />
 </video>
 
 테스트에 대한 자세한 내용은 [Java 테스트](/docs/java/java-testing.md)를 읽어보세요.
@@ -226,4 +234,3 @@ Visual Studio Code에 대해 더 알아보세요:
 - [코드 탐색](/docs/editor/editingevolved.md) - 소스 코드를 빠르게 이동하세요.
 - [작업](/docs/editor/tasks.md) - 작업을 사용하여 프로젝트를 빌드하고 더 많은 작업을 수행하세요.
 - [디버깅](/docs/editor/debugging.md) - 프로젝트와 함께 디버거를 사용하는 방법을 알아보세요.
----

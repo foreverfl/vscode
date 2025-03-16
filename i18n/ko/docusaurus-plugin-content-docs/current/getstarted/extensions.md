@@ -2,8 +2,9 @@
 ContentId: d2ce015b-4075-4467-a221-114aff2633db
 DateApproved: 03/05/2025
 MetaDescription: Visual Studio Marketplace에서 확장을 설치하여 프로그래밍 언어, 프레임워크 또는 개발 워크플로우에 기능을 추가하는 방법을 알아보세요.
+sidebar_label: 확장 프로그램
 ---
-# Visual Studio Code에서 확장 사용하기 {#use-extensions-in-visual-studio-code}
+# Visual Studio Code에서 확장 프로그램 사용하기 {#use-extensions-in-visual-studio-code}
 
 Visual Studio Code 확장을 사용하면 개발 워크플로우를 지원하기 위해 언어, 디버거 및 도구를 설치에 추가할 수 있습니다. VS Code를 사용할 때 [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode)에서 직접 확장을 설치하고 자동 업데이트를 통해 항상 최신 기능을 이용할 수 있습니다. 이 문서에서는 VS Code에서 확장을 탐색하고 설치하는 방법을 배웁니다.
 

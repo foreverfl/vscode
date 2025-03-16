@@ -6,6 +6,7 @@ ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 PageTitle: Visual Studio Code에서 CSS, SCSS 및 Less 지원
 DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code가 CSS, SCSS 및 Less 개발을 어떻게 지원하는지 알아보세요.
+sidebar_label: CSS, SCSS 및 Less
 ---
 # CSS, SCSS 및 Less {#css-scss-and-less}
 
